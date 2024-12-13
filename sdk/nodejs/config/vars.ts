@@ -10,22 +10,6 @@ declare var exports: any;
 const __config = new pulumi.Config("snowflake");
 
 /**
- * Use `accountName` and `organizationName` instead. Specifies your Snowflake account identifier assigned, by Snowflake.
- * The [account
- * locator](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-2-account-locator-in-a-region) format
- * is not supported. For information about account identifiers, see the [Snowflake
- * documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Required unless using `profile`.
- * Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
- */
-export declare const account: string | undefined;
-Object.defineProperty(exports, "account", {
-    get() {
-        return __config.get("account") ?? utilities.getEnv("SNOWFLAKE_ACCOUNT");
-    },
-    enumerable: true,
-});
-
-/**
  * Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
  * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
  * unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
@@ -40,25 +24,13 @@ Object.defineProperty(exports, "accountName", {
 
 /**
  * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
- * connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `JWT` | `SNOWFLAKE_JWT`
- * | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Value `JWT` is deprecated and will be removed in future releases. Can also be
- * sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+ * connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
+ * `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
  */
 export declare const authenticator: string | undefined;
 Object.defineProperty(exports, "authenticator", {
     get() {
         return __config.get("authenticator");
-    },
-    enumerable: true,
-});
-
-/**
- * Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
- */
-export declare const browserAuth: boolean | undefined;
-Object.defineProperty(exports, "browserAuth", {
-    get() {
-        return __config.getObject<boolean>("browserAuth") ?? utilities.getEnvBoolean("SNOWFLAKE_USE_BROWSER_AUTH");
     },
     enumerable: true,
 });
@@ -266,78 +238,6 @@ Object.defineProperty(exports, "maxRetryCount", {
 });
 
 /**
- * Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browserAuth`,
- * `privateKeyPath`, `oauthRefreshToken` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN` environment
- * variable.
- */
-export declare const oauthAccessToken: string | undefined;
-Object.defineProperty(exports, "oauthAccessToken", {
-    get() {
-        return __config.get("oauthAccessToken") ?? utilities.getEnv("SNOWFLAKE_OAUTH_ACCESS_TOKEN");
-    },
-    enumerable: true,
-});
-
-/**
- * Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
- */
-export declare const oauthClientId: string | undefined;
-Object.defineProperty(exports, "oauthClientId", {
-    get() {
-        return __config.get("oauthClientId") ?? utilities.getEnv("SNOWFLAKE_OAUTH_CLIENT_ID");
-    },
-    enumerable: true,
-});
-
-/**
- * Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
- * variable.
- */
-export declare const oauthClientSecret: string | undefined;
-Object.defineProperty(exports, "oauthClientSecret", {
-    get() {
-        return __config.get("oauthClientSecret") ?? utilities.getEnv("SNOWFLAKE_OAUTH_CLIENT_SECRET");
-    },
-    enumerable: true,
-});
-
-/**
- * Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
- */
-export declare const oauthEndpoint: string | undefined;
-Object.defineProperty(exports, "oauthEndpoint", {
-    get() {
-        return __config.get("oauthEndpoint") ?? utilities.getEnv("SNOWFLAKE_OAUTH_ENDPOINT");
-    },
-    enumerable: true,
-});
-
-/**
- * Required when `oauthRefreshToken` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
- */
-export declare const oauthRedirectUrl: string | undefined;
-Object.defineProperty(exports, "oauthRedirectUrl", {
-    get() {
-        return __config.get("oauthRedirectUrl") ?? utilities.getEnv("SNOWFLAKE_OAUTH_REDIRECT_URL");
-    },
-    enumerable: true,
-});
-
-/**
- * Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
- * `oauthClientId`, `oauthClientSecret`, `oauthEndpoint`, `oauthRedirectUrl`. Cannot be used with `browserAuth`,
- * `privateKeyPath`, `oauthAccessToken` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN` environment
- * variable.
- */
-export declare const oauthRefreshToken: string | undefined;
-Object.defineProperty(exports, "oauthRefreshToken", {
-    get() {
-        return __config.get("oauthRefreshToken") ?? utilities.getEnv("SNOWFLAKE_OAUTH_REFRESH_TOKEN");
-    },
-    enumerable: true,
-});
-
-/**
  * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
  * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
  */
@@ -412,8 +312,8 @@ Object.defineProperty(exports, "passcodeInPassword", {
 });
 
 /**
- * Password for user + password auth. Cannot be used with `browserAuth` or `privateKeyPath`. Can also be sourced from the
- * `SNOWFLAKE_PASSWORD` environment variable.
+ * Password for user + password auth. Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from
+ * the `SNOWFLAKE_PASSWORD` environment variable.
  */
 export declare const password: string | undefined;
 Object.defineProperty(exports, "password", {
@@ -435,8 +335,16 @@ Object.defineProperty(exports, "port", {
     enumerable: true,
 });
 
+export declare const previewFeaturesEnableds: string[] | undefined;
+Object.defineProperty(exports, "previewFeaturesEnableds", {
+    get() {
+        return __config.getObject<string[]>("previewFeaturesEnableds");
+    },
+    enumerable: true,
+});
+
 /**
- * Private Key for username+private-key auth. Cannot be used with `browserAuth` or `password`. Can also be sourced from the
+ * Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
  * `SNOWFLAKE_PRIVATE_KEY` environment variable.
  */
 export declare const privateKey: string | undefined;
@@ -455,18 +363,6 @@ export declare const privateKeyPassphrase: string | undefined;
 Object.defineProperty(exports, "privateKeyPassphrase", {
     get() {
         return __config.get("privateKeyPassphrase") ?? utilities.getEnv("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE");
-    },
-    enumerable: true,
-});
-
-/**
- * Path to a private key for using keypair authentication. Cannot be used with `browserAuth`, `oauthAccessToken` or
- * `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
- */
-export declare const privateKeyPath: string | undefined;
-Object.defineProperty(exports, "privateKeyPath", {
-    get() {
-        return __config.get("privateKeyPath") ?? utilities.getEnv("SNOWFLAKE_PRIVATE_KEY_PATH");
     },
     enumerable: true,
 });
@@ -496,22 +392,6 @@ Object.defineProperty(exports, "protocol", {
 });
 
 /**
- * Snowflake region, such as "eu-central-1", with this parameter. However, since this parameter is deprecated, it is best
- * to specify the region as part of the account parameter. For details, see the description of the account parameter.
- * [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
- * format for the `account`
- * identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
- * in the form of `<cloud_region_id>.<cloud>`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
- */
-export declare const region: string | undefined;
-Object.defineProperty(exports, "region", {
-    get() {
-        return __config.get("region") ?? utilities.getEnv("SNOWFLAKE_REGION");
-    },
-    enumerable: true,
-});
-
-/**
  * request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
  * `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
  */
@@ -531,17 +411,6 @@ export declare const role: string | undefined;
 Object.defineProperty(exports, "role", {
     get() {
         return __config.get("role") ?? utilities.getEnv("SNOWFLAKE_ROLE");
-    },
-    enumerable: true,
-});
-
-/**
- * Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
- */
-export declare const sessionParams: {[key: string]: string} | undefined;
-Object.defineProperty(exports, "sessionParams", {
-    get() {
-        return __config.getObject<{[key: string]: string}>("sessionParams");
     },
     enumerable: true,
 });
@@ -585,18 +454,6 @@ export declare const user: string | undefined;
 Object.defineProperty(exports, "user", {
     get() {
         return __config.get("user");
-    },
-    enumerable: true,
-});
-
-/**
- * Username for user + password authentication. Required unless using `profile`. Can also be sourced from the
- * `SNOWFLAKE_USERNAME` environment variable.
- */
-export declare const username: string | undefined;
-Object.defineProperty(exports, "username", {
-    get() {
-        return __config.get("username") ?? utilities.getEnv("SNOWFLAKE_USER");
     },
     enumerable: true,
 });

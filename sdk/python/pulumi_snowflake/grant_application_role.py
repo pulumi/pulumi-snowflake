@@ -26,7 +26,7 @@ class GrantApplicationRoleArgs:
         The set of arguments for constructing a GrantApplicationRole resource.
         :param pulumi.Input[str] application_role_name: Specifies the identifier for the application role to grant.
         :param pulumi.Input[str] application_name: The fully qualified name of the application on which application role will be granted.
-        :param pulumi.Input[str] parent_account_role_name: The fully qualified name of the account role on which application role will be granted.
+        :param pulumi.Input[str] parent_account_role_name: The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
         """
         pulumi.set(__self__, "application_role_name", application_role_name)
         if application_name is not None:
@@ -62,7 +62,7 @@ class GrantApplicationRoleArgs:
     @pulumi.getter(name="parentAccountRoleName")
     def parent_account_role_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the account role on which application role will be granted.
+        The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_account_role_name")
 
@@ -81,7 +81,7 @@ class _GrantApplicationRoleState:
         Input properties used for looking up and filtering GrantApplicationRole resources.
         :param pulumi.Input[str] application_name: The fully qualified name of the application on which application role will be granted.
         :param pulumi.Input[str] application_role_name: Specifies the identifier for the application role to grant.
-        :param pulumi.Input[str] parent_account_role_name: The fully qualified name of the account role on which application role will be granted.
+        :param pulumi.Input[str] parent_account_role_name: The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
         """
         if application_name is not None:
             pulumi.set(__self__, "application_name", application_name)
@@ -118,7 +118,7 @@ class _GrantApplicationRoleState:
     @pulumi.getter(name="parentAccountRoleName")
     def parent_account_role_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the account role on which application role will be granted.
+        The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_account_role_name")
 
@@ -149,7 +149,7 @@ class GrantApplicationRole(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The fully qualified name of the application on which application role will be granted.
         :param pulumi.Input[str] application_role_name: Specifies the identifier for the application role to grant.
-        :param pulumi.Input[str] parent_account_role_name: The fully qualified name of the account role on which application role will be granted.
+        :param pulumi.Input[str] parent_account_role_name: The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
         """
         ...
     @overload
@@ -220,7 +220,7 @@ class GrantApplicationRole(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_name: The fully qualified name of the application on which application role will be granted.
         :param pulumi.Input[str] application_role_name: Specifies the identifier for the application role to grant.
-        :param pulumi.Input[str] parent_account_role_name: The fully qualified name of the account role on which application role will be granted.
+        :param pulumi.Input[str] parent_account_role_name: The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -251,7 +251,7 @@ class GrantApplicationRole(pulumi.CustomResource):
     @pulumi.getter(name="parentAccountRoleName")
     def parent_account_role_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The fully qualified name of the account role on which application role will be granted.
+        The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_account_role_name")
 

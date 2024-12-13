@@ -19,17 +19,6 @@ namespace Pulumi.Snowflake
     public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
-        /// Use `account_name` and `organization_name` instead. Specifies your Snowflake account identifier assigned, by Snowflake.
-        /// The [account
-        /// locator](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-2-account-locator-in-a-region) format
-        /// is not supported. For information about account identifiers, see the [Snowflake
-        /// documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Required unless using `profile`.
-        /// Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
-        /// </summary>
-        [Output("account")]
-        public Output<string?> Account { get; private set; } = null!;
-
-        /// <summary>
         /// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
         /// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
         /// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
@@ -39,9 +28,8 @@ namespace Pulumi.Snowflake
 
         /// <summary>
         /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-        /// connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `JWT` | `SNOWFLAKE_JWT`
-        /// | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Value `JWT` is deprecated and will be removed in future releases. Can also be
-        /// sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        /// connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
+        /// `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         /// </summary>
         [Output("authenticator")]
         public Output<string?> Authenticator { get; private set; } = null!;
@@ -95,49 +83,6 @@ namespace Pulumi.Snowflake
         public Output<string?> IncludeRetryReason { get; private set; } = null!;
 
         /// <summary>
-        /// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
-        /// `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
-        /// environment variable.
-        /// </summary>
-        [Output("oauthAccessToken")]
-        public Output<string?> OauthAccessToken { get; private set; } = null!;
-
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
-        /// </summary>
-        [Output("oauthClientId")]
-        public Output<string?> OauthClientId { get; private set; } = null!;
-
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
-        /// variable.
-        /// </summary>
-        [Output("oauthClientSecret")]
-        public Output<string?> OauthClientSecret { get; private set; } = null!;
-
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
-        /// </summary>
-        [Output("oauthEndpoint")]
-        public Output<string?> OauthEndpoint { get; private set; } = null!;
-
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
-        /// variable.
-        /// </summary>
-        [Output("oauthRedirectUrl")]
-        public Output<string?> OauthRedirectUrl { get; private set; } = null!;
-
-        /// <summary>
-        /// Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
-        /// `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
-        /// `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
-        /// environment variable.
-        /// </summary>
-        [Output("oauthRefreshToken")]
-        public Output<string?> OauthRefreshToken { get; private set; } = null!;
-
-        /// <summary>
         /// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
         /// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
         /// </summary>
@@ -168,15 +113,15 @@ namespace Pulumi.Snowflake
         public Output<string?> Passcode { get; private set; } = null!;
 
         /// <summary>
-        /// Password for user + password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
-        /// the `SNOWFLAKE_PASSWORD` environment variable.
+        /// Password for user + password auth. Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced
+        /// from the `SNOWFLAKE_PASSWORD` environment variable.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
-        /// the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+        /// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
+        /// `SNOWFLAKE_PRIVATE_KEY` environment variable.
         /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
@@ -187,13 +132,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("privateKeyPassphrase")]
         public Output<string?> PrivateKeyPassphrase { get; private set; } = null!;
-
-        /// <summary>
-        /// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-        /// `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
-        /// </summary>
-        [Output("privateKeyPath")]
-        public Output<string?> PrivateKeyPath { get; private set; } = null!;
 
         /// <summary>
         /// Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
@@ -208,17 +146,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("protocol")]
         public Output<string?> Protocol { get; private set; } = null!;
-
-        /// <summary>
-        /// Snowflake region, such as "eu-central-1", with this parameter. However, since this parameter is deprecated, it is best
-        /// to specify the region as part of the account parameter. For details, see the description of the account parameter.
-        /// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
-        /// format for the `account`
-        /// identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
-        /// in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
-        /// </summary>
-        [Output("region")]
-        public Output<string?> Region { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
@@ -246,13 +173,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("user")]
         public Output<string?> User { get; private set; } = null!;
-
-        /// <summary>
-        /// Username for user + password authentication. Required unless using `profile`. Can also be sourced from the
-        /// `SNOWFLAKE_USERNAME` environment variable.
-        /// </summary>
-        [Output("username")]
-        public Output<string?> Username { get; private set; } = null!;
 
         /// <summary>
         /// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
@@ -288,16 +208,9 @@ namespace Pulumi.Snowflake
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
-                    "oauthAccessToken",
-                    "oauthClientId",
-                    "oauthClientSecret",
-                    "oauthEndpoint",
-                    "oauthRedirectUrl",
-                    "oauthRefreshToken",
                     "password",
                     "privateKey",
                     "privateKeyPassphrase",
-                    "privateKeyPath",
                     "token",
                 },
             };
@@ -311,17 +224,6 @@ namespace Pulumi.Snowflake
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Use `account_name` and `organization_name` instead. Specifies your Snowflake account identifier assigned, by Snowflake.
-        /// The [account
-        /// locator](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-2-account-locator-in-a-region) format
-        /// is not supported. For information about account identifiers, see the [Snowflake
-        /// documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Required unless using `profile`.
-        /// Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
-        /// </summary>
-        [Input("account")]
-        public Input<string>? Account { get; set; }
-
-        /// <summary>
         /// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
         /// [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
         /// unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` environment variable.
@@ -331,18 +233,11 @@ namespace Pulumi.Snowflake
 
         /// <summary>
         /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-        /// connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `JWT` | `SNOWFLAKE_JWT`
-        /// | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Value `JWT` is deprecated and will be removed in future releases. Can also be
-        /// sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        /// connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
+        /// `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         /// </summary>
         [Input("authenticator")]
         public Input<string>? Authenticator { get; set; }
-
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
-        /// </summary>
-        [Input("browserAuth", json: true)]
-        public Input<bool>? BrowserAuth { get; set; }
 
         /// <summary>
         /// IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
@@ -461,115 +356,6 @@ namespace Pulumi.Snowflake
         [Input("maxRetryCount", json: true)]
         public Input<int>? MaxRetryCount { get; set; }
 
-        [Input("oauthAccessToken")]
-        private Input<string>? _oauthAccessToken;
-
-        /// <summary>
-        /// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
-        /// `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
-        /// environment variable.
-        /// </summary>
-        [Obsolete(@"Use `token` instead")]
-        public Input<string>? OauthAccessToken
-        {
-            get => _oauthAccessToken;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _oauthAccessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("oauthClientId")]
-        private Input<string>? _oauthClientId;
-
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
-        /// </summary>
-        [Obsolete(@"Use `token_accessor.0.client_id` instead")]
-        public Input<string>? OauthClientId
-        {
-            get => _oauthClientId;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _oauthClientId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("oauthClientSecret")]
-        private Input<string>? _oauthClientSecret;
-
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
-        /// variable.
-        /// </summary>
-        [Obsolete(@"Use `token_accessor.0.client_secret` instead")]
-        public Input<string>? OauthClientSecret
-        {
-            get => _oauthClientSecret;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _oauthClientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("oauthEndpoint")]
-        private Input<string>? _oauthEndpoint;
-
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
-        /// </summary>
-        [Obsolete(@"Use `token_accessor.0.token_endpoint` instead")]
-        public Input<string>? OauthEndpoint
-        {
-            get => _oauthEndpoint;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _oauthEndpoint = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("oauthRedirectUrl")]
-        private Input<string>? _oauthRedirectUrl;
-
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
-        /// variable.
-        /// </summary>
-        [Obsolete(@"Use `token_accessor.0.redirect_uri` instead")]
-        public Input<string>? OauthRedirectUrl
-        {
-            get => _oauthRedirectUrl;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _oauthRedirectUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("oauthRefreshToken")]
-        private Input<string>? _oauthRefreshToken;
-
-        /// <summary>
-        /// Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
-        /// `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
-        /// `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
-        /// environment variable.
-        /// </summary>
-        [Obsolete(@"Use `token_accessor.0.refresh_token` instead")]
-        public Input<string>? OauthRefreshToken
-        {
-            get => _oauthRefreshToken;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _oauthRefreshToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
         /// <summary>
         /// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
         /// sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
@@ -624,8 +410,8 @@ namespace Pulumi.Snowflake
         private Input<string>? _password;
 
         /// <summary>
-        /// Password for user + password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
-        /// the `SNOWFLAKE_PASSWORD` environment variable.
+        /// Password for user + password auth. Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced
+        /// from the `SNOWFLAKE_PASSWORD` environment variable.
         /// </summary>
         public Input<string>? Password
         {
@@ -644,12 +430,20 @@ namespace Pulumi.Snowflake
         [Input("port", json: true)]
         public Input<int>? Port { get; set; }
 
+        [Input("previewFeaturesEnableds", json: true)]
+        private InputList<string>? _previewFeaturesEnableds;
+        public InputList<string> PreviewFeaturesEnableds
+        {
+            get => _previewFeaturesEnableds ?? (_previewFeaturesEnableds = new InputList<string>());
+            set => _previewFeaturesEnableds = value;
+        }
+
         [Input("privateKey")]
         private Input<string>? _privateKey;
 
         /// <summary>
-        /// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
-        /// the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+        /// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
+        /// `SNOWFLAKE_PRIVATE_KEY` environment variable.
         /// </summary>
         public Input<string>? PrivateKey
         {
@@ -678,24 +472,6 @@ namespace Pulumi.Snowflake
             }
         }
 
-        [Input("privateKeyPath")]
-        private Input<string>? _privateKeyPath;
-
-        /// <summary>
-        /// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-        /// `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
-        /// </summary>
-        [Obsolete(@"use the [file Function](https://developer.hashicorp.com/terraform/language/functions/file) instead")]
-        public Input<string>? PrivateKeyPath
-        {
-            get => _privateKeyPath;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _privateKeyPath = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
         /// <summary>
         /// Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
         /// variable.
@@ -711,17 +487,6 @@ namespace Pulumi.Snowflake
         public Input<string>? Protocol { get; set; }
 
         /// <summary>
-        /// Snowflake region, such as "eu-central-1", with this parameter. However, since this parameter is deprecated, it is best
-        /// to specify the region as part of the account parameter. For details, see the description of the account parameter.
-        /// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
-        /// format for the `account`
-        /// identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
-        /// in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
-        /// </summary>
-        [Input("region")]
-        public Input<string>? Region { get; set; }
-
-        /// <summary>
         /// request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
         /// `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
         /// </summary>
@@ -734,19 +499,6 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
-
-        [Input("sessionParams", json: true)]
-        private InputMap<string>? _sessionParams;
-
-        /// <summary>
-        /// Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
-        /// </summary>
-        [Obsolete(@"Use `params` instead")]
-        public InputMap<string> SessionParams
-        {
-            get => _sessionParams ?? (_sessionParams = new InputMap<string>());
-            set => _sessionParams = value;
-        }
 
         /// <summary>
         /// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
@@ -782,13 +534,6 @@ namespace Pulumi.Snowflake
         public Input<string>? User { get; set; }
 
         /// <summary>
-        /// Username for user + password authentication. Required unless using `profile`. Can also be sourced from the
-        /// `SNOWFLAKE_USERNAME` environment variable.
-        /// </summary>
-        [Input("username")]
-        public Input<string>? Username { get; set; }
-
-        /// <summary>
         /// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
         /// connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
         /// </summary>
@@ -804,23 +549,12 @@ namespace Pulumi.Snowflake
 
         public ProviderArgs()
         {
-            Account = Utilities.GetEnv("SNOWFLAKE_ACCOUNT");
-            BrowserAuth = Utilities.GetEnvBoolean("SNOWFLAKE_USE_BROWSER_AUTH");
             Host = Utilities.GetEnv("SNOWFLAKE_HOST");
-            OauthAccessToken = Utilities.GetEnv("SNOWFLAKE_OAUTH_ACCESS_TOKEN");
-            OauthClientId = Utilities.GetEnv("SNOWFLAKE_OAUTH_CLIENT_ID");
-            OauthClientSecret = Utilities.GetEnv("SNOWFLAKE_OAUTH_CLIENT_SECRET");
-            OauthEndpoint = Utilities.GetEnv("SNOWFLAKE_OAUTH_ENDPOINT");
-            OauthRedirectUrl = Utilities.GetEnv("SNOWFLAKE_OAUTH_REDIRECT_URL");
-            OauthRefreshToken = Utilities.GetEnv("SNOWFLAKE_OAUTH_REFRESH_TOKEN");
             Password = Utilities.GetEnv("SNOWFLAKE_PASSWORD");
             Port = Utilities.GetEnvInt32("SNOWFLAKE_PORT");
             PrivateKeyPassphrase = Utilities.GetEnv("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE");
-            PrivateKeyPath = Utilities.GetEnv("SNOWFLAKE_PRIVATE_KEY_PATH");
             Protocol = Utilities.GetEnv("SNOWFLAKE_PROTOCOL");
-            Region = Utilities.GetEnv("SNOWFLAKE_REGION");
             Role = Utilities.GetEnv("SNOWFLAKE_ROLE");
-            Username = Utilities.GetEnv("SNOWFLAKE_USER");
             Warehouse = Utilities.GetEnv("SNOWFLAKE_WAREHOUSE");
         }
         public static new ProviderArgs Empty => new ProviderArgs();

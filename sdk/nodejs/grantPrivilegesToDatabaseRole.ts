@@ -73,11 +73,11 @@ export class GrantPrivilegesToDatabaseRole extends pulumi.CustomResource {
      */
     public readonly alwaysApplyTrigger!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the database role to which privileges will be granted.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      */
     public readonly databaseRoleName!: pulumi.Output<string>;
     /**
-     * The fully qualified name of the database on which privileges will be granted.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      */
     public readonly onDatabase!: pulumi.Output<string | undefined>;
     /**
@@ -153,11 +153,11 @@ export interface GrantPrivilegesToDatabaseRoleState {
      */
     alwaysApplyTrigger?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database role to which privileges will be granted.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      */
     databaseRoleName?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database on which privileges will be granted.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      */
     onDatabase?: pulumi.Input<string>;
     /**
@@ -192,11 +192,11 @@ export interface GrantPrivilegesToDatabaseRoleArgs {
      */
     alwaysApplyTrigger?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database role to which privileges will be granted.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      */
     databaseRoleName: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database on which privileges will be granted.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      */
     onDatabase?: pulumi.Input<string>;
     /**

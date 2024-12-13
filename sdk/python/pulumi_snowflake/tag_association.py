@@ -13,51 +13,42 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['TagAssociationArgs', 'TagAssociation']
 
 @pulumi.input_type
 class TagAssociationArgs:
     def __init__(__self__, *,
-                 object_identifiers: pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]],
+                 object_identifiers: pulumi.Input[Sequence[pulumi.Input[str]]],
                  object_type: pulumi.Input[str],
                  tag_id: pulumi.Input[str],
                  tag_value: pulumi.Input[str],
-                 object_name: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a TagAssociation resource.
-        :param pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]] object_identifiers: Specifies the object identifier for the tag association.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] object_identifiers: Specifies the object identifiers for the tag association.
         :param pulumi.Input[str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
-        :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+        :param pulumi.Input[str] tag_id: Specifies the identifier for the tag.
         :param pulumi.Input[str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
-        :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
         :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.
         """
         pulumi.set(__self__, "object_identifiers", object_identifiers)
         pulumi.set(__self__, "object_type", object_type)
         pulumi.set(__self__, "tag_id", tag_id)
         pulumi.set(__self__, "tag_value", tag_value)
-        if object_name is not None:
-            warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
-            pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
-        if object_name is not None:
-            pulumi.set(__self__, "object_name", object_name)
         if skip_validation is not None:
             pulumi.set(__self__, "skip_validation", skip_validation)
 
     @property
     @pulumi.getter(name="objectIdentifiers")
-    def object_identifiers(self) -> pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]]:
+    def object_identifiers(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        Specifies the object identifier for the tag association.
+        Specifies the object identifiers for the tag association.
         """
         return pulumi.get(self, "object_identifiers")
 
     @object_identifiers.setter
-    def object_identifiers(self, value: pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]]):
+    def object_identifiers(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "object_identifiers", value)
 
     @property
@@ -76,7 +67,7 @@ class TagAssociationArgs:
     @pulumi.getter(name="tagId")
     def tag_id(self) -> pulumi.Input[str]:
         """
-        Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+        Specifies the identifier for the tag.
         """
         return pulumi.get(self, "tag_id")
 
@@ -97,19 +88,6 @@ class TagAssociationArgs:
         pulumi.set(self, "tag_value", value)
 
     @property
-    @pulumi.getter(name="objectName")
-    @_utilities.deprecated("""Use `object_identifier` instead""")
-    def object_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the object identifier for the tag association.
-        """
-        return pulumi.get(self, "object_name")
-
-    @object_name.setter
-    def object_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "object_name", value)
-
-    @property
     @pulumi.getter(name="skipValidation")
     def skip_validation(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -125,28 +103,21 @@ class TagAssociationArgs:
 @pulumi.input_type
 class _TagAssociationState:
     def __init__(__self__, *,
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]]] = None,
-                 object_name: Optional[pulumi.Input[str]] = None,
+                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  object_type: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,
                  tag_id: Optional[pulumi.Input[str]] = None,
                  tag_value: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TagAssociation resources.
-        :param pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]] object_identifiers: Specifies the object identifier for the tag association.
-        :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] object_identifiers: Specifies the object identifiers for the tag association.
         :param pulumi.Input[str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.
-        :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+        :param pulumi.Input[str] tag_id: Specifies the identifier for the tag.
         :param pulumi.Input[str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
         """
         if object_identifiers is not None:
             pulumi.set(__self__, "object_identifiers", object_identifiers)
-        if object_name is not None:
-            warnings.warn("""Use `object_identifier` instead""", DeprecationWarning)
-            pulumi.log.warn("""object_name is deprecated: Use `object_identifier` instead""")
-        if object_name is not None:
-            pulumi.set(__self__, "object_name", object_name)
         if object_type is not None:
             pulumi.set(__self__, "object_type", object_type)
         if skip_validation is not None:
@@ -158,28 +129,15 @@ class _TagAssociationState:
 
     @property
     @pulumi.getter(name="objectIdentifiers")
-    def object_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]]]:
+    def object_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Specifies the object identifier for the tag association.
+        Specifies the object identifiers for the tag association.
         """
         return pulumi.get(self, "object_identifiers")
 
     @object_identifiers.setter
-    def object_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TagAssociationObjectIdentifierArgs']]]]):
+    def object_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "object_identifiers", value)
-
-    @property
-    @pulumi.getter(name="objectName")
-    @_utilities.deprecated("""Use `object_identifier` instead""")
-    def object_name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Specifies the object identifier for the tag association.
-        """
-        return pulumi.get(self, "object_name")
-
-    @object_name.setter
-    def object_name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "object_name", value)
 
     @property
     @pulumi.getter(name="objectType")
@@ -209,7 +167,7 @@ class _TagAssociationState:
     @pulumi.getter(name="tagId")
     def tag_id(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+        Specifies the identifier for the tag.
         """
         return pulumi.get(self, "tag_id")
 
@@ -235,8 +193,7 @@ class TagAssociation(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagAssociationObjectIdentifierArgs', 'TagAssociationObjectIdentifierArgsDict']]]]] = None,
-                 object_name: Optional[pulumi.Input[str]] = None,
+                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  object_type: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,
                  tag_id: Optional[pulumi.Input[str]] = None,
@@ -245,19 +202,18 @@ class TagAssociation(pulumi.CustomResource):
         """
         ## Import
 
-        format is dbName.schemaName.tagName or dbName.schemaName.tagName
+        ~> **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
 
         ```sh
-        $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
+        $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TagAssociationObjectIdentifierArgs', 'TagAssociationObjectIdentifierArgsDict']]]] object_identifiers: Specifies the object identifier for the tag association.
-        :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] object_identifiers: Specifies the object identifiers for the tag association.
         :param pulumi.Input[str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.
-        :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+        :param pulumi.Input[str] tag_id: Specifies the identifier for the tag.
         :param pulumi.Input[str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
         """
         ...
@@ -269,10 +225,10 @@ class TagAssociation(pulumi.CustomResource):
         """
         ## Import
 
-        format is dbName.schemaName.tagName or dbName.schemaName.tagName
+        ~> **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
 
         ```sh
-        $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
+        $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'
         ```
 
         :param str resource_name: The name of the resource.
@@ -290,8 +246,7 @@ class TagAssociation(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagAssociationObjectIdentifierArgs', 'TagAssociationObjectIdentifierArgsDict']]]]] = None,
-                 object_name: Optional[pulumi.Input[str]] = None,
+                 object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  object_type: Optional[pulumi.Input[str]] = None,
                  skip_validation: Optional[pulumi.Input[bool]] = None,
                  tag_id: Optional[pulumi.Input[str]] = None,
@@ -308,7 +263,6 @@ class TagAssociation(pulumi.CustomResource):
             if object_identifiers is None and not opts.urn:
                 raise TypeError("Missing required property 'object_identifiers'")
             __props__.__dict__["object_identifiers"] = object_identifiers
-            __props__.__dict__["object_name"] = object_name
             if object_type is None and not opts.urn:
                 raise TypeError("Missing required property 'object_type'")
             __props__.__dict__["object_type"] = object_type
@@ -329,8 +283,7 @@ class TagAssociation(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TagAssociationObjectIdentifierArgs', 'TagAssociationObjectIdentifierArgsDict']]]]] = None,
-            object_name: Optional[pulumi.Input[str]] = None,
+            object_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             object_type: Optional[pulumi.Input[str]] = None,
             skip_validation: Optional[pulumi.Input[bool]] = None,
             tag_id: Optional[pulumi.Input[str]] = None,
@@ -342,11 +295,10 @@ class TagAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TagAssociationObjectIdentifierArgs', 'TagAssociationObjectIdentifierArgsDict']]]] object_identifiers: Specifies the object identifier for the tag association.
-        :param pulumi.Input[str] object_name: Specifies the object identifier for the tag association.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] object_identifiers: Specifies the object identifiers for the tag association.
         :param pulumi.Input[str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         :param pulumi.Input[bool] skip_validation: If true, skips validation of the tag association.
-        :param pulumi.Input[str] tag_id: Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+        :param pulumi.Input[str] tag_id: Specifies the identifier for the tag.
         :param pulumi.Input[str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -354,7 +306,6 @@ class TagAssociation(pulumi.CustomResource):
         __props__ = _TagAssociationState.__new__(_TagAssociationState)
 
         __props__.__dict__["object_identifiers"] = object_identifiers
-        __props__.__dict__["object_name"] = object_name
         __props__.__dict__["object_type"] = object_type
         __props__.__dict__["skip_validation"] = skip_validation
         __props__.__dict__["tag_id"] = tag_id
@@ -363,20 +314,11 @@ class TagAssociation(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="objectIdentifiers")
-    def object_identifiers(self) -> pulumi.Output[Sequence['outputs.TagAssociationObjectIdentifier']]:
+    def object_identifiers(self) -> pulumi.Output[Sequence[str]]:
         """
-        Specifies the object identifier for the tag association.
+        Specifies the object identifiers for the tag association.
         """
         return pulumi.get(self, "object_identifiers")
-
-    @property
-    @pulumi.getter(name="objectName")
-    @_utilities.deprecated("""Use `object_identifier` instead""")
-    def object_name(self) -> pulumi.Output[Optional[str]]:
-        """
-        Specifies the object identifier for the tag association.
-        """
-        return pulumi.get(self, "object_name")
 
     @property
     @pulumi.getter(name="objectType")
@@ -398,7 +340,7 @@ class TagAssociation(pulumi.CustomResource):
     @pulumi.getter(name="tagId")
     def tag_id(self) -> pulumi.Output[str]:
         """
-        Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+        Specifies the identifier for the tag.
         """
         return pulumi.get(self, "tag_id")
 

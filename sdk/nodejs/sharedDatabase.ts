@@ -8,7 +8,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/sharedDatabase:SharedDatabase example 'shared_database_name'
+ * $ pulumi import snowflake:index/sharedDatabase:SharedDatabase example '"<shared_database_name>"'
  * ```
  */
 export class SharedDatabase extends pulumi.CustomResource {
@@ -60,7 +60,7 @@ export class SharedDatabase extends pulumi.CustomResource {
      */
     public readonly externalVolume!: pulumi.Output<string>;
     /**
-     * A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`.
+     * A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
      */
     public readonly fromShare!: pulumi.Output<string>;
     /**
@@ -72,7 +72,7 @@ export class SharedDatabase extends pulumi.CustomResource {
      */
     public readonly logLevel!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -197,7 +197,7 @@ export interface SharedDatabaseState {
      */
     externalVolume?: pulumi.Input<string>;
     /**
-     * A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`.
+     * A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
      */
     fromShare?: pulumi.Input<string>;
     /**
@@ -209,7 +209,7 @@ export interface SharedDatabaseState {
      */
     logLevel?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -275,7 +275,7 @@ export interface SharedDatabaseArgs {
      */
     externalVolume?: pulumi.Input<string>;
     /**
-     * A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`.
+     * A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
      */
     fromShare: pulumi.Input<string>;
     /**
@@ -283,7 +283,7 @@ export interface SharedDatabaseArgs {
      */
     logLevel?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**

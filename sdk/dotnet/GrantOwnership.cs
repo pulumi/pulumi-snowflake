@@ -60,13 +60,13 @@ namespace Pulumi.Snowflake
     public partial class GrantOwnership : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The fully qualified name of the account role to which privileges will be granted.
+        /// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Output("accountRoleName")]
         public Output<string?> AccountRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the database role to which privileges will be granted.
+        /// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Output("databaseRoleName")]
         public Output<string?> DatabaseRoleName { get; private set; } = null!;
@@ -130,13 +130,13 @@ namespace Pulumi.Snowflake
     public sealed class GrantOwnershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the account role to which privileges will be granted.
+        /// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("accountRoleName")]
         public Input<string>? AccountRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the database role to which privileges will be granted.
+        /// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("databaseRoleName")]
         public Input<string>? DatabaseRoleName { get; set; }
@@ -162,13 +162,13 @@ namespace Pulumi.Snowflake
     public sealed class GrantOwnershipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the account role to which privileges will be granted.
+        /// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("accountRoleName")]
         public Input<string>? AccountRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the database role to which privileges will be granted.
+        /// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("databaseRoleName")]
         public Input<string>? DatabaseRoleName { get; set; }

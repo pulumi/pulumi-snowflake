@@ -34,7 +34,7 @@ namespace Pulumi.Snowflake
         public Output<string> ApplicationRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the account role on which application role will be granted.
+        /// The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
         /// </summary>
         [Output("parentAccountRoleName")]
         public Output<string?> ParentAccountRoleName { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Snowflake
         public Input<string> ApplicationRoleName { get; set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the account role on which application role will be granted.
+        /// The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("parentAccountRoleName")]
         public Input<string>? ParentAccountRoleName { get; set; }
@@ -124,7 +124,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ApplicationRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the account role on which application role will be granted.
+        /// The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("parentAccountRoleName")]
         public Input<string>? ParentAccountRoleName { get; set; }

@@ -6,11 +6,15 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+ */
 export function getAccounts(args?: GetAccountsArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getAccounts:getAccounts", {
-        "pattern": args.pattern,
+        "like": args.like,
+        "withHistory": args.withHistory,
     }, opts);
 }
 
@@ -19,9 +23,13 @@ export function getAccounts(args?: GetAccountsArgs, opts?: pulumi.InvokeOptions)
  */
 export interface GetAccountsArgs {
     /**
-     * Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    pattern?: string;
+    like?: string;
+    /**
+     * Includes dropped accounts that have not yet been deleted.
+     */
+    withHistory?: boolean;
 }
 
 /**
@@ -29,7 +37,7 @@ export interface GetAccountsArgs {
  */
 export interface GetAccountsResult {
     /**
-     * List of all the accounts available in the organization.
+     * Holds the aggregated output of all accounts details queries.
      */
     readonly accounts: outputs.GetAccountsAccount[];
     /**
@@ -37,15 +45,23 @@ export interface GetAccountsResult {
      */
     readonly id: string;
     /**
-     * Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    readonly pattern?: string;
+    readonly like?: string;
+    /**
+     * Includes dropped accounts that have not yet been deleted.
+     */
+    readonly withHistory?: boolean;
 }
+/**
+ * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+ */
 export function getAccountsOutput(args?: GetAccountsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getAccounts:getAccounts", {
-        "pattern": args.pattern,
+        "like": args.like,
+        "withHistory": args.withHistory,
     }, opts);
 }
 
@@ -54,7 +70,11 @@ export function getAccountsOutput(args?: GetAccountsOutputArgs, opts?: pulumi.In
  */
 export interface GetAccountsOutputArgs {
     /**
-     * Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    pattern?: pulumi.Input<string>;
+    like?: pulumi.Input<string>;
+    /**
+     * Includes dropped accounts that have not yet been deleted.
+     */
+    withHistory?: pulumi.Input<boolean>;
 }

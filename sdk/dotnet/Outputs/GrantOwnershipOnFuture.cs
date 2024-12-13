@@ -14,11 +14,11 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GrantOwnershipOnFuture
     {
         /// <summary>
-        /// The fully qualified name of the database.
+        /// The fully qualified name of the database. For more information about this resource, see docs.
         /// </summary>
         public readonly string? InDatabase;
         /// <summary>
-        /// The fully qualified name of the schema.
+        /// The fully qualified name of the schema. For more information about this resource, see docs.
         /// </summary>
         public readonly string? InSchema;
         /// <summary>

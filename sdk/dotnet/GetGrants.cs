@@ -12,8 +12,6 @@ namespace Pulumi.Snowflake
     public static class GetGrants
     {
         /// <summary>
-        /// !&gt; **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. To migrate from older grant resources please follow the migration guide.
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -202,8 +200,6 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGrantsResult>("snowflake:index/getGrants:getGrants", args ?? new GetGrantsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. To migrate from older grant resources please follow the migration guide.
-        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

@@ -13,7 +13,7 @@ namespace Pulumi.Snowflake
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example "name"
+    /// $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example '"&lt;network_policy_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/networkPolicy:NetworkPolicy")]
@@ -26,7 +26,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> AllowedIpLists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+        /// Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
         /// </summary>
         [Output("allowedNetworkRuleLists")]
         public Output<ImmutableArray<string>> AllowedNetworkRuleLists { get; private set; } = null!;
@@ -38,7 +38,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> BlockedIpLists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+        /// Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
         /// </summary>
         [Output("blockedNetworkRuleLists")]
         public Output<ImmutableArray<string>> BlockedNetworkRuleLists { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedNetworkRuleLists;
 
         /// <summary>
-        /// Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+        /// Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> AllowedNetworkRuleLists
         {
@@ -159,7 +159,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedNetworkRuleLists;
 
         /// <summary>
-        /// Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+        /// Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> BlockedNetworkRuleLists
         {
@@ -174,7 +174,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -203,7 +203,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedNetworkRuleLists;
 
         /// <summary>
-        /// Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+        /// Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> AllowedNetworkRuleLists
         {
@@ -227,7 +227,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedNetworkRuleLists;
 
         /// <summary>
-        /// Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+        /// Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> BlockedNetworkRuleLists
         {
@@ -260,7 +260,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

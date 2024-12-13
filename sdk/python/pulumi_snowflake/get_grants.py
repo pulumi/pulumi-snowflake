@@ -130,8 +130,6 @@ def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', '
                grants_to: Optional[Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict']] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGrantsResult:
     """
-    !> **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. To migrate from older grant resources please follow the migration guide.
-
     ## Example Usage
 
     ```python
@@ -251,8 +249,6 @@ def get_grants_output(future_grants_in: Optional[pulumi.Input[Optional[Union['Ge
                       grants_to: Optional[pulumi.Input[Optional[Union['GetGrantsGrantsToArgs', 'GetGrantsGrantsToArgsDict']]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetGrantsResult]:
     """
-    !> **V1 release candidate** This datasource was reworked and is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the resource if needed. Any errors reported will be resolved with a higher priority. We encourage checking this resource out before the V1 release. To migrate from older grant resources please follow the migration guide.
-
     ## Example Usage
 
     ```python

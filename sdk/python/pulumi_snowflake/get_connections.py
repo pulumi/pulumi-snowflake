@@ -77,26 +77,7 @@ class AwaitableGetConnectionsResult(GetConnectionsResult):
 def get_connections(like: Optional[str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionsResult:
     """
-    !> **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
-
-    Datasource used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    # Simple usage
-    simple = snowflake.get_connections()
-    pulumi.export("simpleOutput", simple.connections)
-    # Filtering (like)
-    like = snowflake.get_connections(like="connection-name")
-    pulumi.export("likeOutput", like.connections)
-    # Filtering by prefix (like)
-    like_prefix = snowflake.get_connections(like="prefix%")
-    pulumi.export("likePrefixOutput", like_prefix.connections)
-    ```
+    Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
 
 
     :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
@@ -113,26 +94,7 @@ def get_connections(like: Optional[str] = None,
 def get_connections_output(like: Optional[pulumi.Input[Optional[str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionsResult]:
     """
-    !> **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
-
-    Datasource used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    # Simple usage
-    simple = snowflake.get_connections()
-    pulumi.export("simpleOutput", simple.connections)
-    # Filtering (like)
-    like = snowflake.get_connections(like="connection-name")
-    pulumi.export("likeOutput", like.connections)
-    # Filtering by prefix (like)
-    like_prefix = snowflake.get_connections(like="prefix%")
-    pulumi.export("likePrefixOutput", like_prefix.connections)
-    ```
+    Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
 
 
     :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).

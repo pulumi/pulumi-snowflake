@@ -13,13 +13,13 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class GrantOwnershipOnFutureGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the database.
+        /// The fully qualified name of the database. For more information about this resource, see docs.
         /// </summary>
         [Input("inDatabase")]
         public Input<string>? InDatabase { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the schema.
+        /// The fully qualified name of the schema. For more information about this resource, see docs.
         /// </summary>
         [Input("inSchema")]
         public Input<string>? InSchema { get; set; }

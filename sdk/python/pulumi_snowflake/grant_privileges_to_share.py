@@ -31,14 +31,14 @@ class GrantPrivilegesToShareArgs:
         """
         The set of arguments for constructing a GrantPrivilegesToShare resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
-        :param pulumi.Input[str] to_share: The fully qualified name of the share on which privileges will be granted.
+        :param pulumi.Input[str] to_share: The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[str] on_all_tables_in_schema: The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
-        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
+        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[str] on_function: The fully qualified name of the function on which privileges will be granted.
-        :param pulumi.Input[str] on_schema: The fully qualified name of the schema on which privileges will be granted.
-        :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted.
-        :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted.
-        :param pulumi.Input[str] on_view: The fully qualified name of the view on which privileges will be granted.
+        :param pulumi.Input[str] on_schema: The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_view: The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
         """
         pulumi.set(__self__, "privileges", privileges)
         pulumi.set(__self__, "to_share", to_share)
@@ -73,7 +73,7 @@ class GrantPrivilegesToShareArgs:
     @pulumi.getter(name="toShare")
     def to_share(self) -> pulumi.Input[str]:
         """
-        The fully qualified name of the share on which privileges will be granted.
+        The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "to_share")
 
@@ -97,7 +97,7 @@ class GrantPrivilegesToShareArgs:
     @pulumi.getter(name="onDatabase")
     def on_database(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the database on which privileges will be granted.
+        The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_database")
 
@@ -121,7 +121,7 @@ class GrantPrivilegesToShareArgs:
     @pulumi.getter(name="onSchema")
     def on_schema(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the schema on which privileges will be granted.
+        The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_schema")
 
@@ -133,7 +133,7 @@ class GrantPrivilegesToShareArgs:
     @pulumi.getter(name="onTable")
     def on_table(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the table on which privileges will be granted.
+        The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_table")
 
@@ -145,7 +145,7 @@ class GrantPrivilegesToShareArgs:
     @pulumi.getter(name="onTag")
     def on_tag(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the tag on which privileges will be granted.
+        The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_tag")
 
@@ -157,7 +157,7 @@ class GrantPrivilegesToShareArgs:
     @pulumi.getter(name="onView")
     def on_view(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the view on which privileges will be granted.
+        The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_view")
 
@@ -181,14 +181,14 @@ class _GrantPrivilegesToShareState:
         """
         Input properties used for looking up and filtering GrantPrivilegesToShare resources.
         :param pulumi.Input[str] on_all_tables_in_schema: The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
-        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
+        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[str] on_function: The fully qualified name of the function on which privileges will be granted.
-        :param pulumi.Input[str] on_schema: The fully qualified name of the schema on which privileges will be granted.
-        :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted.
-        :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted.
-        :param pulumi.Input[str] on_view: The fully qualified name of the view on which privileges will be granted.
+        :param pulumi.Input[str] on_schema: The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_view: The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
-        :param pulumi.Input[str] to_share: The fully qualified name of the share on which privileges will be granted.
+        :param pulumi.Input[str] to_share: The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         if on_all_tables_in_schema is not None:
             pulumi.set(__self__, "on_all_tables_in_schema", on_all_tables_in_schema)
@@ -225,7 +225,7 @@ class _GrantPrivilegesToShareState:
     @pulumi.getter(name="onDatabase")
     def on_database(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the database on which privileges will be granted.
+        The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_database")
 
@@ -249,7 +249,7 @@ class _GrantPrivilegesToShareState:
     @pulumi.getter(name="onSchema")
     def on_schema(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the schema on which privileges will be granted.
+        The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_schema")
 
@@ -261,7 +261,7 @@ class _GrantPrivilegesToShareState:
     @pulumi.getter(name="onTable")
     def on_table(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the table on which privileges will be granted.
+        The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_table")
 
@@ -273,7 +273,7 @@ class _GrantPrivilegesToShareState:
     @pulumi.getter(name="onTag")
     def on_tag(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the tag on which privileges will be granted.
+        The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_tag")
 
@@ -285,7 +285,7 @@ class _GrantPrivilegesToShareState:
     @pulumi.getter(name="onView")
     def on_view(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the view on which privileges will be granted.
+        The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_view")
 
@@ -309,7 +309,7 @@ class _GrantPrivilegesToShareState:
     @pulumi.getter(name="toShare")
     def to_share(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the share on which privileges will be granted.
+        The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "to_share")
 
@@ -345,14 +345,14 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] on_all_tables_in_schema: The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
-        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
+        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[str] on_function: The fully qualified name of the function on which privileges will be granted.
-        :param pulumi.Input[str] on_schema: The fully qualified name of the schema on which privileges will be granted.
-        :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted.
-        :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted.
-        :param pulumi.Input[str] on_view: The fully qualified name of the view on which privileges will be granted.
+        :param pulumi.Input[str] on_schema: The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_view: The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
-        :param pulumi.Input[str] to_share: The fully qualified name of the share on which privileges will be granted.
+        :param pulumi.Input[str] to_share: The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         ...
     @overload
@@ -442,14 +442,14 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] on_all_tables_in_schema: The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
-        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
+        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[str] on_function: The fully qualified name of the function on which privileges will be granted.
-        :param pulumi.Input[str] on_schema: The fully qualified name of the schema on which privileges will be granted.
-        :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted.
-        :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted.
-        :param pulumi.Input[str] on_view: The fully qualified name of the view on which privileges will be granted.
+        :param pulumi.Input[str] on_schema: The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_table: The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_tag: The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_view: The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
-        :param pulumi.Input[str] to_share: The fully qualified name of the share on which privileges will be granted.
+        :param pulumi.Input[str] to_share: The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -478,7 +478,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
     @pulumi.getter(name="onDatabase")
     def on_database(self) -> pulumi.Output[Optional[str]]:
         """
-        The fully qualified name of the database on which privileges will be granted.
+        The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_database")
 
@@ -494,7 +494,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
     @pulumi.getter(name="onSchema")
     def on_schema(self) -> pulumi.Output[Optional[str]]:
         """
-        The fully qualified name of the schema on which privileges will be granted.
+        The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_schema")
 
@@ -502,7 +502,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
     @pulumi.getter(name="onTable")
     def on_table(self) -> pulumi.Output[Optional[str]]:
         """
-        The fully qualified name of the table on which privileges will be granted.
+        The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_table")
 
@@ -510,7 +510,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
     @pulumi.getter(name="onTag")
     def on_tag(self) -> pulumi.Output[Optional[str]]:
         """
-        The fully qualified name of the tag on which privileges will be granted.
+        The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_tag")
 
@@ -518,7 +518,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
     @pulumi.getter(name="onView")
     def on_view(self) -> pulumi.Output[Optional[str]]:
         """
-        The fully qualified name of the view on which privileges will be granted.
+        The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_view")
 
@@ -534,7 +534,7 @@ class GrantPrivilegesToShare(pulumi.CustomResource):
     @pulumi.getter(name="toShare")
     def to_share(self) -> pulumi.Output[str]:
         """
-        The fully qualified name of the share on which privileges will be granted.
+        The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "to_share")
 

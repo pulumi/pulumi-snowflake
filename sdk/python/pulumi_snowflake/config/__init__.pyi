@@ -15,16 +15,6 @@ else:
 from .. import _utilities
 from . import outputs
 
-account: Optional[str]
-"""
-Use `account_name` and `organization_name` instead. Specifies your Snowflake account identifier assigned, by Snowflake.
-The [account
-locator](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-2-account-locator-in-a-region) format
-is not supported. For information about account identifiers, see the [Snowflake
-documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Required unless using `profile`.
-Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
-"""
-
 accountName: Optional[str]
 """
 Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
@@ -35,14 +25,8 @@ unless using `profile`. Can also be sourced from the `SNOWFLAKE_ACCOUNT_NAME` en
 authenticator: Optional[str]
 """
 Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `JWT` | `SNOWFLAKE_JWT`
-| `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Value `JWT` is deprecated and will be removed in future releases. Can also be
-sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
-"""
-
-browserAuth: Optional[bool]
-"""
-Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
+connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
+`TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
 """
 
 clientIp: Optional[str]
@@ -145,43 +129,6 @@ Specifies how many times non-periodic HTTP request can be retried by the driver.
 `SNOWFLAKE_MAX_RETRY_COUNT` environment variable.
 """
 
-oauthAccessToken: Optional[str]
-"""
-Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
-`private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
-environment variable.
-"""
-
-oauthClientId: Optional[str]
-"""
-Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
-"""
-
-oauthClientSecret: Optional[str]
-"""
-Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
-variable.
-"""
-
-oauthEndpoint: Optional[str]
-"""
-Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
-"""
-
-oauthRedirectUrl: Optional[str]
-"""
-Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
-variable.
-"""
-
-oauthRefreshToken: Optional[str]
-"""
-Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
-`oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
-`private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
-environment variable.
-"""
-
 ocspFailOpen: Optional[str]
 """
 True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
@@ -222,8 +169,8 @@ False by default. Set to true if the MFA passcode is embedded to the configured 
 
 password: Optional[str]
 """
-Password for user + password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
-the `SNOWFLAKE_PASSWORD` environment variable.
+Password for user + password auth. Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced
+from the `SNOWFLAKE_PASSWORD` environment variable.
 """
 
 port: Optional[int]
@@ -232,22 +179,18 @@ Specifies a custom port value used by the driver for privatelink connections. Ca
 `SNOWFLAKE_PORT` environment variable.
 """
 
+previewFeaturesEnableds: Optional[str]
+
 privateKey: Optional[str]
 """
-Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
-the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
+`SNOWFLAKE_PRIVATE_KEY` environment variable.
 """
 
 privateKeyPassphrase: Optional[str]
 """
 Supports the encryption ciphers aes-128-cbc, aes-128-gcm, aes-192-cbc, aes-192-gcm, aes-256-cbc, aes-256-gcm, and
 des-ede3-cbc. Can also be sourced from the `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
-"""
-
-privateKeyPath: Optional[str]
-"""
-Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-`password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
 """
 
 profile: Optional[str]
@@ -262,16 +205,6 @@ A protocol used in the connection. Valid options are: `http` | `https`. Can also
 `SNOWFLAKE_PROTOCOL` environment variable.
 """
 
-region: Optional[str]
-"""
-Snowflake region, such as "eu-central-1", with this parameter. However, since this parameter is deprecated, it is best
-to specify the region as part of the account parameter. For details, see the description of the account parameter.
-[Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
-format for the `account`
-identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
-in the form of `<cloud_region_id>.<cloud>`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
-"""
-
 requestTimeout: Optional[int]
 """
 request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
@@ -282,11 +215,6 @@ role: Optional[str]
 """
 Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
 `SNOWFLAKE_ROLE` environment variable.
-"""
-
-sessionParams: Optional[str]
-"""
-Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
 """
 
 tmpDirectoryPath: Optional[str]
@@ -306,12 +234,6 @@ tokenAccessor: Optional[str]
 user: Optional[str]
 """
 Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
-"""
-
-username: Optional[str]
-"""
-Username for user + password authentication. Required unless using `profile`. Can also be sourced from the
-`SNOWFLAKE_USERNAME` environment variable.
 """
 
 validateDefaultParameters: Optional[str]

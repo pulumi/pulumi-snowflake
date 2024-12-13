@@ -33,15 +33,15 @@ class StreamlitArgs:
                  title: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Streamlit resource.
-        :param pulumi.Input[str] database: The database in which to create the streamlit
-        :param pulumi.Input[str] main_file: Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
-        :param pulumi.Input[str] schema: The schema in which to create the streamlit.
-        :param pulumi.Input[str] stage: The stage in which streamlit files are located.
+        :param pulumi.Input[str] database: The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[str] main_file: Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+        :param pulumi.Input[str] schema: The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[str] stage: The stage in which streamlit files are located. For more information about this resource, see docs.
         :param pulumi.Input[str] comment: Specifies a comment for the streamlit.
         :param pulumi.Input[str] directory_location: Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_access_integrations: External access integrations connected to the Streamlit.
-        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
-        :param pulumi.Input[str] query_warehouse: Specifies the warehouse where SQL queries issued by the Streamlit application are run.
+        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[str] query_warehouse: Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
         :param pulumi.Input[str] title: Specifies a title for the Streamlit app to display in Snowsight.
         """
         pulumi.set(__self__, "database", database)
@@ -65,7 +65,7 @@ class StreamlitArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[str]:
         """
-        The database in which to create the streamlit
+        The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -77,7 +77,7 @@ class StreamlitArgs:
     @pulumi.getter(name="mainFile")
     def main_file(self) -> pulumi.Input[str]:
         """
-        Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
+        Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
         """
         return pulumi.get(self, "main_file")
 
@@ -89,7 +89,7 @@ class StreamlitArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[str]:
         """
-        The schema in which to create the streamlit.
+        The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -101,7 +101,7 @@ class StreamlitArgs:
     @pulumi.getter
     def stage(self) -> pulumi.Input[str]:
         """
-        The stage in which streamlit files are located.
+        The stage in which streamlit files are located. For more information about this resource, see docs.
         """
         return pulumi.get(self, "stage")
 
@@ -149,7 +149,7 @@ class StreamlitArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
+        String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -161,7 +161,7 @@ class StreamlitArgs:
     @pulumi.getter(name="queryWarehouse")
     def query_warehouse(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the warehouse where SQL queries issued by the Streamlit application are run.
+        Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
         """
         return pulumi.get(self, "query_warehouse")
 
@@ -201,17 +201,17 @@ class _StreamlitState:
         """
         Input properties used for looking up and filtering Streamlit resources.
         :param pulumi.Input[str] comment: Specifies a comment for the streamlit.
-        :param pulumi.Input[str] database: The database in which to create the streamlit
+        :param pulumi.Input[str] database: The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['StreamlitDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
         :param pulumi.Input[str] directory_location: Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_access_integrations: External access integrations connected to the Streamlit.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] main_file: Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
-        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
-        :param pulumi.Input[str] query_warehouse: Specifies the warehouse where SQL queries issued by the Streamlit application are run.
-        :param pulumi.Input[str] schema: The schema in which to create the streamlit.
+        :param pulumi.Input[str] main_file: Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[str] query_warehouse: Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
+        :param pulumi.Input[str] schema: The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['StreamlitShowOutputArgs']]] show_outputs: Outputs the result of `SHOW STREAMLIT` for the given streamlit.
-        :param pulumi.Input[str] stage: The stage in which streamlit files are located.
+        :param pulumi.Input[str] stage: The stage in which streamlit files are located. For more information about this resource, see docs.
         :param pulumi.Input[str] title: Specifies a title for the Streamlit app to display in Snowsight.
         """
         if comment is not None:
@@ -257,7 +257,7 @@ class _StreamlitState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[str]]:
         """
-        The database in which to create the streamlit
+        The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -317,7 +317,7 @@ class _StreamlitState:
     @pulumi.getter(name="mainFile")
     def main_file(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
+        Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
         """
         return pulumi.get(self, "main_file")
 
@@ -329,7 +329,7 @@ class _StreamlitState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
+        String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -341,7 +341,7 @@ class _StreamlitState:
     @pulumi.getter(name="queryWarehouse")
     def query_warehouse(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the warehouse where SQL queries issued by the Streamlit application are run.
+        Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
         """
         return pulumi.get(self, "query_warehouse")
 
@@ -353,7 +353,7 @@ class _StreamlitState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[str]]:
         """
-        The schema in which to create the streamlit.
+        The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -377,7 +377,7 @@ class _StreamlitState:
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[str]]:
         """
-        The stage in which streamlit files are located.
+        The stage in which streamlit files are located. For more information about this resource, see docs.
         """
         return pulumi.get(self, "stage")
 
@@ -417,8 +417,6 @@ class Streamlit(pulumi.CustomResource):
         """
         ## Import
 
-        format is <database_name>.<schema_name>.<streamlit_name>
-
         ```sh
         $ pulumi import snowflake:index/streamlit:Streamlit example '"<database_name>"."<schema_name>"."<streamlit_name>"'
         ```
@@ -426,14 +424,14 @@ class Streamlit(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the streamlit.
-        :param pulumi.Input[str] database: The database in which to create the streamlit
+        :param pulumi.Input[str] database: The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[str] directory_location: Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_access_integrations: External access integrations connected to the Streamlit.
-        :param pulumi.Input[str] main_file: Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
-        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
-        :param pulumi.Input[str] query_warehouse: Specifies the warehouse where SQL queries issued by the Streamlit application are run.
-        :param pulumi.Input[str] schema: The schema in which to create the streamlit.
-        :param pulumi.Input[str] stage: The stage in which streamlit files are located.
+        :param pulumi.Input[str] main_file: Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[str] query_warehouse: Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
+        :param pulumi.Input[str] schema: The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[str] stage: The stage in which streamlit files are located. For more information about this resource, see docs.
         :param pulumi.Input[str] title: Specifies a title for the Streamlit app to display in Snowsight.
         """
         ...
@@ -444,8 +442,6 @@ class Streamlit(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Import
-
-        format is <database_name>.<schema_name>.<streamlit_name>
 
         ```sh
         $ pulumi import snowflake:index/streamlit:Streamlit example '"<database_name>"."<schema_name>"."<streamlit_name>"'
@@ -537,17 +533,17 @@ class Streamlit(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Specifies a comment for the streamlit.
-        :param pulumi.Input[str] database: The database in which to create the streamlit
+        :param pulumi.Input[str] database: The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamlitDescribeOutputArgs', 'StreamlitDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
         :param pulumi.Input[str] directory_location: Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] external_access_integrations: External access integrations connected to the Streamlit.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] main_file: Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
-        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
-        :param pulumi.Input[str] query_warehouse: Specifies the warehouse where SQL queries issued by the Streamlit application are run.
-        :param pulumi.Input[str] schema: The schema in which to create the streamlit.
+        :param pulumi.Input[str] main_file: Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[str] query_warehouse: Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
+        :param pulumi.Input[str] schema: The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamlitShowOutputArgs', 'StreamlitShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STREAMLIT` for the given streamlit.
-        :param pulumi.Input[str] stage: The stage in which streamlit files are located.
+        :param pulumi.Input[str] stage: The stage in which streamlit files are located. For more information about this resource, see docs.
         :param pulumi.Input[str] title: Specifies a title for the Streamlit app to display in Snowsight.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -581,7 +577,7 @@ class Streamlit(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[str]:
         """
-        The database in which to create the streamlit
+        The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -621,7 +617,7 @@ class Streamlit(pulumi.CustomResource):
     @pulumi.getter(name="mainFile")
     def main_file(self) -> pulumi.Output[str]:
         """
-        Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
+        Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
         """
         return pulumi.get(self, "main_file")
 
@@ -629,7 +625,7 @@ class Streamlit(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
+        String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -637,7 +633,7 @@ class Streamlit(pulumi.CustomResource):
     @pulumi.getter(name="queryWarehouse")
     def query_warehouse(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the warehouse where SQL queries issued by the Streamlit application are run.
+        Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
         """
         return pulumi.get(self, "query_warehouse")
 
@@ -645,7 +641,7 @@ class Streamlit(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[str]:
         """
-        The schema in which to create the streamlit.
+        The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -661,7 +657,7 @@ class Streamlit(pulumi.CustomResource):
     @pulumi.getter
     def stage(self) -> pulumi.Output[str]:
         """
-        The stage in which streamlit files are located.
+        The stage in which streamlit files are located. For more information about this resource, see docs.
         """
         return pulumi.get(self, "stage")
 

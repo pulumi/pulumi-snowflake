@@ -42,7 +42,7 @@ namespace Pulumi.Snowflake
     public partial class GrantPrivilegesToAccountRole : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The fully qualified name of the account role to which privileges will be granted.
+        /// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Output("accountRoleName")]
         public Output<string> AccountRoleName { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Snowflake
         public Output<Outputs.GrantPrivilegesToAccountRoleOnSchemaObject?> OnSchemaObject { get; private set; } = null!;
 
         /// <summary>
-        /// The privileges to grant on the account role.
+        /// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
         /// </summary>
         [Output("privileges")]
         public Output<ImmutableArray<string>> Privileges { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Snowflake
     public sealed class GrantPrivilegesToAccountRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the account role to which privileges will be granted.
+        /// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("accountRoleName", required: true)]
         public Input<string> AccountRoleName { get; set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _privileges;
 
         /// <summary>
-        /// The privileges to grant on the account role.
+        /// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
         /// </summary>
         public InputList<string> Privileges
         {
@@ -216,7 +216,7 @@ namespace Pulumi.Snowflake
     public sealed class GrantPrivilegesToAccountRoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the account role to which privileges will be granted.
+        /// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("accountRoleName")]
         public Input<string>? AccountRoleName { get; set; }
@@ -264,7 +264,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _privileges;
 
         /// <summary>
-        /// The privileges to grant on the account role.
+        /// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
         /// </summary>
         public InputList<string> Privileges
         {

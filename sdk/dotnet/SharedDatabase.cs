@@ -13,7 +13,7 @@ namespace Pulumi.Snowflake
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/sharedDatabase:SharedDatabase example 'shared_database_name'
+    /// $ pulumi import snowflake:index/sharedDatabase:SharedDatabase example '"&lt;shared_database_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/sharedDatabase:SharedDatabase")]
@@ -50,7 +50,7 @@ namespace Pulumi.Snowflake
         public Output<string> ExternalVolume { get; private set; } = null!;
 
         /// <summary>
-        /// A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;share_name&gt;"`.
+        /// A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;share_name&gt;"`. For more information about this resource, see docs.
         /// </summary>
         [Output("fromShare")]
         public Output<string> FromShare { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.Snowflake
         public Output<string> LogLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -204,7 +204,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ExternalVolume { get; set; }
 
         /// <summary>
-        /// A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;share_name&gt;"`.
+        /// A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;share_name&gt;"`. For more information about this resource, see docs.
         /// </summary>
         [Input("fromShare", required: true)]
         public Input<string> FromShare { get; set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Snowflake
         public Input<string>? LogLevel { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -314,7 +314,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ExternalVolume { get; set; }
 
         /// <summary>
-        /// A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;share_name&gt;"`.
+        /// A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"&lt;organization_name&gt;"."&lt;account_name&gt;"."&lt;share_name&gt;"`. For more information about this resource, see docs.
         /// </summary>
         [Input("fromShare")]
         public Input<string>? FromShare { get; set; }
@@ -332,7 +332,7 @@ namespace Pulumi.Snowflake
         public Input<string>? LogLevel { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

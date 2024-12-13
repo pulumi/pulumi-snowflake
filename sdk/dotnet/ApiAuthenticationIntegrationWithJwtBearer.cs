@@ -13,7 +13,7 @@ namespace Pulumi.Snowflake
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer example "name"
+    /// $ pulumi import snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer example '"&lt;integration_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer")]
@@ -44,7 +44,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -76,9 +76,6 @@ namespace Pulumi.Snowflake
         [Output("oauthClientId")]
         public Output<string> OauthClientId { get; private set; } = null!;
 
-        /// <summary>
-        /// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
-        /// </summary>
         [Output("oauthClientSecret")]
         public Output<string> OauthClientSecret { get; private set; } = null!;
 
@@ -159,7 +156,7 @@ namespace Pulumi.Snowflake
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -191,9 +188,6 @@ namespace Pulumi.Snowflake
         [Input("oauthClientId", required: true)]
         public Input<string> OauthClientId { get; set; } = null!;
 
-        /// <summary>
-        /// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
-        /// </summary>
         [Input("oauthClientSecret", required: true)]
         public Input<string> OauthClientSecret { get; set; } = null!;
 
@@ -248,7 +242,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -280,9 +274,6 @@ namespace Pulumi.Snowflake
         [Input("oauthClientId")]
         public Input<string>? OauthClientId { get; set; }
 
-        /// <summary>
-        /// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
-        /// </summary>
         [Input("oauthClientSecret")]
         public Input<string>? OauthClientSecret { get; set; }
 

@@ -10,7 +10,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/warehouse:Warehouse example warehouseName
+ * $ pulumi import snowflake:index/warehouse:Warehouse example '"<warehouse_name>"'
  * ```
  */
 export class Warehouse extends pulumi.CustomResource {
@@ -78,7 +78,7 @@ export class Warehouse extends pulumi.CustomResource {
      */
     public readonly minClusterCount!: pulumi.Output<number | undefined>;
     /**
-     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -90,7 +90,7 @@ export class Warehouse extends pulumi.CustomResource {
      */
     public readonly queryAccelerationMaxScaleFactor!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
+     * Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      */
     public readonly resourceMonitor!: pulumi.Output<string | undefined>;
     /**
@@ -218,7 +218,7 @@ export interface WarehouseState {
      */
     minClusterCount?: pulumi.Input<number>;
     /**
-     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -230,7 +230,7 @@ export interface WarehouseState {
      */
     queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
     /**
-     * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
+     * Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      */
     resourceMonitor?: pulumi.Input<string>;
     /**
@@ -296,7 +296,7 @@ export interface WarehouseArgs {
      */
     minClusterCount?: pulumi.Input<number>;
     /**
-     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -304,7 +304,7 @@ export interface WarehouseArgs {
      */
     queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
     /**
-     * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
+     * Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      */
     resourceMonitor?: pulumi.Input<string>;
     /**

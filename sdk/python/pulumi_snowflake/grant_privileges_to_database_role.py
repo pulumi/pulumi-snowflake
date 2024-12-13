@@ -32,10 +32,10 @@ class GrantPrivilegesToDatabaseRoleArgs:
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a GrantPrivilegesToDatabaseRole resource.
-        :param pulumi.Input[str] database_role_name: The fully qualified name of the database role to which privileges will be granted.
+        :param pulumi.Input[str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the database role.
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
-        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
+        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaArgs'] on_schema: Specifies the schema on which privileges will be granted.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs'] on_schema_object: Specifies the schema object on which privileges will be granted.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the database role.
@@ -63,7 +63,7 @@ class GrantPrivilegesToDatabaseRoleArgs:
     @pulumi.getter(name="databaseRoleName")
     def database_role_name(self) -> pulumi.Input[str]:
         """
-        The fully qualified name of the database role to which privileges will be granted.
+        The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "database_role_name")
 
@@ -108,7 +108,7 @@ class GrantPrivilegesToDatabaseRoleArgs:
     @pulumi.getter(name="onDatabase")
     def on_database(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the database on which privileges will be granted.
+        The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_database")
 
@@ -181,8 +181,8 @@ class _GrantPrivilegesToDatabaseRoleState:
         Input properties used for looking up and filtering GrantPrivilegesToDatabaseRole resources.
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the database role.
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
-        :param pulumi.Input[str] database_role_name: The fully qualified name of the database role to which privileges will be granted.
-        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
+        :param pulumi.Input[str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaArgs'] on_schema: Specifies the schema on which privileges will be granted.
         :param pulumi.Input['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs'] on_schema_object: Specifies the schema object on which privileges will be granted.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the database role.
@@ -244,7 +244,7 @@ class _GrantPrivilegesToDatabaseRoleState:
     @pulumi.getter(name="databaseRoleName")
     def database_role_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the database role to which privileges will be granted.
+        The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "database_role_name")
 
@@ -256,7 +256,7 @@ class _GrantPrivilegesToDatabaseRoleState:
     @pulumi.getter(name="onDatabase")
     def on_database(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the database on which privileges will be granted.
+        The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_database")
 
@@ -361,8 +361,8 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the database role.
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
-        :param pulumi.Input[str] database_role_name: The fully qualified name of the database role to which privileges will be granted.
-        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
+        :param pulumi.Input[str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict']] on_schema: Specifies the schema on which privileges will be granted.
         :param pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict']] on_schema_object: Specifies the schema object on which privileges will be granted.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the database role.
@@ -475,8 +475,8 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the database role.
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
-        :param pulumi.Input[str] database_role_name: The fully qualified name of the database role to which privileges will be granted.
-        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted.
+        :param pulumi.Input[str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[str] on_database: The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaArgsDict']] on_schema: Specifies the schema on which privileges will be granted.
         :param pulumi.Input[Union['GrantPrivilegesToDatabaseRoleOnSchemaObjectArgs', 'GrantPrivilegesToDatabaseRoleOnSchemaObjectArgsDict']] on_schema_object: Specifies the schema object on which privileges will be granted.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the database role.
@@ -522,7 +522,7 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
     @pulumi.getter(name="databaseRoleName")
     def database_role_name(self) -> pulumi.Output[str]:
         """
-        The fully qualified name of the database role to which privileges will be granted.
+        The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "database_role_name")
 
@@ -530,7 +530,7 @@ class GrantPrivilegesToDatabaseRole(pulumi.CustomResource):
     @pulumi.getter(name="onDatabase")
     def on_database(self) -> pulumi.Output[Optional[str]]:
         """
-        The fully qualified name of the database on which privileges will be granted.
+        The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "on_database")
 

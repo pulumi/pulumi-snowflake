@@ -70,11 +70,6 @@ export type Database = import("./database").Database;
 export const Database: typeof import("./database").Database = null as any;
 utilities.lazyLoad(exports, ["Database"], () => require("./database"));
 
-export { DatabaseOldArgs, DatabaseOldState } from "./databaseOld";
-export type DatabaseOld = import("./databaseOld").DatabaseOld;
-export const DatabaseOld: typeof import("./databaseOld").DatabaseOld = null as any;
-utilities.lazyLoad(exports, ["DatabaseOld"], () => require("./databaseOld"));
-
 export { DatabaseRoleArgs, DatabaseRoleState } from "./databaseRole";
 export type DatabaseRole = import("./databaseRole").DatabaseRole;
 export const DatabaseRole: typeof import("./databaseRole").DatabaseRole = null as any;
@@ -89,6 +84,11 @@ export { EmailNotificationIntegrationArgs, EmailNotificationIntegrationState } f
 export type EmailNotificationIntegration = import("./emailNotificationIntegration").EmailNotificationIntegration;
 export const EmailNotificationIntegration: typeof import("./emailNotificationIntegration").EmailNotificationIntegration = null as any;
 utilities.lazyLoad(exports, ["EmailNotificationIntegration"], () => require("./emailNotificationIntegration"));
+
+export { ExecuteArgs, ExecuteState } from "./execute";
+export type Execute = import("./execute").Execute;
+export const Execute: typeof import("./execute").Execute = null as any;
+utilities.lazyLoad(exports, ["Execute"], () => require("./execute"));
 
 export { ExternalFunctionArgs, ExternalFunctionState } from "./externalFunction";
 export type ExternalFunction = import("./externalFunction").ExternalFunction;
@@ -120,10 +120,35 @@ export type FileFormat = import("./fileFormat").FileFormat;
 export const FileFormat: typeof import("./fileFormat").FileFormat = null as any;
 utilities.lazyLoad(exports, ["FileFormat"], () => require("./fileFormat"));
 
-export { FunctionArgs, FunctionState } from "./function";
-export type Function = import("./function").Function;
-export const Function: typeof import("./function").Function = null as any;
-utilities.lazyLoad(exports, ["Function"], () => require("./function"));
+export { FunctionJavaArgs, FunctionJavaState } from "./functionJava";
+export type FunctionJava = import("./functionJava").FunctionJava;
+export const FunctionJava: typeof import("./functionJava").FunctionJava = null as any;
+utilities.lazyLoad(exports, ["FunctionJava"], () => require("./functionJava"));
+
+export { FunctionJavascriptArgs, FunctionJavascriptState } from "./functionJavascript";
+export type FunctionJavascript = import("./functionJavascript").FunctionJavascript;
+export const FunctionJavascript: typeof import("./functionJavascript").FunctionJavascript = null as any;
+utilities.lazyLoad(exports, ["FunctionJavascript"], () => require("./functionJavascript"));
+
+export { FunctionPythonArgs, FunctionPythonState } from "./functionPython";
+export type FunctionPython = import("./functionPython").FunctionPython;
+export const FunctionPython: typeof import("./functionPython").FunctionPython = null as any;
+utilities.lazyLoad(exports, ["FunctionPython"], () => require("./functionPython"));
+
+export { FunctionScalaArgs, FunctionScalaState } from "./functionScala";
+export type FunctionScala = import("./functionScala").FunctionScala;
+export const FunctionScala: typeof import("./functionScala").FunctionScala = null as any;
+utilities.lazyLoad(exports, ["FunctionScala"], () => require("./functionScala"));
+
+export { FunctionSqlArgs, FunctionSqlState } from "./functionSql";
+export type FunctionSql = import("./functionSql").FunctionSql;
+export const FunctionSql: typeof import("./functionSql").FunctionSql = null as any;
+utilities.lazyLoad(exports, ["FunctionSql"], () => require("./functionSql"));
+
+export { GetAccountRolesArgs, GetAccountRolesResult, GetAccountRolesOutputArgs } from "./getAccountRoles";
+export const getAccountRoles: typeof import("./getAccountRoles").getAccountRoles = null as any;
+export const getAccountRolesOutput: typeof import("./getAccountRoles").getAccountRolesOutput = null as any;
+utilities.lazyLoad(exports, ["getAccountRoles","getAccountRolesOutput"], () => require("./getAccountRoles"));
 
 export { GetAccountsArgs, GetAccountsResult, GetAccountsOutputArgs } from "./getAccounts";
 export const getAccounts: typeof import("./getAccounts").getAccounts = null as any;
@@ -244,16 +269,6 @@ export { GetResourceMonitorsArgs, GetResourceMonitorsResult, GetResourceMonitors
 export const getResourceMonitors: typeof import("./getResourceMonitors").getResourceMonitors = null as any;
 export const getResourceMonitorsOutput: typeof import("./getResourceMonitors").getResourceMonitorsOutput = null as any;
 utilities.lazyLoad(exports, ["getResourceMonitors","getResourceMonitorsOutput"], () => require("./getResourceMonitors"));
-
-export { GetRoleArgs, GetRoleResult, GetRoleOutputArgs } from "./getRole";
-export const getRole: typeof import("./getRole").getRole = null as any;
-export const getRoleOutput: typeof import("./getRole").getRoleOutput = null as any;
-utilities.lazyLoad(exports, ["getRole","getRoleOutput"], () => require("./getRole"));
-
-export { GetRolesArgs, GetRolesResult, GetRolesOutputArgs } from "./getRoles";
-export const getRoles: typeof import("./getRoles").getRoles = null as any;
-export const getRolesOutput: typeof import("./getRoles").getRolesOutput = null as any;
-utilities.lazyLoad(exports, ["getRoles","getRolesOutput"], () => require("./getRoles"));
 
 export { GetRowAccessPoliciesArgs, GetRowAccessPoliciesResult, GetRowAccessPoliciesOutputArgs } from "./getRowAccessPolicies";
 export const getRowAccessPolicies: typeof import("./getRowAccessPolicies").getRowAccessPolicies = null as any;
@@ -430,11 +445,6 @@ export type NotificationIntegration = import("./notificationIntegration").Notifi
 export const NotificationIntegration: typeof import("./notificationIntegration").NotificationIntegration = null as any;
 utilities.lazyLoad(exports, ["NotificationIntegration"], () => require("./notificationIntegration"));
 
-export { OauthIntegrationArgs, OauthIntegrationState } from "./oauthIntegration";
-export type OauthIntegration = import("./oauthIntegration").OauthIntegration;
-export const OauthIntegration: typeof import("./oauthIntegration").OauthIntegration = null as any;
-utilities.lazyLoad(exports, ["OauthIntegration"], () => require("./oauthIntegration"));
-
 export { OauthIntegrationForCustomClientsArgs, OauthIntegrationForCustomClientsState } from "./oauthIntegrationForCustomClients";
 export type OauthIntegrationForCustomClients = import("./oauthIntegrationForCustomClients").OauthIntegrationForCustomClients;
 export const OauthIntegrationForCustomClients: typeof import("./oauthIntegrationForCustomClients").OauthIntegrationForCustomClients = null as any;
@@ -465,10 +475,30 @@ export type PrimaryConnection = import("./primaryConnection").PrimaryConnection;
 export const PrimaryConnection: typeof import("./primaryConnection").PrimaryConnection = null as any;
 utilities.lazyLoad(exports, ["PrimaryConnection"], () => require("./primaryConnection"));
 
-export { ProcedureArgs, ProcedureState } from "./procedure";
-export type Procedure = import("./procedure").Procedure;
-export const Procedure: typeof import("./procedure").Procedure = null as any;
-utilities.lazyLoad(exports, ["Procedure"], () => require("./procedure"));
+export { ProcedureJavaArgs, ProcedureJavaState } from "./procedureJava";
+export type ProcedureJava = import("./procedureJava").ProcedureJava;
+export const ProcedureJava: typeof import("./procedureJava").ProcedureJava = null as any;
+utilities.lazyLoad(exports, ["ProcedureJava"], () => require("./procedureJava"));
+
+export { ProcedureJavascriptArgs, ProcedureJavascriptState } from "./procedureJavascript";
+export type ProcedureJavascript = import("./procedureJavascript").ProcedureJavascript;
+export const ProcedureJavascript: typeof import("./procedureJavascript").ProcedureJavascript = null as any;
+utilities.lazyLoad(exports, ["ProcedureJavascript"], () => require("./procedureJavascript"));
+
+export { ProcedurePythonArgs, ProcedurePythonState } from "./procedurePython";
+export type ProcedurePython = import("./procedurePython").ProcedurePython;
+export const ProcedurePython: typeof import("./procedurePython").ProcedurePython = null as any;
+utilities.lazyLoad(exports, ["ProcedurePython"], () => require("./procedurePython"));
+
+export { ProcedureScalaArgs, ProcedureScalaState } from "./procedureScala";
+export type ProcedureScala = import("./procedureScala").ProcedureScala;
+export const ProcedureScala: typeof import("./procedureScala").ProcedureScala = null as any;
+utilities.lazyLoad(exports, ["ProcedureScala"], () => require("./procedureScala"));
+
+export { ProcedureSqlArgs, ProcedureSqlState } from "./procedureSql";
+export type ProcedureSql = import("./procedureSql").ProcedureSql;
+export const ProcedureSql: typeof import("./procedureSql").ProcedureSql = null as any;
+utilities.lazyLoad(exports, ["ProcedureSql"], () => require("./procedureSql"));
 
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
@@ -480,11 +510,6 @@ export type ResourceMonitor = import("./resourceMonitor").ResourceMonitor;
 export const ResourceMonitor: typeof import("./resourceMonitor").ResourceMonitor = null as any;
 utilities.lazyLoad(exports, ["ResourceMonitor"], () => require("./resourceMonitor"));
 
-export { RoleArgs, RoleState } from "./role";
-export type Role = import("./role").Role;
-export const Role: typeof import("./role").Role = null as any;
-utilities.lazyLoad(exports, ["Role"], () => require("./role"));
-
 export { RowAccessPolicyArgs, RowAccessPolicyState } from "./rowAccessPolicy";
 export type RowAccessPolicy = import("./rowAccessPolicy").RowAccessPolicy;
 export const RowAccessPolicy: typeof import("./rowAccessPolicy").RowAccessPolicy = null as any;
@@ -494,11 +519,6 @@ export { Saml2IntegrationArgs, Saml2IntegrationState } from "./saml2Integration"
 export type Saml2Integration = import("./saml2Integration").Saml2Integration;
 export const Saml2Integration: typeof import("./saml2Integration").Saml2Integration = null as any;
 utilities.lazyLoad(exports, ["Saml2Integration"], () => require("./saml2Integration"));
-
-export { SamlIntegrationArgs, SamlIntegrationState } from "./samlIntegration";
-export type SamlIntegration = import("./samlIntegration").SamlIntegration;
-export const SamlIntegration: typeof import("./samlIntegration").SamlIntegration = null as any;
-utilities.lazyLoad(exports, ["SamlIntegration"], () => require("./samlIntegration"));
 
 export { SchemaArgs, SchemaState } from "./schema";
 export type Schema = import("./schema").Schema;
@@ -550,11 +570,6 @@ export type ServiceUser = import("./serviceUser").ServiceUser;
 export const ServiceUser: typeof import("./serviceUser").ServiceUser = null as any;
 utilities.lazyLoad(exports, ["ServiceUser"], () => require("./serviceUser"));
 
-export { SessionParameterArgs, SessionParameterState } from "./sessionParameter";
-export type SessionParameter = import("./sessionParameter").SessionParameter;
-export const SessionParameter: typeof import("./sessionParameter").SessionParameter = null as any;
-utilities.lazyLoad(exports, ["SessionParameter"], () => require("./sessionParameter"));
-
 export { ShareArgs, ShareState } from "./share";
 export type Share = import("./share").Share;
 export const Share: typeof import("./share").Share = null as any;
@@ -574,11 +589,6 @@ export { StorageIntegrationArgs, StorageIntegrationState } from "./storageIntegr
 export type StorageIntegration = import("./storageIntegration").StorageIntegration;
 export const StorageIntegration: typeof import("./storageIntegration").StorageIntegration = null as any;
 utilities.lazyLoad(exports, ["StorageIntegration"], () => require("./storageIntegration"));
-
-export { StreamArgs, StreamState } from "./stream";
-export type Stream = import("./stream").Stream;
-export const Stream: typeof import("./stream").Stream = null as any;
-utilities.lazyLoad(exports, ["Stream"], () => require("./stream"));
 
 export { StreamOnDirectoryTableArgs, StreamOnDirectoryTableState } from "./streamOnDirectoryTable";
 export type StreamOnDirectoryTable = import("./streamOnDirectoryTable").StreamOnDirectoryTable;
@@ -630,20 +640,10 @@ export type TagAssociation = import("./tagAssociation").TagAssociation;
 export const TagAssociation: typeof import("./tagAssociation").TagAssociation = null as any;
 utilities.lazyLoad(exports, ["TagAssociation"], () => require("./tagAssociation"));
 
-export { TagMaskingPolicyAssociationArgs, TagMaskingPolicyAssociationState } from "./tagMaskingPolicyAssociation";
-export type TagMaskingPolicyAssociation = import("./tagMaskingPolicyAssociation").TagMaskingPolicyAssociation;
-export const TagMaskingPolicyAssociation: typeof import("./tagMaskingPolicyAssociation").TagMaskingPolicyAssociation = null as any;
-utilities.lazyLoad(exports, ["TagMaskingPolicyAssociation"], () => require("./tagMaskingPolicyAssociation"));
-
 export { TaskArgs, TaskState } from "./task";
 export type Task = import("./task").Task;
 export const Task: typeof import("./task").Task = null as any;
 utilities.lazyLoad(exports, ["Task"], () => require("./task"));
-
-export { UnsafeExecuteArgs, UnsafeExecuteState } from "./unsafeExecute";
-export type UnsafeExecute = import("./unsafeExecute").UnsafeExecute;
-export const UnsafeExecute: typeof import("./unsafeExecute").UnsafeExecute = null as any;
-utilities.lazyLoad(exports, ["UnsafeExecute"], () => require("./unsafeExecute"));
 
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
@@ -715,14 +715,14 @@ const _module = {
                 return new CortexSearchService(name, <any>undefined, { urn })
             case "snowflake:index/database:Database":
                 return new Database(name, <any>undefined, { urn })
-            case "snowflake:index/databaseOld:DatabaseOld":
-                return new DatabaseOld(name, <any>undefined, { urn })
             case "snowflake:index/databaseRole:DatabaseRole":
                 return new DatabaseRole(name, <any>undefined, { urn })
             case "snowflake:index/dynamicTable:DynamicTable":
                 return new DynamicTable(name, <any>undefined, { urn })
             case "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration":
                 return new EmailNotificationIntegration(name, <any>undefined, { urn })
+            case "snowflake:index/execute:Execute":
+                return new Execute(name, <any>undefined, { urn })
             case "snowflake:index/externalFunction:ExternalFunction":
                 return new ExternalFunction(name, <any>undefined, { urn })
             case "snowflake:index/externalOauthIntegration:ExternalOauthIntegration":
@@ -735,8 +735,16 @@ const _module = {
                 return new FailoverGroup(name, <any>undefined, { urn })
             case "snowflake:index/fileFormat:FileFormat":
                 return new FileFormat(name, <any>undefined, { urn })
-            case "snowflake:index/function:Function":
-                return new Function(name, <any>undefined, { urn })
+            case "snowflake:index/functionJava:FunctionJava":
+                return new FunctionJava(name, <any>undefined, { urn })
+            case "snowflake:index/functionJavascript:FunctionJavascript":
+                return new FunctionJavascript(name, <any>undefined, { urn })
+            case "snowflake:index/functionPython:FunctionPython":
+                return new FunctionPython(name, <any>undefined, { urn })
+            case "snowflake:index/functionScala:FunctionScala":
+                return new FunctionScala(name, <any>undefined, { urn })
+            case "snowflake:index/functionSql:FunctionSql":
+                return new FunctionSql(name, <any>undefined, { urn })
             case "snowflake:index/grantAccountRole:GrantAccountRole":
                 return new GrantAccountRole(name, <any>undefined, { urn })
             case "snowflake:index/grantApplicationRole:GrantApplicationRole":
@@ -767,8 +775,6 @@ const _module = {
                 return new NetworkRule(name, <any>undefined, { urn })
             case "snowflake:index/notificationIntegration:NotificationIntegration":
                 return new NotificationIntegration(name, <any>undefined, { urn })
-            case "snowflake:index/oauthIntegration:OauthIntegration":
-                return new OauthIntegration(name, <any>undefined, { urn })
             case "snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients":
                 return new OauthIntegrationForCustomClients(name, <any>undefined, { urn })
             case "snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications":
@@ -781,18 +787,22 @@ const _module = {
                 return new Pipe(name, <any>undefined, { urn })
             case "snowflake:index/primaryConnection:PrimaryConnection":
                 return new PrimaryConnection(name, <any>undefined, { urn })
-            case "snowflake:index/procedure:Procedure":
-                return new Procedure(name, <any>undefined, { urn })
+            case "snowflake:index/procedureJava:ProcedureJava":
+                return new ProcedureJava(name, <any>undefined, { urn })
+            case "snowflake:index/procedureJavascript:ProcedureJavascript":
+                return new ProcedureJavascript(name, <any>undefined, { urn })
+            case "snowflake:index/procedurePython:ProcedurePython":
+                return new ProcedurePython(name, <any>undefined, { urn })
+            case "snowflake:index/procedureScala:ProcedureScala":
+                return new ProcedureScala(name, <any>undefined, { urn })
+            case "snowflake:index/procedureSql:ProcedureSql":
+                return new ProcedureSql(name, <any>undefined, { urn })
             case "snowflake:index/resourceMonitor:ResourceMonitor":
                 return new ResourceMonitor(name, <any>undefined, { urn })
-            case "snowflake:index/role:Role":
-                return new Role(name, <any>undefined, { urn })
             case "snowflake:index/rowAccessPolicy:RowAccessPolicy":
                 return new RowAccessPolicy(name, <any>undefined, { urn })
             case "snowflake:index/saml2Integration:Saml2Integration":
                 return new Saml2Integration(name, <any>undefined, { urn })
-            case "snowflake:index/samlIntegration:SamlIntegration":
-                return new SamlIntegration(name, <any>undefined, { urn })
             case "snowflake:index/schema:Schema":
                 return new Schema(name, <any>undefined, { urn })
             case "snowflake:index/scimIntegration:ScimIntegration":
@@ -813,8 +823,6 @@ const _module = {
                 return new Sequence(name, <any>undefined, { urn })
             case "snowflake:index/serviceUser:ServiceUser":
                 return new ServiceUser(name, <any>undefined, { urn })
-            case "snowflake:index/sessionParameter:SessionParameter":
-                return new SessionParameter(name, <any>undefined, { urn })
             case "snowflake:index/share:Share":
                 return new Share(name, <any>undefined, { urn })
             case "snowflake:index/sharedDatabase:SharedDatabase":
@@ -823,8 +831,6 @@ const _module = {
                 return new Stage(name, <any>undefined, { urn })
             case "snowflake:index/storageIntegration:StorageIntegration":
                 return new StorageIntegration(name, <any>undefined, { urn })
-            case "snowflake:index/stream:Stream":
-                return new Stream(name, <any>undefined, { urn })
             case "snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable":
                 return new StreamOnDirectoryTable(name, <any>undefined, { urn })
             case "snowflake:index/streamOnExternalTable:StreamOnExternalTable":
@@ -845,12 +851,8 @@ const _module = {
                 return new Tag(name, <any>undefined, { urn })
             case "snowflake:index/tagAssociation:TagAssociation":
                 return new TagAssociation(name, <any>undefined, { urn })
-            case "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation":
-                return new TagMaskingPolicyAssociation(name, <any>undefined, { urn })
             case "snowflake:index/task:Task":
                 return new Task(name, <any>undefined, { urn })
-            case "snowflake:index/unsafeExecute:UnsafeExecute":
-                return new UnsafeExecute(name, <any>undefined, { urn })
             case "snowflake:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "snowflake:index/userAuthenticationPolicyAttachment:UserAuthenticationPolicyAttachment":
@@ -881,17 +883,21 @@ pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegration", _modu
 pulumi.runtime.registerResourceModule("snowflake", "index/authenticationPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/cortexSearchService", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/database", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/databaseOld", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/databaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/dynamicTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/emailNotificationIntegration", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/execute", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalFunction", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalOauthIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/externalVolume", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/failoverGroup", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/fileFormat", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/function", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/functionJava", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/functionJavascript", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/functionPython", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/functionScala", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/functionSql", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantAccountRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantApplicationRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantDatabaseRole", _module)
@@ -907,19 +913,20 @@ pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicy", _modul
 pulumi.runtime.registerResourceModule("snowflake", "index/networkPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/networkRule", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/notificationIntegration", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegrationForCustomClients", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/oauthIntegrationForPartnerApplications", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/objectParameter", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/passwordPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/pipe", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/primaryConnection", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/procedure", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/procedureJava", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/procedureJavascript", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/procedurePython", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/procedureScala", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/procedureSql", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/resourceMonitor", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/role", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/rowAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/saml2Integration", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/samlIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/schema", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/scimIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/secondaryConnection", _module)
@@ -930,12 +937,10 @@ pulumi.runtime.registerResourceModule("snowflake", "index/secretWithClientCreden
 pulumi.runtime.registerResourceModule("snowflake", "index/secretWithGenericString", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/sequence", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/serviceUser", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/sessionParameter", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/share", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/sharedDatabase", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/stage", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/storageIntegration", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/stream", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/streamOnDirectoryTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/streamOnExternalTable", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/streamOnTable", _module)
@@ -946,9 +951,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/tableColumnMaskingPoli
 pulumi.runtime.registerResourceModule("snowflake", "index/tableConstraint", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tag", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/tagAssociation", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/tagMaskingPolicyAssociation", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/task", _module)
-pulumi.runtime.registerResourceModule("snowflake", "index/unsafeExecute", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/user", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userAuthenticationPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/userPasswordPolicyAttachment", _module)

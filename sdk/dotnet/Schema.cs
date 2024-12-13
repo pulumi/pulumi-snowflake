@@ -12,8 +12,6 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Import
     /// 
-    /// format is &lt;database_name&gt;.&lt;schema_name&gt;
-    /// 
     /// ```sh
     /// $ pulumi import snowflake:index/schema:Schema example '"&lt;database_name&gt;"."&lt;schema_name&gt;"'
     /// ```
@@ -40,7 +38,7 @@ namespace Pulumi.Snowflake
         public Output<int> DataRetentionTimeInDays { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the schema.
+        /// The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -94,7 +92,7 @@ namespace Pulumi.Snowflake
         public Output<int> MaxDataExtensionTimeInDays { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -242,7 +240,7 @@ namespace Pulumi.Snowflake
         public Input<int>? DataRetentionTimeInDays { get; set; }
 
         /// <summary>
-        /// The database in which to create the schema.
+        /// The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
@@ -284,7 +282,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxDataExtensionTimeInDays { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -382,7 +380,7 @@ namespace Pulumi.Snowflake
         public Input<int>? DataRetentionTimeInDays { get; set; }
 
         /// <summary>
-        /// The database in which to create the schema.
+        /// The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -442,7 +440,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxDataExtensionTimeInDays { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+        /// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

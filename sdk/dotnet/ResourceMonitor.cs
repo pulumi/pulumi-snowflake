@@ -12,10 +12,8 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Import
     /// 
-    /// format is the resource monitor name
-    /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
+    /// $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example '"&lt;resource_monitor_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/resourceMonitor:ResourceMonitor")]
@@ -46,7 +44,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -58,7 +56,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<int>> NotifyTriggers { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+        /// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
         /// </summary>
         [Output("notifyUsers")]
         public Output<ImmutableArray<string>> NotifyUsers { get; private set; } = null!;
@@ -152,7 +150,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Frequency { get; set; }
 
         /// <summary>
-        /// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -173,7 +171,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _notifyUsers;
 
         /// <summary>
-        /// Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+        /// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> NotifyUsers
         {
@@ -232,7 +230,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -253,7 +251,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _notifyUsers;
 
         /// <summary>
-        /// Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+        /// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> NotifyUsers
         {

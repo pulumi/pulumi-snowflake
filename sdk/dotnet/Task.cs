@@ -12,10 +12,8 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Import
     /// 
-    /// format is database name | schema name | task name
-    /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/task:Task example 'dbName|schemaName|taskName'
+    /// $ pulumi import snowflake:index/task:Task example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;task_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/task:Task")]
@@ -28,7 +26,7 @@ namespace Pulumi.Snowflake
         public Output<bool> AbortDetachedQuery { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("afters")]
         public Output<ImmutableArray<string>> Afters { get; private set; } = null!;
@@ -118,7 +116,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Config { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -142,7 +140,7 @@ namespace Pulumi.Snowflake
         public Output<bool> EnableUnloadPhysicalTypeOptimization { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         /// </summary>
         [Output("errorIntegration")]
         public Output<string?> ErrorIntegration { get; private set; } = null!;
@@ -160,7 +158,7 @@ namespace Pulumi.Snowflake
         public Output<bool> ErrorOnNondeterministicUpdate { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("finalize")]
         public Output<string?> Finalize { get; private set; } = null!;
@@ -220,7 +218,7 @@ namespace Pulumi.Snowflake
         public Output<int> MultiStatementCount { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -274,7 +272,7 @@ namespace Pulumi.Snowflake
         public Output<Outputs.TaskSchedule?> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
@@ -430,7 +428,7 @@ namespace Pulumi.Snowflake
         public Output<bool> UseCachedResult { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse) For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         /// </summary>
         [Output("userTaskManagedInitialWarehouseSize")]
         public Output<string> UserTaskManagedInitialWarehouseSize { get; private set; } = null!;
@@ -448,7 +446,7 @@ namespace Pulumi.Snowflake
         public Output<int> UserTaskTimeoutMs { get; private set; } = null!;
 
         /// <summary>
-        /// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size)
+        /// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
         /// </summary>
         [Output("warehouse")]
         public Output<string?> Warehouse { get; private set; } = null!;
@@ -527,7 +525,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _afters;
 
         /// <summary>
-        /// Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         public InputList<string> Afters
         {
@@ -620,7 +618,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Config { get; set; }
 
         /// <summary>
-        /// The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
@@ -644,7 +642,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableUnloadPhysicalTypeOptimization { get; set; }
 
         /// <summary>
-        /// Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         /// </summary>
         [Input("errorIntegration")]
         public Input<string>? ErrorIntegration { get; set; }
@@ -662,7 +660,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? ErrorOnNondeterministicUpdate { get; set; }
 
         /// <summary>
-        /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("finalize")]
         public Input<string>? Finalize { get; set; }
@@ -716,7 +714,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MultiStatementCount { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -764,7 +762,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.TaskScheduleArgs>? Schedule { get; set; }
 
         /// <summary>
-        /// The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
@@ -914,7 +912,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? UseCachedResult { get; set; }
 
         /// <summary>
-        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse) For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         /// </summary>
         [Input("userTaskManagedInitialWarehouseSize")]
         public Input<string>? UserTaskManagedInitialWarehouseSize { get; set; }
@@ -932,7 +930,7 @@ namespace Pulumi.Snowflake
         public Input<int>? UserTaskTimeoutMs { get; set; }
 
         /// <summary>
-        /// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size)
+        /// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
         /// </summary>
         [Input("warehouse")]
         public Input<string>? Warehouse { get; set; }
@@ -973,7 +971,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _afters;
 
         /// <summary>
-        /// Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         public InputList<string> Afters
         {
@@ -1066,7 +1064,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Config { get; set; }
 
         /// <summary>
-        /// The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -1090,7 +1088,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? EnableUnloadPhysicalTypeOptimization { get; set; }
 
         /// <summary>
-        /// Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         /// </summary>
         [Input("errorIntegration")]
         public Input<string>? ErrorIntegration { get; set; }
@@ -1108,7 +1106,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? ErrorOnNondeterministicUpdate { get; set; }
 
         /// <summary>
-        /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("finalize")]
         public Input<string>? Finalize { get; set; }
@@ -1168,7 +1166,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MultiStatementCount { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1228,7 +1226,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.TaskScheduleGetArgs>? Schedule { get; set; }
 
         /// <summary>
-        /// The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
@@ -1390,7 +1388,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? UseCachedResult { get; set; }
 
         /// <summary>
-        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse) For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         /// </summary>
         [Input("userTaskManagedInitialWarehouseSize")]
         public Input<string>? UserTaskManagedInitialWarehouseSize { get; set; }
@@ -1408,7 +1406,7 @@ namespace Pulumi.Snowflake
         public Input<int>? UserTaskTimeoutMs { get; set; }
 
         /// <summary>
-        /// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size)
+        /// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
         /// </summary>
         [Input("warehouse")]
         public Input<string>? Warehouse { get; set; }

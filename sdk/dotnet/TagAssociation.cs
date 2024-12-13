@@ -12,26 +12,20 @@ namespace Pulumi.Snowflake
     /// <summary>
     /// ## Import
     /// 
-    /// format is dbName.schemaName.tagName or dbName.schemaName.tagName
+    /// ~&gt; **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
+    /// $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/tagAssociation:TagAssociation")]
     public partial class TagAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the object identifier for the tag association.
+        /// Specifies the object identifiers for the tag association.
         /// </summary>
         [Output("objectIdentifiers")]
-        public Output<ImmutableArray<Outputs.TagAssociationObjectIdentifier>> ObjectIdentifiers { get; private set; } = null!;
-
-        /// <summary>
-        /// Specifies the object identifier for the tag association.
-        /// </summary>
-        [Output("objectName")]
-        public Output<string?> ObjectName { get; private set; } = null!;
+        public Output<ImmutableArray<string>> ObjectIdentifiers { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
@@ -46,7 +40,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> SkipValidation { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+        /// Specifies the identifier for the tag.
         /// </summary>
         [Output("tagId")]
         public Output<string> TagId { get; private set; } = null!;
@@ -104,22 +98,16 @@ namespace Pulumi.Snowflake
     public sealed class TagAssociationArgs : global::Pulumi.ResourceArgs
     {
         [Input("objectIdentifiers", required: true)]
-        private InputList<Inputs.TagAssociationObjectIdentifierArgs>? _objectIdentifiers;
+        private InputList<string>? _objectIdentifiers;
 
         /// <summary>
-        /// Specifies the object identifier for the tag association.
+        /// Specifies the object identifiers for the tag association.
         /// </summary>
-        public InputList<Inputs.TagAssociationObjectIdentifierArgs> ObjectIdentifiers
+        public InputList<string> ObjectIdentifiers
         {
-            get => _objectIdentifiers ?? (_objectIdentifiers = new InputList<Inputs.TagAssociationObjectIdentifierArgs>());
+            get => _objectIdentifiers ?? (_objectIdentifiers = new InputList<string>());
             set => _objectIdentifiers = value;
         }
-
-        /// <summary>
-        /// Specifies the object identifier for the tag association.
-        /// </summary>
-        [Input("objectName")]
-        public Input<string>? ObjectName { get; set; }
 
         /// <summary>
         /// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
@@ -134,7 +122,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? SkipValidation { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+        /// Specifies the identifier for the tag.
         /// </summary>
         [Input("tagId", required: true)]
         public Input<string> TagId { get; set; } = null!;
@@ -154,22 +142,16 @@ namespace Pulumi.Snowflake
     public sealed class TagAssociationState : global::Pulumi.ResourceArgs
     {
         [Input("objectIdentifiers")]
-        private InputList<Inputs.TagAssociationObjectIdentifierGetArgs>? _objectIdentifiers;
+        private InputList<string>? _objectIdentifiers;
 
         /// <summary>
-        /// Specifies the object identifier for the tag association.
+        /// Specifies the object identifiers for the tag association.
         /// </summary>
-        public InputList<Inputs.TagAssociationObjectIdentifierGetArgs> ObjectIdentifiers
+        public InputList<string> ObjectIdentifiers
         {
-            get => _objectIdentifiers ?? (_objectIdentifiers = new InputList<Inputs.TagAssociationObjectIdentifierGetArgs>());
+            get => _objectIdentifiers ?? (_objectIdentifiers = new InputList<string>());
             set => _objectIdentifiers = value;
         }
-
-        /// <summary>
-        /// Specifies the object identifier for the tag association.
-        /// </summary>
-        [Input("objectName")]
-        public Input<string>? ObjectName { get; set; }
 
         /// <summary>
         /// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
@@ -184,7 +166,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? SkipValidation { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+        /// Specifies the identifier for the tag.
         /// </summary>
         [Input("tagId")]
         public Input<string>? TagId { get; set; }
