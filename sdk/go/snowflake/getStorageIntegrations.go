@@ -54,18 +54,8 @@ type GetStorageIntegrationsResult struct {
 
 func GetStorageIntegrationsOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetStorageIntegrationsResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetStorageIntegrationsResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetStorageIntegrationsResult
-		secret, err := ctx.InvokePackageRaw("snowflake:index/getStorageIntegrations:getStorageIntegrations", nil, &rv, "", opts...)
-		if err != nil {
-			return GetStorageIntegrationsResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetStorageIntegrationsResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetStorageIntegrationsResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("snowflake:index/getStorageIntegrations:getStorageIntegrations", nil, GetStorageIntegrationsResultOutput{}, options).(GetStorageIntegrationsResultOutput), nil
 	}).(GetStorageIntegrationsResultOutput)
 }
 

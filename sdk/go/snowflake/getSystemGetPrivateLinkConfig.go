@@ -139,18 +139,8 @@ type GetSystemGetPrivateLinkConfigResult struct {
 
 func GetSystemGetPrivateLinkConfigOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetSystemGetPrivateLinkConfigResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetSystemGetPrivateLinkConfigResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetSystemGetPrivateLinkConfigResult
-		secret, err := ctx.InvokePackageRaw("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", nil, &rv, "", opts...)
-		if err != nil {
-			return GetSystemGetPrivateLinkConfigResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetSystemGetPrivateLinkConfigResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetSystemGetPrivateLinkConfigResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", nil, GetSystemGetPrivateLinkConfigResultOutput{}, options).(GetSystemGetPrivateLinkConfigResultOutput), nil
 	}).(GetSystemGetPrivateLinkConfigResultOutput)
 }
 

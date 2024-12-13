@@ -49,21 +49,11 @@ type GetDatabaseRolesResult struct {
 }
 
 func GetDatabaseRolesOutput(ctx *pulumi.Context, args GetDatabaseRolesOutputArgs, opts ...pulumi.InvokeOption) GetDatabaseRolesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetDatabaseRolesResultOutput, error) {
 			args := v.(GetDatabaseRolesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetDatabaseRolesResult
-			secret, err := ctx.InvokePackageRaw("snowflake:index/getDatabaseRoles:getDatabaseRoles", args, &rv, "", opts...)
-			if err != nil {
-				return GetDatabaseRolesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetDatabaseRolesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetDatabaseRolesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("snowflake:index/getDatabaseRoles:getDatabaseRoles", args, GetDatabaseRolesResultOutput{}, options).(GetDatabaseRolesResultOutput), nil
 		}).(GetDatabaseRolesResultOutput)
 }
 

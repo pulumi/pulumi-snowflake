@@ -64,6 +64,33 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Output<GetCurrentAccountResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCurrentAccountResult>("snowflake:index/getCurrentAccount:getCurrentAccount", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @this = Snowflake.GetCurrentAccount.Invoke();
+        /// 
+        ///     var snowflakeAccountUrl = new Aws.Index.SsmParameter("snowflake_account_url", new()
+        ///     {
+        ///         Name = "/snowflake/account_url",
+        ///         Type = "String",
+        ///         Value = @this.Apply(getCurrentAccountResult =&gt; getCurrentAccountResult.Url),
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCurrentAccountResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCurrentAccountResult>("snowflake:index/getCurrentAccount:getCurrentAccount", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

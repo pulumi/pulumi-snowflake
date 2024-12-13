@@ -45,21 +45,11 @@ type GetNetworkPoliciesResult struct {
 }
 
 func GetNetworkPoliciesOutput(ctx *pulumi.Context, args GetNetworkPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetNetworkPoliciesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetNetworkPoliciesResultOutput, error) {
 			args := v.(GetNetworkPoliciesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetNetworkPoliciesResult
-			secret, err := ctx.InvokePackageRaw("snowflake:index/getNetworkPolicies:getNetworkPolicies", args, &rv, "", opts...)
-			if err != nil {
-				return GetNetworkPoliciesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetNetworkPoliciesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetNetworkPoliciesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("snowflake:index/getNetworkPolicies:getNetworkPolicies", args, GetNetworkPoliciesResultOutput{}, options).(GetNetworkPoliciesResultOutput), nil
 		}).(GetNetworkPoliciesResultOutput)
 }
 

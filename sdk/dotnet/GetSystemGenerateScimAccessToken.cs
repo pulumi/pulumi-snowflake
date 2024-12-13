@@ -54,6 +54,28 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Output<GetSystemGenerateScimAccessTokenResult> Invoke(GetSystemGenerateScimAccessTokenInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemGenerateScimAccessTokenResult>("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", args ?? new GetSystemGenerateScimAccessTokenInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var scim = Snowflake.GetSystemGenerateScimAccessToken.Invoke(new()
+        ///     {
+        ///         IntegrationName = "AAD_PROVISIONING",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSystemGenerateScimAccessTokenResult> Invoke(GetSystemGenerateScimAccessTokenInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSystemGenerateScimAccessTokenResult>("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", args ?? new GetSystemGenerateScimAccessTokenInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -16,6 +16,9 @@ namespace Pulumi.Snowflake
 
         public static Output<GetDynamicTablesResult> Invoke(GetDynamicTablesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDynamicTablesResult>("snowflake:index/getDynamicTables:getDynamicTables", args ?? new GetDynamicTablesInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetDynamicTablesResult> Invoke(GetDynamicTablesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetDynamicTablesResult>("snowflake:index/getDynamicTables:getDynamicTables", args ?? new GetDynamicTablesInvokeArgs(), options.WithDefaults());
     }
 
 

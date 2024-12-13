@@ -16,6 +16,9 @@ namespace Pulumi.Snowflake
 
         public static Output<GetSystemGetSnowflakePlatformInfoResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemGetSnowflakePlatformInfoResult>("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", InvokeArgs.Empty, options.WithDefaults());
+
+        public static Output<GetSystemGetSnowflakePlatformInfoResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSystemGetSnowflakePlatformInfoResult>("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

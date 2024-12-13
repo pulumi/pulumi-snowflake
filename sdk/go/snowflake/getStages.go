@@ -68,21 +68,11 @@ type GetStagesResult struct {
 }
 
 func GetStagesOutput(ctx *pulumi.Context, args GetStagesOutputArgs, opts ...pulumi.InvokeOption) GetStagesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetStagesResultOutput, error) {
 			args := v.(GetStagesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetStagesResult
-			secret, err := ctx.InvokePackageRaw("snowflake:index/getStages:getStages", args, &rv, "", opts...)
-			if err != nil {
-				return GetStagesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetStagesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetStagesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("snowflake:index/getStages:getStages", args, GetStagesResultOutput{}, options).(GetStagesResultOutput), nil
 		}).(GetStagesResultOutput)
 }
 

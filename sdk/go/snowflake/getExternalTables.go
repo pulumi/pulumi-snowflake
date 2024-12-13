@@ -68,21 +68,11 @@ type GetExternalTablesResult struct {
 }
 
 func GetExternalTablesOutput(ctx *pulumi.Context, args GetExternalTablesOutputArgs, opts ...pulumi.InvokeOption) GetExternalTablesResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (GetExternalTablesResultOutput, error) {
 			args := v.(GetExternalTablesArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv GetExternalTablesResult
-			secret, err := ctx.InvokePackageRaw("snowflake:index/getExternalTables:getExternalTables", args, &rv, "", opts...)
-			if err != nil {
-				return GetExternalTablesResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(GetExternalTablesResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(GetExternalTablesResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("snowflake:index/getExternalTables:getExternalTables", args, GetExternalTablesResultOutput{}, options).(GetExternalTablesResultOutput), nil
 		}).(GetExternalTablesResultOutput)
 }
 

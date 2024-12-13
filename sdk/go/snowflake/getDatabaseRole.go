@@ -70,21 +70,11 @@ type LookupDatabaseRoleResult struct {
 }
 
 func LookupDatabaseRoleOutput(ctx *pulumi.Context, args LookupDatabaseRoleOutputArgs, opts ...pulumi.InvokeOption) LookupDatabaseRoleResultOutput {
-	return pulumi.ToOutputWithContext(context.Background(), args).
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
 		ApplyT(func(v interface{}) (LookupDatabaseRoleResultOutput, error) {
 			args := v.(LookupDatabaseRoleArgs)
-			opts = internal.PkgInvokeDefaultOpts(opts)
-			var rv LookupDatabaseRoleResult
-			secret, err := ctx.InvokePackageRaw("snowflake:index/getDatabaseRole:getDatabaseRole", args, &rv, "", opts...)
-			if err != nil {
-				return LookupDatabaseRoleResultOutput{}, err
-			}
-
-			output := pulumi.ToOutput(rv).(LookupDatabaseRoleResultOutput)
-			if secret {
-				return pulumi.ToSecret(output).(LookupDatabaseRoleResultOutput), nil
-			}
-			return output, nil
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("snowflake:index/getDatabaseRole:getDatabaseRole", args, LookupDatabaseRoleResultOutput{}, options).(LookupDatabaseRoleResultOutput), nil
 		}).(LookupDatabaseRoleResultOutput)
 }
 
