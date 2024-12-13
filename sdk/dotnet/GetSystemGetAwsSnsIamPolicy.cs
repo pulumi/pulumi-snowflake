@@ -54,6 +54,28 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Output<GetSystemGetAwsSnsIamPolicyResult> Invoke(GetSystemGetAwsSnsIamPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemGetAwsSnsIamPolicyResult>("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args ?? new GetSystemGetAwsSnsIamPolicyInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var snowflakePolicy = Snowflake.GetSystemGetAwsSnsIamPolicy.Invoke(new()
+        ///     {
+        ///         AwsSnsTopicArn = "&lt;aws_sns_topic_arn&gt;",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSystemGetAwsSnsIamPolicyResult> Invoke(GetSystemGetAwsSnsIamPolicyInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSystemGetAwsSnsIamPolicyResult>("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args ?? new GetSystemGetAwsSnsIamPolicyInvokeArgs(), options.WithDefaults());
     }
 
 

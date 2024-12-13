@@ -16,6 +16,9 @@ namespace Pulumi.Snowflake
 
         public static Output<GetFailoverGroupsResult> Invoke(GetFailoverGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFailoverGroupsResult>("snowflake:index/getFailoverGroups:getFailoverGroups", args ?? new GetFailoverGroupsInvokeArgs(), options.WithDefaults());
+
+        public static Output<GetFailoverGroupsResult> Invoke(GetFailoverGroupsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetFailoverGroupsResult>("snowflake:index/getFailoverGroups:getFailoverGroups", args ?? new GetFailoverGroupsInvokeArgs(), options.WithDefaults());
     }
 
 

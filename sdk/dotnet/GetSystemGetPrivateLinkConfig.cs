@@ -192,6 +192,97 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Output<GetSystemGetPrivateLinkConfigResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemGetPrivateLinkConfigResult>("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var snowflakePrivateLink = Snowflake.GetSystemGetPrivateLinkConfig.Invoke();
+        /// 
+        ///     var snowflakePrivateLinkSecurityGroup = new Aws.Index.SecurityGroup("snowflake_private_link", new()
+        ///     {
+        ///         VpcId = vpcId,
+        ///         Ingress = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "fromPort", 80 },
+        ///                 { "toPort", 80 },
+        ///                 { "cidrBlocks", vpcCidr },
+        ///                 { "protocol", "tcp" },
+        ///             },
+        ///             
+        ///             {
+        ///                 { "fromPort", 443 },
+        ///                 { "toPort", 443 },
+        ///                 { "cidrBlocks", vpcCidr },
+        ///                 { "protocol", "tcp" },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var snowflakePrivateLinkVpcEndpoint = new Aws.Index.VpcEndpoint("snowflake_private_link", new()
+        ///     {
+        ///         VpcId = vpcId,
+        ///         ServiceName = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =&gt; getSystemGetPrivateLinkConfigResult.AwsVpceId),
+        ///         VpcEndpointType = "Interface",
+        ///         SecurityGroupIds = new[]
+        ///         {
+        ///             snowflakePrivateLinkSecurityGroup.Id,
+        ///         },
+        ///         SubnetIds = subnetIds,
+        ///         PrivateDnsEnabled = false,
+        ///     });
+        /// 
+        ///     var snowflakePrivateLinkRoute53Zone = new Aws.Index.Route53Zone("snowflake_private_link", new()
+        ///     {
+        ///         Name = "privatelink.snowflakecomputing.com",
+        ///         Vpc = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "vpcId", vpcId },
+        ///             },
+        ///         },
+        ///     });
+        /// 
+        ///     var snowflakePrivateLinkUrl = new Aws.Index.Route53Record("snowflake_private_link_url", new()
+        ///     {
+        ///         ZoneId = snowflakePrivateLinkRoute53Zone.ZoneId,
+        ///         Name = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =&gt; getSystemGetPrivateLinkConfigResult.AccountUrl),
+        ///         Type = "CNAME",
+        ///         Ttl = "300",
+        ///         Records = new[]
+        ///         {
+        ///             snowflakePrivateLinkVpcEndpoint.DnsEntry[0].Dns_name,
+        ///         },
+        ///     });
+        /// 
+        ///     var snowflakePrivateLinkOcspUrl = new Aws.Index.Route53Record("snowflake_private_link_ocsp_url", new()
+        ///     {
+        ///         ZoneId = snowflakePrivateLinkRoute53Zone.ZoneId,
+        ///         Name = snowflakePrivateLink.Apply(getSystemGetPrivateLinkConfigResult =&gt; getSystemGetPrivateLinkConfigResult.OcspUrl),
+        ///         Type = "CNAME",
+        ///         Ttl = "300",
+        ///         Records = new[]
+        ///         {
+        ///             snowflakePrivateLinkVpcEndpoint.DnsEntry[0].Dns_name,
+        ///         },
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSystemGetPrivateLinkConfigResult> Invoke(InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSystemGetPrivateLinkConfigResult>("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

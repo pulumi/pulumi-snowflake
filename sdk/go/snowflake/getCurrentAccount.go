@@ -67,18 +67,8 @@ type GetCurrentAccountResult struct {
 
 func GetCurrentAccountOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCurrentAccountResultOutput {
 	return pulumi.ToOutput(0).ApplyT(func(int) (GetCurrentAccountResultOutput, error) {
-		opts = internal.PkgInvokeDefaultOpts(opts)
-		var rv GetCurrentAccountResult
-		secret, err := ctx.InvokePackageRaw("snowflake:index/getCurrentAccount:getCurrentAccount", nil, &rv, "", opts...)
-		if err != nil {
-			return GetCurrentAccountResultOutput{}, err
-		}
-
-		output := pulumi.ToOutput(rv).(GetCurrentAccountResultOutput)
-		if secret {
-			return pulumi.ToSecret(output).(GetCurrentAccountResultOutput), nil
-		}
-		return output, nil
+		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+		return ctx.InvokeOutput("snowflake:index/getCurrentAccount:getCurrentAccount", nil, GetCurrentAccountResultOutput{}, options).(GetCurrentAccountResultOutput), nil
 	}).(GetCurrentAccountResultOutput)
 }
 

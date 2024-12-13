@@ -58,6 +58,30 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Output<GetSharesResult> Invoke(GetSharesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharesResult>("snowflake:index/getShares:getShares", args ?? new GetSharesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var @this = Snowflake.GetShares.Invoke();
+        /// 
+        ///     var ad = Snowflake.GetShares.Invoke(new()
+        ///     {
+        ///         Pattern = "usage",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSharesResult> Invoke(GetSharesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSharesResult>("snowflake:index/getShares:getShares", args ?? new GetSharesInvokeArgs(), options.WithDefaults());
     }
 
 

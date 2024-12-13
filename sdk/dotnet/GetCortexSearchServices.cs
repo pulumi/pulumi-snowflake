@@ -108,6 +108,55 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Output<GetCortexSearchServicesResult> Invoke(GetCortexSearchServicesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCortexSearchServicesResult>("snowflake:index/getCortexSearchServices:getCortexSearchServices", args ?? new GetCortexSearchServicesInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Simple usage
+        ///     var simple = Snowflake.GetCortexSearchServices.Invoke();
+        /// 
+        ///     // Filtering (like)
+        ///     var like = Snowflake.GetCortexSearchServices.Invoke(new()
+        ///     {
+        ///         Like = "some-name",
+        ///     });
+        /// 
+        ///     // Filtering (starts_with)
+        ///     var startsWith = Snowflake.GetCortexSearchServices.Invoke(new()
+        ///     {
+        ///         StartsWith = "prefix-",
+        ///     });
+        /// 
+        ///     // Filtering (limit)
+        ///     var limit = Snowflake.GetCortexSearchServices.Invoke(new()
+        ///     {
+        ///         Limit = new Snowflake.Inputs.GetCortexSearchServicesLimitInputArgs
+        ///         {
+        ///             Rows = 10,
+        ///             From = "prefix-",
+        ///         },
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["simpleOutput"] = simple.Apply(getCortexSearchServicesResult =&gt; getCortexSearchServicesResult.CortexSearchServices),
+        ///         ["likeOutput"] = like.Apply(getCortexSearchServicesResult =&gt; getCortexSearchServicesResult.CortexSearchServices),
+        ///         ["startsWithOutput"] = startsWith.Apply(getCortexSearchServicesResult =&gt; getCortexSearchServicesResult.CortexSearchServices),
+        ///         ["limitOutput"] = limit.Apply(getCortexSearchServicesResult =&gt; getCortexSearchServicesResult.CortexSearchServices),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetCortexSearchServicesResult> Invoke(GetCortexSearchServicesInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetCortexSearchServicesResult>("snowflake:index/getCortexSearchServices:getCortexSearchServices", args ?? new GetCortexSearchServicesInvokeArgs(), options.WithDefaults());
     }
 
 

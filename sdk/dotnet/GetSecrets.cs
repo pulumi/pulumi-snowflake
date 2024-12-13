@@ -128,6 +128,65 @@ namespace Pulumi.Snowflake
         /// </summary>
         public static Output<GetSecretsResult> Invoke(GetSecretsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("snowflake:index/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithDefaults());
+
+        /// <summary>
+        /// !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
+        /// 
+        /// Datasource used to get details of filtered secrets. Filtering is aligned with the current possibilities for [SHOW SECRETS](https://docs.snowflake.com/en/sql-reference/sql/show-secrets) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `secrets`.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Snowflake = Pulumi.Snowflake;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     // Simple usage
+        ///     var simple = Snowflake.GetSecrets.Invoke();
+        /// 
+        ///     // Filtering (like)
+        ///     var like = Snowflake.GetSecrets.Invoke(new()
+        ///     {
+        ///         Like = "secret-name",
+        ///     });
+        /// 
+        ///     // Filtering by prefix (like)
+        ///     var likePrefix = Snowflake.GetSecrets.Invoke(new()
+        ///     {
+        ///         Like = "prefix%",
+        ///     });
+        /// 
+        ///     // Filtering (in)
+        ///     var @in = Snowflake.GetSecrets.Invoke(new()
+        ///     {
+        ///         In = new Snowflake.Inputs.GetSecretsInInputArgs
+        ///         {
+        ///             Schema = test.FullyQualifiedName,
+        ///         },
+        ///     });
+        /// 
+        ///     // Without additional data (to limit the number of calls make for every found secret)
+        ///     var onlyShow = Snowflake.GetSecrets.Invoke(new()
+        ///     {
+        ///         WithDescribe = false,
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["simpleOutput"] = simple.Apply(getSecretsResult =&gt; getSecretsResult.Secrets),
+        ///         ["likeOutput"] = like.Apply(getSecretsResult =&gt; getSecretsResult.Secrets),
+        ///         ["likePrefixOutput"] = likePrefix.Apply(getSecretsResult =&gt; getSecretsResult.Secrets),
+        ///         ["inOutput"] = @in.Apply(@in =&gt; @in.Apply(getSecretsResult =&gt; getSecretsResult.Secrets)),
+        ///         ["onlyShowOutput"] = onlyShow.Apply(getSecretsResult =&gt; getSecretsResult.Secrets),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
+        public static Output<GetSecretsResult> Invoke(GetSecretsInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("snowflake:index/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithDefaults());
     }
 
 
