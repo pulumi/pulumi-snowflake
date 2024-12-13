@@ -31,14 +31,14 @@ public final class ViewRowAccessPolicyArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Row access policy name.
+     * Row access policy name. For more information about this resource, see docs.
      * 
      */
     @Import(name="policyName", required=true)
     private Output<String> policyName;
 
     /**
-     * @return Row access policy name.
+     * @return Row access policy name. For more information about this resource, see docs.
      * 
      */
     public Output<String> policyName() {
@@ -102,7 +102,7 @@ public final class ViewRowAccessPolicyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param policyName Row access policy name.
+         * @param policyName Row access policy name. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class ViewRowAccessPolicyArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param policyName Row access policy name.
+         * @param policyName Row access policy name. For more information about this resource, see docs.
          * 
          * @return builder
          * 

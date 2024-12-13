@@ -6,6 +6,7 @@ package com.pulumi.snowflake.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import com.pulumi.snowflake.outputs.GetAccountsAccount;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,7 +16,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetAccountsResult {
     /**
-     * @return List of all the accounts available in the organization.
+     * @return Holds the aggregated output of all accounts details queries.
      * 
      */
     private List<GetAccountsAccount> accounts;
@@ -25,14 +26,19 @@ public final class GetAccountsResult {
      */
     private String id;
     /**
-     * @return Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    private @Nullable String pattern;
+    private @Nullable String like;
+    /**
+     * @return Includes dropped accounts that have not yet been deleted.
+     * 
+     */
+    private @Nullable Boolean withHistory;
 
     private GetAccountsResult() {}
     /**
-     * @return List of all the accounts available in the organization.
+     * @return Holds the aggregated output of all accounts details queries.
      * 
      */
     public List<GetAccountsAccount> accounts() {
@@ -46,11 +52,18 @@ public final class GetAccountsResult {
         return this.id;
     }
     /**
-     * @return Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public Optional<String> pattern() {
-        return Optional.ofNullable(this.pattern);
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+    /**
+     * @return Includes dropped accounts that have not yet been deleted.
+     * 
+     */
+    public Optional<Boolean> withHistory() {
+        return Optional.ofNullable(this.withHistory);
     }
 
     public static Builder builder() {
@@ -64,13 +77,15 @@ public final class GetAccountsResult {
     public static final class Builder {
         private List<GetAccountsAccount> accounts;
         private String id;
-        private @Nullable String pattern;
+        private @Nullable String like;
+        private @Nullable Boolean withHistory;
         public Builder() {}
         public Builder(GetAccountsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accounts = defaults.accounts;
     	      this.id = defaults.id;
-    	      this.pattern = defaults.pattern;
+    	      this.like = defaults.like;
+    	      this.withHistory = defaults.withHistory;
         }
 
         @CustomType.Setter
@@ -93,16 +108,23 @@ public final class GetAccountsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder pattern(@Nullable String pattern) {
+        public Builder like(@Nullable String like) {
 
-            this.pattern = pattern;
+            this.like = like;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder withHistory(@Nullable Boolean withHistory) {
+
+            this.withHistory = withHistory;
             return this;
         }
         public GetAccountsResult build() {
             final var _resultValue = new GetAccountsResult();
             _resultValue.accounts = accounts;
             _resultValue.id = id;
-            _resultValue.pattern = pattern;
+            _resultValue.like = like;
+            _resultValue.withHistory = withHistory;
             return _resultValue;
         }
     }

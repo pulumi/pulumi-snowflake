@@ -15,7 +15,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer example "name"
+// $ pulumi import snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer example '"<integration_name>"'
 // ```
 type ApiAuthenticationIntegrationWithJwtBearer struct {
 	pulumi.CustomResourceState
@@ -28,7 +28,7 @@ type ApiAuthenticationIntegrationWithJwtBearer struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrOutput `pulumi:"oauthAccessTokenValidity"`
@@ -38,8 +38,7 @@ type ApiAuthenticationIntegrationWithJwtBearer struct {
 	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod pulumi.StringPtrOutput `pulumi:"oauthClientAuthMethod"`
 	// Specifies the client ID for the OAuth application in the external service.
-	OauthClientId pulumi.StringOutput `pulumi:"oauthClientId"`
-	// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
+	OauthClientId     pulumi.StringOutput `pulumi:"oauthClientId"`
 	OauthClientSecret pulumi.StringOutput `pulumi:"oauthClientSecret"`
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity pulumi.IntPtrOutput `pulumi:"oauthRefreshTokenValidity"`
@@ -99,7 +98,7 @@ type apiAuthenticationIntegrationWithJwtBearerState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity *int    `pulumi:"oauthAccessTokenValidity"`
@@ -109,8 +108,7 @@ type apiAuthenticationIntegrationWithJwtBearerState struct {
 	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod *string `pulumi:"oauthClientAuthMethod"`
 	// Specifies the client ID for the OAuth application in the external service.
-	OauthClientId *string `pulumi:"oauthClientId"`
-	// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
+	OauthClientId     *string `pulumi:"oauthClientId"`
 	OauthClientSecret *string `pulumi:"oauthClientSecret"`
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
@@ -129,7 +127,7 @@ type ApiAuthenticationIntegrationWithJwtBearerState struct {
 	Enabled pulumi.BoolPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrInput
@@ -139,8 +137,7 @@ type ApiAuthenticationIntegrationWithJwtBearerState struct {
 	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod pulumi.StringPtrInput
 	// Specifies the client ID for the OAuth application in the external service.
-	OauthClientId pulumi.StringPtrInput
-	// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
+	OauthClientId     pulumi.StringPtrInput
 	OauthClientSecret pulumi.StringPtrInput
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
@@ -159,7 +156,7 @@ type apiAuthenticationIntegrationWithJwtBearerArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled bool `pulumi:"enabled"`
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity *int   `pulumi:"oauthAccessTokenValidity"`
@@ -169,8 +166,7 @@ type apiAuthenticationIntegrationWithJwtBearerArgs struct {
 	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod *string `pulumi:"oauthClientAuthMethod"`
 	// Specifies the client ID for the OAuth application in the external service.
-	OauthClientId string `pulumi:"oauthClientId"`
-	// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
+	OauthClientId     string `pulumi:"oauthClientId"`
 	OauthClientSecret string `pulumi:"oauthClientSecret"`
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
@@ -184,7 +180,7 @@ type ApiAuthenticationIntegrationWithJwtBearerArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled pulumi.BoolInput
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrInput
@@ -194,8 +190,7 @@ type ApiAuthenticationIntegrationWithJwtBearerArgs struct {
 	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod pulumi.StringPtrInput
 	// Specifies the client ID for the OAuth application in the external service.
-	OauthClientId pulumi.StringInput
-	// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
+	OauthClientId     pulumi.StringInput
 	OauthClientSecret pulumi.StringInput
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
@@ -312,7 +307,7 @@ func (o ApiAuthenticationIntegrationWithJwtBearerOutput) FullyQualifiedName() pu
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithJwtBearer) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ApiAuthenticationIntegrationWithJwtBearerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithJwtBearer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -347,7 +342,6 @@ func (o ApiAuthenticationIntegrationWithJwtBearerOutput) OauthClientId() pulumi.
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithJwtBearer) pulumi.StringOutput { return v.OauthClientId }).(pulumi.StringOutput)
 }
 
-// Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
 func (o ApiAuthenticationIntegrationWithJwtBearerOutput) OauthClientSecret() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithJwtBearer) pulumi.StringOutput { return v.OauthClientSecret }).(pulumi.StringOutput)
 }

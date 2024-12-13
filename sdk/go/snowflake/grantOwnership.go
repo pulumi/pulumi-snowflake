@@ -60,9 +60,9 @@ import (
 type GrantOwnership struct {
 	pulumi.CustomResourceState
 
-	// The fully qualified name of the account role to which privileges will be granted.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName pulumi.StringPtrOutput `pulumi:"accountRoleName"`
-	// The fully qualified name of the database role to which privileges will be granted.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName pulumi.StringPtrOutput `pulumi:"databaseRoleName"`
 	// Configures which object(s) should transfer their ownership to the specified role.
 	On GrantOwnershipOnOutput `pulumi:"on"`
@@ -103,9 +103,9 @@ func GetGrantOwnership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GrantOwnership resources.
 type grantOwnershipState struct {
-	// The fully qualified name of the account role to which privileges will be granted.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName *string `pulumi:"accountRoleName"`
-	// The fully qualified name of the database role to which privileges will be granted.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName *string `pulumi:"databaseRoleName"`
 	// Configures which object(s) should transfer their ownership to the specified role.
 	On *GrantOwnershipOn `pulumi:"on"`
@@ -114,9 +114,9 @@ type grantOwnershipState struct {
 }
 
 type GrantOwnershipState struct {
-	// The fully qualified name of the account role to which privileges will be granted.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName pulumi.StringPtrInput
-	// The fully qualified name of the database role to which privileges will be granted.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName pulumi.StringPtrInput
 	// Configures which object(s) should transfer their ownership to the specified role.
 	On GrantOwnershipOnPtrInput
@@ -129,9 +129,9 @@ func (GrantOwnershipState) ElementType() reflect.Type {
 }
 
 type grantOwnershipArgs struct {
-	// The fully qualified name of the account role to which privileges will be granted.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName *string `pulumi:"accountRoleName"`
-	// The fully qualified name of the database role to which privileges will be granted.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName *string `pulumi:"databaseRoleName"`
 	// Configures which object(s) should transfer their ownership to the specified role.
 	On GrantOwnershipOn `pulumi:"on"`
@@ -141,9 +141,9 @@ type grantOwnershipArgs struct {
 
 // The set of arguments for constructing a GrantOwnership resource.
 type GrantOwnershipArgs struct {
-	// The fully qualified name of the account role to which privileges will be granted.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName pulumi.StringPtrInput
-	// The fully qualified name of the database role to which privileges will be granted.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName pulumi.StringPtrInput
 	// Configures which object(s) should transfer their ownership to the specified role.
 	On GrantOwnershipOnInput
@@ -238,12 +238,12 @@ func (o GrantOwnershipOutput) ToGrantOwnershipOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The fully qualified name of the account role to which privileges will be granted.
+// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 func (o GrantOwnershipOutput) AccountRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantOwnership) pulumi.StringPtrOutput { return v.AccountRoleName }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified name of the database role to which privileges will be granted.
+// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 func (o GrantOwnershipOutput) DatabaseRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantOwnership) pulumi.StringPtrOutput { return v.DatabaseRoleName }).(pulumi.StringPtrOutput)
 }

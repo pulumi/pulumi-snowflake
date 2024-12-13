@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ViewColumnMaskingPolicy {
     /**
-     * @return Specifies the masking policy to set on a column.
+     * @return Specifies the masking policy to set on a column. For more information about this resource, see docs.
      * 
      */
     private String policyName;
@@ -25,7 +25,7 @@ public final class ViewColumnMaskingPolicy {
 
     private ViewColumnMaskingPolicy() {}
     /**
-     * @return Specifies the masking policy to set on a column.
+     * @return Specifies the masking policy to set on a column. For more information about this resource, see docs.
      * 
      */
     public String policyName() {

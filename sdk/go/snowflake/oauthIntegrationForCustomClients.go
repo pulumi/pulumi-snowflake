@@ -15,12 +15,12 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients example "name"
+// $ pulumi import snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients example '"<integration_name>"'
 // ```
 type OauthIntegrationForCustomClients struct {
 	pulumi.CustomResourceState
 
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists pulumi.StringArrayOutput `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -30,9 +30,9 @@ type OauthIntegrationForCustomClients struct {
 	Enabled pulumi.StringPtrOutput `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
+	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
 	NetworkPolicy pulumi.StringPtrOutput `pulumi:"networkPolicy"`
 	// If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthAllowNonTlsRedirectUri pulumi.StringPtrOutput `pulumi:"oauthAllowNonTlsRedirectUri"`
@@ -50,8 +50,10 @@ type OauthIntegrationForCustomClients struct {
 	OauthRefreshTokenValidity pulumi.IntPtrOutput `pulumi:"oauthRefreshTokenValidity"`
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrOutput `pulumi:"oauthUseSecondaryRoles"`
-	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
 	PreAuthorizedRolesLists pulumi.StringArrayOutput `pulumi:"preAuthorizedRolesLists"`
+	// Parameters related to this security integration.
+	RelatedParameters OauthIntegrationForCustomClientsRelatedParameterArrayOutput `pulumi:"relatedParameters"`
 	// Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
 	ShowOutputs OauthIntegrationForCustomClientsShowOutputArrayOutput `pulumi:"showOutputs"`
 }
@@ -63,9 +65,6 @@ func NewOauthIntegrationForCustomClients(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BlockedRolesLists == nil {
-		return nil, errors.New("invalid value for required argument 'BlockedRolesLists'")
-	}
 	if args.OauthClientType == nil {
 		return nil, errors.New("invalid value for required argument 'OauthClientType'")
 	}
@@ -95,7 +94,7 @@ func GetOauthIntegrationForCustomClients(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OauthIntegrationForCustomClients resources.
 type oauthIntegrationForCustomClientsState struct {
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists []string `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
 	Comment *string `pulumi:"comment"`
@@ -105,9 +104,9 @@ type oauthIntegrationForCustomClientsState struct {
 	Enabled *string `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
+	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
 	// If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthAllowNonTlsRedirectUri *string `pulumi:"oauthAllowNonTlsRedirectUri"`
@@ -125,14 +124,16 @@ type oauthIntegrationForCustomClientsState struct {
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles *string `pulumi:"oauthUseSecondaryRoles"`
-	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
 	PreAuthorizedRolesLists []string `pulumi:"preAuthorizedRolesLists"`
+	// Parameters related to this security integration.
+	RelatedParameters []OauthIntegrationForCustomClientsRelatedParameter `pulumi:"relatedParameters"`
 	// Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
 	ShowOutputs []OauthIntegrationForCustomClientsShowOutput `pulumi:"showOutputs"`
 }
 
 type OauthIntegrationForCustomClientsState struct {
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists pulumi.StringArrayInput
 	// Specifies a comment for the OAuth integration.
 	Comment pulumi.StringPtrInput
@@ -142,9 +143,9 @@ type OauthIntegrationForCustomClientsState struct {
 	Enabled pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
+	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
 	NetworkPolicy pulumi.StringPtrInput
 	// If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthAllowNonTlsRedirectUri pulumi.StringPtrInput
@@ -162,8 +163,10 @@ type OauthIntegrationForCustomClientsState struct {
 	OauthRefreshTokenValidity pulumi.IntPtrInput
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrInput
-	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
 	PreAuthorizedRolesLists pulumi.StringArrayInput
+	// Parameters related to this security integration.
+	RelatedParameters OauthIntegrationForCustomClientsRelatedParameterArrayInput
 	// Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
 	ShowOutputs OauthIntegrationForCustomClientsShowOutputArrayInput
 }
@@ -173,15 +176,15 @@ func (OauthIntegrationForCustomClientsState) ElementType() reflect.Type {
 }
 
 type oauthIntegrationForCustomClientsArgs struct {
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists []string `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
 	Comment *string `pulumi:"comment"`
 	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Enabled *string `pulumi:"enabled"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
+	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
 	// If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthAllowNonTlsRedirectUri *string `pulumi:"oauthAllowNonTlsRedirectUri"`
@@ -199,21 +202,21 @@ type oauthIntegrationForCustomClientsArgs struct {
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles *string `pulumi:"oauthUseSecondaryRoles"`
-	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
 	PreAuthorizedRolesLists []string `pulumi:"preAuthorizedRolesLists"`
 }
 
 // The set of arguments for constructing a OauthIntegrationForCustomClients resource.
 type OauthIntegrationForCustomClientsArgs struct {
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists pulumi.StringArrayInput
 	// Specifies a comment for the OAuth integration.
 	Comment pulumi.StringPtrInput
 	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Enabled pulumi.StringPtrInput
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
+	// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
 	NetworkPolicy pulumi.StringPtrInput
 	// If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthAllowNonTlsRedirectUri pulumi.StringPtrInput
@@ -231,7 +234,7 @@ type OauthIntegrationForCustomClientsArgs struct {
 	OauthRefreshTokenValidity pulumi.IntPtrInput
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrInput
-	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
 	PreAuthorizedRolesLists pulumi.StringArrayInput
 }
 
@@ -322,7 +325,7 @@ func (o OauthIntegrationForCustomClientsOutput) ToOauthIntegrationForCustomClien
 	return o
 }
 
-// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 func (o OauthIntegrationForCustomClientsOutput) BlockedRolesLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OauthIntegrationForCustomClients) pulumi.StringArrayOutput { return v.BlockedRolesLists }).(pulumi.StringArrayOutput)
 }
@@ -349,12 +352,12 @@ func (o OauthIntegrationForCustomClientsOutput) FullyQualifiedName() pulumi.Stri
 	return o.ApplyT(func(v *OauthIntegrationForCustomClients) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o OauthIntegrationForCustomClientsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OauthIntegrationForCustomClients) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
+// Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
 func (o OauthIntegrationForCustomClientsOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OauthIntegrationForCustomClients) pulumi.StringPtrOutput { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
@@ -402,9 +405,16 @@ func (o OauthIntegrationForCustomClientsOutput) OauthUseSecondaryRoles() pulumi.
 	return o.ApplyT(func(v *OauthIntegrationForCustomClients) pulumi.StringPtrOutput { return v.OauthUseSecondaryRoles }).(pulumi.StringPtrOutput)
 }
 
-// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
+// A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
 func (o OauthIntegrationForCustomClientsOutput) PreAuthorizedRolesLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OauthIntegrationForCustomClients) pulumi.StringArrayOutput { return v.PreAuthorizedRolesLists }).(pulumi.StringArrayOutput)
+}
+
+// Parameters related to this security integration.
+func (o OauthIntegrationForCustomClientsOutput) RelatedParameters() OauthIntegrationForCustomClientsRelatedParameterArrayOutput {
+	return o.ApplyT(func(v *OauthIntegrationForCustomClients) OauthIntegrationForCustomClientsRelatedParameterArrayOutput {
+		return v.RelatedParameters
+	}).(OauthIntegrationForCustomClientsRelatedParameterArrayOutput)
 }
 
 // Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.

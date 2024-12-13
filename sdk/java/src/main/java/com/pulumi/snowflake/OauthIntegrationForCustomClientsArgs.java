@@ -19,18 +19,18 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     public static final OauthIntegrationForCustomClientsArgs Empty = new OauthIntegrationForCustomClientsArgs();
 
     /**
-     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
-    @Import(name="blockedRolesLists", required=true)
-    private Output<List<String>> blockedRolesLists;
+    @Import(name="blockedRolesLists")
+    private @Nullable Output<List<String>> blockedRolesLists;
 
     /**
-     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
-    public Output<List<String>> blockedRolesLists() {
-        return this.blockedRolesLists;
+    public Optional<Output<List<String>>> blockedRolesLists() {
+        return Optional.ofNullable(this.blockedRolesLists);
     }
 
     /**
@@ -64,14 +64,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -79,14 +79,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
+     * Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
      * 
      */
     @Import(name="networkPolicy")
     private @Nullable Output<String> networkPolicy;
 
     /**
-     * @return Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
+     * @return Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> networkPolicy() {
@@ -213,14 +213,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
+     * A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
      * 
      */
     @Import(name="preAuthorizedRolesLists")
     private @Nullable Output<List<String>> preAuthorizedRolesLists;
 
     /**
-     * @return A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
+     * @return A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> preAuthorizedRolesLists() {
@@ -266,18 +266,18 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
          */
-        public Builder blockedRolesLists(Output<List<String>> blockedRolesLists) {
+        public Builder blockedRolesLists(@Nullable Output<List<String>> blockedRolesLists) {
             $.blockedRolesLists = blockedRolesLists;
             return this;
         }
 
         /**
-         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -287,7 +287,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -339,7 +339,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -360,7 +360,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param networkPolicy Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
+         * @param networkPolicy Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -371,7 +371,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param networkPolicy Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
+         * @param networkPolicy Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -546,7 +546,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param preAuthorizedRolesLists A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
+         * @param preAuthorizedRolesLists A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -557,7 +557,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param preAuthorizedRolesLists A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
+         * @param preAuthorizedRolesLists A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -567,7 +567,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param preAuthorizedRolesLists A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
+         * @param preAuthorizedRolesLists A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -577,9 +577,6 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         public OauthIntegrationForCustomClientsArgs build() {
-            if ($.blockedRolesLists == null) {
-                throw new MissingRequiredPropertyException("OauthIntegrationForCustomClientsArgs", "blockedRolesLists");
-            }
             if ($.oauthClientType == null) {
                 throw new MissingRequiredPropertyException("OauthIntegrationForCustomClientsArgs", "oauthClientType");
             }

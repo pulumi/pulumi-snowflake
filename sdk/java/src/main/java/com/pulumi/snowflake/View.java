@@ -89,17 +89,9 @@ public class View extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
-    /**
-     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
-     * 
-     */
     @Export(name="copyGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyGrants;
 
-    /**
-     * @return Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
-     * 
-     */
     public Output<Optional<Boolean>> copyGrants() {
         return Codegen.optional(this.copyGrants);
     }
@@ -132,14 +124,14 @@ public class View extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataMetricSchedule);
     }
     /**
-     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -200,14 +192,14 @@ public class View extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.isTemporary);
     }
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
@@ -228,14 +220,14 @@ public class View extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rowAccessPolicy);
     }
     /**
-     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -256,14 +248,14 @@ public class View extends com.pulumi.resources.CustomResource {
         return this.showOutputs;
     }
     /**
-     * Specifies the query used to create the view.
+     * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     @Export(name="statement", refs={String.class}, tree="[0]")
     private Output<String> statement;
 
     /**
-     * @return Specifies the query used to create the view.
+     * @return Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     public Output<String> statement() {

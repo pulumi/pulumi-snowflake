@@ -66,28 +66,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/grantOwnership:GrantOwnership")
 public class GrantOwnership extends com.pulumi.resources.CustomResource {
     /**
-     * The fully qualified name of the account role to which privileges will be granted.
+     * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="accountRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountRoleName;
 
     /**
-     * @return The fully qualified name of the account role to which privileges will be granted.
+     * @return The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> accountRoleName() {
         return Codegen.optional(this.accountRoleName);
     }
     /**
-     * The fully qualified name of the database role to which privileges will be granted.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="databaseRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> databaseRoleName;
 
     /**
-     * @return The fully qualified name of the database role to which privileges will be granted.
+     * @return The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> databaseRoleName() {

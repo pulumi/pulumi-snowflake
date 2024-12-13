@@ -18,14 +18,14 @@ public final class DatabaseReplicationEnableToAccountArgs extends com.pulumi.res
     public static final DatabaseReplicationEnableToAccountArgs Empty = new DatabaseReplicationEnableToAccountArgs();
 
     /**
-     * Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;`.
+     * Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;`. For more information about this resource, see docs.
      * 
      */
     @Import(name="accountIdentifier", required=true)
     private Output<String> accountIdentifier;
 
     /**
-     * @return Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;`.
+     * @return Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;`. For more information about this resource, see docs.
      * 
      */
     public Output<String> accountIdentifier() {
@@ -73,7 +73,7 @@ public final class DatabaseReplicationEnableToAccountArgs extends com.pulumi.res
         }
 
         /**
-         * @param accountIdentifier Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;`.
+         * @param accountIdentifier Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class DatabaseReplicationEnableToAccountArgs extends com.pulumi.res
         }
 
         /**
-         * @param accountIdentifier Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;`.
+         * @param accountIdentifier Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 

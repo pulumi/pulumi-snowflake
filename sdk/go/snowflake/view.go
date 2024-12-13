@@ -27,14 +27,13 @@ type View struct {
 	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns ViewColumnArrayOutput `pulumi:"columns"`
 	// Specifies a comment for the view.
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
-	CopyGrants pulumi.BoolPtrOutput `pulumi:"copyGrants"`
+	Comment    pulumi.StringPtrOutput `pulumi:"comment"`
+	CopyGrants pulumi.BoolPtrOutput   `pulumi:"copyGrants"`
 	// Data metric functions used for the view.
 	DataMetricFunctions ViewDataMetricFunctionArrayOutput `pulumi:"dataMetricFunctions"`
 	// Specifies the schedule to run the data metric functions periodically.
 	DataMetricSchedule ViewDataMetricSchedulePtrOutput `pulumi:"dataMetricSchedule"`
-	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE VIEW` for the given view.
 	DescribeOutputs ViewDescribeOutputArrayOutput `pulumi:"describeOutputs"`
@@ -44,15 +43,15 @@ type View struct {
 	IsRecursive pulumi.StringPtrOutput `pulumi:"isRecursive"`
 	IsSecure    pulumi.StringPtrOutput `pulumi:"isSecure"`
 	IsTemporary pulumi.StringPtrOutput `pulumi:"isTemporary"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the row access policy to set on a view.
 	RowAccessPolicy ViewRowAccessPolicyPtrOutput `pulumi:"rowAccessPolicy"`
-	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Outputs the result of `SHOW VIEW` for the given view.
 	ShowOutputs ViewShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Specifies the query used to create the view.
+	// Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	Statement pulumi.StringOutput `pulumi:"statement"`
 }
 
@@ -102,14 +101,13 @@ type viewState struct {
 	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns []ViewColumn `pulumi:"columns"`
 	// Specifies a comment for the view.
-	Comment *string `pulumi:"comment"`
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
-	CopyGrants *bool `pulumi:"copyGrants"`
+	Comment    *string `pulumi:"comment"`
+	CopyGrants *bool   `pulumi:"copyGrants"`
 	// Data metric functions used for the view.
 	DataMetricFunctions []ViewDataMetricFunction `pulumi:"dataMetricFunctions"`
 	// Specifies the schedule to run the data metric functions periodically.
 	DataMetricSchedule *ViewDataMetricSchedule `pulumi:"dataMetricSchedule"`
-	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE VIEW` for the given view.
 	DescribeOutputs []ViewDescribeOutput `pulumi:"describeOutputs"`
@@ -119,15 +117,15 @@ type viewState struct {
 	IsRecursive *string `pulumi:"isRecursive"`
 	IsSecure    *string `pulumi:"isSecure"`
 	IsTemporary *string `pulumi:"isTemporary"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies the row access policy to set on a view.
 	RowAccessPolicy *ViewRowAccessPolicy `pulumi:"rowAccessPolicy"`
-	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
 	// Outputs the result of `SHOW VIEW` for the given view.
 	ShowOutputs []ViewShowOutput `pulumi:"showOutputs"`
-	// Specifies the query used to create the view.
+	// Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	Statement *string `pulumi:"statement"`
 }
 
@@ -139,14 +137,13 @@ type ViewState struct {
 	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns ViewColumnArrayInput
 	// Specifies a comment for the view.
-	Comment pulumi.StringPtrInput
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+	Comment    pulumi.StringPtrInput
 	CopyGrants pulumi.BoolPtrInput
 	// Data metric functions used for the view.
 	DataMetricFunctions ViewDataMetricFunctionArrayInput
 	// Specifies the schedule to run the data metric functions periodically.
 	DataMetricSchedule ViewDataMetricSchedulePtrInput
-	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE VIEW` for the given view.
 	DescribeOutputs ViewDescribeOutputArrayInput
@@ -156,15 +153,15 @@ type ViewState struct {
 	IsRecursive pulumi.StringPtrInput
 	IsSecure    pulumi.StringPtrInput
 	IsTemporary pulumi.StringPtrInput
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies the row access policy to set on a view.
 	RowAccessPolicy ViewRowAccessPolicyPtrInput
-	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
 	// Outputs the result of `SHOW VIEW` for the given view.
 	ShowOutputs ViewShowOutputArrayInput
-	// Specifies the query used to create the view.
+	// Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	Statement pulumi.StringPtrInput
 }
 
@@ -180,26 +177,25 @@ type viewArgs struct {
 	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns []ViewColumn `pulumi:"columns"`
 	// Specifies a comment for the view.
-	Comment *string `pulumi:"comment"`
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
-	CopyGrants *bool `pulumi:"copyGrants"`
+	Comment    *string `pulumi:"comment"`
+	CopyGrants *bool   `pulumi:"copyGrants"`
 	// Data metric functions used for the view.
 	DataMetricFunctions []ViewDataMetricFunction `pulumi:"dataMetricFunctions"`
 	// Specifies the schedule to run the data metric functions periodically.
 	DataMetricSchedule *ViewDataMetricSchedule `pulumi:"dataMetricSchedule"`
-	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
 	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsRecursive *string `pulumi:"isRecursive"`
 	IsSecure    *string `pulumi:"isSecure"`
 	IsTemporary *string `pulumi:"isTemporary"`
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies the row access policy to set on a view.
 	RowAccessPolicy *ViewRowAccessPolicy `pulumi:"rowAccessPolicy"`
-	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
-	// Specifies the query used to create the view.
+	// Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	Statement string `pulumi:"statement"`
 }
 
@@ -212,26 +208,25 @@ type ViewArgs struct {
 	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns ViewColumnArrayInput
 	// Specifies a comment for the view.
-	Comment pulumi.StringPtrInput
-	// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
+	Comment    pulumi.StringPtrInput
 	CopyGrants pulumi.BoolPtrInput
 	// Data metric functions used for the view.
 	DataMetricFunctions ViewDataMetricFunctionArrayInput
 	// Specifies the schedule to run the data metric functions periodically.
 	DataMetricSchedule ViewDataMetricSchedulePtrInput
-	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
 	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsRecursive pulumi.StringPtrInput
 	IsSecure    pulumi.StringPtrInput
 	IsTemporary pulumi.StringPtrInput
-	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies the row access policy to set on a view.
 	RowAccessPolicy ViewRowAccessPolicyPtrInput
-	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
-	// Specifies the query used to create the view.
+	// Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	Statement pulumi.StringInput
 }
 
@@ -342,7 +337,6 @@ func (o ViewOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
 func (o ViewOutput) CopyGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.BoolPtrOutput { return v.CopyGrants }).(pulumi.BoolPtrOutput)
 }
@@ -357,7 +351,7 @@ func (o ViewOutput) DataMetricSchedule() ViewDataMetricSchedulePtrOutput {
 	return o.ApplyT(func(v *View) ViewDataMetricSchedulePtrOutput { return v.DataMetricSchedule }).(ViewDataMetricSchedulePtrOutput)
 }
 
-// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ViewOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -385,7 +379,7 @@ func (o ViewOutput) IsTemporary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.IsTemporary }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -395,7 +389,7 @@ func (o ViewOutput) RowAccessPolicy() ViewRowAccessPolicyPtrOutput {
 	return o.ApplyT(func(v *View) ViewRowAccessPolicyPtrOutput { return v.RowAccessPolicy }).(ViewRowAccessPolicyPtrOutput)
 }
 
-// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ViewOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
@@ -405,7 +399,7 @@ func (o ViewOutput) ShowOutputs() ViewShowOutputArrayOutput {
 	return o.ApplyT(func(v *View) ViewShowOutputArrayOutput { return v.ShowOutputs }).(ViewShowOutputArrayOutput)
 }
 
-// Specifies the query used to create the view.
+// Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 func (o ViewOutput) Statement() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.Statement }).(pulumi.StringOutput)
 }

@@ -23,10 +23,8 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * format is database name | schema name | task name
- * 
  * ```sh
- * $ pulumi import snowflake:index/task:Task example &#39;dbName|schemaName|taskName&#39;
+ * $ pulumi import snowflake:index/task:Task example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;task_name&gt;&#34;&#39;
  * ```
  * 
  */
@@ -47,14 +45,14 @@ public class Task extends com.pulumi.resources.CustomResource {
         return this.abortDetachedQuery;
     }
     /**
-     * Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="afters", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> afters;
 
     /**
-     * @return Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<Optional<List<String>>> afters() {
@@ -257,14 +255,14 @@ public class Task extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.config);
     }
     /**
-     * The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -313,14 +311,14 @@ public class Task extends com.pulumi.resources.CustomResource {
         return this.enableUnloadPhysicalTypeOptimization;
     }
     /**
-     * Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     @Export(name="errorIntegration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> errorIntegration;
 
     /**
-     * @return Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> errorIntegration() {
@@ -355,14 +353,14 @@ public class Task extends com.pulumi.resources.CustomResource {
         return this.errorOnNondeterministicUpdate;
     }
     /**
-     * Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="finalize", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> finalize;
 
     /**
-     * @return Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<Optional<String>> finalize_() {
@@ -495,14 +493,14 @@ public class Task extends com.pulumi.resources.CustomResource {
         return this.multiStatementCount;
     }
     /**
-     * Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
@@ -621,14 +619,14 @@ public class Task extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schedule);
     }
     /**
-     * The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -985,14 +983,14 @@ public class Task extends com.pulumi.resources.CustomResource {
         return this.useCachedResult;
     }
     /**
-     * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse) For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+     * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      * 
      */
     @Export(name="userTaskManagedInitialWarehouseSize", refs={String.class}, tree="[0]")
     private Output<String> userTaskManagedInitialWarehouseSize;
 
     /**
-     * @return Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse) For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+     * @return Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      * 
      */
     public Output<String> userTaskManagedInitialWarehouseSize() {
@@ -1027,14 +1025,14 @@ public class Task extends com.pulumi.resources.CustomResource {
         return this.userTaskTimeoutMs;
     }
     /**
-     * The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size)
+     * The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
      * 
      */
     @Export(name="warehouse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> warehouse;
 
     /**
-     * @return The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size)
+     * @return The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> warehouse() {

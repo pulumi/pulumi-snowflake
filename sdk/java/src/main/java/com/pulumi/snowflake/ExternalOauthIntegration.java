@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example &#34;name&#34;
+ * $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example &#39;&#34;&lt;integration_name&gt;&#34;&#39;
  * ```
  * 
  */
@@ -72,14 +72,14 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
         return this.enabled;
     }
     /**
-     * Specifies the list of roles that the client can set as the primary role.
+     * Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
      * 
      */
     @Export(name="externalOauthAllowedRolesLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> externalOauthAllowedRolesLists;
 
     /**
-     * @return Specifies the list of roles that the client can set as the primary role.
+     * @return Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<List<String>>> externalOauthAllowedRolesLists() {
@@ -114,14 +114,14 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
         return Codegen.optional(this.externalOauthAudienceLists);
     }
     /**
-     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     @Export(name="externalOauthBlockedRolesLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> externalOauthBlockedRolesLists;
 
     /**
-     * @return Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+     * @return Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<List<String>>> externalOauthBlockedRolesLists() {
@@ -268,28 +268,28 @@ public class ExternalOauthIntegration extends com.pulumi.resources.CustomResourc
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Paramteres related to this security integration.
+     * Parameters related to this security integration.
      * 
      */
     @Export(name="relatedParameters", refs={List.class,ExternalOauthIntegrationRelatedParameter.class}, tree="[0,1]")
     private Output<List<ExternalOauthIntegrationRelatedParameter>> relatedParameters;
 
     /**
-     * @return Paramteres related to this security integration.
+     * @return Parameters related to this security integration.
      * 
      */
     public Output<List<ExternalOauthIntegrationRelatedParameter>> relatedParameters() {

@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DatabaseReplicationEnableToAccount {
     /**
-     * @return Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;`.
+     * @return Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;`. For more information about this resource, see docs.
      * 
      */
     private String accountIdentifier;
@@ -26,7 +26,7 @@ public final class DatabaseReplicationEnableToAccount {
 
     private DatabaseReplicationEnableToAccount() {}
     /**
-     * @return Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;`.
+     * @return Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;`. For more information about this resource, see docs.
      * 
      */
     public String accountIdentifier() {

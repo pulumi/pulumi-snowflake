@@ -17,14 +17,14 @@ public final class GrantOwnershipOnFutureArgs extends com.pulumi.resources.Resou
     public static final GrantOwnershipOnFutureArgs Empty = new GrantOwnershipOnFutureArgs();
 
     /**
-     * The fully qualified name of the database.
+     * The fully qualified name of the database. For more information about this resource, see docs.
      * 
      */
     @Import(name="inDatabase")
     private @Nullable Output<String> inDatabase;
 
     /**
-     * @return The fully qualified name of the database.
+     * @return The fully qualified name of the database. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> inDatabase() {
@@ -32,14 +32,14 @@ public final class GrantOwnershipOnFutureArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The fully qualified name of the schema.
+     * The fully qualified name of the schema. For more information about this resource, see docs.
      * 
      */
     @Import(name="inSchema")
     private @Nullable Output<String> inSchema;
 
     /**
-     * @return The fully qualified name of the schema.
+     * @return The fully qualified name of the schema. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> inSchema() {
@@ -88,7 +88,7 @@ public final class GrantOwnershipOnFutureArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param inDatabase The fully qualified name of the database.
+         * @param inDatabase The fully qualified name of the database. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class GrantOwnershipOnFutureArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param inDatabase The fully qualified name of the database.
+         * @param inDatabase The fully qualified name of the database. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -109,7 +109,7 @@ public final class GrantOwnershipOnFutureArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param inSchema The fully qualified name of the schema.
+         * @param inSchema The fully qualified name of the schema. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class GrantOwnershipOnFutureArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param inSchema The fully qualified name of the schema.
+         * @param inSchema The fully qualified name of the schema. For more information about this resource, see docs.
          * 
          * @return builder
          * 

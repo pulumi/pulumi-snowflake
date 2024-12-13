@@ -85,28 +85,28 @@ public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.alwaysApplyTrigger);
     }
     /**
-     * The fully qualified name of the database role to which privileges will be granted.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="databaseRoleName", refs={String.class}, tree="[0]")
     private Output<String> databaseRoleName;
 
     /**
-     * @return The fully qualified name of the database role to which privileges will be granted.
+     * @return The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<String> databaseRoleName() {
         return this.databaseRoleName;
     }
     /**
-     * The fully qualified name of the database on which privileges will be granted.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="onDatabase", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onDatabase;
 
     /**
-     * @return The fully qualified name of the database on which privileges will be granted.
+     * @return The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> onDatabase() {

@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example &#34;name&#34;
+ * $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example &#39;&#34;&lt;network_policy_name&gt;&#34;&#39;
  * ```
  * 
  */
@@ -42,14 +42,14 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowedIpLists);
     }
     /**
-     * Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+     * Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
      * 
      */
     @Export(name="allowedNetworkRuleLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedNetworkRuleLists;
 
     /**
-     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<List<String>>> allowedNetworkRuleLists() {
@@ -70,14 +70,14 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.blockedIpLists);
     }
     /**
-     * Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+     * Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
      * 
      */
     @Export(name="blockedNetworkRuleLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blockedNetworkRuleLists;
 
     /**
-     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<List<String>>> blockedNetworkRuleLists() {
@@ -126,14 +126,14 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {

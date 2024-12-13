@@ -11,6 +11,7 @@ import com.pulumi.snowflake.OauthIntegrationForCustomClientsArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsState;
 import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutput;
+import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsRelatedParameter;
 import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsShowOutput;
 import java.lang.Integer;
 import java.lang.String;
@@ -22,25 +23,25 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients example &#34;name&#34;
+ * $ pulumi import snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients example &#39;&#34;&lt;integration_name&gt;&#34;&#39;
  * ```
  * 
  */
 @ResourceType(type="snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients")
 public class OauthIntegrationForCustomClients extends com.pulumi.resources.CustomResource {
     /**
-     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     @Export(name="blockedRolesLists", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> blockedRolesLists;
+    private Output</* @Nullable */ List<String>> blockedRolesLists;
 
     /**
-     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
-    public Output<List<String>> blockedRolesLists() {
-        return this.blockedRolesLists;
+    public Output<Optional<List<String>>> blockedRolesLists() {
+        return Codegen.optional(this.blockedRolesLists);
     }
     /**
      * Specifies a comment for the OAuth integration.
@@ -99,28 +100,28 @@ public class OauthIntegrationForCustomClients extends com.pulumi.resources.Custo
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
+     * Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
      * 
      */
     @Export(name="networkPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkPolicy;
 
     /**
-     * @return Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token.
+     * @return Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> networkPolicy() {
@@ -237,18 +238,32 @@ public class OauthIntegrationForCustomClients extends com.pulumi.resources.Custo
         return Codegen.optional(this.oauthUseSecondaryRoles);
     }
     /**
-     * A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
+     * A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
      * 
      */
     @Export(name="preAuthorizedRolesLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> preAuthorizedRolesLists;
 
     /**
-     * @return A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating.
+     * @return A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<List<String>>> preAuthorizedRolesLists() {
         return Codegen.optional(this.preAuthorizedRolesLists);
+    }
+    /**
+     * Parameters related to this security integration.
+     * 
+     */
+    @Export(name="relatedParameters", refs={List.class,OauthIntegrationForCustomClientsRelatedParameter.class}, tree="[0,1]")
+    private Output<List<OauthIntegrationForCustomClientsRelatedParameter>> relatedParameters;
+
+    /**
+     * @return Parameters related to this security integration.
+     * 
+     */
+    public Output<List<OauthIntegrationForCustomClientsRelatedParameter>> relatedParameters() {
+        return this.relatedParameters;
     }
     /**
      * Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.

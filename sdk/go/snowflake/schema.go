@@ -14,8 +14,6 @@ import (
 
 // ## Import
 //
-// format is <database_name>.<schema_name>
-//
 // ```sh
 // $ pulumi import snowflake:index/schema:Schema example '"<database_name>"."<schema_name>"'
 // ```
@@ -28,7 +26,7 @@ type Schema struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays pulumi.IntOutput `pulumi:"dataRetentionTimeInDays"`
-	// The database in which to create the schema.
+	// The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringOutput `pulumi:"defaultDdlCollation"`
@@ -46,7 +44,7 @@ type Schema struct {
 	LogLevel pulumi.StringOutput `pulumi:"logLevel"`
 	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays pulumi.IntOutput `pulumi:"maxDataExtensionTimeInDays"`
-	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
 	Parameters SchemaParameterArrayOutput `pulumi:"parameters"`
@@ -115,7 +113,7 @@ type schemaState struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
-	// The database in which to create the schema.
+	// The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation *string `pulumi:"defaultDdlCollation"`
@@ -133,7 +131,7 @@ type schemaState struct {
 	LogLevel *string `pulumi:"logLevel"`
 	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays *int `pulumi:"maxDataExtensionTimeInDays"`
-	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
 	Parameters []SchemaParameter `pulumi:"parameters"`
@@ -170,7 +168,7 @@ type SchemaState struct {
 	Comment pulumi.StringPtrInput
 	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays pulumi.IntPtrInput
-	// The database in which to create the schema.
+	// The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringPtrInput
@@ -188,7 +186,7 @@ type SchemaState struct {
 	LogLevel pulumi.StringPtrInput
 	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays pulumi.IntPtrInput
-	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW PARAMETERS IN SCHEMA` for the given object.
 	Parameters SchemaParameterArrayInput
@@ -229,7 +227,7 @@ type schemaArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
-	// The database in which to create the schema.
+	// The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation *string `pulumi:"defaultDdlCollation"`
@@ -243,7 +241,7 @@ type schemaArgs struct {
 	LogLevel *string `pulumi:"logLevel"`
 	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays *int `pulumi:"maxDataExtensionTimeInDays"`
-	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
 	PipeExecutionPaused *bool `pulumi:"pipeExecutionPaused"`
@@ -277,7 +275,7 @@ type SchemaArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays pulumi.IntPtrInput
-	// The database in which to create the schema.
+	// The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringPtrInput
@@ -291,7 +289,7 @@ type SchemaArgs struct {
 	LogLevel pulumi.StringPtrInput
 	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays pulumi.IntPtrInput
-	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+	// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
 	PipeExecutionPaused pulumi.BoolPtrInput
@@ -419,7 +417,7 @@ func (o SchemaOutput) DataRetentionTimeInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *Schema) pulumi.IntOutput { return v.DataRetentionTimeInDays }).(pulumi.IntOutput)
 }
 
-// The database in which to create the schema.
+// The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o SchemaOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -464,7 +462,7 @@ func (o SchemaOutput) MaxDataExtensionTimeInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *Schema) pulumi.IntOutput { return v.MaxDataExtensionTimeInDays }).(pulumi.IntOutput)
 }
 
-// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+// Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o SchemaOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

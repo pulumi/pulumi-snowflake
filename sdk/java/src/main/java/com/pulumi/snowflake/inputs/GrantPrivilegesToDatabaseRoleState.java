@@ -57,14 +57,14 @@ public final class GrantPrivilegesToDatabaseRoleState extends com.pulumi.resourc
     }
 
     /**
-     * The fully qualified name of the database role to which privileges will be granted.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Import(name="databaseRoleName")
     private @Nullable Output<String> databaseRoleName;
 
     /**
-     * @return The fully qualified name of the database role to which privileges will be granted.
+     * @return The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> databaseRoleName() {
@@ -72,14 +72,14 @@ public final class GrantPrivilegesToDatabaseRoleState extends com.pulumi.resourc
     }
 
     /**
-     * The fully qualified name of the database on which privileges will be granted.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Import(name="onDatabase")
     private @Nullable Output<String> onDatabase;
 
     /**
-     * @return The fully qualified name of the database on which privileges will be granted.
+     * @return The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> onDatabase() {
@@ -230,7 +230,7 @@ public final class GrantPrivilegesToDatabaseRoleState extends com.pulumi.resourc
         }
 
         /**
-         * @param databaseRoleName The fully qualified name of the database role to which privileges will be granted.
+         * @param databaseRoleName The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -241,7 +241,7 @@ public final class GrantPrivilegesToDatabaseRoleState extends com.pulumi.resourc
         }
 
         /**
-         * @param databaseRoleName The fully qualified name of the database role to which privileges will be granted.
+         * @param databaseRoleName The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class GrantPrivilegesToDatabaseRoleState extends com.pulumi.resourc
         }
 
         /**
-         * @param onDatabase The fully qualified name of the database on which privileges will be granted.
+         * @param onDatabase The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class GrantPrivilegesToDatabaseRoleState extends com.pulumi.resourc
         }
 
         /**
-         * @param onDatabase The fully qualified name of the database on which privileges will be granted.
+         * @param onDatabase The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 

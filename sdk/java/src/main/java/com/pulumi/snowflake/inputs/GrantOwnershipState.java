@@ -17,14 +17,14 @@ public final class GrantOwnershipState extends com.pulumi.resources.ResourceArgs
     public static final GrantOwnershipState Empty = new GrantOwnershipState();
 
     /**
-     * The fully qualified name of the account role to which privileges will be granted.
+     * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Import(name="accountRoleName")
     private @Nullable Output<String> accountRoleName;
 
     /**
-     * @return The fully qualified name of the account role to which privileges will be granted.
+     * @return The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> accountRoleName() {
@@ -32,14 +32,14 @@ public final class GrantOwnershipState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The fully qualified name of the database role to which privileges will be granted.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Import(name="databaseRoleName")
     private @Nullable Output<String> databaseRoleName;
 
     /**
-     * @return The fully qualified name of the database role to which privileges will be granted.
+     * @return The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> databaseRoleName() {
@@ -104,7 +104,7 @@ public final class GrantOwnershipState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param accountRoleName The fully qualified name of the account role to which privileges will be granted.
+         * @param accountRoleName The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class GrantOwnershipState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param accountRoleName The fully qualified name of the account role to which privileges will be granted.
+         * @param accountRoleName The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class GrantOwnershipState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param databaseRoleName The fully qualified name of the database role to which privileges will be granted.
+         * @param databaseRoleName The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class GrantOwnershipState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param databaseRoleName The fully qualified name of the database role to which privileges will be granted.
+         * @param databaseRoleName The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 

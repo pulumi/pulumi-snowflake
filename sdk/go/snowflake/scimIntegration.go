@@ -15,7 +15,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import snowflake:index/scimIntegration:ScimIntegration example "name"
+// $ pulumi import snowflake:index/scimIntegration:ScimIntegration example '"<integration_name>"'
 // ```
 type ScimIntegration struct {
 	pulumi.CustomResourceState
@@ -28,9 +28,9 @@ type ScimIntegration struct {
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies an existing network policy that controls SCIM network traffic.
+	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy pulumi.StringPtrOutput `pulumi:"networkPolicy"`
 	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
 	RunAsRole pulumi.StringOutput `pulumi:"runAsRole"`
@@ -89,9 +89,9 @@ type scimIntegrationState struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies an existing network policy that controls SCIM network traffic.
+	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
 	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
 	RunAsRole *string `pulumi:"runAsRole"`
@@ -112,9 +112,9 @@ type ScimIntegrationState struct {
 	Enabled pulumi.BoolPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies an existing network policy that controls SCIM network traffic.
+	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy pulumi.StringPtrInput
 	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
 	RunAsRole pulumi.StringPtrInput
@@ -135,9 +135,9 @@ type scimIntegrationArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specify whether the security integration is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies an existing network policy that controls SCIM network traffic.
+	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
 	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
 	RunAsRole string `pulumi:"runAsRole"`
@@ -153,9 +153,9 @@ type ScimIntegrationArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specify whether the security integration is enabled.
 	Enabled pulumi.BoolInput
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies an existing network policy that controls SCIM network traffic.
+	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy pulumi.StringPtrInput
 	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
 	RunAsRole pulumi.StringInput
@@ -272,12 +272,12 @@ func (o ScimIntegrationOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ScimIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies an existing network policy that controls SCIM network traffic.
+// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 func (o ScimIntegrationOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.StringPtrOutput { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }

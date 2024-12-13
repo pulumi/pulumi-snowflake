@@ -34,14 +34,14 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+     * Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
      * 
      */
     @Import(name="allowedNetworkRuleLists")
     private @Nullable Output<List<String>> allowedNetworkRuleLists;
 
     /**
-     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> allowedNetworkRuleLists() {
@@ -64,14 +64,14 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+     * Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
      * 
      */
     @Import(name="blockedNetworkRuleLists")
     private @Nullable Output<List<String>> blockedNetworkRuleLists;
 
     /**
-     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> blockedNetworkRuleLists() {
@@ -124,14 +124,14 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -217,7 +217,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+         * @param allowedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+         * @param allowedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake.
+         * @param allowedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param blockedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+         * @param blockedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param blockedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+         * @param blockedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param blockedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake.
+         * @param blockedNetworkRuleLists Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class NetworkPolicyState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

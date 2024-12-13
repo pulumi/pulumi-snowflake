@@ -23,7 +23,7 @@ namespace Pulumi.Snowflake
         /// SQL statement to execute. Forces recreation of resource on change.
         /// </summary>
         [Output("execute")]
-        public Output<string> Execute { get; private set; } = null!;
+        public Output<string> ExecuteSQL { get; private set; } = null!;
 
         /// <summary>
         /// Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
@@ -93,7 +93,7 @@ namespace Pulumi.Snowflake
         /// SQL statement to execute. Forces recreation of resource on change.
         /// </summary>
         [Input("execute", required: true)]
-        public Input<string> Execute { get; set; } = null!;
+        public Input<string> ExecuteSQL { get; set; } = null!;
 
         /// <summary>
         /// Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
@@ -119,7 +119,7 @@ namespace Pulumi.Snowflake
         /// SQL statement to execute. Forces recreation of resource on change.
         /// </summary>
         [Input("execute")]
-        public Input<string>? Execute { get; set; }
+        public Input<string>? ExecuteSQL { get; set; }
 
         /// <summary>
         /// Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.

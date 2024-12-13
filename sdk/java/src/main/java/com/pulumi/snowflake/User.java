@@ -262,14 +262,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultNamespace);
     }
     /**
-     * Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists.
+     * Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
      * 
      */
     @Export(name="defaultRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultRole;
 
     /**
-     * @return Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists.
+     * @return Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> defaultRole() {
@@ -290,14 +290,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.defaultSecondaryRolesOption);
     }
     /**
-     * Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists.
+     * Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
      * 
      */
     @Export(name="defaultWarehouse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultWarehouse;
 
     /**
-     * @return Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists.
+     * @return Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> defaultWarehouse() {
@@ -630,14 +630,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.mustChangePassword);
     }
     /**
-     * Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {

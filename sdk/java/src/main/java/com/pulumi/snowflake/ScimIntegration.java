@@ -22,7 +22,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/scimIntegration:ScimIntegration example &#34;name&#34;
+ * $ pulumi import snowflake:index/scimIntegration:ScimIntegration example &#39;&#34;&lt;integration_name&gt;&#34;&#39;
  * ```
  * 
  */
@@ -85,28 +85,28 @@ public class ScimIntegration extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies an existing network policy that controls SCIM network traffic.
+     * Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
      * 
      */
     @Export(name="networkPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkPolicy;
 
     /**
-     * @return Specifies an existing network policy that controls SCIM network traffic.
+     * @return Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> networkPolicy() {

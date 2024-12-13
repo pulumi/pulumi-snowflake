@@ -16,14 +16,14 @@ public final class GrantAccountRoleState extends com.pulumi.resources.ResourceAr
     public static final GrantAccountRoleState Empty = new GrantAccountRoleState();
 
     /**
-     * The fully qualified name of the parent role which will create a parent-child relationship between the roles.
+     * The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      * 
      */
     @Import(name="parentRoleName")
     private @Nullable Output<String> parentRoleName;
 
     /**
-     * @return The fully qualified name of the parent role which will create a parent-child relationship between the roles.
+     * @return The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> parentRoleName() {
@@ -31,14 +31,14 @@ public final class GrantAccountRoleState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The fully qualified name of the role which will be granted to the user or parent role.
+     * The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
      * 
      */
     @Import(name="roleName")
     private @Nullable Output<String> roleName;
 
     /**
-     * @return The fully qualified name of the role which will be granted to the user or parent role.
+     * @return The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> roleName() {
@@ -46,14 +46,14 @@ public final class GrantAccountRoleState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The fully qualified name of the user on which specified role will be granted.
+     * The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
      * 
      */
     @Import(name="userName")
     private @Nullable Output<String> userName;
 
     /**
-     * @return The fully qualified name of the user on which specified role will be granted.
+     * @return The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> userName() {
@@ -87,7 +87,7 @@ public final class GrantAccountRoleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param parentRoleName The fully qualified name of the parent role which will create a parent-child relationship between the roles.
+         * @param parentRoleName The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class GrantAccountRoleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param parentRoleName The fully qualified name of the parent role which will create a parent-child relationship between the roles.
+         * @param parentRoleName The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class GrantAccountRoleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param roleName The fully qualified name of the role which will be granted to the user or parent role.
+         * @param roleName The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class GrantAccountRoleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param roleName The fully qualified name of the role which will be granted to the user or parent role.
+         * @param roleName The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class GrantAccountRoleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userName The fully qualified name of the user on which specified role will be granted.
+         * @param userName The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class GrantAccountRoleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param userName The fully qualified name of the user on which specified role will be granted.
+         * @param userName The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 

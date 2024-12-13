@@ -21,21 +21,21 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/secondaryConnection:SecondaryConnection example &#39;secondary_connection_name&#39;
+ * $ pulumi import snowflake:index/secondaryConnection:SecondaryConnection example &#39;&#34;&lt;secondary_connection_name&gt;&#34;&#39;
  * ```
  * 
  */
 @ResourceType(type="snowflake:index/secondaryConnection:SecondaryConnection")
 public class SecondaryConnection extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection).
+     * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
      * 
      */
     @Export(name="asReplicaOf", refs={String.class}, tree="[0]")
     private Output<String> asReplicaOf;
 
     /**
-     * @return Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection).
+     * @return Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
      * 
      */
     public Output<String> asReplicaOf() {
@@ -84,14 +84,14 @@ public class SecondaryConnection extends com.pulumi.resources.CustomResource {
         return this.isPrimary;
     }
     /**
-     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {

@@ -66,14 +66,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the list of roles that the client can set as the primary role.
+     * Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
      * 
      */
     @Import(name="externalOauthAllowedRolesLists")
     private @Nullable Output<List<String>> externalOauthAllowedRolesLists;
 
     /**
-     * @return Specifies the list of roles that the client can set as the primary role.
+     * @return Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> externalOauthAllowedRolesLists() {
@@ -111,14 +111,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     @Import(name="externalOauthBlockedRolesLists")
     private @Nullable Output<List<String>> externalOauthBlockedRolesLists;
 
     /**
-     * @return Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+     * @return Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> externalOauthBlockedRolesLists() {
@@ -276,14 +276,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -291,14 +291,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Paramteres related to this security integration.
+     * Parameters related to this security integration.
      * 
      */
     @Import(name="relatedParameters")
     private @Nullable Output<List<ExternalOauthIntegrationRelatedParameterArgs>> relatedParameters;
 
     /**
-     * @return Paramteres related to this security integration.
+     * @return Parameters related to this security integration.
      * 
      */
     public Optional<Output<List<ExternalOauthIntegrationRelatedParameterArgs>>> relatedParameters() {
@@ -437,7 +437,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role.
+         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -448,7 +448,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role.
+         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role.
+         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -520,7 +520,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -531,7 +531,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -541,7 +541,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -781,7 +781,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -792,7 +792,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -802,7 +802,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param relatedParameters Paramteres related to this security integration.
+         * @param relatedParameters Parameters related to this security integration.
          * 
          * @return builder
          * 
@@ -813,7 +813,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param relatedParameters Paramteres related to this security integration.
+         * @param relatedParameters Parameters related to this security integration.
          * 
          * @return builder
          * 
@@ -823,7 +823,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param relatedParameters Paramteres related to this security integration.
+         * @param relatedParameters Parameters related to this security integration.
          * 
          * @return builder
          * 

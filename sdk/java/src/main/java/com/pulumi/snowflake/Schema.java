@@ -23,8 +23,6 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * format is &lt;database_name&gt;.&lt;schema_name&gt;
- * 
  * ```sh
  * $ pulumi import snowflake:index/schema:Schema example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;&#39;
  * ```
@@ -75,14 +73,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return this.dataRetentionTimeInDays;
     }
     /**
-     * The database in which to create the schema.
+     * The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the schema.
+     * @return The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -201,14 +199,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return this.maxDataExtensionTimeInDays;
     }
     /**
-     * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+     * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+     * @return Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {

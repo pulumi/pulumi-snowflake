@@ -13,10 +13,8 @@ import (
 
 // ## Import
 //
-// format is the resource monitor name
-//
 // ```sh
-// $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
+// $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example '"<resource_monitor_name>"'
 // ```
 type ResourceMonitor struct {
 	pulumi.CustomResourceState
@@ -29,11 +27,11 @@ type ResourceMonitor struct {
 	Frequency pulumi.StringPtrOutput `pulumi:"frequency"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
 	NotifyTriggers pulumi.IntArrayOutput `pulumi:"notifyTriggers"`
-	// Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+	// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
 	NotifyUsers pulumi.StringArrayOutput `pulumi:"notifyUsers"`
 	// Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
 	ShowOutputs ResourceMonitorShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -83,11 +81,11 @@ type resourceMonitorState struct {
 	Frequency *string `pulumi:"frequency"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
 	NotifyTriggers []int `pulumi:"notifyTriggers"`
-	// Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+	// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
 	NotifyUsers []string `pulumi:"notifyUsers"`
 	// Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
 	ShowOutputs []ResourceMonitorShowOutput `pulumi:"showOutputs"`
@@ -108,11 +106,11 @@ type ResourceMonitorState struct {
 	Frequency pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
 	NotifyTriggers pulumi.IntArrayInput
-	// Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+	// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
 	NotifyUsers pulumi.StringArrayInput
 	// Outputs the result of `SHOW RESOURCE MONITORS` for the given resource monitor.
 	ShowOutputs ResourceMonitorShowOutputArrayInput
@@ -135,11 +133,11 @@ type resourceMonitorArgs struct {
 	EndTimestamp *string `pulumi:"endTimestamp"`
 	// The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `startTimestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
 	Frequency *string `pulumi:"frequency"`
-	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
 	NotifyTriggers []int `pulumi:"notifyTriggers"`
-	// Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+	// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
 	NotifyUsers []string `pulumi:"notifyUsers"`
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
 	StartTimestamp *string `pulumi:"startTimestamp"`
@@ -157,11 +155,11 @@ type ResourceMonitorArgs struct {
 	EndTimestamp pulumi.StringPtrInput
 	// The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `startTimestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
 	Frequency pulumi.StringPtrInput
-	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notifyUsers field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
 	NotifyTriggers pulumi.IntArrayInput
-	// Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+	// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
 	NotifyUsers pulumi.StringArrayInput
 	// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `startTimestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
 	StartTimestamp pulumi.StringPtrInput
@@ -278,7 +276,7 @@ func (o ResourceMonitorOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ResourceMonitorOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -288,7 +286,7 @@ func (o ResourceMonitorOutput) NotifyTriggers() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.IntArrayOutput { return v.NotifyTriggers }).(pulumi.IntArrayOutput)
 }
 
-// Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
 func (o ResourceMonitorOutput) NotifyUsers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceMonitor) pulumi.StringArrayOutput { return v.NotifyUsers }).(pulumi.StringArrayOutput)
 }

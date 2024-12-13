@@ -10,7 +10,6 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.TagAssociationArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.TagAssociationState;
-import com.pulumi.snowflake.outputs.TagAssociationObjectIdentifier;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -20,46 +19,28 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * format is dbName.schemaName.tagName or dbName.schemaName.tagName
+ * ~&gt; **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
  * 
  * ```sh
- * $ pulumi import snowflake:index/tagAssociation:TagAssociation example &#39;dbName.schemaName.tagName&#39;
+ * $ pulumi import snowflake:index/tagAssociation:TagAssociation example &#39;&#34;TAG_DATABASE&#34;.&#34;TAG_SCHEMA&#34;.&#34;TAG_NAME&#34;|TAG_VALUE|OBJECT_TYPE&#39;
  * ```
  * 
  */
 @ResourceType(type="snowflake:index/tagAssociation:TagAssociation")
 public class TagAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the object identifier for the tag association.
+     * Specifies the object identifiers for the tag association.
      * 
      */
-    @Export(name="objectIdentifiers", refs={List.class,TagAssociationObjectIdentifier.class}, tree="[0,1]")
-    private Output<List<TagAssociationObjectIdentifier>> objectIdentifiers;
+    @Export(name="objectIdentifiers", refs={List.class,String.class}, tree="[0,1]")
+    private Output<List<String>> objectIdentifiers;
 
     /**
-     * @return Specifies the object identifier for the tag association.
+     * @return Specifies the object identifiers for the tag association.
      * 
      */
-    public Output<List<TagAssociationObjectIdentifier>> objectIdentifiers() {
+    public Output<List<String>> objectIdentifiers() {
         return this.objectIdentifiers;
-    }
-    /**
-     * Specifies the object identifier for the tag association.
-     * 
-     * @deprecated
-     * Use `object_identifier` instead
-     * 
-     */
-    @Deprecated /* Use `object_identifier` instead */
-    @Export(name="objectName", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> objectName;
-
-    /**
-     * @return Specifies the object identifier for the tag association.
-     * 
-     */
-    public Output<Optional<String>> objectName() {
-        return Codegen.optional(this.objectName);
     }
     /**
      * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
@@ -90,14 +71,14 @@ public class TagAssociation extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipValidation);
     }
     /**
-     * Specifies the identifier for the tag. Note: format must follow: &#34;databaseName&#34;.&#34;schemaName&#34;.&#34;tagName&#34; or &#34;databaseName.schemaName.tagName&#34; or &#34;databaseName|schemaName.tagName&#34; (snowflake_tag.tag.id)
+     * Specifies the identifier for the tag.
      * 
      */
     @Export(name="tagId", refs={String.class}, tree="[0]")
     private Output<String> tagId;
 
     /**
-     * @return Specifies the identifier for the tag. Note: format must follow: &#34;databaseName&#34;.&#34;schemaName&#34;.&#34;tagName&#34; or &#34;databaseName.schemaName.tagName&#34; or &#34;databaseName|schemaName.tagName&#34; (snowflake_tag.tag.id)
+     * @return Specifies the identifier for the tag.
      * 
      */
     public Output<String> tagId() {

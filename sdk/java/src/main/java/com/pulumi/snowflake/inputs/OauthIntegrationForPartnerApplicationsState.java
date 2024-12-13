@@ -6,6 +6,7 @@ package com.pulumi.snowflake.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputArgs;
+import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsRelatedParameterArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsShowOutputArgs;
 import java.lang.Integer;
 import java.lang.String;
@@ -20,14 +21,14 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     public static final OauthIntegrationForPartnerApplicationsState Empty = new OauthIntegrationForPartnerApplicationsState();
 
     /**
-     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     @Import(name="blockedRolesLists")
     private @Nullable Output<List<String>> blockedRolesLists;
 
     /**
-     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> blockedRolesLists() {
@@ -95,14 +96,14 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     }
 
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -177,6 +178,21 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     }
 
     /**
+     * Parameters related to this security integration.
+     * 
+     */
+    @Import(name="relatedParameters")
+    private @Nullable Output<List<OauthIntegrationForPartnerApplicationsRelatedParameterArgs>> relatedParameters;
+
+    /**
+     * @return Parameters related to this security integration.
+     * 
+     */
+    public Optional<Output<List<OauthIntegrationForPartnerApplicationsRelatedParameterArgs>>> relatedParameters() {
+        return Optional.ofNullable(this.relatedParameters);
+    }
+
+    /**
      * Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
      * 
      */
@@ -205,6 +221,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         this.oauthRedirectUri = $.oauthRedirectUri;
         this.oauthRefreshTokenValidity = $.oauthRefreshTokenValidity;
         this.oauthUseSecondaryRoles = $.oauthUseSecondaryRoles;
+        this.relatedParameters = $.relatedParameters;
         this.showOutputs = $.showOutputs;
     }
 
@@ -227,7 +244,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -238,7 +255,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -248,7 +265,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -352,7 +369,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -363,7 +380,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -463,6 +480,37 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
          */
         public Builder oauthUseSecondaryRoles(String oauthUseSecondaryRoles) {
             return oauthUseSecondaryRoles(Output.of(oauthUseSecondaryRoles));
+        }
+
+        /**
+         * @param relatedParameters Parameters related to this security integration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder relatedParameters(@Nullable Output<List<OauthIntegrationForPartnerApplicationsRelatedParameterArgs>> relatedParameters) {
+            $.relatedParameters = relatedParameters;
+            return this;
+        }
+
+        /**
+         * @param relatedParameters Parameters related to this security integration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder relatedParameters(List<OauthIntegrationForPartnerApplicationsRelatedParameterArgs> relatedParameters) {
+            return relatedParameters(Output.of(relatedParameters));
+        }
+
+        /**
+         * @param relatedParameters Parameters related to this security integration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder relatedParameters(OauthIntegrationForPartnerApplicationsRelatedParameterArgs... relatedParameters) {
+            return relatedParameters(List.of(relatedParameters));
         }
 
         /**

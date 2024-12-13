@@ -48,14 +48,14 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -63,14 +63,14 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies an existing network policy that controls SCIM network traffic.
+     * Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
      * 
      */
     @Import(name="networkPolicy")
     private @Nullable Output<String> networkPolicy;
 
     /**
-     * @return Specifies an existing network policy that controls SCIM network traffic.
+     * @return Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> networkPolicy() {
@@ -195,7 +195,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param networkPolicy Specifies an existing network policy that controls SCIM network traffic.
+         * @param networkPolicy Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param networkPolicy Specifies an existing network policy that controls SCIM network traffic.
+         * @param networkPolicy Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
          * 
          * @return builder
          * 

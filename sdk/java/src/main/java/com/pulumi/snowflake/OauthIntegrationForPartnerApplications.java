@@ -11,6 +11,7 @@ import com.pulumi.snowflake.OauthIntegrationForPartnerApplicationsArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsState;
 import com.pulumi.snowflake.outputs.OauthIntegrationForPartnerApplicationsDescribeOutput;
+import com.pulumi.snowflake.outputs.OauthIntegrationForPartnerApplicationsRelatedParameter;
 import com.pulumi.snowflake.outputs.OauthIntegrationForPartnerApplicationsShowOutput;
 import java.lang.Integer;
 import java.lang.String;
@@ -29,18 +30,18 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications")
 public class OauthIntegrationForPartnerApplications extends com.pulumi.resources.CustomResource {
     /**
-     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     @Export(name="blockedRolesLists", refs={List.class,String.class}, tree="[0,1]")
-    private Output<List<String>> blockedRolesLists;
+    private Output</* @Nullable */ List<String>> blockedRolesLists;
 
     /**
-     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
-    public Output<List<String>> blockedRolesLists() {
-        return this.blockedRolesLists;
+    public Output<Optional<List<String>>> blockedRolesLists() {
+        return Codegen.optional(this.blockedRolesLists);
     }
     /**
      * Specifies a comment for the OAuth integration.
@@ -99,14 +100,14 @@ public class OauthIntegrationForPartnerApplications extends com.pulumi.resources
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
@@ -173,6 +174,20 @@ public class OauthIntegrationForPartnerApplications extends com.pulumi.resources
      */
     public Output<Optional<String>> oauthUseSecondaryRoles() {
         return Codegen.optional(this.oauthUseSecondaryRoles);
+    }
+    /**
+     * Parameters related to this security integration.
+     * 
+     */
+    @Export(name="relatedParameters", refs={List.class,OauthIntegrationForPartnerApplicationsRelatedParameter.class}, tree="[0,1]")
+    private Output<List<OauthIntegrationForPartnerApplicationsRelatedParameter>> relatedParameters;
+
+    /**
+     * @return Parameters related to this security integration.
+     * 
+     */
+    public Output<List<OauthIntegrationForPartnerApplicationsRelatedParameter>> relatedParameters() {
+        return this.relatedParameters;
     }
     /**
      * Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.

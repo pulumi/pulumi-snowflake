@@ -83,17 +83,9 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
-     * 
-     */
     @Import(name="copyGrants")
     private @Nullable Output<Boolean> copyGrants;
 
-    /**
-     * @return Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
-     * 
-     */
     public Optional<Output<Boolean>> copyGrants() {
         return Optional.ofNullable(this.copyGrants);
     }
@@ -129,14 +121,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -173,14 +165,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -203,14 +195,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -218,14 +210,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the query used to create the view.
+     * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     @Import(name="statement", required=true)
     private Output<String> statement;
 
     /**
-     * @return Specifies the query used to create the view.
+     * @return Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     public Output<String> statement() {
@@ -364,23 +356,11 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param copyGrants Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copyGrants(@Nullable Output<Boolean> copyGrants) {
             $.copyGrants = copyGrants;
             return this;
         }
 
-        /**
-         * @param copyGrants Retains the access permissions from the original view when a new view is created using the OR REPLACE clause.
-         * 
-         * @return builder
-         * 
-         */
         public Builder copyGrants(Boolean copyGrants) {
             return copyGrants(Output.of(copyGrants));
         }
@@ -438,7 +418,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param database The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -449,7 +429,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param database The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -498,7 +478,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -509,7 +489,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -540,7 +520,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param schema The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -551,7 +531,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param schema The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -561,7 +541,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement Specifies the query used to create the view.
+         * @param statement Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 
@@ -572,7 +552,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement Specifies the query used to create the view.
+         * @param statement Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 

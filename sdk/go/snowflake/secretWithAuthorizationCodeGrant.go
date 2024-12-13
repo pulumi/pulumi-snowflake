@@ -20,22 +20,22 @@ import (
 type SecretWithAuthorizationCodeGrant struct {
 	pulumi.CustomResourceState
 
-	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service.
+	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
 	ApiAuthentication pulumi.StringOutput `pulumi:"apiAuthentication"`
 	// Specifies a comment for the secret.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE SECRET` for the given secret.
 	DescribeOutputs SecretWithAuthorizationCodeGrantDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name              pulumi.StringOutput `pulumi:"name"`
 	OauthRefreshToken pulumi.StringOutput `pulumi:"oauthRefreshToken"`
 	// Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
 	OauthRefreshTokenExpiryTime pulumi.StringOutput `pulumi:"oauthRefreshTokenExpiryTime"`
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
 	SecretType pulumi.StringOutput `pulumi:"secretType"`
@@ -95,22 +95,22 @@ func GetSecretWithAuthorizationCodeGrant(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecretWithAuthorizationCodeGrant resources.
 type secretWithAuthorizationCodeGrantState struct {
-	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service.
+	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
 	ApiAuthentication *string `pulumi:"apiAuthentication"`
 	// Specifies a comment for the secret.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE SECRET` for the given secret.
 	DescribeOutputs []SecretWithAuthorizationCodeGrantDescribeOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name              *string `pulumi:"name"`
 	OauthRefreshToken *string `pulumi:"oauthRefreshToken"`
 	// Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
 	OauthRefreshTokenExpiryTime *string `pulumi:"oauthRefreshTokenExpiryTime"`
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
 	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
 	SecretType *string `pulumi:"secretType"`
@@ -119,22 +119,22 @@ type secretWithAuthorizationCodeGrantState struct {
 }
 
 type SecretWithAuthorizationCodeGrantState struct {
-	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service.
+	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
 	ApiAuthentication pulumi.StringPtrInput
 	// Specifies a comment for the secret.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE SECRET` for the given secret.
 	DescribeOutputs SecretWithAuthorizationCodeGrantDescribeOutputArrayInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name              pulumi.StringPtrInput
 	OauthRefreshToken pulumi.StringPtrInput
 	// Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
 	OauthRefreshTokenExpiryTime pulumi.StringPtrInput
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
 	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
 	SecretType pulumi.StringPtrInput
@@ -147,35 +147,35 @@ func (SecretWithAuthorizationCodeGrantState) ElementType() reflect.Type {
 }
 
 type secretWithAuthorizationCodeGrantArgs struct {
-	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service.
+	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
 	ApiAuthentication string `pulumi:"apiAuthentication"`
 	// Specifies a comment for the secret.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name              *string `pulumi:"name"`
 	OauthRefreshToken string  `pulumi:"oauthRefreshToken"`
 	// Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
 	OauthRefreshTokenExpiryTime string `pulumi:"oauthRefreshTokenExpiryTime"`
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
 }
 
 // The set of arguments for constructing a SecretWithAuthorizationCodeGrant resource.
 type SecretWithAuthorizationCodeGrantArgs struct {
-	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service.
+	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
 	ApiAuthentication pulumi.StringInput
 	// Specifies a comment for the secret.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name              pulumi.StringPtrInput
 	OauthRefreshToken pulumi.StringInput
 	// Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
 	OauthRefreshTokenExpiryTime pulumi.StringInput
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
 }
 
@@ -266,7 +266,7 @@ func (o SecretWithAuthorizationCodeGrantOutput) ToSecretWithAuthorizationCodeGra
 	return o
 }
 
-// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service.
+// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
 func (o SecretWithAuthorizationCodeGrantOutput) ApiAuthentication() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithAuthorizationCodeGrant) pulumi.StringOutput { return v.ApiAuthentication }).(pulumi.StringOutput)
 }
@@ -276,7 +276,7 @@ func (o SecretWithAuthorizationCodeGrantOutput) Comment() pulumi.StringPtrOutput
 	return o.ApplyT(func(v *SecretWithAuthorizationCodeGrant) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o SecretWithAuthorizationCodeGrantOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithAuthorizationCodeGrant) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -293,7 +293,7 @@ func (o SecretWithAuthorizationCodeGrantOutput) FullyQualifiedName() pulumi.Stri
 	return o.ApplyT(func(v *SecretWithAuthorizationCodeGrant) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o SecretWithAuthorizationCodeGrantOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithAuthorizationCodeGrant) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -307,7 +307,7 @@ func (o SecretWithAuthorizationCodeGrantOutput) OauthRefreshTokenExpiryTime() pu
 	return o.ApplyT(func(v *SecretWithAuthorizationCodeGrant) pulumi.StringOutput { return v.OauthRefreshTokenExpiryTime }).(pulumi.StringOutput)
 }
 
-// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o SecretWithAuthorizationCodeGrantOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithAuthorizationCodeGrant) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }

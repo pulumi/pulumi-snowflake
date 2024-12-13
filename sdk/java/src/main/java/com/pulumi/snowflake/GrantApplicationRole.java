@@ -55,14 +55,14 @@ public class GrantApplicationRole extends com.pulumi.resources.CustomResource {
         return this.applicationRoleName;
     }
     /**
-     * The fully qualified name of the account role on which application role will be granted.
+     * The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="parentAccountRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentAccountRoleName;
 
     /**
-     * @return The fully qualified name of the account role on which application role will be granted.
+     * @return The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> parentAccountRoleName() {

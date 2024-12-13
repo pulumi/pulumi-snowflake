@@ -93,14 +93,14 @@ public final class SharedDatabaseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;share_name&gt;&#34;`.
+     * A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;share_name&gt;&#34;`. For more information about this resource, see docs.
      * 
      */
     @Import(name="fromShare")
     private @Nullable Output<String> fromShare;
 
     /**
-     * @return A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;share_name&gt;&#34;`.
+     * @return A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;share_name&gt;&#34;`. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> fromShare() {
@@ -138,14 +138,14 @@ public final class SharedDatabaseState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -434,7 +434,7 @@ public final class SharedDatabaseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param fromShare A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;share_name&gt;&#34;`.
+         * @param fromShare A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;share_name&gt;&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class SharedDatabaseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param fromShare A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;share_name&gt;&#34;`.
+         * @param fromShare A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;share_name&gt;&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class SharedDatabaseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class SharedDatabaseState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
