@@ -8,6 +8,7 @@ import (
 )
 
 func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	t.Skip("Skipping tests - not enough customer usage to justify integration tests of this provider")
 	checkCreds(t)
 	return integration.ProgramTestOptions{
 		ExpectRefreshChanges: true,
@@ -15,28 +16,23 @@ func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
 }
 
 func checkCreds(t *testing.T) {
-	_, exists := os.LookupEnv("SNOWFLAKE_USER")
-	if !exists {
+	if _, exists := os.LookupEnv("SNOWFLAKE_USER"); !exists {
 		t.Skipf("Skipping test due to missing SNOWFLAKE_USER environment variable")
 	}
 
-	_, exists = os.LookupEnv("SNOWFLAKE_PASSWORD")
-	if !exists {
+	if _, exists := os.LookupEnv("SNOWFLAKE_PASSWORD"); !exists {
 		t.Skipf("Skipping test due to missing SNOWFLAKE_PASSWORD environment variable")
 	}
 
-	_, exists = os.LookupEnv("SNOWFLAKE_ACCOUNT")
-	if !exists {
+	if _, exists := os.LookupEnv("SNOWFLAKE_ACCOUNT"); !exists {
 		t.Skipf("Skipping test due to missing SNOWFLAKE_ACCOUNT environment variable")
 	}
 
-	_, exists = os.LookupEnv("SNOWFLAKE_ROLE")
-	if !exists {
+	if _, exists := os.LookupEnv("SNOWFLAKE_ROLE"); !exists {
 		t.Skipf("Skipping test due to missing SNOWFLAKE_ROLE environment variable")
 	}
 
-	_, exists = os.LookupEnv("SNOWFLAKE_REGION")
-	if !exists {
+	if _, exists := os.LookupEnv("SNOWFLAKE_REGION"); !exists {
 		t.Skipf("Skipping test due to missing SNOWFLAKE_REGION environment variable")
 	}
 }
