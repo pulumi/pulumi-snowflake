@@ -38,6 +38,7 @@ func TestUpgradeCoverage(t *testing.T) {
 }
 
 func testProviderUpgrade(t *testing.T, dir string) {
+	t.Skip("Skipping tests - not enough customer usage to justify integration tests of this provider")
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
 	}
@@ -53,6 +54,7 @@ func testProviderUpgrade(t *testing.T, dir string) {
 }
 
 func testProgram(t *testing.T, dir string) {
+	t.Skip("Skipping tests - not enough customer usage to justify integration tests of this provider")
 	if testing.Short() {
 		t.Skipf("Skipping in testing.Short() mode, assuming this is a CI run without credentials")
 	}
