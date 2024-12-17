@@ -27,22 +27,25 @@ class GetAccountsResult:
     """
     A collection of values returned by getAccounts.
     """
-    def __init__(__self__, accounts=None, id=None, pattern=None):
+    def __init__(__self__, accounts=None, id=None, like=None, with_history=None):
         if accounts and not isinstance(accounts, list):
             raise TypeError("Expected argument 'accounts' to be a list")
         pulumi.set(__self__, "accounts", accounts)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if pattern and not isinstance(pattern, str):
-            raise TypeError("Expected argument 'pattern' to be a str")
-        pulumi.set(__self__, "pattern", pattern)
+        if like and not isinstance(like, str):
+            raise TypeError("Expected argument 'like' to be a str")
+        pulumi.set(__self__, "like", like)
+        if with_history and not isinstance(with_history, bool):
+            raise TypeError("Expected argument 'with_history' to be a bool")
+        pulumi.set(__self__, "with_history", with_history)
 
     @property
     @pulumi.getter
     def accounts(self) -> Sequence['outputs.GetAccountsAccountResult']:
         """
-        List of all the accounts available in the organization.
+        Holds the aggregated output of all accounts details queries.
         """
         return pulumi.get(self, "accounts")
 
@@ -56,11 +59,19 @@ class GetAccountsResult:
 
     @property
     @pulumi.getter
-    def pattern(self) -> Optional[str]:
+    def like(self) -> Optional[str]:
         """
-        Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         """
-        return pulumi.get(self, "pattern")
+        return pulumi.get(self, "like")
+
+    @property
+    @pulumi.getter(name="withHistory")
+    def with_history(self) -> Optional[bool]:
+        """
+        Includes dropped accounts that have not yet been deleted.
+        """
+        return pulumi.get(self, "with_history")
 
 
 class AwaitableGetAccountsResult(GetAccountsResult):
@@ -71,37 +82,48 @@ class AwaitableGetAccountsResult(GetAccountsResult):
         return GetAccountsResult(
             accounts=self.accounts,
             id=self.id,
-            pattern=self.pattern)
+            like=self.like,
+            with_history=self.with_history)
 
 
-def get_accounts(pattern: Optional[str] = None,
+def get_accounts(like: Optional[str] = None,
+                 with_history: Optional[bool] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountsResult:
     """
-    Use this data source to access information about an existing resource.
+    Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
 
-    :param str pattern: Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.
+
+    :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param bool with_history: Includes dropped accounts that have not yet been deleted.
     """
     __args__ = dict()
-    __args__['pattern'] = pattern
+    __args__['like'] = like
+    __args__['withHistory'] = with_history
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getAccounts:getAccounts', __args__, opts=opts, typ=GetAccountsResult).value
 
     return AwaitableGetAccountsResult(
         accounts=pulumi.get(__ret__, 'accounts'),
         id=pulumi.get(__ret__, 'id'),
-        pattern=pulumi.get(__ret__, 'pattern'))
-def get_accounts_output(pattern: Optional[pulumi.Input[Optional[str]]] = None,
+        like=pulumi.get(__ret__, 'like'),
+        with_history=pulumi.get(__ret__, 'with_history'))
+def get_accounts_output(like: Optional[pulumi.Input[Optional[str]]] = None,
+                        with_history: Optional[pulumi.Input[Optional[bool]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
 
-    :param str pattern: Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.
+
+    :param str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param bool with_history: Includes dropped accounts that have not yet been deleted.
     """
     __args__ = dict()
-    __args__['pattern'] = pattern
+    __args__['like'] = like
+    __args__['withHistory'] = with_history
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getAccounts:getAccounts', __args__, opts=opts, typ=GetAccountsResult)
     return __ret__.apply(lambda __response__: GetAccountsResult(
         accounts=pulumi.get(__response__, 'accounts'),
         id=pulumi.get(__response__, 'id'),
-        pattern=pulumi.get(__response__, 'pattern')))
+        like=pulumi.get(__response__, 'like'),
+        with_history=pulumi.get(__response__, 'with_history')))

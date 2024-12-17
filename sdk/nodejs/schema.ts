@@ -9,8 +9,6 @@ import * as utilities from "./utilities";
 /**
  * ## Import
  *
- * format is <database_name>.<schema_name>
- *
  * ```sh
  * $ pulumi import snowflake:index/schema:Schema example '"<database_name>"."<schema_name>"'
  * ```
@@ -56,7 +54,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly dataRetentionTimeInDays!: pulumi.Output<number>;
     /**
-     * The database in which to create the schema.
+     * The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -92,7 +90,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly maxDataExtensionTimeInDays!: pulumi.Output<number>;
     /**
-     * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+     * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -241,7 +239,7 @@ export interface SchemaState {
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
-     * The database in which to create the schema.
+     * The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database?: pulumi.Input<string>;
     /**
@@ -277,7 +275,7 @@ export interface SchemaState {
      */
     maxDataExtensionTimeInDays?: pulumi.Input<number>;
     /**
-     * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+     * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -351,7 +349,7 @@ export interface SchemaArgs {
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
-     * The database in which to create the schema.
+     * The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database: pulumi.Input<string>;
     /**
@@ -379,7 +377,7 @@ export interface SchemaArgs {
      */
     maxDataExtensionTimeInDays?: pulumi.Input<number>;
     /**
-     * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state.
+     * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**

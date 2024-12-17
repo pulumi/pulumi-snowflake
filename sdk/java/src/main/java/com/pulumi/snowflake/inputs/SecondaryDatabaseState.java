@@ -18,14 +18,14 @@ public final class SecondaryDatabaseState extends com.pulumi.resources.ResourceA
     public static final SecondaryDatabaseState Empty = new SecondaryDatabaseState();
 
     /**
-     * A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;database_name&gt;&#34;`.
+     * A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;database_name&gt;&#34;`. For more information about this resource, see docs.
      * 
      */
     @Import(name="asReplicaOf")
     private @Nullable Output<String> asReplicaOf;
 
     /**
-     * @return A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;database_name&gt;&#34;`.
+     * @return A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;database_name&gt;&#34;`. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> asReplicaOf() {
@@ -183,14 +183,14 @@ public final class SecondaryDatabaseState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. &#39;\n\n.\n\n.\n\n&#39;) by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. &#39;\n\n.\n\n.\n\n&#39;) by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. &#39;\n\n.\n\n.\n\n&#39;) by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. &#39;\n\n.\n\n.\n\n&#39;) by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -377,7 +377,7 @@ public final class SecondaryDatabaseState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param asReplicaOf A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;database_name&gt;&#34;`.
+         * @param asReplicaOf A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;database_name&gt;&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -388,7 +388,7 @@ public final class SecondaryDatabaseState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param asReplicaOf A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;database_name&gt;&#34;`.
+         * @param asReplicaOf A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;database_name&gt;&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -608,7 +608,7 @@ public final class SecondaryDatabaseState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. &#39;\n\n.\n\n.\n\n&#39;) by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. &#39;\n\n.\n\n.\n\n&#39;) by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -619,7 +619,7 @@ public final class SecondaryDatabaseState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param name Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. &#39;\n\n.\n\n.\n\n&#39;) by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. &#39;\n\n.\n\n.\n\n&#39;) by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

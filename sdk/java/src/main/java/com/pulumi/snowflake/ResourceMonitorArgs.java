@@ -63,14 +63,14 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -93,14 +93,14 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      * 
      */
     @Import(name="notifyUsers")
     private @Nullable Output<List<String>> notifyUsers;
 
     /**
-     * @return Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+     * @return Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> notifyUsers() {
@@ -248,7 +248,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param notifyUsers Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+         * @param notifyUsers Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param notifyUsers Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+         * @param notifyUsers Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param notifyUsers Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+         * @param notifyUsers Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
          * 
          * @return builder
          * 

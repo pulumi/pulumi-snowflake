@@ -13,7 +13,7 @@ namespace Pulumi.Snowflake
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/warehouse:Warehouse example warehouseName
+    /// $ pulumi import snowflake:index/warehouse:Warehouse example '"&lt;warehouse_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/warehouse:Warehouse")]
@@ -74,7 +74,7 @@ namespace Pulumi.Snowflake
         public Output<int?> MinClusterCount { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -92,7 +92,7 @@ namespace Pulumi.Snowflake
         public Output<int?> QueryAccelerationMaxScaleFactor { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
+        /// Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
         /// </summary>
         [Output("resourceMonitor")]
         public Output<string?> ResourceMonitor { get; private set; } = null!;
@@ -228,7 +228,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MinClusterCount { get; set; }
 
         /// <summary>
-        /// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.Snowflake
         public Input<int>? QueryAccelerationMaxScaleFactor { get; set; }
 
         /// <summary>
-        /// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
+        /// Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
         /// </summary>
         [Input("resourceMonitor")]
         public Input<string>? ResourceMonitor { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Snowflake
         public Input<int>? MinClusterCount { get; set; }
 
         /// <summary>
-        /// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -362,7 +362,7 @@ namespace Pulumi.Snowflake
         public Input<int>? QueryAccelerationMaxScaleFactor { get; set; }
 
         /// <summary>
-        /// Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
+        /// Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
         /// </summary>
         [Input("resourceMonitor")]
         public Input<string>? ResourceMonitor { get; set; }

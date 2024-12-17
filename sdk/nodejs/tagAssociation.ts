@@ -2,17 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * ## Import
  *
- * format is dbName.schemaName.tagName or dbName.schemaName.tagName
+ * ~> **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
  *
  * ```sh
- * $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
+ * $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'
  * ```
  */
 export class TagAssociation extends pulumi.CustomResource {
@@ -44,15 +42,9 @@ export class TagAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the object identifier for the tag association.
+     * Specifies the object identifiers for the tag association.
      */
-    public readonly objectIdentifiers!: pulumi.Output<outputs.TagAssociationObjectIdentifier[]>;
-    /**
-     * Specifies the object identifier for the tag association.
-     *
-     * @deprecated Use `objectIdentifier` instead
-     */
-    public readonly objectName!: pulumi.Output<string | undefined>;
+    public readonly objectIdentifiers!: pulumi.Output<string[]>;
     /**
      * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
      */
@@ -62,7 +54,7 @@ export class TagAssociation extends pulumi.CustomResource {
      */
     public readonly skipValidation!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+     * Specifies the identifier for the tag.
      */
     public readonly tagId!: pulumi.Output<string>;
     /**
@@ -84,7 +76,6 @@ export class TagAssociation extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as TagAssociationState | undefined;
             resourceInputs["objectIdentifiers"] = state ? state.objectIdentifiers : undefined;
-            resourceInputs["objectName"] = state ? state.objectName : undefined;
             resourceInputs["objectType"] = state ? state.objectType : undefined;
             resourceInputs["skipValidation"] = state ? state.skipValidation : undefined;
             resourceInputs["tagId"] = state ? state.tagId : undefined;
@@ -104,7 +95,6 @@ export class TagAssociation extends pulumi.CustomResource {
                 throw new Error("Missing required property 'tagValue'");
             }
             resourceInputs["objectIdentifiers"] = args ? args.objectIdentifiers : undefined;
-            resourceInputs["objectName"] = args ? args.objectName : undefined;
             resourceInputs["objectType"] = args ? args.objectType : undefined;
             resourceInputs["skipValidation"] = args ? args.skipValidation : undefined;
             resourceInputs["tagId"] = args ? args.tagId : undefined;
@@ -120,15 +110,9 @@ export class TagAssociation extends pulumi.CustomResource {
  */
 export interface TagAssociationState {
     /**
-     * Specifies the object identifier for the tag association.
+     * Specifies the object identifiers for the tag association.
      */
-    objectIdentifiers?: pulumi.Input<pulumi.Input<inputs.TagAssociationObjectIdentifier>[]>;
-    /**
-     * Specifies the object identifier for the tag association.
-     *
-     * @deprecated Use `objectIdentifier` instead
-     */
-    objectName?: pulumi.Input<string>;
+    objectIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
      */
@@ -138,7 +122,7 @@ export interface TagAssociationState {
      */
     skipValidation?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+     * Specifies the identifier for the tag.
      */
     tagId?: pulumi.Input<string>;
     /**
@@ -152,15 +136,9 @@ export interface TagAssociationState {
  */
 export interface TagAssociationArgs {
     /**
-     * Specifies the object identifier for the tag association.
+     * Specifies the object identifiers for the tag association.
      */
-    objectIdentifiers: pulumi.Input<pulumi.Input<inputs.TagAssociationObjectIdentifier>[]>;
-    /**
-     * Specifies the object identifier for the tag association.
-     *
-     * @deprecated Use `objectIdentifier` instead
-     */
-    objectName?: pulumi.Input<string>;
+    objectIdentifiers: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
      */
@@ -170,7 +148,7 @@ export interface TagAssociationArgs {
      */
     skipValidation?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+     * Specifies the identifier for the tag.
      */
     tagId: pulumi.Input<string>;
     /**

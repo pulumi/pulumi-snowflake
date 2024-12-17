@@ -14,19 +14,19 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import snowflake:index/primaryConnection:PrimaryConnection example 'connection_name'
+// $ pulumi import snowflake:index/primaryConnection:PrimaryConnection example '"<primary_connection_name>"'
 // ```
 type PrimaryConnection struct {
 	pulumi.CustomResourceState
 
 	// Specifies a comment for the connection.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list.
+	// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
 	EnableFailoverToAccounts pulumi.StringArrayOutput `pulumi:"enableFailoverToAccounts"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	IsPrimary          pulumi.BoolOutput   `pulumi:"isPrimary"`
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW CONNECTIONS` for the given connection.
 	ShowOutputs PrimaryConnectionShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -64,12 +64,12 @@ func GetPrimaryConnection(ctx *pulumi.Context,
 type primaryConnectionState struct {
 	// Specifies a comment for the connection.
 	Comment *string `pulumi:"comment"`
-	// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list.
+	// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
 	EnableFailoverToAccounts []string `pulumi:"enableFailoverToAccounts"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	IsPrimary          *bool   `pulumi:"isPrimary"`
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW CONNECTIONS` for the given connection.
 	ShowOutputs []PrimaryConnectionShowOutput `pulumi:"showOutputs"`
@@ -78,12 +78,12 @@ type primaryConnectionState struct {
 type PrimaryConnectionState struct {
 	// Specifies a comment for the connection.
 	Comment pulumi.StringPtrInput
-	// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list.
+	// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
 	EnableFailoverToAccounts pulumi.StringArrayInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	IsPrimary          pulumi.BoolPtrInput
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW CONNECTIONS` for the given connection.
 	ShowOutputs PrimaryConnectionShowOutputArrayInput
@@ -96,9 +96,9 @@ func (PrimaryConnectionState) ElementType() reflect.Type {
 type primaryConnectionArgs struct {
 	// Specifies a comment for the connection.
 	Comment *string `pulumi:"comment"`
-	// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list.
+	// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
 	EnableFailoverToAccounts []string `pulumi:"enableFailoverToAccounts"`
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 }
 
@@ -106,9 +106,9 @@ type primaryConnectionArgs struct {
 type PrimaryConnectionArgs struct {
 	// Specifies a comment for the connection.
 	Comment pulumi.StringPtrInput
-	// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list.
+	// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
 	EnableFailoverToAccounts pulumi.StringArrayInput
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 }
 
@@ -204,7 +204,7 @@ func (o PrimaryConnectionOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PrimaryConnection) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list.
+// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
 func (o PrimaryConnectionOutput) EnableFailoverToAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *PrimaryConnection) pulumi.StringArrayOutput { return v.EnableFailoverToAccounts }).(pulumi.StringArrayOutput)
 }
@@ -218,7 +218,7 @@ func (o PrimaryConnectionOutput) IsPrimary() pulumi.BoolOutput {
 	return o.ApplyT(func(v *PrimaryConnection) pulumi.BoolOutput { return v.IsPrimary }).(pulumi.BoolOutput)
 }
 
-// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o PrimaryConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *PrimaryConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

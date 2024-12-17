@@ -21,14 +21,14 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
     public static final GrantPrivilegesToAccountRoleState Empty = new GrantPrivilegesToAccountRoleState();
 
     /**
-     * The fully qualified name of the account role to which privileges will be granted.
+     * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Import(name="accountRoleName")
     private @Nullable Output<String> accountRoleName;
 
     /**
-     * @return The fully qualified name of the account role to which privileges will be granted.
+     * @return The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> accountRoleName() {
@@ -133,14 +133,14 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
     }
 
     /**
-     * The privileges to grant on the account role.
+     * The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
      * 
      */
     @Import(name="privileges")
     private @Nullable Output<List<String>> privileges;
 
     /**
-     * @return The privileges to grant on the account role.
+     * @return The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
      * 
      */
     public Optional<Output<List<String>>> privileges() {
@@ -196,7 +196,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         }
 
         /**
-         * @param accountRoleName The fully qualified name of the account role to which privileges will be granted.
+         * @param accountRoleName The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         }
 
         /**
-         * @param accountRoleName The fully qualified name of the account role to which privileges will be granted.
+         * @param accountRoleName The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         }
 
         /**
-         * @param privileges The privileges to grant on the account role.
+         * @param privileges The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         }
 
         /**
-         * @param privileges The privileges to grant on the account role.
+         * @param privileges The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         }
 
         /**
-         * @param privileges The privileges to grant on the account role.
+         * @param privileges The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
          * 
          * @return builder
          * 

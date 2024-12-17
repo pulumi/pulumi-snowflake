@@ -13,7 +13,7 @@ namespace Pulumi.Snowflake
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example "name"
+    /// $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example '"&lt;integration_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/externalOauthIntegration:ExternalOauthIntegration")]
@@ -38,7 +38,7 @@ namespace Pulumi.Snowflake
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the list of roles that the client can set as the primary role.
+        /// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
         /// </summary>
         [Output("externalOauthAllowedRolesLists")]
         public Output<ImmutableArray<string>> ExternalOauthAllowedRolesLists { get; private set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> ExternalOauthAudienceLists { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+        /// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         /// </summary>
         [Output("externalOauthBlockedRolesLists")]
         public Output<ImmutableArray<string>> ExternalOauthBlockedRolesLists { get; private set; } = null!;
@@ -122,13 +122,13 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Paramteres related to this security integration.
+        /// Parameters related to this security integration.
         /// </summary>
         [Output("relatedParameters")]
         public Output<ImmutableArray<Outputs.ExternalOauthIntegrationRelatedParameter>> RelatedParameters { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _externalOauthAllowedRolesLists;
 
         /// <summary>
-        /// Specifies the list of roles that the client can set as the primary role.
+        /// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> ExternalOauthAllowedRolesLists
         {
@@ -231,7 +231,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _externalOauthBlockedRolesLists;
 
         /// <summary>
-        /// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+        /// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> ExternalOauthBlockedRolesLists
         {
@@ -306,7 +306,7 @@ namespace Pulumi.Snowflake
         public Input<string> ExternalOauthType { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _externalOauthAllowedRolesLists;
 
         /// <summary>
-        /// Specifies the list of roles that the client can set as the primary role.
+        /// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> ExternalOauthAllowedRolesLists
         {
@@ -377,7 +377,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _externalOauthBlockedRolesLists;
 
         /// <summary>
-        /// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+        /// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> ExternalOauthBlockedRolesLists
         {
@@ -458,7 +458,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -467,7 +467,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.ExternalOauthIntegrationRelatedParameterGetArgs>? _relatedParameters;
 
         /// <summary>
-        /// Paramteres related to this security integration.
+        /// Parameters related to this security integration.
         /// </summary>
         public InputList<Inputs.ExternalOauthIntegrationRelatedParameterGetArgs> RelatedParameters
         {

@@ -13,7 +13,7 @@ namespace Pulumi.Snowflake
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/primaryConnection:PrimaryConnection example 'connection_name'
+    /// $ pulumi import snowflake:index/primaryConnection:PrimaryConnection example '"&lt;primary_connection_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/primaryConnection:PrimaryConnection")]
@@ -26,7 +26,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list.
+        /// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
         /// </summary>
         [Output("enableFailoverToAccounts")]
         public Output<ImmutableArray<string>> EnableFailoverToAccounts { get; private set; } = null!;
@@ -41,7 +41,7 @@ namespace Pulumi.Snowflake
         public Output<bool> IsPrimary { get; private set; } = null!;
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _enableFailoverToAccounts;
 
         /// <summary>
-        /// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list.
+        /// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> EnableFailoverToAccounts
         {
@@ -117,7 +117,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -140,7 +140,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _enableFailoverToAccounts;
 
         /// <summary>
-        /// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list.
+        /// Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> EnableFailoverToAccounts
         {
@@ -158,7 +158,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsPrimary { get; set; }
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

@@ -46,7 +46,7 @@ export class GrantPrivilegesToShare extends pulumi.CustomResource {
      */
     public readonly onAllTablesInSchema!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the database on which privileges will be granted.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      */
     public readonly onDatabase!: pulumi.Output<string | undefined>;
     /**
@@ -54,19 +54,19 @@ export class GrantPrivilegesToShare extends pulumi.CustomResource {
      */
     public readonly onFunction!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the schema on which privileges will be granted.
+     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
      */
     public readonly onSchema!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the table on which privileges will be granted.
+     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
      */
     public readonly onTable!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the tag on which privileges will be granted.
+     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
      */
     public readonly onTag!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the view on which privileges will be granted.
+     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
      */
     public readonly onView!: pulumi.Output<string | undefined>;
     /**
@@ -74,7 +74,7 @@ export class GrantPrivilegesToShare extends pulumi.CustomResource {
      */
     public readonly privileges!: pulumi.Output<string[]>;
     /**
-     * The fully qualified name of the share on which privileges will be granted.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      */
     public readonly toShare!: pulumi.Output<string>;
 
@@ -132,7 +132,7 @@ export interface GrantPrivilegesToShareState {
      */
     onAllTablesInSchema?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database on which privileges will be granted.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      */
     onDatabase?: pulumi.Input<string>;
     /**
@@ -140,19 +140,19 @@ export interface GrantPrivilegesToShareState {
      */
     onFunction?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the schema on which privileges will be granted.
+     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
      */
     onSchema?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the table on which privileges will be granted.
+     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
      */
     onTable?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the tag on which privileges will be granted.
+     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
      */
     onTag?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the view on which privileges will be granted.
+     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
      */
     onView?: pulumi.Input<string>;
     /**
@@ -160,7 +160,7 @@ export interface GrantPrivilegesToShareState {
      */
     privileges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The fully qualified name of the share on which privileges will be granted.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      */
     toShare?: pulumi.Input<string>;
 }
@@ -174,7 +174,7 @@ export interface GrantPrivilegesToShareArgs {
      */
     onAllTablesInSchema?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database on which privileges will be granted.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      */
     onDatabase?: pulumi.Input<string>;
     /**
@@ -182,19 +182,19 @@ export interface GrantPrivilegesToShareArgs {
      */
     onFunction?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the schema on which privileges will be granted.
+     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
      */
     onSchema?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the table on which privileges will be granted.
+     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
      */
     onTable?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the tag on which privileges will be granted.
+     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
      */
     onTag?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the view on which privileges will be granted.
+     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
      */
     onView?: pulumi.Input<string>;
     /**
@@ -202,7 +202,7 @@ export interface GrantPrivilegesToShareArgs {
      */
     privileges: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The fully qualified name of the share on which privileges will be granted.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      */
     toShare: pulumi.Input<string>;
 }

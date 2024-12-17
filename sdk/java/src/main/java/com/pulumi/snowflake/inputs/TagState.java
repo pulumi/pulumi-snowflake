@@ -48,14 +48,14 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> database() {
@@ -78,14 +78,14 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+     * Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them. For more information about this resource, see docs.
      * 
      */
     @Import(name="maskingPolicies")
     private @Nullable Output<List<String>> maskingPolicies;
 
     /**
-     * @return Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+     * @return Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> maskingPolicies() {
@@ -93,14 +93,14 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,14 +108,14 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -221,7 +221,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param database The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param database The database in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maskingPolicies Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+         * @param maskingPolicies Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maskingPolicies Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+         * @param maskingPolicies Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maskingPolicies Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them.
+         * @param maskingPolicies Set of masking policies for the tag. A tag can support one masking policy for each data type. If masking policies are assigned to the tag, before dropping the tag, the provider automatically unassigns them. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier for the tag; must be unique for the database in which the tag is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param schema The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param schema The schema in which to create the tag. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

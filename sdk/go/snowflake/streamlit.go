@@ -14,8 +14,6 @@ import (
 
 // ## Import
 //
-// format is <database_name>.<schema_name>.<streamlit_name>
-//
 // ```sh
 // $ pulumi import snowflake:index/streamlit:Streamlit example '"<database_name>"."<schema_name>"."<streamlit_name>"'
 // ```
@@ -24,7 +22,7 @@ type Streamlit struct {
 
 	// Specifies a comment for the streamlit.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The database in which to create the streamlit
+	// The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
 	DescribeOutputs StreamlitDescribeOutputArrayOutput `pulumi:"describeOutputs"`
@@ -34,17 +32,17 @@ type Streamlit struct {
 	ExternalAccessIntegrations pulumi.StringArrayOutput `pulumi:"externalAccessIntegrations"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `rootLocation`
+	// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
 	MainFile pulumi.StringOutput `pulumi:"mainFile"`
-	// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
+	// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the warehouse where SQL queries issued by the Streamlit application are run.
+	// Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
 	QueryWarehouse pulumi.StringPtrOutput `pulumi:"queryWarehouse"`
-	// The schema in which to create the streamlit.
+	// The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Outputs the result of `SHOW STREAMLIT` for the given streamlit.
 	ShowOutputs StreamlitShowOutputArrayOutput `pulumi:"showOutputs"`
-	// The stage in which streamlit files are located.
+	// The stage in which streamlit files are located. For more information about this resource, see docs.
 	Stage pulumi.StringOutput `pulumi:"stage"`
 	// Specifies a title for the Streamlit app to display in Snowsight.
 	Title pulumi.StringPtrOutput `pulumi:"title"`
@@ -94,7 +92,7 @@ func GetStreamlit(ctx *pulumi.Context,
 type streamlitState struct {
 	// Specifies a comment for the streamlit.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the streamlit
+	// The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
 	DescribeOutputs []StreamlitDescribeOutput `pulumi:"describeOutputs"`
@@ -104,17 +102,17 @@ type streamlitState struct {
 	ExternalAccessIntegrations []string `pulumi:"externalAccessIntegrations"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `rootLocation`
+	// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
 	MainFile *string `pulumi:"mainFile"`
-	// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
+	// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies the warehouse where SQL queries issued by the Streamlit application are run.
+	// Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
 	QueryWarehouse *string `pulumi:"queryWarehouse"`
-	// The schema in which to create the streamlit.
+	// The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
 	// Outputs the result of `SHOW STREAMLIT` for the given streamlit.
 	ShowOutputs []StreamlitShowOutput `pulumi:"showOutputs"`
-	// The stage in which streamlit files are located.
+	// The stage in which streamlit files are located. For more information about this resource, see docs.
 	Stage *string `pulumi:"stage"`
 	// Specifies a title for the Streamlit app to display in Snowsight.
 	Title *string `pulumi:"title"`
@@ -123,7 +121,7 @@ type streamlitState struct {
 type StreamlitState struct {
 	// Specifies a comment for the streamlit.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the streamlit
+	// The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE STREAMLIT` for the given streamlit.
 	DescribeOutputs StreamlitDescribeOutputArrayInput
@@ -133,17 +131,17 @@ type StreamlitState struct {
 	ExternalAccessIntegrations pulumi.StringArrayInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `rootLocation`
+	// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
 	MainFile pulumi.StringPtrInput
-	// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
+	// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies the warehouse where SQL queries issued by the Streamlit application are run.
+	// Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
 	QueryWarehouse pulumi.StringPtrInput
-	// The schema in which to create the streamlit.
+	// The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
 	// Outputs the result of `SHOW STREAMLIT` for the given streamlit.
 	ShowOutputs StreamlitShowOutputArrayInput
-	// The stage in which streamlit files are located.
+	// The stage in which streamlit files are located. For more information about this resource, see docs.
 	Stage pulumi.StringPtrInput
 	// Specifies a title for the Streamlit app to display in Snowsight.
 	Title pulumi.StringPtrInput
@@ -156,21 +154,21 @@ func (StreamlitState) ElementType() reflect.Type {
 type streamlitArgs struct {
 	// Specifies a comment for the streamlit.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the streamlit
+	// The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
 	// Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
 	DirectoryLocation *string `pulumi:"directoryLocation"`
 	// External access integrations connected to the Streamlit.
 	ExternalAccessIntegrations []string `pulumi:"externalAccessIntegrations"`
-	// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `rootLocation`
+	// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
 	MainFile string `pulumi:"mainFile"`
-	// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
+	// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies the warehouse where SQL queries issued by the Streamlit application are run.
+	// Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
 	QueryWarehouse *string `pulumi:"queryWarehouse"`
-	// The schema in which to create the streamlit.
+	// The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
-	// The stage in which streamlit files are located.
+	// The stage in which streamlit files are located. For more information about this resource, see docs.
 	Stage string `pulumi:"stage"`
 	// Specifies a title for the Streamlit app to display in Snowsight.
 	Title *string `pulumi:"title"`
@@ -180,21 +178,21 @@ type streamlitArgs struct {
 type StreamlitArgs struct {
 	// Specifies a comment for the streamlit.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the streamlit
+	// The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
 	// Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
 	DirectoryLocation pulumi.StringPtrInput
 	// External access integrations connected to the Streamlit.
 	ExternalAccessIntegrations pulumi.StringArrayInput
-	// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `rootLocation`
+	// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
 	MainFile pulumi.StringInput
-	// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
+	// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies the warehouse where SQL queries issued by the Streamlit application are run.
+	// Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
 	QueryWarehouse pulumi.StringPtrInput
-	// The schema in which to create the streamlit.
+	// The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
-	// The stage in which streamlit files are located.
+	// The stage in which streamlit files are located. For more information about this resource, see docs.
 	Stage pulumi.StringInput
 	// Specifies a title for the Streamlit app to display in Snowsight.
 	Title pulumi.StringPtrInput
@@ -292,7 +290,7 @@ func (o StreamlitOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Streamlit) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The database in which to create the streamlit
+// The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o StreamlitOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Streamlit) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -317,22 +315,22 @@ func (o StreamlitOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Streamlit) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `rootLocation`
+// Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
 func (o StreamlitOutput) MainFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *Streamlit) pulumi.StringOutput { return v.MainFile }).(pulumi.StringOutput)
 }
 
-// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
+// String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o StreamlitOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Streamlit) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the warehouse where SQL queries issued by the Streamlit application are run.
+// Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
 func (o StreamlitOutput) QueryWarehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Streamlit) pulumi.StringPtrOutput { return v.QueryWarehouse }).(pulumi.StringPtrOutput)
 }
 
-// The schema in which to create the streamlit.
+// The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o StreamlitOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Streamlit) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
@@ -342,7 +340,7 @@ func (o StreamlitOutput) ShowOutputs() StreamlitShowOutputArrayOutput {
 	return o.ApplyT(func(v *Streamlit) StreamlitShowOutputArrayOutput { return v.ShowOutputs }).(StreamlitShowOutputArrayOutput)
 }
 
-// The stage in which streamlit files are located.
+// The stage in which streamlit files are located. For more information about this resource, see docs.
 func (o StreamlitOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v *Streamlit) pulumi.StringOutput { return v.Stage }).(pulumi.StringOutput)
 }

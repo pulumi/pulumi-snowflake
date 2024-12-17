@@ -17,7 +17,7 @@ public final class ViewRowAccessPolicy {
      */
     private List<String> ons;
     /**
-     * @return Row access policy name.
+     * @return Row access policy name. For more information about this resource, see docs.
      * 
      */
     private String policyName;
@@ -31,7 +31,7 @@ public final class ViewRowAccessPolicy {
         return this.ons;
     }
     /**
-     * @return Row access policy name.
+     * @return Row access policy name. For more information about this resource, see docs.
      * 
      */
     public String policyName() {

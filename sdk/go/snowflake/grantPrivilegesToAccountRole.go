@@ -42,7 +42,7 @@ import (
 type GrantPrivilegesToAccountRole struct {
 	pulumi.CustomResourceState
 
-	// The fully qualified name of the account role to which privileges will be granted.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName pulumi.StringOutput `pulumi:"accountRoleName"`
 	// Grant all privileges on the account role.
 	AllPrivileges pulumi.BoolPtrOutput `pulumi:"allPrivileges"`
@@ -57,7 +57,7 @@ type GrantPrivilegesToAccountRole struct {
 	OnSchema GrantPrivilegesToAccountRoleOnSchemaPtrOutput `pulumi:"onSchema"`
 	// Specifies the schema object on which privileges will be granted.
 	OnSchemaObject GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput `pulumi:"onSchemaObject"`
-	// The privileges to grant on the account role.
+	// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
 	Privileges pulumi.StringArrayOutput `pulumi:"privileges"`
 	// Specifies whether the grantee can grant the privileges to other users.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
@@ -96,7 +96,7 @@ func GetGrantPrivilegesToAccountRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GrantPrivilegesToAccountRole resources.
 type grantPrivilegesToAccountRoleState struct {
-	// The fully qualified name of the account role to which privileges will be granted.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName *string `pulumi:"accountRoleName"`
 	// Grant all privileges on the account role.
 	AllPrivileges *bool `pulumi:"allPrivileges"`
@@ -111,14 +111,14 @@ type grantPrivilegesToAccountRoleState struct {
 	OnSchema *GrantPrivilegesToAccountRoleOnSchema `pulumi:"onSchema"`
 	// Specifies the schema object on which privileges will be granted.
 	OnSchemaObject *GrantPrivilegesToAccountRoleOnSchemaObject `pulumi:"onSchemaObject"`
-	// The privileges to grant on the account role.
+	// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
 	Privileges []string `pulumi:"privileges"`
 	// Specifies whether the grantee can grant the privileges to other users.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
 }
 
 type GrantPrivilegesToAccountRoleState struct {
-	// The fully qualified name of the account role to which privileges will be granted.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName pulumi.StringPtrInput
 	// Grant all privileges on the account role.
 	AllPrivileges pulumi.BoolPtrInput
@@ -133,7 +133,7 @@ type GrantPrivilegesToAccountRoleState struct {
 	OnSchema GrantPrivilegesToAccountRoleOnSchemaPtrInput
 	// Specifies the schema object on which privileges will be granted.
 	OnSchemaObject GrantPrivilegesToAccountRoleOnSchemaObjectPtrInput
-	// The privileges to grant on the account role.
+	// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
 	Privileges pulumi.StringArrayInput
 	// Specifies whether the grantee can grant the privileges to other users.
 	WithGrantOption pulumi.BoolPtrInput
@@ -144,7 +144,7 @@ func (GrantPrivilegesToAccountRoleState) ElementType() reflect.Type {
 }
 
 type grantPrivilegesToAccountRoleArgs struct {
-	// The fully qualified name of the account role to which privileges will be granted.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName string `pulumi:"accountRoleName"`
 	// Grant all privileges on the account role.
 	AllPrivileges *bool `pulumi:"allPrivileges"`
@@ -159,7 +159,7 @@ type grantPrivilegesToAccountRoleArgs struct {
 	OnSchema *GrantPrivilegesToAccountRoleOnSchema `pulumi:"onSchema"`
 	// Specifies the schema object on which privileges will be granted.
 	OnSchemaObject *GrantPrivilegesToAccountRoleOnSchemaObject `pulumi:"onSchemaObject"`
-	// The privileges to grant on the account role.
+	// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
 	Privileges []string `pulumi:"privileges"`
 	// Specifies whether the grantee can grant the privileges to other users.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
@@ -167,7 +167,7 @@ type grantPrivilegesToAccountRoleArgs struct {
 
 // The set of arguments for constructing a GrantPrivilegesToAccountRole resource.
 type GrantPrivilegesToAccountRoleArgs struct {
-	// The fully qualified name of the account role to which privileges will be granted.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName pulumi.StringInput
 	// Grant all privileges on the account role.
 	AllPrivileges pulumi.BoolPtrInput
@@ -182,7 +182,7 @@ type GrantPrivilegesToAccountRoleArgs struct {
 	OnSchema GrantPrivilegesToAccountRoleOnSchemaPtrInput
 	// Specifies the schema object on which privileges will be granted.
 	OnSchemaObject GrantPrivilegesToAccountRoleOnSchemaObjectPtrInput
-	// The privileges to grant on the account role.
+	// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
 	Privileges pulumi.StringArrayInput
 	// Specifies whether the grantee can grant the privileges to other users.
 	WithGrantOption pulumi.BoolPtrInput
@@ -275,7 +275,7 @@ func (o GrantPrivilegesToAccountRoleOutput) ToGrantPrivilegesToAccountRoleOutput
 	return o
 }
 
-// The fully qualified name of the account role to which privileges will be granted.
+// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 func (o GrantPrivilegesToAccountRoleOutput) AccountRoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRole) pulumi.StringOutput { return v.AccountRoleName }).(pulumi.StringOutput)
 }
@@ -318,7 +318,7 @@ func (o GrantPrivilegesToAccountRoleOutput) OnSchemaObject() GrantPrivilegesToAc
 	}).(GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput)
 }
 
-// The privileges to grant on the account role.
+// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
 func (o GrantPrivilegesToAccountRoleOutput) Privileges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRole) pulumi.StringArrayOutput { return v.Privileges }).(pulumi.StringArrayOutput)
 }

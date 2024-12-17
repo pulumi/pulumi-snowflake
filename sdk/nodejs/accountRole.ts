@@ -10,7 +10,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/accountRole:AccountRole example "name"
+ * $ pulumi import snowflake:index/accountRole:AccountRole example '"<account_role_name>"'
  * ```
  */
 export class AccountRole extends pulumi.CustomResource {
@@ -47,7 +47,7 @@ export class AccountRole extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -94,7 +94,7 @@ export interface AccountRoleState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -109,7 +109,7 @@ export interface AccountRoleState {
 export interface AccountRoleArgs {
     comment?: pulumi.Input<string>;
     /**
-     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
 }

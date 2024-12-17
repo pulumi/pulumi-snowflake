@@ -42,9 +42,9 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
     }
 
     /**
-     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
-    public readonly blockedRolesLists!: pulumi.Output<string[]>;
+    public readonly blockedRolesLists!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies a comment for the OAuth integration.
      */
@@ -62,7 +62,7 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -82,6 +82,10 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
      * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      */
     public readonly oauthUseSecondaryRoles!: pulumi.Output<string | undefined>;
+    /**
+     * Parameters related to this security integration.
+     */
+    public /*out*/ readonly relatedParameters!: pulumi.Output<outputs.OauthIntegrationForPartnerApplicationsRelatedParameter[]>;
     /**
      * Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
      */
@@ -111,12 +115,10 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
             resourceInputs["oauthRedirectUri"] = state ? state.oauthRedirectUri : undefined;
             resourceInputs["oauthRefreshTokenValidity"] = state ? state.oauthRefreshTokenValidity : undefined;
             resourceInputs["oauthUseSecondaryRoles"] = state ? state.oauthUseSecondaryRoles : undefined;
+            resourceInputs["relatedParameters"] = state ? state.relatedParameters : undefined;
             resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
         } else {
             const args = argsOrState as OauthIntegrationForPartnerApplicationsArgs | undefined;
-            if ((!args || args.blockedRolesLists === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'blockedRolesLists'");
-            }
             if ((!args || args.oauthClient === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'oauthClient'");
             }
@@ -131,6 +133,7 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
             resourceInputs["oauthUseSecondaryRoles"] = args ? args.oauthUseSecondaryRoles : undefined;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
+            resourceInputs["relatedParameters"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -143,7 +146,7 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
  */
 export interface OauthIntegrationForPartnerApplicationsState {
     /**
-     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
     blockedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -163,7 +166,7 @@ export interface OauthIntegrationForPartnerApplicationsState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -184,6 +187,10 @@ export interface OauthIntegrationForPartnerApplicationsState {
      */
     oauthUseSecondaryRoles?: pulumi.Input<string>;
     /**
+     * Parameters related to this security integration.
+     */
+    relatedParameters?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsRelatedParameter>[]>;
+    /**
      * Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsShowOutput>[]>;
@@ -194,9 +201,9 @@ export interface OauthIntegrationForPartnerApplicationsState {
  */
 export interface OauthIntegrationForPartnerApplicationsArgs {
     /**
-     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
-    blockedRolesLists: pulumi.Input<pulumi.Input<string>[]>;
+    blockedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies a comment for the OAuth integration.
      */
@@ -206,7 +213,7 @@ export interface OauthIntegrationForPartnerApplicationsArgs {
      */
     enabled?: pulumi.Input<string>;
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**

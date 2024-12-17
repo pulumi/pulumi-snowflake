@@ -14,120 +14,14 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class GetAccountsAccountResult
     {
         /// <summary>
-        /// System-assigned identifier of the acccount.
+        /// Holds the output of SHOW ACCOUNTS.
         /// </summary>
-        public readonly string AccountLocator;
-        /// <summary>
-        /// Legacy Snowflake access URL syntax that includes the region_name and account_locator.
-        /// </summary>
-        public readonly string AccountLocatorUrl;
-        /// <summary>
-        /// User-defined name that identifies an account within the organization.
-        /// </summary>
-        public readonly string AccountName;
-        /// <summary>
-        /// Preferred Snowflake access URL that includes the values of organization_name and account_name.
-        /// </summary>
-        public readonly string AccountUrl;
-        /// <summary>
-        /// Comment for the account.
-        /// </summary>
-        public readonly string Comment;
-        /// <summary>
-        /// Name of the consumption billing entity.
-        /// </summary>
-        public readonly string ConsumptionBillingEntityName;
-        /// <summary>
-        /// Date and time when the account was created.
-        /// </summary>
-        public readonly string CreatedOn;
-        /// <summary>
-        /// Snowflake Edition of the account.
-        /// </summary>
-        public readonly string Edition;
-        /// <summary>
-        /// Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
-        /// </summary>
-        public readonly bool IsOrgAdmin;
-        /// <summary>
-        /// Indicates how many managed accounts have been created by the account.
-        /// </summary>
-        public readonly int ManagedAccounts;
-        /// <summary>
-        /// Name of the marketplace consumer billing entity.
-        /// </summary>
-        public readonly string MarketplaceConsumerBillingEntityName;
-        /// <summary>
-        /// Name of the marketplace provider billing entity.
-        /// </summary>
-        public readonly string MarketplaceProviderBillingEntityName;
-        /// <summary>
-        /// The previous account URL for a given account.
-        /// </summary>
-        public readonly string OldAccountUrl;
-        /// <summary>
-        /// Name of the organization.
-        /// </summary>
-        public readonly string OrganizationName;
-        /// <summary>
-        /// Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
-        /// </summary>
-        public readonly string RegionGroup;
-        /// <summary>
-        /// Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
-        /// </summary>
-        public readonly string SnowflakeRegion;
+        public readonly ImmutableArray<Outputs.GetAccountsAccountShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
-        private GetAccountsAccountResult(
-            string accountLocator,
-
-            string accountLocatorUrl,
-
-            string accountName,
-
-            string accountUrl,
-
-            string comment,
-
-            string consumptionBillingEntityName,
-
-            string createdOn,
-
-            string edition,
-
-            bool isOrgAdmin,
-
-            int managedAccounts,
-
-            string marketplaceConsumerBillingEntityName,
-
-            string marketplaceProviderBillingEntityName,
-
-            string oldAccountUrl,
-
-            string organizationName,
-
-            string regionGroup,
-
-            string snowflakeRegion)
+        private GetAccountsAccountResult(ImmutableArray<Outputs.GetAccountsAccountShowOutputResult> showOutputs)
         {
-            AccountLocator = accountLocator;
-            AccountLocatorUrl = accountLocatorUrl;
-            AccountName = accountName;
-            AccountUrl = accountUrl;
-            Comment = comment;
-            ConsumptionBillingEntityName = consumptionBillingEntityName;
-            CreatedOn = createdOn;
-            Edition = edition;
-            IsOrgAdmin = isOrgAdmin;
-            ManagedAccounts = managedAccounts;
-            MarketplaceConsumerBillingEntityName = marketplaceConsumerBillingEntityName;
-            MarketplaceProviderBillingEntityName = marketplaceProviderBillingEntityName;
-            OldAccountUrl = oldAccountUrl;
-            OrganizationName = organizationName;
-            RegionGroup = regionGroup;
-            SnowflakeRegion = snowflakeRegion;
+            ShowOutputs = showOutputs;
         }
     }
 }

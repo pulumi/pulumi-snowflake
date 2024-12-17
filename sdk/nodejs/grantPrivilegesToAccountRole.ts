@@ -64,7 +64,7 @@ export class GrantPrivilegesToAccountRole extends pulumi.CustomResource {
     }
 
     /**
-     * The fully qualified name of the account role to which privileges will be granted.
+     * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      */
     public readonly accountRoleName!: pulumi.Output<string>;
     /**
@@ -93,7 +93,7 @@ export class GrantPrivilegesToAccountRole extends pulumi.CustomResource {
      */
     public readonly onSchemaObject!: pulumi.Output<outputs.GrantPrivilegesToAccountRoleOnSchemaObject | undefined>;
     /**
-     * The privileges to grant on the account role.
+     * The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
      */
     public readonly privileges!: pulumi.Output<string[] | undefined>;
     /**
@@ -150,7 +150,7 @@ export class GrantPrivilegesToAccountRole extends pulumi.CustomResource {
  */
 export interface GrantPrivilegesToAccountRoleState {
     /**
-     * The fully qualified name of the account role to which privileges will be granted.
+     * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      */
     accountRoleName?: pulumi.Input<string>;
     /**
@@ -179,7 +179,7 @@ export interface GrantPrivilegesToAccountRoleState {
      */
     onSchemaObject?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObject>;
     /**
-     * The privileges to grant on the account role.
+     * The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
      */
     privileges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -193,7 +193,7 @@ export interface GrantPrivilegesToAccountRoleState {
  */
 export interface GrantPrivilegesToAccountRoleArgs {
     /**
-     * The fully qualified name of the account role to which privileges will be granted.
+     * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      */
     accountRoleName: pulumi.Input<string>;
     /**
@@ -222,7 +222,7 @@ export interface GrantPrivilegesToAccountRoleArgs {
      */
     onSchemaObject?: pulumi.Input<inputs.GrantPrivilegesToAccountRoleOnSchemaObject>;
     /**
-     * The privileges to grant on the account role.
+     * The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
      */
     privileges?: pulumi.Input<pulumi.Input<string>[]>;
     /**

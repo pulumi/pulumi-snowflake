@@ -18,6 +18,38 @@ export interface AccountRoleShowOutput {
     owner?: pulumi.Input<string>;
 }
 
+export interface AccountShowOutput {
+    accountLocator?: pulumi.Input<string>;
+    accountLocatorUrl?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
+    accountOldUrlLastUsed?: pulumi.Input<string>;
+    accountOldUrlSavedOn?: pulumi.Input<string>;
+    accountUrl?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    consumptionBillingEntityName?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    droppedOn?: pulumi.Input<string>;
+    edition?: pulumi.Input<string>;
+    isEventsAccount?: pulumi.Input<boolean>;
+    isOrgAdmin?: pulumi.Input<boolean>;
+    isOrganizationAccount?: pulumi.Input<boolean>;
+    managedAccounts?: pulumi.Input<number>;
+    marketplaceConsumerBillingEntityName?: pulumi.Input<string>;
+    marketplaceProviderBillingEntityName?: pulumi.Input<string>;
+    movedOn?: pulumi.Input<string>;
+    movedToOrganization?: pulumi.Input<string>;
+    oldAccountUrl?: pulumi.Input<string>;
+    organizationName?: pulumi.Input<string>;
+    organizationOldUrl?: pulumi.Input<string>;
+    organizationOldUrlLastUsed?: pulumi.Input<string>;
+    organizationOldUrlSavedOn?: pulumi.Input<string>;
+    organizationUrlExpirationOn?: pulumi.Input<string>;
+    regionGroup?: pulumi.Input<string>;
+    restoredOn?: pulumi.Input<string>;
+    scheduledDeletionTime?: pulumi.Input<string>;
+    snowflakeRegion?: pulumi.Input<string>;
+}
+
 export interface AlertAlertSchedule {
     /**
      * Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
@@ -386,11 +418,6 @@ export interface AuthenticationPolicyShowOutput {
     schemaName?: pulumi.Input<string>;
 }
 
-export interface DatabaseOldReplicationConfiguration {
-    accounts: pulumi.Input<pulumi.Input<string>[]>;
-    ignoreEditionCheck?: pulumi.Input<boolean>;
-}
-
 export interface DatabaseReplication {
     /**
      * Entry to enable replication and optionally failover for a given account identifier.
@@ -404,7 +431,7 @@ export interface DatabaseReplication {
 
 export interface DatabaseReplicationEnableToAccount {
     /**
-     * Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"<organization_name>"."<account_name>"`.
+     * Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"<organization_name>"."<account_name>"`. For more information about this resource, see docs.
      */
     accountIdentifier: pulumi.Input<string>;
     /**
@@ -706,15 +733,447 @@ export interface FailoverGroupReplicationScheduleCron {
     timeZone: pulumi.Input<string>;
 }
 
-export interface FunctionArgument {
+export interface FunctionJavaArgument {
     /**
-     * The argument name
+     * The argument type.
      */
-    name: pulumi.Input<string>;
+    argDataType: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string>;
     /**
-     * The argument type
+     * The argument name.
      */
-    type: pulumi.Input<string>;
+    argName: pulumi.Input<string>;
+}
+
+export interface FunctionJavaImport {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: pulumi.Input<string>;
+    stageLocation: pulumi.Input<string>;
+}
+
+export interface FunctionJavaParameter {
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionJavaParameterEnableConsoleOutput>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavaParameterLogLevel>[]>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavaParameterMetricLevel>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavaParameterTraceLevel>[]>;
+}
+
+export interface FunctionJavaParameterEnableConsoleOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionJavaParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionJavaParameterMetricLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionJavaParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionJavaSecret {
+    /**
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * The variable that will be used in handler code when retrieving information from the secret.
+     */
+    secretVariableName: pulumi.Input<string>;
+}
+
+export interface FunctionJavaShowOutput {
+    argumentsRaw?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<string>;
+    isAggregate?: pulumi.Input<boolean>;
+    isAnsi?: pulumi.Input<boolean>;
+    isBuiltin?: pulumi.Input<boolean>;
+    isDataMetric?: pulumi.Input<boolean>;
+    isExternalFunction?: pulumi.Input<boolean>;
+    isMemoizable?: pulumi.Input<boolean>;
+    isSecure?: pulumi.Input<boolean>;
+    isTableFunction?: pulumi.Input<boolean>;
+    language?: pulumi.Input<string>;
+    maxNumArguments?: pulumi.Input<number>;
+    minNumArguments?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secrets?: pulumi.Input<string>;
+    validForClustering?: pulumi.Input<boolean>;
+}
+
+export interface FunctionJavaTargetPath {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: pulumi.Input<string>;
+    stageLocation: pulumi.Input<string>;
+}
+
+export interface FunctionJavascriptArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string>;
+    /**
+     * The argument name.
+     */
+    argName: pulumi.Input<string>;
+}
+
+export interface FunctionJavascriptParameter {
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameterEnableConsoleOutput>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameterLogLevel>[]>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameterMetricLevel>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionJavascriptParameterTraceLevel>[]>;
+}
+
+export interface FunctionJavascriptParameterEnableConsoleOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionJavascriptParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionJavascriptParameterMetricLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionJavascriptParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionJavascriptShowOutput {
+    argumentsRaw?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<string>;
+    isAggregate?: pulumi.Input<boolean>;
+    isAnsi?: pulumi.Input<boolean>;
+    isBuiltin?: pulumi.Input<boolean>;
+    isDataMetric?: pulumi.Input<boolean>;
+    isExternalFunction?: pulumi.Input<boolean>;
+    isMemoizable?: pulumi.Input<boolean>;
+    isSecure?: pulumi.Input<boolean>;
+    isTableFunction?: pulumi.Input<boolean>;
+    language?: pulumi.Input<string>;
+    maxNumArguments?: pulumi.Input<number>;
+    minNumArguments?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secrets?: pulumi.Input<string>;
+    validForClustering?: pulumi.Input<boolean>;
+}
+
+export interface FunctionPythonArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string>;
+    /**
+     * The argument name.
+     */
+    argName: pulumi.Input<string>;
+}
+
+export interface FunctionPythonImport {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: pulumi.Input<string>;
+    stageLocation: pulumi.Input<string>;
+}
+
+export interface FunctionPythonParameter {
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionPythonParameterEnableConsoleOutput>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionPythonParameterLogLevel>[]>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionPythonParameterMetricLevel>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionPythonParameterTraceLevel>[]>;
+}
+
+export interface FunctionPythonParameterEnableConsoleOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionPythonParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionPythonParameterMetricLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionPythonParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionPythonSecret {
+    /**
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * The variable that will be used in handler code when retrieving information from the secret.
+     */
+    secretVariableName: pulumi.Input<string>;
+}
+
+export interface FunctionPythonShowOutput {
+    argumentsRaw?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<string>;
+    isAggregate?: pulumi.Input<boolean>;
+    isAnsi?: pulumi.Input<boolean>;
+    isBuiltin?: pulumi.Input<boolean>;
+    isDataMetric?: pulumi.Input<boolean>;
+    isExternalFunction?: pulumi.Input<boolean>;
+    isMemoizable?: pulumi.Input<boolean>;
+    isSecure?: pulumi.Input<boolean>;
+    isTableFunction?: pulumi.Input<boolean>;
+    language?: pulumi.Input<string>;
+    maxNumArguments?: pulumi.Input<number>;
+    minNumArguments?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secrets?: pulumi.Input<string>;
+    validForClustering?: pulumi.Input<boolean>;
+}
+
+export interface FunctionScalaArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string>;
+    /**
+     * The argument name.
+     */
+    argName: pulumi.Input<string>;
+}
+
+export interface FunctionScalaImport {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: pulumi.Input<string>;
+    stageLocation: pulumi.Input<string>;
+}
+
+export interface FunctionScalaParameter {
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionScalaParameterEnableConsoleOutput>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionScalaParameterLogLevel>[]>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionScalaParameterMetricLevel>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionScalaParameterTraceLevel>[]>;
+}
+
+export interface FunctionScalaParameterEnableConsoleOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionScalaParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionScalaParameterMetricLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionScalaParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionScalaSecret {
+    /**
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * The variable that will be used in handler code when retrieving information from the secret.
+     */
+    secretVariableName: pulumi.Input<string>;
+}
+
+export interface FunctionScalaShowOutput {
+    argumentsRaw?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<string>;
+    isAggregate?: pulumi.Input<boolean>;
+    isAnsi?: pulumi.Input<boolean>;
+    isBuiltin?: pulumi.Input<boolean>;
+    isDataMetric?: pulumi.Input<boolean>;
+    isExternalFunction?: pulumi.Input<boolean>;
+    isMemoizable?: pulumi.Input<boolean>;
+    isSecure?: pulumi.Input<boolean>;
+    isTableFunction?: pulumi.Input<boolean>;
+    language?: pulumi.Input<string>;
+    maxNumArguments?: pulumi.Input<number>;
+    minNumArguments?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secrets?: pulumi.Input<string>;
+    validForClustering?: pulumi.Input<boolean>;
+}
+
+export interface FunctionScalaTargetPath {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: pulumi.Input<string>;
+    stageLocation: pulumi.Input<string>;
+}
+
+export interface FunctionSqlArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string>;
+    /**
+     * The argument name.
+     */
+    argName: pulumi.Input<string>;
+}
+
+export interface FunctionSqlParameter {
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.FunctionSqlParameterEnableConsoleOutput>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.FunctionSqlParameterLogLevel>[]>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.FunctionSqlParameterMetricLevel>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.FunctionSqlParameterTraceLevel>[]>;
+}
+
+export interface FunctionSqlParameterEnableConsoleOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionSqlParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionSqlParameterMetricLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionSqlParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface FunctionSqlShowOutput {
+    argumentsRaw?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<string>;
+    isAggregate?: pulumi.Input<boolean>;
+    isAnsi?: pulumi.Input<boolean>;
+    isBuiltin?: pulumi.Input<boolean>;
+    isDataMetric?: pulumi.Input<boolean>;
+    isExternalFunction?: pulumi.Input<boolean>;
+    isMemoizable?: pulumi.Input<boolean>;
+    isSecure?: pulumi.Input<boolean>;
+    isTableFunction?: pulumi.Input<boolean>;
+    language?: pulumi.Input<string>;
+    maxNumArguments?: pulumi.Input<number>;
+    minNumArguments?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secrets?: pulumi.Input<string>;
+    validForClustering?: pulumi.Input<boolean>;
 }
 
 export interface GetCortexSearchServicesIn {
@@ -1630,11 +2089,11 @@ export interface GrantOwnershipOn {
 
 export interface GrantOwnershipOnAll {
     /**
-     * The fully qualified name of the database.
+     * The fully qualified name of the database. For more information about this resource, see docs.
      */
     inDatabase?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the schema.
+     * The fully qualified name of the schema. For more information about this resource, see docs.
      */
     inSchema?: pulumi.Input<string>;
     /**
@@ -1645,11 +2104,11 @@ export interface GrantOwnershipOnAll {
 
 export interface GrantOwnershipOnFuture {
     /**
-     * The fully qualified name of the database.
+     * The fully qualified name of the database. For more information about this resource, see docs.
      */
     inDatabase?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the schema.
+     * The fully qualified name of the schema. For more information about this resource, see docs.
      */
     inSchema?: pulumi.Input<string>;
     /**
@@ -2567,6 +3026,18 @@ export interface OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRole
     value?: pulumi.Input<string>;
 }
 
+export interface OauthIntegrationForCustomClientsRelatedParameter {
+    oauthAddPrivilegedRolesToBlockedLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedList>[]>;
+}
+
+export interface OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedList {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
 export interface OauthIntegrationForCustomClientsShowOutput {
     category?: pulumi.Input<string>;
     comment?: pulumi.Input<string>;
@@ -2731,6 +3202,18 @@ export interface OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthoriz
     value?: pulumi.Input<string>;
 }
 
+export interface OauthIntegrationForPartnerApplicationsRelatedParameter {
+    oauthAddPrivilegedRolesToBlockedLists?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedList>[]>;
+}
+
+export interface OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedList {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
 export interface OauthIntegrationForPartnerApplicationsShowOutput {
     category?: pulumi.Input<string>;
     comment?: pulumi.Input<string>;
@@ -2770,15 +3253,427 @@ export interface PrimaryConnectionShowOutput {
     snowflakeRegion?: pulumi.Input<string>;
 }
 
-export interface ProcedureArgument {
+export interface ProcedureJavaArgument {
     /**
-     * The argument name
+     * The argument type.
      */
-    name: pulumi.Input<string>;
+    argDataType: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string>;
     /**
-     * The argument type
+     * The argument name.
      */
-    type: pulumi.Input<string>;
+    argName: pulumi.Input<string>;
+}
+
+export interface ProcedureJavaImport {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: pulumi.Input<string>;
+    stageLocation: pulumi.Input<string>;
+}
+
+export interface ProcedureJavaParameter {
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedureJavaParameterEnableConsoleOutput>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavaParameterLogLevel>[]>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavaParameterMetricLevel>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavaParameterTraceLevel>[]>;
+}
+
+export interface ProcedureJavaParameterEnableConsoleOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureJavaParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureJavaParameterMetricLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureJavaParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureJavaSecret {
+    /**
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * The variable that will be used in handler code when retrieving information from the secret.
+     */
+    secretVariableName: pulumi.Input<string>;
+}
+
+export interface ProcedureJavaShowOutput {
+    argumentsRaw?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<string>;
+    isAggregate?: pulumi.Input<boolean>;
+    isAnsi?: pulumi.Input<boolean>;
+    isBuiltin?: pulumi.Input<boolean>;
+    isSecure?: pulumi.Input<boolean>;
+    isTableFunction?: pulumi.Input<boolean>;
+    maxNumArguments?: pulumi.Input<number>;
+    minNumArguments?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secrets?: pulumi.Input<string>;
+    validForClustering?: pulumi.Input<boolean>;
+}
+
+export interface ProcedureJavaTargetPath {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: pulumi.Input<string>;
+    stageLocation: pulumi.Input<string>;
+}
+
+export interface ProcedureJavascriptArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string>;
+    /**
+     * The argument name.
+     */
+    argName: pulumi.Input<string>;
+}
+
+export interface ProcedureJavascriptParameter {
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedureJavascriptParameterEnableConsoleOutput>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavascriptParameterLogLevel>[]>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavascriptParameterMetricLevel>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureJavascriptParameterTraceLevel>[]>;
+}
+
+export interface ProcedureJavascriptParameterEnableConsoleOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureJavascriptParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureJavascriptParameterMetricLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureJavascriptParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureJavascriptShowOutput {
+    argumentsRaw?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<string>;
+    isAggregate?: pulumi.Input<boolean>;
+    isAnsi?: pulumi.Input<boolean>;
+    isBuiltin?: pulumi.Input<boolean>;
+    isSecure?: pulumi.Input<boolean>;
+    isTableFunction?: pulumi.Input<boolean>;
+    maxNumArguments?: pulumi.Input<number>;
+    minNumArguments?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secrets?: pulumi.Input<string>;
+    validForClustering?: pulumi.Input<boolean>;
+}
+
+export interface ProcedurePythonArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string>;
+    /**
+     * The argument name.
+     */
+    argName: pulumi.Input<string>;
+}
+
+export interface ProcedurePythonImport {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: pulumi.Input<string>;
+    stageLocation: pulumi.Input<string>;
+}
+
+export interface ProcedurePythonParameter {
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedurePythonParameterEnableConsoleOutput>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedurePythonParameterLogLevel>[]>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedurePythonParameterMetricLevel>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedurePythonParameterTraceLevel>[]>;
+}
+
+export interface ProcedurePythonParameterEnableConsoleOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedurePythonParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedurePythonParameterMetricLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedurePythonParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedurePythonSecret {
+    /**
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * The variable that will be used in handler code when retrieving information from the secret.
+     */
+    secretVariableName: pulumi.Input<string>;
+}
+
+export interface ProcedurePythonShowOutput {
+    argumentsRaw?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<string>;
+    isAggregate?: pulumi.Input<boolean>;
+    isAnsi?: pulumi.Input<boolean>;
+    isBuiltin?: pulumi.Input<boolean>;
+    isSecure?: pulumi.Input<boolean>;
+    isTableFunction?: pulumi.Input<boolean>;
+    maxNumArguments?: pulumi.Input<number>;
+    minNumArguments?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secrets?: pulumi.Input<string>;
+    validForClustering?: pulumi.Input<boolean>;
+}
+
+export interface ProcedureScalaArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string>;
+    /**
+     * The argument name.
+     */
+    argName: pulumi.Input<string>;
+}
+
+export interface ProcedureScalaImport {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: pulumi.Input<string>;
+    stageLocation: pulumi.Input<string>;
+}
+
+export interface ProcedureScalaParameter {
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaParameterEnableConsoleOutput>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaParameterLogLevel>[]>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaParameterMetricLevel>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaParameterTraceLevel>[]>;
+}
+
+export interface ProcedureScalaParameterEnableConsoleOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureScalaParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureScalaParameterMetricLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureScalaParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureScalaSecret {
+    /**
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     */
+    secretId: pulumi.Input<string>;
+    /**
+     * The variable that will be used in handler code when retrieving information from the secret.
+     */
+    secretVariableName: pulumi.Input<string>;
+}
+
+export interface ProcedureScalaShowOutput {
+    argumentsRaw?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<string>;
+    isAggregate?: pulumi.Input<boolean>;
+    isAnsi?: pulumi.Input<boolean>;
+    isBuiltin?: pulumi.Input<boolean>;
+    isSecure?: pulumi.Input<boolean>;
+    isTableFunction?: pulumi.Input<boolean>;
+    maxNumArguments?: pulumi.Input<number>;
+    minNumArguments?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secrets?: pulumi.Input<string>;
+    validForClustering?: pulumi.Input<boolean>;
+}
+
+export interface ProcedureScalaTargetPath {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: pulumi.Input<string>;
+    stageLocation: pulumi.Input<string>;
+}
+
+export interface ProcedureSqlArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: pulumi.Input<string>;
+    argDefaultValue?: pulumi.Input<string>;
+    /**
+     * The argument name.
+     */
+    argName: pulumi.Input<string>;
+}
+
+export interface ProcedureSqlParameter {
+    enableConsoleOutputs?: pulumi.Input<pulumi.Input<inputs.ProcedureSqlParameterEnableConsoleOutput>[]>;
+    logLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureSqlParameterLogLevel>[]>;
+    metricLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureSqlParameterMetricLevel>[]>;
+    traceLevels?: pulumi.Input<pulumi.Input<inputs.ProcedureSqlParameterTraceLevel>[]>;
+}
+
+export interface ProcedureSqlParameterEnableConsoleOutput {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureSqlParameterLogLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureSqlParameterMetricLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureSqlParameterTraceLevel {
+    default?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    key?: pulumi.Input<string>;
+    level?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface ProcedureSqlShowOutput {
+    argumentsRaw?: pulumi.Input<string>;
+    catalogName?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<string>;
+    isAggregate?: pulumi.Input<boolean>;
+    isAnsi?: pulumi.Input<boolean>;
+    isBuiltin?: pulumi.Input<boolean>;
+    isSecure?: pulumi.Input<boolean>;
+    isTableFunction?: pulumi.Input<boolean>;
+    maxNumArguments?: pulumi.Input<number>;
+    minNumArguments?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    secrets?: pulumi.Input<string>;
+    validForClustering?: pulumi.Input<boolean>;
 }
 
 export interface ProviderTokenAccessor {
@@ -2818,19 +3713,6 @@ export interface ResourceMonitorShowOutput {
     suspendAt?: pulumi.Input<number>;
     suspendImmediateAt?: pulumi.Input<number>;
     usedCredits?: pulumi.Input<number>;
-}
-
-export interface RoleShowOutput {
-    assignedToUsers?: pulumi.Input<number>;
-    comment?: pulumi.Input<string>;
-    createdOn?: pulumi.Input<string>;
-    grantedRoles?: pulumi.Input<number>;
-    grantedToRoles?: pulumi.Input<number>;
-    isCurrent?: pulumi.Input<boolean>;
-    isDefault?: pulumi.Input<boolean>;
-    isInherited?: pulumi.Input<boolean>;
-    name?: pulumi.Input<string>;
-    owner?: pulumi.Input<string>;
 }
 
 export interface RowAccessPolicyArgument {
@@ -4368,21 +5250,6 @@ export interface TableTag {
     value: pulumi.Input<string>;
 }
 
-export interface TagAssociationObjectIdentifier {
-    /**
-     * Name of the database that the object was created in.
-     */
-    database?: pulumi.Input<string>;
-    /**
-     * Name of the object to associate the tag with.
-     */
-    name: pulumi.Input<string>;
-    /**
-     * Name of the schema that the object was created in.
-     */
-    schema?: pulumi.Input<string>;
-}
-
 export interface TagShowOutput {
     allowedValues?: pulumi.Input<pulumi.Input<string>[]>;
     comment?: pulumi.Input<string>;
@@ -5543,7 +6410,7 @@ export interface ViewColumn {
 
 export interface ViewColumnMaskingPolicy {
     /**
-     * Specifies the masking policy to set on a column.
+     * Specifies the masking policy to set on a column. For more information about this resource, see docs.
      */
     policyName: pulumi.Input<string>;
     /**
@@ -5606,7 +6473,7 @@ export interface ViewRowAccessPolicy {
      */
     ons: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Row access policy name.
+     * Row access policy name. For more information about this resource, see docs.
      */
     policyName: pulumi.Input<string>;
 }

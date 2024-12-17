@@ -42,7 +42,7 @@ export class SecretWithClientCredentials extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service.
+     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
      */
     public readonly apiAuthentication!: pulumi.Output<string>;
     /**
@@ -50,7 +50,7 @@ export class SecretWithClientCredentials extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -62,7 +62,7 @@ export class SecretWithClientCredentials extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -70,7 +70,7 @@ export class SecretWithClientCredentials extends pulumi.CustomResource {
      */
     public readonly oauthScopes!: pulumi.Output<string[]>;
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export class SecretWithClientCredentials extends pulumi.CustomResource {
  */
 export interface SecretWithClientCredentialsState {
     /**
-     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service.
+     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
      */
     apiAuthentication?: pulumi.Input<string>;
     /**
@@ -148,7 +148,7 @@ export interface SecretWithClientCredentialsState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database?: pulumi.Input<string>;
     /**
@@ -160,7 +160,7 @@ export interface SecretWithClientCredentialsState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -168,7 +168,7 @@ export interface SecretWithClientCredentialsState {
      */
     oauthScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string>;
     /**
@@ -186,7 +186,7 @@ export interface SecretWithClientCredentialsState {
  */
 export interface SecretWithClientCredentialsArgs {
     /**
-     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service.
+     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
      */
     apiAuthentication: pulumi.Input<string>;
     /**
@@ -194,11 +194,11 @@ export interface SecretWithClientCredentialsArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database: pulumi.Input<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -206,7 +206,7 @@ export interface SecretWithClientCredentialsArgs {
      */
     oauthScopes: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema: pulumi.Input<string>;
 }

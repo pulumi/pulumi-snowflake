@@ -25,18 +25,17 @@ type StreamOnTable struct {
 	At         StreamOnTableAtPtrOutput     `pulumi:"at"`
 	Before     StreamOnTableBeforePtrOutput `pulumi:"before"`
 	// Specifies a comment for the stream.
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. That is sometimes used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect when creating a new stream.
-	CopyGrants pulumi.BoolPtrOutput `pulumi:"copyGrants"`
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	Comment    pulumi.StringPtrOutput `pulumi:"comment"`
+	CopyGrants pulumi.BoolPtrOutput   `pulumi:"copyGrants"`
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE STREAM` for the given stream.
 	DescribeOutputs StreamOnTableDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema          pulumi.StringOutput    `pulumi:"schema"`
 	ShowInitialRows pulumi.StringPtrOutput `pulumi:"showInitialRows"`
 	// Outputs the result of `SHOW STREAMS` for the given stream.
@@ -44,7 +43,7 @@ type StreamOnTable struct {
 	Stale       pulumi.BoolOutput                  `pulumi:"stale"`
 	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
 	StreamType pulumi.StringOutput `pulumi:"streamType"`
-	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
 	Table pulumi.StringOutput `pulumi:"table"`
 }
 
@@ -92,18 +91,17 @@ type streamOnTableState struct {
 	At         *StreamOnTableAt     `pulumi:"at"`
 	Before     *StreamOnTableBefore `pulumi:"before"`
 	// Specifies a comment for the stream.
-	Comment *string `pulumi:"comment"`
-	// Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. That is sometimes used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect when creating a new stream.
-	CopyGrants *bool `pulumi:"copyGrants"`
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	Comment    *string `pulumi:"comment"`
+	CopyGrants *bool   `pulumi:"copyGrants"`
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE STREAM` for the given stream.
 	DescribeOutputs []StreamOnTableDescribeOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema          *string `pulumi:"schema"`
 	ShowInitialRows *string `pulumi:"showInitialRows"`
 	// Outputs the result of `SHOW STREAMS` for the given stream.
@@ -111,7 +109,7 @@ type streamOnTableState struct {
 	Stale       *bool                     `pulumi:"stale"`
 	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
 	StreamType *string `pulumi:"streamType"`
-	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
 	Table *string `pulumi:"table"`
 }
 
@@ -121,18 +119,17 @@ type StreamOnTableState struct {
 	At         StreamOnTableAtPtrInput
 	Before     StreamOnTableBeforePtrInput
 	// Specifies a comment for the stream.
-	Comment pulumi.StringPtrInput
-	// Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. That is sometimes used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect when creating a new stream.
+	Comment    pulumi.StringPtrInput
 	CopyGrants pulumi.BoolPtrInput
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE STREAM` for the given stream.
 	DescribeOutputs StreamOnTableDescribeOutputArrayInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema          pulumi.StringPtrInput
 	ShowInitialRows pulumi.StringPtrInput
 	// Outputs the result of `SHOW STREAMS` for the given stream.
@@ -140,7 +137,7 @@ type StreamOnTableState struct {
 	Stale       pulumi.BoolPtrInput
 	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
 	StreamType pulumi.StringPtrInput
-	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
 	Table pulumi.StringPtrInput
 }
 
@@ -154,17 +151,16 @@ type streamOnTableArgs struct {
 	At         *StreamOnTableAt     `pulumi:"at"`
 	Before     *StreamOnTableBefore `pulumi:"before"`
 	// Specifies a comment for the stream.
-	Comment *string `pulumi:"comment"`
-	// Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. That is sometimes used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect when creating a new stream.
-	CopyGrants *bool `pulumi:"copyGrants"`
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	Comment    *string `pulumi:"comment"`
+	CopyGrants *bool   `pulumi:"copyGrants"`
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema          string  `pulumi:"schema"`
 	ShowInitialRows *string `pulumi:"showInitialRows"`
-	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
 	Table string `pulumi:"table"`
 }
 
@@ -175,17 +171,16 @@ type StreamOnTableArgs struct {
 	At         StreamOnTableAtPtrInput
 	Before     StreamOnTableBeforePtrInput
 	// Specifies a comment for the stream.
-	Comment pulumi.StringPtrInput
-	// Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. That is sometimes used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect when creating a new stream.
+	Comment    pulumi.StringPtrInput
 	CopyGrants pulumi.BoolPtrInput
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema          pulumi.StringInput
 	ShowInitialRows pulumi.StringPtrInput
-	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
 	Table pulumi.StringInput
 }
 
@@ -294,12 +289,11 @@ func (o StreamOnTableOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Retains the access permissions from the original stream when a stream is recreated using the OR REPLACE clause. That is sometimes used when the provider detects changes for fields that can not be changed by ALTER. This value will not have any effect when creating a new stream.
 func (o StreamOnTableOutput) CopyGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.BoolPtrOutput { return v.CopyGrants }).(pulumi.BoolPtrOutput)
 }
 
-// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o StreamOnTableOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -314,12 +308,12 @@ func (o StreamOnTableOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o StreamOnTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o StreamOnTableOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
@@ -342,7 +336,7 @@ func (o StreamOnTableOutput) StreamType() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringOutput { return v.StreamType }).(pulumi.StringOutput)
 }
 
-// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
 func (o StreamOnTableOutput) Table() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringOutput { return v.Table }).(pulumi.StringOutput)
 }

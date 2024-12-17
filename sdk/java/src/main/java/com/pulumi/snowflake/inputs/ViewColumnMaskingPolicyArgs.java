@@ -18,14 +18,14 @@ public final class ViewColumnMaskingPolicyArgs extends com.pulumi.resources.Reso
     public static final ViewColumnMaskingPolicyArgs Empty = new ViewColumnMaskingPolicyArgs();
 
     /**
-     * Specifies the masking policy to set on a column.
+     * Specifies the masking policy to set on a column. For more information about this resource, see docs.
      * 
      */
     @Import(name="policyName", required=true)
     private Output<String> policyName;
 
     /**
-     * @return Specifies the masking policy to set on a column.
+     * @return Specifies the masking policy to set on a column. For more information about this resource, see docs.
      * 
      */
     public Output<String> policyName() {
@@ -73,7 +73,7 @@ public final class ViewColumnMaskingPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param policyName Specifies the masking policy to set on a column.
+         * @param policyName Specifies the masking policy to set on a column. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ViewColumnMaskingPolicyArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param policyName Specifies the masking policy to set on a column.
+         * @param policyName Specifies the masking policy to set on a column. For more information about this resource, see docs.
          * 
          * @return builder
          * 

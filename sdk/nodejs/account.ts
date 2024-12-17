@@ -2,13 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/account:Account account <account_locator>
+ * $ pulumi import snowflake:index/account:Account example '"<organization_name>"."<account_name>"'
  * ```
  */
 export class Account extends pulumi.CustomResource {
@@ -39,66 +41,50 @@ export class Account extends pulumi.CustomResource {
         return obj['__pulumiType'] === Account.__pulumiType;
     }
 
-    /**
-     * Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive.
-     */
     public readonly adminName!: pulumi.Output<string>;
-    /**
-     * Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
-     */
     public readonly adminPassword!: pulumi.Output<string | undefined>;
-    /**
-     * Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
-     */
     public readonly adminRsaPublicKey!: pulumi.Output<string | undefined>;
+    public readonly adminUserType!: pulumi.Output<string | undefined>;
     /**
      * Specifies a comment for the account.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions.html) of the account. Valid values are: STANDARD | ENTERPRISE | BUSINESS_CRITICAL
+     * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
      */
     public readonly edition!: pulumi.Output<string>;
-    /**
-     * Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
-     */
     public readonly email!: pulumi.Output<string>;
-    /**
-     * First name of the initial administrative user of the account
-     */
     public readonly firstName!: pulumi.Output<string | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies the number of days to wait before dropping the account. The default is 3 days.
+     * Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
      */
-    public readonly gracePeriodInDays!: pulumi.Output<number | undefined>;
+    public readonly gracePeriodInDays!: pulumi.Output<number>;
     /**
-     * Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+     * Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
      */
-    public /*out*/ readonly isOrgAdmin!: pulumi.Output<boolean>;
-    /**
-     * Last name of the initial administrative user of the account
-     */
+    public readonly isOrgAdmin!: pulumi.Output<string | undefined>;
     public readonly lastName!: pulumi.Output<string | undefined>;
+    public readonly mustChangePassword!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
-     */
-    public readonly mustChangePassword!: pulumi.Output<boolean | undefined>;
-    /**
-     * Specifies the identifier (i.e. name) for the account; must be unique within an organization, regardless of which Snowflake Region the account is in. In addition, the identifier must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+     * Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * ID of the Snowflake Region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+     * [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
      */
     public readonly region!: pulumi.Output<string | undefined>;
     /**
-     * ID of the Snowflake Region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+     * ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
      */
     public readonly regionGroup!: pulumi.Output<string | undefined>;
+    /**
+     * Outputs the result of `SHOW ACCOUNTS` for the given account.
+     */
+    public /*out*/ readonly showOutputs!: pulumi.Output<outputs.AccountShowOutput[]>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -116,6 +102,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["adminName"] = state ? state.adminName : undefined;
             resourceInputs["adminPassword"] = state ? state.adminPassword : undefined;
             resourceInputs["adminRsaPublicKey"] = state ? state.adminRsaPublicKey : undefined;
+            resourceInputs["adminUserType"] = state ? state.adminUserType : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["edition"] = state ? state.edition : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
@@ -128,6 +115,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["regionGroup"] = state ? state.regionGroup : undefined;
+            resourceInputs["showOutputs"] = state ? state.showOutputs : undefined;
         } else {
             const args = argsOrState as AccountArgs | undefined;
             if ((!args || args.adminName === undefined) && !opts.urn) {
@@ -139,24 +127,29 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.email === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            resourceInputs["adminName"] = args ? args.adminName : undefined;
+            if ((!args || args.gracePeriodInDays === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'gracePeriodInDays'");
+            }
+            resourceInputs["adminName"] = args?.adminName ? pulumi.secret(args.adminName) : undefined;
             resourceInputs["adminPassword"] = args?.adminPassword ? pulumi.secret(args.adminPassword) : undefined;
-            resourceInputs["adminRsaPublicKey"] = args?.adminRsaPublicKey ? pulumi.secret(args.adminRsaPublicKey) : undefined;
+            resourceInputs["adminRsaPublicKey"] = args ? args.adminRsaPublicKey : undefined;
+            resourceInputs["adminUserType"] = args ? args.adminUserType : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["edition"] = args ? args.edition : undefined;
             resourceInputs["email"] = args?.email ? pulumi.secret(args.email) : undefined;
             resourceInputs["firstName"] = args?.firstName ? pulumi.secret(args.firstName) : undefined;
             resourceInputs["gracePeriodInDays"] = args ? args.gracePeriodInDays : undefined;
+            resourceInputs["isOrgAdmin"] = args ? args.isOrgAdmin : undefined;
             resourceInputs["lastName"] = args?.lastName ? pulumi.secret(args.lastName) : undefined;
             resourceInputs["mustChangePassword"] = args ? args.mustChangePassword : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["regionGroup"] = args ? args.regionGroup : undefined;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
-            resourceInputs["isOrgAdmin"] = undefined /*out*/;
+            resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["adminPassword", "adminRsaPublicKey", "email", "firstName", "lastName"] };
+        const secretOpts = { additionalSecretOutputs: ["adminName", "adminPassword", "email", "firstName", "lastName"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }
@@ -166,122 +159,90 @@ export class Account extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Account resources.
  */
 export interface AccountState {
-    /**
-     * Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive.
-     */
     adminName?: pulumi.Input<string>;
-    /**
-     * Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
-     */
     adminPassword?: pulumi.Input<string>;
-    /**
-     * Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
-     */
     adminRsaPublicKey?: pulumi.Input<string>;
+    adminUserType?: pulumi.Input<string>;
     /**
      * Specifies a comment for the account.
      */
     comment?: pulumi.Input<string>;
     /**
-     * [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions.html) of the account. Valid values are: STANDARD | ENTERPRISE | BUSINESS_CRITICAL
+     * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
      */
     edition?: pulumi.Input<string>;
-    /**
-     * Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
-     */
     email?: pulumi.Input<string>;
-    /**
-     * First name of the initial administrative user of the account
-     */
     firstName?: pulumi.Input<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies the number of days to wait before dropping the account. The default is 3 days.
+     * Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
      */
     gracePeriodInDays?: pulumi.Input<number>;
     /**
-     * Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
+     * Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
      */
-    isOrgAdmin?: pulumi.Input<boolean>;
-    /**
-     * Last name of the initial administrative user of the account
-     */
+    isOrgAdmin?: pulumi.Input<string>;
     lastName?: pulumi.Input<string>;
+    mustChangePassword?: pulumi.Input<string>;
     /**
-     * Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
-     */
-    mustChangePassword?: pulumi.Input<boolean>;
-    /**
-     * Specifies the identifier (i.e. name) for the account; must be unique within an organization, regardless of which Snowflake Region the account is in. In addition, the identifier must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+     * Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
      */
     name?: pulumi.Input<string>;
     /**
-     * ID of the Snowflake Region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+     * [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
      */
     region?: pulumi.Input<string>;
     /**
-     * ID of the Snowflake Region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+     * ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
      */
     regionGroup?: pulumi.Input<string>;
+    /**
+     * Outputs the result of `SHOW ACCOUNTS` for the given account.
+     */
+    showOutputs?: pulumi.Input<pulumi.Input<inputs.AccountShowOutput>[]>;
 }
 
 /**
  * The set of arguments for constructing a Account resource.
  */
 export interface AccountArgs {
-    /**
-     * Login name of the initial administrative user of the account. A new user is created in the new account with this name and password and granted the ACCOUNTADMIN role in the account. A login name can be any string consisting of letters, numbers, and underscores. Login names are always case-insensitive.
-     */
     adminName: pulumi.Input<string>;
-    /**
-     * Password for the initial administrative user of the account. Optional if the `ADMIN_RSA_PUBLIC_KEY` parameter is specified. For more information about passwords in Snowflake, see [Snowflake-provided Password Policy](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=Snowflake%2Dprovided%20Password%20Policy).
-     */
     adminPassword?: pulumi.Input<string>;
-    /**
-     * Assigns a public key to the initial administrative user of the account in order to implement [key pair authentication](https://docs.snowflake.com/en/sql-reference/sql/create-account.html#:~:text=key%20pair%20authentication) for the user. Optional if the `ADMIN_PASSWORD` parameter is specified.
-     */
     adminRsaPublicKey?: pulumi.Input<string>;
+    adminUserType?: pulumi.Input<string>;
     /**
      * Specifies a comment for the account.
      */
     comment?: pulumi.Input<string>;
     /**
-     * [Snowflake Edition](https://docs.snowflake.com/en/user-guide/intro-editions.html) of the account. Valid values are: STANDARD | ENTERPRISE | BUSINESS_CRITICAL
+     * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
      */
     edition: pulumi.Input<string>;
-    /**
-     * Email address of the initial administrative user of the account. This email address is used to send any notifications about the account.
-     */
     email: pulumi.Input<string>;
-    /**
-     * First name of the initial administrative user of the account
-     */
     firstName?: pulumi.Input<string>;
     /**
-     * Specifies the number of days to wait before dropping the account. The default is 3 days.
+     * Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
      */
-    gracePeriodInDays?: pulumi.Input<number>;
+    gracePeriodInDays: pulumi.Input<number>;
     /**
-     * Last name of the initial administrative user of the account
+     * Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
      */
+    isOrgAdmin?: pulumi.Input<string>;
     lastName?: pulumi.Input<string>;
+    mustChangePassword?: pulumi.Input<string>;
     /**
-     * Specifies whether the new user created to administer the account is forced to change their password upon first login into the account.
-     */
-    mustChangePassword?: pulumi.Input<boolean>;
-    /**
-     * Specifies the identifier (i.e. name) for the account; must be unique within an organization, regardless of which Snowflake Region the account is in. In addition, the identifier must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+     * Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
      */
     name?: pulumi.Input<string>;
     /**
-     * ID of the Snowflake Region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+     * [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
      */
     region?: pulumi.Input<string>;
     /**
-     * ID of the Snowflake Region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+     * ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
      */
     regionGroup?: pulumi.Input<string>;
 }

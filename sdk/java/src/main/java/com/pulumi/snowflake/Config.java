@@ -9,24 +9,13 @@ import com.pulumi.snowflake.config.inputs.TokenAccessor;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public final class Config {
 
     private static final com.pulumi.Config config = com.pulumi.Config.of("snowflake");
-/**
- * Use `account_name` and `organization_name` instead. Specifies your Snowflake account identifier assigned, by Snowflake.
- * The [account
- * locator](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-2-account-locator-in-a-region) format
- * is not supported. For information about account identifiers, see the [Snowflake
- * documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Required unless using `profile`.
- * Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
- * 
- */
-    public Optional<String> account() {
-        return Codegen.stringProp("account").config(config).env("SNOWFLAKE_ACCOUNT").get();
-    }
 /**
  * Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
  * [Snowflake documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier#account-name). Required
@@ -38,20 +27,12 @@ public final class Config {
     }
 /**
  * Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
- * connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `JWT` | `SNOWFLAKE_JWT`
- * | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Value `JWT` is deprecated and will be removed in future releases. Can also be
- * sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+ * connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
+ * `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
  * 
  */
     public Optional<String> authenticator() {
         return Codegen.stringProp("authenticator").config(config).get();
-    }
-/**
- * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
- * 
- */
-    public Optional<Boolean> browserAuth() {
-        return Codegen.booleanProp("browserAuth").config(config).env("SNOWFLAKE_USE_BROWSER_AUTH").get();
     }
 /**
  * IP address for network checks. Can also be sourced from the `SNOWFLAKE_CLIENT_IP` environment variable.
@@ -188,55 +169,6 @@ public final class Config {
         return Codegen.integerProp("maxRetryCount").config(config).get();
     }
 /**
- * Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
- * `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
- * environment variable.
- * 
- */
-    public Optional<String> oauthAccessToken() {
-        return Codegen.stringProp("oauthAccessToken").config(config).env("SNOWFLAKE_OAUTH_ACCESS_TOKEN").get();
-    }
-/**
- * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
- * 
- */
-    public Optional<String> oauthClientId() {
-        return Codegen.stringProp("oauthClientId").config(config).env("SNOWFLAKE_OAUTH_CLIENT_ID").get();
-    }
-/**
- * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
- * variable.
- * 
- */
-    public Optional<String> oauthClientSecret() {
-        return Codegen.stringProp("oauthClientSecret").config(config).env("SNOWFLAKE_OAUTH_CLIENT_SECRET").get();
-    }
-/**
- * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
- * 
- */
-    public Optional<String> oauthEndpoint() {
-        return Codegen.stringProp("oauthEndpoint").config(config).env("SNOWFLAKE_OAUTH_ENDPOINT").get();
-    }
-/**
- * Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
- * variable.
- * 
- */
-    public Optional<String> oauthRedirectUrl() {
-        return Codegen.stringProp("oauthRedirectUrl").config(config).env("SNOWFLAKE_OAUTH_REDIRECT_URL").get();
-    }
-/**
- * Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
- * `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
- * `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
- * environment variable.
- * 
- */
-    public Optional<String> oauthRefreshToken() {
-        return Codegen.stringProp("oauthRefreshToken").config(config).env("SNOWFLAKE_OAUTH_REFRESH_TOKEN").get();
-    }
-/**
  * True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
  * sourced from the `SNOWFLAKE_OCSP_FAIL_OPEN` environment variable.
  * 
@@ -287,8 +219,8 @@ public final class Config {
         return Codegen.booleanProp("passcodeInPassword").config(config).get();
     }
 /**
- * Password for user + password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
- * the `SNOWFLAKE_PASSWORD` environment variable.
+ * Password for user + password auth. Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced
+ * from the `SNOWFLAKE_PASSWORD` environment variable.
  * 
  */
     public Optional<String> password() {
@@ -302,9 +234,12 @@ public final class Config {
     public Optional<Integer> port() {
         return Codegen.integerProp("port").config(config).env("SNOWFLAKE_PORT").get();
     }
+    public Optional<List<String>> previewFeaturesEnableds() {
+        return Codegen.objectProp("previewFeaturesEnableds", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
+    }
 /**
- * Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
- * the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+ * Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
+ * `SNOWFLAKE_PRIVATE_KEY` environment variable.
  * 
  */
     public Optional<String> privateKey() {
@@ -317,14 +252,6 @@ public final class Config {
  */
     public Optional<String> privateKeyPassphrase() {
         return Codegen.stringProp("privateKeyPassphrase").config(config).env("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE").get();
-    }
-/**
- * Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
- * `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
- * 
- */
-    public Optional<String> privateKeyPath() {
-        return Codegen.stringProp("privateKeyPath").config(config).env("SNOWFLAKE_PRIVATE_KEY_PATH").get();
     }
 /**
  * Sets the profile to read from ~/.snowflake/config file. Can also be sourced from the `SNOWFLAKE_PROFILE` environment
@@ -343,18 +270,6 @@ public final class Config {
         return Codegen.stringProp("protocol").config(config).env("SNOWFLAKE_PROTOCOL").get();
     }
 /**
- * Snowflake region, such as &#34;eu-central-1&#34;, with this parameter. However, since this parameter is deprecated, it is best
- * to specify the region as part of the account parameter. For details, see the description of the account parameter.
- * [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
- * format for the `account`
- * identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
- * in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
- * 
- */
-    public Optional<String> region() {
-        return Codegen.stringProp("region").config(config).env("SNOWFLAKE_REGION").get();
-    }
-/**
  * request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
  * `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
  * 
@@ -369,13 +284,6 @@ public final class Config {
  */
     public Optional<String> role() {
         return Codegen.stringProp("role").config(config).env("SNOWFLAKE_ROLE").get();
-    }
-/**
- * Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
- * 
- */
-    public Optional<Map<String,String>> sessionParams() {
-        return Codegen.objectProp("sessionParams", TypeShape.<Map<String,String>>builder(Map.class).addParameter(String.class).addParameter(String.class).build()).config(config).get();
     }
 /**
  * Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
@@ -402,14 +310,6 @@ public final class Config {
  */
     public Optional<String> user() {
         return Codegen.stringProp("user").config(config).get();
-    }
-/**
- * Username for user + password authentication. Required unless using `profile`. Can also be sourced from the
- * `SNOWFLAKE_USERNAME` environment variable.
- * 
- */
-    public Optional<String> username() {
-        return Codegen.stringProp("username").config(config).env("SNOWFLAKE_USER").get();
     }
 /**
  * True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a

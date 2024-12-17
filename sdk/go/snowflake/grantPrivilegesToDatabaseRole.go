@@ -47,9 +47,9 @@ type GrantPrivilegesToDatabaseRole struct {
 	AlwaysApply   pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrOutput `pulumi:"alwaysApplyTrigger"`
-	// The fully qualified name of the database role to which privileges will be granted.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName pulumi.StringOutput `pulumi:"databaseRoleName"`
-	// The fully qualified name of the database on which privileges will be granted.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
 	OnDatabase pulumi.StringPtrOutput `pulumi:"onDatabase"`
 	// Specifies the schema on which privileges will be granted.
 	OnSchema GrantPrivilegesToDatabaseRoleOnSchemaPtrOutput `pulumi:"onSchema"`
@@ -99,9 +99,9 @@ type grantPrivilegesToDatabaseRoleState struct {
 	AlwaysApply   *bool `pulumi:"alwaysApply"`
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
-	// The fully qualified name of the database role to which privileges will be granted.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName *string `pulumi:"databaseRoleName"`
-	// The fully qualified name of the database on which privileges will be granted.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
 	OnDatabase *string `pulumi:"onDatabase"`
 	// Specifies the schema on which privileges will be granted.
 	OnSchema *GrantPrivilegesToDatabaseRoleOnSchema `pulumi:"onSchema"`
@@ -119,9 +119,9 @@ type GrantPrivilegesToDatabaseRoleState struct {
 	AlwaysApply   pulumi.BoolPtrInput
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
-	// The fully qualified name of the database role to which privileges will be granted.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName pulumi.StringPtrInput
-	// The fully qualified name of the database on which privileges will be granted.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
 	OnDatabase pulumi.StringPtrInput
 	// Specifies the schema on which privileges will be granted.
 	OnSchema GrantPrivilegesToDatabaseRoleOnSchemaPtrInput
@@ -143,9 +143,9 @@ type grantPrivilegesToDatabaseRoleArgs struct {
 	AlwaysApply   *bool `pulumi:"alwaysApply"`
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
-	// The fully qualified name of the database role to which privileges will be granted.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName string `pulumi:"databaseRoleName"`
-	// The fully qualified name of the database on which privileges will be granted.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
 	OnDatabase *string `pulumi:"onDatabase"`
 	// Specifies the schema on which privileges will be granted.
 	OnSchema *GrantPrivilegesToDatabaseRoleOnSchema `pulumi:"onSchema"`
@@ -164,9 +164,9 @@ type GrantPrivilegesToDatabaseRoleArgs struct {
 	AlwaysApply   pulumi.BoolPtrInput
 	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
-	// The fully qualified name of the database role to which privileges will be granted.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName pulumi.StringInput
-	// The fully qualified name of the database on which privileges will be granted.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
 	OnDatabase pulumi.StringPtrInput
 	// Specifies the schema on which privileges will be granted.
 	OnSchema GrantPrivilegesToDatabaseRoleOnSchemaPtrInput
@@ -279,12 +279,12 @@ func (o GrantPrivilegesToDatabaseRoleOutput) AlwaysApplyTrigger() pulumi.StringP
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.StringPtrOutput { return v.AlwaysApplyTrigger }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified name of the database role to which privileges will be granted.
+// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 func (o GrantPrivilegesToDatabaseRoleOutput) DatabaseRoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.StringOutput { return v.DatabaseRoleName }).(pulumi.StringOutput)
 }
 
-// The fully qualified name of the database on which privileges will be granted.
+// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
 func (o GrantPrivilegesToDatabaseRoleOutput) OnDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.StringPtrOutput { return v.OnDatabase }).(pulumi.StringPtrOutput)
 }

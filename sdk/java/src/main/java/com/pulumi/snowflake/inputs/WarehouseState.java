@@ -156,14 +156,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -201,14 +201,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
+     * Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      * 
      */
     @Import(name="resourceMonitor")
     private @Nullable Output<String> resourceMonitor;
 
     /**
-     * @return Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
+     * @return Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> resourceMonitor() {
@@ -537,7 +537,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -548,7 +548,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -610,7 +610,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceMonitor Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
+         * @param resourceMonitor Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -621,7 +621,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceMonitor Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
+         * @param resourceMonitor Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
          * 
          * @return builder
          * 

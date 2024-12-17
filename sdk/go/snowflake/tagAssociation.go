@@ -14,25 +14,21 @@ import (
 
 // ## Import
 //
-// format is dbName.schemaName.tagName or dbName.schemaName.tagName
+// ~> **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
 //
 // ```sh
-// $ pulumi import snowflake:index/tagAssociation:TagAssociation example 'dbName.schemaName.tagName'
+// $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'
 // ```
 type TagAssociation struct {
 	pulumi.CustomResourceState
 
-	// Specifies the object identifier for the tag association.
-	ObjectIdentifiers TagAssociationObjectIdentifierArrayOutput `pulumi:"objectIdentifiers"`
-	// Specifies the object identifier for the tag association.
-	//
-	// Deprecated: Use `objectIdentifier` instead
-	ObjectName pulumi.StringPtrOutput `pulumi:"objectName"`
+	// Specifies the object identifiers for the tag association.
+	ObjectIdentifiers pulumi.StringArrayOutput `pulumi:"objectIdentifiers"`
 	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType pulumi.StringOutput `pulumi:"objectType"`
 	// If true, skips validation of the tag association.
 	SkipValidation pulumi.BoolPtrOutput `pulumi:"skipValidation"`
-	// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+	// Specifies the identifier for the tag.
 	TagId pulumi.StringOutput `pulumi:"tagId"`
 	// Specifies the value of the tag, (e.g. 'finance' or 'engineering')
 	TagValue pulumi.StringOutput `pulumi:"tagValue"`
@@ -80,34 +76,26 @@ func GetTagAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TagAssociation resources.
 type tagAssociationState struct {
-	// Specifies the object identifier for the tag association.
-	ObjectIdentifiers []TagAssociationObjectIdentifier `pulumi:"objectIdentifiers"`
-	// Specifies the object identifier for the tag association.
-	//
-	// Deprecated: Use `objectIdentifier` instead
-	ObjectName *string `pulumi:"objectName"`
+	// Specifies the object identifiers for the tag association.
+	ObjectIdentifiers []string `pulumi:"objectIdentifiers"`
 	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType *string `pulumi:"objectType"`
 	// If true, skips validation of the tag association.
 	SkipValidation *bool `pulumi:"skipValidation"`
-	// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+	// Specifies the identifier for the tag.
 	TagId *string `pulumi:"tagId"`
 	// Specifies the value of the tag, (e.g. 'finance' or 'engineering')
 	TagValue *string `pulumi:"tagValue"`
 }
 
 type TagAssociationState struct {
-	// Specifies the object identifier for the tag association.
-	ObjectIdentifiers TagAssociationObjectIdentifierArrayInput
-	// Specifies the object identifier for the tag association.
-	//
-	// Deprecated: Use `objectIdentifier` instead
-	ObjectName pulumi.StringPtrInput
+	// Specifies the object identifiers for the tag association.
+	ObjectIdentifiers pulumi.StringArrayInput
 	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType pulumi.StringPtrInput
 	// If true, skips validation of the tag association.
 	SkipValidation pulumi.BoolPtrInput
-	// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+	// Specifies the identifier for the tag.
 	TagId pulumi.StringPtrInput
 	// Specifies the value of the tag, (e.g. 'finance' or 'engineering')
 	TagValue pulumi.StringPtrInput
@@ -118,17 +106,13 @@ func (TagAssociationState) ElementType() reflect.Type {
 }
 
 type tagAssociationArgs struct {
-	// Specifies the object identifier for the tag association.
-	ObjectIdentifiers []TagAssociationObjectIdentifier `pulumi:"objectIdentifiers"`
-	// Specifies the object identifier for the tag association.
-	//
-	// Deprecated: Use `objectIdentifier` instead
-	ObjectName *string `pulumi:"objectName"`
+	// Specifies the object identifiers for the tag association.
+	ObjectIdentifiers []string `pulumi:"objectIdentifiers"`
 	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType string `pulumi:"objectType"`
 	// If true, skips validation of the tag association.
 	SkipValidation *bool `pulumi:"skipValidation"`
-	// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+	// Specifies the identifier for the tag.
 	TagId string `pulumi:"tagId"`
 	// Specifies the value of the tag, (e.g. 'finance' or 'engineering')
 	TagValue string `pulumi:"tagValue"`
@@ -136,17 +120,13 @@ type tagAssociationArgs struct {
 
 // The set of arguments for constructing a TagAssociation resource.
 type TagAssociationArgs struct {
-	// Specifies the object identifier for the tag association.
-	ObjectIdentifiers TagAssociationObjectIdentifierArrayInput
-	// Specifies the object identifier for the tag association.
-	//
-	// Deprecated: Use `objectIdentifier` instead
-	ObjectName pulumi.StringPtrInput
+	// Specifies the object identifiers for the tag association.
+	ObjectIdentifiers pulumi.StringArrayInput
 	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType pulumi.StringInput
 	// If true, skips validation of the tag association.
 	SkipValidation pulumi.BoolPtrInput
-	// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+	// Specifies the identifier for the tag.
 	TagId pulumi.StringInput
 	// Specifies the value of the tag, (e.g. 'finance' or 'engineering')
 	TagValue pulumi.StringInput
@@ -239,16 +219,9 @@ func (o TagAssociationOutput) ToTagAssociationOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Specifies the object identifier for the tag association.
-func (o TagAssociationOutput) ObjectIdentifiers() TagAssociationObjectIdentifierArrayOutput {
-	return o.ApplyT(func(v *TagAssociation) TagAssociationObjectIdentifierArrayOutput { return v.ObjectIdentifiers }).(TagAssociationObjectIdentifierArrayOutput)
-}
-
-// Specifies the object identifier for the tag association.
-//
-// Deprecated: Use `objectIdentifier` instead
-func (o TagAssociationOutput) ObjectName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TagAssociation) pulumi.StringPtrOutput { return v.ObjectName }).(pulumi.StringPtrOutput)
+// Specifies the object identifiers for the tag association.
+func (o TagAssociationOutput) ObjectIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *TagAssociation) pulumi.StringArrayOutput { return v.ObjectIdentifiers }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
@@ -261,7 +234,7 @@ func (o TagAssociationOutput) SkipValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagAssociation) pulumi.BoolPtrOutput { return v.SkipValidation }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the identifier for the tag. Note: format must follow: "databaseName"."schemaName"."tagName" or "databaseName.schemaName.tagName" or "databaseName|schemaName.tagName" (snowflake_tag.tag.id)
+// Specifies the identifier for the tag.
 func (o TagAssociationOutput) TagId() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagAssociation) pulumi.StringOutput { return v.TagId }).(pulumi.StringOutput)
 }

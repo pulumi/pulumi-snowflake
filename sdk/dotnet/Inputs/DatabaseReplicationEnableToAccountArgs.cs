@@ -13,7 +13,7 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class DatabaseReplicationEnableToAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"&lt;organization_name&gt;"."&lt;account_name&gt;"`.
+        /// Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"&lt;organization_name&gt;"."&lt;account_name&gt;"`. For more information about this resource, see docs.
         /// </summary>
         [Input("accountIdentifier", required: true)]
         public Input<string> AccountIdentifier { get; set; } = null!;

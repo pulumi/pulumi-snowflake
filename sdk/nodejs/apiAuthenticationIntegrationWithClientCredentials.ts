@@ -10,7 +10,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials example "name"
+ * $ pulumi import snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials example '"<integration_name>"'
  * ```
  */
 export class ApiAuthenticationIntegrationWithClientCredentials extends pulumi.CustomResource {
@@ -58,7 +58,7 @@ export class ApiAuthenticationIntegrationWithClientCredentials extends pulumi.Cu
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -77,9 +77,6 @@ export class ApiAuthenticationIntegrationWithClientCredentials extends pulumi.Cu
      * Specifies the client ID for the OAuth application in the external service.
      */
     public readonly oauthClientId!: pulumi.Output<string>;
-    /**
-     * Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
-     */
     public readonly oauthClientSecret!: pulumi.Output<string>;
     /**
      * Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
@@ -171,7 +168,7 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -190,9 +187,6 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsState {
      * Specifies the client ID for the OAuth application in the external service.
      */
     oauthClientId?: pulumi.Input<string>;
-    /**
-     * Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
-     */
     oauthClientSecret?: pulumi.Input<string>;
     /**
      * Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
@@ -221,7 +215,7 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -240,9 +234,6 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsArgs {
      * Specifies the client ID for the OAuth application in the external service.
      */
     oauthClientId: pulumi.Input<string>;
-    /**
-     * Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
-     */
     oauthClientSecret: pulumi.Input<string>;
     /**
      * Specifies the value to determine the validity of the refresh token obtained from the OAuth server.

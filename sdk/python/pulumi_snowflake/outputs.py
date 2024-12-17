@@ -17,6 +17,7 @@ from . import outputs
 
 __all__ = [
     'AccountRoleShowOutput',
+    'AccountShowOutput',
     'AlertAlertSchedule',
     'AlertAlertScheduleCron',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput',
@@ -63,7 +64,6 @@ __all__ = [
     'ApiAuthenticationIntegrationWithJwtBearerShowOutput',
     'AuthenticationPolicyDescribeOutput',
     'AuthenticationPolicyShowOutput',
-    'DatabaseOldReplicationConfiguration',
     'DatabaseReplication',
     'DatabaseReplicationEnableToAccount',
     'DatabaseRoleShowOutput',
@@ -95,7 +95,49 @@ __all__ = [
     'FailoverGroupFromReplica',
     'FailoverGroupReplicationSchedule',
     'FailoverGroupReplicationScheduleCron',
-    'FunctionArgument',
+    'FunctionJavaArgument',
+    'FunctionJavaImport',
+    'FunctionJavaParameter',
+    'FunctionJavaParameterEnableConsoleOutput',
+    'FunctionJavaParameterLogLevel',
+    'FunctionJavaParameterMetricLevel',
+    'FunctionJavaParameterTraceLevel',
+    'FunctionJavaSecret',
+    'FunctionJavaShowOutput',
+    'FunctionJavaTargetPath',
+    'FunctionJavascriptArgument',
+    'FunctionJavascriptParameter',
+    'FunctionJavascriptParameterEnableConsoleOutput',
+    'FunctionJavascriptParameterLogLevel',
+    'FunctionJavascriptParameterMetricLevel',
+    'FunctionJavascriptParameterTraceLevel',
+    'FunctionJavascriptShowOutput',
+    'FunctionPythonArgument',
+    'FunctionPythonImport',
+    'FunctionPythonParameter',
+    'FunctionPythonParameterEnableConsoleOutput',
+    'FunctionPythonParameterLogLevel',
+    'FunctionPythonParameterMetricLevel',
+    'FunctionPythonParameterTraceLevel',
+    'FunctionPythonSecret',
+    'FunctionPythonShowOutput',
+    'FunctionScalaArgument',
+    'FunctionScalaImport',
+    'FunctionScalaParameter',
+    'FunctionScalaParameterEnableConsoleOutput',
+    'FunctionScalaParameterLogLevel',
+    'FunctionScalaParameterMetricLevel',
+    'FunctionScalaParameterTraceLevel',
+    'FunctionScalaSecret',
+    'FunctionScalaShowOutput',
+    'FunctionScalaTargetPath',
+    'FunctionSqlArgument',
+    'FunctionSqlParameter',
+    'FunctionSqlParameterEnableConsoleOutput',
+    'FunctionSqlParameterLogLevel',
+    'FunctionSqlParameterMetricLevel',
+    'FunctionSqlParameterTraceLevel',
+    'FunctionSqlShowOutput',
     'GrantOwnershipOn',
     'GrantOwnershipOnAll',
     'GrantOwnershipOnFuture',
@@ -195,6 +237,8 @@ __all__ = [
     'OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint',
     'OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole',
     'OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList',
+    'OauthIntegrationForCustomClientsRelatedParameter',
+    'OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedList',
     'OauthIntegrationForCustomClientsShowOutput',
     'OauthIntegrationForPartnerApplicationsDescribeOutput',
     'OauthIntegrationForPartnerApplicationsDescribeOutputBlockedRolesList',
@@ -216,12 +260,55 @@ __all__ = [
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole',
     'OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList',
+    'OauthIntegrationForPartnerApplicationsRelatedParameter',
+    'OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedList',
     'OauthIntegrationForPartnerApplicationsShowOutput',
     'ObjectParameterObjectIdentifier',
     'PrimaryConnectionShowOutput',
-    'ProcedureArgument',
+    'ProcedureJavaArgument',
+    'ProcedureJavaImport',
+    'ProcedureJavaParameter',
+    'ProcedureJavaParameterEnableConsoleOutput',
+    'ProcedureJavaParameterLogLevel',
+    'ProcedureJavaParameterMetricLevel',
+    'ProcedureJavaParameterTraceLevel',
+    'ProcedureJavaSecret',
+    'ProcedureJavaShowOutput',
+    'ProcedureJavaTargetPath',
+    'ProcedureJavascriptArgument',
+    'ProcedureJavascriptParameter',
+    'ProcedureJavascriptParameterEnableConsoleOutput',
+    'ProcedureJavascriptParameterLogLevel',
+    'ProcedureJavascriptParameterMetricLevel',
+    'ProcedureJavascriptParameterTraceLevel',
+    'ProcedureJavascriptShowOutput',
+    'ProcedurePythonArgument',
+    'ProcedurePythonImport',
+    'ProcedurePythonParameter',
+    'ProcedurePythonParameterEnableConsoleOutput',
+    'ProcedurePythonParameterLogLevel',
+    'ProcedurePythonParameterMetricLevel',
+    'ProcedurePythonParameterTraceLevel',
+    'ProcedurePythonSecret',
+    'ProcedurePythonShowOutput',
+    'ProcedureScalaArgument',
+    'ProcedureScalaImport',
+    'ProcedureScalaParameter',
+    'ProcedureScalaParameterEnableConsoleOutput',
+    'ProcedureScalaParameterLogLevel',
+    'ProcedureScalaParameterMetricLevel',
+    'ProcedureScalaParameterTraceLevel',
+    'ProcedureScalaSecret',
+    'ProcedureScalaShowOutput',
+    'ProcedureScalaTargetPath',
+    'ProcedureSqlArgument',
+    'ProcedureSqlParameter',
+    'ProcedureSqlParameterEnableConsoleOutput',
+    'ProcedureSqlParameterLogLevel',
+    'ProcedureSqlParameterMetricLevel',
+    'ProcedureSqlParameterTraceLevel',
+    'ProcedureSqlShowOutput',
     'ResourceMonitorShowOutput',
-    'RoleShowOutput',
     'RowAccessPolicyArgument',
     'RowAccessPolicyDescribeOutput',
     'RowAccessPolicyDescribeOutputSignature',
@@ -367,7 +454,6 @@ __all__ = [
     'TableConstraintForeignKeyPropertiesReferences',
     'TablePrimaryKey',
     'TableTag',
-    'TagAssociationObjectIdentifier',
     'TagShowOutput',
     'TaskParameter',
     'TaskParameterAbortDetachedQuery',
@@ -505,7 +591,10 @@ __all__ = [
     'WarehouseParameterStatementQueuedTimeoutInSecond',
     'WarehouseParameterStatementTimeoutInSecond',
     'WarehouseShowOutput',
+    'GetAccountRolesAccountRoleResult',
+    'GetAccountRolesAccountRoleShowOutputResult',
     'GetAccountsAccountResult',
+    'GetAccountsAccountShowOutputResult',
     'GetAlertsAlertResult',
     'GetConnectionsConnectionResult',
     'GetConnectionsConnectionShowOutputResult',
@@ -567,8 +656,6 @@ __all__ = [
     'GetProceduresProcedureResult',
     'GetResourceMonitorsResourceMonitorResult',
     'GetResourceMonitorsResourceMonitorShowOutputResult',
-    'GetRolesRoleResult',
-    'GetRolesRoleShowOutputResult',
     'GetRowAccessPoliciesInResult',
     'GetRowAccessPoliciesLimitResult',
     'GetRowAccessPoliciesRowAccessPolicyResult',
@@ -932,6 +1019,312 @@ class AccountRoleShowOutput(dict):
     @pulumi.getter
     def owner(self) -> Optional[str]:
         return pulumi.get(self, "owner")
+
+
+@pulumi.output_type
+class AccountShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountLocator":
+            suggest = "account_locator"
+        elif key == "accountLocatorUrl":
+            suggest = "account_locator_url"
+        elif key == "accountName":
+            suggest = "account_name"
+        elif key == "accountOldUrlLastUsed":
+            suggest = "account_old_url_last_used"
+        elif key == "accountOldUrlSavedOn":
+            suggest = "account_old_url_saved_on"
+        elif key == "accountUrl":
+            suggest = "account_url"
+        elif key == "consumptionBillingEntityName":
+            suggest = "consumption_billing_entity_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "droppedOn":
+            suggest = "dropped_on"
+        elif key == "isEventsAccount":
+            suggest = "is_events_account"
+        elif key == "isOrgAdmin":
+            suggest = "is_org_admin"
+        elif key == "isOrganizationAccount":
+            suggest = "is_organization_account"
+        elif key == "managedAccounts":
+            suggest = "managed_accounts"
+        elif key == "marketplaceConsumerBillingEntityName":
+            suggest = "marketplace_consumer_billing_entity_name"
+        elif key == "marketplaceProviderBillingEntityName":
+            suggest = "marketplace_provider_billing_entity_name"
+        elif key == "movedOn":
+            suggest = "moved_on"
+        elif key == "movedToOrganization":
+            suggest = "moved_to_organization"
+        elif key == "oldAccountUrl":
+            suggest = "old_account_url"
+        elif key == "organizationName":
+            suggest = "organization_name"
+        elif key == "organizationOldUrl":
+            suggest = "organization_old_url"
+        elif key == "organizationOldUrlLastUsed":
+            suggest = "organization_old_url_last_used"
+        elif key == "organizationOldUrlSavedOn":
+            suggest = "organization_old_url_saved_on"
+        elif key == "organizationUrlExpirationOn":
+            suggest = "organization_url_expiration_on"
+        elif key == "regionGroup":
+            suggest = "region_group"
+        elif key == "restoredOn":
+            suggest = "restored_on"
+        elif key == "scheduledDeletionTime":
+            suggest = "scheduled_deletion_time"
+        elif key == "snowflakeRegion":
+            suggest = "snowflake_region"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AccountShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AccountShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AccountShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_locator: Optional[str] = None,
+                 account_locator_url: Optional[str] = None,
+                 account_name: Optional[str] = None,
+                 account_old_url_last_used: Optional[str] = None,
+                 account_old_url_saved_on: Optional[str] = None,
+                 account_url: Optional[str] = None,
+                 comment: Optional[str] = None,
+                 consumption_billing_entity_name: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 dropped_on: Optional[str] = None,
+                 edition: Optional[str] = None,
+                 is_events_account: Optional[bool] = None,
+                 is_org_admin: Optional[bool] = None,
+                 is_organization_account: Optional[bool] = None,
+                 managed_accounts: Optional[int] = None,
+                 marketplace_consumer_billing_entity_name: Optional[str] = None,
+                 marketplace_provider_billing_entity_name: Optional[str] = None,
+                 moved_on: Optional[str] = None,
+                 moved_to_organization: Optional[str] = None,
+                 old_account_url: Optional[str] = None,
+                 organization_name: Optional[str] = None,
+                 organization_old_url: Optional[str] = None,
+                 organization_old_url_last_used: Optional[str] = None,
+                 organization_old_url_saved_on: Optional[str] = None,
+                 organization_url_expiration_on: Optional[str] = None,
+                 region_group: Optional[str] = None,
+                 restored_on: Optional[str] = None,
+                 scheduled_deletion_time: Optional[str] = None,
+                 snowflake_region: Optional[str] = None):
+        if account_locator is not None:
+            pulumi.set(__self__, "account_locator", account_locator)
+        if account_locator_url is not None:
+            pulumi.set(__self__, "account_locator_url", account_locator_url)
+        if account_name is not None:
+            pulumi.set(__self__, "account_name", account_name)
+        if account_old_url_last_used is not None:
+            pulumi.set(__self__, "account_old_url_last_used", account_old_url_last_used)
+        if account_old_url_saved_on is not None:
+            pulumi.set(__self__, "account_old_url_saved_on", account_old_url_saved_on)
+        if account_url is not None:
+            pulumi.set(__self__, "account_url", account_url)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if consumption_billing_entity_name is not None:
+            pulumi.set(__self__, "consumption_billing_entity_name", consumption_billing_entity_name)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if dropped_on is not None:
+            pulumi.set(__self__, "dropped_on", dropped_on)
+        if edition is not None:
+            pulumi.set(__self__, "edition", edition)
+        if is_events_account is not None:
+            pulumi.set(__self__, "is_events_account", is_events_account)
+        if is_org_admin is not None:
+            pulumi.set(__self__, "is_org_admin", is_org_admin)
+        if is_organization_account is not None:
+            pulumi.set(__self__, "is_organization_account", is_organization_account)
+        if managed_accounts is not None:
+            pulumi.set(__self__, "managed_accounts", managed_accounts)
+        if marketplace_consumer_billing_entity_name is not None:
+            pulumi.set(__self__, "marketplace_consumer_billing_entity_name", marketplace_consumer_billing_entity_name)
+        if marketplace_provider_billing_entity_name is not None:
+            pulumi.set(__self__, "marketplace_provider_billing_entity_name", marketplace_provider_billing_entity_name)
+        if moved_on is not None:
+            pulumi.set(__self__, "moved_on", moved_on)
+        if moved_to_organization is not None:
+            pulumi.set(__self__, "moved_to_organization", moved_to_organization)
+        if old_account_url is not None:
+            pulumi.set(__self__, "old_account_url", old_account_url)
+        if organization_name is not None:
+            pulumi.set(__self__, "organization_name", organization_name)
+        if organization_old_url is not None:
+            pulumi.set(__self__, "organization_old_url", organization_old_url)
+        if organization_old_url_last_used is not None:
+            pulumi.set(__self__, "organization_old_url_last_used", organization_old_url_last_used)
+        if organization_old_url_saved_on is not None:
+            pulumi.set(__self__, "organization_old_url_saved_on", organization_old_url_saved_on)
+        if organization_url_expiration_on is not None:
+            pulumi.set(__self__, "organization_url_expiration_on", organization_url_expiration_on)
+        if region_group is not None:
+            pulumi.set(__self__, "region_group", region_group)
+        if restored_on is not None:
+            pulumi.set(__self__, "restored_on", restored_on)
+        if scheduled_deletion_time is not None:
+            pulumi.set(__self__, "scheduled_deletion_time", scheduled_deletion_time)
+        if snowflake_region is not None:
+            pulumi.set(__self__, "snowflake_region", snowflake_region)
+
+    @property
+    @pulumi.getter(name="accountLocator")
+    def account_locator(self) -> Optional[str]:
+        return pulumi.get(self, "account_locator")
+
+    @property
+    @pulumi.getter(name="accountLocatorUrl")
+    def account_locator_url(self) -> Optional[str]:
+        return pulumi.get(self, "account_locator_url")
+
+    @property
+    @pulumi.getter(name="accountName")
+    def account_name(self) -> Optional[str]:
+        return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="accountOldUrlLastUsed")
+    def account_old_url_last_used(self) -> Optional[str]:
+        return pulumi.get(self, "account_old_url_last_used")
+
+    @property
+    @pulumi.getter(name="accountOldUrlSavedOn")
+    def account_old_url_saved_on(self) -> Optional[str]:
+        return pulumi.get(self, "account_old_url_saved_on")
+
+    @property
+    @pulumi.getter(name="accountUrl")
+    def account_url(self) -> Optional[str]:
+        return pulumi.get(self, "account_url")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="consumptionBillingEntityName")
+    def consumption_billing_entity_name(self) -> Optional[str]:
+        return pulumi.get(self, "consumption_billing_entity_name")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="droppedOn")
+    def dropped_on(self) -> Optional[str]:
+        return pulumi.get(self, "dropped_on")
+
+    @property
+    @pulumi.getter
+    def edition(self) -> Optional[str]:
+        return pulumi.get(self, "edition")
+
+    @property
+    @pulumi.getter(name="isEventsAccount")
+    def is_events_account(self) -> Optional[bool]:
+        return pulumi.get(self, "is_events_account")
+
+    @property
+    @pulumi.getter(name="isOrgAdmin")
+    def is_org_admin(self) -> Optional[bool]:
+        return pulumi.get(self, "is_org_admin")
+
+    @property
+    @pulumi.getter(name="isOrganizationAccount")
+    def is_organization_account(self) -> Optional[bool]:
+        return pulumi.get(self, "is_organization_account")
+
+    @property
+    @pulumi.getter(name="managedAccounts")
+    def managed_accounts(self) -> Optional[int]:
+        return pulumi.get(self, "managed_accounts")
+
+    @property
+    @pulumi.getter(name="marketplaceConsumerBillingEntityName")
+    def marketplace_consumer_billing_entity_name(self) -> Optional[str]:
+        return pulumi.get(self, "marketplace_consumer_billing_entity_name")
+
+    @property
+    @pulumi.getter(name="marketplaceProviderBillingEntityName")
+    def marketplace_provider_billing_entity_name(self) -> Optional[str]:
+        return pulumi.get(self, "marketplace_provider_billing_entity_name")
+
+    @property
+    @pulumi.getter(name="movedOn")
+    def moved_on(self) -> Optional[str]:
+        return pulumi.get(self, "moved_on")
+
+    @property
+    @pulumi.getter(name="movedToOrganization")
+    def moved_to_organization(self) -> Optional[str]:
+        return pulumi.get(self, "moved_to_organization")
+
+    @property
+    @pulumi.getter(name="oldAccountUrl")
+    def old_account_url(self) -> Optional[str]:
+        return pulumi.get(self, "old_account_url")
+
+    @property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> Optional[str]:
+        return pulumi.get(self, "organization_name")
+
+    @property
+    @pulumi.getter(name="organizationOldUrl")
+    def organization_old_url(self) -> Optional[str]:
+        return pulumi.get(self, "organization_old_url")
+
+    @property
+    @pulumi.getter(name="organizationOldUrlLastUsed")
+    def organization_old_url_last_used(self) -> Optional[str]:
+        return pulumi.get(self, "organization_old_url_last_used")
+
+    @property
+    @pulumi.getter(name="organizationOldUrlSavedOn")
+    def organization_old_url_saved_on(self) -> Optional[str]:
+        return pulumi.get(self, "organization_old_url_saved_on")
+
+    @property
+    @pulumi.getter(name="organizationUrlExpirationOn")
+    def organization_url_expiration_on(self) -> Optional[str]:
+        return pulumi.get(self, "organization_url_expiration_on")
+
+    @property
+    @pulumi.getter(name="regionGroup")
+    def region_group(self) -> Optional[str]:
+        return pulumi.get(self, "region_group")
+
+    @property
+    @pulumi.getter(name="restoredOn")
+    def restored_on(self) -> Optional[str]:
+        return pulumi.get(self, "restored_on")
+
+    @property
+    @pulumi.getter(name="scheduledDeletionTime")
+    def scheduled_deletion_time(self) -> Optional[str]:
+        return pulumi.get(self, "scheduled_deletion_time")
+
+    @property
+    @pulumi.getter(name="snowflakeRegion")
+    def snowflake_region(self) -> Optional[str]:
+        return pulumi.get(self, "snowflake_region")
 
 
 @pulumi.output_type
@@ -3154,43 +3547,6 @@ class AuthenticationPolicyShowOutput(dict):
 
 
 @pulumi.output_type
-class DatabaseOldReplicationConfiguration(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "ignoreEditionCheck":
-            suggest = "ignore_edition_check"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DatabaseOldReplicationConfiguration. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DatabaseOldReplicationConfiguration.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DatabaseOldReplicationConfiguration.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 accounts: Sequence[str],
-                 ignore_edition_check: Optional[bool] = None):
-        pulumi.set(__self__, "accounts", accounts)
-        if ignore_edition_check is not None:
-            pulumi.set(__self__, "ignore_edition_check", ignore_edition_check)
-
-    @property
-    @pulumi.getter
-    def accounts(self) -> Sequence[str]:
-        return pulumi.get(self, "accounts")
-
-    @property
-    @pulumi.getter(name="ignoreEditionCheck")
-    def ignore_edition_check(self) -> Optional[bool]:
-        return pulumi.get(self, "ignore_edition_check")
-
-
-@pulumi.output_type
 class DatabaseReplication(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3264,7 +3620,7 @@ class DatabaseReplicationEnableToAccount(dict):
                  account_identifier: str,
                  with_failover: Optional[bool] = None):
         """
-        :param str account_identifier: Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"<organization_name>"."<account_name>"`.
+        :param str account_identifier: Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"<organization_name>"."<account_name>"`. For more information about this resource, see docs.
         :param bool with_failover: Specifies if failover should be enabled for the specified account identifier
         """
         pulumi.set(__self__, "account_identifier", account_identifier)
@@ -3275,7 +3631,7 @@ class DatabaseReplicationEnableToAccount(dict):
     @pulumi.getter(name="accountIdentifier")
     def account_identifier(self) -> str:
         """
-        Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"<organization_name>"."<account_name>"`.
+        Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"<organization_name>"."<account_name>"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "account_identifier")
 
@@ -4767,32 +5123,2917 @@ class FailoverGroupReplicationScheduleCron(dict):
 
 
 @pulumi.output_type
-class FunctionArgument(dict):
+class FunctionJavaArgument(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argDataType":
+            suggest = "arg_data_type"
+        elif key == "argName":
+            suggest = "arg_name"
+        elif key == "argDefaultValue":
+            suggest = "arg_default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionJavaArgument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionJavaArgument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionJavaArgument.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 name: str,
-                 type: str):
+                 arg_data_type: str,
+                 arg_name: str,
+                 arg_default_value: Optional[str] = None):
         """
-        :param str name: The argument name
-        :param str type: The argument type
+        :param str arg_data_type: The argument type.
+        :param str arg_name: The argument name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "arg_data_type", arg_data_type)
+        pulumi.set(__self__, "arg_name", arg_name)
+        if arg_default_value is not None:
+            pulumi.set(__self__, "arg_default_value", arg_default_value)
+
+    @property
+    @pulumi.getter(name="argDataType")
+    def arg_data_type(self) -> str:
+        """
+        The argument type.
+        """
+        return pulumi.get(self, "arg_data_type")
+
+    @property
+    @pulumi.getter(name="argName")
+    def arg_name(self) -> str:
+        """
+        The argument name.
+        """
+        return pulumi.get(self, "arg_name")
+
+    @property
+    @pulumi.getter(name="argDefaultValue")
+    def arg_default_value(self) -> Optional[str]:
+        return pulumi.get(self, "arg_default_value")
+
+
+@pulumi.output_type
+class FunctionJavaImport(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pathOnStage":
+            suggest = "path_on_stage"
+        elif key == "stageLocation":
+            suggest = "stage_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionJavaImport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionJavaImport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionJavaImport.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path_on_stage: str,
+                 stage_location: str):
+        """
+        :param str path_on_stage: Path for import on stage, without the leading `/`.
+        """
+        pulumi.set(__self__, "path_on_stage", path_on_stage)
+        pulumi.set(__self__, "stage_location", stage_location)
+
+    @property
+    @pulumi.getter(name="pathOnStage")
+    def path_on_stage(self) -> str:
+        """
+        Path for import on stage, without the leading `/`.
+        """
+        return pulumi.get(self, "path_on_stage")
+
+    @property
+    @pulumi.getter(name="stageLocation")
+    def stage_location(self) -> str:
+        return pulumi.get(self, "stage_location")
+
+
+@pulumi.output_type
+class FunctionJavaParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableConsoleOutputs":
+            suggest = "enable_console_outputs"
+        elif key == "logLevels":
+            suggest = "log_levels"
+        elif key == "metricLevels":
+            suggest = "metric_levels"
+        elif key == "traceLevels":
+            suggest = "trace_levels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionJavaParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionJavaParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionJavaParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_console_outputs: Optional[Sequence['outputs.FunctionJavaParameterEnableConsoleOutput']] = None,
+                 log_levels: Optional[Sequence['outputs.FunctionJavaParameterLogLevel']] = None,
+                 metric_levels: Optional[Sequence['outputs.FunctionJavaParameterMetricLevel']] = None,
+                 trace_levels: Optional[Sequence['outputs.FunctionJavaParameterTraceLevel']] = None):
+        if enable_console_outputs is not None:
+            pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if metric_levels is not None:
+            pulumi.set(__self__, "metric_levels", metric_levels)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Optional[Sequence['outputs.FunctionJavaParameterEnableConsoleOutput']]:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[Sequence['outputs.FunctionJavaParameterLogLevel']]:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="metricLevels")
+    def metric_levels(self) -> Optional[Sequence['outputs.FunctionJavaParameterMetricLevel']]:
+        return pulumi.get(self, "metric_levels")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[Sequence['outputs.FunctionJavaParameterTraceLevel']]:
+        return pulumi.get(self, "trace_levels")
+
+
+@pulumi.output_type
+class FunctionJavaParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionJavaParameterLogLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionJavaParameterMetricLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionJavaParameterTraceLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionJavaSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretId":
+            suggest = "secret_id"
+        elif key == "secretVariableName":
+            suggest = "secret_variable_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionJavaSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionJavaSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionJavaSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_id: str,
+                 secret_variable_name: str):
         """
-        The argument name
+        :param str secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param str secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "secret_variable_name", secret_variable_name)
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> str:
+        """
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @property
+    @pulumi.getter(name="secretVariableName")
+    def secret_variable_name(self) -> str:
+        """
+        The variable that will be used in handler code when retrieving information from the secret.
+        """
+        return pulumi.get(self, "secret_variable_name")
+
+
+@pulumi.output_type
+class FunctionJavaShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argumentsRaw":
+            suggest = "arguments_raw"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAggregate":
+            suggest = "is_aggregate"
+        elif key == "isAnsi":
+            suggest = "is_ansi"
+        elif key == "isBuiltin":
+            suggest = "is_builtin"
+        elif key == "isDataMetric":
+            suggest = "is_data_metric"
+        elif key == "isExternalFunction":
+            suggest = "is_external_function"
+        elif key == "isMemoizable":
+            suggest = "is_memoizable"
+        elif key == "isSecure":
+            suggest = "is_secure"
+        elif key == "isTableFunction":
+            suggest = "is_table_function"
+        elif key == "maxNumArguments":
+            suggest = "max_num_arguments"
+        elif key == "minNumArguments":
+            suggest = "min_num_arguments"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "validForClustering":
+            suggest = "valid_for_clustering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionJavaShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionJavaShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionJavaShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arguments_raw: Optional[str] = None,
+                 catalog_name: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 description: Optional[str] = None,
+                 external_access_integrations: Optional[str] = None,
+                 is_aggregate: Optional[bool] = None,
+                 is_ansi: Optional[bool] = None,
+                 is_builtin: Optional[bool] = None,
+                 is_data_metric: Optional[bool] = None,
+                 is_external_function: Optional[bool] = None,
+                 is_memoizable: Optional[bool] = None,
+                 is_secure: Optional[bool] = None,
+                 is_table_function: Optional[bool] = None,
+                 language: Optional[str] = None,
+                 max_num_arguments: Optional[int] = None,
+                 min_num_arguments: Optional[int] = None,
+                 name: Optional[str] = None,
+                 schema_name: Optional[str] = None,
+                 secrets: Optional[str] = None,
+                 valid_for_clustering: Optional[bool] = None):
+        if arguments_raw is not None:
+            pulumi.set(__self__, "arguments_raw", arguments_raw)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_aggregate is not None:
+            pulumi.set(__self__, "is_aggregate", is_aggregate)
+        if is_ansi is not None:
+            pulumi.set(__self__, "is_ansi", is_ansi)
+        if is_builtin is not None:
+            pulumi.set(__self__, "is_builtin", is_builtin)
+        if is_data_metric is not None:
+            pulumi.set(__self__, "is_data_metric", is_data_metric)
+        if is_external_function is not None:
+            pulumi.set(__self__, "is_external_function", is_external_function)
+        if is_memoizable is not None:
+            pulumi.set(__self__, "is_memoizable", is_memoizable)
+        if is_secure is not None:
+            pulumi.set(__self__, "is_secure", is_secure)
+        if is_table_function is not None:
+            pulumi.set(__self__, "is_table_function", is_table_function)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if max_num_arguments is not None:
+            pulumi.set(__self__, "max_num_arguments", max_num_arguments)
+        if min_num_arguments is not None:
+            pulumi.set(__self__, "min_num_arguments", min_num_arguments)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if valid_for_clustering is not None:
+            pulumi.set(__self__, "valid_for_clustering", valid_for_clustering)
+
+    @property
+    @pulumi.getter(name="argumentsRaw")
+    def arguments_raw(self) -> Optional[str]:
+        return pulumi.get(self, "arguments_raw")
+
+    @property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[str]:
+        return pulumi.get(self, "catalog_name")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAggregate")
+    def is_aggregate(self) -> Optional[bool]:
+        return pulumi.get(self, "is_aggregate")
+
+    @property
+    @pulumi.getter(name="isAnsi")
+    def is_ansi(self) -> Optional[bool]:
+        return pulumi.get(self, "is_ansi")
+
+    @property
+    @pulumi.getter(name="isBuiltin")
+    def is_builtin(self) -> Optional[bool]:
+        return pulumi.get(self, "is_builtin")
+
+    @property
+    @pulumi.getter(name="isDataMetric")
+    def is_data_metric(self) -> Optional[bool]:
+        return pulumi.get(self, "is_data_metric")
+
+    @property
+    @pulumi.getter(name="isExternalFunction")
+    def is_external_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_external_function")
+
+    @property
+    @pulumi.getter(name="isMemoizable")
+    def is_memoizable(self) -> Optional[bool]:
+        return pulumi.get(self, "is_memoizable")
+
+    @property
+    @pulumi.getter(name="isSecure")
+    def is_secure(self) -> Optional[bool]:
+        return pulumi.get(self, "is_secure")
+
+    @property
+    @pulumi.getter(name="isTableFunction")
+    def is_table_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_table_function")
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[str]:
+        return pulumi.get(self, "language")
+
+    @property
+    @pulumi.getter(name="maxNumArguments")
+    def max_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "max_num_arguments")
+
+    @property
+    @pulumi.getter(name="minNumArguments")
+    def min_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "min_num_arguments")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
     @pulumi.getter
-    def type(self) -> str:
+    def secrets(self) -> Optional[str]:
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="validForClustering")
+    def valid_for_clustering(self) -> Optional[bool]:
+        return pulumi.get(self, "valid_for_clustering")
+
+
+@pulumi.output_type
+class FunctionJavaTargetPath(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pathOnStage":
+            suggest = "path_on_stage"
+        elif key == "stageLocation":
+            suggest = "stage_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionJavaTargetPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionJavaTargetPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionJavaTargetPath.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path_on_stage: str,
+                 stage_location: str):
         """
-        The argument type
+        :param str path_on_stage: Path for import on stage, without the leading `/`.
         """
-        return pulumi.get(self, "type")
+        pulumi.set(__self__, "path_on_stage", path_on_stage)
+        pulumi.set(__self__, "stage_location", stage_location)
+
+    @property
+    @pulumi.getter(name="pathOnStage")
+    def path_on_stage(self) -> str:
+        """
+        Path for import on stage, without the leading `/`.
+        """
+        return pulumi.get(self, "path_on_stage")
+
+    @property
+    @pulumi.getter(name="stageLocation")
+    def stage_location(self) -> str:
+        return pulumi.get(self, "stage_location")
+
+
+@pulumi.output_type
+class FunctionJavascriptArgument(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argDataType":
+            suggest = "arg_data_type"
+        elif key == "argName":
+            suggest = "arg_name"
+        elif key == "argDefaultValue":
+            suggest = "arg_default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionJavascriptArgument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionJavascriptArgument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionJavascriptArgument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arg_data_type: str,
+                 arg_name: str,
+                 arg_default_value: Optional[str] = None):
+        """
+        :param str arg_data_type: The argument type.
+        :param str arg_name: The argument name.
+        """
+        pulumi.set(__self__, "arg_data_type", arg_data_type)
+        pulumi.set(__self__, "arg_name", arg_name)
+        if arg_default_value is not None:
+            pulumi.set(__self__, "arg_default_value", arg_default_value)
+
+    @property
+    @pulumi.getter(name="argDataType")
+    def arg_data_type(self) -> str:
+        """
+        The argument type.
+        """
+        return pulumi.get(self, "arg_data_type")
+
+    @property
+    @pulumi.getter(name="argName")
+    def arg_name(self) -> str:
+        """
+        The argument name.
+        """
+        return pulumi.get(self, "arg_name")
+
+    @property
+    @pulumi.getter(name="argDefaultValue")
+    def arg_default_value(self) -> Optional[str]:
+        return pulumi.get(self, "arg_default_value")
+
+
+@pulumi.output_type
+class FunctionJavascriptParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableConsoleOutputs":
+            suggest = "enable_console_outputs"
+        elif key == "logLevels":
+            suggest = "log_levels"
+        elif key == "metricLevels":
+            suggest = "metric_levels"
+        elif key == "traceLevels":
+            suggest = "trace_levels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionJavascriptParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionJavascriptParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionJavascriptParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_console_outputs: Optional[Sequence['outputs.FunctionJavascriptParameterEnableConsoleOutput']] = None,
+                 log_levels: Optional[Sequence['outputs.FunctionJavascriptParameterLogLevel']] = None,
+                 metric_levels: Optional[Sequence['outputs.FunctionJavascriptParameterMetricLevel']] = None,
+                 trace_levels: Optional[Sequence['outputs.FunctionJavascriptParameterTraceLevel']] = None):
+        if enable_console_outputs is not None:
+            pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if metric_levels is not None:
+            pulumi.set(__self__, "metric_levels", metric_levels)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Optional[Sequence['outputs.FunctionJavascriptParameterEnableConsoleOutput']]:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[Sequence['outputs.FunctionJavascriptParameterLogLevel']]:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="metricLevels")
+    def metric_levels(self) -> Optional[Sequence['outputs.FunctionJavascriptParameterMetricLevel']]:
+        return pulumi.get(self, "metric_levels")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[Sequence['outputs.FunctionJavascriptParameterTraceLevel']]:
+        return pulumi.get(self, "trace_levels")
+
+
+@pulumi.output_type
+class FunctionJavascriptParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionJavascriptParameterLogLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionJavascriptParameterMetricLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionJavascriptParameterTraceLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionJavascriptShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argumentsRaw":
+            suggest = "arguments_raw"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAggregate":
+            suggest = "is_aggregate"
+        elif key == "isAnsi":
+            suggest = "is_ansi"
+        elif key == "isBuiltin":
+            suggest = "is_builtin"
+        elif key == "isDataMetric":
+            suggest = "is_data_metric"
+        elif key == "isExternalFunction":
+            suggest = "is_external_function"
+        elif key == "isMemoizable":
+            suggest = "is_memoizable"
+        elif key == "isSecure":
+            suggest = "is_secure"
+        elif key == "isTableFunction":
+            suggest = "is_table_function"
+        elif key == "maxNumArguments":
+            suggest = "max_num_arguments"
+        elif key == "minNumArguments":
+            suggest = "min_num_arguments"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "validForClustering":
+            suggest = "valid_for_clustering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionJavascriptShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionJavascriptShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionJavascriptShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arguments_raw: Optional[str] = None,
+                 catalog_name: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 description: Optional[str] = None,
+                 external_access_integrations: Optional[str] = None,
+                 is_aggregate: Optional[bool] = None,
+                 is_ansi: Optional[bool] = None,
+                 is_builtin: Optional[bool] = None,
+                 is_data_metric: Optional[bool] = None,
+                 is_external_function: Optional[bool] = None,
+                 is_memoizable: Optional[bool] = None,
+                 is_secure: Optional[bool] = None,
+                 is_table_function: Optional[bool] = None,
+                 language: Optional[str] = None,
+                 max_num_arguments: Optional[int] = None,
+                 min_num_arguments: Optional[int] = None,
+                 name: Optional[str] = None,
+                 schema_name: Optional[str] = None,
+                 secrets: Optional[str] = None,
+                 valid_for_clustering: Optional[bool] = None):
+        if arguments_raw is not None:
+            pulumi.set(__self__, "arguments_raw", arguments_raw)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_aggregate is not None:
+            pulumi.set(__self__, "is_aggregate", is_aggregate)
+        if is_ansi is not None:
+            pulumi.set(__self__, "is_ansi", is_ansi)
+        if is_builtin is not None:
+            pulumi.set(__self__, "is_builtin", is_builtin)
+        if is_data_metric is not None:
+            pulumi.set(__self__, "is_data_metric", is_data_metric)
+        if is_external_function is not None:
+            pulumi.set(__self__, "is_external_function", is_external_function)
+        if is_memoizable is not None:
+            pulumi.set(__self__, "is_memoizable", is_memoizable)
+        if is_secure is not None:
+            pulumi.set(__self__, "is_secure", is_secure)
+        if is_table_function is not None:
+            pulumi.set(__self__, "is_table_function", is_table_function)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if max_num_arguments is not None:
+            pulumi.set(__self__, "max_num_arguments", max_num_arguments)
+        if min_num_arguments is not None:
+            pulumi.set(__self__, "min_num_arguments", min_num_arguments)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if valid_for_clustering is not None:
+            pulumi.set(__self__, "valid_for_clustering", valid_for_clustering)
+
+    @property
+    @pulumi.getter(name="argumentsRaw")
+    def arguments_raw(self) -> Optional[str]:
+        return pulumi.get(self, "arguments_raw")
+
+    @property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[str]:
+        return pulumi.get(self, "catalog_name")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAggregate")
+    def is_aggregate(self) -> Optional[bool]:
+        return pulumi.get(self, "is_aggregate")
+
+    @property
+    @pulumi.getter(name="isAnsi")
+    def is_ansi(self) -> Optional[bool]:
+        return pulumi.get(self, "is_ansi")
+
+    @property
+    @pulumi.getter(name="isBuiltin")
+    def is_builtin(self) -> Optional[bool]:
+        return pulumi.get(self, "is_builtin")
+
+    @property
+    @pulumi.getter(name="isDataMetric")
+    def is_data_metric(self) -> Optional[bool]:
+        return pulumi.get(self, "is_data_metric")
+
+    @property
+    @pulumi.getter(name="isExternalFunction")
+    def is_external_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_external_function")
+
+    @property
+    @pulumi.getter(name="isMemoizable")
+    def is_memoizable(self) -> Optional[bool]:
+        return pulumi.get(self, "is_memoizable")
+
+    @property
+    @pulumi.getter(name="isSecure")
+    def is_secure(self) -> Optional[bool]:
+        return pulumi.get(self, "is_secure")
+
+    @property
+    @pulumi.getter(name="isTableFunction")
+    def is_table_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_table_function")
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[str]:
+        return pulumi.get(self, "language")
+
+    @property
+    @pulumi.getter(name="maxNumArguments")
+    def max_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "max_num_arguments")
+
+    @property
+    @pulumi.getter(name="minNumArguments")
+    def min_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "min_num_arguments")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[str]:
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="validForClustering")
+    def valid_for_clustering(self) -> Optional[bool]:
+        return pulumi.get(self, "valid_for_clustering")
+
+
+@pulumi.output_type
+class FunctionPythonArgument(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argDataType":
+            suggest = "arg_data_type"
+        elif key == "argName":
+            suggest = "arg_name"
+        elif key == "argDefaultValue":
+            suggest = "arg_default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionPythonArgument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionPythonArgument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionPythonArgument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arg_data_type: str,
+                 arg_name: str,
+                 arg_default_value: Optional[str] = None):
+        """
+        :param str arg_data_type: The argument type.
+        :param str arg_name: The argument name.
+        """
+        pulumi.set(__self__, "arg_data_type", arg_data_type)
+        pulumi.set(__self__, "arg_name", arg_name)
+        if arg_default_value is not None:
+            pulumi.set(__self__, "arg_default_value", arg_default_value)
+
+    @property
+    @pulumi.getter(name="argDataType")
+    def arg_data_type(self) -> str:
+        """
+        The argument type.
+        """
+        return pulumi.get(self, "arg_data_type")
+
+    @property
+    @pulumi.getter(name="argName")
+    def arg_name(self) -> str:
+        """
+        The argument name.
+        """
+        return pulumi.get(self, "arg_name")
+
+    @property
+    @pulumi.getter(name="argDefaultValue")
+    def arg_default_value(self) -> Optional[str]:
+        return pulumi.get(self, "arg_default_value")
+
+
+@pulumi.output_type
+class FunctionPythonImport(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pathOnStage":
+            suggest = "path_on_stage"
+        elif key == "stageLocation":
+            suggest = "stage_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionPythonImport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionPythonImport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionPythonImport.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path_on_stage: str,
+                 stage_location: str):
+        """
+        :param str path_on_stage: Path for import on stage, without the leading `/`.
+        """
+        pulumi.set(__self__, "path_on_stage", path_on_stage)
+        pulumi.set(__self__, "stage_location", stage_location)
+
+    @property
+    @pulumi.getter(name="pathOnStage")
+    def path_on_stage(self) -> str:
+        """
+        Path for import on stage, without the leading `/`.
+        """
+        return pulumi.get(self, "path_on_stage")
+
+    @property
+    @pulumi.getter(name="stageLocation")
+    def stage_location(self) -> str:
+        return pulumi.get(self, "stage_location")
+
+
+@pulumi.output_type
+class FunctionPythonParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableConsoleOutputs":
+            suggest = "enable_console_outputs"
+        elif key == "logLevels":
+            suggest = "log_levels"
+        elif key == "metricLevels":
+            suggest = "metric_levels"
+        elif key == "traceLevels":
+            suggest = "trace_levels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionPythonParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionPythonParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionPythonParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_console_outputs: Optional[Sequence['outputs.FunctionPythonParameterEnableConsoleOutput']] = None,
+                 log_levels: Optional[Sequence['outputs.FunctionPythonParameterLogLevel']] = None,
+                 metric_levels: Optional[Sequence['outputs.FunctionPythonParameterMetricLevel']] = None,
+                 trace_levels: Optional[Sequence['outputs.FunctionPythonParameterTraceLevel']] = None):
+        if enable_console_outputs is not None:
+            pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if metric_levels is not None:
+            pulumi.set(__self__, "metric_levels", metric_levels)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Optional[Sequence['outputs.FunctionPythonParameterEnableConsoleOutput']]:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[Sequence['outputs.FunctionPythonParameterLogLevel']]:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="metricLevels")
+    def metric_levels(self) -> Optional[Sequence['outputs.FunctionPythonParameterMetricLevel']]:
+        return pulumi.get(self, "metric_levels")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[Sequence['outputs.FunctionPythonParameterTraceLevel']]:
+        return pulumi.get(self, "trace_levels")
+
+
+@pulumi.output_type
+class FunctionPythonParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionPythonParameterLogLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionPythonParameterMetricLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionPythonParameterTraceLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionPythonSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretId":
+            suggest = "secret_id"
+        elif key == "secretVariableName":
+            suggest = "secret_variable_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionPythonSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionPythonSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionPythonSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_id: str,
+                 secret_variable_name: str):
+        """
+        :param str secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param str secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "secret_variable_name", secret_variable_name)
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> str:
+        """
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @property
+    @pulumi.getter(name="secretVariableName")
+    def secret_variable_name(self) -> str:
+        """
+        The variable that will be used in handler code when retrieving information from the secret.
+        """
+        return pulumi.get(self, "secret_variable_name")
+
+
+@pulumi.output_type
+class FunctionPythonShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argumentsRaw":
+            suggest = "arguments_raw"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAggregate":
+            suggest = "is_aggregate"
+        elif key == "isAnsi":
+            suggest = "is_ansi"
+        elif key == "isBuiltin":
+            suggest = "is_builtin"
+        elif key == "isDataMetric":
+            suggest = "is_data_metric"
+        elif key == "isExternalFunction":
+            suggest = "is_external_function"
+        elif key == "isMemoizable":
+            suggest = "is_memoizable"
+        elif key == "isSecure":
+            suggest = "is_secure"
+        elif key == "isTableFunction":
+            suggest = "is_table_function"
+        elif key == "maxNumArguments":
+            suggest = "max_num_arguments"
+        elif key == "minNumArguments":
+            suggest = "min_num_arguments"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "validForClustering":
+            suggest = "valid_for_clustering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionPythonShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionPythonShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionPythonShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arguments_raw: Optional[str] = None,
+                 catalog_name: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 description: Optional[str] = None,
+                 external_access_integrations: Optional[str] = None,
+                 is_aggregate: Optional[bool] = None,
+                 is_ansi: Optional[bool] = None,
+                 is_builtin: Optional[bool] = None,
+                 is_data_metric: Optional[bool] = None,
+                 is_external_function: Optional[bool] = None,
+                 is_memoizable: Optional[bool] = None,
+                 is_secure: Optional[bool] = None,
+                 is_table_function: Optional[bool] = None,
+                 language: Optional[str] = None,
+                 max_num_arguments: Optional[int] = None,
+                 min_num_arguments: Optional[int] = None,
+                 name: Optional[str] = None,
+                 schema_name: Optional[str] = None,
+                 secrets: Optional[str] = None,
+                 valid_for_clustering: Optional[bool] = None):
+        if arguments_raw is not None:
+            pulumi.set(__self__, "arguments_raw", arguments_raw)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_aggregate is not None:
+            pulumi.set(__self__, "is_aggregate", is_aggregate)
+        if is_ansi is not None:
+            pulumi.set(__self__, "is_ansi", is_ansi)
+        if is_builtin is not None:
+            pulumi.set(__self__, "is_builtin", is_builtin)
+        if is_data_metric is not None:
+            pulumi.set(__self__, "is_data_metric", is_data_metric)
+        if is_external_function is not None:
+            pulumi.set(__self__, "is_external_function", is_external_function)
+        if is_memoizable is not None:
+            pulumi.set(__self__, "is_memoizable", is_memoizable)
+        if is_secure is not None:
+            pulumi.set(__self__, "is_secure", is_secure)
+        if is_table_function is not None:
+            pulumi.set(__self__, "is_table_function", is_table_function)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if max_num_arguments is not None:
+            pulumi.set(__self__, "max_num_arguments", max_num_arguments)
+        if min_num_arguments is not None:
+            pulumi.set(__self__, "min_num_arguments", min_num_arguments)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if valid_for_clustering is not None:
+            pulumi.set(__self__, "valid_for_clustering", valid_for_clustering)
+
+    @property
+    @pulumi.getter(name="argumentsRaw")
+    def arguments_raw(self) -> Optional[str]:
+        return pulumi.get(self, "arguments_raw")
+
+    @property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[str]:
+        return pulumi.get(self, "catalog_name")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAggregate")
+    def is_aggregate(self) -> Optional[bool]:
+        return pulumi.get(self, "is_aggregate")
+
+    @property
+    @pulumi.getter(name="isAnsi")
+    def is_ansi(self) -> Optional[bool]:
+        return pulumi.get(self, "is_ansi")
+
+    @property
+    @pulumi.getter(name="isBuiltin")
+    def is_builtin(self) -> Optional[bool]:
+        return pulumi.get(self, "is_builtin")
+
+    @property
+    @pulumi.getter(name="isDataMetric")
+    def is_data_metric(self) -> Optional[bool]:
+        return pulumi.get(self, "is_data_metric")
+
+    @property
+    @pulumi.getter(name="isExternalFunction")
+    def is_external_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_external_function")
+
+    @property
+    @pulumi.getter(name="isMemoizable")
+    def is_memoizable(self) -> Optional[bool]:
+        return pulumi.get(self, "is_memoizable")
+
+    @property
+    @pulumi.getter(name="isSecure")
+    def is_secure(self) -> Optional[bool]:
+        return pulumi.get(self, "is_secure")
+
+    @property
+    @pulumi.getter(name="isTableFunction")
+    def is_table_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_table_function")
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[str]:
+        return pulumi.get(self, "language")
+
+    @property
+    @pulumi.getter(name="maxNumArguments")
+    def max_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "max_num_arguments")
+
+    @property
+    @pulumi.getter(name="minNumArguments")
+    def min_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "min_num_arguments")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[str]:
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="validForClustering")
+    def valid_for_clustering(self) -> Optional[bool]:
+        return pulumi.get(self, "valid_for_clustering")
+
+
+@pulumi.output_type
+class FunctionScalaArgument(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argDataType":
+            suggest = "arg_data_type"
+        elif key == "argName":
+            suggest = "arg_name"
+        elif key == "argDefaultValue":
+            suggest = "arg_default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionScalaArgument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionScalaArgument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionScalaArgument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arg_data_type: str,
+                 arg_name: str,
+                 arg_default_value: Optional[str] = None):
+        """
+        :param str arg_data_type: The argument type.
+        :param str arg_name: The argument name.
+        """
+        pulumi.set(__self__, "arg_data_type", arg_data_type)
+        pulumi.set(__self__, "arg_name", arg_name)
+        if arg_default_value is not None:
+            pulumi.set(__self__, "arg_default_value", arg_default_value)
+
+    @property
+    @pulumi.getter(name="argDataType")
+    def arg_data_type(self) -> str:
+        """
+        The argument type.
+        """
+        return pulumi.get(self, "arg_data_type")
+
+    @property
+    @pulumi.getter(name="argName")
+    def arg_name(self) -> str:
+        """
+        The argument name.
+        """
+        return pulumi.get(self, "arg_name")
+
+    @property
+    @pulumi.getter(name="argDefaultValue")
+    def arg_default_value(self) -> Optional[str]:
+        return pulumi.get(self, "arg_default_value")
+
+
+@pulumi.output_type
+class FunctionScalaImport(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pathOnStage":
+            suggest = "path_on_stage"
+        elif key == "stageLocation":
+            suggest = "stage_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionScalaImport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionScalaImport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionScalaImport.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path_on_stage: str,
+                 stage_location: str):
+        """
+        :param str path_on_stage: Path for import on stage, without the leading `/`.
+        """
+        pulumi.set(__self__, "path_on_stage", path_on_stage)
+        pulumi.set(__self__, "stage_location", stage_location)
+
+    @property
+    @pulumi.getter(name="pathOnStage")
+    def path_on_stage(self) -> str:
+        """
+        Path for import on stage, without the leading `/`.
+        """
+        return pulumi.get(self, "path_on_stage")
+
+    @property
+    @pulumi.getter(name="stageLocation")
+    def stage_location(self) -> str:
+        return pulumi.get(self, "stage_location")
+
+
+@pulumi.output_type
+class FunctionScalaParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableConsoleOutputs":
+            suggest = "enable_console_outputs"
+        elif key == "logLevels":
+            suggest = "log_levels"
+        elif key == "metricLevels":
+            suggest = "metric_levels"
+        elif key == "traceLevels":
+            suggest = "trace_levels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionScalaParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionScalaParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionScalaParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_console_outputs: Optional[Sequence['outputs.FunctionScalaParameterEnableConsoleOutput']] = None,
+                 log_levels: Optional[Sequence['outputs.FunctionScalaParameterLogLevel']] = None,
+                 metric_levels: Optional[Sequence['outputs.FunctionScalaParameterMetricLevel']] = None,
+                 trace_levels: Optional[Sequence['outputs.FunctionScalaParameterTraceLevel']] = None):
+        if enable_console_outputs is not None:
+            pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if metric_levels is not None:
+            pulumi.set(__self__, "metric_levels", metric_levels)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Optional[Sequence['outputs.FunctionScalaParameterEnableConsoleOutput']]:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[Sequence['outputs.FunctionScalaParameterLogLevel']]:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="metricLevels")
+    def metric_levels(self) -> Optional[Sequence['outputs.FunctionScalaParameterMetricLevel']]:
+        return pulumi.get(self, "metric_levels")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[Sequence['outputs.FunctionScalaParameterTraceLevel']]:
+        return pulumi.get(self, "trace_levels")
+
+
+@pulumi.output_type
+class FunctionScalaParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionScalaParameterLogLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionScalaParameterMetricLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionScalaParameterTraceLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionScalaSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretId":
+            suggest = "secret_id"
+        elif key == "secretVariableName":
+            suggest = "secret_variable_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionScalaSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionScalaSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionScalaSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_id: str,
+                 secret_variable_name: str):
+        """
+        :param str secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param str secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "secret_variable_name", secret_variable_name)
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> str:
+        """
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @property
+    @pulumi.getter(name="secretVariableName")
+    def secret_variable_name(self) -> str:
+        """
+        The variable that will be used in handler code when retrieving information from the secret.
+        """
+        return pulumi.get(self, "secret_variable_name")
+
+
+@pulumi.output_type
+class FunctionScalaShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argumentsRaw":
+            suggest = "arguments_raw"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAggregate":
+            suggest = "is_aggregate"
+        elif key == "isAnsi":
+            suggest = "is_ansi"
+        elif key == "isBuiltin":
+            suggest = "is_builtin"
+        elif key == "isDataMetric":
+            suggest = "is_data_metric"
+        elif key == "isExternalFunction":
+            suggest = "is_external_function"
+        elif key == "isMemoizable":
+            suggest = "is_memoizable"
+        elif key == "isSecure":
+            suggest = "is_secure"
+        elif key == "isTableFunction":
+            suggest = "is_table_function"
+        elif key == "maxNumArguments":
+            suggest = "max_num_arguments"
+        elif key == "minNumArguments":
+            suggest = "min_num_arguments"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "validForClustering":
+            suggest = "valid_for_clustering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionScalaShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionScalaShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionScalaShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arguments_raw: Optional[str] = None,
+                 catalog_name: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 description: Optional[str] = None,
+                 external_access_integrations: Optional[str] = None,
+                 is_aggregate: Optional[bool] = None,
+                 is_ansi: Optional[bool] = None,
+                 is_builtin: Optional[bool] = None,
+                 is_data_metric: Optional[bool] = None,
+                 is_external_function: Optional[bool] = None,
+                 is_memoizable: Optional[bool] = None,
+                 is_secure: Optional[bool] = None,
+                 is_table_function: Optional[bool] = None,
+                 language: Optional[str] = None,
+                 max_num_arguments: Optional[int] = None,
+                 min_num_arguments: Optional[int] = None,
+                 name: Optional[str] = None,
+                 schema_name: Optional[str] = None,
+                 secrets: Optional[str] = None,
+                 valid_for_clustering: Optional[bool] = None):
+        if arguments_raw is not None:
+            pulumi.set(__self__, "arguments_raw", arguments_raw)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_aggregate is not None:
+            pulumi.set(__self__, "is_aggregate", is_aggregate)
+        if is_ansi is not None:
+            pulumi.set(__self__, "is_ansi", is_ansi)
+        if is_builtin is not None:
+            pulumi.set(__self__, "is_builtin", is_builtin)
+        if is_data_metric is not None:
+            pulumi.set(__self__, "is_data_metric", is_data_metric)
+        if is_external_function is not None:
+            pulumi.set(__self__, "is_external_function", is_external_function)
+        if is_memoizable is not None:
+            pulumi.set(__self__, "is_memoizable", is_memoizable)
+        if is_secure is not None:
+            pulumi.set(__self__, "is_secure", is_secure)
+        if is_table_function is not None:
+            pulumi.set(__self__, "is_table_function", is_table_function)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if max_num_arguments is not None:
+            pulumi.set(__self__, "max_num_arguments", max_num_arguments)
+        if min_num_arguments is not None:
+            pulumi.set(__self__, "min_num_arguments", min_num_arguments)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if valid_for_clustering is not None:
+            pulumi.set(__self__, "valid_for_clustering", valid_for_clustering)
+
+    @property
+    @pulumi.getter(name="argumentsRaw")
+    def arguments_raw(self) -> Optional[str]:
+        return pulumi.get(self, "arguments_raw")
+
+    @property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[str]:
+        return pulumi.get(self, "catalog_name")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAggregate")
+    def is_aggregate(self) -> Optional[bool]:
+        return pulumi.get(self, "is_aggregate")
+
+    @property
+    @pulumi.getter(name="isAnsi")
+    def is_ansi(self) -> Optional[bool]:
+        return pulumi.get(self, "is_ansi")
+
+    @property
+    @pulumi.getter(name="isBuiltin")
+    def is_builtin(self) -> Optional[bool]:
+        return pulumi.get(self, "is_builtin")
+
+    @property
+    @pulumi.getter(name="isDataMetric")
+    def is_data_metric(self) -> Optional[bool]:
+        return pulumi.get(self, "is_data_metric")
+
+    @property
+    @pulumi.getter(name="isExternalFunction")
+    def is_external_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_external_function")
+
+    @property
+    @pulumi.getter(name="isMemoizable")
+    def is_memoizable(self) -> Optional[bool]:
+        return pulumi.get(self, "is_memoizable")
+
+    @property
+    @pulumi.getter(name="isSecure")
+    def is_secure(self) -> Optional[bool]:
+        return pulumi.get(self, "is_secure")
+
+    @property
+    @pulumi.getter(name="isTableFunction")
+    def is_table_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_table_function")
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[str]:
+        return pulumi.get(self, "language")
+
+    @property
+    @pulumi.getter(name="maxNumArguments")
+    def max_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "max_num_arguments")
+
+    @property
+    @pulumi.getter(name="minNumArguments")
+    def min_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "min_num_arguments")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[str]:
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="validForClustering")
+    def valid_for_clustering(self) -> Optional[bool]:
+        return pulumi.get(self, "valid_for_clustering")
+
+
+@pulumi.output_type
+class FunctionScalaTargetPath(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pathOnStage":
+            suggest = "path_on_stage"
+        elif key == "stageLocation":
+            suggest = "stage_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionScalaTargetPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionScalaTargetPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionScalaTargetPath.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path_on_stage: str,
+                 stage_location: str):
+        """
+        :param str path_on_stage: Path for import on stage, without the leading `/`.
+        """
+        pulumi.set(__self__, "path_on_stage", path_on_stage)
+        pulumi.set(__self__, "stage_location", stage_location)
+
+    @property
+    @pulumi.getter(name="pathOnStage")
+    def path_on_stage(self) -> str:
+        """
+        Path for import on stage, without the leading `/`.
+        """
+        return pulumi.get(self, "path_on_stage")
+
+    @property
+    @pulumi.getter(name="stageLocation")
+    def stage_location(self) -> str:
+        return pulumi.get(self, "stage_location")
+
+
+@pulumi.output_type
+class FunctionSqlArgument(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argDataType":
+            suggest = "arg_data_type"
+        elif key == "argName":
+            suggest = "arg_name"
+        elif key == "argDefaultValue":
+            suggest = "arg_default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionSqlArgument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionSqlArgument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionSqlArgument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arg_data_type: str,
+                 arg_name: str,
+                 arg_default_value: Optional[str] = None):
+        """
+        :param str arg_data_type: The argument type.
+        :param str arg_name: The argument name.
+        """
+        pulumi.set(__self__, "arg_data_type", arg_data_type)
+        pulumi.set(__self__, "arg_name", arg_name)
+        if arg_default_value is not None:
+            pulumi.set(__self__, "arg_default_value", arg_default_value)
+
+    @property
+    @pulumi.getter(name="argDataType")
+    def arg_data_type(self) -> str:
+        """
+        The argument type.
+        """
+        return pulumi.get(self, "arg_data_type")
+
+    @property
+    @pulumi.getter(name="argName")
+    def arg_name(self) -> str:
+        """
+        The argument name.
+        """
+        return pulumi.get(self, "arg_name")
+
+    @property
+    @pulumi.getter(name="argDefaultValue")
+    def arg_default_value(self) -> Optional[str]:
+        return pulumi.get(self, "arg_default_value")
+
+
+@pulumi.output_type
+class FunctionSqlParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableConsoleOutputs":
+            suggest = "enable_console_outputs"
+        elif key == "logLevels":
+            suggest = "log_levels"
+        elif key == "metricLevels":
+            suggest = "metric_levels"
+        elif key == "traceLevels":
+            suggest = "trace_levels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionSqlParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionSqlParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionSqlParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_console_outputs: Optional[Sequence['outputs.FunctionSqlParameterEnableConsoleOutput']] = None,
+                 log_levels: Optional[Sequence['outputs.FunctionSqlParameterLogLevel']] = None,
+                 metric_levels: Optional[Sequence['outputs.FunctionSqlParameterMetricLevel']] = None,
+                 trace_levels: Optional[Sequence['outputs.FunctionSqlParameterTraceLevel']] = None):
+        if enable_console_outputs is not None:
+            pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if metric_levels is not None:
+            pulumi.set(__self__, "metric_levels", metric_levels)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Optional[Sequence['outputs.FunctionSqlParameterEnableConsoleOutput']]:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[Sequence['outputs.FunctionSqlParameterLogLevel']]:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="metricLevels")
+    def metric_levels(self) -> Optional[Sequence['outputs.FunctionSqlParameterMetricLevel']]:
+        return pulumi.get(self, "metric_levels")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[Sequence['outputs.FunctionSqlParameterTraceLevel']]:
+        return pulumi.get(self, "trace_levels")
+
+
+@pulumi.output_type
+class FunctionSqlParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionSqlParameterLogLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionSqlParameterMetricLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionSqlParameterTraceLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class FunctionSqlShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argumentsRaw":
+            suggest = "arguments_raw"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAggregate":
+            suggest = "is_aggregate"
+        elif key == "isAnsi":
+            suggest = "is_ansi"
+        elif key == "isBuiltin":
+            suggest = "is_builtin"
+        elif key == "isDataMetric":
+            suggest = "is_data_metric"
+        elif key == "isExternalFunction":
+            suggest = "is_external_function"
+        elif key == "isMemoizable":
+            suggest = "is_memoizable"
+        elif key == "isSecure":
+            suggest = "is_secure"
+        elif key == "isTableFunction":
+            suggest = "is_table_function"
+        elif key == "maxNumArguments":
+            suggest = "max_num_arguments"
+        elif key == "minNumArguments":
+            suggest = "min_num_arguments"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "validForClustering":
+            suggest = "valid_for_clustering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FunctionSqlShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FunctionSqlShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FunctionSqlShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arguments_raw: Optional[str] = None,
+                 catalog_name: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 description: Optional[str] = None,
+                 external_access_integrations: Optional[str] = None,
+                 is_aggregate: Optional[bool] = None,
+                 is_ansi: Optional[bool] = None,
+                 is_builtin: Optional[bool] = None,
+                 is_data_metric: Optional[bool] = None,
+                 is_external_function: Optional[bool] = None,
+                 is_memoizable: Optional[bool] = None,
+                 is_secure: Optional[bool] = None,
+                 is_table_function: Optional[bool] = None,
+                 language: Optional[str] = None,
+                 max_num_arguments: Optional[int] = None,
+                 min_num_arguments: Optional[int] = None,
+                 name: Optional[str] = None,
+                 schema_name: Optional[str] = None,
+                 secrets: Optional[str] = None,
+                 valid_for_clustering: Optional[bool] = None):
+        if arguments_raw is not None:
+            pulumi.set(__self__, "arguments_raw", arguments_raw)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_aggregate is not None:
+            pulumi.set(__self__, "is_aggregate", is_aggregate)
+        if is_ansi is not None:
+            pulumi.set(__self__, "is_ansi", is_ansi)
+        if is_builtin is not None:
+            pulumi.set(__self__, "is_builtin", is_builtin)
+        if is_data_metric is not None:
+            pulumi.set(__self__, "is_data_metric", is_data_metric)
+        if is_external_function is not None:
+            pulumi.set(__self__, "is_external_function", is_external_function)
+        if is_memoizable is not None:
+            pulumi.set(__self__, "is_memoizable", is_memoizable)
+        if is_secure is not None:
+            pulumi.set(__self__, "is_secure", is_secure)
+        if is_table_function is not None:
+            pulumi.set(__self__, "is_table_function", is_table_function)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if max_num_arguments is not None:
+            pulumi.set(__self__, "max_num_arguments", max_num_arguments)
+        if min_num_arguments is not None:
+            pulumi.set(__self__, "min_num_arguments", min_num_arguments)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if valid_for_clustering is not None:
+            pulumi.set(__self__, "valid_for_clustering", valid_for_clustering)
+
+    @property
+    @pulumi.getter(name="argumentsRaw")
+    def arguments_raw(self) -> Optional[str]:
+        return pulumi.get(self, "arguments_raw")
+
+    @property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[str]:
+        return pulumi.get(self, "catalog_name")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAggregate")
+    def is_aggregate(self) -> Optional[bool]:
+        return pulumi.get(self, "is_aggregate")
+
+    @property
+    @pulumi.getter(name="isAnsi")
+    def is_ansi(self) -> Optional[bool]:
+        return pulumi.get(self, "is_ansi")
+
+    @property
+    @pulumi.getter(name="isBuiltin")
+    def is_builtin(self) -> Optional[bool]:
+        return pulumi.get(self, "is_builtin")
+
+    @property
+    @pulumi.getter(name="isDataMetric")
+    def is_data_metric(self) -> Optional[bool]:
+        return pulumi.get(self, "is_data_metric")
+
+    @property
+    @pulumi.getter(name="isExternalFunction")
+    def is_external_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_external_function")
+
+    @property
+    @pulumi.getter(name="isMemoizable")
+    def is_memoizable(self) -> Optional[bool]:
+        return pulumi.get(self, "is_memoizable")
+
+    @property
+    @pulumi.getter(name="isSecure")
+    def is_secure(self) -> Optional[bool]:
+        return pulumi.get(self, "is_secure")
+
+    @property
+    @pulumi.getter(name="isTableFunction")
+    def is_table_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_table_function")
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[str]:
+        return pulumi.get(self, "language")
+
+    @property
+    @pulumi.getter(name="maxNumArguments")
+    def max_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "max_num_arguments")
+
+    @property
+    @pulumi.getter(name="minNumArguments")
+    def min_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "min_num_arguments")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[str]:
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="validForClustering")
+    def valid_for_clustering(self) -> Optional[bool]:
+        return pulumi.get(self, "valid_for_clustering")
 
 
 @pulumi.output_type
@@ -4898,8 +8139,8 @@ class GrantOwnershipOnAll(dict):
                  in_schema: Optional[str] = None):
         """
         :param str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
-        :param str in_database: The fully qualified name of the database.
-        :param str in_schema: The fully qualified name of the schema.
+        :param str in_database: The fully qualified name of the database. For more information about this resource, see docs.
+        :param str in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -4919,7 +8160,7 @@ class GrantOwnershipOnAll(dict):
     @pulumi.getter(name="inDatabase")
     def in_database(self) -> Optional[str]:
         """
-        The fully qualified name of the database.
+        The fully qualified name of the database. For more information about this resource, see docs.
         """
         return pulumi.get(self, "in_database")
 
@@ -4927,7 +8168,7 @@ class GrantOwnershipOnAll(dict):
     @pulumi.getter(name="inSchema")
     def in_schema(self) -> Optional[str]:
         """
-        The fully qualified name of the schema.
+        The fully qualified name of the schema. For more information about this resource, see docs.
         """
         return pulumi.get(self, "in_schema")
 
@@ -4961,8 +8202,8 @@ class GrantOwnershipOnFuture(dict):
                  in_schema: Optional[str] = None):
         """
         :param str object_type_plural: Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).
-        :param str in_database: The fully qualified name of the database.
-        :param str in_schema: The fully qualified name of the schema.
+        :param str in_database: The fully qualified name of the database. For more information about this resource, see docs.
+        :param str in_schema: The fully qualified name of the schema. For more information about this resource, see docs.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -4982,7 +8223,7 @@ class GrantOwnershipOnFuture(dict):
     @pulumi.getter(name="inDatabase")
     def in_database(self) -> Optional[str]:
         """
-        The fully qualified name of the database.
+        The fully qualified name of the database. For more information about this resource, see docs.
         """
         return pulumi.get(self, "in_database")
 
@@ -4990,7 +8231,7 @@ class GrantOwnershipOnFuture(dict):
     @pulumi.getter(name="inSchema")
     def in_schema(self) -> Optional[str]:
         """
-        The fully qualified name of the schema.
+        The fully qualified name of the schema. For more information about this resource, see docs.
         """
         return pulumi.get(self, "in_schema")
 
@@ -10364,6 +13605,81 @@ class OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRolesList(dict)
 
 
 @pulumi.output_type
+class OauthIntegrationForCustomClientsRelatedParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oauthAddPrivilegedRolesToBlockedLists":
+            suggest = "oauth_add_privileged_roles_to_blocked_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OauthIntegrationForCustomClientsRelatedParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OauthIntegrationForCustomClientsRelatedParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OauthIntegrationForCustomClientsRelatedParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oauth_add_privileged_roles_to_blocked_lists: Optional[Sequence['outputs.OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedList']] = None):
+        if oauth_add_privileged_roles_to_blocked_lists is not None:
+            pulumi.set(__self__, "oauth_add_privileged_roles_to_blocked_lists", oauth_add_privileged_roles_to_blocked_lists)
+
+    @property
+    @pulumi.getter(name="oauthAddPrivilegedRolesToBlockedLists")
+    def oauth_add_privileged_roles_to_blocked_lists(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedList']]:
+        return pulumi.get(self, "oauth_add_privileged_roles_to_blocked_lists")
+
+
+@pulumi.output_type
+class OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedList(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class OauthIntegrationForCustomClientsShowOutput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -11345,6 +14661,81 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthorizedRolesList
 
 
 @pulumi.output_type
+class OauthIntegrationForPartnerApplicationsRelatedParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oauthAddPrivilegedRolesToBlockedLists":
+            suggest = "oauth_add_privileged_roles_to_blocked_lists"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OauthIntegrationForPartnerApplicationsRelatedParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OauthIntegrationForPartnerApplicationsRelatedParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OauthIntegrationForPartnerApplicationsRelatedParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 oauth_add_privileged_roles_to_blocked_lists: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedList']] = None):
+        if oauth_add_privileged_roles_to_blocked_lists is not None:
+            pulumi.set(__self__, "oauth_add_privileged_roles_to_blocked_lists", oauth_add_privileged_roles_to_blocked_lists)
+
+    @property
+    @pulumi.getter(name="oauthAddPrivilegedRolesToBlockedLists")
+    def oauth_add_privileged_roles_to_blocked_lists(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedList']]:
+        return pulumi.get(self, "oauth_add_privileged_roles_to_blocked_lists")
+
+
+@pulumi.output_type
+class OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedList(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class OauthIntegrationForPartnerApplicationsShowOutput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -11593,32 +14984,2727 @@ class PrimaryConnectionShowOutput(dict):
 
 
 @pulumi.output_type
-class ProcedureArgument(dict):
+class ProcedureJavaArgument(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argDataType":
+            suggest = "arg_data_type"
+        elif key == "argName":
+            suggest = "arg_name"
+        elif key == "argDefaultValue":
+            suggest = "arg_default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureJavaArgument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureJavaArgument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureJavaArgument.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
-                 name: str,
-                 type: str):
+                 arg_data_type: str,
+                 arg_name: str,
+                 arg_default_value: Optional[str] = None):
         """
-        :param str name: The argument name
-        :param str type: The argument type
+        :param str arg_data_type: The argument type.
+        :param str arg_name: The argument name.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
+        pulumi.set(__self__, "arg_data_type", arg_data_type)
+        pulumi.set(__self__, "arg_name", arg_name)
+        if arg_default_value is not None:
+            pulumi.set(__self__, "arg_default_value", arg_default_value)
+
+    @property
+    @pulumi.getter(name="argDataType")
+    def arg_data_type(self) -> str:
+        """
+        The argument type.
+        """
+        return pulumi.get(self, "arg_data_type")
+
+    @property
+    @pulumi.getter(name="argName")
+    def arg_name(self) -> str:
+        """
+        The argument name.
+        """
+        return pulumi.get(self, "arg_name")
+
+    @property
+    @pulumi.getter(name="argDefaultValue")
+    def arg_default_value(self) -> Optional[str]:
+        return pulumi.get(self, "arg_default_value")
+
+
+@pulumi.output_type
+class ProcedureJavaImport(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pathOnStage":
+            suggest = "path_on_stage"
+        elif key == "stageLocation":
+            suggest = "stage_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureJavaImport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureJavaImport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureJavaImport.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path_on_stage: str,
+                 stage_location: str):
+        """
+        :param str path_on_stage: Path for import on stage, without the leading `/`.
+        """
+        pulumi.set(__self__, "path_on_stage", path_on_stage)
+        pulumi.set(__self__, "stage_location", stage_location)
+
+    @property
+    @pulumi.getter(name="pathOnStage")
+    def path_on_stage(self) -> str:
+        """
+        Path for import on stage, without the leading `/`.
+        """
+        return pulumi.get(self, "path_on_stage")
+
+    @property
+    @pulumi.getter(name="stageLocation")
+    def stage_location(self) -> str:
+        return pulumi.get(self, "stage_location")
+
+
+@pulumi.output_type
+class ProcedureJavaParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableConsoleOutputs":
+            suggest = "enable_console_outputs"
+        elif key == "logLevels":
+            suggest = "log_levels"
+        elif key == "metricLevels":
+            suggest = "metric_levels"
+        elif key == "traceLevels":
+            suggest = "trace_levels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureJavaParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureJavaParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureJavaParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_console_outputs: Optional[Sequence['outputs.ProcedureJavaParameterEnableConsoleOutput']] = None,
+                 log_levels: Optional[Sequence['outputs.ProcedureJavaParameterLogLevel']] = None,
+                 metric_levels: Optional[Sequence['outputs.ProcedureJavaParameterMetricLevel']] = None,
+                 trace_levels: Optional[Sequence['outputs.ProcedureJavaParameterTraceLevel']] = None):
+        if enable_console_outputs is not None:
+            pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if metric_levels is not None:
+            pulumi.set(__self__, "metric_levels", metric_levels)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Optional[Sequence['outputs.ProcedureJavaParameterEnableConsoleOutput']]:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[Sequence['outputs.ProcedureJavaParameterLogLevel']]:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="metricLevels")
+    def metric_levels(self) -> Optional[Sequence['outputs.ProcedureJavaParameterMetricLevel']]:
+        return pulumi.get(self, "metric_levels")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[Sequence['outputs.ProcedureJavaParameterTraceLevel']]:
+        return pulumi.get(self, "trace_levels")
+
+
+@pulumi.output_type
+class ProcedureJavaParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
-    def name(self) -> str:
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureJavaParameterLogLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureJavaParameterMetricLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureJavaParameterTraceLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureJavaSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretId":
+            suggest = "secret_id"
+        elif key == "secretVariableName":
+            suggest = "secret_variable_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureJavaSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureJavaSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureJavaSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_id: str,
+                 secret_variable_name: str):
         """
-        The argument name
+        :param str secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param str secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "secret_variable_name", secret_variable_name)
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> str:
+        """
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @property
+    @pulumi.getter(name="secretVariableName")
+    def secret_variable_name(self) -> str:
+        """
+        The variable that will be used in handler code when retrieving information from the secret.
+        """
+        return pulumi.get(self, "secret_variable_name")
+
+
+@pulumi.output_type
+class ProcedureJavaShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argumentsRaw":
+            suggest = "arguments_raw"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAggregate":
+            suggest = "is_aggregate"
+        elif key == "isAnsi":
+            suggest = "is_ansi"
+        elif key == "isBuiltin":
+            suggest = "is_builtin"
+        elif key == "isSecure":
+            suggest = "is_secure"
+        elif key == "isTableFunction":
+            suggest = "is_table_function"
+        elif key == "maxNumArguments":
+            suggest = "max_num_arguments"
+        elif key == "minNumArguments":
+            suggest = "min_num_arguments"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "validForClustering":
+            suggest = "valid_for_clustering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureJavaShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureJavaShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureJavaShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arguments_raw: Optional[str] = None,
+                 catalog_name: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 description: Optional[str] = None,
+                 external_access_integrations: Optional[str] = None,
+                 is_aggregate: Optional[bool] = None,
+                 is_ansi: Optional[bool] = None,
+                 is_builtin: Optional[bool] = None,
+                 is_secure: Optional[bool] = None,
+                 is_table_function: Optional[bool] = None,
+                 max_num_arguments: Optional[int] = None,
+                 min_num_arguments: Optional[int] = None,
+                 name: Optional[str] = None,
+                 schema_name: Optional[str] = None,
+                 secrets: Optional[str] = None,
+                 valid_for_clustering: Optional[bool] = None):
+        if arguments_raw is not None:
+            pulumi.set(__self__, "arguments_raw", arguments_raw)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_aggregate is not None:
+            pulumi.set(__self__, "is_aggregate", is_aggregate)
+        if is_ansi is not None:
+            pulumi.set(__self__, "is_ansi", is_ansi)
+        if is_builtin is not None:
+            pulumi.set(__self__, "is_builtin", is_builtin)
+        if is_secure is not None:
+            pulumi.set(__self__, "is_secure", is_secure)
+        if is_table_function is not None:
+            pulumi.set(__self__, "is_table_function", is_table_function)
+        if max_num_arguments is not None:
+            pulumi.set(__self__, "max_num_arguments", max_num_arguments)
+        if min_num_arguments is not None:
+            pulumi.set(__self__, "min_num_arguments", min_num_arguments)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if valid_for_clustering is not None:
+            pulumi.set(__self__, "valid_for_clustering", valid_for_clustering)
+
+    @property
+    @pulumi.getter(name="argumentsRaw")
+    def arguments_raw(self) -> Optional[str]:
+        return pulumi.get(self, "arguments_raw")
+
+    @property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[str]:
+        return pulumi.get(self, "catalog_name")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAggregate")
+    def is_aggregate(self) -> Optional[bool]:
+        return pulumi.get(self, "is_aggregate")
+
+    @property
+    @pulumi.getter(name="isAnsi")
+    def is_ansi(self) -> Optional[bool]:
+        return pulumi.get(self, "is_ansi")
+
+    @property
+    @pulumi.getter(name="isBuiltin")
+    def is_builtin(self) -> Optional[bool]:
+        return pulumi.get(self, "is_builtin")
+
+    @property
+    @pulumi.getter(name="isSecure")
+    def is_secure(self) -> Optional[bool]:
+        return pulumi.get(self, "is_secure")
+
+    @property
+    @pulumi.getter(name="isTableFunction")
+    def is_table_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_table_function")
+
+    @property
+    @pulumi.getter(name="maxNumArguments")
+    def max_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "max_num_arguments")
+
+    @property
+    @pulumi.getter(name="minNumArguments")
+    def min_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "min_num_arguments")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
     @pulumi.getter
-    def type(self) -> str:
+    def secrets(self) -> Optional[str]:
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="validForClustering")
+    def valid_for_clustering(self) -> Optional[bool]:
+        return pulumi.get(self, "valid_for_clustering")
+
+
+@pulumi.output_type
+class ProcedureJavaTargetPath(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pathOnStage":
+            suggest = "path_on_stage"
+        elif key == "stageLocation":
+            suggest = "stage_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureJavaTargetPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureJavaTargetPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureJavaTargetPath.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path_on_stage: str,
+                 stage_location: str):
         """
-        The argument type
+        :param str path_on_stage: Path for import on stage, without the leading `/`.
         """
-        return pulumi.get(self, "type")
+        pulumi.set(__self__, "path_on_stage", path_on_stage)
+        pulumi.set(__self__, "stage_location", stage_location)
+
+    @property
+    @pulumi.getter(name="pathOnStage")
+    def path_on_stage(self) -> str:
+        """
+        Path for import on stage, without the leading `/`.
+        """
+        return pulumi.get(self, "path_on_stage")
+
+    @property
+    @pulumi.getter(name="stageLocation")
+    def stage_location(self) -> str:
+        return pulumi.get(self, "stage_location")
+
+
+@pulumi.output_type
+class ProcedureJavascriptArgument(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argDataType":
+            suggest = "arg_data_type"
+        elif key == "argName":
+            suggest = "arg_name"
+        elif key == "argDefaultValue":
+            suggest = "arg_default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureJavascriptArgument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureJavascriptArgument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureJavascriptArgument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arg_data_type: str,
+                 arg_name: str,
+                 arg_default_value: Optional[str] = None):
+        """
+        :param str arg_data_type: The argument type.
+        :param str arg_name: The argument name.
+        """
+        pulumi.set(__self__, "arg_data_type", arg_data_type)
+        pulumi.set(__self__, "arg_name", arg_name)
+        if arg_default_value is not None:
+            pulumi.set(__self__, "arg_default_value", arg_default_value)
+
+    @property
+    @pulumi.getter(name="argDataType")
+    def arg_data_type(self) -> str:
+        """
+        The argument type.
+        """
+        return pulumi.get(self, "arg_data_type")
+
+    @property
+    @pulumi.getter(name="argName")
+    def arg_name(self) -> str:
+        """
+        The argument name.
+        """
+        return pulumi.get(self, "arg_name")
+
+    @property
+    @pulumi.getter(name="argDefaultValue")
+    def arg_default_value(self) -> Optional[str]:
+        return pulumi.get(self, "arg_default_value")
+
+
+@pulumi.output_type
+class ProcedureJavascriptParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableConsoleOutputs":
+            suggest = "enable_console_outputs"
+        elif key == "logLevels":
+            suggest = "log_levels"
+        elif key == "metricLevels":
+            suggest = "metric_levels"
+        elif key == "traceLevels":
+            suggest = "trace_levels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureJavascriptParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureJavascriptParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureJavascriptParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_console_outputs: Optional[Sequence['outputs.ProcedureJavascriptParameterEnableConsoleOutput']] = None,
+                 log_levels: Optional[Sequence['outputs.ProcedureJavascriptParameterLogLevel']] = None,
+                 metric_levels: Optional[Sequence['outputs.ProcedureJavascriptParameterMetricLevel']] = None,
+                 trace_levels: Optional[Sequence['outputs.ProcedureJavascriptParameterTraceLevel']] = None):
+        if enable_console_outputs is not None:
+            pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if metric_levels is not None:
+            pulumi.set(__self__, "metric_levels", metric_levels)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Optional[Sequence['outputs.ProcedureJavascriptParameterEnableConsoleOutput']]:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[Sequence['outputs.ProcedureJavascriptParameterLogLevel']]:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="metricLevels")
+    def metric_levels(self) -> Optional[Sequence['outputs.ProcedureJavascriptParameterMetricLevel']]:
+        return pulumi.get(self, "metric_levels")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[Sequence['outputs.ProcedureJavascriptParameterTraceLevel']]:
+        return pulumi.get(self, "trace_levels")
+
+
+@pulumi.output_type
+class ProcedureJavascriptParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureJavascriptParameterLogLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureJavascriptParameterMetricLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureJavascriptParameterTraceLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureJavascriptShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argumentsRaw":
+            suggest = "arguments_raw"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAggregate":
+            suggest = "is_aggregate"
+        elif key == "isAnsi":
+            suggest = "is_ansi"
+        elif key == "isBuiltin":
+            suggest = "is_builtin"
+        elif key == "isSecure":
+            suggest = "is_secure"
+        elif key == "isTableFunction":
+            suggest = "is_table_function"
+        elif key == "maxNumArguments":
+            suggest = "max_num_arguments"
+        elif key == "minNumArguments":
+            suggest = "min_num_arguments"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "validForClustering":
+            suggest = "valid_for_clustering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureJavascriptShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureJavascriptShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureJavascriptShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arguments_raw: Optional[str] = None,
+                 catalog_name: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 description: Optional[str] = None,
+                 external_access_integrations: Optional[str] = None,
+                 is_aggregate: Optional[bool] = None,
+                 is_ansi: Optional[bool] = None,
+                 is_builtin: Optional[bool] = None,
+                 is_secure: Optional[bool] = None,
+                 is_table_function: Optional[bool] = None,
+                 max_num_arguments: Optional[int] = None,
+                 min_num_arguments: Optional[int] = None,
+                 name: Optional[str] = None,
+                 schema_name: Optional[str] = None,
+                 secrets: Optional[str] = None,
+                 valid_for_clustering: Optional[bool] = None):
+        if arguments_raw is not None:
+            pulumi.set(__self__, "arguments_raw", arguments_raw)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_aggregate is not None:
+            pulumi.set(__self__, "is_aggregate", is_aggregate)
+        if is_ansi is not None:
+            pulumi.set(__self__, "is_ansi", is_ansi)
+        if is_builtin is not None:
+            pulumi.set(__self__, "is_builtin", is_builtin)
+        if is_secure is not None:
+            pulumi.set(__self__, "is_secure", is_secure)
+        if is_table_function is not None:
+            pulumi.set(__self__, "is_table_function", is_table_function)
+        if max_num_arguments is not None:
+            pulumi.set(__self__, "max_num_arguments", max_num_arguments)
+        if min_num_arguments is not None:
+            pulumi.set(__self__, "min_num_arguments", min_num_arguments)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if valid_for_clustering is not None:
+            pulumi.set(__self__, "valid_for_clustering", valid_for_clustering)
+
+    @property
+    @pulumi.getter(name="argumentsRaw")
+    def arguments_raw(self) -> Optional[str]:
+        return pulumi.get(self, "arguments_raw")
+
+    @property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[str]:
+        return pulumi.get(self, "catalog_name")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAggregate")
+    def is_aggregate(self) -> Optional[bool]:
+        return pulumi.get(self, "is_aggregate")
+
+    @property
+    @pulumi.getter(name="isAnsi")
+    def is_ansi(self) -> Optional[bool]:
+        return pulumi.get(self, "is_ansi")
+
+    @property
+    @pulumi.getter(name="isBuiltin")
+    def is_builtin(self) -> Optional[bool]:
+        return pulumi.get(self, "is_builtin")
+
+    @property
+    @pulumi.getter(name="isSecure")
+    def is_secure(self) -> Optional[bool]:
+        return pulumi.get(self, "is_secure")
+
+    @property
+    @pulumi.getter(name="isTableFunction")
+    def is_table_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_table_function")
+
+    @property
+    @pulumi.getter(name="maxNumArguments")
+    def max_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "max_num_arguments")
+
+    @property
+    @pulumi.getter(name="minNumArguments")
+    def min_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "min_num_arguments")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[str]:
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="validForClustering")
+    def valid_for_clustering(self) -> Optional[bool]:
+        return pulumi.get(self, "valid_for_clustering")
+
+
+@pulumi.output_type
+class ProcedurePythonArgument(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argDataType":
+            suggest = "arg_data_type"
+        elif key == "argName":
+            suggest = "arg_name"
+        elif key == "argDefaultValue":
+            suggest = "arg_default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedurePythonArgument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedurePythonArgument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedurePythonArgument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arg_data_type: str,
+                 arg_name: str,
+                 arg_default_value: Optional[str] = None):
+        """
+        :param str arg_data_type: The argument type.
+        :param str arg_name: The argument name.
+        """
+        pulumi.set(__self__, "arg_data_type", arg_data_type)
+        pulumi.set(__self__, "arg_name", arg_name)
+        if arg_default_value is not None:
+            pulumi.set(__self__, "arg_default_value", arg_default_value)
+
+    @property
+    @pulumi.getter(name="argDataType")
+    def arg_data_type(self) -> str:
+        """
+        The argument type.
+        """
+        return pulumi.get(self, "arg_data_type")
+
+    @property
+    @pulumi.getter(name="argName")
+    def arg_name(self) -> str:
+        """
+        The argument name.
+        """
+        return pulumi.get(self, "arg_name")
+
+    @property
+    @pulumi.getter(name="argDefaultValue")
+    def arg_default_value(self) -> Optional[str]:
+        return pulumi.get(self, "arg_default_value")
+
+
+@pulumi.output_type
+class ProcedurePythonImport(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pathOnStage":
+            suggest = "path_on_stage"
+        elif key == "stageLocation":
+            suggest = "stage_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedurePythonImport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedurePythonImport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedurePythonImport.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path_on_stage: str,
+                 stage_location: str):
+        """
+        :param str path_on_stage: Path for import on stage, without the leading `/`.
+        """
+        pulumi.set(__self__, "path_on_stage", path_on_stage)
+        pulumi.set(__self__, "stage_location", stage_location)
+
+    @property
+    @pulumi.getter(name="pathOnStage")
+    def path_on_stage(self) -> str:
+        """
+        Path for import on stage, without the leading `/`.
+        """
+        return pulumi.get(self, "path_on_stage")
+
+    @property
+    @pulumi.getter(name="stageLocation")
+    def stage_location(self) -> str:
+        return pulumi.get(self, "stage_location")
+
+
+@pulumi.output_type
+class ProcedurePythonParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableConsoleOutputs":
+            suggest = "enable_console_outputs"
+        elif key == "logLevels":
+            suggest = "log_levels"
+        elif key == "metricLevels":
+            suggest = "metric_levels"
+        elif key == "traceLevels":
+            suggest = "trace_levels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedurePythonParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedurePythonParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedurePythonParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_console_outputs: Optional[Sequence['outputs.ProcedurePythonParameterEnableConsoleOutput']] = None,
+                 log_levels: Optional[Sequence['outputs.ProcedurePythonParameterLogLevel']] = None,
+                 metric_levels: Optional[Sequence['outputs.ProcedurePythonParameterMetricLevel']] = None,
+                 trace_levels: Optional[Sequence['outputs.ProcedurePythonParameterTraceLevel']] = None):
+        if enable_console_outputs is not None:
+            pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if metric_levels is not None:
+            pulumi.set(__self__, "metric_levels", metric_levels)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Optional[Sequence['outputs.ProcedurePythonParameterEnableConsoleOutput']]:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[Sequence['outputs.ProcedurePythonParameterLogLevel']]:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="metricLevels")
+    def metric_levels(self) -> Optional[Sequence['outputs.ProcedurePythonParameterMetricLevel']]:
+        return pulumi.get(self, "metric_levels")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[Sequence['outputs.ProcedurePythonParameterTraceLevel']]:
+        return pulumi.get(self, "trace_levels")
+
+
+@pulumi.output_type
+class ProcedurePythonParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedurePythonParameterLogLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedurePythonParameterMetricLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedurePythonParameterTraceLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedurePythonSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretId":
+            suggest = "secret_id"
+        elif key == "secretVariableName":
+            suggest = "secret_variable_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedurePythonSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedurePythonSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedurePythonSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_id: str,
+                 secret_variable_name: str):
+        """
+        :param str secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param str secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "secret_variable_name", secret_variable_name)
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> str:
+        """
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @property
+    @pulumi.getter(name="secretVariableName")
+    def secret_variable_name(self) -> str:
+        """
+        The variable that will be used in handler code when retrieving information from the secret.
+        """
+        return pulumi.get(self, "secret_variable_name")
+
+
+@pulumi.output_type
+class ProcedurePythonShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argumentsRaw":
+            suggest = "arguments_raw"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAggregate":
+            suggest = "is_aggregate"
+        elif key == "isAnsi":
+            suggest = "is_ansi"
+        elif key == "isBuiltin":
+            suggest = "is_builtin"
+        elif key == "isSecure":
+            suggest = "is_secure"
+        elif key == "isTableFunction":
+            suggest = "is_table_function"
+        elif key == "maxNumArguments":
+            suggest = "max_num_arguments"
+        elif key == "minNumArguments":
+            suggest = "min_num_arguments"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "validForClustering":
+            suggest = "valid_for_clustering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedurePythonShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedurePythonShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedurePythonShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arguments_raw: Optional[str] = None,
+                 catalog_name: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 description: Optional[str] = None,
+                 external_access_integrations: Optional[str] = None,
+                 is_aggregate: Optional[bool] = None,
+                 is_ansi: Optional[bool] = None,
+                 is_builtin: Optional[bool] = None,
+                 is_secure: Optional[bool] = None,
+                 is_table_function: Optional[bool] = None,
+                 max_num_arguments: Optional[int] = None,
+                 min_num_arguments: Optional[int] = None,
+                 name: Optional[str] = None,
+                 schema_name: Optional[str] = None,
+                 secrets: Optional[str] = None,
+                 valid_for_clustering: Optional[bool] = None):
+        if arguments_raw is not None:
+            pulumi.set(__self__, "arguments_raw", arguments_raw)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_aggregate is not None:
+            pulumi.set(__self__, "is_aggregate", is_aggregate)
+        if is_ansi is not None:
+            pulumi.set(__self__, "is_ansi", is_ansi)
+        if is_builtin is not None:
+            pulumi.set(__self__, "is_builtin", is_builtin)
+        if is_secure is not None:
+            pulumi.set(__self__, "is_secure", is_secure)
+        if is_table_function is not None:
+            pulumi.set(__self__, "is_table_function", is_table_function)
+        if max_num_arguments is not None:
+            pulumi.set(__self__, "max_num_arguments", max_num_arguments)
+        if min_num_arguments is not None:
+            pulumi.set(__self__, "min_num_arguments", min_num_arguments)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if valid_for_clustering is not None:
+            pulumi.set(__self__, "valid_for_clustering", valid_for_clustering)
+
+    @property
+    @pulumi.getter(name="argumentsRaw")
+    def arguments_raw(self) -> Optional[str]:
+        return pulumi.get(self, "arguments_raw")
+
+    @property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[str]:
+        return pulumi.get(self, "catalog_name")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAggregate")
+    def is_aggregate(self) -> Optional[bool]:
+        return pulumi.get(self, "is_aggregate")
+
+    @property
+    @pulumi.getter(name="isAnsi")
+    def is_ansi(self) -> Optional[bool]:
+        return pulumi.get(self, "is_ansi")
+
+    @property
+    @pulumi.getter(name="isBuiltin")
+    def is_builtin(self) -> Optional[bool]:
+        return pulumi.get(self, "is_builtin")
+
+    @property
+    @pulumi.getter(name="isSecure")
+    def is_secure(self) -> Optional[bool]:
+        return pulumi.get(self, "is_secure")
+
+    @property
+    @pulumi.getter(name="isTableFunction")
+    def is_table_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_table_function")
+
+    @property
+    @pulumi.getter(name="maxNumArguments")
+    def max_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "max_num_arguments")
+
+    @property
+    @pulumi.getter(name="minNumArguments")
+    def min_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "min_num_arguments")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[str]:
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="validForClustering")
+    def valid_for_clustering(self) -> Optional[bool]:
+        return pulumi.get(self, "valid_for_clustering")
+
+
+@pulumi.output_type
+class ProcedureScalaArgument(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argDataType":
+            suggest = "arg_data_type"
+        elif key == "argName":
+            suggest = "arg_name"
+        elif key == "argDefaultValue":
+            suggest = "arg_default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureScalaArgument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureScalaArgument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureScalaArgument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arg_data_type: str,
+                 arg_name: str,
+                 arg_default_value: Optional[str] = None):
+        """
+        :param str arg_data_type: The argument type.
+        :param str arg_name: The argument name.
+        """
+        pulumi.set(__self__, "arg_data_type", arg_data_type)
+        pulumi.set(__self__, "arg_name", arg_name)
+        if arg_default_value is not None:
+            pulumi.set(__self__, "arg_default_value", arg_default_value)
+
+    @property
+    @pulumi.getter(name="argDataType")
+    def arg_data_type(self) -> str:
+        """
+        The argument type.
+        """
+        return pulumi.get(self, "arg_data_type")
+
+    @property
+    @pulumi.getter(name="argName")
+    def arg_name(self) -> str:
+        """
+        The argument name.
+        """
+        return pulumi.get(self, "arg_name")
+
+    @property
+    @pulumi.getter(name="argDefaultValue")
+    def arg_default_value(self) -> Optional[str]:
+        return pulumi.get(self, "arg_default_value")
+
+
+@pulumi.output_type
+class ProcedureScalaImport(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pathOnStage":
+            suggest = "path_on_stage"
+        elif key == "stageLocation":
+            suggest = "stage_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureScalaImport. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureScalaImport.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureScalaImport.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path_on_stage: str,
+                 stage_location: str):
+        """
+        :param str path_on_stage: Path for import on stage, without the leading `/`.
+        """
+        pulumi.set(__self__, "path_on_stage", path_on_stage)
+        pulumi.set(__self__, "stage_location", stage_location)
+
+    @property
+    @pulumi.getter(name="pathOnStage")
+    def path_on_stage(self) -> str:
+        """
+        Path for import on stage, without the leading `/`.
+        """
+        return pulumi.get(self, "path_on_stage")
+
+    @property
+    @pulumi.getter(name="stageLocation")
+    def stage_location(self) -> str:
+        return pulumi.get(self, "stage_location")
+
+
+@pulumi.output_type
+class ProcedureScalaParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableConsoleOutputs":
+            suggest = "enable_console_outputs"
+        elif key == "logLevels":
+            suggest = "log_levels"
+        elif key == "metricLevels":
+            suggest = "metric_levels"
+        elif key == "traceLevels":
+            suggest = "trace_levels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureScalaParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureScalaParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureScalaParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_console_outputs: Optional[Sequence['outputs.ProcedureScalaParameterEnableConsoleOutput']] = None,
+                 log_levels: Optional[Sequence['outputs.ProcedureScalaParameterLogLevel']] = None,
+                 metric_levels: Optional[Sequence['outputs.ProcedureScalaParameterMetricLevel']] = None,
+                 trace_levels: Optional[Sequence['outputs.ProcedureScalaParameterTraceLevel']] = None):
+        if enable_console_outputs is not None:
+            pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if metric_levels is not None:
+            pulumi.set(__self__, "metric_levels", metric_levels)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Optional[Sequence['outputs.ProcedureScalaParameterEnableConsoleOutput']]:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[Sequence['outputs.ProcedureScalaParameterLogLevel']]:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="metricLevels")
+    def metric_levels(self) -> Optional[Sequence['outputs.ProcedureScalaParameterMetricLevel']]:
+        return pulumi.get(self, "metric_levels")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[Sequence['outputs.ProcedureScalaParameterTraceLevel']]:
+        return pulumi.get(self, "trace_levels")
+
+
+@pulumi.output_type
+class ProcedureScalaParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureScalaParameterLogLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureScalaParameterMetricLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureScalaParameterTraceLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureScalaSecret(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "secretId":
+            suggest = "secret_id"
+        elif key == "secretVariableName":
+            suggest = "secret_variable_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureScalaSecret. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureScalaSecret.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureScalaSecret.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 secret_id: str,
+                 secret_variable_name: str):
+        """
+        :param str secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param str secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "secret_variable_name", secret_variable_name)
+
+    @property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> str:
+        """
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @property
+    @pulumi.getter(name="secretVariableName")
+    def secret_variable_name(self) -> str:
+        """
+        The variable that will be used in handler code when retrieving information from the secret.
+        """
+        return pulumi.get(self, "secret_variable_name")
+
+
+@pulumi.output_type
+class ProcedureScalaShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argumentsRaw":
+            suggest = "arguments_raw"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAggregate":
+            suggest = "is_aggregate"
+        elif key == "isAnsi":
+            suggest = "is_ansi"
+        elif key == "isBuiltin":
+            suggest = "is_builtin"
+        elif key == "isSecure":
+            suggest = "is_secure"
+        elif key == "isTableFunction":
+            suggest = "is_table_function"
+        elif key == "maxNumArguments":
+            suggest = "max_num_arguments"
+        elif key == "minNumArguments":
+            suggest = "min_num_arguments"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "validForClustering":
+            suggest = "valid_for_clustering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureScalaShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureScalaShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureScalaShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arguments_raw: Optional[str] = None,
+                 catalog_name: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 description: Optional[str] = None,
+                 external_access_integrations: Optional[str] = None,
+                 is_aggregate: Optional[bool] = None,
+                 is_ansi: Optional[bool] = None,
+                 is_builtin: Optional[bool] = None,
+                 is_secure: Optional[bool] = None,
+                 is_table_function: Optional[bool] = None,
+                 max_num_arguments: Optional[int] = None,
+                 min_num_arguments: Optional[int] = None,
+                 name: Optional[str] = None,
+                 schema_name: Optional[str] = None,
+                 secrets: Optional[str] = None,
+                 valid_for_clustering: Optional[bool] = None):
+        if arguments_raw is not None:
+            pulumi.set(__self__, "arguments_raw", arguments_raw)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_aggregate is not None:
+            pulumi.set(__self__, "is_aggregate", is_aggregate)
+        if is_ansi is not None:
+            pulumi.set(__self__, "is_ansi", is_ansi)
+        if is_builtin is not None:
+            pulumi.set(__self__, "is_builtin", is_builtin)
+        if is_secure is not None:
+            pulumi.set(__self__, "is_secure", is_secure)
+        if is_table_function is not None:
+            pulumi.set(__self__, "is_table_function", is_table_function)
+        if max_num_arguments is not None:
+            pulumi.set(__self__, "max_num_arguments", max_num_arguments)
+        if min_num_arguments is not None:
+            pulumi.set(__self__, "min_num_arguments", min_num_arguments)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if valid_for_clustering is not None:
+            pulumi.set(__self__, "valid_for_clustering", valid_for_clustering)
+
+    @property
+    @pulumi.getter(name="argumentsRaw")
+    def arguments_raw(self) -> Optional[str]:
+        return pulumi.get(self, "arguments_raw")
+
+    @property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[str]:
+        return pulumi.get(self, "catalog_name")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAggregate")
+    def is_aggregate(self) -> Optional[bool]:
+        return pulumi.get(self, "is_aggregate")
+
+    @property
+    @pulumi.getter(name="isAnsi")
+    def is_ansi(self) -> Optional[bool]:
+        return pulumi.get(self, "is_ansi")
+
+    @property
+    @pulumi.getter(name="isBuiltin")
+    def is_builtin(self) -> Optional[bool]:
+        return pulumi.get(self, "is_builtin")
+
+    @property
+    @pulumi.getter(name="isSecure")
+    def is_secure(self) -> Optional[bool]:
+        return pulumi.get(self, "is_secure")
+
+    @property
+    @pulumi.getter(name="isTableFunction")
+    def is_table_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_table_function")
+
+    @property
+    @pulumi.getter(name="maxNumArguments")
+    def max_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "max_num_arguments")
+
+    @property
+    @pulumi.getter(name="minNumArguments")
+    def min_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "min_num_arguments")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[str]:
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="validForClustering")
+    def valid_for_clustering(self) -> Optional[bool]:
+        return pulumi.get(self, "valid_for_clustering")
+
+
+@pulumi.output_type
+class ProcedureScalaTargetPath(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "pathOnStage":
+            suggest = "path_on_stage"
+        elif key == "stageLocation":
+            suggest = "stage_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureScalaTargetPath. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureScalaTargetPath.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureScalaTargetPath.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 path_on_stage: str,
+                 stage_location: str):
+        """
+        :param str path_on_stage: Path for import on stage, without the leading `/`.
+        """
+        pulumi.set(__self__, "path_on_stage", path_on_stage)
+        pulumi.set(__self__, "stage_location", stage_location)
+
+    @property
+    @pulumi.getter(name="pathOnStage")
+    def path_on_stage(self) -> str:
+        """
+        Path for import on stage, without the leading `/`.
+        """
+        return pulumi.get(self, "path_on_stage")
+
+    @property
+    @pulumi.getter(name="stageLocation")
+    def stage_location(self) -> str:
+        return pulumi.get(self, "stage_location")
+
+
+@pulumi.output_type
+class ProcedureSqlArgument(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argDataType":
+            suggest = "arg_data_type"
+        elif key == "argName":
+            suggest = "arg_name"
+        elif key == "argDefaultValue":
+            suggest = "arg_default_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureSqlArgument. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureSqlArgument.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureSqlArgument.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arg_data_type: str,
+                 arg_name: str,
+                 arg_default_value: Optional[str] = None):
+        """
+        :param str arg_data_type: The argument type.
+        :param str arg_name: The argument name.
+        """
+        pulumi.set(__self__, "arg_data_type", arg_data_type)
+        pulumi.set(__self__, "arg_name", arg_name)
+        if arg_default_value is not None:
+            pulumi.set(__self__, "arg_default_value", arg_default_value)
+
+    @property
+    @pulumi.getter(name="argDataType")
+    def arg_data_type(self) -> str:
+        """
+        The argument type.
+        """
+        return pulumi.get(self, "arg_data_type")
+
+    @property
+    @pulumi.getter(name="argName")
+    def arg_name(self) -> str:
+        """
+        The argument name.
+        """
+        return pulumi.get(self, "arg_name")
+
+    @property
+    @pulumi.getter(name="argDefaultValue")
+    def arg_default_value(self) -> Optional[str]:
+        return pulumi.get(self, "arg_default_value")
+
+
+@pulumi.output_type
+class ProcedureSqlParameter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableConsoleOutputs":
+            suggest = "enable_console_outputs"
+        elif key == "logLevels":
+            suggest = "log_levels"
+        elif key == "metricLevels":
+            suggest = "metric_levels"
+        elif key == "traceLevels":
+            suggest = "trace_levels"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureSqlParameter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureSqlParameter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureSqlParameter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_console_outputs: Optional[Sequence['outputs.ProcedureSqlParameterEnableConsoleOutput']] = None,
+                 log_levels: Optional[Sequence['outputs.ProcedureSqlParameterLogLevel']] = None,
+                 metric_levels: Optional[Sequence['outputs.ProcedureSqlParameterMetricLevel']] = None,
+                 trace_levels: Optional[Sequence['outputs.ProcedureSqlParameterTraceLevel']] = None):
+        if enable_console_outputs is not None:
+            pulumi.set(__self__, "enable_console_outputs", enable_console_outputs)
+        if log_levels is not None:
+            pulumi.set(__self__, "log_levels", log_levels)
+        if metric_levels is not None:
+            pulumi.set(__self__, "metric_levels", metric_levels)
+        if trace_levels is not None:
+            pulumi.set(__self__, "trace_levels", trace_levels)
+
+    @property
+    @pulumi.getter(name="enableConsoleOutputs")
+    def enable_console_outputs(self) -> Optional[Sequence['outputs.ProcedureSqlParameterEnableConsoleOutput']]:
+        return pulumi.get(self, "enable_console_outputs")
+
+    @property
+    @pulumi.getter(name="logLevels")
+    def log_levels(self) -> Optional[Sequence['outputs.ProcedureSqlParameterLogLevel']]:
+        return pulumi.get(self, "log_levels")
+
+    @property
+    @pulumi.getter(name="metricLevels")
+    def metric_levels(self) -> Optional[Sequence['outputs.ProcedureSqlParameterMetricLevel']]:
+        return pulumi.get(self, "metric_levels")
+
+    @property
+    @pulumi.getter(name="traceLevels")
+    def trace_levels(self) -> Optional[Sequence['outputs.ProcedureSqlParameterTraceLevel']]:
+        return pulumi.get(self, "trace_levels")
+
+
+@pulumi.output_type
+class ProcedureSqlParameterEnableConsoleOutput(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureSqlParameterLogLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureSqlParameterMetricLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureSqlParameterTraceLevel(dict):
+    def __init__(__self__, *,
+                 default: Optional[str] = None,
+                 description: Optional[str] = None,
+                 key: Optional[str] = None,
+                 level: Optional[str] = None,
+                 value: Optional[str] = None):
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if level is not None:
+            pulumi.set(__self__, "level", level)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def default(self) -> Optional[str]:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def key(self) -> Optional[str]:
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def level(self) -> Optional[str]:
+        return pulumi.get(self, "level")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ProcedureSqlShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "argumentsRaw":
+            suggest = "arguments_raw"
+        elif key == "catalogName":
+            suggest = "catalog_name"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAggregate":
+            suggest = "is_aggregate"
+        elif key == "isAnsi":
+            suggest = "is_ansi"
+        elif key == "isBuiltin":
+            suggest = "is_builtin"
+        elif key == "isSecure":
+            suggest = "is_secure"
+        elif key == "isTableFunction":
+            suggest = "is_table_function"
+        elif key == "maxNumArguments":
+            suggest = "max_num_arguments"
+        elif key == "minNumArguments":
+            suggest = "min_num_arguments"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "validForClustering":
+            suggest = "valid_for_clustering"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProcedureSqlShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProcedureSqlShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProcedureSqlShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 arguments_raw: Optional[str] = None,
+                 catalog_name: Optional[str] = None,
+                 created_on: Optional[str] = None,
+                 description: Optional[str] = None,
+                 external_access_integrations: Optional[str] = None,
+                 is_aggregate: Optional[bool] = None,
+                 is_ansi: Optional[bool] = None,
+                 is_builtin: Optional[bool] = None,
+                 is_secure: Optional[bool] = None,
+                 is_table_function: Optional[bool] = None,
+                 max_num_arguments: Optional[int] = None,
+                 min_num_arguments: Optional[int] = None,
+                 name: Optional[str] = None,
+                 schema_name: Optional[str] = None,
+                 secrets: Optional[str] = None,
+                 valid_for_clustering: Optional[bool] = None):
+        if arguments_raw is not None:
+            pulumi.set(__self__, "arguments_raw", arguments_raw)
+        if catalog_name is not None:
+            pulumi.set(__self__, "catalog_name", catalog_name)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_aggregate is not None:
+            pulumi.set(__self__, "is_aggregate", is_aggregate)
+        if is_ansi is not None:
+            pulumi.set(__self__, "is_ansi", is_ansi)
+        if is_builtin is not None:
+            pulumi.set(__self__, "is_builtin", is_builtin)
+        if is_secure is not None:
+            pulumi.set(__self__, "is_secure", is_secure)
+        if is_table_function is not None:
+            pulumi.set(__self__, "is_table_function", is_table_function)
+        if max_num_arguments is not None:
+            pulumi.set(__self__, "max_num_arguments", max_num_arguments)
+        if min_num_arguments is not None:
+            pulumi.set(__self__, "min_num_arguments", min_num_arguments)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if secrets is not None:
+            pulumi.set(__self__, "secrets", secrets)
+        if valid_for_clustering is not None:
+            pulumi.set(__self__, "valid_for_clustering", valid_for_clustering)
+
+    @property
+    @pulumi.getter(name="argumentsRaw")
+    def arguments_raw(self) -> Optional[str]:
+        return pulumi.get(self, "arguments_raw")
+
+    @property
+    @pulumi.getter(name="catalogName")
+    def catalog_name(self) -> Optional[str]:
+        return pulumi.get(self, "catalog_name")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAggregate")
+    def is_aggregate(self) -> Optional[bool]:
+        return pulumi.get(self, "is_aggregate")
+
+    @property
+    @pulumi.getter(name="isAnsi")
+    def is_ansi(self) -> Optional[bool]:
+        return pulumi.get(self, "is_ansi")
+
+    @property
+    @pulumi.getter(name="isBuiltin")
+    def is_builtin(self) -> Optional[bool]:
+        return pulumi.get(self, "is_builtin")
+
+    @property
+    @pulumi.getter(name="isSecure")
+    def is_secure(self) -> Optional[bool]:
+        return pulumi.get(self, "is_secure")
+
+    @property
+    @pulumi.getter(name="isTableFunction")
+    def is_table_function(self) -> Optional[bool]:
+        return pulumi.get(self, "is_table_function")
+
+    @property
+    @pulumi.getter(name="maxNumArguments")
+    def max_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "max_num_arguments")
+
+    @property
+    @pulumi.getter(name="minNumArguments")
+    def min_num_arguments(self) -> Optional[int]:
+        return pulumi.get(self, "min_num_arguments")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def secrets(self) -> Optional[str]:
+        return pulumi.get(self, "secrets")
+
+    @property
+    @pulumi.getter(name="validForClustering")
+    def valid_for_clustering(self) -> Optional[bool]:
+        return pulumi.get(self, "valid_for_clustering")
 
 
 @pulumi.output_type
@@ -11759,120 +17845,6 @@ class ResourceMonitorShowOutput(dict):
     @pulumi.getter(name="usedCredits")
     def used_credits(self) -> Optional[float]:
         return pulumi.get(self, "used_credits")
-
-
-@pulumi.output_type
-class RoleShowOutput(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "assignedToUsers":
-            suggest = "assigned_to_users"
-        elif key == "createdOn":
-            suggest = "created_on"
-        elif key == "grantedRoles":
-            suggest = "granted_roles"
-        elif key == "grantedToRoles":
-            suggest = "granted_to_roles"
-        elif key == "isCurrent":
-            suggest = "is_current"
-        elif key == "isDefault":
-            suggest = "is_default"
-        elif key == "isInherited":
-            suggest = "is_inherited"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RoleShowOutput. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RoleShowOutput.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RoleShowOutput.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 assigned_to_users: Optional[int] = None,
-                 comment: Optional[str] = None,
-                 created_on: Optional[str] = None,
-                 granted_roles: Optional[int] = None,
-                 granted_to_roles: Optional[int] = None,
-                 is_current: Optional[bool] = None,
-                 is_default: Optional[bool] = None,
-                 is_inherited: Optional[bool] = None,
-                 name: Optional[str] = None,
-                 owner: Optional[str] = None):
-        if assigned_to_users is not None:
-            pulumi.set(__self__, "assigned_to_users", assigned_to_users)
-        if comment is not None:
-            pulumi.set(__self__, "comment", comment)
-        if created_on is not None:
-            pulumi.set(__self__, "created_on", created_on)
-        if granted_roles is not None:
-            pulumi.set(__self__, "granted_roles", granted_roles)
-        if granted_to_roles is not None:
-            pulumi.set(__self__, "granted_to_roles", granted_to_roles)
-        if is_current is not None:
-            pulumi.set(__self__, "is_current", is_current)
-        if is_default is not None:
-            pulumi.set(__self__, "is_default", is_default)
-        if is_inherited is not None:
-            pulumi.set(__self__, "is_inherited", is_inherited)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if owner is not None:
-            pulumi.set(__self__, "owner", owner)
-
-    @property
-    @pulumi.getter(name="assignedToUsers")
-    def assigned_to_users(self) -> Optional[int]:
-        return pulumi.get(self, "assigned_to_users")
-
-    @property
-    @pulumi.getter
-    def comment(self) -> Optional[str]:
-        return pulumi.get(self, "comment")
-
-    @property
-    @pulumi.getter(name="createdOn")
-    def created_on(self) -> Optional[str]:
-        return pulumi.get(self, "created_on")
-
-    @property
-    @pulumi.getter(name="grantedRoles")
-    def granted_roles(self) -> Optional[int]:
-        return pulumi.get(self, "granted_roles")
-
-    @property
-    @pulumi.getter(name="grantedToRoles")
-    def granted_to_roles(self) -> Optional[int]:
-        return pulumi.get(self, "granted_to_roles")
-
-    @property
-    @pulumi.getter(name="isCurrent")
-    def is_current(self) -> Optional[bool]:
-        return pulumi.get(self, "is_current")
-
-    @property
-    @pulumi.getter(name="isDefault")
-    def is_default(self) -> Optional[bool]:
-        return pulumi.get(self, "is_default")
-
-    @property
-    @pulumi.getter(name="isInherited")
-    def is_inherited(self) -> Optional[bool]:
-        return pulumi.get(self, "is_inherited")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def owner(self) -> Optional[str]:
-        return pulumi.get(self, "owner")
 
 
 @pulumi.output_type
@@ -21391,48 +27363,6 @@ class TableTag(dict):
 
 
 @pulumi.output_type
-class TagAssociationObjectIdentifier(dict):
-    def __init__(__self__, *,
-                 name: str,
-                 database: Optional[str] = None,
-                 schema: Optional[str] = None):
-        """
-        :param str name: Name of the object to associate the tag with.
-        :param str database: Name of the database that the object was created in.
-        :param str schema: Name of the schema that the object was created in.
-        """
-        pulumi.set(__self__, "name", name)
-        if database is not None:
-            pulumi.set(__self__, "database", database)
-        if schema is not None:
-            pulumi.set(__self__, "schema", schema)
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        """
-        Name of the object to associate the tag with.
-        """
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def database(self) -> Optional[str]:
-        """
-        Name of the database that the object was created in.
-        """
-        return pulumi.get(self, "database")
-
-    @property
-    @pulumi.getter
-    def schema(self) -> Optional[str]:
-        """
-        Name of the schema that the object was created in.
-        """
-        return pulumi.get(self, "schema")
-
-
-@pulumi.output_type
 class TagShowOutput(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -28675,7 +34605,7 @@ class ViewColumnMaskingPolicy(dict):
                  policy_name: str,
                  usings: Optional[Sequence[str]] = None):
         """
-        :param str policy_name: Specifies the masking policy to set on a column.
+        :param str policy_name: Specifies the masking policy to set on a column. For more information about this resource, see docs.
         :param Sequence[str] usings: Specifies the arguments to pass into the conditional masking policy SQL expression. The first column in the list specifies the column for the policy conditions to mask or tokenize the data and must match the column to which the masking policy is set. The additional columns specify the columns to evaluate to determine whether to mask or tokenize the data in each row of the query result when a query is made on the first column. If the USING clause is omitted, Snowflake treats the conditional masking policy as a normal masking policy.
         """
         pulumi.set(__self__, "policy_name", policy_name)
@@ -28686,7 +34616,7 @@ class ViewColumnMaskingPolicy(dict):
     @pulumi.getter(name="policyName")
     def policy_name(self) -> str:
         """
-        Specifies the masking policy to set on a column.
+        Specifies the masking policy to set on a column. For more information about this resource, see docs.
         """
         return pulumi.get(self, "policy_name")
 
@@ -28991,7 +34921,7 @@ class ViewRowAccessPolicy(dict):
                  policy_name: str):
         """
         :param Sequence[str] ons: Defines which columns are affected by the policy.
-        :param str policy_name: Row access policy name.
+        :param str policy_name: Row access policy name. For more information about this resource, see docs.
         """
         pulumi.set(__self__, "ons", ons)
         pulumi.set(__self__, "policy_name", policy_name)
@@ -29008,7 +34938,7 @@ class ViewRowAccessPolicy(dict):
     @pulumi.getter(name="policyName")
     def policy_name(self) -> str:
         """
-        Row access policy name.
+        Row access policy name. For more information about this resource, see docs.
         """
         return pulumi.get(self, "policy_name")
 
@@ -29603,185 +35533,321 @@ class WarehouseShowOutput(dict):
 
 
 @pulumi.output_type
+class GetAccountRolesAccountRoleResult(dict):
+    def __init__(__self__, *,
+                 show_outputs: Sequence['outputs.GetAccountRolesAccountRoleShowOutputResult']):
+        """
+        :param Sequence['GetAccountRolesAccountRoleShowOutputArgs'] show_outputs: Holds the output of SHOW ROLES.
+        """
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetAccountRolesAccountRoleShowOutputResult']:
+        """
+        Holds the output of SHOW ROLES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetAccountRolesAccountRoleShowOutputResult(dict):
+    def __init__(__self__, *,
+                 assigned_to_users: int,
+                 comment: str,
+                 created_on: str,
+                 granted_roles: int,
+                 granted_to_roles: int,
+                 is_current: bool,
+                 is_default: bool,
+                 is_inherited: bool,
+                 name: str,
+                 owner: str):
+        pulumi.set(__self__, "assigned_to_users", assigned_to_users)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "granted_roles", granted_roles)
+        pulumi.set(__self__, "granted_to_roles", granted_to_roles)
+        pulumi.set(__self__, "is_current", is_current)
+        pulumi.set(__self__, "is_default", is_default)
+        pulumi.set(__self__, "is_inherited", is_inherited)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+
+    @property
+    @pulumi.getter(name="assignedToUsers")
+    def assigned_to_users(self) -> int:
+        return pulumi.get(self, "assigned_to_users")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="grantedRoles")
+    def granted_roles(self) -> int:
+        return pulumi.get(self, "granted_roles")
+
+    @property
+    @pulumi.getter(name="grantedToRoles")
+    def granted_to_roles(self) -> int:
+        return pulumi.get(self, "granted_to_roles")
+
+    @property
+    @pulumi.getter(name="isCurrent")
+    def is_current(self) -> bool:
+        return pulumi.get(self, "is_current")
+
+    @property
+    @pulumi.getter(name="isDefault")
+    def is_default(self) -> bool:
+        return pulumi.get(self, "is_default")
+
+    @property
+    @pulumi.getter(name="isInherited")
+    def is_inherited(self) -> bool:
+        return pulumi.get(self, "is_inherited")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> str:
+        return pulumi.get(self, "owner")
+
+
+@pulumi.output_type
 class GetAccountsAccountResult(dict):
+    def __init__(__self__, *,
+                 show_outputs: Sequence['outputs.GetAccountsAccountShowOutputResult']):
+        """
+        :param Sequence['GetAccountsAccountShowOutputArgs'] show_outputs: Holds the output of SHOW ACCOUNTS.
+        """
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetAccountsAccountShowOutputResult']:
+        """
+        Holds the output of SHOW ACCOUNTS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetAccountsAccountShowOutputResult(dict):
     def __init__(__self__, *,
                  account_locator: str,
                  account_locator_url: str,
                  account_name: str,
+                 account_old_url_last_used: str,
+                 account_old_url_saved_on: str,
                  account_url: str,
                  comment: str,
                  consumption_billing_entity_name: str,
                  created_on: str,
+                 dropped_on: str,
                  edition: str,
+                 is_events_account: bool,
                  is_org_admin: bool,
+                 is_organization_account: bool,
                  managed_accounts: int,
                  marketplace_consumer_billing_entity_name: str,
                  marketplace_provider_billing_entity_name: str,
+                 moved_on: str,
+                 moved_to_organization: str,
                  old_account_url: str,
                  organization_name: str,
+                 organization_old_url: str,
+                 organization_old_url_last_used: str,
+                 organization_old_url_saved_on: str,
+                 organization_url_expiration_on: str,
                  region_group: str,
+                 restored_on: str,
+                 scheduled_deletion_time: str,
                  snowflake_region: str):
-        """
-        :param str account_locator: System-assigned identifier of the acccount.
-        :param str account_locator_url: Legacy Snowflake access URL syntax that includes the region_name and account_locator.
-        :param str account_name: User-defined name that identifies an account within the organization.
-        :param str account_url: Preferred Snowflake access URL that includes the values of organization_name and account_name.
-        :param str comment: Comment for the account.
-        :param str consumption_billing_entity_name: Name of the consumption billing entity.
-        :param str created_on: Date and time when the account was created.
-        :param str edition: Snowflake Edition of the account.
-        :param bool is_org_admin: Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
-        :param int managed_accounts: Indicates how many managed accounts have been created by the account.
-        :param str marketplace_consumer_billing_entity_name: Name of the marketplace consumer billing entity.
-        :param str marketplace_provider_billing_entity_name: Name of the marketplace provider billing entity.
-        :param str old_account_url: The previous account URL for a given account.
-        :param str organization_name: Name of the organization.
-        :param str region_group: Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
-        :param str snowflake_region: Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
-        """
         pulumi.set(__self__, "account_locator", account_locator)
         pulumi.set(__self__, "account_locator_url", account_locator_url)
         pulumi.set(__self__, "account_name", account_name)
+        pulumi.set(__self__, "account_old_url_last_used", account_old_url_last_used)
+        pulumi.set(__self__, "account_old_url_saved_on", account_old_url_saved_on)
         pulumi.set(__self__, "account_url", account_url)
         pulumi.set(__self__, "comment", comment)
         pulumi.set(__self__, "consumption_billing_entity_name", consumption_billing_entity_name)
         pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "dropped_on", dropped_on)
         pulumi.set(__self__, "edition", edition)
+        pulumi.set(__self__, "is_events_account", is_events_account)
         pulumi.set(__self__, "is_org_admin", is_org_admin)
+        pulumi.set(__self__, "is_organization_account", is_organization_account)
         pulumi.set(__self__, "managed_accounts", managed_accounts)
         pulumi.set(__self__, "marketplace_consumer_billing_entity_name", marketplace_consumer_billing_entity_name)
         pulumi.set(__self__, "marketplace_provider_billing_entity_name", marketplace_provider_billing_entity_name)
+        pulumi.set(__self__, "moved_on", moved_on)
+        pulumi.set(__self__, "moved_to_organization", moved_to_organization)
         pulumi.set(__self__, "old_account_url", old_account_url)
         pulumi.set(__self__, "organization_name", organization_name)
+        pulumi.set(__self__, "organization_old_url", organization_old_url)
+        pulumi.set(__self__, "organization_old_url_last_used", organization_old_url_last_used)
+        pulumi.set(__self__, "organization_old_url_saved_on", organization_old_url_saved_on)
+        pulumi.set(__self__, "organization_url_expiration_on", organization_url_expiration_on)
         pulumi.set(__self__, "region_group", region_group)
+        pulumi.set(__self__, "restored_on", restored_on)
+        pulumi.set(__self__, "scheduled_deletion_time", scheduled_deletion_time)
         pulumi.set(__self__, "snowflake_region", snowflake_region)
 
     @property
     @pulumi.getter(name="accountLocator")
     def account_locator(self) -> str:
-        """
-        System-assigned identifier of the acccount.
-        """
         return pulumi.get(self, "account_locator")
 
     @property
     @pulumi.getter(name="accountLocatorUrl")
     def account_locator_url(self) -> str:
-        """
-        Legacy Snowflake access URL syntax that includes the region_name and account_locator.
-        """
         return pulumi.get(self, "account_locator_url")
 
     @property
     @pulumi.getter(name="accountName")
     def account_name(self) -> str:
-        """
-        User-defined name that identifies an account within the organization.
-        """
         return pulumi.get(self, "account_name")
+
+    @property
+    @pulumi.getter(name="accountOldUrlLastUsed")
+    def account_old_url_last_used(self) -> str:
+        return pulumi.get(self, "account_old_url_last_used")
+
+    @property
+    @pulumi.getter(name="accountOldUrlSavedOn")
+    def account_old_url_saved_on(self) -> str:
+        return pulumi.get(self, "account_old_url_saved_on")
 
     @property
     @pulumi.getter(name="accountUrl")
     def account_url(self) -> str:
-        """
-        Preferred Snowflake access URL that includes the values of organization_name and account_name.
-        """
         return pulumi.get(self, "account_url")
 
     @property
     @pulumi.getter
     def comment(self) -> str:
-        """
-        Comment for the account.
-        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter(name="consumptionBillingEntityName")
     def consumption_billing_entity_name(self) -> str:
-        """
-        Name of the consumption billing entity.
-        """
         return pulumi.get(self, "consumption_billing_entity_name")
 
     @property
     @pulumi.getter(name="createdOn")
     def created_on(self) -> str:
-        """
-        Date and time when the account was created.
-        """
         return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="droppedOn")
+    def dropped_on(self) -> str:
+        return pulumi.get(self, "dropped_on")
 
     @property
     @pulumi.getter
     def edition(self) -> str:
-        """
-        Snowflake Edition of the account.
-        """
         return pulumi.get(self, "edition")
+
+    @property
+    @pulumi.getter(name="isEventsAccount")
+    def is_events_account(self) -> bool:
+        return pulumi.get(self, "is_events_account")
 
     @property
     @pulumi.getter(name="isOrgAdmin")
     def is_org_admin(self) -> bool:
-        """
-        Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
-        """
         return pulumi.get(self, "is_org_admin")
+
+    @property
+    @pulumi.getter(name="isOrganizationAccount")
+    def is_organization_account(self) -> bool:
+        return pulumi.get(self, "is_organization_account")
 
     @property
     @pulumi.getter(name="managedAccounts")
     def managed_accounts(self) -> int:
-        """
-        Indicates how many managed accounts have been created by the account.
-        """
         return pulumi.get(self, "managed_accounts")
 
     @property
     @pulumi.getter(name="marketplaceConsumerBillingEntityName")
     def marketplace_consumer_billing_entity_name(self) -> str:
-        """
-        Name of the marketplace consumer billing entity.
-        """
         return pulumi.get(self, "marketplace_consumer_billing_entity_name")
 
     @property
     @pulumi.getter(name="marketplaceProviderBillingEntityName")
     def marketplace_provider_billing_entity_name(self) -> str:
-        """
-        Name of the marketplace provider billing entity.
-        """
         return pulumi.get(self, "marketplace_provider_billing_entity_name")
+
+    @property
+    @pulumi.getter(name="movedOn")
+    def moved_on(self) -> str:
+        return pulumi.get(self, "moved_on")
+
+    @property
+    @pulumi.getter(name="movedToOrganization")
+    def moved_to_organization(self) -> str:
+        return pulumi.get(self, "moved_to_organization")
 
     @property
     @pulumi.getter(name="oldAccountUrl")
     def old_account_url(self) -> str:
-        """
-        The previous account URL for a given account.
-        """
         return pulumi.get(self, "old_account_url")
 
     @property
     @pulumi.getter(name="organizationName")
     def organization_name(self) -> str:
-        """
-        Name of the organization.
-        """
         return pulumi.get(self, "organization_name")
+
+    @property
+    @pulumi.getter(name="organizationOldUrl")
+    def organization_old_url(self) -> str:
+        return pulumi.get(self, "organization_old_url")
+
+    @property
+    @pulumi.getter(name="organizationOldUrlLastUsed")
+    def organization_old_url_last_used(self) -> str:
+        return pulumi.get(self, "organization_old_url_last_used")
+
+    @property
+    @pulumi.getter(name="organizationOldUrlSavedOn")
+    def organization_old_url_saved_on(self) -> str:
+        return pulumi.get(self, "organization_old_url_saved_on")
+
+    @property
+    @pulumi.getter(name="organizationUrlExpirationOn")
+    def organization_url_expiration_on(self) -> str:
+        return pulumi.get(self, "organization_url_expiration_on")
 
     @property
     @pulumi.getter(name="regionGroup")
     def region_group(self) -> str:
-        """
-        Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
-        """
         return pulumi.get(self, "region_group")
+
+    @property
+    @pulumi.getter(name="restoredOn")
+    def restored_on(self) -> str:
+        return pulumi.get(self, "restored_on")
+
+    @property
+    @pulumi.getter(name="scheduledDeletionTime")
+    def scheduled_deletion_time(self) -> str:
+        return pulumi.get(self, "scheduled_deletion_time")
 
     @property
     @pulumi.getter(name="snowflakeRegion")
     def snowflake_region(self) -> str:
-        """
-        Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
-        """
         return pulumi.get(self, "snowflake_region")
 
 
@@ -32885,99 +38951,6 @@ class GetResourceMonitorsResourceMonitorShowOutputResult(dict):
     @pulumi.getter(name="usedCredits")
     def used_credits(self) -> float:
         return pulumi.get(self, "used_credits")
-
-
-@pulumi.output_type
-class GetRolesRoleResult(dict):
-    def __init__(__self__, *,
-                 show_outputs: Sequence['outputs.GetRolesRoleShowOutputResult']):
-        """
-        :param Sequence['GetRolesRoleShowOutputArgs'] show_outputs: Holds the output of SHOW ROLES.
-        """
-        pulumi.set(__self__, "show_outputs", show_outputs)
-
-    @property
-    @pulumi.getter(name="showOutputs")
-    def show_outputs(self) -> Sequence['outputs.GetRolesRoleShowOutputResult']:
-        """
-        Holds the output of SHOW ROLES.
-        """
-        return pulumi.get(self, "show_outputs")
-
-
-@pulumi.output_type
-class GetRolesRoleShowOutputResult(dict):
-    def __init__(__self__, *,
-                 assigned_to_users: int,
-                 comment: str,
-                 created_on: str,
-                 granted_roles: int,
-                 granted_to_roles: int,
-                 is_current: bool,
-                 is_default: bool,
-                 is_inherited: bool,
-                 name: str,
-                 owner: str):
-        pulumi.set(__self__, "assigned_to_users", assigned_to_users)
-        pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "created_on", created_on)
-        pulumi.set(__self__, "granted_roles", granted_roles)
-        pulumi.set(__self__, "granted_to_roles", granted_to_roles)
-        pulumi.set(__self__, "is_current", is_current)
-        pulumi.set(__self__, "is_default", is_default)
-        pulumi.set(__self__, "is_inherited", is_inherited)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "owner", owner)
-
-    @property
-    @pulumi.getter(name="assignedToUsers")
-    def assigned_to_users(self) -> int:
-        return pulumi.get(self, "assigned_to_users")
-
-    @property
-    @pulumi.getter
-    def comment(self) -> str:
-        return pulumi.get(self, "comment")
-
-    @property
-    @pulumi.getter(name="createdOn")
-    def created_on(self) -> str:
-        return pulumi.get(self, "created_on")
-
-    @property
-    @pulumi.getter(name="grantedRoles")
-    def granted_roles(self) -> int:
-        return pulumi.get(self, "granted_roles")
-
-    @property
-    @pulumi.getter(name="grantedToRoles")
-    def granted_to_roles(self) -> int:
-        return pulumi.get(self, "granted_to_roles")
-
-    @property
-    @pulumi.getter(name="isCurrent")
-    def is_current(self) -> bool:
-        return pulumi.get(self, "is_current")
-
-    @property
-    @pulumi.getter(name="isDefault")
-    def is_default(self) -> bool:
-        return pulumi.get(self, "is_default")
-
-    @property
-    @pulumi.getter(name="isInherited")
-    def is_inherited(self) -> bool:
-        return pulumi.get(self, "is_inherited")
-
-    @property
-    @pulumi.getter
-    def name(self) -> str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def owner(self) -> str:
-        return pulumi.get(self, "owner")
 
 
 @pulumi.output_type

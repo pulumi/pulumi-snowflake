@@ -32,21 +32,6 @@ namespace Pulumi.Snowflake
 
         private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("snowflake");
 
-        private static readonly __Value<string?> _account = new __Value<string?>(() => __config.Get("account") ?? Utilities.GetEnv("SNOWFLAKE_ACCOUNT"));
-        /// <summary>
-        /// Use `account_name` and `organization_name` instead. Specifies your Snowflake account identifier assigned, by Snowflake.
-        /// The [account
-        /// locator](https://docs.snowflake.com/en/user-guide/admin-account-identifier#format-2-account-locator-in-a-region) format
-        /// is not supported. For information about account identifiers, see the [Snowflake
-        /// documentation](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html). Required unless using `profile`.
-        /// Can also be sourced from the `SNOWFLAKE_ACCOUNT` environment variable.
-        /// </summary>
-        public static string? Account
-        {
-            get => _account.Get();
-            set => _account.Set(value);
-        }
-
         private static readonly __Value<string?> _accountName = new __Value<string?>(() => __config.Get("accountName"));
         /// <summary>
         /// Specifies your Snowflake account name assigned by Snowflake. For information about account identifiers, see the
@@ -62,24 +47,13 @@ namespace Pulumi.Snowflake
         private static readonly __Value<string?> _authenticator = new __Value<string?>(() => __config.Get("authenticator"));
         /// <summary>
         /// Specifies the [authentication type](https://pkg.go.dev/github.com/snowflakedb/gosnowflake#AuthType) to use when
-        /// connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `JWT` | `SNOWFLAKE_JWT`
-        /// | `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Value `JWT` is deprecated and will be removed in future releases. Can also be
-        /// sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
+        /// connecting to Snowflake. Valid options are: `SNOWFLAKE` | `OAUTH` | `EXTERNALBROWSER` | `OKTA` | `SNOWFLAKE_JWT` |
+        /// `TOKENACCESSOR` | `USERNAMEPASSWORDMFA`. Can also be sourced from the `SNOWFLAKE_AUTHENTICATOR` environment variable.
         /// </summary>
         public static string? Authenticator
         {
             get => _authenticator.Get();
             set => _authenticator.Set(value);
-        }
-
-        private static readonly __Value<bool?> _browserAuth = new __Value<bool?>(() => __config.GetBoolean("browserAuth") ?? Utilities.GetEnvBoolean("SNOWFLAKE_USE_BROWSER_AUTH"));
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_USE_BROWSER_AUTH` environment variable.
-        /// </summary>
-        public static bool? BrowserAuth
-        {
-            get => _browserAuth.Get();
-            set => _browserAuth.Set(value);
         }
 
         private static readonly __Value<string?> _clientIp = new __Value<string?>(() => __config.Get("clientIp"));
@@ -267,73 +241,6 @@ namespace Pulumi.Snowflake
             set => _maxRetryCount.Set(value);
         }
 
-        private static readonly __Value<string?> _oauthAccessToken = new __Value<string?>(() => __config.Get("oauthAccessToken") ?? Utilities.GetEnv("SNOWFLAKE_OAUTH_ACCESS_TOKEN"));
-        /// <summary>
-        /// Token for use with OAuth. Generating the token is left to other tools. Cannot be used with `browser_auth`,
-        /// `private_key_path`, `oauth_refresh_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_ACCESS_TOKEN`
-        /// environment variable.
-        /// </summary>
-        public static string? OauthAccessToken
-        {
-            get => _oauthAccessToken.Get();
-            set => _oauthAccessToken.Set(value);
-        }
-
-        private static readonly __Value<string?> _oauthClientId = new __Value<string?>(() => __config.Get("oauthClientId") ?? Utilities.GetEnv("SNOWFLAKE_OAUTH_CLIENT_ID"));
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_ID` environment variable.
-        /// </summary>
-        public static string? OauthClientId
-        {
-            get => _oauthClientId.Get();
-            set => _oauthClientId.Set(value);
-        }
-
-        private static readonly __Value<string?> _oauthClientSecret = new __Value<string?>(() => __config.Get("oauthClientSecret") ?? Utilities.GetEnv("SNOWFLAKE_OAUTH_CLIENT_SECRET"));
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_CLIENT_SECRET` environment
-        /// variable.
-        /// </summary>
-        public static string? OauthClientSecret
-        {
-            get => _oauthClientSecret.Get();
-            set => _oauthClientSecret.Set(value);
-        }
-
-        private static readonly __Value<string?> _oauthEndpoint = new __Value<string?>(() => __config.Get("oauthEndpoint") ?? Utilities.GetEnv("SNOWFLAKE_OAUTH_ENDPOINT"));
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
-        /// </summary>
-        public static string? OauthEndpoint
-        {
-            get => _oauthEndpoint.Get();
-            set => _oauthEndpoint.Set(value);
-        }
-
-        private static readonly __Value<string?> _oauthRedirectUrl = new __Value<string?>(() => __config.Get("oauthRedirectUrl") ?? Utilities.GetEnv("SNOWFLAKE_OAUTH_REDIRECT_URL"));
-        /// <summary>
-        /// Required when `oauth_refresh_token` is used. Can also be sourced from `SNOWFLAKE_OAUTH_REDIRECT_URL` environment
-        /// variable.
-        /// </summary>
-        public static string? OauthRedirectUrl
-        {
-            get => _oauthRedirectUrl.Get();
-            set => _oauthRedirectUrl.Set(value);
-        }
-
-        private static readonly __Value<string?> _oauthRefreshToken = new __Value<string?>(() => __config.Get("oauthRefreshToken") ?? Utilities.GetEnv("SNOWFLAKE_OAUTH_REFRESH_TOKEN"));
-        /// <summary>
-        /// Token for use with OAuth. Setup and generation of the token is left to other tools. Should be used in conjunction with
-        /// `oauth_client_id`, `oauth_client_secret`, `oauth_endpoint`, `oauth_redirect_url`. Cannot be used with `browser_auth`,
-        /// `private_key_path`, `oauth_access_token` or `password`. Can also be sourced from `SNOWFLAKE_OAUTH_REFRESH_TOKEN`
-        /// environment variable.
-        /// </summary>
-        public static string? OauthRefreshToken
-        {
-            get => _oauthRefreshToken.Get();
-            set => _oauthRefreshToken.Set(value);
-        }
-
         private static readonly __Value<string?> _ocspFailOpen = new __Value<string?>(() => __config.Get("ocspFailOpen"));
         /// <summary>
         /// True represents OCSP fail open mode. False represents OCSP fail closed mode. Fail open true by default. Can also be
@@ -404,8 +311,8 @@ namespace Pulumi.Snowflake
 
         private static readonly __Value<string?> _password = new __Value<string?>(() => __config.Get("password") ?? Utilities.GetEnv("SNOWFLAKE_PASSWORD"));
         /// <summary>
-        /// Password for user + password auth. Cannot be used with `browser_auth` or `private_key_path`. Can also be sourced from
-        /// the `SNOWFLAKE_PASSWORD` environment variable.
+        /// Password for user + password auth. Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced
+        /// from the `SNOWFLAKE_PASSWORD` environment variable.
         /// </summary>
         public static string? Password
         {
@@ -424,10 +331,17 @@ namespace Pulumi.Snowflake
             set => _port.Set(value);
         }
 
+        private static readonly __Value<ImmutableArray<string>> _previewFeaturesEnableds = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("previewFeaturesEnableds"));
+        public static ImmutableArray<string> PreviewFeaturesEnableds
+        {
+            get => _previewFeaturesEnableds.Get();
+            set => _previewFeaturesEnableds.Set(value);
+        }
+
         private static readonly __Value<string?> _privateKey = new __Value<string?>(() => __config.Get("privateKey"));
         /// <summary>
-        /// Private Key for username+private-key auth. Cannot be used with `browser_auth` or `password`. Can also be sourced from
-        /// the `SNOWFLAKE_PRIVATE_KEY` environment variable.
+        /// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
+        /// `SNOWFLAKE_PRIVATE_KEY` environment variable.
         /// </summary>
         public static string? PrivateKey
         {
@@ -444,17 +358,6 @@ namespace Pulumi.Snowflake
         {
             get => _privateKeyPassphrase.Get();
             set => _privateKeyPassphrase.Set(value);
-        }
-
-        private static readonly __Value<string?> _privateKeyPath = new __Value<string?>(() => __config.Get("privateKeyPath") ?? Utilities.GetEnv("SNOWFLAKE_PRIVATE_KEY_PATH"));
-        /// <summary>
-        /// Path to a private key for using keypair authentication. Cannot be used with `browser_auth`, `oauth_access_token` or
-        /// `password`. Can also be sourced from `SNOWFLAKE_PRIVATE_KEY_PATH` environment variable.
-        /// </summary>
-        public static string? PrivateKeyPath
-        {
-            get => _privateKeyPath.Get();
-            set => _privateKeyPath.Set(value);
         }
 
         private static readonly __Value<string?> _profile = new __Value<string?>(() => __config.Get("profile"));
@@ -479,21 +382,6 @@ namespace Pulumi.Snowflake
             set => _protocol.Set(value);
         }
 
-        private static readonly __Value<string?> _region = new __Value<string?>(() => __config.Get("region") ?? Utilities.GetEnv("SNOWFLAKE_REGION"));
-        /// <summary>
-        /// Snowflake region, such as "eu-central-1", with this parameter. However, since this parameter is deprecated, it is best
-        /// to specify the region as part of the account parameter. For details, see the description of the account parameter.
-        /// [Snowflake region](https://docs.snowflake.com/en/user-guide/intro-regions.html) to use. Required if using the [legacy
-        /// format for the `account`
-        /// identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#format-2-legacy-account-locator-in-a-region)
-        /// in the form of `&lt;cloud_region_id&gt;.&lt;cloud&gt;`. Can also be sourced from the `SNOWFLAKE_REGION` environment variable.
-        /// </summary>
-        public static string? Region
-        {
-            get => _region.Get();
-            set => _region.Set(value);
-        }
-
         private static readonly __Value<int?> _requestTimeout = new __Value<int?>(() => __config.GetInt32("requestTimeout"));
         /// <summary>
         /// request retry timeout in seconds EXCLUDING network roundtrip and read out http response. Can also be sourced from the
@@ -514,16 +402,6 @@ namespace Pulumi.Snowflake
         {
             get => _role.Get();
             set => _role.Set(value);
-        }
-
-        private static readonly __Value<ImmutableDictionary<string, string>?> _sessionParams = new __Value<ImmutableDictionary<string, string>?>(() => __config.GetObject<ImmutableDictionary<string, string>>("sessionParams"));
-        /// <summary>
-        /// Sets session parameters. [Parameters](https://docs.snowflake.com/en/sql-reference/parameters)
-        /// </summary>
-        public static ImmutableDictionary<string, string>? SessionParams
-        {
-            get => _sessionParams.Get();
-            set => _sessionParams.Set(value);
         }
 
         private static readonly __Value<string?> _tmpDirectoryPath = new __Value<string?>(() => __config.Get("tmpDirectoryPath"));
@@ -563,17 +441,6 @@ namespace Pulumi.Snowflake
         {
             get => _user.Get();
             set => _user.Set(value);
-        }
-
-        private static readonly __Value<string?> _username = new __Value<string?>(() => __config.Get("username") ?? Utilities.GetEnv("SNOWFLAKE_USER"));
-        /// <summary>
-        /// Username for user + password authentication. Required unless using `profile`. Can also be sourced from the
-        /// `SNOWFLAKE_USERNAME` environment variable.
-        /// </summary>
-        public static string? Username
-        {
-            get => _username.Get();
-            set => _username.Set(value);
         }
 
         private static readonly __Value<string?> _validateDefaultParameters = new __Value<string?>(() => __config.Get("validateDefaultParameters"));

@@ -9,10 +9,8 @@ import * as utilities from "./utilities";
 /**
  * ## Import
  *
- * format is the resource monitor name
- *
  * ```sh
- * $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example 'resourceMonitorName'
+ * $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example '"<resource_monitor_name>"'
  * ```
  */
 export class ResourceMonitor extends pulumi.CustomResource {
@@ -60,7 +58,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -68,7 +66,7 @@ export class ResourceMonitor extends pulumi.CustomResource {
      */
     public readonly notifyTriggers!: pulumi.Output<number[] | undefined>;
     /**
-     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      */
     public readonly notifyUsers!: pulumi.Output<string[] | undefined>;
     /**
@@ -152,7 +150,7 @@ export interface ResourceMonitorState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -160,7 +158,7 @@ export interface ResourceMonitorState {
      */
     notifyTriggers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      */
     notifyUsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -198,7 +196,7 @@ export interface ResourceMonitorArgs {
      */
     frequency?: pulumi.Input<string>;
     /**
-     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -206,7 +204,7 @@ export interface ResourceMonitorArgs {
      */
     notifyTriggers?: pulumi.Input<pulumi.Input<number>[]>;
     /**
-     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      */
     notifyUsers?: pulumi.Input<pulumi.Input<string>[]>;
     /**

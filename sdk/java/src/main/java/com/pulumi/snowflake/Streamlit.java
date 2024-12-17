@@ -20,8 +20,6 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;streamlit_name&gt;
- * 
  * ```sh
  * $ pulumi import snowflake:index/streamlit:Streamlit example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;streamlit_name&gt;&#34;&#39;
  * ```
@@ -44,14 +42,14 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * The database in which to create the streamlit
+     * The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the streamlit
+     * @return The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -114,56 +112,56 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
+     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
      * 
      */
     @Export(name="mainFile", refs={String.class}, tree="[0]")
     private Output<String> mainFile;
 
     /**
-     * @return Specifies the filename of the Streamlit Python application. This filename is relative to the value of `root_location`
+     * @return Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
      * 
      */
     public Output<String> mainFile() {
         return this.mainFile;
     }
     /**
-     * String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
+     * String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account.
+     * @return String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the warehouse where SQL queries issued by the Streamlit application are run.
+     * Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
      * 
      */
     @Export(name="queryWarehouse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> queryWarehouse;
 
     /**
-     * @return Specifies the warehouse where SQL queries issued by the Streamlit application are run.
+     * @return Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> queryWarehouse() {
         return Codegen.optional(this.queryWarehouse);
     }
     /**
-     * The schema in which to create the streamlit.
+     * The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the streamlit.
+     * @return The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -184,14 +182,14 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
         return this.showOutputs;
     }
     /**
-     * The stage in which streamlit files are located.
+     * The stage in which streamlit files are located. For more information about this resource, see docs.
      * 
      */
     @Export(name="stage", refs={String.class}, tree="[0]")
     private Output<String> stage;
 
     /**
-     * @return The stage in which streamlit files are located.
+     * @return The stage in which streamlit files are located. For more information about this resource, see docs.
      * 
      */
     public Output<String> stage() {

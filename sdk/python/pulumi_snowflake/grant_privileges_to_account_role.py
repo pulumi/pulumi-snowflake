@@ -33,14 +33,14 @@ class GrantPrivilegesToAccountRoleArgs:
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         The set of arguments for constructing a GrantPrivilegesToAccountRole resource.
-        :param pulumi.Input[str] account_role_name: The fully qualified name of the account role to which privileges will be granted.
+        :param pulumi.Input[str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the account role.
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[bool] on_account: If true, the privileges will be granted on the account.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs'] on_account_object: Specifies the account object on which privileges will be granted
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaArgs'] on_schema: Specifies the schema on which privileges will be granted.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectArgs'] on_schema_object: Specifies the schema object on which privileges will be granted.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the account role.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
         :param pulumi.Input[bool] with_grant_option: Specifies whether the grantee can grant the privileges to other users.
         """
         pulumi.set(__self__, "account_role_name", account_role_name)
@@ -67,7 +67,7 @@ class GrantPrivilegesToAccountRoleArgs:
     @pulumi.getter(name="accountRoleName")
     def account_role_name(self) -> pulumi.Input[str]:
         """
-        The fully qualified name of the account role to which privileges will be granted.
+        The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "account_role_name")
 
@@ -160,7 +160,7 @@ class GrantPrivilegesToAccountRoleArgs:
     @pulumi.getter
     def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The privileges to grant on the account role.
+        The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
         """
         return pulumi.get(self, "privileges")
 
@@ -196,14 +196,14 @@ class _GrantPrivilegesToAccountRoleState:
                  with_grant_option: Optional[pulumi.Input[bool]] = None):
         """
         Input properties used for looking up and filtering GrantPrivilegesToAccountRole resources.
-        :param pulumi.Input[str] account_role_name: The fully qualified name of the account role to which privileges will be granted.
+        :param pulumi.Input[str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the account role.
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[bool] on_account: If true, the privileges will be granted on the account.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs'] on_account_object: Specifies the account object on which privileges will be granted
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaArgs'] on_schema: Specifies the schema on which privileges will be granted.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectArgs'] on_schema_object: Specifies the schema object on which privileges will be granted.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the account role.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
         :param pulumi.Input[bool] with_grant_option: Specifies whether the grantee can grant the privileges to other users.
         """
         if account_role_name is not None:
@@ -231,7 +231,7 @@ class _GrantPrivilegesToAccountRoleState:
     @pulumi.getter(name="accountRoleName")
     def account_role_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The fully qualified name of the account role to which privileges will be granted.
+        The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "account_role_name")
 
@@ -324,7 +324,7 @@ class _GrantPrivilegesToAccountRoleState:
     @pulumi.getter
     def privileges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The privileges to grant on the account role.
+        The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
         """
         return pulumi.get(self, "privileges")
 
@@ -392,14 +392,14 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_role_name: The fully qualified name of the account role to which privileges will be granted.
+        :param pulumi.Input[str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the account role.
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[bool] on_account: If true, the privileges will be granted on the account.
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']] on_account_object: Specifies the account object on which privileges will be granted
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']] on_schema: Specifies the schema on which privileges will be granted.
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']] on_schema_object: Specifies the schema object on which privileges will be granted.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the account role.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
         :param pulumi.Input[bool] with_grant_option: Specifies whether the grantee can grant the privileges to other users.
         """
         ...
@@ -510,14 +510,14 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_role_name: The fully qualified name of the account role to which privileges will be granted.
+        :param pulumi.Input[str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         :param pulumi.Input[bool] all_privileges: Grant all privileges on the account role.
         :param pulumi.Input[str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         :param pulumi.Input[bool] on_account: If true, the privileges will be granted on the account.
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']] on_account_object: Specifies the account object on which privileges will be granted
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']] on_schema: Specifies the schema on which privileges will be granted.
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']] on_schema_object: Specifies the schema object on which privileges will be granted.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the account role.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] privileges: The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
         :param pulumi.Input[bool] with_grant_option: Specifies whether the grantee can grant the privileges to other users.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -540,7 +540,7 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
     @pulumi.getter(name="accountRoleName")
     def account_role_name(self) -> pulumi.Output[str]:
         """
-        The fully qualified name of the account role to which privileges will be granted.
+        The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "account_role_name")
 
@@ -601,7 +601,7 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
     @pulumi.getter
     def privileges(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        The privileges to grant on the account role.
+        The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
         """
         return pulumi.get(self, "privileges")
 

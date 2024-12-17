@@ -33,14 +33,14 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The fully qualified name of the database on which privileges will be granted.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Import(name="onDatabase")
     private @Nullable Output<String> onDatabase;
 
     /**
-     * @return The fully qualified name of the database on which privileges will be granted.
+     * @return The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> onDatabase() {
@@ -63,14 +63,14 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The fully qualified name of the schema on which privileges will be granted.
+     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Import(name="onSchema")
     private @Nullable Output<String> onSchema;
 
     /**
-     * @return The fully qualified name of the schema on which privileges will be granted.
+     * @return The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> onSchema() {
@@ -78,14 +78,14 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The fully qualified name of the table on which privileges will be granted.
+     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Import(name="onTable")
     private @Nullable Output<String> onTable;
 
     /**
-     * @return The fully qualified name of the table on which privileges will be granted.
+     * @return The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> onTable() {
@@ -93,14 +93,14 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The fully qualified name of the tag on which privileges will be granted.
+     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Import(name="onTag")
     private @Nullable Output<String> onTag;
 
     /**
-     * @return The fully qualified name of the tag on which privileges will be granted.
+     * @return The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> onTag() {
@@ -108,14 +108,14 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The fully qualified name of the view on which privileges will be granted.
+     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Import(name="onView")
     private @Nullable Output<String> onView;
 
     /**
-     * @return The fully qualified name of the view on which privileges will be granted.
+     * @return The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> onView() {
@@ -138,14 +138,14 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The fully qualified name of the share on which privileges will be granted.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Import(name="toShare", required=true)
     private Output<String> toShare;
 
     /**
-     * @return The fully qualified name of the share on which privileges will be granted.
+     * @return The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<String> toShare() {
@@ -206,7 +206,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param onDatabase The fully qualified name of the database on which privileges will be granted.
+         * @param onDatabase The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param onDatabase The fully qualified name of the database on which privileges will be granted.
+         * @param onDatabase The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -248,7 +248,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param onSchema The fully qualified name of the schema on which privileges will be granted.
+         * @param onSchema The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param onSchema The fully qualified name of the schema on which privileges will be granted.
+         * @param onSchema The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param onTable The fully qualified name of the table on which privileges will be granted.
+         * @param onTable The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param onTable The fully qualified name of the table on which privileges will be granted.
+         * @param onTable The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param onTag The fully qualified name of the tag on which privileges will be granted.
+         * @param onTag The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -301,7 +301,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param onTag The fully qualified name of the tag on which privileges will be granted.
+         * @param onTag The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param onView The fully qualified name of the view on which privileges will be granted.
+         * @param onView The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param onView The fully qualified name of the view on which privileges will be granted.
+         * @param onView The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param toShare The fully qualified name of the share on which privileges will be granted.
+         * @param toShare The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class GrantPrivilegesToShareArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param toShare The fully qualified name of the share on which privileges will be granted.
+         * @param toShare The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 

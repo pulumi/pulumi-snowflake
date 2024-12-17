@@ -57,13 +57,13 @@ namespace Pulumi.Snowflake
         public Output<string?> AlwaysApplyTrigger { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the database role to which privileges will be granted.
+        /// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Output("databaseRoleName")]
         public Output<string> DatabaseRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the database on which privileges will be granted.
+        /// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Output("onDatabase")]
         public Output<string?> OnDatabase { get; private set; } = null!;
@@ -154,13 +154,13 @@ namespace Pulumi.Snowflake
         public Input<string>? AlwaysApplyTrigger { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the database role to which privileges will be granted.
+        /// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("databaseRoleName", required: true)]
         public Input<string> DatabaseRoleName { get; set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the database on which privileges will be granted.
+        /// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("onDatabase")]
         public Input<string>? OnDatabase { get; set; }
@@ -219,13 +219,13 @@ namespace Pulumi.Snowflake
         public Input<string>? AlwaysApplyTrigger { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the database role to which privileges will be granted.
+        /// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("databaseRoleName")]
         public Input<string>? DatabaseRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the database on which privileges will be granted.
+        /// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("onDatabase")]
         public Input<string>? OnDatabase { get; set; }

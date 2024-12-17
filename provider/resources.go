@@ -18,8 +18,8 @@ import (
 	"bytes"
 	"fmt"
 	"os"
-	"path/filepath"
-	"unicode"
+	"path"
+	"regexp"
 
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
@@ -27,9 +27,9 @@ import (
 	snowflake "github.com/Snowflake-Labs/terraform-provider-snowflake/pkg/provider"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	tfbridgetokens "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
-	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 
 	"github.com/pulumi/pulumi-snowflake/provider/pkg/version"
 )
@@ -42,26 +42,13 @@ const (
 	mainMod = "index" // the y module
 )
 
-// makeMember manufactures a type token for the package and the given module and type.
-func makeMember(mod string, mem string) tokens.ModuleMember {
-	return tokens.ModuleMember(mainPkg + ":" + mod + ":" + mem)
-}
-
-// makeDataSource manufactures a standard resource token given a module and resource name.  It
-// automatically uses the main package and names the file by simply lower casing the data source's
-// first character.
-func makeDataSource(mod string, res string) tokens.ModuleMember {
-	fn := string(unicode.ToLower(rune(res[0]))) + res[1:]
-	return makeMember(mod+"/"+fn, res)
-}
-
 // Provider returns additional overlaid schema and metadata associated with the provider..
-func Provider() tfbridge.ProviderInfo {
+func Provider() info.Provider {
 	// Instantiate the Terraform provider
 	p := shimv2.NewProvider(snowflake.Provider())
 
 	// Create a Pulumi provider mapping
-	prov := tfbridge.ProviderInfo{
+	prov := info.Provider{
 		P:           p,
 		Name:        "snowflake",
 		Description: "A Pulumi package for creating and managing snowflake cloud resources.",
@@ -70,84 +57,57 @@ func Provider() tfbridge.ProviderInfo {
 		Homepage:    "https://pulumi.io",
 		GitHubOrg:   "Snowflake-Labs",
 		Repository:  "https://github.com/pulumi/pulumi-snowflake",
-		DocRules:    &tfbridge.DocRuleInfo{EditRules: docEditRules},
-		Config: map[string]*tfbridge.SchemaInfo{
-			"account": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_ACCOUNT"}},
-			},
-			"username": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_USER"}},
-			},
+		Version:     version.Version,
+		DocRules:    &info.DocRule{EditRules: docEditRules},
+		Config: map[string]*info.Schema{
 			"password": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_PASSWORD"}},
-			},
-			"oauth_access_token": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_OAUTH_ACCESS_TOKEN"}},
-			},
-			"oauth_refresh_token": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_OAUTH_REFRESH_TOKEN"}},
-			},
-			"oauth_client_id": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_OAUTH_CLIENT_ID"}},
-			},
-			"oauth_client_secret": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_OAUTH_CLIENT_SECRET"}},
-			},
-			"oauth_endpoint": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_OAUTH_ENDPOINT"}},
-			},
-			"oauth_redirect_url": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_OAUTH_REDIRECT_URL"}},
-			},
-			"browser_auth": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_USE_BROWSER_AUTH"}},
-			},
-			"private_key_path": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_PRIVATE_KEY_PATH"}},
+				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_PASSWORD"}},
 			},
 			"private_key_passphrase": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"}},
+				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"}},
 			},
 			"role": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_ROLE"}},
-			},
-			"region": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_REGION"}},
+				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_ROLE"}},
 			},
 			"host": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_HOST"}},
+				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_HOST"}},
 			},
 			"port": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_PORT"}},
+				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_PORT"}},
 			},
 			"protocol": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_PROTOCOL"}},
+				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_PROTOCOL"}},
 			},
 			"warehouse": {
-				Default: &tfbridge.DefaultInfo{EnvVars: []string{"SNOWFLAKE_WAREHOUSE"}},
+				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_WAREHOUSE"}},
 			},
 		},
-		DataSources: map[string]*tfbridge.DataSourceInfo{
-			// Because "privatelink" is translated to "PrivateLink", this must be manually mapped.
-			"snowflake_system_get_privatelink_config": {Tok: makeDataSource(mainMod, "getSystemGetPrivateLinkConfig")},
+		Resources: map[string]*info.Resource{
+			"snowflake_execute": {Fields: map[string]*info.Schema{
+				// Workaround for https://github.com/pulumi/pulumi/issues/13294
+				"execute": {CSharpName: "ExecuteSQL"},
+			}},
 		},
-		JavaScript: &tfbridge.JavaScriptInfo{
+		DataSources: map[string]*info.DataSource{
+			// Because "privatelink" is translated to "PrivateLink", this must be manually mapped.
+			"snowflake_system_get_privatelink_config": {
+				Tok: tfbridge.MakeDataSource(mainPkg, mainMod, "getSystemGetPrivateLinkConfig"),
+			},
+		},
+		JavaScript: &info.JavaScript{
 			DevDependencies: map[string]string{
 				"@types/node": "^10.0.0",
 				"@types/mime": "^2.0.0",
 			},
 			RespectSchemaVersion: true,
 		},
-		Python: (func() *tfbridge.PythonInfo {
-			i := &tfbridge.PythonInfo{
-				RespectSchemaVersion: true,
-			}
-			i.PyProject.Enabled = true
-			return i
-		})(),
+		Python: &info.Python{
+			RespectSchemaVersion: true,
+			PyProject:            struct{ Enabled bool }{true},
+		},
 
-		Golang: &tfbridge.GolangInfo{
-			ImportBasePath: filepath.Join(
+		Golang: &info.Golang{
+			ImportBasePath: path.Join(
 				fmt.Sprintf("github.com/pulumi/pulumi-%[1]s/sdk/", mainPkg),
 				tfbridge.GetModuleMajorVersion(version.Version),
 				"go",
@@ -156,16 +116,16 @@ func Provider() tfbridge.ProviderInfo {
 			GenerateResourceContainerTypes: true,
 			RespectSchemaVersion:           true,
 		},
-		CSharp: &tfbridge.CSharpInfo{
+		CSharp: &info.CSharp{
 			RespectSchemaVersion: true,
 			PackageReferences: map[string]string{
 				"Pulumi": "3.*",
 			},
-		}, MetadataInfo: tfbridge.NewProviderMetadata(metadata),
+		}, MetadataInfo: info.NewProviderMetadata(metadata),
 	}
 
-	prov.MustComputeTokens(tfbridgetokens.SingleModule("snowflake_",
-		mainMod, tfbridgetokens.MakeStandard(mainPkg)))
+	prov.MustComputeTokens(tokens.SingleModule("snowflake_",
+		mainMod, tokens.MakeStandard(mainPkg)))
 
 	prov.MustApplyAutoAliases()
 
@@ -174,11 +134,20 @@ func Provider() tfbridge.ProviderInfo {
 	return prov
 }
 
-func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
-	edits := []tfbridge.DocsEdit{
-		removeNotes,
+func docEditRules(defaults []info.DocsEdit) []info.DocsEdit {
+	//nolint:lll
+	const (
+		roadmap = `-> **Note** The current roadmap is available in our GitHub repository: [ROADMAP.md](https://github.com/Snowflake-Labs/terraform-provider-snowflake/blob/main/ROADMAP.md).
+`
+		migration = `~> **Note** Please check the [migration guide](https://github.com/Snowflake-Labs/terraform-provider-snowflake/blob/main/MIGRATION_GUIDE.md) when changing the version of the provider.
+`
+	)
+	edits := []info.DocsEdit{
+		removeLiteralFromIndex(roadmap),
+		removeLiteralFromIndex(migration),
 		fixExample,
 		removeMainTf,
+		removePreviewFeatures(),
 	}
 	return append(
 		edits,
@@ -186,39 +155,50 @@ func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 	)
 }
 
-// These notes concern upstream-internal bookkeeping and maintenance
-var removeNotes = tfbridge.DocsEdit{
-	Path: "index.md",
-	Edit: func(_ string, content []byte) ([]byte, error) {
-		replacesDir := "docs/index-md-replaces/"
-		changes := []string{
-			"disclaimer",
-			"note-1",
-			"note-2",
-		}
-		for _, file := range changes {
-			input, err := os.ReadFile(replacesDir + file + "-input.md")
-			if err != nil {
-				return nil, err
+func removeLiteralFromIndex(s string) info.DocsEdit {
+	b := []byte(s)
+	return info.DocsEdit{
+		Path: "index.md",
+		Edit: func(_ string, content []byte) ([]byte, error) {
+			dst := bytes.ReplaceAll(content, b, nil)
+			if len(dst) == len(content) {
+				return nil, fmt.Errorf("could not find %q to remove", s)
 			}
-			if bytes.Contains(content, input) {
-				content = bytes.ReplaceAll(
-					content,
-					input,
-					nil,
-				)
-			} else {
-				// Hard error to ensure we keep this content up to date
-				return nil, fmt.Errorf("could not find text in upstream index.md, "+
-					"please verify file content at %s\n*****\n%s\n*****\n", replacesDir+file+"-input.md", string(input))
+			return dst, nil
+		},
+	}
+}
+
+func removePreviewFeatures() info.DocsEdit {
+	const disclaimerPrefix = "~> **Disclaimer** The project is in v1 version, but some features are in preview."
+	disclaimer := regexp.MustCompile("(?m)" + regexp.QuoteMeta(disclaimerPrefix) + ".*?\n")
+
+	const featureFlagPrefix = "- `preview_features_enabled` (Set of String) A list of preview features"
+	featureFlag := regexp.MustCompile("(?m)" + regexp.QuoteMeta(featureFlagPrefix) + ".*?\n")
+
+	remove := func(src []byte, regexp ...*regexp.Regexp) ([]byte, error) {
+		for _, r := range regexp {
+			dst := r.ReplaceAllLiteral(src, nil)
+			if len(src) == len(dst) {
+				return nil, fmt.Errorf("did not find regexp %s in %s", r, string(src))
 			}
+			src = dst
 		}
-		return content, nil
-	},
+		return src, nil
+	}
+	return info.DocsEdit{
+		Path:  "index.md",
+		Phase: info.PostCodeTranslation,
+		Edit: func(_ string, content []byte) ([]byte, error) {
+			return remove(content,
+				disclaimer, featureFlag,
+			)
+		},
+	}
 }
 
 // Separates multiple "provider" declarations in top-level example
-var fixExample = tfbridge.DocsEdit{
+var fixExample = info.DocsEdit{
 	Path: "index.md",
 	Edit: func(_ string, content []byte) ([]byte, error) {
 		replacesDir := "docs/index-md-replaces/"
@@ -246,7 +226,7 @@ var fixExample = tfbridge.DocsEdit{
 	},
 }
 
-var removeMainTf = tfbridge.DocsEdit{
+var removeMainTf = info.DocsEdit{
 	Path: "index.md",
 	Edit: func(_ string, content []byte) ([]byte, error) {
 		removeBytes := []byte(" in `main.tf` in a configuration directory")

@@ -26,7 +26,7 @@ type GrantApplicationRole struct {
 	ApplicationName pulumi.StringPtrOutput `pulumi:"applicationName"`
 	// Specifies the identifier for the application role to grant.
 	ApplicationRoleName pulumi.StringOutput `pulumi:"applicationRoleName"`
-	// The fully qualified name of the account role on which application role will be granted.
+	// The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
 	ParentAccountRoleName pulumi.StringPtrOutput `pulumi:"parentAccountRoleName"`
 }
 
@@ -67,7 +67,7 @@ type grantApplicationRoleState struct {
 	ApplicationName *string `pulumi:"applicationName"`
 	// Specifies the identifier for the application role to grant.
 	ApplicationRoleName *string `pulumi:"applicationRoleName"`
-	// The fully qualified name of the account role on which application role will be granted.
+	// The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
 	ParentAccountRoleName *string `pulumi:"parentAccountRoleName"`
 }
 
@@ -76,7 +76,7 @@ type GrantApplicationRoleState struct {
 	ApplicationName pulumi.StringPtrInput
 	// Specifies the identifier for the application role to grant.
 	ApplicationRoleName pulumi.StringPtrInput
-	// The fully qualified name of the account role on which application role will be granted.
+	// The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
 	ParentAccountRoleName pulumi.StringPtrInput
 }
 
@@ -89,7 +89,7 @@ type grantApplicationRoleArgs struct {
 	ApplicationName *string `pulumi:"applicationName"`
 	// Specifies the identifier for the application role to grant.
 	ApplicationRoleName string `pulumi:"applicationRoleName"`
-	// The fully qualified name of the account role on which application role will be granted.
+	// The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
 	ParentAccountRoleName *string `pulumi:"parentAccountRoleName"`
 }
 
@@ -99,7 +99,7 @@ type GrantApplicationRoleArgs struct {
 	ApplicationName pulumi.StringPtrInput
 	// Specifies the identifier for the application role to grant.
 	ApplicationRoleName pulumi.StringInput
-	// The fully qualified name of the account role on which application role will be granted.
+	// The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
 	ParentAccountRoleName pulumi.StringPtrInput
 }
 
@@ -200,7 +200,7 @@ func (o GrantApplicationRoleOutput) ApplicationRoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GrantApplicationRole) pulumi.StringOutput { return v.ApplicationRoleName }).(pulumi.StringOutput)
 }
 
-// The fully qualified name of the account role on which application role will be granted.
+// The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
 func (o GrantApplicationRoleOutput) ParentAccountRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantApplicationRole) pulumi.StringPtrOutput { return v.ParentAccountRoleName }).(pulumi.StringPtrOutput)
 }

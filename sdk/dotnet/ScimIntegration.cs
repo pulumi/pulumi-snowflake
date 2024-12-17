@@ -13,7 +13,7 @@ namespace Pulumi.Snowflake
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/scimIntegration:ScimIntegration example "name"
+    /// $ pulumi import snowflake:index/scimIntegration:ScimIntegration example '"&lt;integration_name&gt;"'
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/scimIntegration:ScimIntegration")]
@@ -44,13 +44,13 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies an existing network policy that controls SCIM network traffic.
+        /// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
         /// </summary>
         [Output("networkPolicy")]
         public Output<string?> NetworkPolicy { get; private set; } = null!;
@@ -138,13 +138,13 @@ namespace Pulumi.Snowflake
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies an existing network policy that controls SCIM network traffic.
+        /// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }
@@ -206,13 +206,13 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies an existing network policy that controls SCIM network traffic.
+        /// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
         /// </summary>
         [Input("networkPolicy")]
         public Input<string>? NetworkPolicy { get; set; }

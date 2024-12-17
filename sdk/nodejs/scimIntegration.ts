@@ -10,7 +10,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/scimIntegration:ScimIntegration example "name"
+ * $ pulumi import snowflake:index/scimIntegration:ScimIntegration example '"<integration_name>"'
  * ```
  */
 export class ScimIntegration extends pulumi.CustomResource {
@@ -58,11 +58,11 @@ export class ScimIntegration extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies an existing network policy that controls SCIM network traffic.
+     * Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
      */
     public readonly networkPolicy!: pulumi.Output<string | undefined>;
     /**
@@ -153,11 +153,11 @@ export interface ScimIntegrationState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies an existing network policy that controls SCIM network traffic.
+     * Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
      */
     networkPolicy?: pulumi.Input<string>;
     /**
@@ -191,11 +191,11 @@ export interface ScimIntegrationArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies an existing network policy that controls SCIM network traffic.
+     * Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
      */
     networkPolicy?: pulumi.Input<string>;
     /**

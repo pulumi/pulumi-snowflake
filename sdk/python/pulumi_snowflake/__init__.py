@@ -18,17 +18,22 @@ from .api_integration import *
 from .authentication_policy import *
 from .cortex_search_service import *
 from .database import *
-from .database_old import *
 from .database_role import *
 from .dynamic_table import *
 from .email_notification_integration import *
+from .execute import *
 from .external_function import *
 from .external_oauth_integration import *
 from .external_table import *
 from .external_volume import *
 from .failover_group import *
 from .file_format import *
-from .function import *
+from .function_java import *
+from .function_javascript import *
+from .function_python import *
+from .function_scala import *
+from .function_sql import *
+from .get_account_roles import *
 from .get_accounts import *
 from .get_alerts import *
 from .get_connections import *
@@ -53,8 +58,6 @@ from .get_parameters import *
 from .get_pipes import *
 from .get_procedures import *
 from .get_resource_monitors import *
-from .get_role import *
-from .get_roles import *
 from .get_row_access_policies import *
 from .get_schemas import *
 from .get_secrets import *
@@ -90,20 +93,21 @@ from .network_policy import *
 from .network_policy_attachment import *
 from .network_rule import *
 from .notification_integration import *
-from .oauth_integration import *
 from .oauth_integration_for_custom_clients import *
 from .oauth_integration_for_partner_applications import *
 from .object_parameter import *
 from .password_policy import *
 from .pipe import *
 from .primary_connection import *
-from .procedure import *
+from .procedure_java import *
+from .procedure_javascript import *
+from .procedure_python import *
+from .procedure_scala import *
+from .procedure_sql import *
 from .provider import *
 from .resource_monitor import *
-from .role import *
 from .row_access_policy import *
 from .saml2_integration import *
-from .saml_integration import *
 from .schema import *
 from .scim_integration import *
 from .secondary_connection import *
@@ -114,12 +118,10 @@ from .secret_with_client_credentials import *
 from .secret_with_generic_string import *
 from .sequence import *
 from .service_user import *
-from .session_parameter import *
 from .share import *
 from .shared_database import *
 from .stage import *
 from .storage_integration import *
-from .stream import *
 from .stream_on_directory_table import *
 from .stream_on_external_table import *
 from .stream_on_table import *
@@ -130,9 +132,7 @@ from .table_column_masking_policy_application import *
 from .table_constraint import *
 from .tag import *
 from .tag_association import *
-from .tag_masking_policy_association import *
 from .task import *
-from .unsafe_execute import *
 from .user import *
 from .user_authentication_policy_attachment import *
 from .user_password_policy_attachment import *
@@ -258,14 +258,6 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/databaseOld",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/databaseOld:DatabaseOld": "DatabaseOld"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/databaseRole",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -286,6 +278,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration": "EmailNotificationIntegration"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/execute",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/execute:Execute": "Execute"
   }
  },
  {
@@ -338,10 +338,42 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/function",
+  "mod": "index/functionJava",
   "fqn": "pulumi_snowflake",
   "classes": {
-   "snowflake:index/function:Function": "Function"
+   "snowflake:index/functionJava:FunctionJava": "FunctionJava"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/functionJavascript",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/functionJavascript:FunctionJavascript": "FunctionJavascript"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/functionPython",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/functionPython:FunctionPython": "FunctionPython"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/functionScala",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/functionScala:FunctionScala": "FunctionScala"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/functionSql",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/functionSql:FunctionSql": "FunctionSql"
   }
  },
  {
@@ -466,14 +498,6 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/oauthIntegration",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/oauthIntegration:OauthIntegration": "OauthIntegration"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/oauthIntegrationForCustomClients",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -522,10 +546,42 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/procedure",
+  "mod": "index/procedureJava",
   "fqn": "pulumi_snowflake",
   "classes": {
-   "snowflake:index/procedure:Procedure": "Procedure"
+   "snowflake:index/procedureJava:ProcedureJava": "ProcedureJava"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/procedureJavascript",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/procedureJavascript:ProcedureJavascript": "ProcedureJavascript"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/procedurePython",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/procedurePython:ProcedurePython": "ProcedurePython"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/procedureScala",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/procedureScala:ProcedureScala": "ProcedureScala"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/procedureSql",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/procedureSql:ProcedureSql": "ProcedureSql"
   }
  },
  {
@@ -534,14 +590,6 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/resourceMonitor:ResourceMonitor": "ResourceMonitor"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/role",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/role:Role": "Role"
   }
  },
  {
@@ -558,14 +606,6 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/saml2Integration:Saml2Integration": "Saml2Integration"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/samlIntegration",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/samlIntegration:SamlIntegration": "SamlIntegration"
   }
  },
  {
@@ -650,14 +690,6 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/sessionParameter",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/sessionParameter:SessionParameter": "SessionParameter"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/share",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -686,14 +718,6 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/storageIntegration:StorageIntegration": "StorageIntegration"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/stream",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/stream:Stream": "Stream"
   }
  },
  {
@@ -778,26 +802,10 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
-  "mod": "index/tagMaskingPolicyAssociation",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation": "TagMaskingPolicyAssociation"
-  }
- },
- {
-  "pkg": "snowflake",
   "mod": "index/task",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/task:Task": "Task"
-  }
- },
- {
-  "pkg": "snowflake",
-  "mod": "index/unsafeExecute",
-  "fqn": "pulumi_snowflake",
-  "classes": {
-   "snowflake:index/unsafeExecute:UnsafeExecute": "UnsafeExecute"
   }
  },
  {

@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/warehouse:Warehouse example warehouseName
+ * $ pulumi import snowflake:index/warehouse:Warehouse example &#39;&#34;&lt;warehouse_name&gt;&#34;&#39;
  * ```
  * 
  */
@@ -156,14 +156,14 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.minClusterCount);
     }
     /**
-     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
@@ -198,14 +198,14 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.queryAccelerationMaxScaleFactor);
     }
     /**
-     * Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
+     * Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      * 
      */
     @Export(name="resourceMonitor", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceMonitor;
 
     /**
-     * @return Specifies the name of a resource monitor that is explicitly assigned to the warehouse.
+     * @return Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> resourceMonitor() {

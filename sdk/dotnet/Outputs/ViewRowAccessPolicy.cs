@@ -18,7 +18,7 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Ons;
         /// <summary>
-        /// Row access policy name.
+        /// Row access policy name. For more information about this resource, see docs.
         /// </summary>
         public readonly string PolicyName;
 

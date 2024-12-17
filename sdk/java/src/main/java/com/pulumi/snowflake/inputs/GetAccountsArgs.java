@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,24 +17,40 @@ public final class GetAccountsArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetAccountsArgs Empty = new GetAccountsArgs();
 
     /**
-     * Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    @Import(name="pattern")
-    private @Nullable Output<String> pattern;
+    @Import(name="like")
+    private @Nullable Output<String> like;
 
     /**
-     * @return Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public Optional<Output<String>> pattern() {
-        return Optional.ofNullable(this.pattern);
+    public Optional<Output<String>> like() {
+        return Optional.ofNullable(this.like);
+    }
+
+    /**
+     * Includes dropped accounts that have not yet been deleted.
+     * 
+     */
+    @Import(name="withHistory")
+    private @Nullable Output<Boolean> withHistory;
+
+    /**
+     * @return Includes dropped accounts that have not yet been deleted.
+     * 
+     */
+    public Optional<Output<Boolean>> withHistory() {
+        return Optional.ofNullable(this.withHistory);
     }
 
     private GetAccountsArgs() {}
 
     private GetAccountsArgs(GetAccountsArgs $) {
-        this.pattern = $.pattern;
+        this.like = $.like;
+        this.withHistory = $.withHistory;
     }
 
     public static Builder builder() {
@@ -55,24 +72,45 @@ public final class GetAccountsArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param pattern Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder pattern(@Nullable Output<String> pattern) {
-            $.pattern = pattern;
+        public Builder like(@Nullable Output<String> like) {
+            $.like = like;
             return this;
         }
 
         /**
-         * @param pattern Specifies an account name pattern. If a pattern is specified, only accounts matching the pattern are returned.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder pattern(String pattern) {
-            return pattern(Output.of(pattern));
+        public Builder like(String like) {
+            return like(Output.of(like));
+        }
+
+        /**
+         * @param withHistory Includes dropped accounts that have not yet been deleted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withHistory(@Nullable Output<Boolean> withHistory) {
+            $.withHistory = withHistory;
+            return this;
+        }
+
+        /**
+         * @param withHistory Includes dropped accounts that have not yet been deleted.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withHistory(Boolean withHistory) {
+            return withHistory(Output.of(withHistory));
         }
 
         public GetAccountsArgs build() {

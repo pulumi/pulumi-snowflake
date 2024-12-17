@@ -10,7 +10,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example "name"
+ * $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example '"<integration_name>"'
  * ```
  */
 export class ExternalOauthIntegration extends pulumi.CustomResource {
@@ -54,7 +54,7 @@ export class ExternalOauthIntegration extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * Specifies the list of roles that the client can set as the primary role.
+     * Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
      */
     public readonly externalOauthAllowedRolesLists!: pulumi.Output<string[] | undefined>;
     /**
@@ -66,7 +66,7 @@ export class ExternalOauthIntegration extends pulumi.CustomResource {
      */
     public readonly externalOauthAudienceLists!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
     public readonly externalOauthBlockedRolesLists!: pulumi.Output<string[] | undefined>;
     /**
@@ -110,11 +110,11 @@ export class ExternalOauthIntegration extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Paramteres related to this security integration.
+     * Parameters related to this security integration.
      */
     public /*out*/ readonly relatedParameters!: pulumi.Output<outputs.ExternalOauthIntegrationRelatedParameter[]>;
     /**
@@ -215,7 +215,7 @@ export interface ExternalOauthIntegrationState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Specifies the list of roles that the client can set as the primary role.
+     * Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
      */
     externalOauthAllowedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -227,7 +227,7 @@ export interface ExternalOauthIntegrationState {
      */
     externalOauthAudienceLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
     externalOauthBlockedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -271,11 +271,11 @@ export interface ExternalOauthIntegrationState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * Paramteres related to this security integration.
+     * Parameters related to this security integration.
      */
     relatedParameters?: pulumi.Input<pulumi.Input<inputs.ExternalOauthIntegrationRelatedParameter>[]>;
     /**
@@ -297,7 +297,7 @@ export interface ExternalOauthIntegrationArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * Specifies the list of roles that the client can set as the primary role.
+     * Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
      */
     externalOauthAllowedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -309,7 +309,7 @@ export interface ExternalOauthIntegrationArgs {
      */
     externalOauthAudienceLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      */
     externalOauthBlockedRolesLists?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -349,7 +349,7 @@ export interface ExternalOauthIntegrationArgs {
      */
     externalOauthType: pulumi.Input<string>;
     /**
-     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
 }

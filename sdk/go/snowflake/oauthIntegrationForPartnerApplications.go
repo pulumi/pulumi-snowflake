@@ -20,7 +20,7 @@ import (
 type OauthIntegrationForPartnerApplications struct {
 	pulumi.CustomResourceState
 
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists pulumi.StringArrayOutput `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -30,7 +30,7 @@ type OauthIntegrationForPartnerApplications struct {
 	Enabled pulumi.StringPtrOutput `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
 	OauthClient pulumi.StringOutput `pulumi:"oauthClient"`
@@ -41,6 +41,8 @@ type OauthIntegrationForPartnerApplications struct {
 	OauthRefreshTokenValidity pulumi.IntPtrOutput `pulumi:"oauthRefreshTokenValidity"`
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrOutput `pulumi:"oauthUseSecondaryRoles"`
+	// Parameters related to this security integration.
+	RelatedParameters OauthIntegrationForPartnerApplicationsRelatedParameterArrayOutput `pulumi:"relatedParameters"`
 	// Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
 	ShowOutputs OauthIntegrationForPartnerApplicationsShowOutputArrayOutput `pulumi:"showOutputs"`
 }
@@ -52,9 +54,6 @@ func NewOauthIntegrationForPartnerApplications(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.BlockedRolesLists == nil {
-		return nil, errors.New("invalid value for required argument 'BlockedRolesLists'")
-	}
 	if args.OauthClient == nil {
 		return nil, errors.New("invalid value for required argument 'OauthClient'")
 	}
@@ -81,7 +80,7 @@ func GetOauthIntegrationForPartnerApplications(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OauthIntegrationForPartnerApplications resources.
 type oauthIntegrationForPartnerApplicationsState struct {
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists []string `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
 	Comment *string `pulumi:"comment"`
@@ -91,7 +90,7 @@ type oauthIntegrationForPartnerApplicationsState struct {
 	Enabled *string `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
 	OauthClient *string `pulumi:"oauthClient"`
@@ -102,12 +101,14 @@ type oauthIntegrationForPartnerApplicationsState struct {
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles *string `pulumi:"oauthUseSecondaryRoles"`
+	// Parameters related to this security integration.
+	RelatedParameters []OauthIntegrationForPartnerApplicationsRelatedParameter `pulumi:"relatedParameters"`
 	// Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
 	ShowOutputs []OauthIntegrationForPartnerApplicationsShowOutput `pulumi:"showOutputs"`
 }
 
 type OauthIntegrationForPartnerApplicationsState struct {
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists pulumi.StringArrayInput
 	// Specifies a comment for the OAuth integration.
 	Comment pulumi.StringPtrInput
@@ -117,7 +118,7 @@ type OauthIntegrationForPartnerApplicationsState struct {
 	Enabled pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
 	OauthClient pulumi.StringPtrInput
@@ -128,6 +129,8 @@ type OauthIntegrationForPartnerApplicationsState struct {
 	OauthRefreshTokenValidity pulumi.IntPtrInput
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrInput
+	// Parameters related to this security integration.
+	RelatedParameters OauthIntegrationForPartnerApplicationsRelatedParameterArrayInput
 	// Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
 	ShowOutputs OauthIntegrationForPartnerApplicationsShowOutputArrayInput
 }
@@ -137,13 +140,13 @@ func (OauthIntegrationForPartnerApplicationsState) ElementType() reflect.Type {
 }
 
 type oauthIntegrationForPartnerApplicationsArgs struct {
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists []string `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
 	Comment *string `pulumi:"comment"`
 	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Enabled *string `pulumi:"enabled"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
 	OauthClient string `pulumi:"oauthClient"`
@@ -158,13 +161,13 @@ type oauthIntegrationForPartnerApplicationsArgs struct {
 
 // The set of arguments for constructing a OauthIntegrationForPartnerApplications resource.
 type OauthIntegrationForPartnerApplicationsArgs struct {
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	BlockedRolesLists pulumi.StringArrayInput
 	// Specifies a comment for the OAuth integration.
 	Comment pulumi.StringPtrInput
 	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Enabled pulumi.StringPtrInput
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
 	OauthClient pulumi.StringInput
@@ -264,7 +267,7 @@ func (o OauthIntegrationForPartnerApplicationsOutput) ToOauthIntegrationForPartn
 	return o
 }
 
-// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 func (o OauthIntegrationForPartnerApplicationsOutput) BlockedRolesLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringArrayOutput { return v.BlockedRolesLists }).(pulumi.StringArrayOutput)
 }
@@ -291,7 +294,7 @@ func (o OauthIntegrationForPartnerApplicationsOutput) FullyQualifiedName() pulum
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o OauthIntegrationForPartnerApplicationsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -324,6 +327,13 @@ func (o OauthIntegrationForPartnerApplicationsOutput) OauthUseSecondaryRoles() p
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringPtrOutput {
 		return v.OauthUseSecondaryRoles
 	}).(pulumi.StringPtrOutput)
+}
+
+// Parameters related to this security integration.
+func (o OauthIntegrationForPartnerApplicationsOutput) RelatedParameters() OauthIntegrationForPartnerApplicationsRelatedParameterArrayOutput {
+	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) OauthIntegrationForPartnerApplicationsRelatedParameterArrayOutput {
+		return v.RelatedParameters
+	}).(OauthIntegrationForPartnerApplicationsRelatedParameterArrayOutput)
 }
 
 // Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.

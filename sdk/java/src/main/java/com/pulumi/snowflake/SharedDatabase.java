@@ -20,7 +20,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/sharedDatabase:SharedDatabase example &#39;shared_database_name&#39;
+ * $ pulumi import snowflake:index/sharedDatabase:SharedDatabase example &#39;&#34;&lt;shared_database_name&gt;&#34;&#39;
  * ```
  * 
  */
@@ -97,14 +97,14 @@ public class SharedDatabase extends com.pulumi.resources.CustomResource {
         return this.externalVolume;
     }
     /**
-     * A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;share_name&gt;&#34;`.
+     * A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;share_name&gt;&#34;`. For more information about this resource, see docs.
      * 
      */
     @Export(name="fromShare", refs={String.class}, tree="[0]")
     private Output<String> fromShare;
 
     /**
-     * @return A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;share_name&gt;&#34;`.
+     * @return A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;.&#34;&lt;share_name&gt;&#34;`. For more information about this resource, see docs.
      * 
      */
     public Output<String> fromShare() {
@@ -139,14 +139,14 @@ public class SharedDatabase extends com.pulumi.resources.CustomResource {
         return this.logLevel;
     }
     /**
-     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {

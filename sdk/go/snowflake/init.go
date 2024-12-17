@@ -47,14 +47,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CortexSearchService{}
 	case "snowflake:index/database:Database":
 		r = &Database{}
-	case "snowflake:index/databaseOld:DatabaseOld":
-		r = &DatabaseOld{}
 	case "snowflake:index/databaseRole:DatabaseRole":
 		r = &DatabaseRole{}
 	case "snowflake:index/dynamicTable:DynamicTable":
 		r = &DynamicTable{}
 	case "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration":
 		r = &EmailNotificationIntegration{}
+	case "snowflake:index/execute:Execute":
+		r = &Execute{}
 	case "snowflake:index/externalFunction:ExternalFunction":
 		r = &ExternalFunction{}
 	case "snowflake:index/externalOauthIntegration:ExternalOauthIntegration":
@@ -67,8 +67,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FailoverGroup{}
 	case "snowflake:index/fileFormat:FileFormat":
 		r = &FileFormat{}
-	case "snowflake:index/function:Function":
-		r = &Function{}
+	case "snowflake:index/functionJava:FunctionJava":
+		r = &FunctionJava{}
+	case "snowflake:index/functionJavascript:FunctionJavascript":
+		r = &FunctionJavascript{}
+	case "snowflake:index/functionPython:FunctionPython":
+		r = &FunctionPython{}
+	case "snowflake:index/functionScala:FunctionScala":
+		r = &FunctionScala{}
+	case "snowflake:index/functionSql:FunctionSql":
+		r = &FunctionSql{}
 	case "snowflake:index/grantAccountRole:GrantAccountRole":
 		r = &GrantAccountRole{}
 	case "snowflake:index/grantApplicationRole:GrantApplicationRole":
@@ -99,8 +107,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &NetworkRule{}
 	case "snowflake:index/notificationIntegration:NotificationIntegration":
 		r = &NotificationIntegration{}
-	case "snowflake:index/oauthIntegration:OauthIntegration":
-		r = &OauthIntegration{}
 	case "snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients":
 		r = &OauthIntegrationForCustomClients{}
 	case "snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications":
@@ -113,18 +119,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Pipe{}
 	case "snowflake:index/primaryConnection:PrimaryConnection":
 		r = &PrimaryConnection{}
-	case "snowflake:index/procedure:Procedure":
-		r = &Procedure{}
+	case "snowflake:index/procedureJava:ProcedureJava":
+		r = &ProcedureJava{}
+	case "snowflake:index/procedureJavascript:ProcedureJavascript":
+		r = &ProcedureJavascript{}
+	case "snowflake:index/procedurePython:ProcedurePython":
+		r = &ProcedurePython{}
+	case "snowflake:index/procedureScala:ProcedureScala":
+		r = &ProcedureScala{}
+	case "snowflake:index/procedureSql:ProcedureSql":
+		r = &ProcedureSql{}
 	case "snowflake:index/resourceMonitor:ResourceMonitor":
 		r = &ResourceMonitor{}
-	case "snowflake:index/role:Role":
-		r = &Role{}
 	case "snowflake:index/rowAccessPolicy:RowAccessPolicy":
 		r = &RowAccessPolicy{}
 	case "snowflake:index/saml2Integration:Saml2Integration":
 		r = &Saml2Integration{}
-	case "snowflake:index/samlIntegration:SamlIntegration":
-		r = &SamlIntegration{}
 	case "snowflake:index/schema:Schema":
 		r = &Schema{}
 	case "snowflake:index/scimIntegration:ScimIntegration":
@@ -145,8 +155,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Sequence{}
 	case "snowflake:index/serviceUser:ServiceUser":
 		r = &ServiceUser{}
-	case "snowflake:index/sessionParameter:SessionParameter":
-		r = &SessionParameter{}
 	case "snowflake:index/share:Share":
 		r = &Share{}
 	case "snowflake:index/sharedDatabase:SharedDatabase":
@@ -155,8 +163,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Stage{}
 	case "snowflake:index/storageIntegration:StorageIntegration":
 		r = &StorageIntegration{}
-	case "snowflake:index/stream:Stream":
-		r = &Stream{}
 	case "snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable":
 		r = &StreamOnDirectoryTable{}
 	case "snowflake:index/streamOnExternalTable:StreamOnExternalTable":
@@ -177,12 +183,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Tag{}
 	case "snowflake:index/tagAssociation:TagAssociation":
 		r = &TagAssociation{}
-	case "snowflake:index/tagMaskingPolicyAssociation:TagMaskingPolicyAssociation":
-		r = &TagMaskingPolicyAssociation{}
 	case "snowflake:index/task:Task":
 		r = &Task{}
-	case "snowflake:index/unsafeExecute:UnsafeExecute":
-		r = &UnsafeExecute{}
 	case "snowflake:index/user:User":
 		r = &User{}
 	case "snowflake:index/userAuthenticationPolicyAttachment:UserAuthenticationPolicyAttachment":
@@ -293,11 +295,6 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/databaseOld",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/databaseRole",
 		&module{version},
 	)
@@ -309,6 +306,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/emailNotificationIntegration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/execute",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -343,7 +345,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/function",
+		"index/functionJava",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/functionJavascript",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/functionPython",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/functionScala",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/functionSql",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -423,11 +445,6 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/oauthIntegration",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/oauthIntegrationForCustomClients",
 		&module{version},
 	)
@@ -458,17 +475,32 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/procedure",
+		"index/procedureJava",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/procedureJavascript",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/procedurePython",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/procedureScala",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/procedureSql",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/resourceMonitor",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/role",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -479,11 +511,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/saml2Integration",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/samlIntegration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -538,11 +565,6 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/sessionParameter",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/share",
 		&module{version},
 	)
@@ -559,11 +581,6 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/storageIntegration",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/stream",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -618,17 +635,7 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
-		"index/tagMaskingPolicyAssociation",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
 		"index/task",
-		&module{version},
-	)
-	pulumi.RegisterResourceModule(
-		"snowflake",
-		"index/unsafeExecute",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -12,6 +12,8 @@ namespace Pulumi.Snowflake
     public static class GetDatabaseRole
     {
         /// <summary>
+        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -35,6 +37,8 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseRoleResult>("snowflake:index/getDatabaseRole:getDatabaseRole", args ?? new GetDatabaseRoleArgs(), options.WithDefaults());
 
         /// <summary>
+        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp
@@ -58,6 +62,8 @@ namespace Pulumi.Snowflake
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseRoleResult>("snowflake:index/getDatabaseRole:getDatabaseRole", args ?? new GetDatabaseRoleInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// 
         /// ## Example Usage
         /// 
         /// ```csharp

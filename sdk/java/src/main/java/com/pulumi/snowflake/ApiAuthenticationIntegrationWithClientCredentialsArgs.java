@@ -50,14 +50,14 @@ public final class ApiAuthenticationIntegrationWithClientCredentialsArgs extends
     }
 
     /**
-     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -124,17 +124,9 @@ public final class ApiAuthenticationIntegrationWithClientCredentialsArgs extends
         return this.oauthClientId;
     }
 
-    /**
-     * Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
-     * 
-     */
     @Import(name="oauthClientSecret", required=true)
     private Output<String> oauthClientSecret;
 
-    /**
-     * @return Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
-     * 
-     */
     public Output<String> oauthClientSecret() {
         return this.oauthClientSecret;
     }
@@ -245,7 +237,7 @@ public final class ApiAuthenticationIntegrationWithClientCredentialsArgs extends
         }
 
         /**
-         * @param name Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -256,7 +248,7 @@ public final class ApiAuthenticationIntegrationWithClientCredentialsArgs extends
         }
 
         /**
-         * @param name Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -359,23 +351,11 @@ public final class ApiAuthenticationIntegrationWithClientCredentialsArgs extends
             return oauthClientId(Output.of(oauthClientId));
         }
 
-        /**
-         * @param oauthClientSecret Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthClientSecret(Output<String> oauthClientSecret) {
             $.oauthClientSecret = oauthClientSecret;
             return this;
         }
 
-        /**
-         * @param oauthClientSecret Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
-         * 
-         * @return builder
-         * 
-         */
         public Builder oauthClientSecret(String oauthClientSecret) {
             return oauthClientSecret(Output.of(oauthClientSecret));
         }

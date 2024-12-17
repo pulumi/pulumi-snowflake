@@ -13,12 +13,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GrantOwnershipOnFuture {
     /**
-     * @return The fully qualified name of the database.
+     * @return The fully qualified name of the database. For more information about this resource, see docs.
      * 
      */
     private @Nullable String inDatabase;
     /**
-     * @return The fully qualified name of the schema.
+     * @return The fully qualified name of the schema. For more information about this resource, see docs.
      * 
      */
     private @Nullable String inSchema;
@@ -30,14 +30,14 @@ public final class GrantOwnershipOnFuture {
 
     private GrantOwnershipOnFuture() {}
     /**
-     * @return The fully qualified name of the database.
+     * @return The fully qualified name of the database. For more information about this resource, see docs.
      * 
      */
     public Optional<String> inDatabase() {
         return Optional.ofNullable(this.inDatabase);
     }
     /**
-     * @return The fully qualified name of the schema.
+     * @return The fully qualified name of the schema. For more information about this resource, see docs.
      * 
      */
     public Optional<String> inSchema() {

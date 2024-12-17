@@ -23,7 +23,7 @@ import javax.annotation.Nullable;
  * ## Import
  * 
  * ```sh
- * $ pulumi import snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer example &#34;name&#34;
+ * $ pulumi import snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer example &#39;&#34;&lt;integration_name&gt;&#34;&#39;
  * ```
  * 
  */
@@ -86,14 +86,14 @@ public class ApiAuthenticationIntegrationWithJwtBearer extends com.pulumi.resour
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
@@ -161,17 +161,9 @@ public class ApiAuthenticationIntegrationWithJwtBearer extends com.pulumi.resour
     public Output<String> oauthClientId() {
         return this.oauthClientId;
     }
-    /**
-     * Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
-     * 
-     */
     @Export(name="oauthClientSecret", refs={String.class}, tree="[0]")
     private Output<String> oauthClientSecret;
 
-    /**
-     * @return Specifies the client secret for the OAuth application in the ServiceNow instance from the previous step. The connector uses this to request an access token from the ServiceNow instance.
-     * 
-     */
     public Output<String> oauthClientSecret() {
         return this.oauthClientSecret;
     }

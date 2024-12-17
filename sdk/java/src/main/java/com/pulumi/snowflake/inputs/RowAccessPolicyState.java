@@ -65,14 +65,14 @@ public final class RowAccessPolicyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> database() {
@@ -110,14 +110,14 @@ public final class RowAccessPolicyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -125,14 +125,14 @@ public final class RowAccessPolicyState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -260,7 +260,7 @@ public final class RowAccessPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param database The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param database The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class RowAccessPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param database The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param database The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class RowAccessPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class RowAccessPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param name Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -354,7 +354,7 @@ public final class RowAccessPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param schema The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param schema The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class RowAccessPolicyState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param schema The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+         * @param schema The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

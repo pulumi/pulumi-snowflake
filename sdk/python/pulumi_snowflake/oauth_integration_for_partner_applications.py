@@ -21,8 +21,8 @@ __all__ = ['OauthIntegrationForPartnerApplicationsArgs', 'OauthIntegrationForPar
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsArgs:
     def __init__(__self__, *,
-                 blocked_roles_lists: pulumi.Input[Sequence[pulumi.Input[str]]],
                  oauth_client: pulumi.Input[str],
+                 blocked_roles_lists: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  comment: Optional[pulumi.Input[str]] = None,
                  enabled: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -32,17 +32,18 @@ class OauthIntegrationForPartnerApplicationsArgs:
                  oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a OauthIntegrationForPartnerApplications resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
         :param pulumi.Input[str] oauth_client: Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[str] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         """
-        pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
         pulumi.set(__self__, "oauth_client", oauth_client)
+        if blocked_roles_lists is not None:
+            pulumi.set(__self__, "blocked_roles_lists", blocked_roles_lists)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
         if enabled is not None:
@@ -59,18 +60,6 @@ class OauthIntegrationForPartnerApplicationsArgs:
             pulumi.set(__self__, "oauth_use_secondary_roles", oauth_use_secondary_roles)
 
     @property
-    @pulumi.getter(name="blockedRolesLists")
-    def blocked_roles_lists(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
-        """
-        A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
-        """
-        return pulumi.get(self, "blocked_roles_lists")
-
-    @blocked_roles_lists.setter
-    def blocked_roles_lists(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
-        pulumi.set(self, "blocked_roles_lists", value)
-
-    @property
     @pulumi.getter(name="oauthClient")
     def oauth_client(self) -> pulumi.Input[str]:
         """
@@ -81,6 +70,18 @@ class OauthIntegrationForPartnerApplicationsArgs:
     @oauth_client.setter
     def oauth_client(self, value: pulumi.Input[str]):
         pulumi.set(self, "oauth_client", value)
+
+    @property
+    @pulumi.getter(name="blockedRolesLists")
+    def blocked_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+        """
+        return pulumi.get(self, "blocked_roles_lists")
+
+    @blocked_roles_lists.setter
+    def blocked_roles_lists(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "blocked_roles_lists", value)
 
     @property
     @pulumi.getter
@@ -110,7 +111,7 @@ class OauthIntegrationForPartnerApplicationsArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -178,19 +179,21 @@ class _OauthIntegrationForPartnerApplicationsState:
                  oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
                  oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
                  oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None,
+                 related_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsRelatedParameterArgs']]]] = None,
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering OauthIntegrationForPartnerApplications resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[str] oauth_client: Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         :param pulumi.Input[str] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+        :param pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsRelatedParameterArgs']]] related_parameters: Parameters related to this security integration.
         :param pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsShowOutputArgs']]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
         """
         if blocked_roles_lists is not None:
@@ -215,6 +218,8 @@ class _OauthIntegrationForPartnerApplicationsState:
             pulumi.set(__self__, "oauth_refresh_token_validity", oauth_refresh_token_validity)
         if oauth_use_secondary_roles is not None:
             pulumi.set(__self__, "oauth_use_secondary_roles", oauth_use_secondary_roles)
+        if related_parameters is not None:
+            pulumi.set(__self__, "related_parameters", related_parameters)
         if show_outputs is not None:
             pulumi.set(__self__, "show_outputs", show_outputs)
 
@@ -222,7 +227,7 @@ class _OauthIntegrationForPartnerApplicationsState:
     @pulumi.getter(name="blockedRolesLists")
     def blocked_roles_lists(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+        A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         """
         return pulumi.get(self, "blocked_roles_lists")
 
@@ -282,7 +287,7 @@ class _OauthIntegrationForPartnerApplicationsState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -348,6 +353,18 @@ class _OauthIntegrationForPartnerApplicationsState:
         pulumi.set(self, "oauth_use_secondary_roles", value)
 
     @property
+    @pulumi.getter(name="relatedParameters")
+    def related_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsRelatedParameterArgs']]]]:
+        """
+        Parameters related to this security integration.
+        """
+        return pulumi.get(self, "related_parameters")
+
+    @related_parameters.setter
+    def related_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsRelatedParameterArgs']]]]):
+        pulumi.set(self, "related_parameters", value)
+
+    @property
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsShowOutputArgs']]]]:
         """
@@ -384,10 +401,10 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[str] oauth_client: Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         :param pulumi.Input[str] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
@@ -439,8 +456,6 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = OauthIntegrationForPartnerApplicationsArgs.__new__(OauthIntegrationForPartnerApplicationsArgs)
 
-            if blocked_roles_lists is None and not opts.urn:
-                raise TypeError("Missing required property 'blocked_roles_lists'")
             __props__.__dict__["blocked_roles_lists"] = blocked_roles_lists
             __props__.__dict__["comment"] = comment
             __props__.__dict__["enabled"] = enabled
@@ -454,6 +469,7 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
             __props__.__dict__["oauth_use_secondary_roles"] = oauth_use_secondary_roles
             __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
+            __props__.__dict__["related_parameters"] = None
             __props__.__dict__["show_outputs"] = None
         super(OauthIntegrationForPartnerApplications, __self__).__init__(
             'snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications',
@@ -476,6 +492,7 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
             oauth_redirect_uri: Optional[pulumi.Input[str]] = None,
             oauth_refresh_token_validity: Optional[pulumi.Input[int]] = None,
             oauth_use_secondary_roles: Optional[pulumi.Input[str]] = None,
+            related_parameters: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForPartnerApplicationsRelatedParameterArgs', 'OauthIntegrationForPartnerApplicationsRelatedParameterArgsDict']]]]] = None,
             show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForPartnerApplicationsShowOutputArgs', 'OauthIntegrationForPartnerApplicationsShowOutputArgsDict']]]]] = None) -> 'OauthIntegrationForPartnerApplications':
         """
         Get an existing OauthIntegrationForPartnerApplications resource's state with the given name, id, and optional extra
@@ -484,16 +501,17 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] blocked_roles_lists: A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         :param pulumi.Input[str] comment: Specifies a comment for the OAuth integration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForPartnerApplicationsDescribeOutputArgs', 'OauthIntegrationForPartnerApplicationsDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
         :param pulumi.Input[str] enabled: Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        :param pulumi.Input[str] name: Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[str] oauth_client: Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
         :param pulumi.Input[str] oauth_issue_refresh_tokens: Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[int] oauth_refresh_token_validity: Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         :param pulumi.Input[str] oauth_use_secondary_roles: Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForPartnerApplicationsRelatedParameterArgs', 'OauthIntegrationForPartnerApplicationsRelatedParameterArgsDict']]]] related_parameters: Parameters related to this security integration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OauthIntegrationForPartnerApplicationsShowOutputArgs', 'OauthIntegrationForPartnerApplicationsShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -511,14 +529,15 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
         __props__.__dict__["oauth_redirect_uri"] = oauth_redirect_uri
         __props__.__dict__["oauth_refresh_token_validity"] = oauth_refresh_token_validity
         __props__.__dict__["oauth_use_secondary_roles"] = oauth_use_secondary_roles
+        __props__.__dict__["related_parameters"] = related_parameters
         __props__.__dict__["show_outputs"] = show_outputs
         return OauthIntegrationForPartnerApplications(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="blockedRolesLists")
-    def blocked_roles_lists(self) -> pulumi.Output[Sequence[str]]:
+    def blocked_roles_lists(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+        A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         """
         return pulumi.get(self, "blocked_roles_lists")
 
@@ -558,7 +577,7 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -598,6 +617,14 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
         Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
         """
         return pulumi.get(self, "oauth_use_secondary_roles")
+
+    @property
+    @pulumi.getter(name="relatedParameters")
+    def related_parameters(self) -> pulumi.Output[Sequence['outputs.OauthIntegrationForPartnerApplicationsRelatedParameter']]:
+        """
+        Parameters related to this security integration.
+        """
+        return pulumi.get(self, "related_parameters")
 
     @property
     @pulumi.getter(name="showOutputs")

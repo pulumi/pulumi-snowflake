@@ -5,7 +5,6 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.snowflake.inputs.TagAssociationObjectIdentifierArgs;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -19,41 +18,18 @@ public final class TagAssociationState extends com.pulumi.resources.ResourceArgs
     public static final TagAssociationState Empty = new TagAssociationState();
 
     /**
-     * Specifies the object identifier for the tag association.
+     * Specifies the object identifiers for the tag association.
      * 
      */
     @Import(name="objectIdentifiers")
-    private @Nullable Output<List<TagAssociationObjectIdentifierArgs>> objectIdentifiers;
+    private @Nullable Output<List<String>> objectIdentifiers;
 
     /**
-     * @return Specifies the object identifier for the tag association.
+     * @return Specifies the object identifiers for the tag association.
      * 
      */
-    public Optional<Output<List<TagAssociationObjectIdentifierArgs>>> objectIdentifiers() {
+    public Optional<Output<List<String>>> objectIdentifiers() {
         return Optional.ofNullable(this.objectIdentifiers);
-    }
-
-    /**
-     * Specifies the object identifier for the tag association.
-     * 
-     * @deprecated
-     * Use `object_identifier` instead
-     * 
-     */
-    @Deprecated /* Use `object_identifier` instead */
-    @Import(name="objectName")
-    private @Nullable Output<String> objectName;
-
-    /**
-     * @return Specifies the object identifier for the tag association.
-     * 
-     * @deprecated
-     * Use `object_identifier` instead
-     * 
-     */
-    @Deprecated /* Use `object_identifier` instead */
-    public Optional<Output<String>> objectName() {
-        return Optional.ofNullable(this.objectName);
     }
 
     /**
@@ -87,14 +63,14 @@ public final class TagAssociationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the identifier for the tag. Note: format must follow: &#34;databaseName&#34;.&#34;schemaName&#34;.&#34;tagName&#34; or &#34;databaseName.schemaName.tagName&#34; or &#34;databaseName|schemaName.tagName&#34; (snowflake_tag.tag.id)
+     * Specifies the identifier for the tag.
      * 
      */
     @Import(name="tagId")
     private @Nullable Output<String> tagId;
 
     /**
-     * @return Specifies the identifier for the tag. Note: format must follow: &#34;databaseName&#34;.&#34;schemaName&#34;.&#34;tagName&#34; or &#34;databaseName.schemaName.tagName&#34; or &#34;databaseName|schemaName.tagName&#34; (snowflake_tag.tag.id)
+     * @return Specifies the identifier for the tag.
      * 
      */
     public Optional<Output<String>> tagId() {
@@ -120,7 +96,6 @@ public final class TagAssociationState extends com.pulumi.resources.ResourceArgs
 
     private TagAssociationState(TagAssociationState $) {
         this.objectIdentifiers = $.objectIdentifiers;
-        this.objectName = $.objectName;
         this.objectType = $.objectType;
         this.skipValidation = $.skipValidation;
         this.tagId = $.tagId;
@@ -146,63 +121,34 @@ public final class TagAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param objectIdentifiers Specifies the object identifier for the tag association.
+         * @param objectIdentifiers Specifies the object identifiers for the tag association.
          * 
          * @return builder
          * 
          */
-        public Builder objectIdentifiers(@Nullable Output<List<TagAssociationObjectIdentifierArgs>> objectIdentifiers) {
+        public Builder objectIdentifiers(@Nullable Output<List<String>> objectIdentifiers) {
             $.objectIdentifiers = objectIdentifiers;
             return this;
         }
 
         /**
-         * @param objectIdentifiers Specifies the object identifier for the tag association.
+         * @param objectIdentifiers Specifies the object identifiers for the tag association.
          * 
          * @return builder
          * 
          */
-        public Builder objectIdentifiers(List<TagAssociationObjectIdentifierArgs> objectIdentifiers) {
+        public Builder objectIdentifiers(List<String> objectIdentifiers) {
             return objectIdentifiers(Output.of(objectIdentifiers));
         }
 
         /**
-         * @param objectIdentifiers Specifies the object identifier for the tag association.
+         * @param objectIdentifiers Specifies the object identifiers for the tag association.
          * 
          * @return builder
          * 
          */
-        public Builder objectIdentifiers(TagAssociationObjectIdentifierArgs... objectIdentifiers) {
+        public Builder objectIdentifiers(String... objectIdentifiers) {
             return objectIdentifiers(List.of(objectIdentifiers));
-        }
-
-        /**
-         * @param objectName Specifies the object identifier for the tag association.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use `object_identifier` instead
-         * 
-         */
-        @Deprecated /* Use `object_identifier` instead */
-        public Builder objectName(@Nullable Output<String> objectName) {
-            $.objectName = objectName;
-            return this;
-        }
-
-        /**
-         * @param objectName Specifies the object identifier for the tag association.
-         * 
-         * @return builder
-         * 
-         * @deprecated
-         * Use `object_identifier` instead
-         * 
-         */
-        @Deprecated /* Use `object_identifier` instead */
-        public Builder objectName(String objectName) {
-            return objectName(Output.of(objectName));
         }
 
         /**
@@ -248,7 +194,7 @@ public final class TagAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagId Specifies the identifier for the tag. Note: format must follow: &#34;databaseName&#34;.&#34;schemaName&#34;.&#34;tagName&#34; or &#34;databaseName.schemaName.tagName&#34; or &#34;databaseName|schemaName.tagName&#34; (snowflake_tag.tag.id)
+         * @param tagId Specifies the identifier for the tag.
          * 
          * @return builder
          * 
@@ -259,7 +205,7 @@ public final class TagAssociationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tagId Specifies the identifier for the tag. Note: format must follow: &#34;databaseName&#34;.&#34;schemaName&#34;.&#34;tagName&#34; or &#34;databaseName.schemaName.tagName&#34; or &#34;databaseName|schemaName.tagName&#34; (snowflake_tag.tag.id)
+         * @param tagId Specifies the identifier for the tag.
          * 
          * @return builder
          * 

@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
 // Resource used to manage external volume objects. For more information, check [external volume documentation](https://docs.snowflake.com/en/sql-reference/commands-data-loading#external-volume).
 type ExternalVolume struct {
 	pulumi.CustomResourceState
@@ -24,7 +26,7 @@ type ExternalVolume struct {
 	DescribeOutputs ExternalVolumeDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW EXTERNAL VOLUMES` for the given external volume.
 	ShowOutputs ExternalVolumeShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -73,7 +75,7 @@ type externalVolumeState struct {
 	DescribeOutputs []ExternalVolumeDescribeOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW EXTERNAL VOLUMES` for the given external volume.
 	ShowOutputs []ExternalVolumeShowOutput `pulumi:"showOutputs"`
@@ -90,7 +92,7 @@ type ExternalVolumeState struct {
 	DescribeOutputs ExternalVolumeDescribeOutputArrayInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW EXTERNAL VOLUMES` for the given external volume.
 	ShowOutputs ExternalVolumeShowOutputArrayInput
@@ -107,7 +109,7 @@ type externalVolumeArgs struct {
 	AllowWrites *string `pulumi:"allowWrites"`
 	// Specifies a comment for the external volume.
 	Comment *string `pulumi:"comment"`
-	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
 	StorageLocations []ExternalVolumeStorageLocation `pulumi:"storageLocations"`
@@ -119,7 +121,7 @@ type ExternalVolumeArgs struct {
 	AllowWrites pulumi.StringPtrInput
 	// Specifies a comment for the external volume.
 	Comment pulumi.StringPtrInput
-	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
 	StorageLocations ExternalVolumeStorageLocationArrayInput
@@ -232,7 +234,7 @@ func (o ExternalVolumeOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalVolume) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ExternalVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalVolume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

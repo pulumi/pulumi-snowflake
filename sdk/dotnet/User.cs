@@ -121,7 +121,7 @@ namespace Pulumi.Snowflake
         public Output<string?> DefaultNamespace { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists.
+        /// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
         /// </summary>
         [Output("defaultRole")]
         public Output<string?> DefaultRole { get; private set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Snowflake
         public Output<string?> DefaultSecondaryRolesOption { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists.
+        /// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
         /// </summary>
         [Output("defaultWarehouse")]
         public Output<string?> DefaultWarehouse { get; private set; } = null!;
@@ -280,7 +280,7 @@ namespace Pulumi.Snowflake
         public Output<string?> MustChangePassword { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -659,7 +659,7 @@ namespace Pulumi.Snowflake
         public Input<string>? DefaultNamespace { get; set; }
 
         /// <summary>
-        /// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists.
+        /// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
         /// </summary>
         [Input("defaultRole")]
         public Input<string>? DefaultRole { get; set; }
@@ -671,7 +671,7 @@ namespace Pulumi.Snowflake
         public Input<string>? DefaultSecondaryRolesOption { get; set; }
 
         /// <summary>
-        /// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists.
+        /// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
         /// </summary>
         [Input("defaultWarehouse")]
         public Input<string>? DefaultWarehouse { get; set; }
@@ -862,7 +862,7 @@ namespace Pulumi.Snowflake
         public Input<string>? MustChangePassword { get; set; }
 
         /// <summary>
-        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -1185,7 +1185,7 @@ namespace Pulumi.Snowflake
         public Input<string>? DefaultNamespace { get; set; }
 
         /// <summary>
-        /// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists.
+        /// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
         /// </summary>
         [Input("defaultRole")]
         public Input<string>? DefaultRole { get; set; }
@@ -1197,7 +1197,7 @@ namespace Pulumi.Snowflake
         public Input<string>? DefaultSecondaryRolesOption { get; set; }
 
         /// <summary>
-        /// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists.
+        /// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
         /// </summary>
         [Input("defaultWarehouse")]
         public Input<string>? DefaultWarehouse { get; set; }
@@ -1394,7 +1394,7 @@ namespace Pulumi.Snowflake
         public Input<string>? MustChangePassword { get; set; }
 
         /// <summary>
-        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

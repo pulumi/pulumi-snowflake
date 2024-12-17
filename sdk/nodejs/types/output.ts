@@ -18,6 +18,38 @@ export interface AccountRoleShowOutput {
     owner: string;
 }
 
+export interface AccountShowOutput {
+    accountLocator: string;
+    accountLocatorUrl: string;
+    accountName: string;
+    accountOldUrlLastUsed: string;
+    accountOldUrlSavedOn: string;
+    accountUrl: string;
+    comment: string;
+    consumptionBillingEntityName: string;
+    createdOn: string;
+    droppedOn: string;
+    edition: string;
+    isEventsAccount: boolean;
+    isOrgAdmin: boolean;
+    isOrganizationAccount: boolean;
+    managedAccounts: number;
+    marketplaceConsumerBillingEntityName: string;
+    marketplaceProviderBillingEntityName: string;
+    movedOn: string;
+    movedToOrganization: string;
+    oldAccountUrl: string;
+    organizationName: string;
+    organizationOldUrl: string;
+    organizationOldUrlLastUsed: string;
+    organizationOldUrlSavedOn: string;
+    organizationUrlExpirationOn: string;
+    regionGroup: string;
+    restoredOn: string;
+    scheduledDeletionTime: string;
+    snowflakeRegion: string;
+}
+
 export interface AlertAlertSchedule {
     /**
      * Specifies the cron expression for the alert. The cron expression must be in the following format: "minute hour day-of-month month day-of-week". The following values are supported: minute: 0-59 hour: 0-23 day-of-month: 1-31 month: 1-12 day-of-week: 0-6 (0 is Sunday)
@@ -386,11 +418,6 @@ export interface AuthenticationPolicyShowOutput {
     schemaName: string;
 }
 
-export interface DatabaseOldReplicationConfiguration {
-    accounts: string[];
-    ignoreEditionCheck?: boolean;
-}
-
 export interface DatabaseReplication {
     /**
      * Entry to enable replication and optionally failover for a given account identifier.
@@ -404,7 +431,7 @@ export interface DatabaseReplication {
 
 export interface DatabaseReplicationEnableToAccount {
     /**
-     * Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"<organization_name>"."<account_name>"`.
+     * Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"<organization_name>"."<account_name>"`. For more information about this resource, see docs.
      */
     accountIdentifier: string;
     /**
@@ -706,81 +733,505 @@ export interface FailoverGroupReplicationScheduleCron {
     timeZone: string;
 }
 
-export interface FunctionArgument {
+export interface FunctionJavaArgument {
     /**
-     * The argument name
+     * The argument type.
      */
+    argDataType: string;
+    argDefaultValue?: string;
+    /**
+     * The argument name.
+     */
+    argName: string;
+}
+
+export interface FunctionJavaImport {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: string;
+    stageLocation: string;
+}
+
+export interface FunctionJavaParameter {
+    enableConsoleOutputs: outputs.FunctionJavaParameterEnableConsoleOutput[];
+    logLevels: outputs.FunctionJavaParameterLogLevel[];
+    metricLevels: outputs.FunctionJavaParameterMetricLevel[];
+    traceLevels: outputs.FunctionJavaParameterTraceLevel[];
+}
+
+export interface FunctionJavaParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionJavaParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionJavaParameterMetricLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionJavaParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionJavaSecret {
+    /**
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     */
+    secretId: string;
+    /**
+     * The variable that will be used in handler code when retrieving information from the secret.
+     */
+    secretVariableName: string;
+}
+
+export interface FunctionJavaShowOutput {
+    argumentsRaw: string;
+    catalogName: string;
+    createdOn: string;
+    description: string;
+    externalAccessIntegrations: string;
+    isAggregate: boolean;
+    isAnsi: boolean;
+    isBuiltin: boolean;
+    isDataMetric: boolean;
+    isExternalFunction: boolean;
+    isMemoizable: boolean;
+    isSecure: boolean;
+    isTableFunction: boolean;
+    language: string;
+    maxNumArguments: number;
+    minNumArguments: number;
     name: string;
+    schemaName: string;
+    secrets: string;
+    validForClustering: boolean;
+}
+
+export interface FunctionJavaTargetPath {
     /**
-     * The argument type
+     * Path for import on stage, without the leading `/`.
      */
-    type: string;
+    pathOnStage: string;
+    stageLocation: string;
+}
+
+export interface FunctionJavascriptArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: string;
+    argDefaultValue?: string;
+    /**
+     * The argument name.
+     */
+    argName: string;
+}
+
+export interface FunctionJavascriptParameter {
+    enableConsoleOutputs: outputs.FunctionJavascriptParameterEnableConsoleOutput[];
+    logLevels: outputs.FunctionJavascriptParameterLogLevel[];
+    metricLevels: outputs.FunctionJavascriptParameterMetricLevel[];
+    traceLevels: outputs.FunctionJavascriptParameterTraceLevel[];
+}
+
+export interface FunctionJavascriptParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionJavascriptParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionJavascriptParameterMetricLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionJavascriptParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionJavascriptShowOutput {
+    argumentsRaw: string;
+    catalogName: string;
+    createdOn: string;
+    description: string;
+    externalAccessIntegrations: string;
+    isAggregate: boolean;
+    isAnsi: boolean;
+    isBuiltin: boolean;
+    isDataMetric: boolean;
+    isExternalFunction: boolean;
+    isMemoizable: boolean;
+    isSecure: boolean;
+    isTableFunction: boolean;
+    language: string;
+    maxNumArguments: number;
+    minNumArguments: number;
+    name: string;
+    schemaName: string;
+    secrets: string;
+    validForClustering: boolean;
+}
+
+export interface FunctionPythonArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: string;
+    argDefaultValue?: string;
+    /**
+     * The argument name.
+     */
+    argName: string;
+}
+
+export interface FunctionPythonImport {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: string;
+    stageLocation: string;
+}
+
+export interface FunctionPythonParameter {
+    enableConsoleOutputs: outputs.FunctionPythonParameterEnableConsoleOutput[];
+    logLevels: outputs.FunctionPythonParameterLogLevel[];
+    metricLevels: outputs.FunctionPythonParameterMetricLevel[];
+    traceLevels: outputs.FunctionPythonParameterTraceLevel[];
+}
+
+export interface FunctionPythonParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionPythonParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionPythonParameterMetricLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionPythonParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionPythonSecret {
+    /**
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     */
+    secretId: string;
+    /**
+     * The variable that will be used in handler code when retrieving information from the secret.
+     */
+    secretVariableName: string;
+}
+
+export interface FunctionPythonShowOutput {
+    argumentsRaw: string;
+    catalogName: string;
+    createdOn: string;
+    description: string;
+    externalAccessIntegrations: string;
+    isAggregate: boolean;
+    isAnsi: boolean;
+    isBuiltin: boolean;
+    isDataMetric: boolean;
+    isExternalFunction: boolean;
+    isMemoizable: boolean;
+    isSecure: boolean;
+    isTableFunction: boolean;
+    language: string;
+    maxNumArguments: number;
+    minNumArguments: number;
+    name: string;
+    schemaName: string;
+    secrets: string;
+    validForClustering: boolean;
+}
+
+export interface FunctionScalaArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: string;
+    argDefaultValue?: string;
+    /**
+     * The argument name.
+     */
+    argName: string;
+}
+
+export interface FunctionScalaImport {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: string;
+    stageLocation: string;
+}
+
+export interface FunctionScalaParameter {
+    enableConsoleOutputs: outputs.FunctionScalaParameterEnableConsoleOutput[];
+    logLevels: outputs.FunctionScalaParameterLogLevel[];
+    metricLevels: outputs.FunctionScalaParameterMetricLevel[];
+    traceLevels: outputs.FunctionScalaParameterTraceLevel[];
+}
+
+export interface FunctionScalaParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionScalaParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionScalaParameterMetricLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionScalaParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionScalaSecret {
+    /**
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     */
+    secretId: string;
+    /**
+     * The variable that will be used in handler code when retrieving information from the secret.
+     */
+    secretVariableName: string;
+}
+
+export interface FunctionScalaShowOutput {
+    argumentsRaw: string;
+    catalogName: string;
+    createdOn: string;
+    description: string;
+    externalAccessIntegrations: string;
+    isAggregate: boolean;
+    isAnsi: boolean;
+    isBuiltin: boolean;
+    isDataMetric: boolean;
+    isExternalFunction: boolean;
+    isMemoizable: boolean;
+    isSecure: boolean;
+    isTableFunction: boolean;
+    language: string;
+    maxNumArguments: number;
+    minNumArguments: number;
+    name: string;
+    schemaName: string;
+    secrets: string;
+    validForClustering: boolean;
+}
+
+export interface FunctionScalaTargetPath {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: string;
+    stageLocation: string;
+}
+
+export interface FunctionSqlArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: string;
+    argDefaultValue?: string;
+    /**
+     * The argument name.
+     */
+    argName: string;
+}
+
+export interface FunctionSqlParameter {
+    enableConsoleOutputs: outputs.FunctionSqlParameterEnableConsoleOutput[];
+    logLevels: outputs.FunctionSqlParameterLogLevel[];
+    metricLevels: outputs.FunctionSqlParameterMetricLevel[];
+    traceLevels: outputs.FunctionSqlParameterTraceLevel[];
+}
+
+export interface FunctionSqlParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionSqlParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionSqlParameterMetricLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionSqlParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface FunctionSqlShowOutput {
+    argumentsRaw: string;
+    catalogName: string;
+    createdOn: string;
+    description: string;
+    externalAccessIntegrations: string;
+    isAggregate: boolean;
+    isAnsi: boolean;
+    isBuiltin: boolean;
+    isDataMetric: boolean;
+    isExternalFunction: boolean;
+    isMemoizable: boolean;
+    isSecure: boolean;
+    isTableFunction: boolean;
+    language: string;
+    maxNumArguments: number;
+    minNumArguments: number;
+    name: string;
+    schemaName: string;
+    secrets: string;
+    validForClustering: boolean;
+}
+
+export interface GetAccountRolesAccountRole {
+    /**
+     * Holds the output of SHOW ROLES.
+     */
+    showOutputs: outputs.GetAccountRolesAccountRoleShowOutput[];
+}
+
+export interface GetAccountRolesAccountRoleShowOutput {
+    assignedToUsers: number;
+    comment: string;
+    createdOn: string;
+    grantedRoles: number;
+    grantedToRoles: number;
+    isCurrent: boolean;
+    isDefault: boolean;
+    isInherited: boolean;
+    name: string;
+    owner: string;
 }
 
 export interface GetAccountsAccount {
     /**
-     * System-assigned identifier of the acccount.
+     * Holds the output of SHOW ACCOUNTS.
      */
+    showOutputs: outputs.GetAccountsAccountShowOutput[];
+}
+
+export interface GetAccountsAccountShowOutput {
     accountLocator: string;
-    /**
-     * Legacy Snowflake access URL syntax that includes the regionName and account_locator.
-     */
     accountLocatorUrl: string;
-    /**
-     * User-defined name that identifies an account within the organization.
-     */
     accountName: string;
-    /**
-     * Preferred Snowflake access URL that includes the values of organizationName and account_name.
-     */
+    accountOldUrlLastUsed: string;
+    accountOldUrlSavedOn: string;
     accountUrl: string;
-    /**
-     * Comment for the account.
-     */
     comment: string;
-    /**
-     * Name of the consumption billing entity.
-     */
     consumptionBillingEntityName: string;
-    /**
-     * Date and time when the account was created.
-     */
     createdOn: string;
-    /**
-     * Snowflake Edition of the account.
-     */
+    droppedOn: string;
     edition: string;
-    /**
-     * Indicates whether the ORGADMIN role is enabled in an account. If TRUE, the role is enabled.
-     */
+    isEventsAccount: boolean;
     isOrgAdmin: boolean;
-    /**
-     * Indicates how many managed accounts have been created by the account.
-     */
+    isOrganizationAccount: boolean;
     managedAccounts: number;
-    /**
-     * Name of the marketplace consumer billing entity.
-     */
     marketplaceConsumerBillingEntityName: string;
-    /**
-     * Name of the marketplace provider billing entity.
-     */
     marketplaceProviderBillingEntityName: string;
-    /**
-     * The previous account URL for a given account.
-     */
+    movedOn: string;
+    movedToOrganization: string;
     oldAccountUrl: string;
-    /**
-     * Name of the organization.
-     */
     organizationName: string;
-    /**
-     * Region group where the account is located. Note: this column is only visible to organizations that span multiple Region Groups.
-     */
+    organizationOldUrl: string;
+    organizationOldUrlLastUsed: string;
+    organizationOldUrlSavedOn: string;
+    organizationUrlExpirationOn: string;
     regionGroup: string;
-    /**
-     * Snowflake Region where the account is located. A Snowflake Region is a distinct location within a cloud platform region that is isolated from other Snowflake Regions. A Snowflake Region can be either multi-tenant or single-tenant (for a Virtual Private Snowflake account).
-     */
+    restoredOn: string;
+    scheduledDeletionTime: string;
     snowflakeRegion: string;
 }
 
@@ -1624,26 +2075,6 @@ export interface GetResourceMonitorsResourceMonitorShowOutput {
     suspendAt: number;
     suspendImmediateAt: number;
     usedCredits: number;
-}
-
-export interface GetRolesRole {
-    /**
-     * Holds the output of SHOW ROLES.
-     */
-    showOutputs: outputs.GetRolesRoleShowOutput[];
-}
-
-export interface GetRolesRoleShowOutput {
-    assignedToUsers: number;
-    comment: string;
-    createdOn: string;
-    grantedRoles: number;
-    grantedToRoles: number;
-    isCurrent: boolean;
-    isDefault: boolean;
-    isInherited: boolean;
-    name: string;
-    owner: string;
 }
 
 export interface GetRowAccessPoliciesIn {
@@ -4094,11 +4525,11 @@ export interface GrantOwnershipOn {
 
 export interface GrantOwnershipOnAll {
     /**
-     * The fully qualified name of the database.
+     * The fully qualified name of the database. For more information about this resource, see docs.
      */
     inDatabase?: string;
     /**
-     * The fully qualified name of the schema.
+     * The fully qualified name of the schema. For more information about this resource, see docs.
      */
     inSchema?: string;
     /**
@@ -4109,11 +4540,11 @@ export interface GrantOwnershipOnAll {
 
 export interface GrantOwnershipOnFuture {
     /**
-     * The fully qualified name of the database.
+     * The fully qualified name of the database. For more information about this resource, see docs.
      */
     inDatabase?: string;
     /**
-     * The fully qualified name of the schema.
+     * The fully qualified name of the schema. For more information about this resource, see docs.
      */
     inSchema?: string;
     /**
@@ -5031,6 +5462,18 @@ export interface OauthIntegrationForCustomClientsDescribeOutputPreAuthorizedRole
     value: string;
 }
 
+export interface OauthIntegrationForCustomClientsRelatedParameter {
+    oauthAddPrivilegedRolesToBlockedLists: outputs.OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedList[];
+}
+
+export interface OauthIntegrationForCustomClientsRelatedParameterOauthAddPrivilegedRolesToBlockedList {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface OauthIntegrationForCustomClientsShowOutput {
     category: string;
     comment: string;
@@ -5195,6 +5638,18 @@ export interface OauthIntegrationForPartnerApplicationsDescribeOutputPreAuthoriz
     value: string;
 }
 
+export interface OauthIntegrationForPartnerApplicationsRelatedParameter {
+    oauthAddPrivilegedRolesToBlockedLists: outputs.OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedList[];
+}
+
+export interface OauthIntegrationForPartnerApplicationsRelatedParameterOauthAddPrivilegedRolesToBlockedList {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
 export interface OauthIntegrationForPartnerApplicationsShowOutput {
     category: string;
     comment: string;
@@ -5234,15 +5689,427 @@ export interface PrimaryConnectionShowOutput {
     snowflakeRegion: string;
 }
 
-export interface ProcedureArgument {
+export interface ProcedureJavaArgument {
     /**
-     * The argument name
+     * The argument type.
      */
+    argDataType: string;
+    argDefaultValue?: string;
+    /**
+     * The argument name.
+     */
+    argName: string;
+}
+
+export interface ProcedureJavaImport {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: string;
+    stageLocation: string;
+}
+
+export interface ProcedureJavaParameter {
+    enableConsoleOutputs: outputs.ProcedureJavaParameterEnableConsoleOutput[];
+    logLevels: outputs.ProcedureJavaParameterLogLevel[];
+    metricLevels: outputs.ProcedureJavaParameterMetricLevel[];
+    traceLevels: outputs.ProcedureJavaParameterTraceLevel[];
+}
+
+export interface ProcedureJavaParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureJavaParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureJavaParameterMetricLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureJavaParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureJavaSecret {
+    /**
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     */
+    secretId: string;
+    /**
+     * The variable that will be used in handler code when retrieving information from the secret.
+     */
+    secretVariableName: string;
+}
+
+export interface ProcedureJavaShowOutput {
+    argumentsRaw: string;
+    catalogName: string;
+    createdOn: string;
+    description: string;
+    externalAccessIntegrations: string;
+    isAggregate: boolean;
+    isAnsi: boolean;
+    isBuiltin: boolean;
+    isSecure: boolean;
+    isTableFunction: boolean;
+    maxNumArguments: number;
+    minNumArguments: number;
     name: string;
+    schemaName: string;
+    secrets: string;
+    validForClustering: boolean;
+}
+
+export interface ProcedureJavaTargetPath {
     /**
-     * The argument type
+     * Path for import on stage, without the leading `/`.
      */
-    type: string;
+    pathOnStage: string;
+    stageLocation: string;
+}
+
+export interface ProcedureJavascriptArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: string;
+    argDefaultValue?: string;
+    /**
+     * The argument name.
+     */
+    argName: string;
+}
+
+export interface ProcedureJavascriptParameter {
+    enableConsoleOutputs: outputs.ProcedureJavascriptParameterEnableConsoleOutput[];
+    logLevels: outputs.ProcedureJavascriptParameterLogLevel[];
+    metricLevels: outputs.ProcedureJavascriptParameterMetricLevel[];
+    traceLevels: outputs.ProcedureJavascriptParameterTraceLevel[];
+}
+
+export interface ProcedureJavascriptParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureJavascriptParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureJavascriptParameterMetricLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureJavascriptParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureJavascriptShowOutput {
+    argumentsRaw: string;
+    catalogName: string;
+    createdOn: string;
+    description: string;
+    externalAccessIntegrations: string;
+    isAggregate: boolean;
+    isAnsi: boolean;
+    isBuiltin: boolean;
+    isSecure: boolean;
+    isTableFunction: boolean;
+    maxNumArguments: number;
+    minNumArguments: number;
+    name: string;
+    schemaName: string;
+    secrets: string;
+    validForClustering: boolean;
+}
+
+export interface ProcedurePythonArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: string;
+    argDefaultValue?: string;
+    /**
+     * The argument name.
+     */
+    argName: string;
+}
+
+export interface ProcedurePythonImport {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: string;
+    stageLocation: string;
+}
+
+export interface ProcedurePythonParameter {
+    enableConsoleOutputs: outputs.ProcedurePythonParameterEnableConsoleOutput[];
+    logLevels: outputs.ProcedurePythonParameterLogLevel[];
+    metricLevels: outputs.ProcedurePythonParameterMetricLevel[];
+    traceLevels: outputs.ProcedurePythonParameterTraceLevel[];
+}
+
+export interface ProcedurePythonParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedurePythonParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedurePythonParameterMetricLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedurePythonParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedurePythonSecret {
+    /**
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     */
+    secretId: string;
+    /**
+     * The variable that will be used in handler code when retrieving information from the secret.
+     */
+    secretVariableName: string;
+}
+
+export interface ProcedurePythonShowOutput {
+    argumentsRaw: string;
+    catalogName: string;
+    createdOn: string;
+    description: string;
+    externalAccessIntegrations: string;
+    isAggregate: boolean;
+    isAnsi: boolean;
+    isBuiltin: boolean;
+    isSecure: boolean;
+    isTableFunction: boolean;
+    maxNumArguments: number;
+    minNumArguments: number;
+    name: string;
+    schemaName: string;
+    secrets: string;
+    validForClustering: boolean;
+}
+
+export interface ProcedureScalaArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: string;
+    argDefaultValue?: string;
+    /**
+     * The argument name.
+     */
+    argName: string;
+}
+
+export interface ProcedureScalaImport {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: string;
+    stageLocation: string;
+}
+
+export interface ProcedureScalaParameter {
+    enableConsoleOutputs: outputs.ProcedureScalaParameterEnableConsoleOutput[];
+    logLevels: outputs.ProcedureScalaParameterLogLevel[];
+    metricLevels: outputs.ProcedureScalaParameterMetricLevel[];
+    traceLevels: outputs.ProcedureScalaParameterTraceLevel[];
+}
+
+export interface ProcedureScalaParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureScalaParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureScalaParameterMetricLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureScalaParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureScalaSecret {
+    /**
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     */
+    secretId: string;
+    /**
+     * The variable that will be used in handler code when retrieving information from the secret.
+     */
+    secretVariableName: string;
+}
+
+export interface ProcedureScalaShowOutput {
+    argumentsRaw: string;
+    catalogName: string;
+    createdOn: string;
+    description: string;
+    externalAccessIntegrations: string;
+    isAggregate: boolean;
+    isAnsi: boolean;
+    isBuiltin: boolean;
+    isSecure: boolean;
+    isTableFunction: boolean;
+    maxNumArguments: number;
+    minNumArguments: number;
+    name: string;
+    schemaName: string;
+    secrets: string;
+    validForClustering: boolean;
+}
+
+export interface ProcedureScalaTargetPath {
+    /**
+     * Path for import on stage, without the leading `/`.
+     */
+    pathOnStage: string;
+    stageLocation: string;
+}
+
+export interface ProcedureSqlArgument {
+    /**
+     * The argument type.
+     */
+    argDataType: string;
+    argDefaultValue?: string;
+    /**
+     * The argument name.
+     */
+    argName: string;
+}
+
+export interface ProcedureSqlParameter {
+    enableConsoleOutputs: outputs.ProcedureSqlParameterEnableConsoleOutput[];
+    logLevels: outputs.ProcedureSqlParameterLogLevel[];
+    metricLevels: outputs.ProcedureSqlParameterMetricLevel[];
+    traceLevels: outputs.ProcedureSqlParameterTraceLevel[];
+}
+
+export interface ProcedureSqlParameterEnableConsoleOutput {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureSqlParameterLogLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureSqlParameterMetricLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureSqlParameterTraceLevel {
+    default: string;
+    description: string;
+    key: string;
+    level: string;
+    value: string;
+}
+
+export interface ProcedureSqlShowOutput {
+    argumentsRaw: string;
+    catalogName: string;
+    createdOn: string;
+    description: string;
+    externalAccessIntegrations: string;
+    isAggregate: boolean;
+    isAnsi: boolean;
+    isBuiltin: boolean;
+    isSecure: boolean;
+    isTableFunction: boolean;
+    maxNumArguments: number;
+    minNumArguments: number;
+    name: string;
+    schemaName: string;
+    secrets: string;
+    validForClustering: boolean;
 }
 
 export interface ResourceMonitorShowOutput {
@@ -5259,19 +6126,6 @@ export interface ResourceMonitorShowOutput {
     suspendAt: number;
     suspendImmediateAt: number;
     usedCredits: number;
-}
-
-export interface RoleShowOutput {
-    assignedToUsers: number;
-    comment: string;
-    createdOn: string;
-    grantedRoles: number;
-    grantedToRoles: number;
-    isCurrent: boolean;
-    isDefault: boolean;
-    isInherited: boolean;
-    name: string;
-    owner: string;
 }
 
 export interface RowAccessPolicyArgument {
@@ -6809,21 +7663,6 @@ export interface TableTag {
     value: string;
 }
 
-export interface TagAssociationObjectIdentifier {
-    /**
-     * Name of the database that the object was created in.
-     */
-    database?: string;
-    /**
-     * Name of the object to associate the tag with.
-     */
-    name: string;
-    /**
-     * Name of the schema that the object was created in.
-     */
-    schema?: string;
-}
-
 export interface TagShowOutput {
     allowedValues: string[];
     comment: string;
@@ -7984,7 +8823,7 @@ export interface ViewColumn {
 
 export interface ViewColumnMaskingPolicy {
     /**
-     * Specifies the masking policy to set on a column.
+     * Specifies the masking policy to set on a column. For more information about this resource, see docs.
      */
     policyName: string;
     /**
@@ -8047,7 +8886,7 @@ export interface ViewRowAccessPolicy {
      */
     ons: string[];
     /**
-     * Row access policy name.
+     * Row access policy name. For more information about this resource, see docs.
      */
     policyName: string;
 }

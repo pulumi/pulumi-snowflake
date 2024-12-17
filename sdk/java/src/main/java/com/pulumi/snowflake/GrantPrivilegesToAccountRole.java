@@ -52,14 +52,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole")
 public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomResource {
     /**
-     * The fully qualified name of the account role to which privileges will be granted.
+     * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="accountRoleName", refs={String.class}, tree="[0]")
     private Output<String> accountRoleName;
 
     /**
-     * @return The fully qualified name of the account role to which privileges will be granted.
+     * @return The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<String> accountRoleName() {
@@ -156,14 +156,14 @@ public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.onSchemaObject);
     }
     /**
-     * The privileges to grant on the account role.
+     * The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
      * 
      */
     @Export(name="privileges", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> privileges;
 
     /**
-     * @return The privileges to grant on the account role.
+     * @return The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
      * 
      */
     public Output<Optional<List<String>>> privileges() {

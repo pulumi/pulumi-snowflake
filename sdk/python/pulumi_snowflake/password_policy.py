@@ -614,7 +614,12 @@ class PasswordPolicy(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Create a PasswordPolicy resource with the given unique name, props, and options.
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        !> **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-password-policy#usage-notes), a password policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+
+        A password policy specifies the requirements that must be met to create and reset a password to authenticate to Snowflake.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] comment: Adds a comment or overwrites an existing comment for the password policy.
@@ -642,7 +647,12 @@ class PasswordPolicy(pulumi.CustomResource):
                  args: PasswordPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a PasswordPolicy resource with the given unique name, props, and options.
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        !> **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-password-policy#usage-notes), a password policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
+
+        A password policy specifies the requirements that must be met to create and reset a password to authenticate to Snowflake.
+
         :param str resource_name: The name of the resource.
         :param PasswordPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

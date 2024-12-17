@@ -11,51 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
-//
-// Datasource used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// Simple usage
-//			simple, err := snowflake.GetConnections(ctx, &snowflake.GetConnectionsArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("simpleOutput", simple.Connections)
-//			// Filtering (like)
-//			like, err := snowflake.GetConnections(ctx, &snowflake.GetConnectionsArgs{
-//				Like: pulumi.StringRef("connection-name"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("likeOutput", like.Connections)
-//			// Filtering by prefix (like)
-//			likePrefix, err := snowflake.GetConnections(ctx, &snowflake.GetConnectionsArgs{
-//				Like: pulumi.StringRef("prefix%"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("likePrefixOutput", likePrefix.Connections)
-//			return nil
-//		})
-//	}
-//
-// ```
+// Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
 func GetConnections(ctx *pulumi.Context, args *GetConnectionsArgs, opts ...pulumi.InvokeOption) (*GetConnectionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetConnectionsResult

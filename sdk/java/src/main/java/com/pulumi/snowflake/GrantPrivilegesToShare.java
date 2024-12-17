@@ -42,14 +42,14 @@ public class GrantPrivilegesToShare extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.onAllTablesInSchema);
     }
     /**
-     * The fully qualified name of the database on which privileges will be granted.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="onDatabase", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onDatabase;
 
     /**
-     * @return The fully qualified name of the database on which privileges will be granted.
+     * @return The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> onDatabase() {
@@ -70,56 +70,56 @@ public class GrantPrivilegesToShare extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.onFunction);
     }
     /**
-     * The fully qualified name of the schema on which privileges will be granted.
+     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="onSchema", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onSchema;
 
     /**
-     * @return The fully qualified name of the schema on which privileges will be granted.
+     * @return The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> onSchema() {
         return Codegen.optional(this.onSchema);
     }
     /**
-     * The fully qualified name of the table on which privileges will be granted.
+     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="onTable", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onTable;
 
     /**
-     * @return The fully qualified name of the table on which privileges will be granted.
+     * @return The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> onTable() {
         return Codegen.optional(this.onTable);
     }
     /**
-     * The fully qualified name of the tag on which privileges will be granted.
+     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="onTag", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onTag;
 
     /**
-     * @return The fully qualified name of the tag on which privileges will be granted.
+     * @return The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> onTag() {
         return Codegen.optional(this.onTag);
     }
     /**
-     * The fully qualified name of the view on which privileges will be granted.
+     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="onView", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onView;
 
     /**
-     * @return The fully qualified name of the view on which privileges will be granted.
+     * @return The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> onView() {
@@ -140,14 +140,14 @@ public class GrantPrivilegesToShare extends com.pulumi.resources.CustomResource 
         return this.privileges;
     }
     /**
-     * The fully qualified name of the share on which privileges will be granted.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="toShare", refs={String.class}, tree="[0]")
     private Output<String> toShare;
 
     /**
-     * @return The fully qualified name of the share on which privileges will be granted.
+     * @return The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<String> toShare() {

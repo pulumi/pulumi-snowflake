@@ -20,10 +20,8 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * format is the resource monitor name
- * 
  * ```sh
- * $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example &#39;resourceMonitorName&#39;
+ * $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example &#39;&#34;&lt;resource_monitor_name&gt;&#34;&#39;
  * ```
  * 
  */
@@ -86,14 +84,14 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`
+     * @return Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
@@ -114,14 +112,14 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.notifyTriggers);
     }
     /**
-     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      * 
      */
     @Export(name="notifyUsers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notifyUsers;
 
     /**
-     * @return Specifies the list of users (their identifiers) to receive email notifications on resource monitors.
+     * @return Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<List<String>>> notifyUsers() {

@@ -82,11 +82,11 @@ export class GrantOwnership extends pulumi.CustomResource {
     }
 
     /**
-     * The fully qualified name of the account role to which privileges will be granted.
+     * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      */
     public readonly accountRoleName!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the database role to which privileges will be granted.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      */
     public readonly databaseRoleName!: pulumi.Output<string | undefined>;
     /**
@@ -135,11 +135,11 @@ export class GrantOwnership extends pulumi.CustomResource {
  */
 export interface GrantOwnershipState {
     /**
-     * The fully qualified name of the account role to which privileges will be granted.
+     * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      */
     accountRoleName?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database role to which privileges will be granted.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      */
     databaseRoleName?: pulumi.Input<string>;
     /**
@@ -157,11 +157,11 @@ export interface GrantOwnershipState {
  */
 export interface GrantOwnershipArgs {
     /**
-     * The fully qualified name of the account role to which privileges will be granted.
+     * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      */
     accountRoleName?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database role to which privileges will be granted.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      */
     databaseRoleName?: pulumi.Input<string>;
     /**

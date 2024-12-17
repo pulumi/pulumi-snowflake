@@ -20,7 +20,7 @@ namespace Pulumi.Snowflake
     public partial class OauthIntegrationForPartnerApplications : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+        /// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         /// </summary>
         [Output("blockedRolesLists")]
         public Output<ImmutableArray<string>> BlockedRolesLists { get; private set; } = null!;
@@ -50,7 +50,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -81,6 +81,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Output("oauthUseSecondaryRoles")]
         public Output<string?> OauthUseSecondaryRoles { get; private set; } = null!;
+
+        /// <summary>
+        /// Parameters related to this security integration.
+        /// </summary>
+        [Output("relatedParameters")]
+        public Output<ImmutableArray<Outputs.OauthIntegrationForPartnerApplicationsRelatedParameter>> RelatedParameters { get; private set; } = null!;
 
         /// <summary>
         /// Outputs the result of `SHOW SECURITY INTEGRATION` for the given integration.
@@ -134,11 +140,11 @@ namespace Pulumi.Snowflake
 
     public sealed class OauthIntegrationForPartnerApplicationsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("blockedRolesLists", required: true)]
+        [Input("blockedRolesLists")]
         private InputList<string>? _blockedRolesLists;
 
         /// <summary>
-        /// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+        /// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> BlockedRolesLists
         {
@@ -159,7 +165,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -203,7 +209,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedRolesLists;
 
         /// <summary>
-        /// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating.
+        /// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
         /// </summary>
         public InputList<string> BlockedRolesLists
         {
@@ -242,7 +248,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -273,6 +279,18 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("oauthUseSecondaryRoles")]
         public Input<string>? OauthUseSecondaryRoles { get; set; }
+
+        [Input("relatedParameters")]
+        private InputList<Inputs.OauthIntegrationForPartnerApplicationsRelatedParameterGetArgs>? _relatedParameters;
+
+        /// <summary>
+        /// Parameters related to this security integration.
+        /// </summary>
+        public InputList<Inputs.OauthIntegrationForPartnerApplicationsRelatedParameterGetArgs> RelatedParameters
+        {
+            get => _relatedParameters ?? (_relatedParameters = new InputList<Inputs.OauthIntegrationForPartnerApplicationsRelatedParameterGetArgs>());
+            set => _relatedParameters = value;
+        }
 
         [Input("showOutputs")]
         private InputList<Inputs.OauthIntegrationForPartnerApplicationsShowOutputGetArgs>? _showOutputs;

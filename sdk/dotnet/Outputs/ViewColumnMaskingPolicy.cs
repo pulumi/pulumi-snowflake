@@ -14,7 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class ViewColumnMaskingPolicy
     {
         /// <summary>
-        /// Specifies the masking policy to set on a column.
+        /// Specifies the masking policy to set on a column. For more information about this resource, see docs.
         /// </summary>
         public readonly string PolicyName;
         /// <summary>

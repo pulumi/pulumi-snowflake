@@ -13,7 +13,7 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class ViewColumnMaskingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the masking policy to set on a column.
+        /// Specifies the masking policy to set on a column. For more information about this resource, see docs.
         /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;

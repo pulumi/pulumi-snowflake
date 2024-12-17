@@ -25,7 +25,7 @@ namespace Pulumi.Snowflake.Inputs
         }
 
         /// <summary>
-        /// Row access policy name.
+        /// Row access policy name. For more information about this resource, see docs.
         /// </summary>
         [Input("policyName", required: true)]
         public Input<string> PolicyName { get; set; } = null!;

@@ -15,7 +15,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example "name"
+// $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example '"<integration_name>"'
 // ```
 type ExternalOauthIntegration struct {
 	pulumi.CustomResourceState
@@ -26,13 +26,13 @@ type ExternalOauthIntegration struct {
 	DescribeOutputs ExternalOauthIntegrationDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Specifies whether to initiate operation of the integration or suspend it.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Specifies the list of roles that the client can set as the primary role.
+	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
 	ExternalOauthAllowedRolesLists pulumi.StringArrayOutput `pulumi:"externalOauthAllowedRolesLists"`
 	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
 	ExternalOauthAnyRoleMode pulumi.StringPtrOutput `pulumi:"externalOauthAnyRoleMode"`
 	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
 	ExternalOauthAudienceLists pulumi.StringArrayOutput `pulumi:"externalOauthAudienceLists"`
-	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	ExternalOauthBlockedRolesLists pulumi.StringArrayOutput `pulumi:"externalOauthBlockedRolesLists"`
 	// Specifies the URL to define the OAuth 2.0 authorization server.
 	ExternalOauthIssuer pulumi.StringOutput `pulumi:"externalOauthIssuer"`
@@ -54,9 +54,9 @@ type ExternalOauthIntegration struct {
 	ExternalOauthType pulumi.StringOutput `pulumi:"externalOauthType"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Paramteres related to this security integration.
+	// Parameters related to this security integration.
 	RelatedParameters ExternalOauthIntegrationRelatedParameterArrayOutput `pulumi:"relatedParameters"`
 	// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
 	ShowOutputs ExternalOauthIntegrationShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -113,13 +113,13 @@ type externalOauthIntegrationState struct {
 	DescribeOutputs []ExternalOauthIntegrationDescribeOutput `pulumi:"describeOutputs"`
 	// Specifies whether to initiate operation of the integration or suspend it.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the list of roles that the client can set as the primary role.
+	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
 	ExternalOauthAllowedRolesLists []string `pulumi:"externalOauthAllowedRolesLists"`
 	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
 	ExternalOauthAnyRoleMode *string `pulumi:"externalOauthAnyRoleMode"`
 	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
 	ExternalOauthAudienceLists []string `pulumi:"externalOauthAudienceLists"`
-	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	ExternalOauthBlockedRolesLists []string `pulumi:"externalOauthBlockedRolesLists"`
 	// Specifies the URL to define the OAuth 2.0 authorization server.
 	ExternalOauthIssuer *string `pulumi:"externalOauthIssuer"`
@@ -141,9 +141,9 @@ type externalOauthIntegrationState struct {
 	ExternalOauthType *string `pulumi:"externalOauthType"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Paramteres related to this security integration.
+	// Parameters related to this security integration.
 	RelatedParameters []ExternalOauthIntegrationRelatedParameter `pulumi:"relatedParameters"`
 	// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
 	ShowOutputs []ExternalOauthIntegrationShowOutput `pulumi:"showOutputs"`
@@ -156,13 +156,13 @@ type ExternalOauthIntegrationState struct {
 	DescribeOutputs ExternalOauthIntegrationDescribeOutputArrayInput
 	// Specifies whether to initiate operation of the integration or suspend it.
 	Enabled pulumi.BoolPtrInput
-	// Specifies the list of roles that the client can set as the primary role.
+	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
 	ExternalOauthAllowedRolesLists pulumi.StringArrayInput
 	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
 	ExternalOauthAnyRoleMode pulumi.StringPtrInput
 	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
 	ExternalOauthAudienceLists pulumi.StringArrayInput
-	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	ExternalOauthBlockedRolesLists pulumi.StringArrayInput
 	// Specifies the URL to define the OAuth 2.0 authorization server.
 	ExternalOauthIssuer pulumi.StringPtrInput
@@ -184,9 +184,9 @@ type ExternalOauthIntegrationState struct {
 	ExternalOauthType pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Paramteres related to this security integration.
+	// Parameters related to this security integration.
 	RelatedParameters ExternalOauthIntegrationRelatedParameterArrayInput
 	// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
 	ShowOutputs ExternalOauthIntegrationShowOutputArrayInput
@@ -201,13 +201,13 @@ type externalOauthIntegrationArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies whether to initiate operation of the integration or suspend it.
 	Enabled bool `pulumi:"enabled"`
-	// Specifies the list of roles that the client can set as the primary role.
+	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
 	ExternalOauthAllowedRolesLists []string `pulumi:"externalOauthAllowedRolesLists"`
 	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
 	ExternalOauthAnyRoleMode *string `pulumi:"externalOauthAnyRoleMode"`
 	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
 	ExternalOauthAudienceLists []string `pulumi:"externalOauthAudienceLists"`
-	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	ExternalOauthBlockedRolesLists []string `pulumi:"externalOauthBlockedRolesLists"`
 	// Specifies the URL to define the OAuth 2.0 authorization server.
 	ExternalOauthIssuer string `pulumi:"externalOauthIssuer"`
@@ -227,7 +227,7 @@ type externalOauthIntegrationArgs struct {
 	ExternalOauthTokenUserMappingClaims []string `pulumi:"externalOauthTokenUserMappingClaims"`
 	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
 	ExternalOauthType string `pulumi:"externalOauthType"`
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 }
 
@@ -237,13 +237,13 @@ type ExternalOauthIntegrationArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specifies whether to initiate operation of the integration or suspend it.
 	Enabled pulumi.BoolInput
-	// Specifies the list of roles that the client can set as the primary role.
+	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
 	ExternalOauthAllowedRolesLists pulumi.StringArrayInput
 	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
 	ExternalOauthAnyRoleMode pulumi.StringPtrInput
 	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
 	ExternalOauthAudienceLists pulumi.StringArrayInput
-	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 	ExternalOauthBlockedRolesLists pulumi.StringArrayInput
 	// Specifies the URL to define the OAuth 2.0 authorization server.
 	ExternalOauthIssuer pulumi.StringInput
@@ -263,7 +263,7 @@ type ExternalOauthIntegrationArgs struct {
 	ExternalOauthTokenUserMappingClaims pulumi.StringArrayInput
 	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
 	ExternalOauthType pulumi.StringInput
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 }
 
@@ -371,7 +371,7 @@ func (o ExternalOauthIntegrationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Specifies the list of roles that the client can set as the primary role.
+// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
 func (o ExternalOauthIntegrationOutput) ExternalOauthAllowedRolesLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringArrayOutput { return v.ExternalOauthAllowedRolesLists }).(pulumi.StringArrayOutput)
 }
@@ -386,7 +386,7 @@ func (o ExternalOauthIntegrationOutput) ExternalOauthAudienceLists() pulumi.Stri
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringArrayOutput { return v.ExternalOauthAudienceLists }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED_LIST account parameter to FALSE.
+// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
 func (o ExternalOauthIntegrationOutput) ExternalOauthBlockedRolesLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringArrayOutput { return v.ExternalOauthBlockedRolesLists }).(pulumi.StringArrayOutput)
 }
@@ -445,12 +445,12 @@ func (o ExternalOauthIntegrationOutput) FullyQualifiedName() pulumi.StringOutput
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`
+// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ExternalOauthIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Paramteres related to this security integration.
+// Parameters related to this security integration.
 func (o ExternalOauthIntegrationOutput) RelatedParameters() ExternalOauthIntegrationRelatedParameterArrayOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) ExternalOauthIntegrationRelatedParameterArrayOutput {
 		return v.RelatedParameters

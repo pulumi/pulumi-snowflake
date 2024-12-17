@@ -12,127 +12,19 @@ namespace Pulumi.Snowflake
     public static class GetConnections
     {
         /// <summary>
-        /// !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
-        /// 
-        /// Datasource used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Simple usage
-        ///     var simple = Snowflake.GetConnections.Invoke();
-        /// 
-        ///     // Filtering (like)
-        ///     var like = Snowflake.GetConnections.Invoke(new()
-        ///     {
-        ///         Like = "connection-name",
-        ///     });
-        /// 
-        ///     // Filtering by prefix (like)
-        ///     var likePrefix = Snowflake.GetConnections.Invoke(new()
-        ///     {
-        ///         Like = "prefix%",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["simpleOutput"] = simple.Apply(getConnectionsResult =&gt; getConnectionsResult.Connections),
-        ///         ["likeOutput"] = like.Apply(getConnectionsResult =&gt; getConnectionsResult.Connections),
-        ///         ["likePrefixOutput"] = likePrefix.Apply(getConnectionsResult =&gt; getConnectionsResult.Connections),
-        ///     };
-        /// });
-        /// ```
+        /// Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
         /// </summary>
         public static Task<GetConnectionsResult> InvokeAsync(GetConnectionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionsResult>("snowflake:index/getConnections:getConnections", args ?? new GetConnectionsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
-        /// 
-        /// Datasource used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Simple usage
-        ///     var simple = Snowflake.GetConnections.Invoke();
-        /// 
-        ///     // Filtering (like)
-        ///     var like = Snowflake.GetConnections.Invoke(new()
-        ///     {
-        ///         Like = "connection-name",
-        ///     });
-        /// 
-        ///     // Filtering by prefix (like)
-        ///     var likePrefix = Snowflake.GetConnections.Invoke(new()
-        ///     {
-        ///         Like = "prefix%",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["simpleOutput"] = simple.Apply(getConnectionsResult =&gt; getConnectionsResult.Connections),
-        ///         ["likeOutput"] = like.Apply(getConnectionsResult =&gt; getConnectionsResult.Connections),
-        ///         ["likePrefixOutput"] = likePrefix.Apply(getConnectionsResult =&gt; getConnectionsResult.Connections),
-        ///     };
-        /// });
-        /// ```
+        /// Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
         /// </summary>
         public static Output<GetConnectionsResult> Invoke(GetConnectionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionsResult>("snowflake:index/getConnections:getConnections", args ?? new GetConnectionsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **V1 release candidate** This data source is a release candidate for the V1. We do not expect significant changes in it before the V1. We will welcome any feedback and adjust the data source if needed. Any errors reported will be resolved with a higher priority. We encourage checking this data source out before the V1 release. Please follow the migration guide to use it.
-        /// 
-        /// Datasource used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     // Simple usage
-        ///     var simple = Snowflake.GetConnections.Invoke();
-        /// 
-        ///     // Filtering (like)
-        ///     var like = Snowflake.GetConnections.Invoke(new()
-        ///     {
-        ///         Like = "connection-name",
-        ///     });
-        /// 
-        ///     // Filtering by prefix (like)
-        ///     var likePrefix = Snowflake.GetConnections.Invoke(new()
-        ///     {
-        ///         Like = "prefix%",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["simpleOutput"] = simple.Apply(getConnectionsResult =&gt; getConnectionsResult.Connections),
-        ///         ["likeOutput"] = like.Apply(getConnectionsResult =&gt; getConnectionsResult.Connections),
-        ///         ["likePrefixOutput"] = likePrefix.Apply(getConnectionsResult =&gt; getConnectionsResult.Connections),
-        ///     };
-        /// });
-        /// ```
+        /// Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
         /// </summary>
         public static Output<GetConnectionsResult> Invoke(GetConnectionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionsResult>("snowflake:index/getConnections:getConnections", args ?? new GetConnectionsInvokeArgs(), options.WithDefaults());

@@ -14,7 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class DatabaseReplicationEnableToAccount
     {
         /// <summary>
-        /// Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"&lt;organization_name&gt;"."&lt;account_name&gt;"`.
+        /// Specifies account identifier for which replication should be enabled. The account identifiers should be in the form of `"&lt;organization_name&gt;"."&lt;account_name&gt;"`. For more information about this resource, see docs.
         /// </summary>
         public readonly string AccountIdentifier;
         /// <summary>
