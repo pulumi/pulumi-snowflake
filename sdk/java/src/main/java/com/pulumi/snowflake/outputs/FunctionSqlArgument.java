@@ -19,7 +19,7 @@ public final class FunctionSqlArgument {
     private String argDataType;
     private @Nullable String argDefaultValue;
     /**
-     * @return The argument name.
+     * @return The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      * 
      */
     private String argName;
@@ -36,7 +36,7 @@ public final class FunctionSqlArgument {
         return Optional.ofNullable(this.argDefaultValue);
     }
     /**
-     * @return The argument name.
+     * @return The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      * 
      */
     public String argName() {

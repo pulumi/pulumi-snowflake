@@ -22,7 +22,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? ArgDefaultValue { get; set; }
 
         /// <summary>
-        /// The argument name.
+        /// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         /// </summary>
         [Input("argName", required: true)]
         public Input<string> ArgName { get; set; } = null!;

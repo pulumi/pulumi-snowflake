@@ -740,7 +740,7 @@ export interface FunctionJavaArgument {
     argDataType: pulumi.Input<string>;
     argDefaultValue?: pulumi.Input<string>;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
     argName: pulumi.Input<string>;
 }
@@ -841,7 +841,7 @@ export interface FunctionJavascriptArgument {
     argDataType: pulumi.Input<string>;
     argDefaultValue?: pulumi.Input<string>;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
     argName: pulumi.Input<string>;
 }
@@ -915,7 +915,7 @@ export interface FunctionPythonArgument {
     argDataType: pulumi.Input<string>;
     argDefaultValue?: pulumi.Input<string>;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
     argName: pulumi.Input<string>;
 }
@@ -1008,7 +1008,7 @@ export interface FunctionScalaArgument {
     argDataType: pulumi.Input<string>;
     argDefaultValue?: pulumi.Input<string>;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
     argName: pulumi.Input<string>;
 }
@@ -1109,7 +1109,7 @@ export interface FunctionSqlArgument {
     argDataType: pulumi.Input<string>;
     argDefaultValue?: pulumi.Input<string>;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
     argName: pulumi.Input<string>;
 }
@@ -3260,7 +3260,7 @@ export interface ProcedureJavaArgument {
     argDataType: pulumi.Input<string>;
     argDefaultValue?: pulumi.Input<string>;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
     argName: pulumi.Input<string>;
 }
@@ -3357,7 +3357,7 @@ export interface ProcedureJavascriptArgument {
     argDataType: pulumi.Input<string>;
     argDefaultValue?: pulumi.Input<string>;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
     argName: pulumi.Input<string>;
 }
@@ -3427,7 +3427,7 @@ export interface ProcedurePythonArgument {
     argDataType: pulumi.Input<string>;
     argDefaultValue?: pulumi.Input<string>;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
     argName: pulumi.Input<string>;
 }
@@ -3516,7 +3516,7 @@ export interface ProcedureScalaArgument {
     argDataType: pulumi.Input<string>;
     argDefaultValue?: pulumi.Input<string>;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
     argName: pulumi.Input<string>;
 }
@@ -3613,7 +3613,7 @@ export interface ProcedureSqlArgument {
     argDataType: pulumi.Input<string>;
     argDefaultValue?: pulumi.Input<string>;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
     argName: pulumi.Input<string>;
 }
