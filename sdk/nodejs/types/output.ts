@@ -740,7 +740,7 @@ export interface FunctionJavaArgument {
     argDataType: string;
     argDefaultValue?: string;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
     argName: string;
 }
@@ -841,7 +841,7 @@ export interface FunctionJavascriptArgument {
     argDataType: string;
     argDefaultValue?: string;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
     argName: string;
 }
@@ -915,7 +915,7 @@ export interface FunctionPythonArgument {
     argDataType: string;
     argDefaultValue?: string;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
     argName: string;
 }
@@ -1008,7 +1008,7 @@ export interface FunctionScalaArgument {
     argDataType: string;
     argDefaultValue?: string;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
     argName: string;
 }
@@ -1109,7 +1109,7 @@ export interface FunctionSqlArgument {
     argDataType: string;
     argDefaultValue?: string;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
      */
     argName: string;
 }
@@ -5696,7 +5696,7 @@ export interface ProcedureJavaArgument {
     argDataType: string;
     argDefaultValue?: string;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
     argName: string;
 }
@@ -5793,7 +5793,7 @@ export interface ProcedureJavascriptArgument {
     argDataType: string;
     argDefaultValue?: string;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
     argName: string;
 }
@@ -5863,7 +5863,7 @@ export interface ProcedurePythonArgument {
     argDataType: string;
     argDefaultValue?: string;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
     argName: string;
 }
@@ -5952,7 +5952,7 @@ export interface ProcedureScalaArgument {
     argDataType: string;
     argDefaultValue?: string;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
     argName: string;
 }
@@ -6049,7 +6049,7 @@ export interface ProcedureSqlArgument {
     argDataType: string;
     argDefaultValue?: string;
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      */
     argName: string;
 }

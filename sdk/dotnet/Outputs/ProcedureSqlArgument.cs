@@ -19,7 +19,7 @@ namespace Pulumi.Snowflake.Outputs
         public readonly string ArgDataType;
         public readonly string? ArgDefaultValue;
         /// <summary>
-        /// The argument name.
+        /// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         /// </summary>
         public readonly string ArgName;
 
