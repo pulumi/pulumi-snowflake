@@ -5151,7 +5151,7 @@ class FunctionJavaArgument(dict):
                  arg_default_value: Optional[str] = None):
         """
         :param str arg_data_type: The argument type.
-        :param str arg_name: The argument name.
+        :param str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -5170,7 +5170,7 @@ class FunctionJavaArgument(dict):
     @pulumi.getter(name="argName")
     def arg_name(self) -> str:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -5797,7 +5797,7 @@ class FunctionJavascriptArgument(dict):
                  arg_default_value: Optional[str] = None):
         """
         :param str arg_data_type: The argument type.
-        :param str arg_name: The argument name.
+        :param str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -5816,7 +5816,7 @@ class FunctionJavascriptArgument(dict):
     @pulumi.getter(name="argName")
     def arg_name(self) -> str:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -6307,7 +6307,7 @@ class FunctionPythonArgument(dict):
                  arg_default_value: Optional[str] = None):
         """
         :param str arg_data_type: The argument type.
-        :param str arg_name: The argument name.
+        :param str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -6326,7 +6326,7 @@ class FunctionPythonArgument(dict):
     @pulumi.getter(name="argName")
     def arg_name(self) -> str:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -6909,7 +6909,7 @@ class FunctionScalaArgument(dict):
                  arg_default_value: Optional[str] = None):
         """
         :param str arg_data_type: The argument type.
-        :param str arg_name: The argument name.
+        :param str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -6928,7 +6928,7 @@ class FunctionScalaArgument(dict):
     @pulumi.getter(name="argName")
     def arg_name(self) -> str:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -7555,7 +7555,7 @@ class FunctionSqlArgument(dict):
                  arg_default_value: Optional[str] = None):
         """
         :param str arg_data_type: The argument type.
-        :param str arg_name: The argument name.
+        :param str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -7574,7 +7574,7 @@ class FunctionSqlArgument(dict):
     @pulumi.getter(name="argName")
     def arg_name(self) -> str:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -15012,7 +15012,7 @@ class ProcedureJavaArgument(dict):
                  arg_default_value: Optional[str] = None):
         """
         :param str arg_data_type: The argument type.
-        :param str arg_name: The argument name.
+        :param str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -15031,7 +15031,7 @@ class ProcedureJavaArgument(dict):
     @pulumi.getter(name="argName")
     def arg_name(self) -> str:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -15620,7 +15620,7 @@ class ProcedureJavascriptArgument(dict):
                  arg_default_value: Optional[str] = None):
         """
         :param str arg_data_type: The argument type.
-        :param str arg_name: The argument name.
+        :param str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -15639,7 +15639,7 @@ class ProcedureJavascriptArgument(dict):
     @pulumi.getter(name="argName")
     def arg_name(self) -> str:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -16092,7 +16092,7 @@ class ProcedurePythonArgument(dict):
                  arg_default_value: Optional[str] = None):
         """
         :param str arg_data_type: The argument type.
-        :param str arg_name: The argument name.
+        :param str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -16111,7 +16111,7 @@ class ProcedurePythonArgument(dict):
     @pulumi.getter(name="argName")
     def arg_name(self) -> str:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -16656,7 +16656,7 @@ class ProcedureScalaArgument(dict):
                  arg_default_value: Optional[str] = None):
         """
         :param str arg_data_type: The argument type.
-        :param str arg_name: The argument name.
+        :param str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -16675,7 +16675,7 @@ class ProcedureScalaArgument(dict):
     @pulumi.getter(name="argName")
     def arg_name(self) -> str:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -17264,7 +17264,7 @@ class ProcedureSqlArgument(dict):
                  arg_default_value: Optional[str] = None):
         """
         :param str arg_data_type: The argument type.
-        :param str arg_name: The argument name.
+        :param str arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -17283,7 +17283,7 @@ class ProcedureSqlArgument(dict):
     @pulumi.getter(name="argName")
     def arg_name(self) -> str:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         return pulumi.get(self, "arg_name")
 
