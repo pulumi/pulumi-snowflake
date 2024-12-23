@@ -7297,7 +7297,7 @@ if not MYPY:
         """
         arg_name: pulumi.Input[str]
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         arg_default_value: NotRequired[pulumi.Input[str]]
 elif False:
@@ -7311,7 +7311,7 @@ class FunctionJavaArgumentArgs:
                  arg_default_value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] arg_data_type: The argument type.
-        :param pulumi.Input[str] arg_name: The argument name.
+        :param pulumi.Input[str] arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -7334,7 +7334,7 @@ class FunctionJavaArgumentArgs:
     @pulumi.getter(name="argName")
     def arg_name(self) -> pulumi.Input[str]:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -8128,7 +8128,7 @@ if not MYPY:
         """
         arg_name: pulumi.Input[str]
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         arg_default_value: NotRequired[pulumi.Input[str]]
 elif False:
@@ -8142,7 +8142,7 @@ class FunctionJavascriptArgumentArgs:
                  arg_default_value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] arg_data_type: The argument type.
-        :param pulumi.Input[str] arg_name: The argument name.
+        :param pulumi.Input[str] arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -8165,7 +8165,7 @@ class FunctionJavascriptArgumentArgs:
     @pulumi.getter(name="argName")
     def arg_name(self) -> pulumi.Input[str]:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -8823,7 +8823,7 @@ if not MYPY:
         """
         arg_name: pulumi.Input[str]
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         arg_default_value: NotRequired[pulumi.Input[str]]
 elif False:
@@ -8837,7 +8837,7 @@ class FunctionPythonArgumentArgs:
                  arg_default_value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] arg_data_type: The argument type.
-        :param pulumi.Input[str] arg_name: The argument name.
+        :param pulumi.Input[str] arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -8860,7 +8860,7 @@ class FunctionPythonArgumentArgs:
     @pulumi.getter(name="argName")
     def arg_name(self) -> pulumi.Input[str]:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -9611,7 +9611,7 @@ if not MYPY:
         """
         arg_name: pulumi.Input[str]
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         arg_default_value: NotRequired[pulumi.Input[str]]
 elif False:
@@ -9625,7 +9625,7 @@ class FunctionScalaArgumentArgs:
                  arg_default_value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] arg_data_type: The argument type.
-        :param pulumi.Input[str] arg_name: The argument name.
+        :param pulumi.Input[str] arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -9648,7 +9648,7 @@ class FunctionScalaArgumentArgs:
     @pulumi.getter(name="argName")
     def arg_name(self) -> pulumi.Input[str]:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -10442,7 +10442,7 @@ if not MYPY:
         """
         arg_name: pulumi.Input[str]
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         arg_default_value: NotRequired[pulumi.Input[str]]
 elif False:
@@ -10456,7 +10456,7 @@ class FunctionSqlArgumentArgs:
                  arg_default_value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] arg_data_type: The argument type.
-        :param pulumi.Input[str] arg_name: The argument name.
+        :param pulumi.Input[str] arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -10479,7 +10479,7 @@ class FunctionSqlArgumentArgs:
     @pulumi.getter(name="argName")
     def arg_name(self) -> pulumi.Input[str]:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -21500,7 +21500,7 @@ if not MYPY:
         """
         arg_name: pulumi.Input[str]
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         arg_default_value: NotRequired[pulumi.Input[str]]
 elif False:
@@ -21514,7 +21514,7 @@ class ProcedureJavaArgumentArgs:
                  arg_default_value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] arg_data_type: The argument type.
-        :param pulumi.Input[str] arg_name: The argument name.
+        :param pulumi.Input[str] arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -21537,7 +21537,7 @@ class ProcedureJavaArgumentArgs:
     @pulumi.getter(name="argName")
     def arg_name(self) -> pulumi.Input[str]:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -22279,7 +22279,7 @@ if not MYPY:
         """
         arg_name: pulumi.Input[str]
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         arg_default_value: NotRequired[pulumi.Input[str]]
 elif False:
@@ -22293,7 +22293,7 @@ class ProcedureJavascriptArgumentArgs:
                  arg_default_value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] arg_data_type: The argument type.
-        :param pulumi.Input[str] arg_name: The argument name.
+        :param pulumi.Input[str] arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -22316,7 +22316,7 @@ class ProcedureJavascriptArgumentArgs:
     @pulumi.getter(name="argName")
     def arg_name(self) -> pulumi.Input[str]:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -22922,7 +22922,7 @@ if not MYPY:
         """
         arg_name: pulumi.Input[str]
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         arg_default_value: NotRequired[pulumi.Input[str]]
 elif False:
@@ -22936,7 +22936,7 @@ class ProcedurePythonArgumentArgs:
                  arg_default_value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] arg_data_type: The argument type.
-        :param pulumi.Input[str] arg_name: The argument name.
+        :param pulumi.Input[str] arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -22959,7 +22959,7 @@ class ProcedurePythonArgumentArgs:
     @pulumi.getter(name="argName")
     def arg_name(self) -> pulumi.Input[str]:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -23658,7 +23658,7 @@ if not MYPY:
         """
         arg_name: pulumi.Input[str]
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         arg_default_value: NotRequired[pulumi.Input[str]]
 elif False:
@@ -23672,7 +23672,7 @@ class ProcedureScalaArgumentArgs:
                  arg_default_value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] arg_data_type: The argument type.
-        :param pulumi.Input[str] arg_name: The argument name.
+        :param pulumi.Input[str] arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -23695,7 +23695,7 @@ class ProcedureScalaArgumentArgs:
     @pulumi.getter(name="argName")
     def arg_name(self) -> pulumi.Input[str]:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         return pulumi.get(self, "arg_name")
 
@@ -24437,7 +24437,7 @@ if not MYPY:
         """
         arg_name: pulumi.Input[str]
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         arg_default_value: NotRequired[pulumi.Input[str]]
 elif False:
@@ -24451,7 +24451,7 @@ class ProcedureSqlArgumentArgs:
                  arg_default_value: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] arg_data_type: The argument type.
-        :param pulumi.Input[str] arg_name: The argument name.
+        :param pulumi.Input[str] arg_name: The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         pulumi.set(__self__, "arg_data_type", arg_data_type)
         pulumi.set(__self__, "arg_name", arg_name)
@@ -24474,7 +24474,7 @@ class ProcedureSqlArgumentArgs:
     @pulumi.getter(name="argName")
     def arg_name(self) -> pulumi.Input[str]:
         """
-        The argument name.
+        The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
         """
         return pulumi.get(self, "arg_name")
 

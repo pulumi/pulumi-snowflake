@@ -39,14 +39,14 @@ public final class ProcedureScalaArgumentArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The argument name.
+     * The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      * 
      */
     @Import(name="argName", required=true)
     private Output<String> argName;
 
     /**
-     * @return The argument name.
+     * @return The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      * 
      */
     public Output<String> argName() {
@@ -110,7 +110,7 @@ public final class ProcedureScalaArgumentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param argName The argument name.
+         * @param argName The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ProcedureScalaArgumentArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param argName The argument name.
+         * @param argName The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
          * 
          * @return builder
          * 

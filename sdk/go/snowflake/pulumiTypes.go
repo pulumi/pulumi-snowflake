@@ -10110,7 +10110,7 @@ type FunctionJavaArgument struct {
 	// The argument type.
 	ArgDataType     string  `pulumi:"argDataType"`
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName string `pulumi:"argName"`
 }
 
@@ -10129,7 +10129,7 @@ type FunctionJavaArgumentArgs struct {
 	// The argument type.
 	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
 }
 
@@ -10193,7 +10193,7 @@ func (o FunctionJavaArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionJavaArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// The argument name.
+// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 func (o FunctionJavaArgumentOutput) ArgName() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionJavaArgument) string { return v.ArgName }).(pulumi.StringOutput)
 }
@@ -11377,7 +11377,7 @@ type FunctionJavascriptArgument struct {
 	// The argument type.
 	ArgDataType     string  `pulumi:"argDataType"`
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName string `pulumi:"argName"`
 }
 
@@ -11396,7 +11396,7 @@ type FunctionJavascriptArgumentArgs struct {
 	// The argument type.
 	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
 }
 
@@ -11460,7 +11460,7 @@ func (o FunctionJavascriptArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutp
 	return o.ApplyT(func(v FunctionJavascriptArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// The argument name.
+// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 func (o FunctionJavascriptArgumentOutput) ArgName() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionJavascriptArgument) string { return v.ArgName }).(pulumi.StringOutput)
 }
@@ -12283,7 +12283,7 @@ type FunctionPythonArgument struct {
 	// The argument type.
 	ArgDataType     string  `pulumi:"argDataType"`
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName string `pulumi:"argName"`
 }
 
@@ -12302,7 +12302,7 @@ type FunctionPythonArgumentArgs struct {
 	// The argument type.
 	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
 }
 
@@ -12366,7 +12366,7 @@ func (o FunctionPythonArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionPythonArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// The argument name.
+// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 func (o FunctionPythonArgumentOutput) ArgName() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionPythonArgument) string { return v.ArgName }).(pulumi.StringOutput)
 }
@@ -13398,7 +13398,7 @@ type FunctionScalaArgument struct {
 	// The argument type.
 	ArgDataType     string  `pulumi:"argDataType"`
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName string `pulumi:"argName"`
 }
 
@@ -13417,7 +13417,7 @@ type FunctionScalaArgumentArgs struct {
 	// The argument type.
 	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
 }
 
@@ -13481,7 +13481,7 @@ func (o FunctionScalaArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionScalaArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// The argument name.
+// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 func (o FunctionScalaArgumentOutput) ArgName() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionScalaArgument) string { return v.ArgName }).(pulumi.StringOutput)
 }
@@ -14665,7 +14665,7 @@ type FunctionSqlArgument struct {
 	// The argument type.
 	ArgDataType     string  `pulumi:"argDataType"`
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName string `pulumi:"argName"`
 }
 
@@ -14684,7 +14684,7 @@ type FunctionSqlArgumentArgs struct {
 	// The argument type.
 	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
 }
 
@@ -14748,7 +14748,7 @@ func (o FunctionSqlArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FunctionSqlArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// The argument name.
+// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the function definition.
 func (o FunctionSqlArgumentOutput) ArgName() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionSqlArgument) string { return v.ArgName }).(pulumi.StringOutput)
 }
@@ -31992,7 +31992,7 @@ type ProcedureJavaArgument struct {
 	// The argument type.
 	ArgDataType     string  `pulumi:"argDataType"`
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName string `pulumi:"argName"`
 }
 
@@ -32011,7 +32011,7 @@ type ProcedureJavaArgumentArgs struct {
 	// The argument type.
 	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
 }
 
@@ -32075,7 +32075,7 @@ func (o ProcedureJavaArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcedureJavaArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// The argument name.
+// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 func (o ProcedureJavaArgumentOutput) ArgName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureJavaArgument) string { return v.ArgName }).(pulumi.StringOutput)
 }
@@ -33235,7 +33235,7 @@ type ProcedureJavascriptArgument struct {
 	// The argument type.
 	ArgDataType     string  `pulumi:"argDataType"`
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName string `pulumi:"argName"`
 }
 
@@ -33254,7 +33254,7 @@ type ProcedureJavascriptArgumentArgs struct {
 	// The argument type.
 	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
 }
 
@@ -33318,7 +33318,7 @@ func (o ProcedureJavascriptArgumentOutput) ArgDefaultValue() pulumi.StringPtrOut
 	return o.ApplyT(func(v ProcedureJavascriptArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// The argument name.
+// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 func (o ProcedureJavascriptArgumentOutput) ArgName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureJavascriptArgument) string { return v.ArgName }).(pulumi.StringOutput)
 }
@@ -34117,7 +34117,7 @@ type ProcedurePythonArgument struct {
 	// The argument type.
 	ArgDataType     string  `pulumi:"argDataType"`
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName string `pulumi:"argName"`
 }
 
@@ -34136,7 +34136,7 @@ type ProcedurePythonArgumentArgs struct {
 	// The argument type.
 	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
 }
 
@@ -34200,7 +34200,7 @@ func (o ProcedurePythonArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v ProcedurePythonArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// The argument name.
+// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 func (o ProcedurePythonArgumentOutput) ArgName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedurePythonArgument) string { return v.ArgName }).(pulumi.StringOutput)
 }
@@ -35208,7 +35208,7 @@ type ProcedureScalaArgument struct {
 	// The argument type.
 	ArgDataType     string  `pulumi:"argDataType"`
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName string `pulumi:"argName"`
 }
 
@@ -35227,7 +35227,7 @@ type ProcedureScalaArgumentArgs struct {
 	// The argument type.
 	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
 }
 
@@ -35291,7 +35291,7 @@ func (o ProcedureScalaArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcedureScalaArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// The argument name.
+// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 func (o ProcedureScalaArgumentOutput) ArgName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureScalaArgument) string { return v.ArgName }).(pulumi.StringOutput)
 }
@@ -36451,7 +36451,7 @@ type ProcedureSqlArgument struct {
 	// The argument type.
 	ArgDataType     string  `pulumi:"argDataType"`
 	ArgDefaultValue *string `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName string `pulumi:"argName"`
 }
 
@@ -36470,7 +36470,7 @@ type ProcedureSqlArgumentArgs struct {
 	// The argument type.
 	ArgDataType     pulumi.StringInput    `pulumi:"argDataType"`
 	ArgDefaultValue pulumi.StringPtrInput `pulumi:"argDefaultValue"`
-	// The argument name.
+	// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 	ArgName pulumi.StringInput `pulumi:"argName"`
 }
 
@@ -36534,7 +36534,7 @@ func (o ProcedureSqlArgumentOutput) ArgDefaultValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProcedureSqlArgument) *string { return v.ArgDefaultValue }).(pulumi.StringPtrOutput)
 }
 
-// The argument name.
+// The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
 func (o ProcedureSqlArgumentOutput) ArgName() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureSqlArgument) string { return v.ArgName }).(pulumi.StringOutput)
 }

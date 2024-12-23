@@ -19,7 +19,7 @@ public final class ProcedureScalaArgument {
     private String argDataType;
     private @Nullable String argDefaultValue;
     /**
-     * @return The argument name.
+     * @return The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      * 
      */
     private String argName;
@@ -36,7 +36,7 @@ public final class ProcedureScalaArgument {
         return Optional.ofNullable(this.argDefaultValue);
     }
     /**
-     * @return The argument name.
+     * @return The argument name. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the procedure definition.
      * 
      */
     public String argName() {
