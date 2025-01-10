@@ -188,7 +188,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["passcodeInPassword"] = pulumi.output(args ? args.passcodeInPassword : undefined).apply(JSON.stringify);
             resourceInputs["password"] = (args?.password ? pulumi.secret(args.password) : undefined) ?? utilities.getEnv("SNOWFLAKE_PASSWORD");
             resourceInputs["port"] = pulumi.output((args ? args.port : undefined) ?? utilities.getEnvNumber("SNOWFLAKE_PORT")).apply(JSON.stringify);
-            resourceInputs["previewFeaturesEnableds"] = pulumi.output(args ? args.previewFeaturesEnableds : undefined).apply(JSON.stringify);
+            resourceInputs["previewFeaturesEnabled"] = pulumi.output(args ? args.previewFeaturesEnabled : undefined).apply(JSON.stringify);
             resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["privateKeyPassphrase"] = (args?.privateKeyPassphrase ? pulumi.secret(args.privateKeyPassphrase) : undefined) ?? utilities.getEnv("SNOWFLAKE_PRIVATE_KEY_PASSPHRASE");
             resourceInputs["profile"] = args ? args.profile : undefined;
@@ -350,7 +350,7 @@ export interface ProviderArgs {
      * `SNOWFLAKE_PORT` environment variable.
      */
     port?: pulumi.Input<number>;
-    previewFeaturesEnableds?: pulumi.Input<pulumi.Input<string>[]>;
+    previewFeaturesEnabled?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
      * `SNOWFLAKE_PRIVATE_KEY` environment variable.

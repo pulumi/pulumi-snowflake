@@ -430,12 +430,12 @@ namespace Pulumi.Snowflake
         [Input("port", json: true)]
         public Input<int>? Port { get; set; }
 
-        [Input("previewFeaturesEnableds", json: true)]
-        private InputList<string>? _previewFeaturesEnableds;
-        public InputList<string> PreviewFeaturesEnableds
+        [Input("previewFeaturesEnabled", json: true)]
+        private InputList<string>? _previewFeaturesEnabled;
+        public InputList<string> PreviewFeaturesEnabled
         {
-            get => _previewFeaturesEnableds ?? (_previewFeaturesEnableds = new InputList<string>());
-            set => _previewFeaturesEnableds = value;
+            get => _previewFeaturesEnabled ?? (_previewFeaturesEnabled = new InputList<string>());
+            set => _previewFeaturesEnabled = value;
         }
 
         [Input("privateKey")]

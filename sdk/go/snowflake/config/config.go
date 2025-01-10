@@ -198,8 +198,8 @@ func GetPort(ctx *pulumi.Context) int {
 	}
 	return value
 }
-func GetPreviewFeaturesEnableds(ctx *pulumi.Context) string {
-	return config.Get(ctx, "snowflake:previewFeaturesEnableds")
+func GetPreviewFeaturesEnabled(ctx *pulumi.Context) string {
+	return config.Get(ctx, "snowflake:previewFeaturesEnabled")
 }
 
 // Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the

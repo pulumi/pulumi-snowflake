@@ -335,10 +335,10 @@ Object.defineProperty(exports, "port", {
     enumerable: true,
 });
 
-export declare const previewFeaturesEnableds: string[] | undefined;
-Object.defineProperty(exports, "previewFeaturesEnableds", {
+export declare const previewFeaturesEnabled: string[] | undefined;
+Object.defineProperty(exports, "previewFeaturesEnabled", {
     get() {
-        return __config.getObject<string[]>("previewFeaturesEnableds");
+        return __config.getObject<string[]>("previewFeaturesEnabled");
     },
     enumerable: true,
 });

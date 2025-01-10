@@ -240,8 +240,8 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get_int('port') or _utilities.get_env_int('SNOWFLAKE_PORT')
 
     @property
-    def preview_features_enableds(self) -> Optional[str]:
-        return __config__.get('previewFeaturesEnableds')
+    def preview_features_enabled(self) -> Optional[str]:
+        return __config__.get('previewFeaturesEnabled')
 
     @property
     def private_key(self) -> Optional[str]:

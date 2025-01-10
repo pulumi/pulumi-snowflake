@@ -247,8 +247,8 @@ type providerArgs struct {
 	Password *string `pulumi:"password"`
 	// Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
 	// `SNOWFLAKE_PORT` environment variable.
-	Port                    *int     `pulumi:"port"`
-	PreviewFeaturesEnableds []string `pulumi:"previewFeaturesEnableds"`
+	Port                   *int     `pulumi:"port"`
+	PreviewFeaturesEnabled []string `pulumi:"previewFeaturesEnabled"`
 	// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
 	// `SNOWFLAKE_PRIVATE_KEY` environment variable.
 	PrivateKey *string `pulumi:"privateKey"`
@@ -368,8 +368,8 @@ type ProviderArgs struct {
 	Password pulumi.StringPtrInput
 	// Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
 	// `SNOWFLAKE_PORT` environment variable.
-	Port                    pulumi.IntPtrInput
-	PreviewFeaturesEnableds pulumi.StringArrayInput
+	Port                   pulumi.IntPtrInput
+	PreviewFeaturesEnabled pulumi.StringArrayInput
 	// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
 	// `SNOWFLAKE_PRIVATE_KEY` environment variable.
 	PrivateKey pulumi.StringPtrInput

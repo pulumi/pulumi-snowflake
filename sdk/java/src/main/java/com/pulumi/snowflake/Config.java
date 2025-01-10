@@ -234,8 +234,8 @@ public final class Config {
     public Optional<Integer> port() {
         return Codegen.integerProp("port").config(config).env("SNOWFLAKE_PORT").get();
     }
-    public Optional<List<String>> previewFeaturesEnableds() {
-        return Codegen.objectProp("previewFeaturesEnableds", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
+    public Optional<List<String>> previewFeaturesEnabled() {
+        return Codegen.objectProp("previewFeaturesEnabled", TypeShape.<List<String>>builder(List.class).addParameter(String.class).build()).config(config).get();
     }
 /**
  * Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the

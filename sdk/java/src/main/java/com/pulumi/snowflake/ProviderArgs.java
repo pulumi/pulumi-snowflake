@@ -484,11 +484,11 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.port);
     }
 
-    @Import(name="previewFeaturesEnableds", json=true)
-    private @Nullable Output<List<String>> previewFeaturesEnableds;
+    @Import(name="previewFeaturesEnabled", json=true)
+    private @Nullable Output<List<String>> previewFeaturesEnabled;
 
-    public Optional<Output<List<String>>> previewFeaturesEnableds() {
-        return Optional.ofNullable(this.previewFeaturesEnableds);
+    public Optional<Output<List<String>>> previewFeaturesEnabled() {
+        return Optional.ofNullable(this.previewFeaturesEnabled);
     }
 
     /**
@@ -713,7 +713,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.passcodeInPassword = $.passcodeInPassword;
         this.password = $.password;
         this.port = $.port;
-        this.previewFeaturesEnableds = $.previewFeaturesEnableds;
+        this.previewFeaturesEnabled = $.previewFeaturesEnabled;
         this.privateKey = $.privateKey;
         this.privateKeyPassphrase = $.privateKeyPassphrase;
         this.profile = $.profile;
@@ -1371,17 +1371,17 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
             return port(Output.of(port));
         }
 
-        public Builder previewFeaturesEnableds(@Nullable Output<List<String>> previewFeaturesEnableds) {
-            $.previewFeaturesEnableds = previewFeaturesEnableds;
+        public Builder previewFeaturesEnabled(@Nullable Output<List<String>> previewFeaturesEnabled) {
+            $.previewFeaturesEnabled = previewFeaturesEnabled;
             return this;
         }
 
-        public Builder previewFeaturesEnableds(List<String> previewFeaturesEnableds) {
-            return previewFeaturesEnableds(Output.of(previewFeaturesEnableds));
+        public Builder previewFeaturesEnabled(List<String> previewFeaturesEnabled) {
+            return previewFeaturesEnabled(Output.of(previewFeaturesEnabled));
         }
 
-        public Builder previewFeaturesEnableds(String... previewFeaturesEnableds) {
-            return previewFeaturesEnableds(List.of(previewFeaturesEnableds));
+        public Builder previewFeaturesEnabled(String... previewFeaturesEnabled) {
+            return previewFeaturesEnabled(List.of(previewFeaturesEnabled));
         }
 
         /**
