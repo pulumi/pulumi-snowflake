@@ -331,11 +331,11 @@ namespace Pulumi.Snowflake
             set => _port.Set(value);
         }
 
-        private static readonly __Value<ImmutableArray<string>> _previewFeaturesEnableds = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("previewFeaturesEnableds"));
-        public static ImmutableArray<string> PreviewFeaturesEnableds
+        private static readonly __Value<ImmutableArray<string>> _previewFeaturesEnabled = new __Value<ImmutableArray<string>>(() => __config.GetObject<ImmutableArray<string>>("previewFeaturesEnabled"));
+        public static ImmutableArray<string> PreviewFeaturesEnabled
         {
-            get => _previewFeaturesEnableds.Get();
-            set => _previewFeaturesEnableds.Set(value);
+            get => _previewFeaturesEnabled.Get();
+            set => _previewFeaturesEnabled.Set(value);
         }
 
         private static readonly __Value<string?> _privateKey = new __Value<string?>(() => __config.Get("privateKey"));

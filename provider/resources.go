@@ -60,27 +60,18 @@ func Provider() info.Provider {
 		Version:     version.Version,
 		DocRules:    &info.DocRule{EditRules: docEditRules},
 		Config: map[string]*info.Schema{
-			"password": {
-				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_PASSWORD"}},
-			},
-			"private_key_passphrase": {
-				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"}},
-			},
-			"role": {
-				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_ROLE"}},
-			},
-			"host": {
-				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_HOST"}},
-			},
-			"port": {
-				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_PORT"}},
-			},
-			"protocol": {
-				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_PROTOCOL"}},
-			},
-			"warehouse": {
-				Default: &info.Default{EnvVars: []string{"SNOWFLAKE_WAREHOUSE"}},
-			},
+			// Fix pluralization.
+			//
+			// Previously was "previewFeaturesEnableds".
+			"preview_features_enabled": {Name: "previewFeaturesEnabled"},
+
+			"host":                   {Default: &info.Default{EnvVars: []string{"SNOWFLAKE_HOST"}}},
+			"password":               {Default: &info.Default{EnvVars: []string{"SNOWFLAKE_PASSWORD"}}},
+			"port":                   {Default: &info.Default{EnvVars: []string{"SNOWFLAKE_PORT"}}},
+			"private_key_passphrase": {Default: &info.Default{EnvVars: []string{"SNOWFLAKE_PRIVATE_KEY_PASSPHRASE"}}},
+			"protocol":               {Default: &info.Default{EnvVars: []string{"SNOWFLAKE_PROTOCOL"}}},
+			"role":                   {Default: &info.Default{EnvVars: []string{"SNOWFLAKE_ROLE"}}},
+			"warehouse":              {Default: &info.Default{EnvVars: []string{"SNOWFLAKE_WAREHOUSE"}}},
 		},
 		Resources: map[string]*info.Resource{
 			"snowflake_execute": {Fields: map[string]*info.Schema{

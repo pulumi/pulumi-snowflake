@@ -179,7 +179,7 @@ Specifies a custom port value used by the driver for privatelink connections. Ca
 `SNOWFLAKE_PORT` environment variable.
 """
 
-previewFeaturesEnableds: Optional[str]
+previewFeaturesEnabled: Optional[str]
 
 privateKey: Optional[str]
 """

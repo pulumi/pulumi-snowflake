@@ -47,7 +47,7 @@ class ProviderArgs:
                  passcode_in_password: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 preview_features_enableds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 preview_features_enabled: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  private_key_passphrase: Optional[pulumi.Input[str]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
@@ -200,8 +200,8 @@ class ProviderArgs:
             port = _utilities.get_env_int('SNOWFLAKE_PORT')
         if port is not None:
             pulumi.set(__self__, "port", port)
-        if preview_features_enableds is not None:
-            pulumi.set(__self__, "preview_features_enableds", preview_features_enableds)
+        if preview_features_enabled is not None:
+            pulumi.set(__self__, "preview_features_enabled", preview_features_enabled)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
         if private_key_passphrase is None:
@@ -589,13 +589,13 @@ class ProviderArgs:
         pulumi.set(self, "port", value)
 
     @property
-    @pulumi.getter(name="previewFeaturesEnableds")
-    def preview_features_enableds(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        return pulumi.get(self, "preview_features_enableds")
+    @pulumi.getter(name="previewFeaturesEnabled")
+    def preview_features_enabled(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        return pulumi.get(self, "preview_features_enabled")
 
-    @preview_features_enableds.setter
-    def preview_features_enableds(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "preview_features_enableds", value)
+    @preview_features_enabled.setter
+    def preview_features_enabled(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "preview_features_enabled", value)
 
     @property
     @pulumi.getter(name="privateKey")
@@ -781,7 +781,7 @@ class Provider(pulumi.ProviderResource):
                  passcode_in_password: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 preview_features_enableds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 preview_features_enabled: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  private_key_passphrase: Optional[pulumi.Input[str]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
@@ -935,7 +935,7 @@ class Provider(pulumi.ProviderResource):
                  passcode_in_password: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
-                 preview_features_enableds: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 preview_features_enabled: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
                  private_key_passphrase: Optional[pulumi.Input[str]] = None,
                  profile: Optional[pulumi.Input[str]] = None,
@@ -990,7 +990,7 @@ class Provider(pulumi.ProviderResource):
             if port is None:
                 port = _utilities.get_env_int('SNOWFLAKE_PORT')
             __props__.__dict__["port"] = pulumi.Output.from_input(port).apply(pulumi.runtime.to_json) if port is not None else None
-            __props__.__dict__["preview_features_enableds"] = pulumi.Output.from_input(preview_features_enableds).apply(pulumi.runtime.to_json) if preview_features_enableds is not None else None
+            __props__.__dict__["preview_features_enabled"] = pulumi.Output.from_input(preview_features_enabled).apply(pulumi.runtime.to_json) if preview_features_enabled is not None else None
             __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
             if private_key_passphrase is None:
                 private_key_passphrase = _utilities.get_env('SNOWFLAKE_PRIVATE_KEY_PASSPHRASE')

@@ -175,7 +175,7 @@
                     ]
                 }
             },
-            "previewFeaturesEnableds": {
+            "previewFeaturesEnabled": {
                 "type": "array",
                 "items": {
                     "type": "string"
@@ -32994,7 +32994,7 @@
                 "type": "integer",
                 "description": "Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the\n`SNOWFLAKE_PORT` environment variable.\n"
             },
-            "previewFeaturesEnableds": {
+            "previewFeaturesEnabled": {
                 "type": "array",
                 "items": {
                     "type": "string"
@@ -33179,7 +33179,7 @@
                     ]
                 }
             },
-            "previewFeaturesEnableds": {
+            "previewFeaturesEnabled": {
                 "type": "array",
                 "items": {
                     "type": "string"
