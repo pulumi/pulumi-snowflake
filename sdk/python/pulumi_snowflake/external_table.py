@@ -41,7 +41,7 @@ class ExternalTableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]] columns: Definitions of a column to create in the external table. Minimum one required.
         :param pulumi.Input[str] database: The database in which to create the external table.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
-        :param pulumi.Input[str] location: Specifies a location for the external table.
+        :param pulumi.Input[str] location: Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         :param pulumi.Input[str] schema: The schema in which to create the external table.
         :param pulumi.Input[bool] auto_refresh: Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         :param pulumi.Input[str] aws_sns_topic: Specifies the aws sns topic for the external table.
@@ -123,7 +123,7 @@ class ExternalTableArgs:
     @pulumi.getter
     def location(self) -> pulumi.Input[str]:
         """
-        Specifies a location for the external table.
+        Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         """
         return pulumi.get(self, "location")
 
@@ -295,7 +295,7 @@ class _ExternalTableState:
         :param pulumi.Input[str] database: The database in which to create the external table.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] location: Specifies a location for the external table.
+        :param pulumi.Input[str] location: Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[str] owner: Name of the role that owns the external table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
@@ -443,7 +443,7 @@ class _ExternalTableState:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies a location for the external table.
+        Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         """
         return pulumi.get(self, "location")
 
@@ -588,7 +588,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         :param pulumi.Input[str] database: The database in which to create the external table.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
-        :param pulumi.Input[str] location: Specifies a location for the external table.
+        :param pulumi.Input[str] location: Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[str] pattern: Specifies the file names and/or paths on the external stage to match.
@@ -720,7 +720,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the external table.
         :param pulumi.Input[str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[str] location: Specifies a location for the external table.
+        :param pulumi.Input[str] location: Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         :param pulumi.Input[str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[str] owner: Name of the role that owns the external table.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
@@ -821,7 +821,7 @@ class ExternalTable(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Specifies a location for the external table.
+        Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         """
         return pulumi.get(self, "location")
 

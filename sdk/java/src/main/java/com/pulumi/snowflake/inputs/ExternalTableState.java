@@ -140,14 +140,14 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies a location for the external table.
+     * Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Specifies a location for the external table.
+     * @return Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
      * 
      */
     public Optional<Output<String>> location() {
@@ -501,7 +501,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param location Specifies a location for the external table.
+         * @param location Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
          * 
          * @return builder
          * 
@@ -512,7 +512,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param location Specifies a location for the external table.
+         * @param location Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
          * 
          * @return builder
          * 

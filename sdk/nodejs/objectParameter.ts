@@ -10,7 +10,7 @@ import * as utilities from "./utilities";
  * ## Import
  *
  * ```sh
- * $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>❄️<object_type>❄️<object_identifier>
+ * $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>|<object_type>|<object_identifier>
  * ```
  */
 export class ObjectParameter extends pulumi.CustomResource {

@@ -30,7 +30,7 @@ type Schema struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringOutput `pulumi:"defaultDdlCollation"`
-	// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+	// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grantOwnership on all objects in the schema.
 	DescribeOutputs SchemaDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
 	EnableConsoleOutput pulumi.BoolOutput `pulumi:"enableConsoleOutput"`
@@ -117,7 +117,7 @@ type schemaState struct {
 	Database *string `pulumi:"database"`
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation *string `pulumi:"defaultDdlCollation"`
-	// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+	// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grantOwnership on all objects in the schema.
 	DescribeOutputs []SchemaDescribeOutput `pulumi:"describeOutputs"`
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
 	EnableConsoleOutput *bool `pulumi:"enableConsoleOutput"`
@@ -172,7 +172,7 @@ type SchemaState struct {
 	Database pulumi.StringPtrInput
 	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringPtrInput
-	// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+	// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grantOwnership on all objects in the schema.
 	DescribeOutputs SchemaDescribeOutputArrayInput
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
 	EnableConsoleOutput pulumi.BoolPtrInput
@@ -427,7 +427,7 @@ func (o SchemaOutput) DefaultDdlCollation() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.DefaultDdlCollation }).(pulumi.StringOutput)
 }
 
-// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grantOwnership on all objects in the schema.
 func (o SchemaOutput) DescribeOutputs() SchemaDescribeOutputArrayOutput {
 	return o.ApplyT(func(v *Schema) SchemaDescribeOutputArrayOutput { return v.DescribeOutputs }).(SchemaDescribeOutputArrayOutput)
 }

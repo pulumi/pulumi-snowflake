@@ -76,7 +76,7 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies a location for the external table.
+     * Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -221,7 +221,7 @@ export interface ExternalTableState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies a location for the external table.
+     * Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
      */
     location?: pulumi.Input<string>;
     /**
@@ -293,7 +293,7 @@ export interface ExternalTableArgs {
      */
     fileFormat: pulumi.Input<string>;
     /**
-     * Specifies a location for the external table.
+     * Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
      */
     location: pulumi.Input<string>;
     /**

@@ -50,7 +50,7 @@ namespace Pulumi.Snowflake
         public Output<string> DefaultDdlCollation { get; private set; } = null!;
 
         /// <summary>
-        /// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+        /// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant_ownership on all objects in the schema.
         /// </summary>
         [Output("describeOutputs")]
         public Output<ImmutableArray<Outputs.SchemaDescribeOutput>> DescribeOutputs { get; private set; } = null!;
@@ -395,7 +395,7 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.SchemaDescribeOutputGetArgs>? _describeOutputs;
 
         /// <summary>
-        /// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+        /// Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant_ownership on all objects in the schema.
         /// </summary>
         public InputList<Inputs.SchemaDescribeOutputGetArgs> DescribeOutputs
         {

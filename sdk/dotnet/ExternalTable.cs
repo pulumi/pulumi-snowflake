@@ -70,7 +70,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a location for the external table.
+        /// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Snowflake
         public Input<string> FileFormat { get; set; } = null!;
 
         /// <summary>
-        /// Specifies a location for the external table.
+        /// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
@@ -341,7 +341,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies a location for the external table.
+        /// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }

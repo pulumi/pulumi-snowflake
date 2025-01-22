@@ -15,7 +15,7 @@ import (
 // ## Import
 //
 // ```sh
-// $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>❄️<object_type>❄️<object_identifier>
+// $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>|<object_type>|<object_identifier>
 // ```
 type ObjectParameter struct {
 	pulumi.CustomResourceState

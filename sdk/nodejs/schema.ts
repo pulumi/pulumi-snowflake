@@ -62,7 +62,7 @@ export class Schema extends pulumi.CustomResource {
      */
     public readonly defaultDdlCollation!: pulumi.Output<string>;
     /**
-     * Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+     * Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grantOwnership on all objects in the schema.
      */
     public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.SchemaDescribeOutput[]>;
     /**
@@ -247,7 +247,7 @@ export interface SchemaState {
      */
     defaultDdlCollation?: pulumi.Input<string>;
     /**
-     * Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+     * Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grantOwnership on all objects in the schema.
      */
     describeOutputs?: pulumi.Input<pulumi.Input<inputs.SchemaDescribeOutput>[]>;
     /**

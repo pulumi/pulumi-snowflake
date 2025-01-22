@@ -13,7 +13,7 @@ namespace Pulumi.Snowflake
     /// ## Import
     /// 
     /// ```sh
-    /// $ pulumi import snowflake:index/objectParameter:ObjectParameter s &lt;key&gt;❄️&lt;object_type&gt;❄️&lt;object_identifier&gt;
+    /// $ pulumi import snowflake:index/objectParameter:ObjectParameter s &lt;key&gt;|&lt;object_type&gt;|&lt;object_identifier&gt;
     /// ```
     /// </summary>
     [SnowflakeResourceType("snowflake:index/objectParameter:ObjectParameter")]
