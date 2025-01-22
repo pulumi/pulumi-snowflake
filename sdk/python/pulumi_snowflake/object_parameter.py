@@ -207,7 +207,7 @@ class ObjectParameter(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>❄️<object_type>❄️<object_identifier>
+        $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>|<object_type>|<object_identifier>
         ```
 
         :param str resource_name: The name of the resource.
@@ -228,7 +228,7 @@ class ObjectParameter(pulumi.CustomResource):
         ## Import
 
         ```sh
-        $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>❄️<object_type>❄️<object_identifier>
+        $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>|<object_type>|<object_identifier>
         ```
 
         :param str resource_name: The name of the resource.

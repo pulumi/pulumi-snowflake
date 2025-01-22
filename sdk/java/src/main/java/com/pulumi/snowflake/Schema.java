@@ -101,14 +101,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
         return this.defaultDdlCollation;
     }
     /**
-     * Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+     * Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant_ownership on all objects in the schema.
      * 
      */
     @Export(name="describeOutputs", refs={List.class,SchemaDescribeOutput.class}, tree="[0,1]")
     private Output<List<SchemaDescribeOutput>> describeOutputs;
 
     /**
-     * @return Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.
+     * @return Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant_ownership on all objects in the schema.
      * 
      */
     public Output<List<SchemaDescribeOutput>> describeOutputs() {

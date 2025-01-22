@@ -38,7 +38,7 @@ type ExternalTable struct {
 	FileFormat pulumi.StringOutput `pulumi:"fileFormat"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies a location for the external table.
+	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -121,7 +121,7 @@ type externalTableState struct {
 	FileFormat *string `pulumi:"fileFormat"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies a location for the external table.
+	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
 	Location *string `pulumi:"location"`
 	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
 	Name *string `pulumi:"name"`
@@ -160,7 +160,7 @@ type ExternalTableState struct {
 	FileFormat pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies a location for the external table.
+	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
 	Location pulumi.StringPtrInput
 	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
 	Name pulumi.StringPtrInput
@@ -201,7 +201,7 @@ type externalTableArgs struct {
 	Database string `pulumi:"database"`
 	// Specifies the file format for the external table.
 	FileFormat string `pulumi:"fileFormat"`
-	// Specifies a location for the external table.
+	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
 	Location string `pulumi:"location"`
 	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
 	Name *string `pulumi:"name"`
@@ -237,7 +237,7 @@ type ExternalTableArgs struct {
 	Database pulumi.StringInput
 	// Specifies the file format for the external table.
 	FileFormat pulumi.StringInput
-	// Specifies a location for the external table.
+	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
 	Location pulumi.StringInput
 	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
 	Name pulumi.StringPtrInput
@@ -384,7 +384,7 @@ func (o ExternalTableOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies a location for the external table.
+// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
 func (o ExternalTableOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }

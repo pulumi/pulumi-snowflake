@@ -45,7 +45,7 @@ class StageArgs:
         :param pulumi.Input[str] credentials: Specifies the credentials for the stage.
         :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
-        :param pulumi.Input[str] file_format: Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
+        :param pulumi.Input[str] file_format: Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         :param pulumi.Input[str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
@@ -182,7 +182,7 @@ class StageArgs:
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
+        Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
         """
         return pulumi.get(self, "file_format")
 
@@ -279,7 +279,7 @@ class _StageState:
         :param pulumi.Input[str] database: The database in which to create the stage.
         :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
-        :param pulumi.Input[str] file_format: Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
+        :param pulumi.Input[str] file_format: Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[str] schema: The schema in which to create the stage.
@@ -410,7 +410,7 @@ class _StageState:
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> Optional[pulumi.Input[str]]:
         """
-        Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
+        Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
         """
         return pulumi.get(self, "file_format")
 
@@ -542,7 +542,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the stage.
         :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
-        :param pulumi.Input[str] file_format: Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
+        :param pulumi.Input[str] file_format: Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[str] schema: The schema in which to create the stage.
         :param pulumi.Input[str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
@@ -663,7 +663,7 @@ class Stage(pulumi.CustomResource):
         :param pulumi.Input[str] database: The database in which to create the stage.
         :param pulumi.Input[str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[str] encryption: Specifies the encryption settings for the stage.
-        :param pulumi.Input[str] file_format: Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
+        :param pulumi.Input[str] file_format: Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[str] schema: The schema in which to create the stage.
@@ -753,7 +753,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.
+        Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
         """
         return pulumi.get(self, "file_format")
 
