@@ -4359,7 +4359,7 @@
                 },
                 "objectType": {
                     "type": "string",
-                    "description": "Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE\n",
+                    "description": "Specifies the type of object on which you are transferring ownership. Available values are: AGGREGATION POLICY | ALERT | AUTHENTICATION POLICY | COMPUTE POOL | DATA METRIC FUNCTION | DATABASE | DATABASE ROLE | DYNAMIC TABLE | EVENT TABLE | EXTERNAL TABLE | EXTERNAL VOLUME | FAILOVER GROUP | FILE FORMAT | FUNCTION | GIT REPOSITORY | HYBRID TABLE | ICEBERG TABLE | IMAGE REPOSITORY | INTEGRATION | MATERIALIZED VIEW | NETWORK POLICY | NETWORK RULE | PACKAGES POLICY | PIPE | PROCEDURE | MASKING POLICY | PASSWORD POLICY | PROJECTION POLICY | REPLICATION GROUP | RESOURCE MONITOR | ROLE | ROW ACCESS POLICY | SCHEMA | SESSION POLICY | SECRET | SEQUENCE | STAGE | STREAM | TABLE | TAG | TASK | USER | VIEW | WAREHOUSE\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4379,7 +4379,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).\n",
+                    "description": "Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4402,7 +4402,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).\n",
+                    "description": "Specifies the type of object in plural form on which you are transferring ownership. Available values are: AGGREGATION POLICIES | ALERTS | AUTHENTICATION POLICIES | COMPUTE POOLS | DATA METRIC FUNCTIONS | DATABASES | DATABASE ROLES | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | EXTERNAL VOLUMES | FAILOVER GROUPS | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | IMAGE REPOSITORIES | INTEGRATIONS | MATERIALIZED VIEWS | NETWORK POLICIES | NETWORK RULES | PACKAGES POLICIES | PIPES | PROCEDURES | MASKING POLICIES | PASSWORD POLICIES | PROJECTION POLICIES | REPLICATION GROUPS | RESOURCE MONITORS | ROLES | ROW ACCESS POLICIES | SCHEMAS | SESSION POLICIES | SECRETS | SEQUENCES | STAGES | STREAMS | TABLES | TAGS | TASKS | USERS | VIEWS | WAREHOUSES. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#required-parameters).\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -36521,7 +36521,7 @@
                 },
                 "location": {
                     "type": "string",
-                    "description": "Specifies a location for the external table.\n"
+                    "description": "Specifies a location for the external table, using its FQDN. You can hardcode it (`\"@MYDB.MYSCHEMA.MYSTAGE\"`), or populate dynamically (`\"@${snowflake_stage.mystage.fully_qualified_name}\"`)\n"
                 },
                 "name": {
                     "type": "string",
@@ -36614,7 +36614,7 @@
                 },
                 "location": {
                     "type": "string",
-                    "description": "Specifies a location for the external table.\n",
+                    "description": "Specifies a location for the external table, using its FQDN. You can hardcode it (`\"@MYDB.MYSCHEMA.MYSTAGE\"`), or populate dynamically (`\"@${snowflake_stage.mystage.fully_qualified_name}\"`)\n",
                     "willReplaceOnChanges": true
                 },
                 "name": {
@@ -36713,7 +36713,7 @@
                     },
                     "location": {
                         "type": "string",
-                        "description": "Specifies a location for the external table.\n",
+                        "description": "Specifies a location for the external table, using its FQDN. You can hardcode it (`\"@MYDB.MYSCHEMA.MYSTAGE\"`), or populate dynamically (`\"@${snowflake_stage.mystage.fully_qualified_name}\"`)\n",
                         "willReplaceOnChanges": true
                     },
                     "name": {
@@ -42602,7 +42602,7 @@
             }
         },
         "snowflake:index/objectParameter:ObjectParameter": {
-            "description": "\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/objectParameter:ObjectParameter s \u003ckey\u003e❄️\u003cobject_type\u003e❄️\u003cobject_identifier\u003e\n```\n\n",
+            "description": "\n\n## Import\n\n```sh\n$ pulumi import snowflake:index/objectParameter:ObjectParameter s \u003ckey\u003e|\u003cobject_type\u003e|\u003cobject_identifier\u003e\n```\n\n",
             "properties": {
                 "key": {
                     "type": "string",
@@ -45601,7 +45601,7 @@
                     "items": {
                         "$ref": "#/types/snowflake:index/SchemaDescribeOutput:SchemaDescribeOutput"
                     },
-                    "description": "Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.\n"
+                    "description": "Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant_ownership on all objects in the schema.\n"
                 },
                 "enableConsoleOutput": {
                     "type": "boolean",
@@ -45839,7 +45839,7 @@
                         "items": {
                             "$ref": "#/types/snowflake:index/SchemaDescribeOutput:SchemaDescribeOutput"
                         },
-                        "description": "Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant*ownership on all objects in the schema.\n"
+                        "description": "Outputs the result of `DESCRIBE SCHEMA` for the given object. In order to handle this output, one must grant sufficient privileges, e.g. grant_ownership on all objects in the schema.\n"
                     },
                     "enableConsoleOutput": {
                         "type": "boolean",
@@ -48575,7 +48575,7 @@
                 },
                 "fileFormat": {
                     "type": "string",
-                    "description": "Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.\n"
+                    "description": "Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format=\"FORMAT_NAME = DB.SCHEMA.FORMATNAME\"` \\n\\n2. from dynamic value:\\n\\n `file_format = \"FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}\"` \\n\\n3. from expression:\\n\\n `file_format = format(\"FORMAT_NAME =%s.%s.MYFILEFORMAT\", var.db_name, each.value.schema_name)`. Reference: #265\n"
                 },
                 "fullyQualifiedName": {
                     "type": "string",
@@ -48652,7 +48652,7 @@
                 },
                 "fileFormat": {
                     "type": "string",
-                    "description": "Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.\n"
+                    "description": "Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format=\"FORMAT_NAME = DB.SCHEMA.FORMATNAME\"` \\n\\n2. from dynamic value:\\n\\n `file_format = \"FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}\"` \\n\\n3. from expression:\\n\\n `file_format = format(\"FORMAT_NAME =%s.%s.MYFILEFORMAT\", var.db_name, each.value.schema_name)`. Reference: #265\n"
                 },
                 "name": {
                     "type": "string",
@@ -48725,7 +48725,7 @@
                     },
                     "fileFormat": {
                         "type": "string",
-                        "description": "Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions.\n"
+                        "description": "Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format=\"FORMAT_NAME = DB.SCHEMA.FORMATNAME\"` \\n\\n2. from dynamic value:\\n\\n `file_format = \"FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}\"` \\n\\n3. from expression:\\n\\n `file_format = format(\"FORMAT_NAME =%s.%s.MYFILEFORMAT\", var.db_name, each.value.schema_name)`. Reference: #265\n"
                     },
                     "fullyQualifiedName": {
                         "type": "string",
