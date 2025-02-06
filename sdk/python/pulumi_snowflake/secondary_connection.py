@@ -28,7 +28,7 @@ class SecondaryConnectionArgs:
         The set of arguments for constructing a SecondaryConnection resource.
         :param pulumi.Input[str] as_replica_of: Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
         :param pulumi.Input[str] comment: Specifies a comment for the secondary connection.
-        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         pulumi.set(__self__, "as_replica_of", as_replica_of)
         if comment is not None:
@@ -64,7 +64,7 @@ class SecondaryConnectionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -88,7 +88,7 @@ class _SecondaryConnectionState:
         :param pulumi.Input[str] comment: Specifies a comment for the secondary connection.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] is_primary: Indicates if the connection primary status has been changed. If change is detected, resource will be recreated.
-        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['SecondaryConnectionShowOutputArgs']]] show_outputs: Outputs the result of `SHOW CONNECTIONS` for the given connection.
         """
         if as_replica_of is not None:
@@ -156,7 +156,7 @@ class _SecondaryConnectionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
-        String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -197,7 +197,7 @@ class SecondaryConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] as_replica_of: Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
         :param pulumi.Input[str] comment: Specifies a comment for the secondary connection.
-        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         ...
     @overload
@@ -274,7 +274,7 @@ class SecondaryConnection(pulumi.CustomResource):
         :param pulumi.Input[str] comment: Specifies a comment for the secondary connection.
         :param pulumi.Input[str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[bool] is_primary: Indicates if the connection primary status has been changed. If change is detected, resource will be recreated.
-        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecondaryConnectionShowOutputArgs', 'SecondaryConnectionShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW CONNECTIONS` for the given connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -325,7 +325,7 @@ class SecondaryConnection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 

@@ -47,14 +47,14 @@ public final class PrimaryConnectionArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -140,7 +140,7 @@ public final class PrimaryConnectionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class PrimaryConnectionArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
