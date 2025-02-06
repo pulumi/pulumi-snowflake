@@ -28,7 +28,7 @@ type SecondaryConnection struct {
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Indicates if the connection primary status has been changed. If change is detected, resource will be recreated.
 	IsPrimary pulumi.BoolOutput `pulumi:"isPrimary"`
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW CONNECTIONS` for the given connection.
 	ShowOutputs SecondaryConnectionShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -75,7 +75,7 @@ type secondaryConnectionState struct {
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Indicates if the connection primary status has been changed. If change is detected, resource will be recreated.
 	IsPrimary *bool `pulumi:"isPrimary"`
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW CONNECTIONS` for the given connection.
 	ShowOutputs []SecondaryConnectionShowOutput `pulumi:"showOutputs"`
@@ -90,7 +90,7 @@ type SecondaryConnectionState struct {
 	FullyQualifiedName pulumi.StringPtrInput
 	// Indicates if the connection primary status has been changed. If change is detected, resource will be recreated.
 	IsPrimary pulumi.BoolPtrInput
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW CONNECTIONS` for the given connection.
 	ShowOutputs SecondaryConnectionShowOutputArrayInput
@@ -105,7 +105,7 @@ type secondaryConnectionArgs struct {
 	AsReplicaOf string `pulumi:"asReplicaOf"`
 	// Specifies a comment for the secondary connection.
 	Comment *string `pulumi:"comment"`
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 }
 
@@ -115,7 +115,7 @@ type SecondaryConnectionArgs struct {
 	AsReplicaOf pulumi.StringInput
 	// Specifies a comment for the secondary connection.
 	Comment pulumi.StringPtrInput
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 }
 
@@ -226,7 +226,7 @@ func (o SecondaryConnectionOutput) IsPrimary() pulumi.BoolOutput {
 	return o.ApplyT(func(v *SecondaryConnection) pulumi.BoolOutput { return v.IsPrimary }).(pulumi.BoolOutput)
 }
 
-// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o SecondaryConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
