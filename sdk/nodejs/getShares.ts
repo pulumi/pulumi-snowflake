@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const this = snowflake.getShares({});
+ * const _this = snowflake.getShares({});
  * const ad = snowflake.getShares({
  *     pattern: "usage",
  * });
@@ -65,7 +65,7 @@ export interface GetSharesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const this = snowflake.getShares({});
+ * const _this = snowflake.getShares({});
  * const ad = snowflake.getShares({
  *     pattern: "usage",
  * });

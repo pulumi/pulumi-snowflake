@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const this = snowflake.getDatabase({
+ * const _this = snowflake.getDatabase({
  *     name: "DEMO_DB",
  * });
  * ```
@@ -65,7 +65,7 @@ export interface GetDatabaseResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const this = snowflake.getDatabase({
+ * const _this = snowflake.getDatabase({
  *     name: "DEMO_DB",
  * });
  * ```
