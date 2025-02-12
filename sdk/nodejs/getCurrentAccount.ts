@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * import * as aws from "@pulumi/aws";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const this = snowflake.getCurrentAccount({});
+ * const _this = snowflake.getCurrentAccount({});
  * const snowflakeAccountUrl = new aws.index.SsmParameter("snowflake_account_url", {
  *     name: "/snowflake/account_url",
  *     type: "String",
@@ -59,7 +59,7 @@ export interface GetCurrentAccountResult {
  * import * as aws from "@pulumi/aws";
  * import * as snowflake from "@pulumi/snowflake";
  *
- * const this = snowflake.getCurrentAccount({});
+ * const _this = snowflake.getCurrentAccount({});
  * const snowflakeAccountUrl = new aws.index.SsmParameter("snowflake_account_url", {
  *     name: "/snowflake/account_url",
  *     type: "String",

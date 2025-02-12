@@ -29,7 +29,7 @@ import * as utilities from "./utilities";
  * });
  * export const likePrefixOutput = likePrefix.then(likePrefix => likePrefix.secrets);
  * // Filtering (in)
- * const in = snowflake.getSecrets({
+ * const _in = snowflake.getSecrets({
  *     "in": {
  *         schema: test.fullyQualifiedName,
  *     },
@@ -118,7 +118,7 @@ export interface GetSecretsResult {
  * });
  * export const likePrefixOutput = likePrefix.then(likePrefix => likePrefix.secrets);
  * // Filtering (in)
- * const in = snowflake.getSecrets({
+ * const _in = snowflake.getSecrets({
  *     "in": {
  *         schema: test.fullyQualifiedName,
  *     },
