@@ -7,7 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
-import com.pulumi.deployment.InvokeOutputOptions;
 import com.pulumi.resources.InvokeArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.GetAccountRolesArgs;
@@ -177,13 +176,6 @@ public final class SnowflakeFunctions {
      * Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.
      * 
      */
-    public static Output<GetAccountRolesResult> getAccountRoles(GetAccountRolesArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getAccountRoles:getAccountRoles", TypeShape.of(GetAccountRolesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.
-     * 
-     */
     public static CompletableFuture<GetAccountRolesResult> getAccountRolesPlain(GetAccountRolesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getAccountRoles:getAccountRoles", TypeShape.of(GetAccountRolesResult.class), args, Utilities.withVersion(options));
     }
@@ -220,13 +212,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetAccountsResult> getAccounts(GetAccountsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
-     * 
-     */
-    public static Output<GetAccountsResult> getAccounts(GetAccountsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -491,49 +476,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetAlertsResult> getAlerts(GetAlertsArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getAlerts:getAlerts", TypeShape.of(GetAlertsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetAlertsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getAlerts(GetAlertsArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetAlertsResult> getAlertsPlain(GetAlertsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getAlerts:getAlerts", TypeShape.of(GetAlertsResult.class), args, Utilities.withVersion(options));
     }
@@ -570,13 +512,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetConnectionsResult> getConnections(GetConnectionsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
-     * 
-     */
-    public static Output<GetConnectionsResult> getConnections(GetConnectionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -967,70 +902,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetCortexSearchServicesResult> getCortexSearchServices(GetCortexSearchServicesArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getCortexSearchServices:getCortexSearchServices", TypeShape.of(GetCortexSearchServicesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetCortexSearchServicesArgs;
-     * import com.pulumi.snowflake.inputs.GetCortexSearchServicesLimitArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getCortexSearchServices();
-     * 
-     *         ctx.export("simpleOutput", simple.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
-     *         // Filtering (like)
-     *         final var like = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
-     *             .like("some-name")
-     *             .build());
-     * 
-     *         ctx.export("likeOutput", like.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
-     *         // Filtering (starts_with)
-     *         final var startsWith = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
-     *             .startsWith("prefix-")
-     *             .build());
-     * 
-     *         ctx.export("startsWithOutput", startsWith.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
-     *         // Filtering (limit)
-     *         final var limit = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
-     *             .limit(GetCortexSearchServicesLimitArgs.builder()
-     *                 .rows(10)
-     *                 .from("prefix-")
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export("limitOutput", limit.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetCortexSearchServicesResult> getCortexSearchServicesPlain(GetCortexSearchServicesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getCortexSearchServices:getCortexSearchServices", TypeShape.of(GetCortexSearchServicesResult.class), args, Utilities.withVersion(options));
     }
@@ -1313,53 +1184,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetCurrentAccountResult> getCurrentAccount(InvokeArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getCurrentAccount:getCurrentAccount", TypeShape.of(GetCurrentAccountResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.aws.ssmParameter;
-     * import com.pulumi.aws.SsmParameterArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getCurrentAccount();
-     * 
-     *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
-     *             .name("/snowflake/account_url")
-     *             .type("String")
-     *             .value(this_.url())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetCurrentAccountResult> getCurrentAccountPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getCurrentAccount:getCurrentAccount", TypeShape.of(GetCurrentAccountResult.class), args, Utilities.withVersion(options));
     }
@@ -1396,13 +1220,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetCurrentRoleResult> getCurrentRole(InvokeArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getCurrentRole:getCurrentRole", TypeShape.of(GetCurrentRoleResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     */
-    public static Output<GetCurrentRoleResult> getCurrentRole(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getCurrentRole:getCurrentRole", TypeShape.of(GetCurrentRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1536,48 +1353,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetDatabaseArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .name("DEMO_DB")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1791,49 +1566,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetDatabaseRoleResult> getDatabaseRole(GetDatabaseRoleArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getDatabaseRole:getDatabaseRole", TypeShape.of(GetDatabaseRoleResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetDatabaseRoleArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var dbRole = SnowflakeFunctions.getDatabaseRole(GetDatabaseRoleArgs.builder()
-     *             .database("MYDB")
-     *             .name("DBROLE")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetDatabaseRoleResult> getDatabaseRolePlain(GetDatabaseRolePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDatabaseRole:getDatabaseRole", TypeShape.of(GetDatabaseRoleResult.class), args, Utilities.withVersion(options));
     }
@@ -1856,13 +1588,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetDatabaseRolesResult> getDatabaseRoles(GetDatabaseRolesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getDatabaseRoles:getDatabaseRoles", TypeShape.of(GetDatabaseRolesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered database roles. Filtering is aligned with the current possibilities for [SHOW DATABASE ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-database-roles) query (`like` and `limit` are supported). The results of SHOW is encapsulated in show_output collection.
-     * 
-     */
-    public static Output<GetDatabaseRolesResult> getDatabaseRoles(GetDatabaseRolesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getDatabaseRoles:getDatabaseRoles", TypeShape.of(GetDatabaseRolesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1911,13 +1636,6 @@ public final class SnowflakeFunctions {
      * Data source used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
      * 
      */
-    public static Output<GetDatabasesResult> getDatabases(GetDatabasesArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getDatabases:getDatabases", TypeShape.of(GetDatabasesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
-     * 
-     */
     public static CompletableFuture<GetDatabasesResult> getDatabasesPlain(GetDatabasesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDatabases:getDatabases", TypeShape.of(GetDatabasesResult.class), args, Utilities.withVersion(options));
     }
@@ -1954,13 +1672,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetDynamicTablesResult> getDynamicTables(GetDynamicTablesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getDynamicTables:getDynamicTables", TypeShape.of(GetDynamicTablesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     */
-    public static Output<GetDynamicTablesResult> getDynamicTables(GetDynamicTablesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getDynamicTables:getDynamicTables", TypeShape.of(GetDynamicTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2225,49 +1936,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetExternalFunctionsResult> getExternalFunctions(GetExternalFunctionsArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getExternalFunctions:getExternalFunctions", TypeShape.of(GetExternalFunctionsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetExternalFunctionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getExternalFunctions(GetExternalFunctionsArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetExternalFunctionsResult> getExternalFunctionsPlain(GetExternalFunctionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getExternalFunctions:getExternalFunctions", TypeShape.of(GetExternalFunctionsResult.class), args, Utilities.withVersion(options));
     }
@@ -2440,49 +2108,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetExternalTablesResult> getExternalTables(GetExternalTablesArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getExternalTables:getExternalTables", TypeShape.of(GetExternalTablesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetExternalTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getExternalTables(GetExternalTablesArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetExternalTablesResult> getExternalTablesPlain(GetExternalTablesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getExternalTables:getExternalTables", TypeShape.of(GetExternalTablesResult.class), args, Utilities.withVersion(options));
     }
@@ -2519,13 +2144,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetFailoverGroupsResult> getFailoverGroups(GetFailoverGroupsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getFailoverGroups:getFailoverGroups", TypeShape.of(GetFailoverGroupsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     */
-    public static Output<GetFailoverGroupsResult> getFailoverGroups(GetFailoverGroupsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getFailoverGroups:getFailoverGroups", TypeShape.of(GetFailoverGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -2704,49 +2322,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetFileFormatsResult> getFileFormats(GetFileFormatsArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getFileFormats:getFileFormats", TypeShape.of(GetFileFormatsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getFileFormats(GetFileFormatsArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetFileFormatsResult> getFileFormatsPlain(GetFileFormatsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getFileFormats:getFileFormats", TypeShape.of(GetFileFormatsResult.class), args, Utilities.withVersion(options));
     }
@@ -2877,49 +2452,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetFunctionsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getFunctions(GetFunctionsArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4018,182 +3550,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetGrantsResult> getGrants(GetGrantsArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getGrants:getGrants", TypeShape.of(GetGrantsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetGrantsArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOnArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsGrantsToShareArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsGrantsOfArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsInArgs;
-     * import com.pulumi.snowflake.inputs.GetGrantsFutureGrantsToArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         //#################################
-     *         //## SHOW GRANTS ON ...
-     *         //#################################
-     *         // account
-     *         final var exampleOnAccount = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .account(true)
-     *                 .build())
-     *             .build());
-     * 
-     *         // account object (e.g. database)
-     *         final var exampleOnAccountObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("some_database")
-     *                 .objectType("DATABASE")
-     *                 .build())
-     *             .build());
-     * 
-     *         // database object (e.g. schema)
-     *         final var exampleOnDatabaseObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\"")
-     *                 .objectType("SCHEMA")
-     *                 .build())
-     *             .build());
-     * 
-     *         // schema object (e.g. table)
-     *         final var exampleOnSchemaObject = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOn(GetGrantsGrantsOnArgs.builder()
-     *                 .objectName("\"some_database\".\"some_schema\".\"some_table\"")
-     *                 .objectType("TABLE")
-     *                 .build())
-     *             .build());
-     * 
-     *         // application
-     *         final var exampleToApplication = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .application("some_application")
-     *                 .build())
-     *             .build());
-     * 
-     *         // application role
-     *         final var exampleToApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
-     *                 .build())
-     *             .build());
-     * 
-     *         // account role
-     *         final var exampleToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .accountRole("some_role")
-     *                 .build())
-     *             .build());
-     * 
-     *         // database role
-     *         final var exampleToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
-     *                 .build())
-     *             .build());
-     * 
-     *         // share
-     *         final var exampleToShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .share(GetGrantsGrantsToShareArgs.builder()
-     *                     .shareName("some_share")
-     *                     .build())
-     *                 .build())
-     *             .build());
-     * 
-     *         // user
-     *         final var exampleToUser = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsTo(GetGrantsGrantsToArgs.builder()
-     *                 .user("some_user")
-     *                 .build())
-     *             .build());
-     * 
-     *         // application role
-     *         final var exampleOfApplicationRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .applicationRole("\"some_application\".\"some_application_role\"")
-     *                 .build())
-     *             .build());
-     * 
-     *         // database role
-     *         final var exampleOfDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
-     *                 .build())
-     *             .build());
-     * 
-     *         // account role
-     *         final var exampleOfRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .accountRole("some_role")
-     *                 .build())
-     *             .build());
-     * 
-     *         // share
-     *         final var exampleOfShare = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .grantsOf(GetGrantsGrantsOfArgs.builder()
-     *                 .share("some_share")
-     *                 .build())
-     *             .build());
-     * 
-     *         // database
-     *         final var exampleFutureInDatabase = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .database("some_database")
-     *                 .build())
-     *             .build());
-     * 
-     *         // schema
-     *         final var exampleFutureInSchema = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsIn(GetGrantsFutureGrantsInArgs.builder()
-     *                 .schema("\"some_database\".\"some_schema\"")
-     *                 .build())
-     *             .build());
-     * 
-     *         // account role
-     *         final var exampleFutureToRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .accountRole("some_role")
-     *                 .build())
-     *             .build());
-     * 
-     *         // database role
-     *         final var exampleFutureToDatabaseRole = SnowflakeFunctions.getGrants(GetGrantsArgs.builder()
-     *             .futureGrantsTo(GetGrantsFutureGrantsToArgs.builder()
-     *                 .databaseRole("\"some_database\".\"some_database_role\"")
-     *                 .build())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetGrantsResult> getGrantsPlain(GetGrantsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getGrants:getGrants", TypeShape.of(GetGrantsResult.class), args, Utilities.withVersion(options));
     }
@@ -4230,13 +3586,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetMaskingPoliciesResult> getMaskingPolicies(GetMaskingPoliciesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getMaskingPolicies:getMaskingPolicies", TypeShape.of(GetMaskingPoliciesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `masking_policies`.
-     * 
-     */
-    public static Output<GetMaskingPoliciesResult> getMaskingPolicies(GetMaskingPoliciesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getMaskingPolicies:getMaskingPolicies", TypeShape.of(GetMaskingPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4415,49 +3764,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetMaterializedViewsResult> getMaterializedViews(GetMaterializedViewsArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getMaterializedViews:getMaterializedViews", TypeShape.of(GetMaterializedViewsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetMaterializedViewsArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getMaterializedViews(GetMaterializedViewsArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetMaterializedViewsResult> getMaterializedViewsPlain(GetMaterializedViewsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getMaterializedViews:getMaterializedViews", TypeShape.of(GetMaterializedViewsResult.class), args, Utilities.withVersion(options));
     }
@@ -4494,13 +3800,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetNetworkPoliciesResult> getNetworkPolicies(GetNetworkPoliciesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getNetworkPolicies:getNetworkPolicies", TypeShape.of(GetNetworkPoliciesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
-     * 
-     */
-    public static Output<GetNetworkPoliciesResult> getNetworkPolicies(GetNetworkPoliciesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getNetworkPolicies:getNetworkPolicies", TypeShape.of(GetNetworkPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -4891,70 +4190,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetParametersResult> getParameters(GetParametersArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getParameters:getParameters", TypeShape.of(GetParametersResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.Database;
-     * import com.pulumi.snowflake.DatabaseArgs;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetParametersArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         var d = new Database("d", DatabaseArgs.builder()
-     *             .name("TEST_DB")
-     *             .build());
-     * 
-     *         // read all object parameters in database TEST_DB
-     *         final var p = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType("OBJECT")
-     *             .objectType("DATABASE")
-     *             .objectName(d.name())
-     *             .build());
-     * 
-     *         // read all account parameters with the pattern '%TIMESTAMP%'
-     *         final var p2 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType("ACCOUNT")
-     *             .pattern("%TIMESTAMP%")
-     *             .build());
-     * 
-     *         // read the exact session parameter ROWS_PER_RESULTSET
-     *         final var p3 = SnowflakeFunctions.getParameters(GetParametersArgs.builder()
-     *             .parameterType("SESSION")
-     *             .pattern("ROWS_PER_RESULTSET")
-     *             .user("TEST_USER")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetParametersResult> getParametersPlain(GetParametersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getParameters:getParameters", TypeShape.of(GetParametersResult.class), args, Utilities.withVersion(options));
     }
@@ -5085,49 +4320,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetPipesResult> getPipes(GetPipesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getPipes:getPipes", TypeShape.of(GetPipesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetPipesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getPipes(GetPipesArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetPipesResult> getPipes(GetPipesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getPipes:getPipes", TypeShape.of(GetPipesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5342,49 +4534,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetProceduresResult> getProcedures(GetProceduresArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getProcedures:getProcedures", TypeShape.of(GetProceduresResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetProceduresArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getProcedures(GetProceduresArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetProceduresResult> getProceduresPlain(GetProceduresPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getProcedures:getProcedures", TypeShape.of(GetProceduresResult.class), args, Utilities.withVersion(options));
     }
@@ -5427,13 +4576,6 @@ public final class SnowflakeFunctions {
      * Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in show_output collection.
      * 
      */
-    public static Output<GetResourceMonitorsResult> getResourceMonitors(GetResourceMonitorsArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getResourceMonitors:getResourceMonitors", TypeShape.of(GetResourceMonitorsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in show_output collection.
-     * 
-     */
     public static CompletableFuture<GetResourceMonitorsResult> getResourceMonitorsPlain(GetResourceMonitorsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getResourceMonitors:getResourceMonitors", TypeShape.of(GetResourceMonitorsResult.class), args, Utilities.withVersion(options));
     }
@@ -5470,13 +4612,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetRowAccessPoliciesResult> getRowAccessPolicies(GetRowAccessPoliciesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", TypeShape.of(GetRowAccessPoliciesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
-     * 
-     */
-    public static Output<GetRowAccessPoliciesResult> getRowAccessPolicies(GetRowAccessPoliciesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", TypeShape.of(GetRowAccessPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5534,16 +4669,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetSchemasResult> getSchemas(GetSchemasArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getSchemas:getSchemas", TypeShape.of(GetSchemasResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * &lt;!-- TODO(SNOW-1844996): Remove this note.--&gt;
-     * &gt; **Note** Field `WITH PRIVILEGES` is currently missing. It will be added in the future.
-     * 
-     * Data source used to get details of filtered schemas. Filtering is aligned with the current possibilities for [SHOW SCHEMAS](https://docs.snowflake.com/en/sql-reference/sql/show-schemas) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
-     * 
-     */
-    public static Output<GetSchemasResult> getSchemas(GetSchemasArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSchemas:getSchemas", TypeShape.of(GetSchemasResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -5967,75 +5092,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered secrets. Filtering is aligned with the current possibilities for [SHOW SECRETS](https://docs.snowflake.com/en/sql-reference/sql/show-secrets) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `secrets`.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetSecretsArgs;
-     * import com.pulumi.snowflake.inputs.GetSecretsInArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getSecrets();
-     * 
-     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
-     *         // Filtering (like)
-     *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .like("secret-name")
-     *             .build());
-     * 
-     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
-     *         // Filtering by prefix (like)
-     *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .like("prefix%")
-     *             .build());
-     * 
-     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
-     *         // Filtering (in)
-     *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .in(GetSecretsInArgs.builder()
-     *                 .schema(test.fullyQualifiedName())
-     *                 .build())
-     *             .build());
-     * 
-     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
-     *         // Without additional data (to limit the number of calls make for every found secret)
-     *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
-     *             .withDescribe(false)
-     *             .build());
-     * 
-     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
     }
@@ -6072,13 +5128,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetSecurityIntegrationsResult> getSecurityIntegrations(GetSecurityIntegrationsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", TypeShape.of(GetSecurityIntegrationsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
-     * 
-     */
-    public static Output<GetSecurityIntegrationsResult> getSecurityIntegrations(GetSecurityIntegrationsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", TypeShape.of(GetSecurityIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6215,49 +5264,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetSequencesResult> getSequences(GetSequencesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getSequences:getSequences", TypeShape.of(GetSequencesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetSequencesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getSequences(GetSequencesArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetSequencesResult> getSequences(GetSequencesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSequences:getSequences", TypeShape.of(GetSequencesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -6564,50 +5570,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSharesResult> getShares(GetSharesArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getShares:getShares", TypeShape.of(GetSharesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetSharesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getShares();
-     * 
-     *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
-     *             .pattern("usage")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetSharesResult> getSharesPlain(GetSharesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getShares:getShares", TypeShape.of(GetSharesResult.class), args, Utilities.withVersion(options));
     }
@@ -6738,49 +5700,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetStagesResult> getStages(GetStagesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getStages:getStages", TypeShape.of(GetStagesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetStagesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getStages(GetStagesArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetStagesResult> getStages(GetStagesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getStages:getStages", TypeShape.of(GetStagesResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -7057,45 +5976,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetStorageIntegrationsResult> getStorageIntegrations(InvokeArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getStorageIntegrations:getStorageIntegrations", TypeShape.of(GetStorageIntegrationsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getStorageIntegrations();
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetStorageIntegrationsResult> getStorageIntegrationsPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getStorageIntegrations:getStorageIntegrations", TypeShape.of(GetStorageIntegrationsResult.class), args, Utilities.withVersion(options));
     }
@@ -7138,13 +6018,6 @@ public final class SnowflakeFunctions {
      * Data source used to get details of filtered streamlits. Filtering is aligned with the current possibilities for [SHOW STREAMLITS](https://docs.snowflake.com/en/sql-reference/sql/show-streamlits) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `streamlits`.
      * 
      */
-    public static Output<GetStreamlitsResult> getStreamlits(GetStreamlitsArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getStreamlits:getStreamlits", TypeShape.of(GetStreamlitsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered streamlits. Filtering is aligned with the current possibilities for [SHOW STREAMLITS](https://docs.snowflake.com/en/sql-reference/sql/show-streamlits) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `streamlits`.
-     * 
-     */
     public static CompletableFuture<GetStreamlitsResult> getStreamlitsPlain(GetStreamlitsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getStreamlits:getStreamlits", TypeShape.of(GetStreamlitsResult.class), args, Utilities.withVersion(options));
     }
@@ -7181,13 +6054,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetStreamsResult> getStreams(GetStreamsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getStreams:getStreams", TypeShape.of(GetStreamsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
-     * 
-     */
-    public static Output<GetStreamsResult> getStreams(GetStreamsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getStreams:getStreams", TypeShape.of(GetStreamsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -7362,48 +6228,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSystemGenerateScimAccessTokenResult> getSystemGenerateScimAccessToken(GetSystemGenerateScimAccessTokenArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", TypeShape.of(GetSystemGenerateScimAccessTokenResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetSystemGenerateScimAccessTokenArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var scim = SnowflakeFunctions.getSystemGenerateScimAccessToken(GetSystemGenerateScimAccessTokenArgs.builder()
-     *             .integrationName("AAD_PROVISIONING")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetSystemGenerateScimAccessTokenResult> getSystemGenerateScimAccessTokenPlain(GetSystemGenerateScimAccessTokenPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", TypeShape.of(GetSystemGenerateScimAccessTokenResult.class), args, Utilities.withVersion(options));
     }
@@ -7525,46 +6349,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetSystemGetAwsSnsIamPolicyArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var snowflakePolicy = SnowflakeFunctions.getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs.builder()
-     *             .awsSnsTopicArn("<aws_sns_topic_arn>")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
-    public static Output<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -8108,90 +6892,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfig(InvokeArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", TypeShape.of(GetSystemGetPrivateLinkConfigResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.aws.securityGroup;
-     * import com.pulumi.aws.SecurityGroupArgs;
-     * import com.pulumi.aws.vpcEndpoint;
-     * import com.pulumi.aws.VpcEndpointArgs;
-     * import com.pulumi.aws.route53Zone;
-     * import com.pulumi.aws.Route53ZoneArgs;
-     * import com.pulumi.aws.route53Record;
-     * import com.pulumi.aws.Route53RecordArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
-     * 
-     *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
-     *             .vpcId(vpcId)
-     *             .ingress(            
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
-     * 
-     *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
-     *             .vpcId(vpcId)
-     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
-     *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
-     *             .subnetIds(subnetIds)
-     *             .privateDnsEnabled(false)
-     *             .build());
-     * 
-     *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
-     *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
-     *             .build());
-     * 
-     *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
-     *             .type("CNAME")
-     *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
-     *             .build());
-     * 
-     *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
-     *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
-     *             .type("CNAME")
-     *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfigPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", TypeShape.of(GetSystemGetPrivateLinkConfigResult.class), args, Utilities.withVersion(options));
     }
@@ -8228,13 +6928,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetSystemGetSnowflakePlatformInfoResult> getSystemGetSnowflakePlatformInfo(InvokeArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", TypeShape.of(GetSystemGetSnowflakePlatformInfoResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     */
-    public static Output<GetSystemGetSnowflakePlatformInfoResult> getSystemGetSnowflakePlatformInfo(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", TypeShape.of(GetSystemGetSnowflakePlatformInfoResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -8413,49 +7106,6 @@ public final class SnowflakeFunctions {
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
-    public static Output<GetTablesResult> getTables(GetTablesArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getTables:getTables", TypeShape.of(GetTablesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-     * 
-     * ## Example Usage
-     * 
-     * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getTables(GetTablesArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
-     * &lt;!--End PulumiCodeChooser --&gt;
-     * 
-     */
     public static CompletableFuture<GetTablesResult> getTablesPlain(GetTablesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getTables:getTables", TypeShape.of(GetTablesResult.class), args, Utilities.withVersion(options));
     }
@@ -8492,13 +7142,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetTagsResult> getTags(GetTagsArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getTags:getTags", TypeShape.of(GetTagsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered tags. Filtering is aligned with the current possibilities for [SHOW TAGS](https://docs.snowflake.com/en/sql-reference/sql/show-tags) query. The results of SHOW are encapsulated in one output collection `tags`.
-     * 
-     */
-    public static Output<GetTagsResult> getTags(GetTagsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getTags:getTags", TypeShape.of(GetTagsResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -8547,13 +7190,6 @@ public final class SnowflakeFunctions {
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
      */
-    public static Output<GetTasksResult> getTasks(GetTasksArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getTasks:getTasks", TypeShape.of(GetTasksResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
-     * 
-     */
     public static CompletableFuture<GetTasksResult> getTasksPlain(GetTasksPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getTasks:getTasks", TypeShape.of(GetTasksResult.class), args, Utilities.withVersion(options));
     }
@@ -8590,13 +7226,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `show_output` (only empty or default values), the DESCRIBE command cannot be called, so you have to set `with_describe = false`. Only `parameters` output is not affected by the lack of privileges.
-     * 
-     */
-    public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -8645,13 +7274,6 @@ public final class SnowflakeFunctions {
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
      */
-    public static Output<GetViewsResult> getViews(GetViewsArgs args, InvokeOutputOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getViews:getViews", TypeShape.of(GetViewsResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
-     * 
-     */
     public static CompletableFuture<GetViewsResult> getViewsPlain(GetViewsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getViews:getViews", TypeShape.of(GetViewsResult.class), args, Utilities.withVersion(options));
     }
@@ -8688,13 +7310,6 @@ public final class SnowflakeFunctions {
      * 
      */
     public static Output<GetWarehousesResult> getWarehouses(GetWarehousesArgs args, InvokeOptions options) {
-        return Deployment.getInstance().invoke("snowflake:index/getWarehouses:getWarehouses", TypeShape.of(GetWarehousesResult.class), args, Utilities.withVersion(options));
-    }
-    /**
-     * Data source used to get details of filtered warehouses. Filtering is aligned with the current possibilities for [SHOW WAREHOUSES](https://docs.snowflake.com/en/sql-reference/sql/show-warehouses) query (only `like` is supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
-     * 
-     */
-    public static Output<GetWarehousesResult> getWarehouses(GetWarehousesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getWarehouses:getWarehouses", TypeShape.of(GetWarehousesResult.class), args, Utilities.withVersion(options));
     }
     /**
