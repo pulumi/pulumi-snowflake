@@ -222,6 +222,10 @@
                     ]
                 }
             },
+            "skipTomlFilePermissionVerification": {
+                "type": "boolean",
+                "description": "True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as\nthe permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges\n- see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment\nvariable.\n"
+            },
             "tmpDirectoryPath": {
                 "type": "string",
                 "description": "Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from\nthe `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.\n"
@@ -33026,6 +33030,10 @@
                 "type": "string",
                 "description": "Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the\n`SNOWFLAKE_ROLE` environment variable.\n"
             },
+            "skipTomlFilePermissionVerification": {
+                "type": "boolean",
+                "description": "True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as\nthe permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges\n- see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment\nvariable.\n"
+            },
             "tmpDirectoryPath": {
                 "type": "string",
                 "description": "Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from\nthe `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.\n"
@@ -33225,6 +33233,10 @@
                         "SNOWFLAKE_ROLE"
                     ]
                 }
+            },
+            "skipTomlFilePermissionVerification": {
+                "type": "boolean",
+                "description": "True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as\nthe permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges\n- see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment\nvariable.\n"
             },
             "tmpDirectoryPath": {
                 "type": "string",
@@ -41181,7 +41193,7 @@
                 },
                 "exemptOtherPolicies": {
                     "type": "string",
-                    "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n"
+                    "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n"
                 },
                 "fullyQualifiedName": {
                     "type": "string",
@@ -41242,7 +41254,7 @@
                 },
                 "exemptOtherPolicies": {
                     "type": "string",
-                    "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n",
+                    "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n",
                     "willReplaceOnChanges": true
                 },
                 "name": {
@@ -41300,7 +41312,7 @@
                     },
                     "exemptOtherPolicies": {
                         "type": "string",
-                        "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is chenged, the resource is recreated. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n",
+                        "description": "Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n",
                         "willReplaceOnChanges": true
                     },
                     "fullyQualifiedName": {
@@ -42451,7 +42463,8 @@
                     "description": "Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n"
                 },
                 "oauthRedirectUri": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.\n"
                 },
                 "oauthRefreshTokenValidity": {
                     "type": "integer",
@@ -42515,7 +42528,8 @@
                     "description": "Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n"
                 },
                 "oauthRedirectUri": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.\n"
                 },
                 "oauthRefreshTokenValidity": {
                     "type": "integer",
@@ -42573,7 +42587,8 @@
                         "description": "Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: \"true\" or \"false\". When the value is not set in the configuration the provider will put \"default\" there which means to use the Snowflake default for this value.\n"
                     },
                     "oauthRedirectUri": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.\n"
                     },
                     "oauthRefreshTokenValidity": {
                         "type": "integer",
@@ -55508,7 +55523,7 @@
             }
         },
         "snowflake:index/getUsers:getUsers": {
-            "description": "Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don't have permissions to, the querying options are limited. You won't get almost any field in `show_output` (only empty or default values), the DESCRIBE command cannot be called, so you have to set `with_describe = false`. Only `parameters` output is not affected by the lack of privileges.\n\n",
+            "description": "Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don't have permissions to, the querying options are limited. You won't get almost any field in `show_output` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `with_describe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `with_parameters = false`.\n\n",
             "inputs": {
                 "description": "A collection of arguments for invoking getUsers.\n",
                 "properties": {
