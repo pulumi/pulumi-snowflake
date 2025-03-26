@@ -54,6 +54,7 @@ class ProviderArgs:
                  protocol: Optional[pulumi.Input[str]] = None,
                  request_timeout: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
+                 skip_toml_file_permission_verification: Optional[pulumi.Input[bool]] = None,
                  tmp_directory_path: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  token_accessor: Optional[pulumi.Input['ProviderTokenAccessorArgs']] = None,
@@ -130,6 +131,10 @@ class ProviderArgs:
                `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
         :param pulumi.Input[str] role: Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
                `SNOWFLAKE_ROLE` environment variable.
+        :param pulumi.Input[bool] skip_toml_file_permission_verification: True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+               the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
+               - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
+               variable.
         :param pulumi.Input[str] tmp_directory_path: Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
                the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
         :param pulumi.Input[str] token: Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
@@ -220,6 +225,8 @@ class ProviderArgs:
             role = _utilities.get_env('SNOWFLAKE_ROLE')
         if role is not None:
             pulumi.set(__self__, "role", role)
+        if skip_toml_file_permission_verification is not None:
+            pulumi.set(__self__, "skip_toml_file_permission_verification", skip_toml_file_permission_verification)
         if tmp_directory_path is not None:
             pulumi.set(__self__, "tmp_directory_path", tmp_directory_path)
         if token is not None:
@@ -676,6 +683,21 @@ class ProviderArgs:
         pulumi.set(self, "role", value)
 
     @property
+    @pulumi.getter(name="skipTomlFilePermissionVerification")
+    def skip_toml_file_permission_verification(self) -> Optional[pulumi.Input[bool]]:
+        """
+        True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+        the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
+        - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
+        variable.
+        """
+        return pulumi.get(self, "skip_toml_file_permission_verification")
+
+    @skip_toml_file_permission_verification.setter
+    def skip_toml_file_permission_verification(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_toml_file_permission_verification", value)
+
+    @property
     @pulumi.getter(name="tmpDirectoryPath")
     def tmp_directory_path(self) -> Optional[pulumi.Input[str]]:
         """
@@ -788,6 +810,7 @@ class Provider(pulumi.ProviderResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  request_timeout: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
+                 skip_toml_file_permission_verification: Optional[pulumi.Input[bool]] = None,
                  tmp_directory_path: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  token_accessor: Optional[pulumi.Input[Union['ProviderTokenAccessorArgs', 'ProviderTokenAccessorArgsDict']]] = None,
@@ -871,6 +894,10 @@ class Provider(pulumi.ProviderResource):
                `SNOWFLAKE_REQUEST_TIMEOUT` environment variable.
         :param pulumi.Input[str] role: Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
                `SNOWFLAKE_ROLE` environment variable.
+        :param pulumi.Input[bool] skip_toml_file_permission_verification: True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+               the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
+               - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
+               variable.
         :param pulumi.Input[str] tmp_directory_path: Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
                the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
         :param pulumi.Input[str] token: Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
@@ -942,6 +969,7 @@ class Provider(pulumi.ProviderResource):
                  protocol: Optional[pulumi.Input[str]] = None,
                  request_timeout: Optional[pulumi.Input[int]] = None,
                  role: Optional[pulumi.Input[str]] = None,
+                 skip_toml_file_permission_verification: Optional[pulumi.Input[bool]] = None,
                  tmp_directory_path: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
                  token_accessor: Optional[pulumi.Input[Union['ProviderTokenAccessorArgs', 'ProviderTokenAccessorArgsDict']]] = None,
@@ -1003,6 +1031,7 @@ class Provider(pulumi.ProviderResource):
             if role is None:
                 role = _utilities.get_env('SNOWFLAKE_ROLE')
             __props__.__dict__["role"] = role
+            __props__.__dict__["skip_toml_file_permission_verification"] = pulumi.Output.from_input(skip_toml_file_permission_verification).apply(pulumi.runtime.to_json) if skip_toml_file_permission_verification is not None else None
             __props__.__dict__["tmp_directory_path"] = tmp_directory_path
             __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
             __props__.__dict__["token_accessor"] = pulumi.Output.from_input(token_accessor).apply(pulumi.runtime.to_json) if token_accessor is not None else None

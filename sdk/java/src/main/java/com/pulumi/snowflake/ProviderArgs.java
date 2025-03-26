@@ -594,6 +594,27 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+     * the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
+     * - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
+     *   variable.
+     * 
+     */
+    @Import(name="skipTomlFilePermissionVerification", json=true)
+    private @Nullable Output<Boolean> skipTomlFilePermissionVerification;
+
+    /**
+     * @return True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+     * the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
+     * - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
+     *   variable.
+     * 
+     */
+    public Optional<Output<Boolean>> skipTomlFilePermissionVerification() {
+        return Optional.ofNullable(this.skipTomlFilePermissionVerification);
+    }
+
+    /**
      * Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
      * the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
      * 
@@ -720,6 +741,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.protocol = $.protocol;
         this.requestTimeout = $.requestTimeout;
         this.role = $.role;
+        this.skipTomlFilePermissionVerification = $.skipTomlFilePermissionVerification;
         this.tmpDirectoryPath = $.tmpDirectoryPath;
         this.token = $.token;
         this.tokenAccessor = $.tokenAccessor;
@@ -1520,6 +1542,33 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder role(String role) {
             return role(Output.of(role));
+        }
+
+        /**
+         * @param skipTomlFilePermissionVerification True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+         * the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
+         * - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
+         *   variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipTomlFilePermissionVerification(@Nullable Output<Boolean> skipTomlFilePermissionVerification) {
+            $.skipTomlFilePermissionVerification = skipTomlFilePermissionVerification;
+            return this;
+        }
+
+        /**
+         * @param skipTomlFilePermissionVerification True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+         * the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
+         * - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
+         *   variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder skipTomlFilePermissionVerification(Boolean skipTomlFilePermissionVerification) {
+            return skipTomlFilePermissionVerification(Output.of(skipTomlFilePermissionVerification));
         }
 
         /**

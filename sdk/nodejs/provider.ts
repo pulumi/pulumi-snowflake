@@ -195,6 +195,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["protocol"] = (args ? args.protocol : undefined) ?? utilities.getEnv("SNOWFLAKE_PROTOCOL");
             resourceInputs["requestTimeout"] = pulumi.output(args ? args.requestTimeout : undefined).apply(JSON.stringify);
             resourceInputs["role"] = (args ? args.role : undefined) ?? utilities.getEnv("SNOWFLAKE_ROLE");
+            resourceInputs["skipTomlFilePermissionVerification"] = pulumi.output(args ? args.skipTomlFilePermissionVerification : undefined).apply(JSON.stringify);
             resourceInputs["tmpDirectoryPath"] = args ? args.tmpDirectoryPath : undefined;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
             resourceInputs["tokenAccessor"] = pulumi.output(args ? args.tokenAccessor : undefined).apply(JSON.stringify);
@@ -381,6 +382,13 @@ export interface ProviderArgs {
      * `SNOWFLAKE_ROLE` environment variable.
      */
     role?: pulumi.Input<string>;
+    /**
+     * True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+     * the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
+     * - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
+     * variable.
+     */
+    skipTomlFilePermissionVerification?: pulumi.Input<boolean>;
     /**
      * Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
      * the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.

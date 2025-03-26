@@ -108,9 +108,17 @@ public final class OauthIntegrationForPartnerApplicationsArgs extends com.pulumi
         return Optional.ofNullable(this.oauthIssueRefreshTokens);
     }
 
+    /**
+     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+     * 
+     */
     @Import(name="oauthRedirectUri")
     private @Nullable Output<String> oauthRedirectUri;
 
+    /**
+     * @return Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+     * 
+     */
     public Optional<Output<String>> oauthRedirectUri() {
         return Optional.ofNullable(this.oauthRedirectUri);
     }
@@ -313,11 +321,23 @@ public final class OauthIntegrationForPartnerApplicationsArgs extends com.pulumi
             return oauthIssueRefreshTokens(Output.of(oauthIssueRefreshTokens));
         }
 
+        /**
+         * @param oauthRedirectUri Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthRedirectUri(@Nullable Output<String> oauthRedirectUri) {
             $.oauthRedirectUri = oauthRedirectUri;
             return this;
         }
 
+        /**
+         * @param oauthRedirectUri Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+         * 
+         * @return builder
+         * 
+         */
         public Builder oauthRedirectUri(String oauthRedirectUri) {
             return oauthRedirectUri(Output.of(oauthRedirectUri));
         }

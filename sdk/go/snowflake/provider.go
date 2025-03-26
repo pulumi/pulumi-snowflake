@@ -267,6 +267,11 @@ type providerArgs struct {
 	// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
 	// `SNOWFLAKE_ROLE` environment variable.
 	Role *string `pulumi:"role"`
+	// True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+	// the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
+	// - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
+	//   variable.
+	SkipTomlFilePermissionVerification *bool `pulumi:"skipTomlFilePermissionVerification"`
 	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
 	// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
 	TmpDirectoryPath *string `pulumi:"tmpDirectoryPath"`
@@ -388,6 +393,11 @@ type ProviderArgs struct {
 	// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
 	// `SNOWFLAKE_ROLE` environment variable.
 	Role pulumi.StringPtrInput
+	// True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+	// the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
+	// - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
+	//   variable.
+	SkipTomlFilePermissionVerification pulumi.BoolPtrInput
 	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
 	// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
 	TmpDirectoryPath pulumi.StringPtrInput
