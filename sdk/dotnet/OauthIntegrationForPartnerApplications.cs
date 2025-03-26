@@ -67,6 +67,9 @@ namespace Pulumi.Snowflake
         [Output("oauthIssueRefreshTokens")]
         public Output<string?> OauthIssueRefreshTokens { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+        /// </summary>
         [Output("oauthRedirectUri")]
         public Output<string?> OauthRedirectUri { get; private set; } = null!;
 
@@ -182,6 +185,9 @@ namespace Pulumi.Snowflake
         [Input("oauthIssueRefreshTokens")]
         public Input<string>? OauthIssueRefreshTokens { get; set; }
 
+        /// <summary>
+        /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+        /// </summary>
         [Input("oauthRedirectUri")]
         public Input<string>? OauthRedirectUri { get; set; }
 
@@ -265,6 +271,9 @@ namespace Pulumi.Snowflake
         [Input("oauthIssueRefreshTokens")]
         public Input<string>? OauthIssueRefreshTokens { get; set; }
 
+        /// <summary>
+        /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+        /// </summary>
         [Input("oauthRedirectUri")]
         public Input<string>? OauthRedirectUri { get; set; }
 

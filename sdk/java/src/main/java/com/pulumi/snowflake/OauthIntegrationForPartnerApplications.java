@@ -141,9 +141,17 @@ public class OauthIntegrationForPartnerApplications extends com.pulumi.resources
     public Output<Optional<String>> oauthIssueRefreshTokens() {
         return Codegen.optional(this.oauthIssueRefreshTokens);
     }
+    /**
+     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+     * 
+     */
     @Export(name="oauthRedirectUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthRedirectUri;
 
+    /**
+     * @return Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+     * 
+     */
     public Output<Optional<String>> oauthRedirectUri() {
         return Codegen.optional(this.oauthRedirectUri);
     }

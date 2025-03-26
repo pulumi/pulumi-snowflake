@@ -73,6 +73,9 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
      * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly oauthIssueRefreshTokens!: pulumi.Output<string | undefined>;
+    /**
+     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+     */
     public readonly oauthRedirectUri!: pulumi.Output<string | undefined>;
     /**
      * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
@@ -177,6 +180,9 @@ export interface OauthIntegrationForPartnerApplicationsState {
      * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     oauthIssueRefreshTokens?: pulumi.Input<string>;
+    /**
+     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+     */
     oauthRedirectUri?: pulumi.Input<string>;
     /**
      * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
@@ -224,6 +230,9 @@ export interface OauthIntegrationForPartnerApplicationsArgs {
      * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     oauthIssueRefreshTokens?: pulumi.Input<string>;
+    /**
+     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+     */
     oauthRedirectUri?: pulumi.Input<string>;
     /**
      * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.

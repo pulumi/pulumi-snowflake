@@ -36,7 +36,8 @@ type OauthIntegrationForPartnerApplications struct {
 	OauthClient pulumi.StringOutput `pulumi:"oauthClient"`
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens pulumi.StringPtrOutput `pulumi:"oauthIssueRefreshTokens"`
-	OauthRedirectUri        pulumi.StringPtrOutput `pulumi:"oauthRedirectUri"`
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+	OauthRedirectUri pulumi.StringPtrOutput `pulumi:"oauthRedirectUri"`
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrOutput `pulumi:"oauthRefreshTokenValidity"`
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
@@ -96,7 +97,8 @@ type oauthIntegrationForPartnerApplicationsState struct {
 	OauthClient *string `pulumi:"oauthClient"`
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens *string `pulumi:"oauthIssueRefreshTokens"`
-	OauthRedirectUri        *string `pulumi:"oauthRedirectUri"`
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+	OauthRedirectUri *string `pulumi:"oauthRedirectUri"`
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
@@ -124,7 +126,8 @@ type OauthIntegrationForPartnerApplicationsState struct {
 	OauthClient pulumi.StringPtrInput
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens pulumi.StringPtrInput
-	OauthRedirectUri        pulumi.StringPtrInput
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+	OauthRedirectUri pulumi.StringPtrInput
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
@@ -152,7 +155,8 @@ type oauthIntegrationForPartnerApplicationsArgs struct {
 	OauthClient string `pulumi:"oauthClient"`
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens *string `pulumi:"oauthIssueRefreshTokens"`
-	OauthRedirectUri        *string `pulumi:"oauthRedirectUri"`
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+	OauthRedirectUri *string `pulumi:"oauthRedirectUri"`
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
@@ -173,7 +177,8 @@ type OauthIntegrationForPartnerApplicationsArgs struct {
 	OauthClient pulumi.StringInput
 	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens pulumi.StringPtrInput
-	OauthRedirectUri        pulumi.StringPtrInput
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+	OauthRedirectUri pulumi.StringPtrInput
 	// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
 	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
@@ -311,6 +316,7 @@ func (o OauthIntegrationForPartnerApplicationsOutput) OauthIssueRefreshTokens() 
 	}).(pulumi.StringPtrOutput)
 }
 
+// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
 func (o OauthIntegrationForPartnerApplicationsOutput) OauthRedirectUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringPtrOutput { return v.OauthRedirectUri }).(pulumi.StringPtrOutput)
 }

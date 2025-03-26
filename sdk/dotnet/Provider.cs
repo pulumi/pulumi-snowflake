@@ -501,6 +501,15 @@ namespace Pulumi.Snowflake
         public Input<string>? Role { get; set; }
 
         /// <summary>
+        /// True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+        /// the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
+        /// - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
+        /// variable.
+        /// </summary>
+        [Input("skipTomlFilePermissionVerification", json: true)]
+        public Input<bool>? SkipTomlFilePermissionVerification { get; set; }
+
+        /// <summary>
         /// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
         /// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
         /// </summary>
