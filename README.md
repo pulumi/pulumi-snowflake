@@ -71,10 +71,10 @@ The following configuration points are available:
   `SNOWFLAKE_OAUTH_ENDPOINT` environment variable.
 * `snowflake:oauthRedirectUrl` - (optional) Required when `snowflake:oauthRefreshToken` is used. Can be sourced from
   `SNOWFLAKE_OAUTH_REDIRECT_URL` environment variable.
-
 * `snowflake:privateKey` - (optional) Private key for using keypair authentication.. Cannot be
   used with `snowflake:browserAuth`, `snowflake:oauthAccessToken` or `snowflake:password`. Can be sourced from
   `SNOWFLAKE_PRIVATE_KEY` environment variable.
+* `snowflake:privateKeyPassphrase` - (optional) Passphrase for encrypted private keys. Can be sourced from `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE` environment variable.
 * `snowflake:role` - (optional) Snowflake role to use for operations. If left unset, default role for user
   will be used. Can come from the `SNOWFLAKE_ROLE` environment variable.
 
