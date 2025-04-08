@@ -616,21 +616,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getCortexSearchServices();
+     *         final var simple = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("simpleOutput", simple.cortexSearchServices());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .like("some-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("likeOutput", like.cortexSearchServices());
      *         // Filtering (starts_with)
      *         final var startsWith = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .startsWith("prefix-")
      *             .build());
      * 
-     *         ctx.export("startsWithOutput", startsWith.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("startsWithOutput", startsWith.cortexSearchServices());
      *         // Filtering (limit)
      *         final var limit = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .limit(GetCortexSearchServicesLimitArgs.builder()
@@ -639,7 +640,7 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("limitOutput", limit.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("limitOutput", limit.cortexSearchServices());
      *     }
      * }
      * }
@@ -680,21 +681,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getCortexSearchServices();
+     *         final var simple = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("simpleOutput", simple.cortexSearchServices());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .like("some-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("likeOutput", like.cortexSearchServices());
      *         // Filtering (starts_with)
      *         final var startsWith = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .startsWith("prefix-")
      *             .build());
      * 
-     *         ctx.export("startsWithOutput", startsWith.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("startsWithOutput", startsWith.cortexSearchServices());
      *         // Filtering (limit)
      *         final var limit = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .limit(GetCortexSearchServicesLimitArgs.builder()
@@ -703,7 +705,7 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("limitOutput", limit.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("limitOutput", limit.cortexSearchServices());
      *     }
      * }
      * }
@@ -744,21 +746,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getCortexSearchServices();
+     *         final var simple = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("simpleOutput", simple.cortexSearchServices());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .like("some-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("likeOutput", like.cortexSearchServices());
      *         // Filtering (starts_with)
      *         final var startsWith = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .startsWith("prefix-")
      *             .build());
      * 
-     *         ctx.export("startsWithOutput", startsWith.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("startsWithOutput", startsWith.cortexSearchServices());
      *         // Filtering (limit)
      *         final var limit = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .limit(GetCortexSearchServicesLimitArgs.builder()
@@ -767,7 +770,7 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("limitOutput", limit.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("limitOutput", limit.cortexSearchServices());
      *     }
      * }
      * }
@@ -808,21 +811,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getCortexSearchServices();
+     *         final var simple = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("simpleOutput", simple.cortexSearchServices());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .like("some-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("likeOutput", like.cortexSearchServices());
      *         // Filtering (starts_with)
      *         final var startsWith = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .startsWith("prefix-")
      *             .build());
      * 
-     *         ctx.export("startsWithOutput", startsWith.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("startsWithOutput", startsWith.cortexSearchServices());
      *         // Filtering (limit)
      *         final var limit = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .limit(GetCortexSearchServicesLimitArgs.builder()
@@ -831,7 +835,7 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("limitOutput", limit.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("limitOutput", limit.cortexSearchServices());
      *     }
      * }
      * }
@@ -872,21 +876,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getCortexSearchServices();
+     *         final var simple = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("simpleOutput", simple.cortexSearchServices());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .like("some-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("likeOutput", like.cortexSearchServices());
      *         // Filtering (starts_with)
      *         final var startsWith = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .startsWith("prefix-")
      *             .build());
      * 
-     *         ctx.export("startsWithOutput", startsWith.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("startsWithOutput", startsWith.cortexSearchServices());
      *         // Filtering (limit)
      *         final var limit = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .limit(GetCortexSearchServicesLimitArgs.builder()
@@ -895,7 +900,7 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("limitOutput", limit.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("limitOutput", limit.cortexSearchServices());
      *     }
      * }
      * }
@@ -936,21 +941,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getCortexSearchServices();
+     *         final var simple = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("simpleOutput", simple.cortexSearchServices());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .like("some-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("likeOutput", like.cortexSearchServices());
      *         // Filtering (starts_with)
      *         final var startsWith = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .startsWith("prefix-")
      *             .build());
      * 
-     *         ctx.export("startsWithOutput", startsWith.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("startsWithOutput", startsWith.cortexSearchServices());
      *         // Filtering (limit)
      *         final var limit = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .limit(GetCortexSearchServicesLimitArgs.builder()
@@ -959,7 +965,7 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("limitOutput", limit.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("limitOutput", limit.cortexSearchServices());
      *     }
      * }
      * }
@@ -1000,21 +1006,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getCortexSearchServices();
+     *         final var simple = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("simpleOutput", simple.cortexSearchServices());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .like("some-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("likeOutput", like.cortexSearchServices());
      *         // Filtering (starts_with)
      *         final var startsWith = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .startsWith("prefix-")
      *             .build());
      * 
-     *         ctx.export("startsWithOutput", startsWith.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("startsWithOutput", startsWith.cortexSearchServices());
      *         // Filtering (limit)
      *         final var limit = SnowflakeFunctions.getCortexSearchServices(GetCortexSearchServicesArgs.builder()
      *             .limit(GetCortexSearchServicesLimitArgs.builder()
@@ -1023,7 +1030,7 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("limitOutput", limit.applyValue(getCortexSearchServicesResult -> getCortexSearchServicesResult.cortexSearchServices()));
+     *         ctx.export("limitOutput", limit.cortexSearchServices());
      *     }
      * }
      * }
@@ -1049,7 +1056,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.ssmParameter;
-     * import com.pulumi.aws.SsmParameterArgs;
+     * import com.pulumi.aws.ssmParameterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1063,7 +1070,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getCurrentAccount();
+     *         final var this = SnowflakeFunctions.getCurrentAccount(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
      *             .name("/snowflake/account_url")
@@ -1096,7 +1103,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.ssmParameter;
-     * import com.pulumi.aws.SsmParameterArgs;
+     * import com.pulumi.aws.ssmParameterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1110,7 +1117,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getCurrentAccount();
+     *         final var this = SnowflakeFunctions.getCurrentAccount(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
      *             .name("/snowflake/account_url")
@@ -1143,7 +1150,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.ssmParameter;
-     * import com.pulumi.aws.SsmParameterArgs;
+     * import com.pulumi.aws.ssmParameterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1157,7 +1164,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getCurrentAccount();
+     *         final var this = SnowflakeFunctions.getCurrentAccount(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
      *             .name("/snowflake/account_url")
@@ -1190,7 +1197,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.ssmParameter;
-     * import com.pulumi.aws.SsmParameterArgs;
+     * import com.pulumi.aws.ssmParameterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1204,7 +1211,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getCurrentAccount();
+     *         final var this = SnowflakeFunctions.getCurrentAccount(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
      *             .name("/snowflake/account_url")
@@ -1237,7 +1244,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.ssmParameter;
-     * import com.pulumi.aws.SsmParameterArgs;
+     * import com.pulumi.aws.ssmParameterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1251,7 +1258,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getCurrentAccount();
+     *         final var this = SnowflakeFunctions.getCurrentAccount(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
      *             .name("/snowflake/account_url")
@@ -1284,7 +1291,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.ssmParameter;
-     * import com.pulumi.aws.SsmParameterArgs;
+     * import com.pulumi.aws.ssmParameterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1298,7 +1305,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getCurrentAccount();
+     *         final var this = SnowflakeFunctions.getCurrentAccount(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
      *             .name("/snowflake/account_url")
@@ -1331,7 +1338,7 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.ssmParameter;
-     * import com.pulumi.aws.SsmParameterArgs;
+     * import com.pulumi.aws.ssmParameterArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1345,7 +1352,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getCurrentAccount();
+     *         final var this = SnowflakeFunctions.getCurrentAccount(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakeAccountUrl = new SsmParameter("snowflakeAccountUrl", SsmParameterArgs.builder()
      *             .name("/snowflake/account_url")
@@ -5586,21 +5593,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getSecrets();
+     *         final var simple = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("simpleOutput", simple.secrets());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("secret-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likeOutput", like.secrets());
      *         // Filtering by prefix (like)
      *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("prefix%")
      *             .build());
      * 
-     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likePrefixOutput", likePrefix.secrets());
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
@@ -5608,13 +5616,13 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("inOutput", in.secrets());
      *         // Without additional data (to limit the number of calls make for every found secret)
      *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .withDescribe(false)
      *             .build());
      * 
-     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("onlyShowOutput", onlyShow.secrets());
      *     }
      * }
      * }
@@ -5655,21 +5663,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getSecrets();
+     *         final var simple = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("simpleOutput", simple.secrets());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("secret-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likeOutput", like.secrets());
      *         // Filtering by prefix (like)
      *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("prefix%")
      *             .build());
      * 
-     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likePrefixOutput", likePrefix.secrets());
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
@@ -5677,13 +5686,13 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("inOutput", in.secrets());
      *         // Without additional data (to limit the number of calls make for every found secret)
      *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .withDescribe(false)
      *             .build());
      * 
-     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("onlyShowOutput", onlyShow.secrets());
      *     }
      * }
      * }
@@ -5724,21 +5733,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getSecrets();
+     *         final var simple = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("simpleOutput", simple.secrets());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("secret-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likeOutput", like.secrets());
      *         // Filtering by prefix (like)
      *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("prefix%")
      *             .build());
      * 
-     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likePrefixOutput", likePrefix.secrets());
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
@@ -5746,13 +5756,13 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("inOutput", in.secrets());
      *         // Without additional data (to limit the number of calls make for every found secret)
      *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .withDescribe(false)
      *             .build());
      * 
-     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("onlyShowOutput", onlyShow.secrets());
      *     }
      * }
      * }
@@ -5793,21 +5803,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getSecrets();
+     *         final var simple = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("simpleOutput", simple.secrets());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("secret-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likeOutput", like.secrets());
      *         // Filtering by prefix (like)
      *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("prefix%")
      *             .build());
      * 
-     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likePrefixOutput", likePrefix.secrets());
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
@@ -5815,13 +5826,13 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("inOutput", in.secrets());
      *         // Without additional data (to limit the number of calls make for every found secret)
      *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .withDescribe(false)
      *             .build());
      * 
-     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("onlyShowOutput", onlyShow.secrets());
      *     }
      * }
      * }
@@ -5862,21 +5873,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getSecrets();
+     *         final var simple = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("simpleOutput", simple.secrets());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("secret-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likeOutput", like.secrets());
      *         // Filtering by prefix (like)
      *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("prefix%")
      *             .build());
      * 
-     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likePrefixOutput", likePrefix.secrets());
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
@@ -5884,13 +5896,13 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("inOutput", in.secrets());
      *         // Without additional data (to limit the number of calls make for every found secret)
      *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .withDescribe(false)
      *             .build());
      * 
-     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("onlyShowOutput", onlyShow.secrets());
      *     }
      * }
      * }
@@ -5931,21 +5943,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getSecrets();
+     *         final var simple = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("simpleOutput", simple.secrets());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("secret-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likeOutput", like.secrets());
      *         // Filtering by prefix (like)
      *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("prefix%")
      *             .build());
      * 
-     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likePrefixOutput", likePrefix.secrets());
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
@@ -5953,13 +5966,13 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("inOutput", in.secrets());
      *         // Without additional data (to limit the number of calls make for every found secret)
      *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .withDescribe(false)
      *             .build());
      * 
-     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("onlyShowOutput", onlyShow.secrets());
      *     }
      * }
      * }
@@ -6000,21 +6013,22 @@ public final class SnowflakeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         // Simple usage
-     *         final var simple = SnowflakeFunctions.getSecrets();
+     *         final var simple = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
+     *             .build());
      * 
-     *         ctx.export("simpleOutput", simple.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("simpleOutput", simple.secrets());
      *         // Filtering (like)
      *         final var like = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("secret-name")
      *             .build());
      * 
-     *         ctx.export("likeOutput", like.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likeOutput", like.secrets());
      *         // Filtering by prefix (like)
      *         final var likePrefix = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .like("prefix%")
      *             .build());
      * 
-     *         ctx.export("likePrefixOutput", likePrefix.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("likePrefixOutput", likePrefix.secrets());
      *         // Filtering (in)
      *         final var in = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .in(GetSecretsInArgs.builder()
@@ -6022,13 +6036,13 @@ public final class SnowflakeFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export("inOutput", in.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("inOutput", in.secrets());
      *         // Without additional data (to limit the number of calls make for every found secret)
      *         final var onlyShow = SnowflakeFunctions.getSecrets(GetSecretsArgs.builder()
      *             .withDescribe(false)
      *             .build());
      * 
-     *         ctx.export("onlyShowOutput", onlyShow.applyValue(getSecretsResult -> getSecretsResult.secrets()));
+     *         ctx.export("onlyShowOutput", onlyShow.secrets());
      *     }
      * }
      * }
@@ -6331,7 +6345,8 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getShares();
+     *         final var this = SnowflakeFunctions.getShares(GetSharesArgs.builder()
+     *             .build());
      * 
      *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
      *             .pattern("usage")
@@ -6375,7 +6390,8 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getShares();
+     *         final var this = SnowflakeFunctions.getShares(GetSharesArgs.builder()
+     *             .build());
      * 
      *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
      *             .pattern("usage")
@@ -6419,7 +6435,8 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getShares();
+     *         final var this = SnowflakeFunctions.getShares(GetSharesArgs.builder()
+     *             .build());
      * 
      *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
      *             .pattern("usage")
@@ -6463,7 +6480,8 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getShares();
+     *         final var this = SnowflakeFunctions.getShares(GetSharesArgs.builder()
+     *             .build());
      * 
      *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
      *             .pattern("usage")
@@ -6507,7 +6525,8 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getShares();
+     *         final var this = SnowflakeFunctions.getShares(GetSharesArgs.builder()
+     *             .build());
      * 
      *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
      *             .pattern("usage")
@@ -6551,7 +6570,8 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getShares();
+     *         final var this = SnowflakeFunctions.getShares(GetSharesArgs.builder()
+     *             .build());
      * 
      *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
      *             .pattern("usage")
@@ -6595,7 +6615,8 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var this = SnowflakeFunctions.getShares();
+     *         final var this = SnowflakeFunctions.getShares(GetSharesArgs.builder()
+     *             .build());
      * 
      *         final var ad = SnowflakeFunctions.getShares(GetSharesArgs.builder()
      *             .pattern("usage")
@@ -6853,7 +6874,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getStorageIntegrations();
+     *         final var current = SnowflakeFunctions.getStorageIntegrations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -6892,7 +6913,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getStorageIntegrations();
+     *         final var current = SnowflakeFunctions.getStorageIntegrations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -6931,7 +6952,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getStorageIntegrations();
+     *         final var current = SnowflakeFunctions.getStorageIntegrations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -6970,7 +6991,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getStorageIntegrations();
+     *         final var current = SnowflakeFunctions.getStorageIntegrations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7009,7 +7030,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getStorageIntegrations();
+     *         final var current = SnowflakeFunctions.getStorageIntegrations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7048,7 +7069,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getStorageIntegrations();
+     *         final var current = SnowflakeFunctions.getStorageIntegrations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7087,7 +7108,7 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getStorageIntegrations();
+     *         final var current = SnowflakeFunctions.getStorageIntegrations(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *     }
      * }
@@ -7622,13 +7643,13 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.securityGroup;
-     * import com.pulumi.aws.SecurityGroupArgs;
+     * import com.pulumi.aws.securityGroupArgs;
      * import com.pulumi.aws.vpcEndpoint;
-     * import com.pulumi.aws.VpcEndpointArgs;
+     * import com.pulumi.aws.vpcEndpointArgs;
      * import com.pulumi.aws.route53Zone;
-     * import com.pulumi.aws.Route53ZoneArgs;
+     * import com.pulumi.aws.route53ZoneArgs;
      * import com.pulumi.aws.route53Record;
-     * import com.pulumi.aws.Route53RecordArgs;
+     * import com.pulumi.aws.route53RecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -7642,43 +7663,53 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
+     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(            
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .ingress(List.of(            
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 80),
+     *                     Map.entry("toPort", 80),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 ),
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 443),
+     *                     Map.entry("toPort", 443),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 )))
      *             .build());
      * 
      *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(vpcId)
-     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
+     *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
+     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .vpc(List.of(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
+     *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
+     *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }
@@ -7706,13 +7737,13 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.securityGroup;
-     * import com.pulumi.aws.SecurityGroupArgs;
+     * import com.pulumi.aws.securityGroupArgs;
      * import com.pulumi.aws.vpcEndpoint;
-     * import com.pulumi.aws.VpcEndpointArgs;
+     * import com.pulumi.aws.vpcEndpointArgs;
      * import com.pulumi.aws.route53Zone;
-     * import com.pulumi.aws.Route53ZoneArgs;
+     * import com.pulumi.aws.route53ZoneArgs;
      * import com.pulumi.aws.route53Record;
-     * import com.pulumi.aws.Route53RecordArgs;
+     * import com.pulumi.aws.route53RecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -7726,43 +7757,53 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
+     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(            
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .ingress(List.of(            
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 80),
+     *                     Map.entry("toPort", 80),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 ),
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 443),
+     *                     Map.entry("toPort", 443),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 )))
      *             .build());
      * 
      *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(vpcId)
-     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
+     *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
+     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .vpc(List.of(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
+     *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
+     *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }
@@ -7790,13 +7831,13 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.securityGroup;
-     * import com.pulumi.aws.SecurityGroupArgs;
+     * import com.pulumi.aws.securityGroupArgs;
      * import com.pulumi.aws.vpcEndpoint;
-     * import com.pulumi.aws.VpcEndpointArgs;
+     * import com.pulumi.aws.vpcEndpointArgs;
      * import com.pulumi.aws.route53Zone;
-     * import com.pulumi.aws.Route53ZoneArgs;
+     * import com.pulumi.aws.route53ZoneArgs;
      * import com.pulumi.aws.route53Record;
-     * import com.pulumi.aws.Route53RecordArgs;
+     * import com.pulumi.aws.route53RecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -7810,43 +7851,53 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
+     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(            
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .ingress(List.of(            
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 80),
+     *                     Map.entry("toPort", 80),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 ),
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 443),
+     *                     Map.entry("toPort", 443),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 )))
      *             .build());
      * 
      *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(vpcId)
-     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
+     *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
+     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .vpc(List.of(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
+     *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
+     *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }
@@ -7874,13 +7925,13 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.securityGroup;
-     * import com.pulumi.aws.SecurityGroupArgs;
+     * import com.pulumi.aws.securityGroupArgs;
      * import com.pulumi.aws.vpcEndpoint;
-     * import com.pulumi.aws.VpcEndpointArgs;
+     * import com.pulumi.aws.vpcEndpointArgs;
      * import com.pulumi.aws.route53Zone;
-     * import com.pulumi.aws.Route53ZoneArgs;
+     * import com.pulumi.aws.route53ZoneArgs;
      * import com.pulumi.aws.route53Record;
-     * import com.pulumi.aws.Route53RecordArgs;
+     * import com.pulumi.aws.route53RecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -7894,43 +7945,53 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
+     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(            
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .ingress(List.of(            
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 80),
+     *                     Map.entry("toPort", 80),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 ),
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 443),
+     *                     Map.entry("toPort", 443),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 )))
      *             .build());
      * 
      *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(vpcId)
-     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
+     *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
+     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .vpc(List.of(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
+     *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
+     *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }
@@ -7958,13 +8019,13 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.securityGroup;
-     * import com.pulumi.aws.SecurityGroupArgs;
+     * import com.pulumi.aws.securityGroupArgs;
      * import com.pulumi.aws.vpcEndpoint;
-     * import com.pulumi.aws.VpcEndpointArgs;
+     * import com.pulumi.aws.vpcEndpointArgs;
      * import com.pulumi.aws.route53Zone;
-     * import com.pulumi.aws.Route53ZoneArgs;
+     * import com.pulumi.aws.route53ZoneArgs;
      * import com.pulumi.aws.route53Record;
-     * import com.pulumi.aws.Route53RecordArgs;
+     * import com.pulumi.aws.route53RecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -7978,43 +8039,53 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
+     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(            
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .ingress(List.of(            
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 80),
+     *                     Map.entry("toPort", 80),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 ),
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 443),
+     *                     Map.entry("toPort", 443),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 )))
      *             .build());
      * 
      *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(vpcId)
-     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
+     *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
+     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .vpc(List.of(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
+     *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
+     *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }
@@ -8042,13 +8113,13 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.securityGroup;
-     * import com.pulumi.aws.SecurityGroupArgs;
+     * import com.pulumi.aws.securityGroupArgs;
      * import com.pulumi.aws.vpcEndpoint;
-     * import com.pulumi.aws.VpcEndpointArgs;
+     * import com.pulumi.aws.vpcEndpointArgs;
      * import com.pulumi.aws.route53Zone;
-     * import com.pulumi.aws.Route53ZoneArgs;
+     * import com.pulumi.aws.route53ZoneArgs;
      * import com.pulumi.aws.route53Record;
-     * import com.pulumi.aws.Route53RecordArgs;
+     * import com.pulumi.aws.route53RecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8062,43 +8133,53 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
+     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(            
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .ingress(List.of(            
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 80),
+     *                     Map.entry("toPort", 80),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 ),
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 443),
+     *                     Map.entry("toPort", 443),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 )))
      *             .build());
      * 
      *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(vpcId)
-     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
+     *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
+     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .vpc(List.of(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
+     *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
+     *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }
@@ -8126,13 +8207,13 @@ public final class SnowflakeFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.snowflake.SnowflakeFunctions;
      * import com.pulumi.aws.securityGroup;
-     * import com.pulumi.aws.SecurityGroupArgs;
+     * import com.pulumi.aws.securityGroupArgs;
      * import com.pulumi.aws.vpcEndpoint;
-     * import com.pulumi.aws.VpcEndpointArgs;
+     * import com.pulumi.aws.vpcEndpointArgs;
      * import com.pulumi.aws.route53Zone;
-     * import com.pulumi.aws.Route53ZoneArgs;
+     * import com.pulumi.aws.route53ZoneArgs;
      * import com.pulumi.aws.route53Record;
-     * import com.pulumi.aws.Route53RecordArgs;
+     * import com.pulumi.aws.route53RecordArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -8146,43 +8227,53 @@ public final class SnowflakeFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig();
+     *         final var snowflakePrivateLink = SnowflakeFunctions.getSystemGetPrivateLinkConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
      * 
      *         var snowflakePrivateLinkSecurityGroup = new SecurityGroup("snowflakePrivateLinkSecurityGroup", SecurityGroupArgs.builder()
      *             .vpcId(vpcId)
-     *             .ingress(            
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference),
-     *                 %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .ingress(List.of(            
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 80),
+     *                     Map.entry("toPort", 80),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 ),
+     *                 Map.ofEntries(
+     *                     Map.entry("fromPort", 443),
+     *                     Map.entry("toPort", 443),
+     *                     Map.entry("cidrBlocks", vpcCidr),
+     *                     Map.entry("protocol", "tcp")
+     *                 )))
      *             .build());
      * 
      *         var snowflakePrivateLinkVpcEndpoint = new VpcEndpoint("snowflakePrivateLinkVpcEndpoint", VpcEndpointArgs.builder()
      *             .vpcId(vpcId)
-     *             .serviceName(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.awsVpceId()))
+     *             .serviceName(snowflakePrivateLink.awsVpceId())
      *             .vpcEndpointType("Interface")
-     *             .securityGroupIds(snowflakePrivateLinkSecurityGroup.id())
+     *             .securityGroupIds(List.of(snowflakePrivateLinkSecurityGroup.id()))
      *             .subnetIds(subnetIds)
      *             .privateDnsEnabled(false)
      *             .build());
      * 
      *         var snowflakePrivateLinkRoute53Zone = new Route53Zone("snowflakePrivateLinkRoute53Zone", Route53ZoneArgs.builder()
      *             .name("privatelink.snowflakecomputing.com")
-     *             .vpc(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+     *             .vpc(List.of(Map.of("vpcId", vpcId)))
      *             .build());
      * 
      *         var snowflakePrivateLinkUrl = new Route53Record("snowflakePrivateLinkUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.accountUrl()))
+     *             .name(snowflakePrivateLink.accountUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *         var snowflakePrivateLinkOcspUrl = new Route53Record("snowflakePrivateLinkOcspUrl", Route53RecordArgs.builder()
      *             .zoneId(snowflakePrivateLinkRoute53Zone.zoneId())
-     *             .name(snowflakePrivateLink.applyValue(getSystemGetPrivateLinkConfigResult -> getSystemGetPrivateLinkConfigResult.ocspUrl()))
+     *             .name(snowflakePrivateLink.ocspUrl())
      *             .type("CNAME")
      *             .ttl("300")
-     *             .records(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name())
+     *             .records(List.of(snowflakePrivateLinkVpcEndpoint.dnsEntry()[0].dns_name()))
      *             .build());
      * 
      *     }
