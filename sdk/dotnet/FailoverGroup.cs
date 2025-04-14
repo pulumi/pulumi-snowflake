@@ -56,7 +56,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Allows replicating objects to accounts on lower editions.
+        /// (Default: `false`) Allows replicating objects to accounts on lower editions.
         /// </summary>
         [Output("ignoreEditionCheck")]
         public Output<bool?> IgnoreEditionCheck { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.FailoverGroupFromReplicaArgs>? FromReplica { get; set; }
 
         /// <summary>
-        /// Allows replicating objects to accounts on lower editions.
+        /// (Default: `false`) Allows replicating objects to accounts on lower editions.
         /// </summary>
         [Input("ignoreEditionCheck")]
         public Input<bool>? IgnoreEditionCheck { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Allows replicating objects to accounts on lower editions.
+        /// (Default: `false`) Allows replicating objects to accounts on lower editions.
         /// </summary>
         [Input("ignoreEditionCheck")]
         public Input<bool>? IgnoreEditionCheck { get; set; }

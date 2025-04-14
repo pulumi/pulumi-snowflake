@@ -70,14 +70,14 @@ public class ObjectParameter extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.objectType);
     }
     /**
-     * If true, the object parameter will be set on the account level.
+     * (Default: `false`) If true, the object parameter will be set on the account level.
      * 
      */
     @Export(name="onAccount", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> onAccount;
 
     /**
-     * @return If true, the object parameter will be set on the account level.
+     * @return (Default: `false`) If true, the object parameter will be set on the account level.
      * 
      */
     public Output<Optional<Boolean>> onAccount() {

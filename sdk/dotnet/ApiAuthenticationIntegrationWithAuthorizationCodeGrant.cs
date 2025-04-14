@@ -50,7 +50,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
         /// </summary>
         [Output("oauthAccessTokenValidity")]
         public Output<int?> OauthAccessTokenValidity { get; private set; } = null!;
@@ -165,7 +165,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
         /// </summary>
         [Input("oauthAccessTokenValidity")]
         public Input<int>? OauthAccessTokenValidity { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
         /// </summary>
         [Input("oauthAccessTokenValidity")]
         public Input<int>? OauthAccessTokenValidity { get; set; }

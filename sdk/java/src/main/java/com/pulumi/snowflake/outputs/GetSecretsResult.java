@@ -37,7 +37,7 @@ public final class GetSecretsResult {
      */
     private List<GetSecretsSecret> secrets;
     /**
-     * @return Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     private @Nullable Boolean withDescribe;
@@ -72,7 +72,7 @@ public final class GetSecretsResult {
         return this.secrets;
     }
     /**
-     * @return Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     public Optional<Boolean> withDescribe() {

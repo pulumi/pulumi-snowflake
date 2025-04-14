@@ -57,14 +57,14 @@ public class TagAssociation extends com.pulumi.resources.CustomResource {
         return this.objectType;
     }
     /**
-     * If true, skips validation of the tag association.
+     * (Default: `true`) If true, skips validation of the tag association.
      * 
      */
     @Export(name="skipValidation", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipValidation;
 
     /**
-     * @return If true, skips validation of the tag association.
+     * @return (Default: `true`) If true, skips validation of the tag association.
      * 
      */
     public Output<Optional<Boolean>> skipValidation() {

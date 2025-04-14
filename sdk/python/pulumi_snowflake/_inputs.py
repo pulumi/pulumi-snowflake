@@ -38751,11 +38751,11 @@ if not MYPY:
         """
         collate: NotRequired[pulumi.Input[builtins.str]]
         """
-        Column collation, e.g. utf8
+        (Default: ``) Column collation, e.g. utf8
         """
         comment: NotRequired[pulumi.Input[builtins.str]]
         """
-        Column comment
+        (Default: ``) Column comment
         """
         default: NotRequired[pulumi.Input['TableColumnDefaultArgsDict']]
         """
@@ -38767,11 +38767,11 @@ if not MYPY:
         """
         masking_policy: NotRequired[pulumi.Input[builtins.str]]
         """
-        Masking policy to apply on column. It has to be a fully qualified name.
+        (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
         """
         nullable: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
         schema_evolution_record: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -38795,12 +38795,12 @@ class TableColumnArgs:
         """
         :param pulumi.Input[builtins.str] name: Column name
         :param pulumi.Input[builtins.str] type: Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
-        :param pulumi.Input[builtins.str] collate: Column collation, e.g. utf8
-        :param pulumi.Input[builtins.str] comment: Column comment
+        :param pulumi.Input[builtins.str] collate: (Default: ``) Column collation, e.g. utf8
+        :param pulumi.Input[builtins.str] comment: (Default: ``) Column comment
         :param pulumi.Input['TableColumnDefaultArgs'] default: Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
         :param pulumi.Input['TableColumnIdentityArgs'] identity: Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
-        :param pulumi.Input[builtins.str] masking_policy: Masking policy to apply on column. It has to be a fully qualified name.
-        :param pulumi.Input[builtins.bool] nullable: Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        :param pulumi.Input[builtins.str] masking_policy: (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+        :param pulumi.Input[builtins.bool] nullable: (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         :param pulumi.Input[builtins.str] schema_evolution_record: Record of schema evolution.
         """
         pulumi.set(__self__, "name", name)
@@ -38848,7 +38848,7 @@ class TableColumnArgs:
     @pulumi.getter
     def collate(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Column collation, e.g. utf8
+        (Default: ``) Column collation, e.g. utf8
         """
         return pulumi.get(self, "collate")
 
@@ -38860,7 +38860,7 @@ class TableColumnArgs:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Column comment
+        (Default: ``) Column comment
         """
         return pulumi.get(self, "comment")
 
@@ -38896,7 +38896,7 @@ class TableColumnArgs:
     @pulumi.getter(name="maskingPolicy")
     def masking_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Masking policy to apply on column. It has to be a fully qualified name.
+        (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
         """
         return pulumi.get(self, "masking_policy")
 
@@ -38908,7 +38908,7 @@ class TableColumnArgs:
     @pulumi.getter
     def nullable(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
         return pulumi.get(self, "nullable")
 
@@ -39005,11 +39005,11 @@ if not MYPY:
     class TableColumnIdentityArgsDict(TypedDict):
         start_num: NotRequired[pulumi.Input[builtins.int]]
         """
-        The number to start incrementing at.
+        (Default: `1`) The number to start incrementing at.
         """
         step_num: NotRequired[pulumi.Input[builtins.int]]
         """
-        Step size to increment by.
+        (Default: `1`) Step size to increment by.
         """
 elif False:
     TableColumnIdentityArgsDict: TypeAlias = Mapping[str, Any]
@@ -39020,8 +39020,8 @@ class TableColumnIdentityArgs:
                  start_num: Optional[pulumi.Input[builtins.int]] = None,
                  step_num: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.int] start_num: The number to start incrementing at.
-        :param pulumi.Input[builtins.int] step_num: Step size to increment by.
+        :param pulumi.Input[builtins.int] start_num: (Default: `1`) The number to start incrementing at.
+        :param pulumi.Input[builtins.int] step_num: (Default: `1`) Step size to increment by.
         """
         if start_num is not None:
             pulumi.set(__self__, "start_num", start_num)
@@ -39032,7 +39032,7 @@ class TableColumnIdentityArgs:
     @pulumi.getter(name="startNum")
     def start_num(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The number to start incrementing at.
+        (Default: `1`) The number to start incrementing at.
         """
         return pulumi.get(self, "start_num")
 
@@ -39044,7 +39044,7 @@ class TableColumnIdentityArgs:
     @pulumi.getter(name="stepNum")
     def step_num(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Step size to increment by.
+        (Default: `1`) Step size to increment by.
         """
         return pulumi.get(self, "step_num")
 
@@ -39061,15 +39061,15 @@ if not MYPY:
         """
         match: NotRequired[pulumi.Input[builtins.str]]
         """
-        The match type for the foreign key. Not applicable for primary/unique keys
+        (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
         """
         on_delete: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
         """
         on_update: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
         """
 elif False:
     TableConstraintForeignKeyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -39083,9 +39083,9 @@ class TableConstraintForeignKeyPropertiesArgs:
                  on_update: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs'] references: The table and columns that the foreign key references.
-        :param pulumi.Input[builtins.str] match: The match type for the foreign key. Not applicable for primary/unique keys
-        :param pulumi.Input[builtins.str] on_delete: Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
-        :param pulumi.Input[builtins.str] on_update: Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        :param pulumi.Input[builtins.str] match: (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+        :param pulumi.Input[builtins.str] on_delete: (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        :param pulumi.Input[builtins.str] on_update: (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
         """
         pulumi.set(__self__, "references", references)
         if match is not None:
@@ -39111,7 +39111,7 @@ class TableConstraintForeignKeyPropertiesArgs:
     @pulumi.getter
     def match(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The match type for the foreign key. Not applicable for primary/unique keys
+        (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
         """
         return pulumi.get(self, "match")
 
@@ -39123,7 +39123,7 @@ class TableConstraintForeignKeyPropertiesArgs:
     @pulumi.getter(name="onDelete")
     def on_delete(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
         """
         return pulumi.get(self, "on_delete")
 
@@ -39135,7 +39135,7 @@ class TableConstraintForeignKeyPropertiesArgs:
     @pulumi.getter(name="onUpdate")
     def on_update(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
         """
         return pulumi.get(self, "on_update")
 

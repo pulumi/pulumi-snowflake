@@ -137,7 +137,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
 def get_database(name: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
     ## Example Usage
 
@@ -147,6 +147,8 @@ def get_database(name: Optional[builtins.str] = None,
 
     this = snowflake.get_database(name="DEMO_DB")
     ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
     :param builtins.str name: The database from which to return its metadata.
@@ -170,7 +172,7 @@ def get_database(name: Optional[builtins.str] = None,
 def get_database_output(name: Optional[pulumi.Input[builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
     ## Example Usage
 
@@ -180,6 +182,8 @@ def get_database_output(name: Optional[pulumi.Input[builtins.str]] = None,
 
     this = snowflake.get_database(name="DEMO_DB")
     ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
     :param builtins.str name: The database from which to return its metadata.

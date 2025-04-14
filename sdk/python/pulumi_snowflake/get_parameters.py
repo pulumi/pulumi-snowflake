@@ -79,7 +79,7 @@ class GetParametersResult:
     @pulumi.getter(name="parameterType")
     def parameter_type(self) -> Optional[builtins.str]:
         """
-        The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
+        (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
         """
         return pulumi.get(self, "parameter_type")
 
@@ -130,7 +130,7 @@ def get_parameters(object_name: Optional[builtins.str] = None,
                    user: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParametersResult:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
     ## Example Usage
 
@@ -152,10 +152,12 @@ def get_parameters(object_name: Optional[builtins.str] = None,
         user="TEST_USER")
     ```
 
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
 
     :param builtins.str object_name: If parameter*type is set to "OBJECT" then object*name is the name of the object to display object parameters for.
     :param builtins.str object_type: If parameter*type is set to "OBJECT" then object*type is the type of object to display object parameters for. Valid values are any object supported by the IN clause of the [SHOW PARAMETERS](https://docs.snowflake.com/en/sql-reference/sql/show-parameters.html#parameters) statement, including: WAREHOUSE | DATABASE | SCHEMA | TASK | TABLE
-    :param builtins.str parameter_type: The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
+    :param builtins.str parameter_type: (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
     :param builtins.str pattern: Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
     :param builtins.str user: If parameter_type is set to "SESSION" then user is the name of the user to display session parameters for.
     """
@@ -183,7 +185,7 @@ def get_parameters_output(object_name: Optional[pulumi.Input[Optional[builtins.s
                           user: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParametersResult]:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
     ## Example Usage
 
@@ -205,10 +207,12 @@ def get_parameters_output(object_name: Optional[pulumi.Input[Optional[builtins.s
         user="TEST_USER")
     ```
 
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
 
     :param builtins.str object_name: If parameter*type is set to "OBJECT" then object*name is the name of the object to display object parameters for.
     :param builtins.str object_type: If parameter*type is set to "OBJECT" then object*type is the type of object to display object parameters for. Valid values are any object supported by the IN clause of the [SHOW PARAMETERS](https://docs.snowflake.com/en/sql-reference/sql/show-parameters.html#parameters) statement, including: WAREHOUSE | DATABASE | SCHEMA | TASK | TABLE
-    :param builtins.str parameter_type: The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
+    :param builtins.str parameter_type: (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
     :param builtins.str pattern: Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
     :param builtins.str user: If parameter_type is set to "SESSION" then user is the name of the user to display session parameters for.
     """

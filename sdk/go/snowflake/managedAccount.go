@@ -38,7 +38,7 @@ type ManagedAccount struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Snowflake Region in which the managed account is located.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Specifies the type of managed account.
+	// (Default: `READER`) Specifies the type of managed account.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// URL for accessing the managed account, particularly through the web interface.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -105,7 +105,7 @@ type managedAccountState struct {
 	Name *string `pulumi:"name"`
 	// Snowflake Region in which the managed account is located.
 	Region *string `pulumi:"region"`
-	// Specifies the type of managed account.
+	// (Default: `READER`) Specifies the type of managed account.
 	Type *string `pulumi:"type"`
 	// URL for accessing the managed account, particularly through the web interface.
 	Url *string `pulumi:"url"`
@@ -130,7 +130,7 @@ type ManagedAccountState struct {
 	Name pulumi.StringPtrInput
 	// Snowflake Region in which the managed account is located.
 	Region pulumi.StringPtrInput
-	// Specifies the type of managed account.
+	// (Default: `READER`) Specifies the type of managed account.
 	Type pulumi.StringPtrInput
 	// URL for accessing the managed account, particularly through the web interface.
 	Url pulumi.StringPtrInput
@@ -149,7 +149,7 @@ type managedAccountArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Identifier for the managed account; must be unique for your account.
 	Name *string `pulumi:"name"`
-	// Specifies the type of managed account.
+	// (Default: `READER`) Specifies the type of managed account.
 	Type *string `pulumi:"type"`
 }
 
@@ -163,7 +163,7 @@ type ManagedAccountArgs struct {
 	Comment pulumi.StringPtrInput
 	// Identifier for the managed account; must be unique for your account.
 	Name pulumi.StringPtrInput
-	// Specifies the type of managed account.
+	// (Default: `READER`) Specifies the type of managed account.
 	Type pulumi.StringPtrInput
 }
 
@@ -299,7 +299,7 @@ func (o ManagedAccountOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Specifies the type of managed account.
+// (Default: `READER`) Specifies the type of managed account.
 func (o ManagedAccountOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedAccount) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

@@ -47,7 +47,7 @@ export interface GetTasksArgs {
      */
     startsWith?: string;
     /**
-     * Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+     * (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
      */
     withParameters?: boolean;
 }
@@ -85,7 +85,7 @@ export interface GetTasksResult {
      */
     readonly tasks: outputs.GetTasksTask[];
     /**
-     * Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+     * (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
      */
     readonly withParameters?: boolean;
 }
@@ -130,7 +130,7 @@ export interface GetTasksOutputArgs {
      */
     startsWith?: pulumi.Input<string>;
     /**
-     * Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+     * (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
      */
     withParameters?: pulumi.Input<boolean>;
 }

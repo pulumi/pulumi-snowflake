@@ -62,7 +62,7 @@ export class ApiAuthenticationIntegrationWithJwtBearer extends pulumi.CustomReso
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      */
     public readonly oauthAccessTokenValidity!: pulumi.Output<number | undefined>;
     public readonly oauthAssertionIssuer!: pulumi.Output<string>;
@@ -178,7 +178,7 @@ export interface ApiAuthenticationIntegrationWithJwtBearerState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      */
     oauthAccessTokenValidity?: pulumi.Input<number>;
     oauthAssertionIssuer?: pulumi.Input<string>;
@@ -226,7 +226,7 @@ export interface ApiAuthenticationIntegrationWithJwtBearerArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      */
     oauthAccessTokenValidity?: pulumi.Input<number>;
     oauthAssertionIssuer: pulumi.Input<string>;

@@ -64,12 +64,12 @@ export class GrantPrivilegesToDatabaseRole extends pulumi.CustomResource {
     }
 
     /**
-     * Grant all privileges on the database role.
+     * (Default: `false`) Grant all privileges on the database role.
      */
     public readonly allPrivileges!: pulumi.Output<boolean | undefined>;
     public readonly alwaysApply!: pulumi.Output<boolean | undefined>;
     /**
-     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
+     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
     public readonly alwaysApplyTrigger!: pulumi.Output<string | undefined>;
     /**
@@ -93,7 +93,7 @@ export class GrantPrivilegesToDatabaseRole extends pulumi.CustomResource {
      */
     public readonly privileges!: pulumi.Output<string[] | undefined>;
     /**
-     * If specified, allows the recipient role to grant the privileges to other roles.
+     * (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
      */
     public readonly withGrantOption!: pulumi.Output<boolean | undefined>;
 
@@ -144,12 +144,12 @@ export class GrantPrivilegesToDatabaseRole extends pulumi.CustomResource {
  */
 export interface GrantPrivilegesToDatabaseRoleState {
     /**
-     * Grant all privileges on the database role.
+     * (Default: `false`) Grant all privileges on the database role.
      */
     allPrivileges?: pulumi.Input<boolean>;
     alwaysApply?: pulumi.Input<boolean>;
     /**
-     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
+     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
     alwaysApplyTrigger?: pulumi.Input<string>;
     /**
@@ -173,7 +173,7 @@ export interface GrantPrivilegesToDatabaseRoleState {
      */
     privileges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If specified, allows the recipient role to grant the privileges to other roles.
+     * (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
      */
     withGrantOption?: pulumi.Input<boolean>;
 }
@@ -183,12 +183,12 @@ export interface GrantPrivilegesToDatabaseRoleState {
  */
 export interface GrantPrivilegesToDatabaseRoleArgs {
     /**
-     * Grant all privileges on the database role.
+     * (Default: `false`) Grant all privileges on the database role.
      */
     allPrivileges?: pulumi.Input<boolean>;
     alwaysApply?: pulumi.Input<boolean>;
     /**
-     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
+     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
     alwaysApplyTrigger?: pulumi.Input<string>;
     /**
@@ -212,7 +212,7 @@ export interface GrantPrivilegesToDatabaseRoleArgs {
      */
     privileges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * If specified, allows the recipient role to grant the privileges to other roles.
+     * (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
      */
     withGrantOption?: pulumi.Input<boolean>;
 }

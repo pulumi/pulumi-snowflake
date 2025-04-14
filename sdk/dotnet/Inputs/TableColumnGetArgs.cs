@@ -13,13 +13,13 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class TableColumnGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Column collation, e.g. utf8
+        /// (Default: ``) Column collation, e.g. utf8
         /// </summary>
         [Input("collate")]
         public Input<string>? Collate { get; set; }
 
         /// <summary>
-        /// Column comment
+        /// (Default: ``) Column comment
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -37,7 +37,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<Inputs.TableColumnIdentityGetArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Masking policy to apply on column. It has to be a fully qualified name.
+        /// (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
         /// </summary>
         [Input("maskingPolicy")]
         public Input<string>? MaskingPolicy { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        /// (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         /// </summary>
         [Input("nullable")]
         public Input<bool>? Nullable { get; set; }

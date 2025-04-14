@@ -30,9 +30,9 @@ type GetDatabasesArgs struct {
 	Limit *GetDatabasesLimit `pulumi:"limit"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith *string `pulumi:"startsWith"`
-	// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
-	// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+	// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
 	WithParameters *bool `pulumi:"withParameters"`
 }
 
@@ -48,9 +48,9 @@ type GetDatabasesResult struct {
 	Limit *GetDatabasesLimit `pulumi:"limit"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith *string `pulumi:"startsWith"`
-	// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
-	// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+	// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
 	WithParameters *bool `pulumi:"withParameters"`
 }
 
@@ -71,9 +71,9 @@ type GetDatabasesOutputArgs struct {
 	Limit GetDatabasesLimitPtrInput `pulumi:"limit"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
-	// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
-	// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+	// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
 	WithParameters pulumi.BoolPtrInput `pulumi:"withParameters"`
 }
 
@@ -121,12 +121,12 @@ func (o GetDatabasesResultOutput) StartsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetDatabasesResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
 }
 
-// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetDatabasesResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetDatabasesResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }
 
-// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
 func (o GetDatabasesResultOutput) WithParameters() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetDatabasesResult) *bool { return v.WithParameters }).(pulumi.BoolPtrOutput)
 }

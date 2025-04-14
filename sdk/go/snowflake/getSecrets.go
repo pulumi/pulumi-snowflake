@@ -72,6 +72,8 @@ import (
 //	}
 //
 // ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetSecrets(ctx *pulumi.Context, args *GetSecretsArgs, opts ...pulumi.InvokeOption) (*GetSecretsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecretsResult
@@ -88,7 +90,7 @@ type GetSecretsArgs struct {
 	In *GetSecretsIn `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
-	// Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
@@ -102,7 +104,7 @@ type GetSecretsResult struct {
 	Like *string `pulumi:"like"`
 	// Holds the aggregated output of all secrets details queries.
 	Secrets []GetSecretsSecret `pulumi:"secrets"`
-	// Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
@@ -121,7 +123,7 @@ type GetSecretsOutputArgs struct {
 	In GetSecretsInPtrInput `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like pulumi.StringPtrInput `pulumi:"like"`
-	// Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
@@ -164,7 +166,7 @@ func (o GetSecretsResultOutput) Secrets() GetSecretsSecretArrayOutput {
 	return o.ApplyT(func(v GetSecretsResult) []GetSecretsSecret { return v.Secrets }).(GetSecretsSecretArrayOutput)
 }
 
-// Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+// (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetSecretsResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetSecretsResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }

@@ -31,7 +31,7 @@ type FailoverGroup struct {
 	FromReplica FailoverGroupFromReplicaPtrOutput `pulumi:"fromReplica"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Allows replicating objects to accounts on lower editions.
+	// (Default: `false`) Allows replicating objects to accounts on lower editions.
 	IgnoreEditionCheck pulumi.BoolPtrOutput `pulumi:"ignoreEditionCheck"`
 	// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -83,7 +83,7 @@ type failoverGroupState struct {
 	FromReplica *FailoverGroupFromReplica `pulumi:"fromReplica"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Allows replicating objects to accounts on lower editions.
+	// (Default: `false`) Allows replicating objects to accounts on lower editions.
 	IgnoreEditionCheck *bool `pulumi:"ignoreEditionCheck"`
 	// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
 	Name *string `pulumi:"name"`
@@ -106,7 +106,7 @@ type FailoverGroupState struct {
 	FromReplica FailoverGroupFromReplicaPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Allows replicating objects to accounts on lower editions.
+	// (Default: `false`) Allows replicating objects to accounts on lower editions.
 	IgnoreEditionCheck pulumi.BoolPtrInput
 	// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
 	Name pulumi.StringPtrInput
@@ -131,7 +131,7 @@ type failoverGroupArgs struct {
 	AllowedShares []string `pulumi:"allowedShares"`
 	// Specifies the name of the replica to use as the source for the failover group.
 	FromReplica *FailoverGroupFromReplica `pulumi:"fromReplica"`
-	// Allows replicating objects to accounts on lower editions.
+	// (Default: `false`) Allows replicating objects to accounts on lower editions.
 	IgnoreEditionCheck *bool `pulumi:"ignoreEditionCheck"`
 	// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
 	Name *string `pulumi:"name"`
@@ -153,7 +153,7 @@ type FailoverGroupArgs struct {
 	AllowedShares pulumi.StringArrayInput
 	// Specifies the name of the replica to use as the source for the failover group.
 	FromReplica FailoverGroupFromReplicaPtrInput
-	// Allows replicating objects to accounts on lower editions.
+	// (Default: `false`) Allows replicating objects to accounts on lower editions.
 	IgnoreEditionCheck pulumi.BoolPtrInput
 	// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
 	Name pulumi.StringPtrInput
@@ -280,7 +280,7 @@ func (o FailoverGroupOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FailoverGroup) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Allows replicating objects to accounts on lower editions.
+// (Default: `false`) Allows replicating objects to accounts on lower editions.
 func (o FailoverGroupOutput) IgnoreEditionCheck() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FailoverGroup) pulumi.BoolPtrOutput { return v.IgnoreEditionCheck }).(pulumi.BoolPtrOutput)
 }

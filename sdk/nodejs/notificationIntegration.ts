@@ -101,6 +101,9 @@ export class NotificationIntegration extends pulumi.CustomResource {
      * @deprecated Will be removed - it is added automatically on the SDK level.
      */
     public readonly direction!: pulumi.Output<string | undefined>;
+    /**
+     * (Default: `true`)
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -124,7 +127,7 @@ export class NotificationIntegration extends pulumi.CustomResource {
      */
     public readonly notificationProvider!: pulumi.Output<string>;
     /**
-     * A type of integration
+     * (Default: `QUEUE`) A type of integration
      *
      * @deprecated Will be removed - it is added automatically on the SDK level.
      */
@@ -262,6 +265,9 @@ export interface NotificationIntegrationState {
      * @deprecated Will be removed - it is added automatically on the SDK level.
      */
     direction?: pulumi.Input<string>;
+    /**
+     * (Default: `true`)
+     */
     enabled?: pulumi.Input<boolean>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -285,7 +291,7 @@ export interface NotificationIntegrationState {
      */
     notificationProvider?: pulumi.Input<string>;
     /**
-     * A type of integration
+     * (Default: `QUEUE`) A type of integration
      *
      * @deprecated Will be removed - it is added automatically on the SDK level.
      */
@@ -334,6 +340,9 @@ export interface NotificationIntegrationArgs {
      * @deprecated Will be removed - it is added automatically on the SDK level.
      */
     direction?: pulumi.Input<string>;
+    /**
+     * (Default: `true`)
+     */
     enabled?: pulumi.Input<boolean>;
     /**
      * The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
@@ -349,7 +358,7 @@ export interface NotificationIntegrationArgs {
      */
     notificationProvider: pulumi.Input<string>;
     /**
-     * A type of integration
+     * (Default: `QUEUE`) A type of integration
      *
      * @deprecated Will be removed - it is added automatically on the SDK level.
      */

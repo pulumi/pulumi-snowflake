@@ -57,14 +57,14 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Whether the constraint is deferrable
+     * (Default: `true`) Whether the constraint is deferrable
      * 
      */
     @Import(name="deferrable")
     private @Nullable Output<Boolean> deferrable;
 
     /**
-     * @return Whether the constraint is deferrable
+     * @return (Default: `true`) Whether the constraint is deferrable
      * 
      */
     public Optional<Output<Boolean>> deferrable() {
@@ -72,14 +72,14 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+     * (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
      * 
      */
     @Import(name="enable")
     private @Nullable Output<Boolean> enable;
 
     /**
-     * @return Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+     * @return (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
      * 
      */
     public Optional<Output<Boolean>> enable() {
@@ -87,14 +87,14 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Whether the constraint is enforced
+     * (Default: `false`) Whether the constraint is enforced
      * 
      */
     @Import(name="enforced")
     private @Nullable Output<Boolean> enforced;
 
     /**
-     * @return Whether the constraint is enforced
+     * @return (Default: `false`) Whether the constraint is enforced
      * 
      */
     public Optional<Output<Boolean>> enforced() {
@@ -117,14 +117,14 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Whether the constraint is initially deferred or immediate
+     * (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
      * 
      */
     @Import(name="initially")
     private @Nullable Output<String> initially;
 
     /**
-     * @return Whether the constraint is initially deferred or immediate
+     * @return (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
      * 
      */
     public Optional<Output<String>> initially() {
@@ -147,14 +147,14 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+     * (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
      * 
      */
     @Import(name="rely")
     private @Nullable Output<Boolean> rely;
 
     /**
-     * @return Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+     * @return (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
      * 
      */
     public Optional<Output<Boolean>> rely() {
@@ -192,14 +192,14 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+     * (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
      * 
      */
     @Import(name="validate")
     private @Nullable Output<Boolean> validate;
 
     /**
-     * @return Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+     * @return (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
      * 
      */
     public Optional<Output<Boolean>> validate() {
@@ -302,7 +302,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param deferrable Whether the constraint is deferrable
+         * @param deferrable (Default: `true`) Whether the constraint is deferrable
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param deferrable Whether the constraint is deferrable
+         * @param deferrable (Default: `true`) Whether the constraint is deferrable
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enable Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+         * @param enable (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enable Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+         * @param enable (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
          * 
          * @return builder
          * 
@@ -344,7 +344,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enforced Whether the constraint is enforced
+         * @param enforced (Default: `false`) Whether the constraint is enforced
          * 
          * @return builder
          * 
@@ -355,7 +355,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enforced Whether the constraint is enforced
+         * @param enforced (Default: `false`) Whether the constraint is enforced
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param initially Whether the constraint is initially deferred or immediate
+         * @param initially (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param initially Whether the constraint is initially deferred or immediate
+         * @param initially (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rely Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+         * @param rely (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
          * 
          * @return builder
          * 
@@ -439,7 +439,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param rely Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+         * @param rely (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param validate Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+         * @param validate (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
          * 
          * @return builder
          * 
@@ -502,7 +502,7 @@ public final class TableConstraintState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param validate Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+         * @param validate (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
          * 
          * @return builder
          * 

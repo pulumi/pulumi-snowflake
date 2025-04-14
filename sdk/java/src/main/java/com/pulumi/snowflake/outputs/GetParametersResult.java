@@ -30,7 +30,7 @@ public final class GetParametersResult {
      */
     private @Nullable String objectType;
     /**
-     * @return The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
+     * @return (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
      * 
      */
     private @Nullable String parameterType;
@@ -73,7 +73,7 @@ public final class GetParametersResult {
         return Optional.ofNullable(this.objectType);
     }
     /**
-     * @return The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
+     * @return (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
      * 
      */
     public Optional<String> parameterType() {

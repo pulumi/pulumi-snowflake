@@ -27,7 +27,7 @@ export interface GetSecurityIntegrationsArgs {
      */
     like?: string;
     /**
-     * Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: boolean;
 }
@@ -49,7 +49,7 @@ export interface GetSecurityIntegrationsResult {
      */
     readonly securityIntegrations: outputs.GetSecurityIntegrationsSecurityIntegration[];
     /**
-     * Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
      */
     readonly withDescribe?: boolean;
 }
@@ -74,7 +74,7 @@ export interface GetSecurityIntegrationsOutputArgs {
      */
     like?: pulumi.Input<string>;
     /**
-     * Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: pulumi.Input<boolean>;
 }

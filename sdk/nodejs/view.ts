@@ -46,7 +46,7 @@ export class View extends pulumi.CustomResource {
      */
     public readonly aggregationPolicy!: pulumi.Output<outputs.ViewAggregationPolicy | undefined>;
     /**
-     * Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly changeTracking!: pulumi.Output<string | undefined>;
     /**
@@ -79,7 +79,7 @@ export class View extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly isRecursive!: pulumi.Output<string | undefined>;
     public readonly isSecure!: pulumi.Output<string | undefined>;
@@ -180,7 +180,7 @@ export interface ViewState {
      */
     aggregationPolicy?: pulumi.Input<inputs.ViewAggregationPolicy>;
     /**
-     * Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     changeTracking?: pulumi.Input<string>;
     /**
@@ -213,7 +213,7 @@ export interface ViewState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     isRecursive?: pulumi.Input<string>;
     isSecure?: pulumi.Input<string>;
@@ -249,7 +249,7 @@ export interface ViewArgs {
      */
     aggregationPolicy?: pulumi.Input<inputs.ViewAggregationPolicy>;
     /**
-     * Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     changeTracking?: pulumi.Input<string>;
     /**
@@ -274,7 +274,7 @@ export interface ViewArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     isRecursive?: pulumi.Input<string>;
     isSecure?: pulumi.Input<string>;

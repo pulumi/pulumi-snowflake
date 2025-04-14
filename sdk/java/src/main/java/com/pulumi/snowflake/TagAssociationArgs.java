@@ -49,14 +49,14 @@ public final class TagAssociationArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * If true, skips validation of the tag association.
+     * (Default: `true`) If true, skips validation of the tag association.
      * 
      */
     @Import(name="skipValidation")
     private @Nullable Output<Boolean> skipValidation;
 
     /**
-     * @return If true, skips validation of the tag association.
+     * @return (Default: `true`) If true, skips validation of the tag association.
      * 
      */
     public Optional<Output<Boolean>> skipValidation() {
@@ -174,7 +174,7 @@ public final class TagAssociationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param skipValidation If true, skips validation of the tag association.
+         * @param skipValidation (Default: `true`) If true, skips validation of the tag association.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class TagAssociationArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param skipValidation If true, skips validation of the tag association.
+         * @param skipValidation (Default: `true`) If true, skips validation of the tag association.
          * 
          * @return builder
          * 

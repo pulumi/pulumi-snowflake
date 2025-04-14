@@ -37,7 +37,7 @@ export interface GetMaskingPoliciesArgs {
      */
     limit?: inputs.GetMaskingPoliciesLimit;
     /**
-     * Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: boolean;
 }
@@ -67,7 +67,7 @@ export interface GetMaskingPoliciesResult {
      */
     readonly maskingPolicies: outputs.GetMaskingPoliciesMaskingPolicy[];
     /**
-     * Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      */
     readonly withDescribe?: boolean;
 }
@@ -102,7 +102,7 @@ export interface GetMaskingPoliciesOutputArgs {
      */
     limit?: pulumi.Input<inputs.GetMaskingPoliciesLimitArgs>;
     /**
-     * Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: pulumi.Input<boolean>;
 }

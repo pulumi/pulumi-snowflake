@@ -12,7 +12,7 @@ namespace Pulumi.Snowflake
     public static class GetShares
     {
         /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
         /// ## Example Usage
         /// 
@@ -33,12 +33,14 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Task<GetSharesResult> InvokeAsync(GetSharesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharesResult>("snowflake:index/getShares:getShares", args ?? new GetSharesArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
         /// ## Example Usage
         /// 
@@ -59,12 +61,14 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Output<GetSharesResult> Invoke(GetSharesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharesResult>("snowflake:index/getShares:getShares", args ?? new GetSharesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
         /// ## Example Usage
         /// 
@@ -85,6 +89,8 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Output<GetSharesResult> Invoke(GetSharesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharesResult>("snowflake:index/getShares:getShares", args ?? new GetSharesInvokeArgs(), options.WithDefaults());

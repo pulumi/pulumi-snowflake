@@ -31,7 +31,7 @@ class ManagedAccountArgs:
         :param pulumi.Input[builtins.str] admin_password: Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[builtins.str] name: Identifier for the managed account; must be unique for your account.
-        :param pulumi.Input[builtins.str] type: Specifies the type of managed account.
+        :param pulumi.Input[builtins.str] type: (Default: `READER`) Specifies the type of managed account.
         """
         pulumi.set(__self__, "admin_name", admin_name)
         pulumi.set(__self__, "admin_password", admin_password)
@@ -94,7 +94,7 @@ class ManagedAccountArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the type of managed account.
+        (Default: `READER`) Specifies the type of managed account.
         """
         return pulumi.get(self, "type")
 
@@ -128,7 +128,7 @@ class _ManagedAccountState:
         :param pulumi.Input[builtins.str] locator: Display name of the managed account.
         :param pulumi.Input[builtins.str] name: Identifier for the managed account; must be unique for your account.
         :param pulumi.Input[builtins.str] region: Snowflake Region in which the managed account is located.
-        :param pulumi.Input[builtins.str] type: Specifies the type of managed account.
+        :param pulumi.Input[builtins.str] type: (Default: `READER`) Specifies the type of managed account.
         :param pulumi.Input[builtins.str] url: URL for accessing the managed account, particularly through the web interface.
         """
         if admin_name is not None:
@@ -266,7 +266,7 @@ class _ManagedAccountState:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the type of managed account.
+        (Default: `READER`) Specifies the type of managed account.
         """
         return pulumi.get(self, "type")
 
@@ -311,7 +311,7 @@ class ManagedAccount(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] admin_password: Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[builtins.str] name: Identifier for the managed account; must be unique for your account.
-        :param pulumi.Input[builtins.str] type: Specifies the type of managed account.
+        :param pulumi.Input[builtins.str] type: (Default: `READER`) Specifies the type of managed account.
         """
         ...
     @overload
@@ -409,7 +409,7 @@ class ManagedAccount(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] locator: Display name of the managed account.
         :param pulumi.Input[builtins.str] name: Identifier for the managed account; must be unique for your account.
         :param pulumi.Input[builtins.str] region: Snowflake Region in which the managed account is located.
-        :param pulumi.Input[builtins.str] type: Specifies the type of managed account.
+        :param pulumi.Input[builtins.str] type: (Default: `READER`) Specifies the type of managed account.
         :param pulumi.Input[builtins.str] url: URL for accessing the managed account, particularly through the web interface.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -505,7 +505,7 @@ class ManagedAccount(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the type of managed account.
+        (Default: `READER`) Specifies the type of managed account.
         """
         return pulumi.get(self, "type")
 

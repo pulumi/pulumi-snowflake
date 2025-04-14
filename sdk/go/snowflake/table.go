@@ -22,7 +22,7 @@ import (
 type Table struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether to enable change tracking on the table. Default false.
+	// (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
 	ChangeTracking pulumi.BoolPtrOutput `pulumi:"changeTracking"`
 	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies pulumi.StringArrayOutput `pulumi:"clusterBies"`
@@ -30,7 +30,7 @@ type Table struct {
 	Columns TableColumnArrayOutput `pulumi:"columns"`
 	// Specifies a comment for the table.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays pulumi.IntPtrOutput `pulumi:"dataRetentionTimeInDays"`
 	// The database in which to create the table.
 	Database pulumi.StringOutput `pulumi:"database"`
@@ -91,7 +91,7 @@ func GetTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Table resources.
 type tableState struct {
-	// Specifies whether to enable change tracking on the table. Default false.
+	// (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
 	ChangeTracking *bool `pulumi:"changeTracking"`
 	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies []string `pulumi:"clusterBies"`
@@ -99,7 +99,7 @@ type tableState struct {
 	Columns []TableColumn `pulumi:"columns"`
 	// Specifies a comment for the table.
 	Comment *string `pulumi:"comment"`
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// The database in which to create the table.
 	Database *string `pulumi:"database"`
@@ -122,7 +122,7 @@ type tableState struct {
 }
 
 type TableState struct {
-	// Specifies whether to enable change tracking on the table. Default false.
+	// (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
 	ChangeTracking pulumi.BoolPtrInput
 	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies pulumi.StringArrayInput
@@ -130,7 +130,7 @@ type TableState struct {
 	Columns TableColumnArrayInput
 	// Specifies a comment for the table.
 	Comment pulumi.StringPtrInput
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// The database in which to create the table.
 	Database pulumi.StringPtrInput
@@ -157,7 +157,7 @@ func (TableState) ElementType() reflect.Type {
 }
 
 type tableArgs struct {
-	// Specifies whether to enable change tracking on the table. Default false.
+	// (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
 	ChangeTracking *bool `pulumi:"changeTracking"`
 	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies []string `pulumi:"clusterBies"`
@@ -165,7 +165,7 @@ type tableArgs struct {
 	Columns []TableColumn `pulumi:"columns"`
 	// Specifies a comment for the table.
 	Comment *string `pulumi:"comment"`
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
 	// The database in which to create the table.
 	Database string `pulumi:"database"`
@@ -185,7 +185,7 @@ type tableArgs struct {
 
 // The set of arguments for constructing a Table resource.
 type TableArgs struct {
-	// Specifies whether to enable change tracking on the table. Default false.
+	// (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
 	ChangeTracking pulumi.BoolPtrInput
 	// A list of one or more table columns/expressions to be used as clustering key(s) for the table
 	ClusterBies pulumi.StringArrayInput
@@ -193,7 +193,7 @@ type TableArgs struct {
 	Columns TableColumnArrayInput
 	// Specifies a comment for the table.
 	Comment pulumi.StringPtrInput
-	// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 	DataRetentionTimeInDays pulumi.IntPtrInput
 	// The database in which to create the table.
 	Database pulumi.StringInput
@@ -298,7 +298,7 @@ func (o TableOutput) ToTableOutputWithContext(ctx context.Context) TableOutput {
 	return o
 }
 
-// Specifies whether to enable change tracking on the table. Default false.
+// (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
 func (o TableOutput) ChangeTracking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.BoolPtrOutput { return v.ChangeTracking }).(pulumi.BoolPtrOutput)
 }
@@ -318,7 +318,7 @@ func (o TableOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
 func (o TableOutput) DataRetentionTimeInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Table) pulumi.IntPtrOutput { return v.DataRetentionTimeInDays }).(pulumi.IntPtrOutput)
 }

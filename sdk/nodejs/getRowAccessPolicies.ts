@@ -37,7 +37,7 @@ export interface GetRowAccessPoliciesArgs {
      */
     limit?: inputs.GetRowAccessPoliciesLimit;
     /**
-     * Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: boolean;
 }
@@ -67,7 +67,7 @@ export interface GetRowAccessPoliciesResult {
      */
     readonly rowAccessPolicies: outputs.GetRowAccessPoliciesRowAccessPolicy[];
     /**
-     * Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      */
     readonly withDescribe?: boolean;
 }
@@ -102,7 +102,7 @@ export interface GetRowAccessPoliciesOutputArgs {
      */
     limit?: pulumi.Input<inputs.GetRowAccessPoliciesLimitArgs>;
     /**
-     * Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: pulumi.Input<boolean>;
 }

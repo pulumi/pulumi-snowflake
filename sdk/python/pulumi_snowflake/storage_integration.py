@@ -34,8 +34,13 @@ class StorageIntegrationArgs:
         The set of arguments for constructing a StorageIntegration resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[builtins.str] storage_provider: Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+        :param pulumi.Input[builtins.str] azure_tenant_id: (Default: ``)
+        :param pulumi.Input[builtins.str] comment: (Default: ``)
+        :param pulumi.Input[builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[builtins.str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+        :param pulumi.Input[builtins.str] storage_aws_role_arn: (Default: ``)
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
+        :param pulumi.Input[builtins.str] type: (Default: `EXTERNAL_STAGE`)
         """
         pulumi.set(__self__, "storage_allowed_locations", storage_allowed_locations)
         pulumi.set(__self__, "storage_provider", storage_provider)
@@ -83,6 +88,9 @@ class StorageIntegrationArgs:
     @property
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        (Default: ``)
+        """
         return pulumi.get(self, "azure_tenant_id")
 
     @azure_tenant_id.setter
@@ -92,6 +100,9 @@ class StorageIntegrationArgs:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        (Default: ``)
+        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -101,6 +112,9 @@ class StorageIntegrationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        (Default: `true`)
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -131,6 +145,9 @@ class StorageIntegrationArgs:
     @property
     @pulumi.getter(name="storageAwsRoleArn")
     def storage_aws_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        (Default: ``)
+        """
         return pulumi.get(self, "storage_aws_role_arn")
 
     @storage_aws_role_arn.setter
@@ -152,6 +169,9 @@ class StorageIntegrationArgs:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        (Default: `EXTERNAL_STAGE`)
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -183,15 +203,20 @@ class _StorageIntegrationState:
         Input properties used for looking up and filtering StorageIntegration resources.
         :param pulumi.Input[builtins.str] azure_consent_url: The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
         :param pulumi.Input[builtins.str] azure_multi_tenant_app_name: This is the name of the Snowflake client application created for your account.
+        :param pulumi.Input[builtins.str] azure_tenant_id: (Default: ``)
+        :param pulumi.Input[builtins.str] comment: (Default: ``)
         :param pulumi.Input[builtins.str] created_on: Date and time when the storage integration was created.
+        :param pulumi.Input[builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[builtins.str] storage_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
         :param pulumi.Input[builtins.str] storage_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[builtins.str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+        :param pulumi.Input[builtins.str] storage_aws_role_arn: (Default: ``)
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         :param pulumi.Input[builtins.str] storage_gcp_service_account: This is the name of the Snowflake Google Service Account created for your account.
         :param pulumi.Input[builtins.str] storage_provider: Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+        :param pulumi.Input[builtins.str] type: (Default: `EXTERNAL_STAGE`)
         """
         if azure_consent_url is not None:
             pulumi.set(__self__, "azure_consent_url", azure_consent_url)
@@ -255,6 +280,9 @@ class _StorageIntegrationState:
     @property
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        (Default: ``)
+        """
         return pulumi.get(self, "azure_tenant_id")
 
     @azure_tenant_id.setter
@@ -264,6 +292,9 @@ class _StorageIntegrationState:
     @property
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        (Default: ``)
+        """
         return pulumi.get(self, "comment")
 
     @comment.setter
@@ -285,6 +316,9 @@ class _StorageIntegrationState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        (Default: `true`)
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -363,6 +397,9 @@ class _StorageIntegrationState:
     @property
     @pulumi.getter(name="storageAwsRoleArn")
     def storage_aws_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        (Default: ``)
+        """
         return pulumi.get(self, "storage_aws_role_arn")
 
     @storage_aws_role_arn.setter
@@ -408,6 +445,9 @@ class _StorageIntegrationState:
     @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        (Default: `EXTERNAL_STAGE`)
+        """
         return pulumi.get(self, "type")
 
     @type.setter
@@ -440,10 +480,15 @@ class StorageIntegration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] azure_tenant_id: (Default: ``)
+        :param pulumi.Input[builtins.str] comment: (Default: ``)
+        :param pulumi.Input[builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[builtins.str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+        :param pulumi.Input[builtins.str] storage_aws_role_arn: (Default: ``)
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         :param pulumi.Input[builtins.str] storage_provider: Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+        :param pulumi.Input[builtins.str] type: (Default: `EXTERNAL_STAGE`)
         """
         ...
     @overload
@@ -549,15 +594,20 @@ class StorageIntegration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] azure_consent_url: The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
         :param pulumi.Input[builtins.str] azure_multi_tenant_app_name: This is the name of the Snowflake client application created for your account.
+        :param pulumi.Input[builtins.str] azure_tenant_id: (Default: ``)
+        :param pulumi.Input[builtins.str] comment: (Default: ``)
         :param pulumi.Input[builtins.str] created_on: Date and time when the storage integration was created.
+        :param pulumi.Input[builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] storage_allowed_locations: Explicitly limits external stages that use the integration to reference one or more storage locations.
         :param pulumi.Input[builtins.str] storage_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
         :param pulumi.Input[builtins.str] storage_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
         :param pulumi.Input[builtins.str] storage_aws_object_acl: "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
+        :param pulumi.Input[builtins.str] storage_aws_role_arn: (Default: ``)
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] storage_blocked_locations: Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
         :param pulumi.Input[builtins.str] storage_gcp_service_account: This is the name of the Snowflake Google Service Account created for your account.
         :param pulumi.Input[builtins.str] storage_provider: Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
+        :param pulumi.Input[builtins.str] type: (Default: `EXTERNAL_STAGE`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -601,11 +651,17 @@ class StorageIntegration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        (Default: ``)
+        """
         return pulumi.get(self, "azure_tenant_id")
 
     @property
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        (Default: ``)
+        """
         return pulumi.get(self, "comment")
 
     @property
@@ -619,6 +675,9 @@ class StorageIntegration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        (Default: `true`)
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -669,6 +728,9 @@ class StorageIntegration(pulumi.CustomResource):
     @property
     @pulumi.getter(name="storageAwsRoleArn")
     def storage_aws_role_arn(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        (Default: ``)
+        """
         return pulumi.get(self, "storage_aws_role_arn")
 
     @property
@@ -698,5 +760,8 @@ class StorageIntegration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def type(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        (Default: `EXTERNAL_STAGE`)
+        """
         return pulumi.get(self, "type")
 

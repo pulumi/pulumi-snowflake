@@ -21,14 +21,14 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
     public static final ExternalTableArgs Empty = new ExternalTableArgs();
 
     /**
-     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+     * (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      * 
      */
     @Import(name="autoRefresh")
     private @Nullable Output<Boolean> autoRefresh;
 
     /**
-     * @return Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+     * @return (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      * 
      */
     public Optional<Output<Boolean>> autoRefresh() {
@@ -81,14 +81,14 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+     * (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      * 
      */
     @Import(name="copyGrants")
     private @Nullable Output<Boolean> copyGrants;
 
     /**
-     * @return Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+     * @return (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      * 
      */
     public Optional<Output<Boolean>> copyGrants() {
@@ -186,14 +186,14 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies weather to refresh when an external table is created.
+     * (Default: `true`) Specifies weather to refresh when an external table is created.
      * 
      */
     @Import(name="refreshOnCreate")
     private @Nullable Output<Boolean> refreshOnCreate;
 
     /**
-     * @return Specifies weather to refresh when an external table is created.
+     * @return (Default: `true`) Specifies weather to refresh when an external table is created.
      * 
      */
     public Optional<Output<Boolean>> refreshOnCreate() {
@@ -292,7 +292,7 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoRefresh Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+         * @param autoRefresh (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoRefresh Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+         * @param autoRefresh (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param copyGrants Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+         * @param copyGrants (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param copyGrants Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+         * @param copyGrants (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
          * 
          * @return builder
          * 
@@ -543,7 +543,7 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshOnCreate Specifies weather to refresh when an external table is created.
+         * @param refreshOnCreate (Default: `true`) Specifies weather to refresh when an external table is created.
          * 
          * @return builder
          * 
@@ -554,7 +554,7 @@ public final class ExternalTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshOnCreate Specifies weather to refresh when an external table is created.
+         * @param refreshOnCreate (Default: `true`) Specifies weather to refresh when an external table is created.
          * 
          * @return builder
          * 

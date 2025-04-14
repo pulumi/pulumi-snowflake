@@ -21,14 +21,14 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
     public static final GrantPrivilegesToDatabaseRoleArgs Empty = new GrantPrivilegesToDatabaseRoleArgs();
 
     /**
-     * Grant all privileges on the database role.
+     * (Default: `false`) Grant all privileges on the database role.
      * 
      */
     @Import(name="allPrivileges")
     private @Nullable Output<Boolean> allPrivileges;
 
     /**
-     * @return Grant all privileges on the database role.
+     * @return (Default: `false`) Grant all privileges on the database role.
      * 
      */
     public Optional<Output<Boolean>> allPrivileges() {
@@ -43,14 +43,14 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
     }
 
     /**
-     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     @Import(name="alwaysApplyTrigger")
     private @Nullable Output<String> alwaysApplyTrigger;
 
     /**
-     * @return This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+     * @return (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     public Optional<Output<String>> alwaysApplyTrigger() {
@@ -133,14 +133,14 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
     }
 
     /**
-     * If specified, allows the recipient role to grant the privileges to other roles.
+     * (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
      * 
      */
     @Import(name="withGrantOption")
     private @Nullable Output<Boolean> withGrantOption;
 
     /**
-     * @return If specified, allows the recipient role to grant the privileges to other roles.
+     * @return (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
      * 
      */
     public Optional<Output<Boolean>> withGrantOption() {
@@ -180,7 +180,7 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param allPrivileges Grant all privileges on the database role.
+         * @param allPrivileges (Default: `false`) Grant all privileges on the database role.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param allPrivileges Grant all privileges on the database role.
+         * @param allPrivileges (Default: `false`) Grant all privileges on the database role.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param alwaysApplyTrigger This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+         * @param alwaysApplyTrigger (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param alwaysApplyTrigger This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+         * @param alwaysApplyTrigger (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
          * 
          * @return builder
          * 
@@ -346,7 +346,7 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param withGrantOption If specified, allows the recipient role to grant the privileges to other roles.
+         * @param withGrantOption (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
          * 
          * @return builder
          * 
@@ -357,7 +357,7 @@ public final class GrantPrivilegesToDatabaseRoleArgs extends com.pulumi.resource
         }
 
         /**
-         * @param withGrantOption If specified, allows the recipient role to grant the privileges to other roles.
+         * @param withGrantOption (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
          * 
          * @return builder
          * 

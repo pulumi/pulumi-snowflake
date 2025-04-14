@@ -161,9 +161,17 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.direction);
     }
 
+    /**
+     * (Default: `true`)
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return (Default: `true`)
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -221,7 +229,7 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * A type of integration
+     * (Default: `QUEUE`) A type of integration
      * 
      * @deprecated
      * Will be removed - it is added automatically on the SDK level.
@@ -232,7 +240,7 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
     private @Nullable Output<String> type;
 
     /**
-     * @return A type of integration
+     * @return (Default: `QUEUE`) A type of integration
      * 
      * @deprecated
      * Will be removed - it is added automatically on the SDK level.
@@ -472,11 +480,23 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
             return direction(Output.of(direction));
         }
 
+        /**
+         * @param enabled (Default: `true`)
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled (Default: `true`)
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
@@ -554,7 +574,7 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type A type of integration
+         * @param type (Default: `QUEUE`) A type of integration
          * 
          * @return builder
          * 
@@ -569,7 +589,7 @@ public final class NotificationIntegrationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param type A type of integration
+         * @param type (Default: `QUEUE`) A type of integration
          * 
          * @return builder
          * 

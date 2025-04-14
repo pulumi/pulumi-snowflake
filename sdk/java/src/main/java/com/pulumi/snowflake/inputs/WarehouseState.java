@@ -21,14 +21,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     public static final WarehouseState Empty = new WarehouseState();
 
     /**
-     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="autoResume")
     private @Nullable Output<String> autoResume;
 
     /**
-     * @return Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> autoResume() {
@@ -36,14 +36,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      * 
      */
     @Import(name="autoSuspend")
     private @Nullable Output<Integer> autoSuspend;
 
     /**
-     * @return Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      * 
      */
     public Optional<Output<Integer>> autoSuspend() {
@@ -66,14 +66,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="enableQueryAcceleration")
     private @Nullable Output<String> enableQueryAcceleration;
 
     /**
-     * @return Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> enableQueryAcceleration() {
@@ -186,14 +186,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      * 
      */
     @Import(name="queryAccelerationMaxScaleFactor")
     private @Nullable Output<Integer> queryAccelerationMaxScaleFactor;
 
     /**
-     * @return Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      * 
      */
     public Optional<Output<Integer>> queryAccelerationMaxScaleFactor() {
@@ -348,7 +348,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoResume Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param autoResume (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoResume Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param autoResume (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -369,7 +369,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSuspend Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+         * @param autoSuspend (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
          * 
          * @return builder
          * 
@@ -380,7 +380,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSuspend Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+         * @param autoSuspend (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableQueryAcceleration Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param enableQueryAcceleration (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableQueryAcceleration Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param enableQueryAcceleration (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queryAccelerationMaxScaleFactor Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+         * @param queryAccelerationMaxScaleFactor (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
          * 
          * @return builder
          * 
@@ -600,7 +600,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queryAccelerationMaxScaleFactor Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+         * @param queryAccelerationMaxScaleFactor (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
          * 
          * @return builder
          * 

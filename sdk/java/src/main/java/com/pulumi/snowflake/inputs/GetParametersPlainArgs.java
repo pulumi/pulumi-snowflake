@@ -45,14 +45,14 @@ public final class GetParametersPlainArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
+     * (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
      * 
      */
     @Import(name="parameterType")
     private @Nullable String parameterType;
 
     /**
-     * @return The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
+     * @return (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
      * 
      */
     public Optional<String> parameterType() {
@@ -140,7 +140,7 @@ public final class GetParametersPlainArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param parameterType The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
+         * @param parameterType (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
          * 
          * @return builder
          * 

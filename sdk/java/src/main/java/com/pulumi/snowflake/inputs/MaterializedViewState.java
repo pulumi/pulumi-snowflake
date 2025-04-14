@@ -64,14 +64,14 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies that the view is secure.
+     * (Default: `false`) Specifies that the view is secure.
      * 
      */
     @Import(name="isSecure")
     private @Nullable Output<Boolean> isSecure;
 
     /**
-     * @return Specifies that the view is secure.
+     * @return (Default: `false`) Specifies that the view is secure.
      * 
      */
     public Optional<Output<Boolean>> isSecure() {
@@ -94,14 +94,14 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Overwrites the View if it exists.
+     * (Default: `false`) Overwrites the View if it exists.
      * 
      */
     @Import(name="orReplace")
     private @Nullable Output<Boolean> orReplace;
 
     /**
-     * @return Overwrites the View if it exists.
+     * @return (Default: `false`) Overwrites the View if it exists.
      * 
      */
     public Optional<Output<Boolean>> orReplace() {
@@ -273,7 +273,7 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param isSecure Specifies that the view is secure.
+         * @param isSecure (Default: `false`) Specifies that the view is secure.
          * 
          * @return builder
          * 
@@ -284,7 +284,7 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param isSecure Specifies that the view is secure.
+         * @param isSecure (Default: `false`) Specifies that the view is secure.
          * 
          * @return builder
          * 
@@ -315,7 +315,7 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param orReplace Overwrites the View if it exists.
+         * @param orReplace (Default: `false`) Overwrites the View if it exists.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param orReplace Overwrites the View if it exists.
+         * @param orReplace (Default: `false`) Overwrites the View if it exists.
          * 
          * @return builder
          * 

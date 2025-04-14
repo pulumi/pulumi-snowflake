@@ -86,6 +86,8 @@ def get_system_get_aws_sns_iam_policy(aws_sns_topic_arn: Optional[builtins.str] 
     snowflake_policy = snowflake.get_system_get_aws_sns_iam_policy(aws_sns_topic_arn="<aws_sns_topic_arn>")
     ```
 
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
 
     :param builtins.str aws_sns_topic_arn: Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
     """
@@ -109,6 +111,8 @@ def get_system_get_aws_sns_iam_policy_output(aws_sns_topic_arn: Optional[pulumi.
 
     snowflake_policy = snowflake.get_system_get_aws_sns_iam_policy(aws_sns_topic_arn="<aws_sns_topic_arn>")
     ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
     :param builtins.str aws_sns_topic_arn: Amazon Resource Name (ARN) of the SNS topic for your S3 bucket

@@ -52,7 +52,7 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        /// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        /// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -220,7 +220,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        /// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

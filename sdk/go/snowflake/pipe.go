@@ -22,7 +22,7 @@ import (
 type Pipe struct {
 	pulumi.CustomResourceState
 
-	// Specifies a autoIngest param for the pipe.
+	// (Default: `false`) Specifies a autoIngest param for the pipe.
 	AutoIngest pulumi.BoolPtrOutput `pulumi:"autoIngest"`
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn pulumi.StringPtrOutput `pulumi:"awsSnsTopicArn"`
@@ -87,7 +87,7 @@ func GetPipe(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipe resources.
 type pipeState struct {
-	// Specifies a autoIngest param for the pipe.
+	// (Default: `false`) Specifies a autoIngest param for the pipe.
 	AutoIngest *bool `pulumi:"autoIngest"`
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn *string `pulumi:"awsSnsTopicArn"`
@@ -114,7 +114,7 @@ type pipeState struct {
 }
 
 type PipeState struct {
-	// Specifies a autoIngest param for the pipe.
+	// (Default: `false`) Specifies a autoIngest param for the pipe.
 	AutoIngest pulumi.BoolPtrInput
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn pulumi.StringPtrInput
@@ -145,7 +145,7 @@ func (PipeState) ElementType() reflect.Type {
 }
 
 type pipeArgs struct {
-	// Specifies a autoIngest param for the pipe.
+	// (Default: `false`) Specifies a autoIngest param for the pipe.
 	AutoIngest *bool `pulumi:"autoIngest"`
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn *string `pulumi:"awsSnsTopicArn"`
@@ -167,7 +167,7 @@ type pipeArgs struct {
 
 // The set of arguments for constructing a Pipe resource.
 type PipeArgs struct {
-	// Specifies a autoIngest param for the pipe.
+	// (Default: `false`) Specifies a autoIngest param for the pipe.
 	AutoIngest pulumi.BoolPtrInput
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn pulumi.StringPtrInput
@@ -274,7 +274,7 @@ func (o PipeOutput) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 	return o
 }
 
-// Specifies a autoIngest param for the pipe.
+// (Default: `false`) Specifies a autoIngest param for the pipe.
 func (o PipeOutput) AutoIngest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.BoolPtrOutput { return v.AutoIngest }).(pulumi.BoolPtrOutput)
 }

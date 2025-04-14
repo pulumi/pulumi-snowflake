@@ -56,7 +56,8 @@ type NotificationIntegration struct {
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Direction pulumi.StringPtrOutput `pulumi:"direction"`
-	Enabled   pulumi.BoolPtrOutput   `pulumi:"enabled"`
+	// (Default: `true`)
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// The GCP service account identifier that Snowflake will use when assuming the GCP role
@@ -68,7 +69,7 @@ type NotificationIntegration struct {
 	Name               pulumi.StringOutput    `pulumi:"name"`
 	// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
 	NotificationProvider pulumi.StringOutput `pulumi:"notificationProvider"`
-	// A type of integration
+	// (Default: `QUEUE`) A type of integration
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -143,7 +144,8 @@ type notificationIntegrationState struct {
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Direction *string `pulumi:"direction"`
-	Enabled   *bool   `pulumi:"enabled"`
+	// (Default: `true`)
+	Enabled *bool `pulumi:"enabled"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// The GCP service account identifier that Snowflake will use when assuming the GCP role
@@ -155,7 +157,7 @@ type notificationIntegrationState struct {
 	Name               *string `pulumi:"name"`
 	// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
 	NotificationProvider *string `pulumi:"notificationProvider"`
-	// A type of integration
+	// (Default: `QUEUE`) A type of integration
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Type *string `pulumi:"type"`
@@ -198,7 +200,8 @@ type NotificationIntegrationState struct {
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Direction pulumi.StringPtrInput
-	Enabled   pulumi.BoolPtrInput
+	// (Default: `true`)
+	Enabled pulumi.BoolPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	// The GCP service account identifier that Snowflake will use when assuming the GCP role
@@ -210,7 +213,7 @@ type NotificationIntegrationState struct {
 	Name               pulumi.StringPtrInput
 	// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
 	NotificationProvider pulumi.StringPtrInput
-	// A type of integration
+	// (Default: `QUEUE`) A type of integration
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Type pulumi.StringPtrInput
@@ -243,7 +246,8 @@ type notificationIntegrationArgs struct {
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Direction *string `pulumi:"direction"`
-	Enabled   *bool   `pulumi:"enabled"`
+	// (Default: `true`)
+	Enabled *bool `pulumi:"enabled"`
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName *string `pulumi:"gcpPubsubSubscriptionName"`
 	// The topic id that Snowflake will use to push notifications.
@@ -251,7 +255,7 @@ type notificationIntegrationArgs struct {
 	Name               *string `pulumi:"name"`
 	// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
 	NotificationProvider string `pulumi:"notificationProvider"`
-	// A type of integration
+	// (Default: `QUEUE`) A type of integration
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Type *string `pulumi:"type"`
@@ -281,7 +285,8 @@ type NotificationIntegrationArgs struct {
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Direction pulumi.StringPtrInput
-	Enabled   pulumi.BoolPtrInput
+	// (Default: `true`)
+	Enabled pulumi.BoolPtrInput
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrInput
 	// The topic id that Snowflake will use to push notifications.
@@ -289,7 +294,7 @@ type NotificationIntegrationArgs struct {
 	Name               pulumi.StringPtrInput
 	// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
 	NotificationProvider pulumi.StringInput
-	// A type of integration
+	// (Default: `QUEUE`) A type of integration
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Type pulumi.StringPtrInput
@@ -457,6 +462,7 @@ func (o NotificationIntegrationOutput) Direction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.Direction }).(pulumi.StringPtrOutput)
 }
 
+// (Default: `true`)
 func (o NotificationIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -490,7 +496,7 @@ func (o NotificationIntegrationOutput) NotificationProvider() pulumi.StringOutpu
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringOutput { return v.NotificationProvider }).(pulumi.StringOutput)
 }
 
-// A type of integration
+// (Default: `QUEUE`) A type of integration
 //
 // Deprecated: Will be removed - it is added automatically on the SDK level.
 func (o NotificationIntegrationOutput) Type() pulumi.StringPtrOutput {

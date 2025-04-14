@@ -37,7 +37,7 @@ export interface GetStreamlitsArgs {
      */
     limit?: inputs.GetStreamlitsLimit;
     /**
-     * Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: boolean;
 }
@@ -67,7 +67,7 @@ export interface GetStreamlitsResult {
      */
     readonly streamlits: outputs.GetStreamlitsStreamlit[];
     /**
-     * Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
      */
     readonly withDescribe?: boolean;
 }
@@ -102,7 +102,7 @@ export interface GetStreamlitsOutputArgs {
      */
     limit?: pulumi.Input<inputs.GetStreamlitsLimitArgs>;
     /**
-     * Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: pulumi.Input<boolean>;
 }

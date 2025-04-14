@@ -52,13 +52,13 @@ namespace Pulumi.Snowflake
         public string? StartsWith { get; set; }
 
         /// <summary>
-        /// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public bool? WithDescribe { get; set; }
 
         /// <summary>
-        /// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
         /// </summary>
         [Input("withParameters")]
         public bool? WithParameters { get; set; }
@@ -90,13 +90,13 @@ namespace Pulumi.Snowflake
         public Input<string>? StartsWith { get; set; }
 
         /// <summary>
-        /// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public Input<bool>? WithDescribe { get; set; }
 
         /// <summary>
-        /// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
         /// </summary>
         [Input("withParameters")]
         public Input<bool>? WithParameters { get; set; }
@@ -132,11 +132,11 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string? StartsWith;
         /// <summary>
-        /// Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         public readonly bool? WithDescribe;
         /// <summary>
-        /// Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
         /// </summary>
         public readonly bool? WithParameters;
 

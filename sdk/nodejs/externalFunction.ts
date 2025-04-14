@@ -52,11 +52,11 @@ export class ExternalFunction extends pulumi.CustomResource {
      */
     public readonly args!: pulumi.Output<outputs.ExternalFunctionArg[] | undefined>;
     /**
-     * A description of the external function.
+     * (Default: `user-defined function`) A description of the external function.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+     * (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
      */
     public readonly compression!: pulumi.Output<string | undefined>;
     /**
@@ -88,7 +88,7 @@ export class ExternalFunction extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the behavior of the external function when called with null inputs.
+     * (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
      */
     public readonly nullInputBehavior!: pulumi.Output<string | undefined>;
     /**
@@ -104,7 +104,7 @@ export class ExternalFunction extends pulumi.CustomResource {
      */
     public readonly returnBehavior!: pulumi.Output<string>;
     /**
-     * Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+     * (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      */
     public readonly returnNullAllowed!: pulumi.Output<boolean | undefined>;
     /**
@@ -210,11 +210,11 @@ export interface ExternalFunctionState {
      */
     args?: pulumi.Input<pulumi.Input<inputs.ExternalFunctionArg>[]>;
     /**
-     * A description of the external function.
+     * (Default: `user-defined function`) A description of the external function.
      */
     comment?: pulumi.Input<string>;
     /**
-     * If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+     * (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
      */
     compression?: pulumi.Input<string>;
     /**
@@ -246,7 +246,7 @@ export interface ExternalFunctionState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the behavior of the external function when called with null inputs.
+     * (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
      */
     nullInputBehavior?: pulumi.Input<string>;
     /**
@@ -262,7 +262,7 @@ export interface ExternalFunctionState {
      */
     returnBehavior?: pulumi.Input<string>;
     /**
-     * Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+     * (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      */
     returnNullAllowed?: pulumi.Input<boolean>;
     /**
@@ -292,11 +292,11 @@ export interface ExternalFunctionArgs {
      */
     args?: pulumi.Input<pulumi.Input<inputs.ExternalFunctionArg>[]>;
     /**
-     * A description of the external function.
+     * (Default: `user-defined function`) A description of the external function.
      */
     comment?: pulumi.Input<string>;
     /**
-     * If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+     * (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
      */
     compression?: pulumi.Input<string>;
     /**
@@ -320,7 +320,7 @@ export interface ExternalFunctionArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the behavior of the external function when called with null inputs.
+     * (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
      */
     nullInputBehavior?: pulumi.Input<string>;
     /**
@@ -336,7 +336,7 @@ export interface ExternalFunctionArgs {
      */
     returnBehavior: pulumi.Input<string>;
     /**
-     * Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+     * (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      */
     returnNullAllowed?: pulumi.Input<boolean>;
     /**

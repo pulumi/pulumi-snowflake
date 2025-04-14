@@ -43,7 +43,7 @@ public final class GetRowAccessPoliciesResult {
      */
     private List<GetRowAccessPoliciesRowAccessPolicy> rowAccessPolicies;
     /**
-     * @return Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     private @Nullable Boolean withDescribe;
@@ -85,7 +85,7 @@ public final class GetRowAccessPoliciesResult {
         return this.rowAccessPolicies;
     }
     /**
-     * @return Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     public Optional<Boolean> withDescribe() {

@@ -54,11 +54,11 @@ type ServiceUser struct {
 	DefaultNamespace pulumi.StringPtrOutput `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
 	DefaultRole pulumi.StringPtrOutput `pulumi:"defaultRole"`
-	// Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+	// (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
 	DefaultSecondaryRolesOption pulumi.StringPtrOutput `pulumi:"defaultSecondaryRolesOption"`
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse pulumi.StringPtrOutput `pulumi:"defaultWarehouse"`
-	// Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Disabled pulumi.StringPtrOutput `pulumi:"disabled"`
 	// Name displayed for the user in the Snowflake web interface.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
@@ -247,11 +247,11 @@ type serviceUserState struct {
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
 	DefaultRole *string `pulumi:"defaultRole"`
-	// Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+	// (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
 	DefaultSecondaryRolesOption *string `pulumi:"defaultSecondaryRolesOption"`
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse *string `pulumi:"defaultWarehouse"`
-	// Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Disabled *string `pulumi:"disabled"`
 	// Name displayed for the user in the Snowflake web interface.
 	DisplayName *string `pulumi:"displayName"`
@@ -400,11 +400,11 @@ type ServiceUserState struct {
 	DefaultNamespace pulumi.StringPtrInput
 	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
 	DefaultRole pulumi.StringPtrInput
-	// Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+	// (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
 	DefaultSecondaryRolesOption pulumi.StringPtrInput
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse pulumi.StringPtrInput
-	// Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Disabled pulumi.StringPtrInput
 	// Name displayed for the user in the Snowflake web interface.
 	DisplayName pulumi.StringPtrInput
@@ -557,11 +557,11 @@ type serviceUserArgs struct {
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
 	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
 	DefaultRole *string `pulumi:"defaultRole"`
-	// Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+	// (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
 	DefaultSecondaryRolesOption *string `pulumi:"defaultSecondaryRolesOption"`
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse *string `pulumi:"defaultWarehouse"`
-	// Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Disabled *string `pulumi:"disabled"`
 	// Name displayed for the user in the Snowflake web interface.
 	DisplayName *string `pulumi:"displayName"`
@@ -703,11 +703,11 @@ type ServiceUserArgs struct {
 	DefaultNamespace pulumi.StringPtrInput
 	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
 	DefaultRole pulumi.StringPtrInput
-	// Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+	// (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
 	DefaultSecondaryRolesOption pulumi.StringPtrInput
 	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse pulumi.StringPtrInput
-	// Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	Disabled pulumi.StringPtrInput
 	// Name displayed for the user in the Snowflake web interface.
 	DisplayName pulumi.StringPtrInput
@@ -988,7 +988,7 @@ func (o ServiceUserOutput) DefaultRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceUser) pulumi.StringPtrOutput { return v.DefaultRole }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+// (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
 func (o ServiceUserOutput) DefaultSecondaryRolesOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceUser) pulumi.StringPtrOutput { return v.DefaultSecondaryRolesOption }).(pulumi.StringPtrOutput)
 }
@@ -998,7 +998,7 @@ func (o ServiceUserOutput) DefaultWarehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceUser) pulumi.StringPtrOutput { return v.DefaultWarehouse }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 func (o ServiceUserOutput) Disabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceUser) pulumi.StringPtrOutput { return v.Disabled }).(pulumi.StringPtrOutput)
 }

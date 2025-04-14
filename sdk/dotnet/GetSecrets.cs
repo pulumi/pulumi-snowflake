@@ -64,6 +64,8 @@ namespace Pulumi.Snowflake
         ///     };
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Task<GetSecretsResult> InvokeAsync(GetSecretsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretsResult>("snowflake:index/getSecrets:getSecrets", args ?? new GetSecretsArgs(), options.WithDefaults());
@@ -121,6 +123,8 @@ namespace Pulumi.Snowflake
         ///     };
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Output<GetSecretsResult> Invoke(GetSecretsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("snowflake:index/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithDefaults());
@@ -178,6 +182,8 @@ namespace Pulumi.Snowflake
         ///     };
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Output<GetSecretsResult> Invoke(GetSecretsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretsResult>("snowflake:index/getSecrets:getSecrets", args ?? new GetSecretsInvokeArgs(), options.WithDefaults());
@@ -199,7 +205,7 @@ namespace Pulumi.Snowflake
         public string? Like { get; set; }
 
         /// <summary>
-        /// Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public bool? WithDescribe { get; set; }
@@ -225,7 +231,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Like { get; set; }
 
         /// <summary>
-        /// Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public Input<bool>? WithDescribe { get; set; }
@@ -257,7 +263,7 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly ImmutableArray<Outputs.GetSecretsSecretResult> Secrets;
         /// <summary>
-        /// Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         public readonly bool? WithDescribe;
 

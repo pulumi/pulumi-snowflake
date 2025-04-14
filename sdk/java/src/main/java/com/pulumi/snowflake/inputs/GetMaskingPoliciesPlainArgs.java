@@ -63,14 +63,14 @@ public final class GetMaskingPoliciesPlainArgs extends com.pulumi.resources.Invo
     }
 
     /**
-     * Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     @Import(name="withDescribe")
     private @Nullable Boolean withDescribe;
 
     /**
-     * @return Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     public Optional<Boolean> withDescribe() {
@@ -138,7 +138,7 @@ public final class GetMaskingPoliciesPlainArgs extends com.pulumi.resources.Invo
         }
 
         /**
-         * @param withDescribe Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+         * @param withDescribe (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
          * 
          * @return builder
          * 

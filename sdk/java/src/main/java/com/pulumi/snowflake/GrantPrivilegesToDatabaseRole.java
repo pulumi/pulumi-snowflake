@@ -51,14 +51,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole")
 public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomResource {
     /**
-     * Grant all privileges on the database role.
+     * (Default: `false`) Grant all privileges on the database role.
      * 
      */
     @Export(name="allPrivileges", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allPrivileges;
 
     /**
-     * @return Grant all privileges on the database role.
+     * @return (Default: `false`) Grant all privileges on the database role.
      * 
      */
     public Output<Optional<Boolean>> allPrivileges() {
@@ -71,14 +71,14 @@ public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.alwaysApply);
     }
     /**
-     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     @Export(name="alwaysApplyTrigger", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alwaysApplyTrigger;
 
     /**
-     * @return This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+     * @return (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     public Output<Optional<String>> alwaysApplyTrigger() {
@@ -155,14 +155,14 @@ public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.privileges);
     }
     /**
-     * If specified, allows the recipient role to grant the privileges to other roles.
+     * (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
      * 
      */
     @Export(name="withGrantOption", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> withGrantOption;
 
     /**
-     * @return If specified, allows the recipient role to grant the privileges to other roles.
+     * @return (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
      * 
      */
     public Output<Optional<Boolean>> withGrantOption() {

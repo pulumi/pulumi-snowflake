@@ -28,11 +28,11 @@ type MaterializedView struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies that the view is secure.
+	// (Default: `false`) Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrOutput `pulumi:"isSecure"`
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Overwrites the View if it exists.
+	// (Default: `false`) Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrOutput `pulumi:"orReplace"`
 	// The schema in which to create the view. Don't use the | character.
 	Schema pulumi.StringOutput `pulumi:"schema"`
@@ -94,11 +94,11 @@ type materializedViewState struct {
 	Database *string `pulumi:"database"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies that the view is secure.
+	// (Default: `false`) Specifies that the view is secure.
 	IsSecure *bool `pulumi:"isSecure"`
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
 	Name *string `pulumi:"name"`
-	// Overwrites the View if it exists.
+	// (Default: `false`) Overwrites the View if it exists.
 	OrReplace *bool `pulumi:"orReplace"`
 	// The schema in which to create the view. Don't use the | character.
 	Schema *string `pulumi:"schema"`
@@ -119,11 +119,11 @@ type MaterializedViewState struct {
 	Database pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies that the view is secure.
+	// (Default: `false`) Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrInput
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
 	Name pulumi.StringPtrInput
-	// Overwrites the View if it exists.
+	// (Default: `false`) Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrInput
 	// The schema in which to create the view. Don't use the | character.
 	Schema pulumi.StringPtrInput
@@ -146,11 +146,11 @@ type materializedViewArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the view. Don't use the | character.
 	Database string `pulumi:"database"`
-	// Specifies that the view is secure.
+	// (Default: `false`) Specifies that the view is secure.
 	IsSecure *bool `pulumi:"isSecure"`
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
 	Name *string `pulumi:"name"`
-	// Overwrites the View if it exists.
+	// (Default: `false`) Overwrites the View if it exists.
 	OrReplace *bool `pulumi:"orReplace"`
 	// The schema in which to create the view. Don't use the | character.
 	Schema string `pulumi:"schema"`
@@ -170,11 +170,11 @@ type MaterializedViewArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the view. Don't use the | character.
 	Database pulumi.StringInput
-	// Specifies that the view is secure.
+	// (Default: `false`) Specifies that the view is secure.
 	IsSecure pulumi.BoolPtrInput
 	// Specifies the identifier for the view; must be unique for the schema in which the view is created.
 	Name pulumi.StringPtrInput
-	// Overwrites the View if it exists.
+	// (Default: `false`) Overwrites the View if it exists.
 	OrReplace pulumi.BoolPtrInput
 	// The schema in which to create the view. Don't use the | character.
 	Schema pulumi.StringInput
@@ -290,7 +290,7 @@ func (o MaterializedViewOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies that the view is secure.
+// (Default: `false`) Specifies that the view is secure.
 func (o MaterializedViewOutput) IsSecure() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.BoolPtrOutput { return v.IsSecure }).(pulumi.BoolPtrOutput)
 }
@@ -300,7 +300,7 @@ func (o MaterializedViewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Overwrites the View if it exists.
+// (Default: `false`) Overwrites the View if it exists.
 func (o MaterializedViewOutput) OrReplace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MaterializedView) pulumi.BoolPtrOutput { return v.OrReplace }).(pulumi.BoolPtrOutput)
 }

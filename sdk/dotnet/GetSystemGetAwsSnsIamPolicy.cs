@@ -29,6 +29,8 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Task<GetSystemGetAwsSnsIamPolicyResult> InvokeAsync(GetSystemGetAwsSnsIamPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSystemGetAwsSnsIamPolicyResult>("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args ?? new GetSystemGetAwsSnsIamPolicyArgs(), options.WithDefaults());
@@ -51,6 +53,8 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Output<GetSystemGetAwsSnsIamPolicyResult> Invoke(GetSystemGetAwsSnsIamPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemGetAwsSnsIamPolicyResult>("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args ?? new GetSystemGetAwsSnsIamPolicyInvokeArgs(), options.WithDefaults());
@@ -73,6 +77,8 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Output<GetSystemGetAwsSnsIamPolicyResult> Invoke(GetSystemGetAwsSnsIamPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemGetAwsSnsIamPolicyResult>("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args ?? new GetSystemGetAwsSnsIamPolicyInvokeArgs(), options.WithDefaults());

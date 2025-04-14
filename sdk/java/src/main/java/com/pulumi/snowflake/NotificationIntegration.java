@@ -227,9 +227,17 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     public Output<Optional<String>> direction() {
         return Codegen.optional(this.direction);
     }
+    /**
+     * (Default: `true`)
+     * 
+     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
+    /**
+     * @return (Default: `true`)
+     * 
+     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
@@ -310,7 +318,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
         return this.notificationProvider;
     }
     /**
-     * A type of integration
+     * (Default: `QUEUE`) A type of integration
      * 
      * @deprecated
      * Will be removed - it is added automatically on the SDK level.
@@ -321,7 +329,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return A type of integration
+     * @return (Default: `QUEUE`) A type of integration
      * 
      */
     public Output<Optional<String>> type() {

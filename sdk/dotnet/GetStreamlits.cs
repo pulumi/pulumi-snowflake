@@ -52,7 +52,7 @@ namespace Pulumi.Snowflake
         public Inputs.GetStreamlitsLimitArgs? Limit { get; set; }
 
         /// <summary>
-        /// Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public bool? WithDescribe { get; set; }
@@ -84,7 +84,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.GetStreamlitsLimitInputArgs>? Limit { get; set; }
 
         /// <summary>
-        /// Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         [Input("withDescribe")]
         public Input<bool>? WithDescribe { get; set; }
@@ -120,7 +120,7 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly ImmutableArray<Outputs.GetStreamlitsStreamlitResult> Streamlits;
         /// <summary>
-        /// Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
+        /// (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
         /// </summary>
         public readonly bool? WithDescribe;
 

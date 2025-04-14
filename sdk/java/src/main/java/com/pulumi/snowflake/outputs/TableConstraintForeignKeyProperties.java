@@ -14,17 +14,17 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableConstraintForeignKeyProperties {
     /**
-     * @return The match type for the foreign key. Not applicable for primary/unique keys
+     * @return (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
      * 
      */
     private @Nullable String match;
     /**
-     * @return Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+     * @return (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
      * 
      */
     private @Nullable String onDelete;
     /**
-     * @return Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+     * @return (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
      * 
      */
     private @Nullable String onUpdate;
@@ -36,21 +36,21 @@ public final class TableConstraintForeignKeyProperties {
 
     private TableConstraintForeignKeyProperties() {}
     /**
-     * @return The match type for the foreign key. Not applicable for primary/unique keys
+     * @return (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
      * 
      */
     public Optional<String> match() {
         return Optional.ofNullable(this.match);
     }
     /**
-     * @return Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+     * @return (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
      * 
      */
     public Optional<String> onDelete() {
         return Optional.ofNullable(this.onDelete);
     }
     /**
-     * @return Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+     * @return (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
      * 
      */
     public Optional<String> onUpdate() {

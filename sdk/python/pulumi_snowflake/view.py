@@ -43,12 +43,12 @@ class ViewArgs:
         :param pulumi.Input[builtins.str] schema: The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[builtins.str] statement: Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input['ViewAggregationPolicyArgs'] aggregation_policy: Specifies the aggregation policy to set on a view.
-        :param pulumi.Input[builtins.str] change_tracking: Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] change_tracking: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[Sequence[pulumi.Input['ViewColumnArgs']]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the view.
         :param pulumi.Input[Sequence[pulumi.Input['ViewDataMetricFunctionArgs']]] data_metric_functions: Data metric functions used for the view.
         :param pulumi.Input['ViewDataMetricScheduleArgs'] data_metric_schedule: Specifies the schedule to run the data metric functions periodically.
-        :param pulumi.Input[builtins.str] is_recursive: Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] is_recursive: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input['ViewRowAccessPolicyArgs'] row_access_policy: Specifies the row access policy to set on a view.
         """
@@ -132,7 +132,7 @@ class ViewArgs:
     @pulumi.getter(name="changeTracking")
     def change_tracking(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "change_tracking")
 
@@ -201,7 +201,7 @@ class ViewArgs:
     @pulumi.getter(name="isRecursive")
     def is_recursive(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "is_recursive")
 
@@ -276,7 +276,7 @@ class _ViewState:
         """
         Input properties used for looking up and filtering View resources.
         :param pulumi.Input['ViewAggregationPolicyArgs'] aggregation_policy: Specifies the aggregation policy to set on a view.
-        :param pulumi.Input[builtins.str] change_tracking: Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] change_tracking: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[Sequence[pulumi.Input['ViewColumnArgs']]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the view.
         :param pulumi.Input[Sequence[pulumi.Input['ViewDataMetricFunctionArgs']]] data_metric_functions: Data metric functions used for the view.
@@ -284,7 +284,7 @@ class _ViewState:
         :param pulumi.Input[builtins.str] database: The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['ViewDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE VIEW` for the given view.
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] is_recursive: Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] is_recursive: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input['ViewRowAccessPolicyArgs'] row_access_policy: Specifies the row access policy to set on a view.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -344,7 +344,7 @@ class _ViewState:
     @pulumi.getter(name="changeTracking")
     def change_tracking(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "change_tracking")
 
@@ -449,7 +449,7 @@ class _ViewState:
     @pulumi.getter(name="isRecursive")
     def is_recursive(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "is_recursive")
 
@@ -567,13 +567,13 @@ class View(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict']] aggregation_policy: Specifies the aggregation policy to set on a view.
-        :param pulumi.Input[builtins.str] change_tracking: Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] change_tracking: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict']]]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the view.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict']]]] data_metric_functions: Data metric functions used for the view.
         :param pulumi.Input[Union['ViewDataMetricScheduleArgs', 'ViewDataMetricScheduleArgsDict']] data_metric_schedule: Specifies the schedule to run the data metric functions periodically.
         :param pulumi.Input[builtins.str] database: The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] is_recursive: Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] is_recursive: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict']] row_access_policy: Specifies the row access policy to set on a view.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -691,7 +691,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['ViewAggregationPolicyArgs', 'ViewAggregationPolicyArgsDict']] aggregation_policy: Specifies the aggregation policy to set on a view.
-        :param pulumi.Input[builtins.str] change_tracking: Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] change_tracking: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewColumnArgs', 'ViewColumnArgsDict']]]] columns: If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the view.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDataMetricFunctionArgs', 'ViewDataMetricFunctionArgsDict']]]] data_metric_functions: Data metric functions used for the view.
@@ -699,7 +699,7 @@ class View(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] database: The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewDescribeOutputArgs', 'ViewDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE VIEW` for the given view.
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] is_recursive: Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] is_recursive: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Union['ViewRowAccessPolicyArgs', 'ViewRowAccessPolicyArgsDict']] row_access_policy: Specifies the row access policy to set on a view.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
@@ -742,7 +742,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter(name="changeTracking")
     def change_tracking(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "change_tracking")
 
@@ -811,7 +811,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter(name="isRecursive")
     def is_recursive(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "is_recursive")
 

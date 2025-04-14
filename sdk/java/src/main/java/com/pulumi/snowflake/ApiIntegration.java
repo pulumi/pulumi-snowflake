@@ -69,14 +69,14 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
         return this.apiAwsIamUserArn;
     }
     /**
-     * ARN of a cloud platform role.
+     * (Default: ``) ARN of a cloud platform role.
      * 
      */
     @Export(name="apiAwsRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiAwsRoleArn;
 
     /**
-     * @return ARN of a cloud platform role.
+     * @return (Default: ``) ARN of a cloud platform role.
      * 
      */
     public Output<Optional<String>> apiAwsRoleArn() {
@@ -139,14 +139,14 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
         return this.apiProvider;
     }
     /**
-     * The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
+     * (Default: ``) The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
      * 
      */
     @Export(name="azureAdApplicationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureAdApplicationId;
 
     /**
-     * @return The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
+     * @return (Default: ``) The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
      * 
      */
     public Output<Optional<String>> azureAdApplicationId() {
@@ -165,14 +165,14 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
         return this.azureMultiTenantAppName;
     }
     /**
-     * Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+     * (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      * 
      */
     @Export(name="azureTenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureTenantId;
 
     /**
-     * @return Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+     * @return (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      * 
      */
     public Output<Optional<String>> azureTenantId() {
@@ -199,14 +199,14 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
         return this.createdOn;
     }
     /**
-     * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+     * (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+     * @return (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
@@ -227,14 +227,14 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      * 
      */
     @Export(name="googleAudience", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> googleAudience;
 
     /**
-     * @return The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * @return (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      * 
      */
     public Output<Optional<String>> googleAudience() {

@@ -42,7 +42,7 @@ export class Pipe extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies a autoIngest param for the pipe.
+     * (Default: `false`) Specifies a autoIngest param for the pipe.
      */
     public readonly autoIngest!: pulumi.Output<boolean | undefined>;
     /**
@@ -149,7 +149,7 @@ export class Pipe extends pulumi.CustomResource {
  */
 export interface PipeState {
     /**
-     * Specifies a autoIngest param for the pipe.
+     * (Default: `false`) Specifies a autoIngest param for the pipe.
      */
     autoIngest?: pulumi.Input<boolean>;
     /**
@@ -203,7 +203,7 @@ export interface PipeState {
  */
 export interface PipeArgs {
     /**
-     * Specifies a autoIngest param for the pipe.
+     * (Default: `false`) Specifies a autoIngest param for the pipe.
      */
     autoIngest?: pulumi.Input<boolean>;
     /**

@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 //
 // ## Example Usage
 //
@@ -61,6 +61,8 @@ import (
 //	}
 //
 // ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetParameters(ctx *pulumi.Context, args *GetParametersArgs, opts ...pulumi.InvokeOption) (*GetParametersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetParametersResult
@@ -77,7 +79,7 @@ type GetParametersArgs struct {
 	ObjectName *string `pulumi:"objectName"`
 	// If parameter*type is set to "OBJECT" then object*type is the type of object to display object parameters for. Valid values are any object supported by the IN clause of the [SHOW PARAMETERS](https://docs.snowflake.com/en/sql-reference/sql/show-parameters.html#parameters) statement, including: WAREHOUSE | DATABASE | SCHEMA | TASK | TABLE
 	ObjectType *string `pulumi:"objectType"`
-	// The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
+	// (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
 	ParameterType *string `pulumi:"parameterType"`
 	// Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
 	Pattern *string `pulumi:"pattern"`
@@ -93,7 +95,7 @@ type GetParametersResult struct {
 	ObjectName *string `pulumi:"objectName"`
 	// If parameter*type is set to "OBJECT" then object*type is the type of object to display object parameters for. Valid values are any object supported by the IN clause of the [SHOW PARAMETERS](https://docs.snowflake.com/en/sql-reference/sql/show-parameters.html#parameters) statement, including: WAREHOUSE | DATABASE | SCHEMA | TASK | TABLE
 	ObjectType *string `pulumi:"objectType"`
-	// The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
+	// (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
 	ParameterType *string `pulumi:"parameterType"`
 	// The pipes in the schema
 	Parameters []GetParametersParameter `pulumi:"parameters"`
@@ -118,7 +120,7 @@ type GetParametersOutputArgs struct {
 	ObjectName pulumi.StringPtrInput `pulumi:"objectName"`
 	// If parameter*type is set to "OBJECT" then object*type is the type of object to display object parameters for. Valid values are any object supported by the IN clause of the [SHOW PARAMETERS](https://docs.snowflake.com/en/sql-reference/sql/show-parameters.html#parameters) statement, including: WAREHOUSE | DATABASE | SCHEMA | TASK | TABLE
 	ObjectType pulumi.StringPtrInput `pulumi:"objectType"`
-	// The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
+	// (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
 	ParameterType pulumi.StringPtrInput `pulumi:"parameterType"`
 	// Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
 	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
@@ -160,7 +162,7 @@ func (o GetParametersResultOutput) ObjectType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetParametersResult) *string { return v.ObjectType }).(pulumi.StringPtrOutput)
 }
 
-// The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
+// (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
 func (o GetParametersResultOutput) ParameterType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetParametersResult) *string { return v.ParameterType }).(pulumi.StringPtrOutput)
 }

@@ -30,7 +30,7 @@ type GetStreamlitsArgs struct {
 	Like *string `pulumi:"like"`
 	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit *GetStreamlitsLimit `pulumi:"limit"`
-	// Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
@@ -46,7 +46,7 @@ type GetStreamlitsResult struct {
 	Limit *GetStreamlitsLimit `pulumi:"limit"`
 	// Holds the aggregated output of all streamlits details queries.
 	Streamlits []GetStreamlitsStreamlit `pulumi:"streamlits"`
-	// Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
@@ -67,7 +67,7 @@ type GetStreamlitsOutputArgs struct {
 	Like pulumi.StringPtrInput `pulumi:"like"`
 	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit GetStreamlitsLimitPtrInput `pulumi:"limit"`
-	// Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
@@ -115,7 +115,7 @@ func (o GetStreamlitsResultOutput) Streamlits() GetStreamlitsStreamlitArrayOutpu
 	return o.ApplyT(func(v GetStreamlitsResult) []GetStreamlitsStreamlit { return v.Streamlits }).(GetStreamlitsStreamlitArrayOutput)
 }
 
-// Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
+// (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetStreamlitsResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetStreamlitsResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }

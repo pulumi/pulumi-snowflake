@@ -62,7 +62,7 @@ export class ApiAuthenticationIntegrationWithClientCredentials extends pulumi.Cu
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      */
     public readonly oauthAccessTokenValidity!: pulumi.Output<number | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      */
     oauthAccessTokenValidity?: pulumi.Input<number>;
     /**
@@ -219,7 +219,7 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      */
     oauthAccessTokenValidity?: pulumi.Input<number>;
     /**

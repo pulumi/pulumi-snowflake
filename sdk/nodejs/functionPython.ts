@@ -50,7 +50,7 @@ export class FunctionPython extends pulumi.CustomResource {
      */
     public readonly arguments!: pulumi.Output<outputs.FunctionPythonArgument[] | undefined>;
     /**
-     * Specifies a comment for the function.
+     * (Default: `user-defined function`) Specifies a comment for the function.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
@@ -58,7 +58,7 @@ export class FunctionPython extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      */
     public readonly enableConsoleOutput!: pulumi.Output<boolean>;
     /**
@@ -86,7 +86,7 @@ export class FunctionPython extends pulumi.CustomResource {
      */
     public readonly imports!: pulumi.Output<outputs.FunctionPythonImport[] | undefined>;
     /**
-     * Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly isAggregate!: pulumi.Output<string | undefined>;
     public readonly isSecure!: pulumi.Output<string | undefined>;
@@ -238,7 +238,7 @@ export interface FunctionPythonState {
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.FunctionPythonArgument>[]>;
     /**
-     * Specifies a comment for the function.
+     * (Default: `user-defined function`) Specifies a comment for the function.
      */
     comment?: pulumi.Input<string>;
     /**
@@ -246,7 +246,7 @@ export interface FunctionPythonState {
      */
     database?: pulumi.Input<string>;
     /**
-     * Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      */
     enableConsoleOutput?: pulumi.Input<boolean>;
     /**
@@ -274,7 +274,7 @@ export interface FunctionPythonState {
      */
     imports?: pulumi.Input<pulumi.Input<inputs.FunctionPythonImport>[]>;
     /**
-     * Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     isAggregate?: pulumi.Input<string>;
     isSecure?: pulumi.Input<string>;
@@ -341,7 +341,7 @@ export interface FunctionPythonArgs {
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.FunctionPythonArgument>[]>;
     /**
-     * Specifies a comment for the function.
+     * (Default: `user-defined function`) Specifies a comment for the function.
      */
     comment?: pulumi.Input<string>;
     /**
@@ -349,7 +349,7 @@ export interface FunctionPythonArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      */
     enableConsoleOutput?: pulumi.Input<boolean>;
     /**
@@ -369,7 +369,7 @@ export interface FunctionPythonArgs {
      */
     imports?: pulumi.Input<pulumi.Input<inputs.FunctionPythonImport>[]>;
     /**
-     * Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     isAggregate?: pulumi.Input<string>;
     isSecure?: pulumi.Input<string>;

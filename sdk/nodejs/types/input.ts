@@ -5127,11 +5127,11 @@ export interface StreamlitShowOutput {
 
 export interface TableColumn {
     /**
-     * Column collation, e.g. utf8
+     * (Default: ``) Column collation, e.g. utf8
      */
     collate?: pulumi.Input<string>;
     /**
-     * Column comment
+     * (Default: ``) Column comment
      */
     comment?: pulumi.Input<string>;
     /**
@@ -5143,7 +5143,7 @@ export interface TableColumn {
      */
     identity?: pulumi.Input<inputs.TableColumnIdentity>;
     /**
-     * Masking policy to apply on column. It has to be a fully qualified name.
+     * (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
      */
     maskingPolicy?: pulumi.Input<string>;
     /**
@@ -5151,7 +5151,7 @@ export interface TableColumn {
      */
     name: pulumi.Input<string>;
     /**
-     * Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+     * (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
      */
     nullable?: pulumi.Input<boolean>;
     /**
@@ -5181,26 +5181,26 @@ export interface TableColumnDefault {
 
 export interface TableColumnIdentity {
     /**
-     * The number to start incrementing at.
+     * (Default: `1`) The number to start incrementing at.
      */
     startNum?: pulumi.Input<number>;
     /**
-     * Step size to increment by.
+     * (Default: `1`) Step size to increment by.
      */
     stepNum?: pulumi.Input<number>;
 }
 
 export interface TableConstraintForeignKeyProperties {
     /**
-     * The match type for the foreign key. Not applicable for primary/unique keys
+     * (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
      */
     match?: pulumi.Input<string>;
     /**
-     * Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+     * (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
      */
     onDelete?: pulumi.Input<string>;
     /**
-     * Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+     * (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
      */
     onUpdate?: pulumi.Input<string>;
     /**

@@ -26,25 +26,25 @@ type TableConstraint struct {
 	//
 	// Deprecated: Not used. Will be removed.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Whether the constraint is deferrable
+	// (Default: `true`) Whether the constraint is deferrable
 	Deferrable pulumi.BoolPtrOutput `pulumi:"deferrable"`
-	// Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+	// (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
 	Enable pulumi.BoolPtrOutput `pulumi:"enable"`
-	// Whether the constraint is enforced
+	// (Default: `false`) Whether the constraint is enforced
 	Enforced pulumi.BoolPtrOutput `pulumi:"enforced"`
 	// Additional properties when type is set to foreign key. Not applicable for primary/unique keys
 	ForeignKeyProperties TableConstraintForeignKeyPropertiesPtrOutput `pulumi:"foreignKeyProperties"`
-	// Whether the constraint is initially deferred or immediate
+	// (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
 	Initially pulumi.StringPtrOutput `pulumi:"initially"`
 	// Name of constraint
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+	// (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
 	Rely pulumi.BoolPtrOutput `pulumi:"rely"`
 	// Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
 	TableId pulumi.StringOutput `pulumi:"tableId"`
 	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type pulumi.StringOutput `pulumi:"type"`
-	// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+	// (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
 	Validate pulumi.BoolPtrOutput `pulumi:"validate"`
 }
 
@@ -93,25 +93,25 @@ type tableConstraintState struct {
 	//
 	// Deprecated: Not used. Will be removed.
 	Comment *string `pulumi:"comment"`
-	// Whether the constraint is deferrable
+	// (Default: `true`) Whether the constraint is deferrable
 	Deferrable *bool `pulumi:"deferrable"`
-	// Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+	// (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
 	Enable *bool `pulumi:"enable"`
-	// Whether the constraint is enforced
+	// (Default: `false`) Whether the constraint is enforced
 	Enforced *bool `pulumi:"enforced"`
 	// Additional properties when type is set to foreign key. Not applicable for primary/unique keys
 	ForeignKeyProperties *TableConstraintForeignKeyProperties `pulumi:"foreignKeyProperties"`
-	// Whether the constraint is initially deferred or immediate
+	// (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
 	Initially *string `pulumi:"initially"`
 	// Name of constraint
 	Name *string `pulumi:"name"`
-	// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+	// (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
 	Rely *bool `pulumi:"rely"`
 	// Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
 	TableId *string `pulumi:"tableId"`
 	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type *string `pulumi:"type"`
-	// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+	// (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
 	Validate *bool `pulumi:"validate"`
 }
 
@@ -122,25 +122,25 @@ type TableConstraintState struct {
 	//
 	// Deprecated: Not used. Will be removed.
 	Comment pulumi.StringPtrInput
-	// Whether the constraint is deferrable
+	// (Default: `true`) Whether the constraint is deferrable
 	Deferrable pulumi.BoolPtrInput
-	// Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+	// (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
 	Enable pulumi.BoolPtrInput
-	// Whether the constraint is enforced
+	// (Default: `false`) Whether the constraint is enforced
 	Enforced pulumi.BoolPtrInput
 	// Additional properties when type is set to foreign key. Not applicable for primary/unique keys
 	ForeignKeyProperties TableConstraintForeignKeyPropertiesPtrInput
-	// Whether the constraint is initially deferred or immediate
+	// (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
 	Initially pulumi.StringPtrInput
 	// Name of constraint
 	Name pulumi.StringPtrInput
-	// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+	// (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
 	Rely pulumi.BoolPtrInput
 	// Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
 	TableId pulumi.StringPtrInput
 	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type pulumi.StringPtrInput
-	// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+	// (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
 	Validate pulumi.BoolPtrInput
 }
 
@@ -155,25 +155,25 @@ type tableConstraintArgs struct {
 	//
 	// Deprecated: Not used. Will be removed.
 	Comment *string `pulumi:"comment"`
-	// Whether the constraint is deferrable
+	// (Default: `true`) Whether the constraint is deferrable
 	Deferrable *bool `pulumi:"deferrable"`
-	// Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+	// (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
 	Enable *bool `pulumi:"enable"`
-	// Whether the constraint is enforced
+	// (Default: `false`) Whether the constraint is enforced
 	Enforced *bool `pulumi:"enforced"`
 	// Additional properties when type is set to foreign key. Not applicable for primary/unique keys
 	ForeignKeyProperties *TableConstraintForeignKeyProperties `pulumi:"foreignKeyProperties"`
-	// Whether the constraint is initially deferred or immediate
+	// (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
 	Initially *string `pulumi:"initially"`
 	// Name of constraint
 	Name *string `pulumi:"name"`
-	// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+	// (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
 	Rely *bool `pulumi:"rely"`
 	// Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
 	TableId string `pulumi:"tableId"`
 	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type string `pulumi:"type"`
-	// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+	// (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
 	Validate *bool `pulumi:"validate"`
 }
 
@@ -185,25 +185,25 @@ type TableConstraintArgs struct {
 	//
 	// Deprecated: Not used. Will be removed.
 	Comment pulumi.StringPtrInput
-	// Whether the constraint is deferrable
+	// (Default: `true`) Whether the constraint is deferrable
 	Deferrable pulumi.BoolPtrInput
-	// Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+	// (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
 	Enable pulumi.BoolPtrInput
-	// Whether the constraint is enforced
+	// (Default: `false`) Whether the constraint is enforced
 	Enforced pulumi.BoolPtrInput
 	// Additional properties when type is set to foreign key. Not applicable for primary/unique keys
 	ForeignKeyProperties TableConstraintForeignKeyPropertiesPtrInput
-	// Whether the constraint is initially deferred or immediate
+	// (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
 	Initially pulumi.StringPtrInput
 	// Name of constraint
 	Name pulumi.StringPtrInput
-	// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+	// (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
 	Rely pulumi.BoolPtrInput
 	// Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
 	TableId pulumi.StringInput
 	// Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
 	Type pulumi.StringInput
-	// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+	// (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
 	Validate pulumi.BoolPtrInput
 }
 
@@ -306,17 +306,17 @@ func (o TableConstraintOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Whether the constraint is deferrable
+// (Default: `true`) Whether the constraint is deferrable
 func (o TableConstraintOutput) Deferrable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.BoolPtrOutput { return v.Deferrable }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+// (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
 func (o TableConstraintOutput) Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.BoolPtrOutput { return v.Enable }).(pulumi.BoolPtrOutput)
 }
 
-// Whether the constraint is enforced
+// (Default: `false`) Whether the constraint is enforced
 func (o TableConstraintOutput) Enforced() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.BoolPtrOutput { return v.Enforced }).(pulumi.BoolPtrOutput)
 }
@@ -326,7 +326,7 @@ func (o TableConstraintOutput) ForeignKeyProperties() TableConstraintForeignKeyP
 	return o.ApplyT(func(v *TableConstraint) TableConstraintForeignKeyPropertiesPtrOutput { return v.ForeignKeyProperties }).(TableConstraintForeignKeyPropertiesPtrOutput)
 }
 
-// Whether the constraint is initially deferred or immediate
+// (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
 func (o TableConstraintOutput) Initially() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.StringPtrOutput { return v.Initially }).(pulumi.StringPtrOutput)
 }
@@ -336,7 +336,7 @@ func (o TableConstraintOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+// (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
 func (o TableConstraintOutput) Rely() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.BoolPtrOutput { return v.Rely }).(pulumi.BoolPtrOutput)
 }
@@ -351,7 +351,7 @@ func (o TableConstraintOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
-// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+// (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
 func (o TableConstraintOutput) Validate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TableConstraint) pulumi.BoolPtrOutput { return v.Validate }).(pulumi.BoolPtrOutput)
 }

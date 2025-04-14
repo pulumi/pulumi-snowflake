@@ -54,7 +54,7 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
      */
     public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.OauthIntegrationForPartnerApplicationsDescribeOutput[]>;
     /**
-     * Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly enabled!: pulumi.Output<string | undefined>;
     /**
@@ -70,7 +70,7 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
      */
     public readonly oauthClient!: pulumi.Output<string>;
     /**
-     * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly oauthIssueRefreshTokens!: pulumi.Output<string | undefined>;
     /**
@@ -78,7 +78,7 @@ export class OauthIntegrationForPartnerApplications extends pulumi.CustomResourc
      */
     public readonly oauthRedirectUri!: pulumi.Output<string | undefined>;
     /**
-     * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      */
     public readonly oauthRefreshTokenValidity!: pulumi.Output<number | undefined>;
     /**
@@ -161,7 +161,7 @@ export interface OauthIntegrationForPartnerApplicationsState {
      */
     describeOutputs?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutput>[]>;
     /**
-     * Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     enabled?: pulumi.Input<string>;
     /**
@@ -177,7 +177,7 @@ export interface OauthIntegrationForPartnerApplicationsState {
      */
     oauthClient?: pulumi.Input<string>;
     /**
-     * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     oauthIssueRefreshTokens?: pulumi.Input<string>;
     /**
@@ -185,7 +185,7 @@ export interface OauthIntegrationForPartnerApplicationsState {
      */
     oauthRedirectUri?: pulumi.Input<string>;
     /**
-     * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      */
     oauthRefreshTokenValidity?: pulumi.Input<number>;
     /**
@@ -215,7 +215,7 @@ export interface OauthIntegrationForPartnerApplicationsArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     enabled?: pulumi.Input<string>;
     /**
@@ -227,7 +227,7 @@ export interface OauthIntegrationForPartnerApplicationsArgs {
      */
     oauthClient: pulumi.Input<string>;
     /**
-     * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     oauthIssueRefreshTokens?: pulumi.Input<string>;
     /**
@@ -235,7 +235,7 @@ export interface OauthIntegrationForPartnerApplicationsArgs {
      */
     oauthRedirectUri?: pulumi.Input<string>;
     /**
-     * Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      */
     oauthRefreshTokenValidity?: pulumi.Input<number>;
     /**

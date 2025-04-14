@@ -12,7 +12,7 @@ namespace Pulumi.Snowflake
     public static class GetParameters
     {
         /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
         /// ## Example Usage
         /// 
@@ -54,12 +54,14 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Task<GetParametersResult> InvokeAsync(GetParametersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetParametersResult>("snowflake:index/getParameters:getParameters", args ?? new GetParametersArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
         /// ## Example Usage
         /// 
@@ -101,12 +103,14 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Output<GetParametersResult> Invoke(GetParametersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParametersResult>("snowflake:index/getParameters:getParameters", args ?? new GetParametersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
         /// 
         /// ## Example Usage
         /// 
@@ -148,6 +152,8 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Output<GetParametersResult> Invoke(GetParametersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetParametersResult>("snowflake:index/getParameters:getParameters", args ?? new GetParametersInvokeArgs(), options.WithDefaults());
@@ -169,7 +175,7 @@ namespace Pulumi.Snowflake
         public string? ObjectType { get; set; }
 
         /// <summary>
-        /// The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
+        /// (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
         /// </summary>
         [Input("parameterType")]
         public string? ParameterType { get; set; }
@@ -207,7 +213,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ObjectType { get; set; }
 
         /// <summary>
-        /// The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
+        /// (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
         /// </summary>
         [Input("parameterType")]
         public Input<string>? ParameterType { get; set; }
@@ -247,7 +253,7 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string? ObjectType;
         /// <summary>
-        /// The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
+        /// (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
         /// </summary>
         public readonly string? ParameterType;
         /// <summary>

@@ -31,14 +31,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/externalTable:ExternalTable")
 public class ExternalTable extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+     * (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      * 
      */
     @Export(name="autoRefresh", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoRefresh;
 
     /**
-     * @return Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+     * @return (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      * 
      */
     public Output<Optional<Boolean>> autoRefresh() {
@@ -87,14 +87,14 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+     * (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      * 
      */
     @Export(name="copyGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyGrants;
 
     /**
-     * @return Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+     * @return (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      * 
      */
     public Output<Optional<Boolean>> copyGrants() {
@@ -213,14 +213,14 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.pattern);
     }
     /**
-     * Specifies weather to refresh when an external table is created.
+     * (Default: `true`) Specifies weather to refresh when an external table is created.
      * 
      */
     @Export(name="refreshOnCreate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> refreshOnCreate;
 
     /**
-     * @return Specifies weather to refresh when an external table is created.
+     * @return (Default: `true`) Specifies weather to refresh when an external table is created.
      * 
      */
     public Output<Optional<Boolean>> refreshOnCreate() {

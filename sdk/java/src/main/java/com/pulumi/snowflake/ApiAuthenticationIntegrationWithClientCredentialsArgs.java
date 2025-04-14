@@ -65,14 +65,14 @@ public final class ApiAuthenticationIntegrationWithClientCredentialsArgs extends
     }
 
     /**
-     * Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      * 
      */
     @Import(name="oauthAccessTokenValidity")
     private @Nullable Output<Integer> oauthAccessTokenValidity;
 
     /**
-     * @return Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      * 
      */
     public Optional<Output<Integer>> oauthAccessTokenValidity() {
@@ -258,7 +258,7 @@ public final class ApiAuthenticationIntegrationWithClientCredentialsArgs extends
         }
 
         /**
-         * @param oauthAccessTokenValidity Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+         * @param oauthAccessTokenValidity (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class ApiAuthenticationIntegrationWithClientCredentialsArgs extends
         }
 
         /**
-         * @param oauthAccessTokenValidity Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+         * @param oauthAccessTokenValidity (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
          * 
          * @return builder
          * 

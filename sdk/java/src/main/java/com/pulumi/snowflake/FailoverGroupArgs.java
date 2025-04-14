@@ -95,14 +95,14 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Allows replicating objects to accounts on lower editions.
+     * (Default: `false`) Allows replicating objects to accounts on lower editions.
      * 
      */
     @Import(name="ignoreEditionCheck")
     private @Nullable Output<Boolean> ignoreEditionCheck;
 
     /**
-     * @return Allows replicating objects to accounts on lower editions.
+     * @return (Default: `false`) Allows replicating objects to accounts on lower editions.
      * 
      */
     public Optional<Output<Boolean>> ignoreEditionCheck() {
@@ -332,7 +332,7 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ignoreEditionCheck Allows replicating objects to accounts on lower editions.
+         * @param ignoreEditionCheck (Default: `false`) Allows replicating objects to accounts on lower editions.
          * 
          * @return builder
          * 
@@ -343,7 +343,7 @@ public final class FailoverGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ignoreEditionCheck Allows replicating objects to accounts on lower editions.
+         * @param ignoreEditionCheck (Default: `false`) Allows replicating objects to accounts on lower editions.
          * 
          * @return builder
          * 

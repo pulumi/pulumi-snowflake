@@ -62,14 +62,14 @@ public final class GetDatabasesPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     @Import(name="withDescribe")
     private @Nullable Boolean withDescribe;
 
     /**
-     * @return Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     public Optional<Boolean> withDescribe() {
@@ -77,14 +77,14 @@ public final class GetDatabasesPlainArgs extends com.pulumi.resources.InvokeArgs
     }
 
     /**
-     * Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
      * 
      */
     @Import(name="withParameters")
     private @Nullable Boolean withParameters;
 
     /**
-     * @return Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * @return (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
      * 
      */
     public Optional<Boolean> withParameters() {
@@ -153,7 +153,7 @@ public final class GetDatabasesPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param withDescribe Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+         * @param withDescribe (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class GetDatabasesPlainArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param withParameters Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+         * @param withParameters (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
          * 
          * @return builder
          * 

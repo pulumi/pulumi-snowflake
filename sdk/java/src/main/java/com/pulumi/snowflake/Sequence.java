@@ -28,14 +28,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/sequence:Sequence")
 public class Sequence extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies a comment for the sequence.
+     * (Default: ``) Specifies a comment for the sequence.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return Specifies a comment for the sequence.
+     * @return (Default: ``) Specifies a comment for the sequence.
      * 
      */
     public Output<Optional<String>> comment() {
@@ -70,14 +70,14 @@ public class Sequence extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * The amount the sequence will increase by each time it is used
+     * (Default: `1`) The amount the sequence will increase by each time it is used
      * 
      */
     @Export(name="increment", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> increment;
 
     /**
-     * @return The amount the sequence will increase by each time it is used
+     * @return (Default: `1`) The amount the sequence will increase by each time it is used
      * 
      */
     public Output<Optional<Integer>> increment() {
@@ -112,14 +112,14 @@ public class Sequence extends com.pulumi.resources.CustomResource {
         return this.nextValue;
     }
     /**
-     * The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      * 
      */
     @Export(name="ordering", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ordering;
 
     /**
-     * @return The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * @return (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      * 
      */
     public Output<Optional<String>> ordering() {

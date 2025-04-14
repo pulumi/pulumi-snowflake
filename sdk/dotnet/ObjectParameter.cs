@@ -38,7 +38,7 @@ namespace Pulumi.Snowflake
         public Output<string?> ObjectType { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the object parameter will be set on the account level.
+        /// (Default: `false`) If true, the object parameter will be set on the account level.
         /// </summary>
         [Output("onAccount")]
         public Output<bool?> OnAccount { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ObjectType { get; set; }
 
         /// <summary>
-        /// If true, the object parameter will be set on the account level.
+        /// (Default: `false`) If true, the object parameter will be set on the account level.
         /// </summary>
         [Input("onAccount")]
         public Input<bool>? OnAccount { get; set; }
@@ -164,7 +164,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ObjectType { get; set; }
 
         /// <summary>
-        /// If true, the object parameter will be set on the account level.
+        /// (Default: `false`) If true, the object parameter will be set on the account level.
         /// </summary>
         [Input("onAccount")]
         public Input<bool>? OnAccount { get; set; }

@@ -38,7 +38,7 @@ namespace Pulumi.Snowflake
         public Output<string> ApiAwsIamUserArn { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of a cloud platform role.
+        /// (Default: ``) ARN of a cloud platform role.
         /// </summary>
         [Output("apiAwsRoleArn")]
         public Output<string?> ApiAwsRoleArn { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.Snowflake
         public Output<string> ApiProvider { get; private set; } = null!;
 
         /// <summary>
-        /// The 'Application (client) id' of the Azure AD app for your remote service.
+        /// (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
         /// </summary>
         [Output("azureAdApplicationId")]
         public Output<string?> AzureAdApplicationId { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Snowflake
         public Output<string> AzureMultiTenantAppName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+        /// (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         /// </summary>
         [Output("azureTenantId")]
         public Output<string?> AzureTenantId { get; private set; } = null!;
@@ -95,7 +95,7 @@ namespace Pulumi.Snowflake
         public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        /// (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        /// (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         /// </summary>
         [Output("googleAudience")]
         public Output<string?> GoogleAudience { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// ARN of a cloud platform role.
+        /// (Default: ``) ARN of a cloud platform role.
         /// </summary>
         [Input("apiAwsRoleArn")]
         public Input<string>? ApiAwsRoleArn { get; set; }
@@ -227,13 +227,13 @@ namespace Pulumi.Snowflake
         public Input<string> ApiProvider { get; set; } = null!;
 
         /// <summary>
-        /// The 'Application (client) id' of the Azure AD app for your remote service.
+        /// (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
         /// </summary>
         [Input("azureAdApplicationId")]
         public Input<string>? AzureAdApplicationId { get; set; }
 
         /// <summary>
-        /// Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+        /// (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         /// </summary>
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
@@ -242,13 +242,13 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        /// (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        /// (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         /// </summary>
         [Input("googleAudience")]
         public Input<string>? GoogleAudience { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ApiAwsIamUserArn { get; set; }
 
         /// <summary>
-        /// ARN of a cloud platform role.
+        /// (Default: ``) ARN of a cloud platform role.
         /// </summary>
         [Input("apiAwsRoleArn")]
         public Input<string>? ApiAwsRoleArn { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ApiProvider { get; set; }
 
         /// <summary>
-        /// The 'Application (client) id' of the Azure AD app for your remote service.
+        /// (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
         /// </summary>
         [Input("azureAdApplicationId")]
         public Input<string>? AzureAdApplicationId { get; set; }
@@ -350,7 +350,7 @@ namespace Pulumi.Snowflake
         public Input<string>? AzureMultiTenantAppName { get; set; }
 
         /// <summary>
-        /// Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+        /// (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         /// </summary>
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
@@ -365,7 +365,7 @@ namespace Pulumi.Snowflake
         public Input<string>? CreatedOn { get; set; }
 
         /// <summary>
-        /// Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        /// (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -377,7 +377,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        /// (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         /// </summary>
         [Input("googleAudience")]
         public Input<string>? GoogleAudience { get; set; }

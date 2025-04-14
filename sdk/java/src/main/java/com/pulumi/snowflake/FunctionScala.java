@@ -51,14 +51,14 @@ public class FunctionScala extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.arguments);
     }
     /**
-     * Specifies a comment for the function.
+     * (Default: `user-defined function`) Specifies a comment for the function.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return Specifies a comment for the function.
+     * @return (Default: `user-defined function`) Specifies a comment for the function.
      * 
      */
     public Output<Optional<String>> comment() {
@@ -79,14 +79,14 @@ public class FunctionScala extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     @Export(name="enableConsoleOutput", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableConsoleOutput;
 
     /**
-     * @return Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * @return Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     public Output<Boolean> enableConsoleOutput() {

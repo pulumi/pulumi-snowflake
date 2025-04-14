@@ -64,7 +64,7 @@ namespace Pulumi.Snowflake
         public string? StartsWith { get; set; }
 
         /// <summary>
-        /// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+        /// (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
         /// </summary>
         [Input("withParameters")]
         public bool? WithParameters { get; set; }
@@ -108,7 +108,7 @@ namespace Pulumi.Snowflake
         public Input<string>? StartsWith { get; set; }
 
         /// <summary>
-        /// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+        /// (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
         /// </summary>
         [Input("withParameters")]
         public Input<bool>? WithParameters { get; set; }
@@ -152,7 +152,7 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTasksTaskResult> Tasks;
         /// <summary>
-        /// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+        /// (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
         /// </summary>
         public readonly bool? WithParameters;
 

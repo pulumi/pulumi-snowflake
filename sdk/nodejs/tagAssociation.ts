@@ -50,7 +50,7 @@ export class TagAssociation extends pulumi.CustomResource {
      */
     public readonly objectType!: pulumi.Output<string>;
     /**
-     * If true, skips validation of the tag association.
+     * (Default: `true`) If true, skips validation of the tag association.
      */
     public readonly skipValidation!: pulumi.Output<boolean | undefined>;
     /**
@@ -118,7 +118,7 @@ export interface TagAssociationState {
      */
     objectType?: pulumi.Input<string>;
     /**
-     * If true, skips validation of the tag association.
+     * (Default: `true`) If true, skips validation of the tag association.
      */
     skipValidation?: pulumi.Input<boolean>;
     /**
@@ -144,7 +144,7 @@ export interface TagAssociationArgs {
      */
     objectType: pulumi.Input<string>;
     /**
-     * If true, skips validation of the tag association.
+     * (Default: `true`) If true, skips validation of the tag association.
      */
     skipValidation?: pulumi.Input<boolean>;
     /**

@@ -33,7 +33,7 @@ class ObjectParameterArgs:
         :param pulumi.Input[builtins.str] value: Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
         :param pulumi.Input[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         :param pulumi.Input[builtins.str] object_type: Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
-        :param pulumi.Input[builtins.bool] on_account: If true, the object parameter will be set on the account level.
+        :param pulumi.Input[builtins.bool] on_account: (Default: `false`) If true, the object parameter will be set on the account level.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "value", value)
@@ -96,7 +96,7 @@ class ObjectParameterArgs:
     @pulumi.getter(name="onAccount")
     def on_account(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, the object parameter will be set on the account level.
+        (Default: `false`) If true, the object parameter will be set on the account level.
         """
         return pulumi.get(self, "on_account")
 
@@ -118,7 +118,7 @@ class _ObjectParameterState:
         :param pulumi.Input[builtins.str] key: Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
         :param pulumi.Input[Sequence[pulumi.Input['ObjectParameterObjectIdentifierArgs']]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         :param pulumi.Input[builtins.str] object_type: Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
-        :param pulumi.Input[builtins.bool] on_account: If true, the object parameter will be set on the account level.
+        :param pulumi.Input[builtins.bool] on_account: (Default: `false`) If true, the object parameter will be set on the account level.
         :param pulumi.Input[builtins.str] value: Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
         """
         if key is not None:
@@ -172,7 +172,7 @@ class _ObjectParameterState:
     @pulumi.getter(name="onAccount")
     def on_account(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, the object parameter will be set on the account level.
+        (Default: `false`) If true, the object parameter will be set on the account level.
         """
         return pulumi.get(self, "on_account")
 
@@ -216,7 +216,7 @@ class ObjectParameter(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key: Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         :param pulumi.Input[builtins.str] object_type: Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
-        :param pulumi.Input[builtins.bool] on_account: If true, the object parameter will be set on the account level.
+        :param pulumi.Input[builtins.bool] on_account: (Default: `false`) If true, the object parameter will be set on the account level.
         :param pulumi.Input[builtins.str] value: Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
         """
         ...
@@ -295,7 +295,7 @@ class ObjectParameter(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] key: Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ObjectParameterObjectIdentifierArgs', 'ObjectParameterObjectIdentifierArgsDict']]]] object_identifiers: Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
         :param pulumi.Input[builtins.str] object_type: Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
-        :param pulumi.Input[builtins.bool] on_account: If true, the object parameter will be set on the account level.
+        :param pulumi.Input[builtins.bool] on_account: (Default: `false`) If true, the object parameter will be set on the account level.
         :param pulumi.Input[builtins.str] value: Value of object parameter, as a string. Constraints are the same as those for the parameters in Snowflake documentation.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -337,7 +337,7 @@ class ObjectParameter(pulumi.CustomResource):
     @pulumi.getter(name="onAccount")
     def on_account(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        If true, the object parameter will be set on the account level.
+        (Default: `false`) If true, the object parameter will be set on the account level.
         """
         return pulumi.get(self, "on_account")
 

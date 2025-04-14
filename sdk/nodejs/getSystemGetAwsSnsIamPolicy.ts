@@ -15,6 +15,8 @@ import * as utilities from "./utilities";
  *     awsSnsTopicArn: "<aws_sns_topic_arn>",
  * });
  * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
  */
 export function getSystemGetAwsSnsIamPolicy(args: GetSystemGetAwsSnsIamPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemGetAwsSnsIamPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -61,6 +63,8 @@ export interface GetSystemGetAwsSnsIamPolicyResult {
  *     awsSnsTopicArn: "<aws_sns_topic_arn>",
  * });
  * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
  */
 export function getSystemGetAwsSnsIamPolicyOutput(args: GetSystemGetAwsSnsIamPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemGetAwsSnsIamPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

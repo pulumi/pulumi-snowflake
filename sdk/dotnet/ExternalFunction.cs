@@ -34,13 +34,13 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.ExternalFunctionArg>> Args { get; private set; } = null!;
 
         /// <summary>
-        /// A description of the external function.
+        /// (Default: `user-defined function`) A description of the external function.
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+        /// (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         /// </summary>
         [Output("compression")]
         public Output<string?> Compression { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the behavior of the external function when called with null inputs.
+        /// (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
         /// </summary>
         [Output("nullInputBehavior")]
         public Output<string?> NullInputBehavior { get; private set; } = null!;
@@ -112,7 +112,7 @@ namespace Pulumi.Snowflake
         public Output<string> ReturnBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        /// (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         /// </summary>
         [Output("returnNullAllowed")]
         public Output<bool?> ReturnNullAllowed { get; private set; } = null!;
@@ -200,13 +200,13 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// A description of the external function.
+        /// (Default: `user-defined function`) A description of the external function.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+        /// (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         /// </summary>
         [Input("compression")]
         public Input<string>? Compression { get; set; }
@@ -254,7 +254,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the behavior of the external function when called with null inputs.
+        /// (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
         /// </summary>
         [Input("nullInputBehavior")]
         public Input<string>? NullInputBehavior { get; set; }
@@ -278,7 +278,7 @@ namespace Pulumi.Snowflake
         public Input<string> ReturnBehavior { get; set; } = null!;
 
         /// <summary>
-        /// Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        /// (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         /// </summary>
         [Input("returnNullAllowed")]
         public Input<bool>? ReturnNullAllowed { get; set; }
@@ -328,13 +328,13 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// A description of the external function.
+        /// (Default: `user-defined function`) A description of the external function.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+        /// (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         /// </summary>
         [Input("compression")]
         public Input<string>? Compression { get; set; }
@@ -394,7 +394,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the behavior of the external function when called with null inputs.
+        /// (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
         /// </summary>
         [Input("nullInputBehavior")]
         public Input<string>? NullInputBehavior { get; set; }
@@ -418,7 +418,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ReturnBehavior { get; set; }
 
         /// <summary>
-        /// Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        /// (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         /// </summary>
         [Input("returnNullAllowed")]
         public Input<bool>? ReturnNullAllowed { get; set; }

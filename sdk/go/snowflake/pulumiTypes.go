@@ -55919,19 +55919,19 @@ func (o StreamlitShowOutputArrayOutput) Index(i pulumi.IntInput) StreamlitShowOu
 }
 
 type TableColumn struct {
-	// Column collation, e.g. utf8
+	// (Default: ``) Column collation, e.g. utf8
 	Collate *string `pulumi:"collate"`
-	// Column comment
+	// (Default: ``) Column comment
 	Comment *string `pulumi:"comment"`
 	// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
 	Default *TableColumnDefault `pulumi:"default"`
 	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 	Identity *TableColumnIdentity `pulumi:"identity"`
-	// Masking policy to apply on column. It has to be a fully qualified name.
+	// (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
 	MaskingPolicy *string `pulumi:"maskingPolicy"`
 	// Column name
 	Name string `pulumi:"name"`
-	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+	// (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
 	Nullable *bool `pulumi:"nullable"`
 	// Record of schema evolution.
 	SchemaEvolutionRecord *string `pulumi:"schemaEvolutionRecord"`
@@ -55951,19 +55951,19 @@ type TableColumnInput interface {
 }
 
 type TableColumnArgs struct {
-	// Column collation, e.g. utf8
+	// (Default: ``) Column collation, e.g. utf8
 	Collate pulumi.StringPtrInput `pulumi:"collate"`
-	// Column comment
+	// (Default: ``) Column comment
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
 	// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
 	Default TableColumnDefaultPtrInput `pulumi:"default"`
 	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 	Identity TableColumnIdentityPtrInput `pulumi:"identity"`
-	// Masking policy to apply on column. It has to be a fully qualified name.
+	// (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
 	MaskingPolicy pulumi.StringPtrInput `pulumi:"maskingPolicy"`
 	// Column name
 	Name pulumi.StringInput `pulumi:"name"`
-	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+	// (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
 	Nullable pulumi.BoolPtrInput `pulumi:"nullable"`
 	// Record of schema evolution.
 	SchemaEvolutionRecord pulumi.StringPtrInput `pulumi:"schemaEvolutionRecord"`
@@ -56022,12 +56022,12 @@ func (o TableColumnOutput) ToTableColumnOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// Column collation, e.g. utf8
+// (Default: “) Column collation, e.g. utf8
 func (o TableColumnOutput) Collate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumn) *string { return v.Collate }).(pulumi.StringPtrOutput)
 }
 
-// Column comment
+// (Default: “) Column comment
 func (o TableColumnOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -56042,7 +56042,7 @@ func (o TableColumnOutput) Identity() TableColumnIdentityPtrOutput {
 	return o.ApplyT(func(v TableColumn) *TableColumnIdentity { return v.Identity }).(TableColumnIdentityPtrOutput)
 }
 
-// Masking policy to apply on column. It has to be a fully qualified name.
+// (Default: “) Masking policy to apply on column. It has to be a fully qualified name.
 func (o TableColumnOutput) MaskingPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumn) *string { return v.MaskingPolicy }).(pulumi.StringPtrOutput)
 }
@@ -56052,7 +56052,7 @@ func (o TableColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+// (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
 func (o TableColumnOutput) Nullable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableColumn) *bool { return v.Nullable }).(pulumi.BoolPtrOutput)
 }
@@ -56263,9 +56263,9 @@ func (o TableColumnDefaultPtrOutput) Sequence() pulumi.StringPtrOutput {
 }
 
 type TableColumnIdentity struct {
-	// The number to start incrementing at.
+	// (Default: `1`) The number to start incrementing at.
 	StartNum *int `pulumi:"startNum"`
-	// Step size to increment by.
+	// (Default: `1`) Step size to increment by.
 	StepNum *int `pulumi:"stepNum"`
 }
 
@@ -56281,9 +56281,9 @@ type TableColumnIdentityInput interface {
 }
 
 type TableColumnIdentityArgs struct {
-	// The number to start incrementing at.
+	// (Default: `1`) The number to start incrementing at.
 	StartNum pulumi.IntPtrInput `pulumi:"startNum"`
-	// Step size to increment by.
+	// (Default: `1`) Step size to increment by.
 	StepNum pulumi.IntPtrInput `pulumi:"stepNum"`
 }
 
@@ -56364,12 +56364,12 @@ func (o TableColumnIdentityOutput) ToTableColumnIdentityPtrOutputWithContext(ctx
 	}).(TableColumnIdentityPtrOutput)
 }
 
-// The number to start incrementing at.
+// (Default: `1`) The number to start incrementing at.
 func (o TableColumnIdentityOutput) StartNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableColumnIdentity) *int { return v.StartNum }).(pulumi.IntPtrOutput)
 }
 
-// Step size to increment by.
+// (Default: `1`) Step size to increment by.
 func (o TableColumnIdentityOutput) StepNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableColumnIdentity) *int { return v.StepNum }).(pulumi.IntPtrOutput)
 }
@@ -56398,7 +56398,7 @@ func (o TableColumnIdentityPtrOutput) Elem() TableColumnIdentityOutput {
 	}).(TableColumnIdentityOutput)
 }
 
-// The number to start incrementing at.
+// (Default: `1`) The number to start incrementing at.
 func (o TableColumnIdentityPtrOutput) StartNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableColumnIdentity) *int {
 		if v == nil {
@@ -56408,7 +56408,7 @@ func (o TableColumnIdentityPtrOutput) StartNum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Step size to increment by.
+// (Default: `1`) Step size to increment by.
 func (o TableColumnIdentityPtrOutput) StepNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableColumnIdentity) *int {
 		if v == nil {
@@ -56419,11 +56419,11 @@ func (o TableColumnIdentityPtrOutput) StepNum() pulumi.IntPtrOutput {
 }
 
 type TableConstraintForeignKeyProperties struct {
-	// The match type for the foreign key. Not applicable for primary/unique keys
+	// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
 	Match *string `pulumi:"match"`
-	// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+	// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
 	OnDelete *string `pulumi:"onDelete"`
-	// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+	// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 	OnUpdate *string `pulumi:"onUpdate"`
 	// The table and columns that the foreign key references.
 	References TableConstraintForeignKeyPropertiesReferences `pulumi:"references"`
@@ -56441,11 +56441,11 @@ type TableConstraintForeignKeyPropertiesInput interface {
 }
 
 type TableConstraintForeignKeyPropertiesArgs struct {
-	// The match type for the foreign key. Not applicable for primary/unique keys
+	// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
 	Match pulumi.StringPtrInput `pulumi:"match"`
-	// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+	// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
 	OnDelete pulumi.StringPtrInput `pulumi:"onDelete"`
-	// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+	// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 	OnUpdate pulumi.StringPtrInput `pulumi:"onUpdate"`
 	// The table and columns that the foreign key references.
 	References TableConstraintForeignKeyPropertiesReferencesInput `pulumi:"references"`
@@ -56528,17 +56528,17 @@ func (o TableConstraintForeignKeyPropertiesOutput) ToTableConstraintForeignKeyPr
 	}).(TableConstraintForeignKeyPropertiesPtrOutput)
 }
 
-// The match type for the foreign key. Not applicable for primary/unique keys
+// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesOutput) Match() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *string { return v.Match }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesOutput) OnDelete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *string { return v.OnDelete }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesOutput) OnUpdate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *string { return v.OnUpdate }).(pulumi.StringPtrOutput)
 }
@@ -56574,7 +56574,7 @@ func (o TableConstraintForeignKeyPropertiesPtrOutput) Elem() TableConstraintFore
 	}).(TableConstraintForeignKeyPropertiesOutput)
 }
 
-// The match type for the foreign key. Not applicable for primary/unique keys
+// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesPtrOutput) Match() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *string {
 		if v == nil {
@@ -56584,7 +56584,7 @@ func (o TableConstraintForeignKeyPropertiesPtrOutput) Match() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesPtrOutput) OnDelete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *string {
 		if v == nil {
@@ -56594,7 +56594,7 @@ func (o TableConstraintForeignKeyPropertiesPtrOutput) OnDelete() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesPtrOutput) OnUpdate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *string {
 		if v == nil {

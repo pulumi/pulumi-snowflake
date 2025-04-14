@@ -40,7 +40,7 @@ class AlertArgs:
         :param pulumi.Input[builtins.str] warehouse: The warehouse the alert will use.
         :param pulumi.Input['AlertAlertScheduleArgs'] alert_schedule: The schedule for periodically running an alert.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the alert.
-        :param pulumi.Input[builtins.bool] enabled: Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        :param pulumi.Input[builtins.bool] enabled: (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
         """
         pulumi.set(__self__, "action", action)
@@ -145,7 +145,7 @@ class AlertArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         """
         return pulumi.get(self, "enabled")
 
@@ -186,7 +186,7 @@ class _AlertState:
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the alert.
         :param pulumi.Input[builtins.str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
         :param pulumi.Input[builtins.str] database: The database in which to create the alert.
-        :param pulumi.Input[builtins.bool] enabled: Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        :param pulumi.Input[builtins.bool] enabled: (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the alert.
@@ -277,7 +277,7 @@ class _AlertState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         """
         return pulumi.get(self, "enabled")
 
@@ -365,7 +365,7 @@ class Alert(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the alert.
         :param pulumi.Input[builtins.str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
         :param pulumi.Input[builtins.str] database: The database in which to create the alert.
-        :param pulumi.Input[builtins.bool] enabled: Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        :param pulumi.Input[builtins.bool] enabled: (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the alert.
         :param pulumi.Input[builtins.str] warehouse: The warehouse the alert will use.
@@ -470,7 +470,7 @@ class Alert(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the alert.
         :param pulumi.Input[builtins.str] condition: The SQL statement that represents the condition for the alert. (SELECT, SHOW, CALL)
         :param pulumi.Input[builtins.str] database: The database in which to create the alert.
-        :param pulumi.Input[builtins.bool] enabled: Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        :param pulumi.Input[builtins.bool] enabled: (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the alert.
@@ -536,7 +536,7 @@ class Alert(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         """
         return pulumi.get(self, "enabled")
 

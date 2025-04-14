@@ -20,7 +20,7 @@ import (
 type StreamOnTable struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AppendOnly pulumi.StringPtrOutput       `pulumi:"appendOnly"`
 	At         StreamOnTableAtPtrOutput     `pulumi:"at"`
 	Before     StreamOnTableBeforePtrOutput `pulumi:"before"`
@@ -86,7 +86,7 @@ func GetStreamOnTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamOnTable resources.
 type streamOnTableState struct {
-	// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AppendOnly *string              `pulumi:"appendOnly"`
 	At         *StreamOnTableAt     `pulumi:"at"`
 	Before     *StreamOnTableBefore `pulumi:"before"`
@@ -114,7 +114,7 @@ type streamOnTableState struct {
 }
 
 type StreamOnTableState struct {
-	// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AppendOnly pulumi.StringPtrInput
 	At         StreamOnTableAtPtrInput
 	Before     StreamOnTableBeforePtrInput
@@ -146,7 +146,7 @@ func (StreamOnTableState) ElementType() reflect.Type {
 }
 
 type streamOnTableArgs struct {
-	// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AppendOnly *string              `pulumi:"appendOnly"`
 	At         *StreamOnTableAt     `pulumi:"at"`
 	Before     *StreamOnTableBefore `pulumi:"before"`
@@ -166,7 +166,7 @@ type streamOnTableArgs struct {
 
 // The set of arguments for constructing a StreamOnTable resource.
 type StreamOnTableArgs struct {
-	// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AppendOnly pulumi.StringPtrInput
 	At         StreamOnTableAtPtrInput
 	Before     StreamOnTableBeforePtrInput
@@ -271,7 +271,7 @@ func (o StreamOnTableOutput) ToStreamOnTableOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 func (o StreamOnTableOutput) AppendOnly() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringPtrOutput { return v.AppendOnly }).(pulumi.StringPtrOutput)
 }

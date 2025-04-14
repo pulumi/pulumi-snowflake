@@ -50,7 +50,7 @@ export class FunctionScala extends pulumi.CustomResource {
      */
     public readonly arguments!: pulumi.Output<outputs.FunctionScalaArgument[] | undefined>;
     /**
-     * Specifies a comment for the function.
+     * (Default: `user-defined function`) Specifies a comment for the function.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
@@ -58,7 +58,7 @@ export class FunctionScala extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      */
     public readonly enableConsoleOutput!: pulumi.Output<boolean>;
     /**
@@ -238,7 +238,7 @@ export interface FunctionScalaState {
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.FunctionScalaArgument>[]>;
     /**
-     * Specifies a comment for the function.
+     * (Default: `user-defined function`) Specifies a comment for the function.
      */
     comment?: pulumi.Input<string>;
     /**
@@ -246,7 +246,7 @@ export interface FunctionScalaState {
      */
     database?: pulumi.Input<string>;
     /**
-     * Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      */
     enableConsoleOutput?: pulumi.Input<boolean>;
     /**
@@ -341,7 +341,7 @@ export interface FunctionScalaArgs {
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.FunctionScalaArgument>[]>;
     /**
-     * Specifies a comment for the function.
+     * (Default: `user-defined function`) Specifies a comment for the function.
      */
     comment?: pulumi.Input<string>;
     /**
@@ -349,7 +349,7 @@ export interface FunctionScalaArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      */
     enableConsoleOutput?: pulumi.Input<boolean>;
     /**

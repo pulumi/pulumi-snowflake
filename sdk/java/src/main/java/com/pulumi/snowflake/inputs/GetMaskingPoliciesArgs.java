@@ -64,14 +64,14 @@ public final class GetMaskingPoliciesArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     @Import(name="withDescribe")
     private @Nullable Output<Boolean> withDescribe;
 
     /**
-     * @return Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     public Optional<Output<Boolean>> withDescribe() {
@@ -169,7 +169,7 @@ public final class GetMaskingPoliciesArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param withDescribe Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+         * @param withDescribe (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class GetMaskingPoliciesArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param withDescribe Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+         * @param withDescribe (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
          * 
          * @return builder
          * 

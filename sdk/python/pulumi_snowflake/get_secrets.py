@@ -82,7 +82,7 @@ class GetSecretsResult:
     @pulumi.getter(name="withDescribe")
     def with_describe(self) -> Optional[builtins.bool]:
         """
-        Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+        (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
         """
         return pulumi.get(self, "with_describe")
 
@@ -132,10 +132,12 @@ def get_secrets(in_: Optional[Union['GetSecretsInArgs', 'GetSecretsInArgsDict']]
     pulumi.export("onlyShowOutput", only_show.secrets)
     ```
 
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
 
     :param Union['GetSecretsInArgs', 'GetSecretsInArgsDict'] in_: IN clause to filter the list of secrets
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param builtins.bool with_describe: Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
     __args__['in'] = in_
@@ -182,10 +184,12 @@ def get_secrets_output(in_: Optional[pulumi.Input[Optional[Union['GetSecretsInAr
     pulumi.export("onlyShowOutput", only_show.secrets)
     ```
 
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
 
     :param Union['GetSecretsInArgs', 'GetSecretsInArgsDict'] in_: IN clause to filter the list of secrets
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param builtins.bool with_describe: Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
     __args__['in'] = in_

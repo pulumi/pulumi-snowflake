@@ -53,7 +53,7 @@ public final class GetTasksResult {
      */
     private List<GetTasksTask> tasks;
     /**
-     * @return Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+     * @return (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
      * 
      */
     private @Nullable Boolean withParameters;
@@ -109,7 +109,7 @@ public final class GetTasksResult {
         return this.tasks;
     }
     /**
-     * @return Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+     * @return (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
      * 
      */
     public Optional<Boolean> withParameters() {

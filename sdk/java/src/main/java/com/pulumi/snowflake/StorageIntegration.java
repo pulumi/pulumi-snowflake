@@ -54,15 +54,31 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
     public Output<String> azureMultiTenantAppName() {
         return this.azureMultiTenantAppName;
     }
+    /**
+     * (Default: ``)
+     * 
+     */
     @Export(name="azureTenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureTenantId;
 
+    /**
+     * @return (Default: ``)
+     * 
+     */
     public Output<Optional<String>> azureTenantId() {
         return Codegen.optional(this.azureTenantId);
     }
+    /**
+     * (Default: ``)
+     * 
+     */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
+    /**
+     * @return (Default: ``)
+     * 
+     */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
@@ -80,9 +96,17 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
     public Output<String> createdOn() {
         return this.createdOn;
     }
+    /**
+     * (Default: `true`)
+     * 
+     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
+    /**
+     * @return (Default: `true`)
+     * 
+     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
@@ -162,9 +186,17 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> storageAwsObjectAcl() {
         return Codegen.optional(this.storageAwsObjectAcl);
     }
+    /**
+     * (Default: ``)
+     * 
+     */
     @Export(name="storageAwsRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageAwsRoleArn;
 
+    /**
+     * @return (Default: ``)
+     * 
+     */
     public Output<Optional<String>> storageAwsRoleArn() {
         return Codegen.optional(this.storageAwsRoleArn);
     }
@@ -210,9 +242,17 @@ public class StorageIntegration extends com.pulumi.resources.CustomResource {
     public Output<String> storageProvider() {
         return this.storageProvider;
     }
+    /**
+     * (Default: `EXTERNAL_STAGE`)
+     * 
+     */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
+    /**
+     * @return (Default: `EXTERNAL_STAGE`)
+     * 
+     */
     public Output<Optional<String>> type() {
         return Codegen.optional(this.type);
     }

@@ -47,12 +47,21 @@ export class StorageIntegration extends pulumi.CustomResource {
      * This is the name of the Snowflake client application created for your account.
      */
     public /*out*/ readonly azureMultiTenantAppName!: pulumi.Output<string>;
+    /**
+     * (Default: ``)
+     */
     public readonly azureTenantId!: pulumi.Output<string | undefined>;
+    /**
+     * (Default: ``)
+     */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
      * Date and time when the storage integration was created.
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    /**
+     * (Default: `true`)
+     */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -75,6 +84,9 @@ export class StorageIntegration extends pulumi.CustomResource {
      * "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
      */
     public readonly storageAwsObjectAcl!: pulumi.Output<string | undefined>;
+    /**
+     * (Default: ``)
+     */
     public readonly storageAwsRoleArn!: pulumi.Output<string | undefined>;
     /**
      * Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
@@ -88,6 +100,9 @@ export class StorageIntegration extends pulumi.CustomResource {
      * Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
      */
     public readonly storageProvider!: pulumi.Output<string>;
+    /**
+     * (Default: `EXTERNAL_STAGE`)
+     */
     public readonly type!: pulumi.Output<string | undefined>;
 
     /**
@@ -163,12 +178,21 @@ export interface StorageIntegrationState {
      * This is the name of the Snowflake client application created for your account.
      */
     azureMultiTenantAppName?: pulumi.Input<string>;
+    /**
+     * (Default: ``)
+     */
     azureTenantId?: pulumi.Input<string>;
+    /**
+     * (Default: ``)
+     */
     comment?: pulumi.Input<string>;
     /**
      * Date and time when the storage integration was created.
      */
     createdOn?: pulumi.Input<string>;
+    /**
+     * (Default: `true`)
+     */
     enabled?: pulumi.Input<boolean>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -191,6 +215,9 @@ export interface StorageIntegrationState {
      * "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
      */
     storageAwsObjectAcl?: pulumi.Input<string>;
+    /**
+     * (Default: ``)
+     */
     storageAwsRoleArn?: pulumi.Input<string>;
     /**
      * Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
@@ -204,6 +231,9 @@ export interface StorageIntegrationState {
      * Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
      */
     storageProvider?: pulumi.Input<string>;
+    /**
+     * (Default: `EXTERNAL_STAGE`)
+     */
     type?: pulumi.Input<string>;
 }
 
@@ -211,8 +241,17 @@ export interface StorageIntegrationState {
  * The set of arguments for constructing a StorageIntegration resource.
  */
 export interface StorageIntegrationArgs {
+    /**
+     * (Default: ``)
+     */
     azureTenantId?: pulumi.Input<string>;
+    /**
+     * (Default: ``)
+     */
     comment?: pulumi.Input<string>;
+    /**
+     * (Default: `true`)
+     */
     enabled?: pulumi.Input<boolean>;
     name?: pulumi.Input<string>;
     /**
@@ -223,6 +262,9 @@ export interface StorageIntegrationArgs {
      * "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
      */
     storageAwsObjectAcl?: pulumi.Input<string>;
+    /**
+     * (Default: ``)
+     */
     storageAwsRoleArn?: pulumi.Input<string>;
     /**
      * Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
@@ -232,5 +274,8 @@ export interface StorageIntegrationArgs {
      * Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
      */
     storageProvider: pulumi.Input<string>;
+    /**
+     * (Default: `EXTERNAL_STAGE`)
+     */
     type?: pulumi.Input<string>;
 }

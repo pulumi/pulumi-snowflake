@@ -30,7 +30,7 @@ type ApiAuthenticationIntegrationWithJwtBearer struct {
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrOutput `pulumi:"oauthAccessTokenValidity"`
 	OauthAssertionIssuer     pulumi.StringOutput `pulumi:"oauthAssertionIssuer"`
 	// Specifies the URL for authenticating to the external service.
@@ -100,7 +100,7 @@ type apiAuthenticationIntegrationWithJwtBearerState struct {
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity *int    `pulumi:"oauthAccessTokenValidity"`
 	OauthAssertionIssuer     *string `pulumi:"oauthAssertionIssuer"`
 	// Specifies the URL for authenticating to the external service.
@@ -129,7 +129,7 @@ type ApiAuthenticationIntegrationWithJwtBearerState struct {
 	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrInput
 	OauthAssertionIssuer     pulumi.StringPtrInput
 	// Specifies the URL for authenticating to the external service.
@@ -158,7 +158,7 @@ type apiAuthenticationIntegrationWithJwtBearerArgs struct {
 	Enabled bool `pulumi:"enabled"`
 	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity *int   `pulumi:"oauthAccessTokenValidity"`
 	OauthAssertionIssuer     string `pulumi:"oauthAssertionIssuer"`
 	// Specifies the URL for authenticating to the external service.
@@ -182,7 +182,7 @@ type ApiAuthenticationIntegrationWithJwtBearerArgs struct {
 	Enabled pulumi.BoolInput
 	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrInput
 	OauthAssertionIssuer     pulumi.StringInput
 	// Specifies the URL for authenticating to the external service.
@@ -312,7 +312,7 @@ func (o ApiAuthenticationIntegrationWithJwtBearerOutput) Name() pulumi.StringOut
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithJwtBearer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 func (o ApiAuthenticationIntegrationWithJwtBearerOutput) OauthAccessTokenValidity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithJwtBearer) pulumi.IntPtrOutput {
 		return v.OauthAccessTokenValidity

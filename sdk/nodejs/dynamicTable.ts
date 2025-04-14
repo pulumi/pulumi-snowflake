@@ -74,7 +74,7 @@ export class DynamicTable extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
      */
     public readonly initialize!: pulumi.Output<string | undefined>;
     /**
@@ -94,7 +94,7 @@ export class DynamicTable extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies whether to replace the dynamic table if it already exists.
+     * (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
      */
     public readonly orReplace!: pulumi.Output<boolean | undefined>;
     /**
@@ -106,7 +106,7 @@ export class DynamicTable extends pulumi.CustomResource {
      */
     public readonly query!: pulumi.Output<string>;
     /**
-     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+     * (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      */
     public readonly refreshMode!: pulumi.Output<string | undefined>;
     /**
@@ -253,7 +253,7 @@ export interface DynamicTableState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
      */
     initialize?: pulumi.Input<string>;
     /**
@@ -273,7 +273,7 @@ export interface DynamicTableState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies whether to replace the dynamic table if it already exists.
+     * (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
      */
     orReplace?: pulumi.Input<boolean>;
     /**
@@ -285,7 +285,7 @@ export interface DynamicTableState {
      */
     query?: pulumi.Input<string>;
     /**
-     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+     * (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      */
     refreshMode?: pulumi.Input<string>;
     /**
@@ -327,7 +327,7 @@ export interface DynamicTableArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
      */
     initialize?: pulumi.Input<string>;
     /**
@@ -335,7 +335,7 @@ export interface DynamicTableArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies whether to replace the dynamic table if it already exists.
+     * (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
      */
     orReplace?: pulumi.Input<boolean>;
     /**
@@ -343,7 +343,7 @@ export interface DynamicTableArgs {
      */
     query: pulumi.Input<string>;
     /**
-     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+     * (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      */
     refreshMode?: pulumi.Input<string>;
     /**

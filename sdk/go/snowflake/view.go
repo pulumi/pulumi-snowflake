@@ -22,7 +22,7 @@ type View struct {
 
 	// Specifies the aggregation policy to set on a view.
 	AggregationPolicy ViewAggregationPolicyPtrOutput `pulumi:"aggregationPolicy"`
-	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	ChangeTracking pulumi.StringPtrOutput `pulumi:"changeTracking"`
 	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns ViewColumnArrayOutput `pulumi:"columns"`
@@ -39,7 +39,7 @@ type View struct {
 	DescribeOutputs ViewDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsRecursive pulumi.StringPtrOutput `pulumi:"isRecursive"`
 	IsSecure    pulumi.StringPtrOutput `pulumi:"isSecure"`
 	IsTemporary pulumi.StringPtrOutput `pulumi:"isTemporary"`
@@ -96,7 +96,7 @@ func GetView(ctx *pulumi.Context,
 type viewState struct {
 	// Specifies the aggregation policy to set on a view.
 	AggregationPolicy *ViewAggregationPolicy `pulumi:"aggregationPolicy"`
-	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	ChangeTracking *string `pulumi:"changeTracking"`
 	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns []ViewColumn `pulumi:"columns"`
@@ -113,7 +113,7 @@ type viewState struct {
 	DescribeOutputs []ViewDescribeOutput `pulumi:"describeOutputs"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsRecursive *string `pulumi:"isRecursive"`
 	IsSecure    *string `pulumi:"isSecure"`
 	IsTemporary *string `pulumi:"isTemporary"`
@@ -132,7 +132,7 @@ type viewState struct {
 type ViewState struct {
 	// Specifies the aggregation policy to set on a view.
 	AggregationPolicy ViewAggregationPolicyPtrInput
-	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	ChangeTracking pulumi.StringPtrInput
 	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns ViewColumnArrayInput
@@ -149,7 +149,7 @@ type ViewState struct {
 	DescribeOutputs ViewDescribeOutputArrayInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsRecursive pulumi.StringPtrInput
 	IsSecure    pulumi.StringPtrInput
 	IsTemporary pulumi.StringPtrInput
@@ -172,7 +172,7 @@ func (ViewState) ElementType() reflect.Type {
 type viewArgs struct {
 	// Specifies the aggregation policy to set on a view.
 	AggregationPolicy *ViewAggregationPolicy `pulumi:"aggregationPolicy"`
-	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	ChangeTracking *string `pulumi:"changeTracking"`
 	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns []ViewColumn `pulumi:"columns"`
@@ -185,7 +185,7 @@ type viewArgs struct {
 	DataMetricSchedule *ViewDataMetricSchedule `pulumi:"dataMetricSchedule"`
 	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsRecursive *string `pulumi:"isRecursive"`
 	IsSecure    *string `pulumi:"isSecure"`
 	IsTemporary *string `pulumi:"isTemporary"`
@@ -203,7 +203,7 @@ type viewArgs struct {
 type ViewArgs struct {
 	// Specifies the aggregation policy to set on a view.
 	AggregationPolicy ViewAggregationPolicyPtrInput
-	// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	ChangeTracking pulumi.StringPtrInput
 	// If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
 	Columns ViewColumnArrayInput
@@ -216,7 +216,7 @@ type ViewArgs struct {
 	DataMetricSchedule ViewDataMetricSchedulePtrInput
 	// The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsRecursive pulumi.StringPtrInput
 	IsSecure    pulumi.StringPtrInput
 	IsTemporary pulumi.StringPtrInput
@@ -322,7 +322,7 @@ func (o ViewOutput) AggregationPolicy() ViewAggregationPolicyPtrOutput {
 	return o.ApplyT(func(v *View) ViewAggregationPolicyPtrOutput { return v.AggregationPolicy }).(ViewAggregationPolicyPtrOutput)
 }
 
-// Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 func (o ViewOutput) ChangeTracking() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.ChangeTracking }).(pulumi.StringPtrOutput)
 }
@@ -366,7 +366,7 @@ func (o ViewOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *View) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 func (o ViewOutput) IsRecursive() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *View) pulumi.StringPtrOutput { return v.IsRecursive }).(pulumi.StringPtrOutput)
 }

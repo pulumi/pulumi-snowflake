@@ -64,14 +64,14 @@ public final class ObjectParameterState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * If true, the object parameter will be set on the account level.
+     * (Default: `false`) If true, the object parameter will be set on the account level.
      * 
      */
     @Import(name="onAccount")
     private @Nullable Output<Boolean> onAccount;
 
     /**
-     * @return If true, the object parameter will be set on the account level.
+     * @return (Default: `false`) If true, the object parameter will be set on the account level.
      * 
      */
     public Optional<Output<Boolean>> onAccount() {
@@ -195,7 +195,7 @@ public final class ObjectParameterState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param onAccount If true, the object parameter will be set on the account level.
+         * @param onAccount (Default: `false`) If true, the object parameter will be set on the account level.
          * 
          * @return builder
          * 
@@ -206,7 +206,7 @@ public final class ObjectParameterState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param onAccount If true, the object parameter will be set on the account level.
+         * @param onAccount (Default: `false`) If true, the object parameter will be set on the account level.
          * 
          * @return builder
          * 

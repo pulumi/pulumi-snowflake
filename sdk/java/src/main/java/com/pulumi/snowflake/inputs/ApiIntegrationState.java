@@ -63,14 +63,14 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * ARN of a cloud platform role.
+     * (Default: ``) ARN of a cloud platform role.
      * 
      */
     @Import(name="apiAwsRoleArn")
     private @Nullable Output<String> apiAwsRoleArn;
 
     /**
-     * @return ARN of a cloud platform role.
+     * @return (Default: ``) ARN of a cloud platform role.
      * 
      */
     public Optional<Output<String>> apiAwsRoleArn() {
@@ -138,14 +138,14 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
+     * (Default: ``) The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
      * 
      */
     @Import(name="azureAdApplicationId")
     private @Nullable Output<String> azureAdApplicationId;
 
     /**
-     * @return The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
+     * @return (Default: ``) The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
      * 
      */
     public Optional<Output<String>> azureAdApplicationId() {
@@ -167,14 +167,14 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+     * (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      * 
      */
     @Import(name="azureTenantId")
     private @Nullable Output<String> azureTenantId;
 
     /**
-     * @return Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+     * @return (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      * 
      */
     public Optional<Output<String>> azureTenantId() {
@@ -204,14 +204,14 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+     * (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+     * @return (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -234,14 +234,14 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      * 
      */
     @Import(name="googleAudience")
     private @Nullable Output<String> googleAudience;
 
     /**
-     * @return The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * @return (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      * 
      */
     public Optional<Output<String>> googleAudience() {
@@ -378,7 +378,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param apiAwsRoleArn ARN of a cloud platform role.
+         * @param apiAwsRoleArn (Default: ``) ARN of a cloud platform role.
          * 
          * @return builder
          * 
@@ -389,7 +389,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param apiAwsRoleArn ARN of a cloud platform role.
+         * @param apiAwsRoleArn (Default: ``) ARN of a cloud platform role.
          * 
          * @return builder
          * 
@@ -493,7 +493,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param azureAdApplicationId The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
+         * @param azureAdApplicationId (Default: ``) The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
          * 
          * @return builder
          * 
@@ -504,7 +504,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param azureAdApplicationId The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
+         * @param azureAdApplicationId (Default: ``) The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
          * 
          * @return builder
          * 
@@ -532,7 +532,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param azureTenantId Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+         * @param azureTenantId (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
          * 
          * @return builder
          * 
@@ -543,7 +543,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param azureTenantId Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+         * @param azureTenantId (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
          * 
          * @return builder
          * 
@@ -583,7 +583,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+         * @param enabled (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
          * 
          * @return builder
          * 
@@ -594,7 +594,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+         * @param enabled (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
          * 
          * @return builder
          * 
@@ -625,7 +625,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param googleAudience The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+         * @param googleAudience (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
          * 
          * @return builder
          * 
@@ -636,7 +636,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param googleAudience The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+         * @param googleAudience (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
          * 
          * @return builder
          * 

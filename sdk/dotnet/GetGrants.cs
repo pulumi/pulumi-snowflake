@@ -195,6 +195,8 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Task<GetGrantsResult> InvokeAsync(GetGrantsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetGrantsResult>("snowflake:index/getGrants:getGrants", args ?? new GetGrantsArgs(), options.WithDefaults());
@@ -383,6 +385,8 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Output<GetGrantsResult> Invoke(GetGrantsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetGrantsResult>("snowflake:index/getGrants:getGrants", args ?? new GetGrantsInvokeArgs(), options.WithDefaults());
@@ -571,6 +575,8 @@ namespace Pulumi.Snowflake
         /// 
         /// });
         /// ```
+        /// 
+        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
         /// </summary>
         public static Output<GetGrantsResult> Invoke(GetGrantsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetGrantsResult>("snowflake:index/getGrants:getGrants", args ?? new GetGrantsInvokeArgs(), options.WithDefaults());

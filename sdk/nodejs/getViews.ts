@@ -42,7 +42,7 @@ export interface GetViewsArgs {
      */
     startsWith?: string;
     /**
-     * Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: boolean;
 }
@@ -76,7 +76,7 @@ export interface GetViewsResult {
      */
     readonly views: outputs.GetViewsView[];
     /**
-     * Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
      */
     readonly withDescribe?: boolean;
 }
@@ -116,7 +116,7 @@ export interface GetViewsOutputArgs {
      */
     startsWith?: pulumi.Input<string>;
     /**
-     * Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: pulumi.Input<boolean>;
 }

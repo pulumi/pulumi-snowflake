@@ -31,7 +31,7 @@ public final class GetNetworkPoliciesResult {
      */
     private List<GetNetworkPoliciesNetworkPolicy> networkPolicies;
     /**
-     * @return Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     private @Nullable Boolean withDescribe;
@@ -59,7 +59,7 @@ public final class GetNetworkPoliciesResult {
         return this.networkPolicies;
     }
     /**
-     * @return Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     public Optional<Boolean> withDescribe() {
