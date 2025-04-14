@@ -22,7 +22,7 @@ import (
 type ExternalTable struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+	// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
 	AutoRefresh pulumi.BoolPtrOutput `pulumi:"autoRefresh"`
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic pulumi.StringPtrOutput `pulumi:"awsSnsTopic"`
@@ -30,7 +30,7 @@ type ExternalTable struct {
 	Columns ExternalTableColumnArrayOutput `pulumi:"columns"`
 	// Specifies a comment for the external table.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+	// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants pulumi.BoolPtrOutput `pulumi:"copyGrants"`
 	// The database in which to create the external table.
 	Database pulumi.StringOutput `pulumi:"database"`
@@ -48,7 +48,7 @@ type ExternalTable struct {
 	PartitionBies pulumi.StringArrayOutput `pulumi:"partitionBies"`
 	// Specifies the file names and/or paths on the external stage to match.
 	Pattern pulumi.StringPtrOutput `pulumi:"pattern"`
-	// Specifies weather to refresh when an external table is created.
+	// (Default: `true`) Specifies weather to refresh when an external table is created.
 	RefreshOnCreate pulumi.BoolPtrOutput `pulumi:"refreshOnCreate"`
 	// The schema in which to create the external table.
 	Schema pulumi.StringOutput `pulumi:"schema"`
@@ -105,7 +105,7 @@ func GetExternalTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExternalTable resources.
 type externalTableState struct {
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+	// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
 	AutoRefresh *bool `pulumi:"autoRefresh"`
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic *string `pulumi:"awsSnsTopic"`
@@ -113,7 +113,7 @@ type externalTableState struct {
 	Columns []ExternalTableColumn `pulumi:"columns"`
 	// Specifies a comment for the external table.
 	Comment *string `pulumi:"comment"`
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+	// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants *bool `pulumi:"copyGrants"`
 	// The database in which to create the external table.
 	Database *string `pulumi:"database"`
@@ -131,7 +131,7 @@ type externalTableState struct {
 	PartitionBies []string `pulumi:"partitionBies"`
 	// Specifies the file names and/or paths on the external stage to match.
 	Pattern *string `pulumi:"pattern"`
-	// Specifies weather to refresh when an external table is created.
+	// (Default: `true`) Specifies weather to refresh when an external table is created.
 	RefreshOnCreate *bool `pulumi:"refreshOnCreate"`
 	// The schema in which to create the external table.
 	Schema *string `pulumi:"schema"`
@@ -144,7 +144,7 @@ type externalTableState struct {
 }
 
 type ExternalTableState struct {
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+	// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
 	AutoRefresh pulumi.BoolPtrInput
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic pulumi.StringPtrInput
@@ -152,7 +152,7 @@ type ExternalTableState struct {
 	Columns ExternalTableColumnArrayInput
 	// Specifies a comment for the external table.
 	Comment pulumi.StringPtrInput
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+	// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants pulumi.BoolPtrInput
 	// The database in which to create the external table.
 	Database pulumi.StringPtrInput
@@ -170,7 +170,7 @@ type ExternalTableState struct {
 	PartitionBies pulumi.StringArrayInput
 	// Specifies the file names and/or paths on the external stage to match.
 	Pattern pulumi.StringPtrInput
-	// Specifies weather to refresh when an external table is created.
+	// (Default: `true`) Specifies weather to refresh when an external table is created.
 	RefreshOnCreate pulumi.BoolPtrInput
 	// The schema in which to create the external table.
 	Schema pulumi.StringPtrInput
@@ -187,7 +187,7 @@ func (ExternalTableState) ElementType() reflect.Type {
 }
 
 type externalTableArgs struct {
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+	// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
 	AutoRefresh *bool `pulumi:"autoRefresh"`
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic *string `pulumi:"awsSnsTopic"`
@@ -195,7 +195,7 @@ type externalTableArgs struct {
 	Columns []ExternalTableColumn `pulumi:"columns"`
 	// Specifies a comment for the external table.
 	Comment *string `pulumi:"comment"`
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+	// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants *bool `pulumi:"copyGrants"`
 	// The database in which to create the external table.
 	Database string `pulumi:"database"`
@@ -209,7 +209,7 @@ type externalTableArgs struct {
 	PartitionBies []string `pulumi:"partitionBies"`
 	// Specifies the file names and/or paths on the external stage to match.
 	Pattern *string `pulumi:"pattern"`
-	// Specifies weather to refresh when an external table is created.
+	// (Default: `true`) Specifies weather to refresh when an external table is created.
 	RefreshOnCreate *bool `pulumi:"refreshOnCreate"`
 	// The schema in which to create the external table.
 	Schema string `pulumi:"schema"`
@@ -223,7 +223,7 @@ type externalTableArgs struct {
 
 // The set of arguments for constructing a ExternalTable resource.
 type ExternalTableArgs struct {
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+	// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
 	AutoRefresh pulumi.BoolPtrInput
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic pulumi.StringPtrInput
@@ -231,7 +231,7 @@ type ExternalTableArgs struct {
 	Columns ExternalTableColumnArrayInput
 	// Specifies a comment for the external table.
 	Comment pulumi.StringPtrInput
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+	// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants pulumi.BoolPtrInput
 	// The database in which to create the external table.
 	Database pulumi.StringInput
@@ -245,7 +245,7 @@ type ExternalTableArgs struct {
 	PartitionBies pulumi.StringArrayInput
 	// Specifies the file names and/or paths on the external stage to match.
 	Pattern pulumi.StringPtrInput
-	// Specifies weather to refresh when an external table is created.
+	// (Default: `true`) Specifies weather to refresh when an external table is created.
 	RefreshOnCreate pulumi.BoolPtrInput
 	// The schema in which to create the external table.
 	Schema pulumi.StringInput
@@ -344,7 +344,7 @@ func (o ExternalTableOutput) ToExternalTableOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
 func (o ExternalTableOutput) AutoRefresh() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.BoolPtrOutput { return v.AutoRefresh }).(pulumi.BoolPtrOutput)
 }
@@ -364,7 +364,7 @@ func (o ExternalTableOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 func (o ExternalTableOutput) CopyGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.BoolPtrOutput { return v.CopyGrants }).(pulumi.BoolPtrOutput)
 }
@@ -409,7 +409,7 @@ func (o ExternalTableOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringPtrOutput { return v.Pattern }).(pulumi.StringPtrOutput)
 }
 
-// Specifies weather to refresh when an external table is created.
+// (Default: `true`) Specifies weather to refresh when an external table is created.
 func (o ExternalTableOutput) RefreshOnCreate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.BoolPtrOutput { return v.RefreshOnCreate }).(pulumi.BoolPtrOutput)
 }

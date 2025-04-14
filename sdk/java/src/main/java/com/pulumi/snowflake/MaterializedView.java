@@ -72,14 +72,14 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies that the view is secure.
+     * (Default: `false`) Specifies that the view is secure.
      * 
      */
     @Export(name="isSecure", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isSecure;
 
     /**
-     * @return Specifies that the view is secure.
+     * @return (Default: `false`) Specifies that the view is secure.
      * 
      */
     public Output<Optional<Boolean>> isSecure() {
@@ -100,14 +100,14 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Overwrites the View if it exists.
+     * (Default: `false`) Overwrites the View if it exists.
      * 
      */
     @Export(name="orReplace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> orReplace;
 
     /**
-     * @return Overwrites the View if it exists.
+     * @return (Default: `false`) Overwrites the View if it exists.
      * 
      */
     public Output<Optional<Boolean>> orReplace() {

@@ -34,7 +34,7 @@ type Account struct {
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
 	GracePeriodInDays pulumi.IntOutput `pulumi:"gracePeriodInDays"`
-	// Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin         pulumi.StringPtrOutput `pulumi:"isOrgAdmin"`
 	LastName           pulumi.StringPtrOutput `pulumi:"lastName"`
 	MustChangePassword pulumi.StringPtrOutput `pulumi:"mustChangePassword"`
@@ -127,7 +127,7 @@ type accountState struct {
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
 	GracePeriodInDays *int `pulumi:"gracePeriodInDays"`
-	// Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin         *string `pulumi:"isOrgAdmin"`
 	LastName           *string `pulumi:"lastName"`
 	MustChangePassword *string `pulumi:"mustChangePassword"`
@@ -156,7 +156,7 @@ type AccountState struct {
 	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
 	GracePeriodInDays pulumi.IntPtrInput
-	// Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin         pulumi.StringPtrInput
 	LastName           pulumi.StringPtrInput
 	MustChangePassword pulumi.StringPtrInput
@@ -187,7 +187,7 @@ type accountArgs struct {
 	FirstName *string `pulumi:"firstName"`
 	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
 	GracePeriodInDays int `pulumi:"gracePeriodInDays"`
-	// Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin         *string `pulumi:"isOrgAdmin"`
 	LastName           *string `pulumi:"lastName"`
 	MustChangePassword *string `pulumi:"mustChangePassword"`
@@ -213,7 +213,7 @@ type AccountArgs struct {
 	FirstName pulumi.StringPtrInput
 	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
 	GracePeriodInDays pulumi.IntInput
-	// Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin         pulumi.StringPtrInput
 	LastName           pulumi.StringPtrInput
 	MustChangePassword pulumi.StringPtrInput
@@ -356,7 +356,7 @@ func (o AccountOutput) GracePeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *Account) pulumi.IntOutput { return v.GracePeriodInDays }).(pulumi.IntOutput)
 }
 
-// Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
 func (o AccountOutput) IsOrgAdmin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.IsOrgAdmin }).(pulumi.StringPtrOutput)
 }

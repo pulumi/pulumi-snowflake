@@ -42,7 +42,7 @@ export class StreamOnTable extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly appendOnly!: pulumi.Output<string | undefined>;
     public readonly at!: pulumi.Output<outputs.StreamOnTableAt | undefined>;
@@ -152,7 +152,7 @@ export class StreamOnTable extends pulumi.CustomResource {
  */
 export interface StreamOnTableState {
     /**
-     * Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     appendOnly?: pulumi.Input<string>;
     at?: pulumi.Input<inputs.StreamOnTableAt>;
@@ -203,7 +203,7 @@ export interface StreamOnTableState {
  */
 export interface StreamOnTableArgs {
     /**
-     * Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     appendOnly?: pulumi.Input<string>;
     at?: pulumi.Input<inputs.StreamOnTableAt>;

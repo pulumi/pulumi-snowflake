@@ -113,14 +113,14 @@ public class FailoverGroup extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Allows replicating objects to accounts on lower editions.
+     * (Default: `false`) Allows replicating objects to accounts on lower editions.
      * 
      */
     @Export(name="ignoreEditionCheck", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreEditionCheck;
 
     /**
-     * @return Allows replicating objects to accounts on lower editions.
+     * @return (Default: `false`) Allows replicating objects to accounts on lower editions.
      * 
      */
     public Output<Optional<Boolean>> ignoreEditionCheck() {

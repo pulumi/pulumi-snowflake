@@ -113,7 +113,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly defaultRole!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+     * (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
      */
     public readonly defaultSecondaryRolesOption!: pulumi.Output<string | undefined>;
     /**
@@ -122,7 +122,7 @@ export class User extends pulumi.CustomResource {
     public readonly defaultWarehouse!: pulumi.Output<string | undefined>;
     public readonly disableMfa!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly disabled!: pulumi.Output<string | undefined>;
     /**
@@ -208,7 +208,7 @@ export class User extends pulumi.CustomResource {
      */
     public readonly multiStatementCount!: pulumi.Output<number>;
     /**
-     * Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly mustChangePassword!: pulumi.Output<string | undefined>;
     /**
@@ -624,7 +624,7 @@ export interface UserState {
      */
     defaultRole?: pulumi.Input<string>;
     /**
-     * Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+     * (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
      */
     defaultSecondaryRolesOption?: pulumi.Input<string>;
     /**
@@ -633,7 +633,7 @@ export interface UserState {
     defaultWarehouse?: pulumi.Input<string>;
     disableMfa?: pulumi.Input<string>;
     /**
-     * Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     disabled?: pulumi.Input<string>;
     /**
@@ -719,7 +719,7 @@ export interface UserState {
      */
     multiStatementCount?: pulumi.Input<number>;
     /**
-     * Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     mustChangePassword?: pulumi.Input<string>;
     /**
@@ -947,7 +947,7 @@ export interface UserArgs {
      */
     defaultRole?: pulumi.Input<string>;
     /**
-     * Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+     * (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
      */
     defaultSecondaryRolesOption?: pulumi.Input<string>;
     /**
@@ -956,7 +956,7 @@ export interface UserArgs {
     defaultWarehouse?: pulumi.Input<string>;
     disableMfa?: pulumi.Input<string>;
     /**
-     * Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     disabled?: pulumi.Input<string>;
     /**
@@ -1038,7 +1038,7 @@ export interface UserArgs {
      */
     multiStatementCount?: pulumi.Input<number>;
     /**
-     * Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     mustChangePassword?: pulumi.Input<string>;
     /**

@@ -32,7 +32,7 @@ type GetStreamsArgs struct {
 	Limit *GetStreamsLimit `pulumi:"limit"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith *string `pulumi:"startsWith"`
-	// Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
@@ -50,7 +50,7 @@ type GetStreamsResult struct {
 	StartsWith *string `pulumi:"startsWith"`
 	// Holds the aggregated output of all streams details queries.
 	Streams []GetStreamsStream `pulumi:"streams"`
-	// Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
@@ -73,7 +73,7 @@ type GetStreamsOutputArgs struct {
 	Limit GetStreamsLimitPtrInput `pulumi:"limit"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
-	// Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
@@ -126,7 +126,7 @@ func (o GetStreamsResultOutput) Streams() GetStreamsStreamArrayOutput {
 	return o.ApplyT(func(v GetStreamsResult) []GetStreamsStream { return v.Streams }).(GetStreamsStreamArrayOutput)
 }
 
-// Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+// (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetStreamsResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetStreamsResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }

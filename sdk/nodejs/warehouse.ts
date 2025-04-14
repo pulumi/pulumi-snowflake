@@ -42,11 +42,11 @@ export class Warehouse extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly autoResume!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      */
     public readonly autoSuspend!: pulumi.Output<number | undefined>;
     /**
@@ -54,7 +54,7 @@ export class Warehouse extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly enableQueryAcceleration!: pulumi.Output<string | undefined>;
     /**
@@ -86,7 +86,7 @@ export class Warehouse extends pulumi.CustomResource {
      */
     public /*out*/ readonly parameters!: pulumi.Output<outputs.WarehouseParameter[]>;
     /**
-     * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      */
     public readonly queryAccelerationMaxScaleFactor!: pulumi.Output<number | undefined>;
     /**
@@ -182,11 +182,11 @@ export class Warehouse extends pulumi.CustomResource {
  */
 export interface WarehouseState {
     /**
-     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     autoResume?: pulumi.Input<string>;
     /**
-     * Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      */
     autoSuspend?: pulumi.Input<number>;
     /**
@@ -194,7 +194,7 @@ export interface WarehouseState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     enableQueryAcceleration?: pulumi.Input<string>;
     /**
@@ -226,7 +226,7 @@ export interface WarehouseState {
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.WarehouseParameter>[]>;
     /**
-     * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      */
     queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
     /**
@@ -264,11 +264,11 @@ export interface WarehouseState {
  */
 export interface WarehouseArgs {
     /**
-     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     autoResume?: pulumi.Input<string>;
     /**
-     * Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      */
     autoSuspend?: pulumi.Input<number>;
     /**
@@ -276,7 +276,7 @@ export interface WarehouseArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     enableQueryAcceleration?: pulumi.Input<string>;
     /**
@@ -300,7 +300,7 @@ export interface WarehouseArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      */
     queryAccelerationMaxScaleFactor?: pulumi.Input<number>;
     /**

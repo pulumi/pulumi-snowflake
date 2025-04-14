@@ -38,7 +38,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutput>> DescribeOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("enabled")]
         public Output<string?> Enabled { get; private set; } = null!;
@@ -62,7 +62,7 @@ namespace Pulumi.Snowflake
         public Output<string?> NetworkPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("oauthAllowNonTlsRedirectUri")]
         public Output<string?> OauthAllowNonTlsRedirectUri { get; private set; } = null!;
@@ -80,13 +80,13 @@ namespace Pulumi.Snowflake
         public Output<string> OauthClientType { get; private set; } = null!;
 
         /// <summary>
-        /// Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("oauthEnforcePkce")]
         public Output<string?> OauthEnforcePkce { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("oauthIssueRefreshTokens")]
         public Output<string?> OauthIssueRefreshTokens { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Snowflake
         public Output<string> OauthRedirectUri { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         /// </summary>
         [Output("oauthRefreshTokenValidity")]
         public Output<int?> OauthRefreshTokenValidity { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("enabled")]
         public Input<string>? Enabled { get; set; }
@@ -210,7 +210,7 @@ namespace Pulumi.Snowflake
         public Input<string>? NetworkPolicy { get; set; }
 
         /// <summary>
-        /// If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("oauthAllowNonTlsRedirectUri")]
         public Input<string>? OauthAllowNonTlsRedirectUri { get; set; }
@@ -228,13 +228,13 @@ namespace Pulumi.Snowflake
         public Input<string> OauthClientType { get; set; } = null!;
 
         /// <summary>
-        /// Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("oauthEnforcePkce")]
         public Input<string>? OauthEnforcePkce { get; set; }
 
         /// <summary>
-        /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("oauthIssueRefreshTokens")]
         public Input<string>? OauthIssueRefreshTokens { get; set; }
@@ -246,7 +246,7 @@ namespace Pulumi.Snowflake
         public Input<string> OauthRedirectUri { get; set; } = null!;
 
         /// <summary>
-        /// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         /// </summary>
         [Input("oauthRefreshTokenValidity")]
         public Input<int>? OauthRefreshTokenValidity { get; set; }
@@ -308,7 +308,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("enabled")]
         public Input<string>? Enabled { get; set; }
@@ -332,7 +332,7 @@ namespace Pulumi.Snowflake
         public Input<string>? NetworkPolicy { get; set; }
 
         /// <summary>
-        /// If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("oauthAllowNonTlsRedirectUri")]
         public Input<string>? OauthAllowNonTlsRedirectUri { get; set; }
@@ -350,13 +350,13 @@ namespace Pulumi.Snowflake
         public Input<string>? OauthClientType { get; set; }
 
         /// <summary>
-        /// Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("oauthEnforcePkce")]
         public Input<string>? OauthEnforcePkce { get; set; }
 
         /// <summary>
-        /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("oauthIssueRefreshTokens")]
         public Input<string>? OauthIssueRefreshTokens { get; set; }
@@ -368,7 +368,7 @@ namespace Pulumi.Snowflake
         public Input<string>? OauthRedirectUri { get; set; }
 
         /// <summary>
-        /// Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
         /// </summary>
         [Input("oauthRefreshTokenValidity")]
         public Input<int>? OauthRefreshTokenValidity { get; set; }

@@ -56,7 +56,7 @@ export class MaterializedView extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies that the view is secure.
+     * (Default: `false`) Specifies that the view is secure.
      */
     public readonly isSecure!: pulumi.Output<boolean | undefined>;
     /**
@@ -64,7 +64,7 @@ export class MaterializedView extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Overwrites the View if it exists.
+     * (Default: `false`) Overwrites the View if it exists.
      */
     public readonly orReplace!: pulumi.Output<boolean | undefined>;
     /**
@@ -156,7 +156,7 @@ export interface MaterializedViewState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies that the view is secure.
+     * (Default: `false`) Specifies that the view is secure.
      */
     isSecure?: pulumi.Input<boolean>;
     /**
@@ -164,7 +164,7 @@ export interface MaterializedViewState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Overwrites the View if it exists.
+     * (Default: `false`) Overwrites the View if it exists.
      */
     orReplace?: pulumi.Input<boolean>;
     /**
@@ -200,7 +200,7 @@ export interface MaterializedViewArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies that the view is secure.
+     * (Default: `false`) Specifies that the view is secure.
      */
     isSecure?: pulumi.Input<boolean>;
     /**
@@ -208,7 +208,7 @@ export interface MaterializedViewArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Overwrites the View if it exists.
+     * (Default: `false`) Overwrites the View if it exists.
      */
     orReplace?: pulumi.Input<boolean>;
     /**

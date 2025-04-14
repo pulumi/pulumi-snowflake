@@ -34,7 +34,7 @@ type GetTasksArgs struct {
 	RootOnly *bool `pulumi:"rootOnly"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith *string `pulumi:"startsWith"`
-	// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+	// (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
 	WithParameters *bool `pulumi:"withParameters"`
 }
 
@@ -54,7 +54,7 @@ type GetTasksResult struct {
 	StartsWith *string `pulumi:"startsWith"`
 	// Holds the aggregated output of all task details queries.
 	Tasks []GetTasksTask `pulumi:"tasks"`
-	// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+	// (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
 	WithParameters *bool `pulumi:"withParameters"`
 }
 
@@ -79,7 +79,7 @@ type GetTasksOutputArgs struct {
 	RootOnly pulumi.BoolPtrInput `pulumi:"rootOnly"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
-	// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+	// (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
 	WithParameters pulumi.BoolPtrInput `pulumi:"withParameters"`
 }
 
@@ -137,7 +137,7 @@ func (o GetTasksResultOutput) Tasks() GetTasksTaskArrayOutput {
 	return o.ApplyT(func(v GetTasksResult) []GetTasksTask { return v.Tasks }).(GetTasksTaskArrayOutput)
 }
 
-// Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+// (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
 func (o GetTasksResultOutput) WithParameters() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetTasksResult) *bool { return v.WithParameters }).(pulumi.BoolPtrOutput)
 }

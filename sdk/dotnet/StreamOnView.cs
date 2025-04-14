@@ -20,7 +20,7 @@ namespace Pulumi.Snowflake
     public partial class StreamOnView : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("appendOnly")]
         public Output<string?> AppendOnly { get; private set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Snowflake
     public sealed class StreamOnViewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("appendOnly")]
         public Input<string>? AppendOnly { get; set; }
@@ -197,7 +197,7 @@ namespace Pulumi.Snowflake
     public sealed class StreamOnViewState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("appendOnly")]
         public Input<string>? AppendOnly { get; set; }

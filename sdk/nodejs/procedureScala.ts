@@ -50,7 +50,7 @@ export class ProcedureScala extends pulumi.CustomResource {
      */
     public readonly arguments!: pulumi.Output<outputs.ProcedureScalaArgument[] | undefined>;
     /**
-     * Specifies a comment for the procedure.
+     * (Default: `user-defined procedure`) Specifies a comment for the procedure.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
@@ -82,7 +82,7 @@ export class ProcedureScala extends pulumi.CustomResource {
      */
     public readonly imports!: pulumi.Output<outputs.ProcedureScalaImport[] | undefined>;
     /**
-     * Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly isSecure!: pulumi.Output<string | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface ProcedureScalaState {
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaArgument>[]>;
     /**
-     * Specifies a comment for the procedure.
+     * (Default: `user-defined procedure`) Specifies a comment for the procedure.
      */
     comment?: pulumi.Input<string>;
     /**
@@ -282,7 +282,7 @@ export interface ProcedureScalaState {
      */
     imports?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaImport>[]>;
     /**
-     * Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     isSecure?: pulumi.Input<string>;
     /**
@@ -360,7 +360,7 @@ export interface ProcedureScalaArgs {
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaArgument>[]>;
     /**
-     * Specifies a comment for the procedure.
+     * (Default: `user-defined procedure`) Specifies a comment for the procedure.
      */
     comment?: pulumi.Input<string>;
     /**
@@ -388,7 +388,7 @@ export interface ProcedureScalaArgs {
      */
     imports?: pulumi.Input<pulumi.Input<inputs.ProcedureScalaImport>[]>;
     /**
-     * Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     isSecure?: pulumi.Input<string>;
     /**

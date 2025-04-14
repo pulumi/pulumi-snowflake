@@ -94,14 +94,14 @@ public final class GetTasksArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+     * (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
      * 
      */
     @Import(name="withParameters")
     private @Nullable Output<Boolean> withParameters;
 
     /**
-     * @return Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+     * @return (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
      * 
      */
     public Optional<Output<Boolean>> withParameters() {
@@ -243,7 +243,7 @@ public final class GetTasksArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withParameters Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+         * @param withParameters (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class GetTasksArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withParameters Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+         * @param withParameters (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
          * 
          * @return builder
          * 

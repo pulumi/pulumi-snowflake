@@ -36,14 +36,14 @@ class ApiIntegrationArgs:
         The set of arguments for constructing a ApiIntegration resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
         :param pulumi.Input[builtins.str] api_provider: Specifies the HTTPS proxy service type.
-        :param pulumi.Input[builtins.str] api_aws_role_arn: ARN of a cloud platform role.
+        :param pulumi.Input[builtins.str] api_aws_role_arn: (Default: ``) ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
         :param pulumi.Input[builtins.str] api_gcp_service_account: The service account used for communication with the Google API Gateway.
         :param pulumi.Input[builtins.str] api_key: The API key (also called a “subscription key”).
-        :param pulumi.Input[builtins.str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
-        :param pulumi.Input[builtins.str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
-        :param pulumi.Input[builtins.bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
-        :param pulumi.Input[builtins.str] google_audience: The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        :param pulumi.Input[builtins.str] azure_ad_application_id: (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
+        :param pulumi.Input[builtins.str] azure_tenant_id: (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+        :param pulumi.Input[builtins.bool] enabled: (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        :param pulumi.Input[builtins.str] google_audience: (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         :param pulumi.Input[builtins.str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
         pulumi.set(__self__, "api_allowed_prefixes", api_allowed_prefixes)
@@ -97,7 +97,7 @@ class ApiIntegrationArgs:
     @pulumi.getter(name="apiAwsRoleArn")
     def api_aws_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        ARN of a cloud platform role.
+        (Default: ``) ARN of a cloud platform role.
         """
         return pulumi.get(self, "api_aws_role_arn")
 
@@ -145,7 +145,7 @@ class ApiIntegrationArgs:
     @pulumi.getter(name="azureAdApplicationId")
     def azure_ad_application_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The 'Application (client) id' of the Azure AD app for your remote service.
+        (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
         """
         return pulumi.get(self, "azure_ad_application_id")
 
@@ -157,7 +157,7 @@ class ApiIntegrationArgs:
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+        (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         """
         return pulumi.get(self, "azure_tenant_id")
 
@@ -178,7 +178,7 @@ class ApiIntegrationArgs:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         """
         return pulumi.get(self, "enabled")
 
@@ -190,7 +190,7 @@ class ApiIntegrationArgs:
     @pulumi.getter(name="googleAudience")
     def google_audience(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         """
         return pulumi.get(self, "google_audience")
 
@@ -237,17 +237,17 @@ class _ApiIntegrationState:
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
         :param pulumi.Input[builtins.str] api_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
         :param pulumi.Input[builtins.str] api_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
-        :param pulumi.Input[builtins.str] api_aws_role_arn: ARN of a cloud platform role.
+        :param pulumi.Input[builtins.str] api_aws_role_arn: (Default: ``) ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
         :param pulumi.Input[builtins.str] api_gcp_service_account: The service account used for communication with the Google API Gateway.
         :param pulumi.Input[builtins.str] api_key: The API key (also called a “subscription key”).
         :param pulumi.Input[builtins.str] api_provider: Specifies the HTTPS proxy service type.
-        :param pulumi.Input[builtins.str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
-        :param pulumi.Input[builtins.str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+        :param pulumi.Input[builtins.str] azure_ad_application_id: (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
+        :param pulumi.Input[builtins.str] azure_tenant_id: (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         :param pulumi.Input[builtins.str] created_on: Date and time when the API integration was created.
-        :param pulumi.Input[builtins.bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        :param pulumi.Input[builtins.bool] enabled: (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] google_audience: The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        :param pulumi.Input[builtins.str] google_audience: (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         :param pulumi.Input[builtins.str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
         if api_allowed_prefixes is not None:
@@ -327,7 +327,7 @@ class _ApiIntegrationState:
     @pulumi.getter(name="apiAwsRoleArn")
     def api_aws_role_arn(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        ARN of a cloud platform role.
+        (Default: ``) ARN of a cloud platform role.
         """
         return pulumi.get(self, "api_aws_role_arn")
 
@@ -387,7 +387,7 @@ class _ApiIntegrationState:
     @pulumi.getter(name="azureAdApplicationId")
     def azure_ad_application_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The 'Application (client) id' of the Azure AD app for your remote service.
+        (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
         """
         return pulumi.get(self, "azure_ad_application_id")
 
@@ -417,7 +417,7 @@ class _ApiIntegrationState:
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+        (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         """
         return pulumi.get(self, "azure_tenant_id")
 
@@ -450,7 +450,7 @@ class _ApiIntegrationState:
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         """
         return pulumi.get(self, "enabled")
 
@@ -474,7 +474,7 @@ class _ApiIntegrationState:
     @pulumi.getter(name="googleAudience")
     def google_audience(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         """
         return pulumi.get(self, "google_audience")
 
@@ -523,15 +523,15 @@ class ApiIntegration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
-        :param pulumi.Input[builtins.str] api_aws_role_arn: ARN of a cloud platform role.
+        :param pulumi.Input[builtins.str] api_aws_role_arn: (Default: ``) ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
         :param pulumi.Input[builtins.str] api_gcp_service_account: The service account used for communication with the Google API Gateway.
         :param pulumi.Input[builtins.str] api_key: The API key (also called a “subscription key”).
         :param pulumi.Input[builtins.str] api_provider: Specifies the HTTPS proxy service type.
-        :param pulumi.Input[builtins.str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
-        :param pulumi.Input[builtins.str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
-        :param pulumi.Input[builtins.bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
-        :param pulumi.Input[builtins.str] google_audience: The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        :param pulumi.Input[builtins.str] azure_ad_application_id: (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
+        :param pulumi.Input[builtins.str] azure_tenant_id: (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+        :param pulumi.Input[builtins.bool] enabled: (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        :param pulumi.Input[builtins.str] google_audience: (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         :param pulumi.Input[builtins.str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
         ...
@@ -645,17 +645,17 @@ class ApiIntegration(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] api_allowed_prefixes: Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
         :param pulumi.Input[builtins.str] api_aws_external_id: The external ID that Snowflake will use when assuming the AWS role.
         :param pulumi.Input[builtins.str] api_aws_iam_user_arn: The Snowflake user that will attempt to assume the AWS role.
-        :param pulumi.Input[builtins.str] api_aws_role_arn: ARN of a cloud platform role.
+        :param pulumi.Input[builtins.str] api_aws_role_arn: (Default: ``) ARN of a cloud platform role.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] api_blocked_prefixes: Lists the endpoints and resources in the HTTPS proxy service that are not allowed to be called from Snowflake.
         :param pulumi.Input[builtins.str] api_gcp_service_account: The service account used for communication with the Google API Gateway.
         :param pulumi.Input[builtins.str] api_key: The API key (also called a “subscription key”).
         :param pulumi.Input[builtins.str] api_provider: Specifies the HTTPS proxy service type.
-        :param pulumi.Input[builtins.str] azure_ad_application_id: The 'Application (client) id' of the Azure AD app for your remote service.
-        :param pulumi.Input[builtins.str] azure_tenant_id: Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+        :param pulumi.Input[builtins.str] azure_ad_application_id: (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
+        :param pulumi.Input[builtins.str] azure_tenant_id: (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         :param pulumi.Input[builtins.str] created_on: Date and time when the API integration was created.
-        :param pulumi.Input[builtins.bool] enabled: Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        :param pulumi.Input[builtins.bool] enabled: (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] google_audience: The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        :param pulumi.Input[builtins.str] google_audience: (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         :param pulumi.Input[builtins.str] name: Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -710,7 +710,7 @@ class ApiIntegration(pulumi.CustomResource):
     @pulumi.getter(name="apiAwsRoleArn")
     def api_aws_role_arn(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        ARN of a cloud platform role.
+        (Default: ``) ARN of a cloud platform role.
         """
         return pulumi.get(self, "api_aws_role_arn")
 
@@ -750,7 +750,7 @@ class ApiIntegration(pulumi.CustomResource):
     @pulumi.getter(name="azureAdApplicationId")
     def azure_ad_application_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The 'Application (client) id' of the Azure AD app for your remote service.
+        (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
         """
         return pulumi.get(self, "azure_ad_application_id")
 
@@ -768,7 +768,7 @@ class ApiIntegration(pulumi.CustomResource):
     @pulumi.getter(name="azureTenantId")
     def azure_tenant_id(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+        (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
         """
         return pulumi.get(self, "azure_tenant_id")
 
@@ -789,7 +789,7 @@ class ApiIntegration(pulumi.CustomResource):
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+        (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
         """
         return pulumi.get(self, "enabled")
 
@@ -805,7 +805,7 @@ class ApiIntegration(pulumi.CustomResource):
     @pulumi.getter(name="googleAudience")
     def google_audience(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+        (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
         """
         return pulumi.get(self, "google_audience")
 

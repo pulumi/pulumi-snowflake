@@ -93,7 +93,7 @@ class GetMaskingPoliciesResult:
     @pulumi.getter(name="withDescribe")
     def with_describe(self) -> Optional[builtins.bool]:
         """
-        Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+        (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
         """
         return pulumi.get(self, "with_describe")
 
@@ -124,7 +124,7 @@ def get_masking_policies(in_: Optional[Union['GetMaskingPoliciesInArgs', 'GetMas
     :param Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict'] in_: IN clause to filter the list of masking policies
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param builtins.bool with_describe: Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
     __args__['in'] = in_
@@ -153,7 +153,7 @@ def get_masking_policies_output(in_: Optional[pulumi.Input[Optional[Union['GetMa
     :param Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict'] in_: IN clause to filter the list of masking policies
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     :param Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param builtins.bool with_describe: Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
     __args__['in'] = in_

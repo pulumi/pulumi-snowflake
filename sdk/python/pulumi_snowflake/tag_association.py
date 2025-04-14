@@ -31,7 +31,7 @@ class TagAssociationArgs:
         :param pulumi.Input[builtins.str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         :param pulumi.Input[builtins.str] tag_id: Specifies the identifier for the tag.
         :param pulumi.Input[builtins.str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
-        :param pulumi.Input[builtins.bool] skip_validation: If true, skips validation of the tag association.
+        :param pulumi.Input[builtins.bool] skip_validation: (Default: `true`) If true, skips validation of the tag association.
         """
         pulumi.set(__self__, "object_identifiers", object_identifiers)
         pulumi.set(__self__, "object_type", object_type)
@@ -92,7 +92,7 @@ class TagAssociationArgs:
     @pulumi.getter(name="skipValidation")
     def skip_validation(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, skips validation of the tag association.
+        (Default: `true`) If true, skips validation of the tag association.
         """
         return pulumi.get(self, "skip_validation")
 
@@ -113,7 +113,7 @@ class _TagAssociationState:
         Input properties used for looking up and filtering TagAssociation resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] object_identifiers: Specifies the object identifiers for the tag association.
         :param pulumi.Input[builtins.str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
-        :param pulumi.Input[builtins.bool] skip_validation: If true, skips validation of the tag association.
+        :param pulumi.Input[builtins.bool] skip_validation: (Default: `true`) If true, skips validation of the tag association.
         :param pulumi.Input[builtins.str] tag_id: Specifies the identifier for the tag.
         :param pulumi.Input[builtins.str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
         """
@@ -156,7 +156,7 @@ class _TagAssociationState:
     @pulumi.getter(name="skipValidation")
     def skip_validation(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, skips validation of the tag association.
+        (Default: `true`) If true, skips validation of the tag association.
         """
         return pulumi.get(self, "skip_validation")
 
@@ -213,7 +213,7 @@ class TagAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] object_identifiers: Specifies the object identifiers for the tag association.
         :param pulumi.Input[builtins.str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
-        :param pulumi.Input[builtins.bool] skip_validation: If true, skips validation of the tag association.
+        :param pulumi.Input[builtins.bool] skip_validation: (Default: `true`) If true, skips validation of the tag association.
         :param pulumi.Input[builtins.str] tag_id: Specifies the identifier for the tag.
         :param pulumi.Input[builtins.str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
         """
@@ -298,7 +298,7 @@ class TagAssociation(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] object_identifiers: Specifies the object identifiers for the tag association.
         :param pulumi.Input[builtins.str] object_type: Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
-        :param pulumi.Input[builtins.bool] skip_validation: If true, skips validation of the tag association.
+        :param pulumi.Input[builtins.bool] skip_validation: (Default: `true`) If true, skips validation of the tag association.
         :param pulumi.Input[builtins.str] tag_id: Specifies the identifier for the tag.
         :param pulumi.Input[builtins.str] tag_value: Specifies the value of the tag, (e.g. 'finance' or 'engineering')
         """
@@ -333,7 +333,7 @@ class TagAssociation(pulumi.CustomResource):
     @pulumi.getter(name="skipValidation")
     def skip_validation(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        If true, skips validation of the tag association.
+        (Default: `true`) If true, skips validation of the tag association.
         """
         return pulumi.get(self, "skip_validation")
 

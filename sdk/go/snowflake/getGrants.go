@@ -200,6 +200,8 @@ import (
 //	}
 //
 // ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetGrants(ctx *pulumi.Context, args *GetGrantsArgs, opts ...pulumi.InvokeOption) (*GetGrantsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGrantsResult

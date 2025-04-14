@@ -70,7 +70,7 @@ class GetSecurityIntegrationsResult:
     @pulumi.getter(name="withDescribe")
     def with_describe(self) -> Optional[builtins.bool]:
         """
-        Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+        (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
         """
         return pulumi.get(self, "with_describe")
 
@@ -95,7 +95,7 @@ def get_security_integrations(like: Optional[builtins.str] = None,
 
 
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param builtins.bool with_describe: Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
     __args__['like'] = like
@@ -116,7 +116,7 @@ def get_security_integrations_output(like: Optional[pulumi.Input[Optional[builti
 
 
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param builtins.bool with_describe: Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
     __args__['like'] = like

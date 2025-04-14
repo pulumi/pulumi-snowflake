@@ -34,7 +34,7 @@ namespace Pulumi.Snowflake
         public Output<string> ObjectType { get; private set; } = null!;
 
         /// <summary>
-        /// If true, skips validation of the tag association.
+        /// (Default: `true`) If true, skips validation of the tag association.
         /// </summary>
         [Output("skipValidation")]
         public Output<bool?> SkipValidation { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Snowflake
         public Input<string> ObjectType { get; set; } = null!;
 
         /// <summary>
-        /// If true, skips validation of the tag association.
+        /// (Default: `true`) If true, skips validation of the tag association.
         /// </summary>
         [Input("skipValidation")]
         public Input<bool>? SkipValidation { get; set; }
@@ -160,7 +160,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ObjectType { get; set; }
 
         /// <summary>
-        /// If true, skips validation of the tag association.
+        /// (Default: `true`) If true, skips validation of the tag association.
         /// </summary>
         [Input("skipValidation")]
         public Input<bool>? SkipValidation { get; set; }

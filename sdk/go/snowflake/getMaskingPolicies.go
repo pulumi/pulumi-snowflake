@@ -30,7 +30,7 @@ type GetMaskingPoliciesArgs struct {
 	Like *string `pulumi:"like"`
 	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit *GetMaskingPoliciesLimit `pulumi:"limit"`
-	// Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
@@ -46,7 +46,7 @@ type GetMaskingPoliciesResult struct {
 	Limit *GetMaskingPoliciesLimit `pulumi:"limit"`
 	// Holds the aggregated output of all views details queries.
 	MaskingPolicies []GetMaskingPoliciesMaskingPolicy `pulumi:"maskingPolicies"`
-	// Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
@@ -67,7 +67,7 @@ type GetMaskingPoliciesOutputArgs struct {
 	Like pulumi.StringPtrInput `pulumi:"like"`
 	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit GetMaskingPoliciesLimitPtrInput `pulumi:"limit"`
-	// Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
@@ -115,7 +115,7 @@ func (o GetMaskingPoliciesResultOutput) MaskingPolicies() GetMaskingPoliciesMask
 	return o.ApplyT(func(v GetMaskingPoliciesResult) []GetMaskingPoliciesMaskingPolicy { return v.MaskingPolicies }).(GetMaskingPoliciesMaskingPolicyArrayOutput)
 }
 
-// Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+// (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetMaskingPoliciesResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetMaskingPoliciesResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }

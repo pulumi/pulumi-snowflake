@@ -45,9 +45,10 @@ class NotificationIntegrationArgs:
         :param pulumi.Input[builtins.str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         :param pulumi.Input[builtins.str] comment: A comment for the integration
         :param pulumi.Input[builtins.str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+        :param pulumi.Input[builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[builtins.str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         :param pulumi.Input[builtins.str] gcp_pubsub_topic_name: The topic id that Snowflake will use to push notifications.
-        :param pulumi.Input[builtins.str] type: A type of integration
+        :param pulumi.Input[builtins.str] type: (Default: `QUEUE`) A type of integration
         """
         pulumi.set(__self__, "notification_provider", notification_provider)
         if aws_sns_role_arn is not None:
@@ -203,6 +204,9 @@ class NotificationIntegrationArgs:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        (Default: `true`)
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -247,7 +251,7 @@ class NotificationIntegrationArgs:
     @_utilities.deprecated("""Will be removed - it is added automatically on the SDK level.""")
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A type of integration
+        (Default: `QUEUE`) A type of integration
         """
         return pulumi.get(self, "type")
 
@@ -295,12 +299,13 @@ class _NotificationIntegrationState:
         :param pulumi.Input[builtins.str] comment: A comment for the integration
         :param pulumi.Input[builtins.str] created_on: Date and time when the notification integration was created.
         :param pulumi.Input[builtins.str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+        :param pulumi.Input[builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] gcp_pubsub_service_account: The GCP service account identifier that Snowflake will use when assuming the GCP role
         :param pulumi.Input[builtins.str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         :param pulumi.Input[builtins.str] gcp_pubsub_topic_name: The topic id that Snowflake will use to push notifications.
         :param pulumi.Input[builtins.str] notification_provider: The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
-        :param pulumi.Input[builtins.str] type: A type of integration
+        :param pulumi.Input[builtins.str] type: (Default: `QUEUE`) A type of integration
         """
         if aws_sns_external_id is not None:
             pulumi.set(__self__, "aws_sns_external_id", aws_sns_external_id)
@@ -527,6 +532,9 @@ class _NotificationIntegrationState:
     @property
     @pulumi.getter
     def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        (Default: `true`)
+        """
         return pulumi.get(self, "enabled")
 
     @enabled.setter
@@ -607,7 +615,7 @@ class _NotificationIntegrationState:
     @_utilities.deprecated("""Will be removed - it is added automatically on the SDK level.""")
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A type of integration
+        (Default: `QUEUE`) A type of integration
         """
         return pulumi.get(self, "type")
 
@@ -653,10 +661,11 @@ class NotificationIntegration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] azure_tenant_id: The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         :param pulumi.Input[builtins.str] comment: A comment for the integration
         :param pulumi.Input[builtins.str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+        :param pulumi.Input[builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[builtins.str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         :param pulumi.Input[builtins.str] gcp_pubsub_topic_name: The topic id that Snowflake will use to push notifications.
         :param pulumi.Input[builtins.str] notification_provider: The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
-        :param pulumi.Input[builtins.str] type: A type of integration
+        :param pulumi.Input[builtins.str] type: (Default: `QUEUE`) A type of integration
         """
         ...
     @overload
@@ -783,12 +792,13 @@ class NotificationIntegration(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] comment: A comment for the integration
         :param pulumi.Input[builtins.str] created_on: Date and time when the notification integration was created.
         :param pulumi.Input[builtins.str] direction: Direction of the cloud messaging with respect to Snowflake (required only for error notifications)
+        :param pulumi.Input[builtins.bool] enabled: (Default: `true`)
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] gcp_pubsub_service_account: The GCP service account identifier that Snowflake will use when assuming the GCP role
         :param pulumi.Input[builtins.str] gcp_pubsub_subscription_name: The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
         :param pulumi.Input[builtins.str] gcp_pubsub_topic_name: The topic id that Snowflake will use to push notifications.
         :param pulumi.Input[builtins.str] notification_provider: The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
-        :param pulumi.Input[builtins.str] type: A type of integration
+        :param pulumi.Input[builtins.str] type: (Default: `QUEUE`) A type of integration
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -929,6 +939,9 @@ class NotificationIntegration(pulumi.CustomResource):
     @property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        (Default: `true`)
+        """
         return pulumi.get(self, "enabled")
 
     @property
@@ -981,7 +994,7 @@ class NotificationIntegration(pulumi.CustomResource):
     @_utilities.deprecated("""Will be removed - it is added automatically on the SDK level.""")
     def type(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        A type of integration
+        (Default: `QUEUE`) A type of integration
         """
         return pulumi.get(self, "type")
 

@@ -30,28 +30,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="snowflake:index/warehouse:Warehouse")
 public class Warehouse extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Export(name="autoResume", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> autoResume;
 
     /**
-     * @return Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Output<Optional<String>> autoResume() {
         return Codegen.optional(this.autoResume);
     }
     /**
-     * Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      * 
      */
     @Export(name="autoSuspend", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> autoSuspend;
 
     /**
-     * @return Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      * 
      */
     public Output<Optional<Integer>> autoSuspend() {
@@ -72,14 +72,14 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Export(name="enableQueryAcceleration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enableQueryAcceleration;
 
     /**
-     * @return Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Output<Optional<String>> enableQueryAcceleration() {
@@ -184,14 +184,14 @@ public class Warehouse extends com.pulumi.resources.CustomResource {
         return this.parameters;
     }
     /**
-     * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      * 
      */
     @Export(name="queryAccelerationMaxScaleFactor", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> queryAccelerationMaxScaleFactor;
 
     /**
-     * @return Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      * 
      */
     public Output<Optional<Integer>> queryAccelerationMaxScaleFactor() {

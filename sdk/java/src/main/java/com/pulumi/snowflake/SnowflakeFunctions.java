@@ -237,7 +237,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getAccounts:getAccounts", TypeShape.of(GetAccountsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -274,13 +274,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetAlertsResult> getAlerts() {
         return getAlerts(GetAlertsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -317,13 +319,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetAlertsResult> getAlertsPlain() {
         return getAlertsPlain(GetAlertsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -360,13 +364,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetAlertsResult> getAlerts(GetAlertsArgs args) {
         return getAlerts(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -403,13 +409,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetAlertsResult> getAlertsPlain(GetAlertsPlainArgs args) {
         return getAlertsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -446,13 +454,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetAlertsResult> getAlerts(GetAlertsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getAlerts:getAlerts", TypeShape.of(GetAlertsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -489,13 +499,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetAlertsResult> getAlerts(GetAlertsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getAlerts:getAlerts", TypeShape.of(GetAlertsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -532,6 +544,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetAlertsResult> getAlertsPlain(GetAlertsPlainArgs args, InvokeOptions options) {
@@ -587,7 +601,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getConnections:getConnections", TypeShape.of(GetConnectionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -646,13 +660,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetCortexSearchServicesResult> getCortexSearchServices() {
         return getCortexSearchServices(GetCortexSearchServicesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -711,13 +727,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetCortexSearchServicesResult> getCortexSearchServicesPlain() {
         return getCortexSearchServicesPlain(GetCortexSearchServicesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -776,13 +794,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetCortexSearchServicesResult> getCortexSearchServices(GetCortexSearchServicesArgs args) {
         return getCortexSearchServices(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -841,13 +861,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetCortexSearchServicesResult> getCortexSearchServicesPlain(GetCortexSearchServicesPlainArgs args) {
         return getCortexSearchServicesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -906,13 +928,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetCortexSearchServicesResult> getCortexSearchServices(GetCortexSearchServicesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getCortexSearchServices:getCortexSearchServices", TypeShape.of(GetCortexSearchServicesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -971,13 +995,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetCortexSearchServicesResult> getCortexSearchServices(GetCortexSearchServicesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getCortexSearchServices:getCortexSearchServices", TypeShape.of(GetCortexSearchServicesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1037,12 +1063,14 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetCortexSearchServicesResult> getCortexSearchServicesPlain(GetCortexSearchServicesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getCortexSearchServices:getCortexSearchServices", TypeShape.of(GetCortexSearchServicesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1083,13 +1111,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetCurrentAccountResult> getCurrentAccount() {
         return getCurrentAccount(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1130,13 +1160,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetCurrentAccountResult> getCurrentAccountPlain() {
         return getCurrentAccountPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1177,13 +1209,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetCurrentAccountResult> getCurrentAccount(InvokeArgs args) {
         return getCurrentAccount(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1224,13 +1258,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetCurrentAccountResult> getCurrentAccountPlain(InvokeArgs args) {
         return getCurrentAccountPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1271,13 +1307,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetCurrentAccountResult> getCurrentAccount(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getCurrentAccount:getCurrentAccount", TypeShape.of(GetCurrentAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1318,13 +1356,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetCurrentAccountResult> getCurrentAccount(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getCurrentAccount:getCurrentAccount", TypeShape.of(GetCurrentAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1366,61 +1406,77 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetCurrentAccountResult> getCurrentAccountPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getCurrentAccount:getCurrentAccount", TypeShape.of(GetCurrentAccountResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetCurrentRoleResult> getCurrentRole() {
         return getCurrentRole(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetCurrentRoleResult> getCurrentRolePlain() {
         return getCurrentRolePlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetCurrentRoleResult> getCurrentRole(InvokeArgs args) {
         return getCurrentRole(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetCurrentRoleResult> getCurrentRolePlain(InvokeArgs args) {
         return getCurrentRolePlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetCurrentRoleResult> getCurrentRole(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getCurrentRole:getCurrentRole", TypeShape.of(GetCurrentRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetCurrentRoleResult> getCurrentRole(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getCurrentRole:getCurrentRole", TypeShape.of(GetCurrentRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetCurrentRoleResult> getCurrentRolePlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getCurrentRole:getCurrentRole", TypeShape.of(GetCurrentRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1456,13 +1512,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args) {
         return getDatabase(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1498,13 +1556,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args) {
         return getDatabasePlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1540,13 +1600,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1582,13 +1644,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetDatabaseResult> getDatabase(GetDatabaseArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1625,12 +1689,14 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetDatabaseResult> getDatabasePlain(GetDatabasePlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDatabase:getDatabase", TypeShape.of(GetDatabaseResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1667,13 +1733,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetDatabaseRoleResult> getDatabaseRole(GetDatabaseRoleArgs args) {
         return getDatabaseRole(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1710,13 +1778,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetDatabaseRoleResult> getDatabaseRolePlain(GetDatabaseRolePlainArgs args) {
         return getDatabaseRolePlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1753,13 +1823,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetDatabaseRoleResult> getDatabaseRole(GetDatabaseRoleArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getDatabaseRole:getDatabaseRole", TypeShape.of(GetDatabaseRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1796,13 +1868,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetDatabaseRoleResult> getDatabaseRole(GetDatabaseRoleArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getDatabaseRole:getDatabaseRole", TypeShape.of(GetDatabaseRoleResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -1839,6 +1913,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetDatabaseRoleResult> getDatabaseRolePlain(GetDatabaseRolePlainArgs args, InvokeOptions options) {
@@ -1929,56 +2005,70 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDatabases:getDatabases", TypeShape.of(GetDatabasesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetDynamicTablesResult> getDynamicTables() {
         return getDynamicTables(GetDynamicTablesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetDynamicTablesResult> getDynamicTablesPlain() {
         return getDynamicTablesPlain(GetDynamicTablesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetDynamicTablesResult> getDynamicTables(GetDynamicTablesArgs args) {
         return getDynamicTables(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetDynamicTablesResult> getDynamicTablesPlain(GetDynamicTablesPlainArgs args) {
         return getDynamicTablesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetDynamicTablesResult> getDynamicTables(GetDynamicTablesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getDynamicTables:getDynamicTables", TypeShape.of(GetDynamicTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetDynamicTablesResult> getDynamicTables(GetDynamicTablesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getDynamicTables:getDynamicTables", TypeShape.of(GetDynamicTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetDynamicTablesResult> getDynamicTablesPlain(GetDynamicTablesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getDynamicTables:getDynamicTables", TypeShape.of(GetDynamicTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2015,13 +2105,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetExternalFunctionsResult> getExternalFunctions() {
         return getExternalFunctions(GetExternalFunctionsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2058,13 +2150,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetExternalFunctionsResult> getExternalFunctionsPlain() {
         return getExternalFunctionsPlain(GetExternalFunctionsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2101,13 +2195,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetExternalFunctionsResult> getExternalFunctions(GetExternalFunctionsArgs args) {
         return getExternalFunctions(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2144,13 +2240,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetExternalFunctionsResult> getExternalFunctionsPlain(GetExternalFunctionsPlainArgs args) {
         return getExternalFunctionsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2187,13 +2285,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetExternalFunctionsResult> getExternalFunctions(GetExternalFunctionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getExternalFunctions:getExternalFunctions", TypeShape.of(GetExternalFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2230,13 +2330,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetExternalFunctionsResult> getExternalFunctions(GetExternalFunctionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getExternalFunctions:getExternalFunctions", TypeShape.of(GetExternalFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2274,12 +2376,14 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetExternalFunctionsResult> getExternalFunctionsPlain(GetExternalFunctionsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getExternalFunctions:getExternalFunctions", TypeShape.of(GetExternalFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2316,13 +2420,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetExternalTablesResult> getExternalTables(GetExternalTablesArgs args) {
         return getExternalTables(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2359,13 +2465,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetExternalTablesResult> getExternalTablesPlain(GetExternalTablesPlainArgs args) {
         return getExternalTablesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2402,13 +2510,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetExternalTablesResult> getExternalTables(GetExternalTablesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getExternalTables:getExternalTables", TypeShape.of(GetExternalTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2445,13 +2555,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetExternalTablesResult> getExternalTables(GetExternalTablesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getExternalTables:getExternalTables", TypeShape.of(GetExternalTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2489,61 +2601,77 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetExternalTablesResult> getExternalTablesPlain(GetExternalTablesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getExternalTables:getExternalTables", TypeShape.of(GetExternalTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetFailoverGroupsResult> getFailoverGroups() {
         return getFailoverGroups(GetFailoverGroupsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetFailoverGroupsResult> getFailoverGroupsPlain() {
         return getFailoverGroupsPlain(GetFailoverGroupsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetFailoverGroupsResult> getFailoverGroups(GetFailoverGroupsArgs args) {
         return getFailoverGroups(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetFailoverGroupsResult> getFailoverGroupsPlain(GetFailoverGroupsPlainArgs args) {
         return getFailoverGroupsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetFailoverGroupsResult> getFailoverGroups(GetFailoverGroupsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getFailoverGroups:getFailoverGroups", TypeShape.of(GetFailoverGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetFailoverGroupsResult> getFailoverGroups(GetFailoverGroupsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getFailoverGroups:getFailoverGroups", TypeShape.of(GetFailoverGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetFailoverGroupsResult> getFailoverGroupsPlain(GetFailoverGroupsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getFailoverGroups:getFailoverGroups", TypeShape.of(GetFailoverGroupsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2580,13 +2708,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetFileFormatsResult> getFileFormats(GetFileFormatsArgs args) {
         return getFileFormats(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2623,13 +2753,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetFileFormatsResult> getFileFormatsPlain(GetFileFormatsPlainArgs args) {
         return getFileFormatsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2666,13 +2798,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetFileFormatsResult> getFileFormats(GetFileFormatsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getFileFormats:getFileFormats", TypeShape.of(GetFileFormatsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2709,13 +2843,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetFileFormatsResult> getFileFormats(GetFileFormatsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getFileFormats:getFileFormats", TypeShape.of(GetFileFormatsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2753,12 +2889,14 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetFileFormatsResult> getFileFormatsPlain(GetFileFormatsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getFileFormats:getFileFormats", TypeShape.of(GetFileFormatsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2795,13 +2933,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args) {
         return getFunctions(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2838,13 +2978,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(GetFunctionsPlainArgs args) {
         return getFunctionsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2881,13 +3023,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2924,13 +3068,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetFunctionsResult> getFunctions(GetFunctionsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -2967,6 +3113,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetFunctionsResult> getFunctionsPlain(GetFunctionsPlainArgs args, InvokeOptions options) {
@@ -3144,6 +3292,8 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static Output<GetGrantsResult> getGrants() {
         return getGrants(GetGrantsArgs.Empty, InvokeOptions.Empty);
@@ -3319,6 +3469,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetGrantsResult> getGrantsPlain() {
@@ -3496,6 +3648,8 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static Output<GetGrantsResult> getGrants(GetGrantsArgs args) {
         return getGrants(args, InvokeOptions.Empty);
@@ -3671,6 +3825,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetGrantsResult> getGrantsPlain(GetGrantsPlainArgs args) {
@@ -3848,6 +4004,8 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static Output<GetGrantsResult> getGrants(GetGrantsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getGrants:getGrants", TypeShape.of(GetGrantsResult.class), args, Utilities.withVersion(options));
@@ -4023,6 +4181,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetGrantsResult> getGrants(GetGrantsArgs args, InvokeOutputOptions options) {
@@ -4200,6 +4360,8 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetGrantsResult> getGrantsPlain(GetGrantsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getGrants:getGrants", TypeShape.of(GetGrantsResult.class), args, Utilities.withVersion(options));
@@ -4254,7 +4416,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getMaskingPolicies:getMaskingPolicies", TypeShape.of(GetMaskingPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4291,13 +4453,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetMaterializedViewsResult> getMaterializedViews(GetMaterializedViewsArgs args) {
         return getMaterializedViews(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4334,13 +4498,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetMaterializedViewsResult> getMaterializedViewsPlain(GetMaterializedViewsPlainArgs args) {
         return getMaterializedViewsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4377,13 +4543,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetMaterializedViewsResult> getMaterializedViews(GetMaterializedViewsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getMaterializedViews:getMaterializedViews", TypeShape.of(GetMaterializedViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4420,13 +4588,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetMaterializedViewsResult> getMaterializedViews(GetMaterializedViewsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getMaterializedViews:getMaterializedViews", TypeShape.of(GetMaterializedViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4463,6 +4633,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetMaterializedViewsResult> getMaterializedViewsPlain(GetMaterializedViewsPlainArgs args, InvokeOptions options) {
@@ -4518,7 +4690,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getNetworkPolicies:getNetworkPolicies", TypeShape.of(GetNetworkPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4576,13 +4748,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetParametersResult> getParameters() {
         return getParameters(GetParametersArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4640,13 +4814,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetParametersResult> getParametersPlain() {
         return getParametersPlain(GetParametersPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4704,13 +4880,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetParametersResult> getParameters(GetParametersArgs args) {
         return getParameters(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4768,13 +4946,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetParametersResult> getParametersPlain(GetParametersPlainArgs args) {
         return getParametersPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4832,13 +5012,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetParametersResult> getParameters(GetParametersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getParameters:getParameters", TypeShape.of(GetParametersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4896,13 +5078,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetParametersResult> getParameters(GetParametersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getParameters:getParameters", TypeShape.of(GetParametersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -4961,12 +5145,14 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetParametersResult> getParametersPlain(GetParametersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getParameters:getParameters", TypeShape.of(GetParametersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5003,13 +5189,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetPipesResult> getPipes(GetPipesArgs args) {
         return getPipes(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5046,13 +5234,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetPipesResult> getPipesPlain(GetPipesPlainArgs args) {
         return getPipesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5089,13 +5279,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetPipesResult> getPipes(GetPipesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getPipes:getPipes", TypeShape.of(GetPipesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5132,13 +5324,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetPipesResult> getPipes(GetPipesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getPipes:getPipes", TypeShape.of(GetPipesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5176,12 +5370,14 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetPipesResult> getPipesPlain(GetPipesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getPipes:getPipes", TypeShape.of(GetPipesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5218,13 +5414,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetProceduresResult> getProcedures(GetProceduresArgs args) {
         return getProcedures(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5261,13 +5459,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetProceduresResult> getProceduresPlain(GetProceduresPlainArgs args) {
         return getProceduresPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5304,13 +5504,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetProceduresResult> getProcedures(GetProceduresArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getProcedures:getProcedures", TypeShape.of(GetProceduresResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5347,13 +5549,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetProceduresResult> getProcedures(GetProceduresArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getProcedures:getProcedures", TypeShape.of(GetProceduresResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -5390,6 +5594,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetProceduresResult> getProceduresPlain(GetProceduresPlainArgs args, InvokeOptions options) {
@@ -5629,6 +5835,8 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static Output<GetSecretsResult> getSecrets() {
         return getSecrets(GetSecretsArgs.Empty, InvokeOptions.Empty);
@@ -5698,6 +5906,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain() {
@@ -5769,6 +5979,8 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args) {
         return getSecrets(args, InvokeOptions.Empty);
@@ -5838,6 +6050,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args) {
@@ -5909,6 +6123,8 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
@@ -5978,6 +6194,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOutputOptions options) {
@@ -6049,6 +6267,8 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
@@ -6103,7 +6323,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", TypeShape.of(GetSecurityIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6140,13 +6360,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSequencesResult> getSequences(GetSequencesArgs args) {
         return getSequences(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6183,13 +6405,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetSequencesResult> getSequencesPlain(GetSequencesPlainArgs args) {
         return getSequencesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6226,13 +6450,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSequencesResult> getSequences(GetSequencesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSequences:getSequences", TypeShape.of(GetSequencesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6269,13 +6495,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSequencesResult> getSequences(GetSequencesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSequences:getSequences", TypeShape.of(GetSequencesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6313,12 +6541,14 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetSequencesResult> getSequencesPlain(GetSequencesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSequences:getSequences", TypeShape.of(GetSequencesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6357,13 +6587,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSharesResult> getShares() {
         return getShares(GetSharesArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6402,13 +6634,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetSharesResult> getSharesPlain() {
         return getSharesPlain(GetSharesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6447,13 +6681,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSharesResult> getShares(GetSharesArgs args) {
         return getShares(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6492,13 +6728,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetSharesResult> getSharesPlain(GetSharesPlainArgs args) {
         return getSharesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6537,13 +6775,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSharesResult> getShares(GetSharesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getShares:getShares", TypeShape.of(GetSharesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6582,13 +6822,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSharesResult> getShares(GetSharesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getShares:getShares", TypeShape.of(GetSharesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6628,12 +6870,14 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetSharesResult> getSharesPlain(GetSharesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getShares:getShares", TypeShape.of(GetSharesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6670,13 +6914,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetStagesResult> getStages(GetStagesArgs args) {
         return getStages(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6713,13 +6959,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetStagesResult> getStagesPlain(GetStagesPlainArgs args) {
         return getStagesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6756,13 +7004,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetStagesResult> getStages(GetStagesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getStages:getStages", TypeShape.of(GetStagesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6799,13 +7049,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetStagesResult> getStages(GetStagesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getStages:getStages", TypeShape.of(GetStagesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6843,12 +7095,14 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetStagesResult> getStagesPlain(GetStagesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getStages:getStages", TypeShape.of(GetStagesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6881,13 +7135,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetStorageIntegrationsResult> getStorageIntegrations() {
         return getStorageIntegrations(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6920,13 +7176,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetStorageIntegrationsResult> getStorageIntegrationsPlain() {
         return getStorageIntegrationsPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6959,13 +7217,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetStorageIntegrationsResult> getStorageIntegrations(InvokeArgs args) {
         return getStorageIntegrations(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -6998,13 +7258,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetStorageIntegrationsResult> getStorageIntegrationsPlain(InvokeArgs args) {
         return getStorageIntegrationsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7037,13 +7299,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetStorageIntegrationsResult> getStorageIntegrations(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getStorageIntegrations:getStorageIntegrations", TypeShape.of(GetStorageIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7076,13 +7340,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetStorageIntegrationsResult> getStorageIntegrations(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getStorageIntegrations:getStorageIntegrations", TypeShape.of(GetStorageIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7115,6 +7381,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetStorageIntegrationsResult> getStorageIntegrationsPlain(InvokeArgs args, InvokeOptions options) {
@@ -7219,7 +7487,7 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getStreams:getStreams", TypeShape.of(GetStreamsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7255,13 +7523,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSystemGenerateScimAccessTokenResult> getSystemGenerateScimAccessToken(GetSystemGenerateScimAccessTokenArgs args) {
         return getSystemGenerateScimAccessToken(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7297,13 +7567,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetSystemGenerateScimAccessTokenResult> getSystemGenerateScimAccessTokenPlain(GetSystemGenerateScimAccessTokenPlainArgs args) {
         return getSystemGenerateScimAccessTokenPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7339,13 +7611,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSystemGenerateScimAccessTokenResult> getSystemGenerateScimAccessToken(GetSystemGenerateScimAccessTokenArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", TypeShape.of(GetSystemGenerateScimAccessTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7381,13 +7655,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSystemGenerateScimAccessTokenResult> getSystemGenerateScimAccessToken(GetSystemGenerateScimAccessTokenArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", TypeShape.of(GetSystemGenerateScimAccessTokenResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7423,6 +7699,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetSystemGenerateScimAccessTokenResult> getSystemGenerateScimAccessTokenPlain(GetSystemGenerateScimAccessTokenPlainArgs args, InvokeOptions options) {
@@ -7464,6 +7742,8 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static Output<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs args) {
         return getSystemGetAwsSnsIamPolicy(args, InvokeOptions.Empty);
@@ -7503,6 +7783,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicyPlain(GetSystemGetAwsSnsIamPolicyPlainArgs args) {
@@ -7544,6 +7826,8 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static Output<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
@@ -7583,6 +7867,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicy(GetSystemGetAwsSnsIamPolicyArgs args, InvokeOutputOptions options) {
@@ -7624,12 +7910,14 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetSystemGetAwsSnsIamPolicyResult> getSystemGetAwsSnsIamPolicyPlain(GetSystemGetAwsSnsIamPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", TypeShape.of(GetSystemGetAwsSnsIamPolicyResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7717,13 +8005,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfig() {
         return getSystemGetPrivateLinkConfig(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7811,13 +8101,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfigPlain() {
         return getSystemGetPrivateLinkConfigPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7905,13 +8197,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfig(InvokeArgs args) {
         return getSystemGetPrivateLinkConfig(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -7999,13 +8293,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfigPlain(InvokeArgs args) {
         return getSystemGetPrivateLinkConfigPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8093,13 +8389,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfig(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", TypeShape.of(GetSystemGetPrivateLinkConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8187,13 +8485,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfig(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", TypeShape.of(GetSystemGetPrivateLinkConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8282,61 +8582,77 @@ public final class SnowflakeFunctions {
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
      */
     public static CompletableFuture<GetSystemGetPrivateLinkConfigResult> getSystemGetPrivateLinkConfigPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", TypeShape.of(GetSystemGetPrivateLinkConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSystemGetSnowflakePlatformInfoResult> getSystemGetSnowflakePlatformInfo() {
         return getSystemGetSnowflakePlatformInfo(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetSystemGetSnowflakePlatformInfoResult> getSystemGetSnowflakePlatformInfoPlain() {
         return getSystemGetSnowflakePlatformInfoPlain(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSystemGetSnowflakePlatformInfoResult> getSystemGetSnowflakePlatformInfo(InvokeArgs args) {
         return getSystemGetSnowflakePlatformInfo(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetSystemGetSnowflakePlatformInfoResult> getSystemGetSnowflakePlatformInfoPlain(InvokeArgs args) {
         return getSystemGetSnowflakePlatformInfoPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSystemGetSnowflakePlatformInfoResult> getSystemGetSnowflakePlatformInfo(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", TypeShape.of(GetSystemGetSnowflakePlatformInfoResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetSystemGetSnowflakePlatformInfoResult> getSystemGetSnowflakePlatformInfo(InvokeArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", TypeShape.of(GetSystemGetSnowflakePlatformInfoResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetSystemGetSnowflakePlatformInfoResult> getSystemGetSnowflakePlatformInfoPlain(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSystemGetSnowflakePlatformInfo:getSystemGetSnowflakePlatformInfo", TypeShape.of(GetSystemGetSnowflakePlatformInfoResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8373,13 +8689,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetTablesResult> getTables(GetTablesArgs args) {
         return getTables(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8416,13 +8734,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetTablesResult> getTablesPlain(GetTablesPlainArgs args) {
         return getTablesPlain(args, InvokeOptions.Empty);
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8459,13 +8779,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetTablesResult> getTables(GetTablesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getTables:getTables", TypeShape.of(GetTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8502,13 +8824,15 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static Output<GetTablesResult> getTables(GetTablesArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getTables:getTables", TypeShape.of(GetTablesResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
      * ## Example Usage
      * 
@@ -8545,6 +8869,8 @@ public final class SnowflakeFunctions {
      * }
      * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
      */
     public static CompletableFuture<GetTablesResult> getTablesPlain(GetTablesPlainArgs args, InvokeOptions options) {

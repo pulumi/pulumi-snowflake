@@ -64,7 +64,7 @@ export class Alert extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+     * (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
@@ -165,7 +165,7 @@ export interface AlertState {
      */
     database?: pulumi.Input<string>;
     /**
-     * Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+     * (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
      */
     enabled?: pulumi.Input<boolean>;
     /**
@@ -211,7 +211,7 @@ export interface AlertArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+     * (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
      */
     enabled?: pulumi.Input<boolean>;
     /**

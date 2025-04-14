@@ -48,7 +48,7 @@ public final class GetStreamsResult {
      */
     private List<GetStreamsStream> streams;
     /**
-     * @return Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     private @Nullable Boolean withDescribe;
@@ -97,7 +97,7 @@ public final class GetStreamsResult {
         return this.streams;
     }
     /**
-     * @return Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     public Optional<Boolean> withDescribe() {

@@ -38,7 +38,7 @@ type ScimIntegration struct {
 	ScimClient pulumi.StringOutput `pulumi:"scimClient"`
 	// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
 	ShowOutputs ScimIntegrationShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	SyncPassword pulumi.StringPtrOutput `pulumi:"syncPassword"`
 }
 
@@ -99,7 +99,7 @@ type scimIntegrationState struct {
 	ScimClient *string `pulumi:"scimClient"`
 	// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
 	ShowOutputs []ScimIntegrationShowOutput `pulumi:"showOutputs"`
-	// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	SyncPassword *string `pulumi:"syncPassword"`
 }
 
@@ -122,7 +122,7 @@ type ScimIntegrationState struct {
 	ScimClient pulumi.StringPtrInput
 	// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
 	ShowOutputs ScimIntegrationShowOutputArrayInput
-	// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	SyncPassword pulumi.StringPtrInput
 }
 
@@ -143,7 +143,7 @@ type scimIntegrationArgs struct {
 	RunAsRole string `pulumi:"runAsRole"`
 	// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
 	ScimClient string `pulumi:"scimClient"`
-	// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	SyncPassword *string `pulumi:"syncPassword"`
 }
 
@@ -161,7 +161,7 @@ type ScimIntegrationArgs struct {
 	RunAsRole pulumi.StringInput
 	// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
 	ScimClient pulumi.StringInput
-	// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	SyncPassword pulumi.StringPtrInput
 }
 
@@ -297,7 +297,7 @@ func (o ScimIntegrationOutput) ShowOutputs() ScimIntegrationShowOutputArrayOutpu
 	return o.ApplyT(func(v *ScimIntegration) ScimIntegrationShowOutputArrayOutput { return v.ShowOutputs }).(ScimIntegrationShowOutputArrayOutput)
 }
 
-// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 func (o ScimIntegrationOutput) SyncPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.StringPtrOutput { return v.SyncPassword }).(pulumi.StringPtrOutput)
 }

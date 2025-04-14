@@ -43,7 +43,7 @@ public final class GetMaskingPoliciesResult {
      */
     private List<GetMaskingPoliciesMaskingPolicy> maskingPolicies;
     /**
-     * @return Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     private @Nullable Boolean withDescribe;
@@ -85,7 +85,7 @@ public final class GetMaskingPoliciesResult {
         return this.maskingPolicies;
     }
     /**
-     * @return Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     public Optional<Boolean> withDescribe() {

@@ -32,7 +32,7 @@ type GetViewsArgs struct {
 	Limit *GetViewsLimit `pulumi:"limit"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith *string `pulumi:"startsWith"`
-	// Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
@@ -50,7 +50,7 @@ type GetViewsResult struct {
 	StartsWith *string `pulumi:"startsWith"`
 	// Holds the aggregated output of all views details queries.
 	Views []GetViewsView `pulumi:"views"`
-	// Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
@@ -73,7 +73,7 @@ type GetViewsOutputArgs struct {
 	Limit GetViewsLimitPtrInput `pulumi:"limit"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
-	// Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
@@ -126,7 +126,7 @@ func (o GetViewsResultOutput) Views() GetViewsViewArrayOutput {
 	return o.ApplyT(func(v GetViewsResult) []GetViewsView { return v.Views }).(GetViewsViewArrayOutput)
 }
 
-// Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+// (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetViewsResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetViewsResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }

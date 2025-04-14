@@ -77,14 +77,14 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the type of managed account.
+     * (Default: `READER`) Specifies the type of managed account.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Specifies the type of managed account.
+     * @return (Default: `READER`) Specifies the type of managed account.
      * 
      */
     public Optional<Output<String>> type() {
@@ -204,7 +204,7 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type Specifies the type of managed account.
+         * @param type (Default: `READER`) Specifies the type of managed account.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type Specifies the type of managed account.
+         * @param type (Default: `READER`) Specifies the type of managed account.
          * 
          * @return builder
          * 

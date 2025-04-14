@@ -42,7 +42,7 @@ namespace Pulumi.Snowflake
     public partial class GrantPrivilegesToDatabaseRole : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Grant all privileges on the database role.
+        /// (Default: `false`) Grant all privileges on the database role.
         /// </summary>
         [Output("allPrivileges")]
         public Output<bool?> AllPrivileges { get; private set; } = null!;
@@ -51,7 +51,7 @@ namespace Pulumi.Snowflake
         public Output<bool?> AlwaysApply { get; private set; } = null!;
 
         /// <summary>
-        /// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+        /// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         /// </summary>
         [Output("alwaysApplyTrigger")]
         public Output<string?> AlwaysApplyTrigger { get; private set; } = null!;
@@ -87,7 +87,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> Privileges { get; private set; } = null!;
 
         /// <summary>
-        /// If specified, allows the recipient role to grant the privileges to other roles.
+        /// (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
         /// </summary>
         [Output("withGrantOption")]
         public Output<bool?> WithGrantOption { get; private set; } = null!;
@@ -139,7 +139,7 @@ namespace Pulumi.Snowflake
     public sealed class GrantPrivilegesToDatabaseRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Grant all privileges on the database role.
+        /// (Default: `false`) Grant all privileges on the database role.
         /// </summary>
         [Input("allPrivileges")]
         public Input<bool>? AllPrivileges { get; set; }
@@ -148,7 +148,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? AlwaysApply { get; set; }
 
         /// <summary>
-        /// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+        /// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         /// </summary>
         [Input("alwaysApplyTrigger")]
         public Input<string>? AlwaysApplyTrigger { get; set; }
@@ -190,7 +190,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// If specified, allows the recipient role to grant the privileges to other roles.
+        /// (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
         /// </summary>
         [Input("withGrantOption")]
         public Input<bool>? WithGrantOption { get; set; }
@@ -204,7 +204,7 @@ namespace Pulumi.Snowflake
     public sealed class GrantPrivilegesToDatabaseRoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Grant all privileges on the database role.
+        /// (Default: `false`) Grant all privileges on the database role.
         /// </summary>
         [Input("allPrivileges")]
         public Input<bool>? AllPrivileges { get; set; }
@@ -213,7 +213,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? AlwaysApply { get; set; }
 
         /// <summary>
-        /// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+        /// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         /// </summary>
         [Input("alwaysApplyTrigger")]
         public Input<string>? AlwaysApplyTrigger { get; set; }
@@ -255,7 +255,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// If specified, allows the recipient role to grant the privileges to other roles.
+        /// (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
         /// </summary>
         [Input("withGrantOption")]
         public Input<bool>? WithGrantOption { get; set; }

@@ -118,7 +118,7 @@ def get_cortex_search_services(in_: Optional[Union['GetCortexSearchServicesInArg
                                starts_with: Optional[builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCortexSearchServicesResult:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
     ## Example Usage
 
@@ -142,6 +142,8 @@ def get_cortex_search_services(in_: Optional[Union['GetCortexSearchServicesInArg
     })
     pulumi.export("limitOutput", limit.cortex_search_services)
     ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
     :param Union['GetCortexSearchServicesInArgs', 'GetCortexSearchServicesInArgsDict'] in_: IN clause to filter the list of cortex search services.
@@ -170,7 +172,7 @@ def get_cortex_search_services_output(in_: Optional[pulumi.Input[Optional[Union[
                                       starts_with: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCortexSearchServicesResult]:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled field` in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
     ## Example Usage
 
@@ -194,6 +196,8 @@ def get_cortex_search_services_output(in_: Optional[pulumi.Input[Optional[Union[
     })
     pulumi.export("limitOutput", limit.cortex_search_services)
     ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
     :param Union['GetCortexSearchServicesInArgs', 'GetCortexSearchServicesInArgsDict'] in_: IN clause to filter the list of cortex search services.

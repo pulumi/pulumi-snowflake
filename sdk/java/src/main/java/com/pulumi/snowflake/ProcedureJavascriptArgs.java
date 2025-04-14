@@ -35,14 +35,14 @@ public final class ProcedureJavascriptArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies a comment for the procedure.
+     * (Default: `user-defined procedure`) Specifies a comment for the procedure.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return Specifies a comment for the procedure.
+     * @return (Default: `user-defined procedure`) Specifies a comment for the procedure.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -95,14 +95,14 @@ public final class ProcedureJavascriptArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="isSecure")
     private @Nullable Output<String> isSecure;
 
     /**
-     * @return Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> isSecure() {
@@ -298,7 +298,7 @@ public final class ProcedureJavascriptArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param comment Specifies a comment for the procedure.
+         * @param comment (Default: `user-defined procedure`) Specifies a comment for the procedure.
          * 
          * @return builder
          * 
@@ -309,7 +309,7 @@ public final class ProcedureJavascriptArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param comment Specifies a comment for the procedure.
+         * @param comment (Default: `user-defined procedure`) Specifies a comment for the procedure.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class ProcedureJavascriptArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param isSecure Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param isSecure (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class ProcedureJavascriptArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param isSecure Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param isSecure (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 

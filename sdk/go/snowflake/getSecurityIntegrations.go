@@ -26,7 +26,7 @@ func GetSecurityIntegrations(ctx *pulumi.Context, args *GetSecurityIntegrationsA
 type GetSecurityIntegrationsArgs struct {
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
-	// Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
@@ -38,7 +38,7 @@ type GetSecurityIntegrationsResult struct {
 	Like *string `pulumi:"like"`
 	// Holds the aggregated output of all security integrations details queries.
 	SecurityIntegrations []GetSecurityIntegrationsSecurityIntegration `pulumi:"securityIntegrations"`
-	// Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
@@ -55,7 +55,7 @@ func GetSecurityIntegrationsOutput(ctx *pulumi.Context, args GetSecurityIntegrat
 type GetSecurityIntegrationsOutputArgs struct {
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like pulumi.StringPtrInput `pulumi:"like"`
-	// Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+	// (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
@@ -95,7 +95,7 @@ func (o GetSecurityIntegrationsResultOutput) SecurityIntegrations() GetSecurityI
 	}).(GetSecurityIntegrationsSecurityIntegrationArrayOutput)
 }
 
-// Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+// (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetSecurityIntegrationsResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetSecurityIntegrationsResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }

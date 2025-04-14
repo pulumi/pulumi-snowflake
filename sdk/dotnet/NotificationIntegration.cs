@@ -97,6 +97,9 @@ namespace Pulumi.Snowflake
         [Output("direction")]
         public Output<string?> Direction { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: `true`)
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
@@ -134,7 +137,7 @@ namespace Pulumi.Snowflake
         public Output<string> NotificationProvider { get; private set; } = null!;
 
         /// <summary>
-        /// A type of integration
+        /// (Default: `QUEUE`) A type of integration
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -233,6 +236,9 @@ namespace Pulumi.Snowflake
         [Input("direction")]
         public Input<string>? Direction { get; set; }
 
+        /// <summary>
+        /// (Default: `true`)
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -258,7 +264,7 @@ namespace Pulumi.Snowflake
         public Input<string> NotificationProvider { get; set; } = null!;
 
         /// <summary>
-        /// A type of integration
+        /// (Default: `QUEUE`) A type of integration
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -349,6 +355,9 @@ namespace Pulumi.Snowflake
         [Input("direction")]
         public Input<string>? Direction { get; set; }
 
+        /// <summary>
+        /// (Default: `true`)
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -386,7 +395,7 @@ namespace Pulumi.Snowflake
         public Input<string>? NotificationProvider { get; set; }
 
         /// <summary>
-        /// A type of integration
+        /// (Default: `QUEUE`) A type of integration
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

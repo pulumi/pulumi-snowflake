@@ -219,6 +219,8 @@ def get_grants(future_grants_in: Optional[Union['GetGrantsFutureGrantsInArgs', '
     })
     ```
 
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
 
     :param Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict'] future_grants_in: Lists all privileges on new (i.e. future) objects.
     :param Union['GetGrantsFutureGrantsToArgs', 'GetGrantsFutureGrantsToArgsDict'] future_grants_to: Lists all privileges granted to the object on new (i.e. future) objects.
@@ -337,6 +339,8 @@ def get_grants_output(future_grants_in: Optional[pulumi.Input[Optional[Union['Ge
         "database_role": "\\"some_database\\".\\"some_database_role\\"",
     })
     ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
 
 
     :param Union['GetGrantsFutureGrantsInArgs', 'GetGrantsFutureGrantsInArgsDict'] future_grants_in: Lists all privileges on new (i.e. future) objects.

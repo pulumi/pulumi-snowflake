@@ -66,14 +66,14 @@ public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomRes
         return this.accountRoleName;
     }
     /**
-     * Grant all privileges on the account role.
+     * (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
      * 
      */
     @Export(name="allPrivileges", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allPrivileges;
 
     /**
-     * @return Grant all privileges on the account role.
+     * @return (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
      * 
      */
     public Output<Optional<Boolean>> allPrivileges() {
@@ -86,28 +86,28 @@ public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.alwaysApply);
     }
     /**
-     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     @Export(name="alwaysApplyTrigger", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alwaysApplyTrigger;
 
     /**
-     * @return This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+     * @return (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     public Output<Optional<String>> alwaysApplyTrigger() {
         return Codegen.optional(this.alwaysApplyTrigger);
     }
     /**
-     * If true, the privileges will be granted on the account.
+     * (Default: `false`) If true, the privileges will be granted on the account.
      * 
      */
     @Export(name="onAccount", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> onAccount;
 
     /**
-     * @return If true, the privileges will be granted on the account.
+     * @return (Default: `false`) If true, the privileges will be granted on the account.
      * 
      */
     public Output<Optional<Boolean>> onAccount() {
@@ -170,14 +170,14 @@ public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.privileges);
     }
     /**
-     * Specifies whether the grantee can grant the privileges to other users.
+     * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      * 
      */
     @Export(name="withGrantOption", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> withGrantOption;
 
     /**
-     * @return Specifies whether the grantee can grant the privileges to other users.
+     * @return (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      * 
      */
     public Output<Optional<Boolean>> withGrantOption() {

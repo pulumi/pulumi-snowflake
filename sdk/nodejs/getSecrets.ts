@@ -41,6 +41,8 @@ import * as utilities from "./utilities";
  * });
  * export const onlyShowOutput = onlyShow.then(onlyShow => onlyShow.secrets);
  * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
  */
 export function getSecrets(args?: GetSecretsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretsResult> {
     args = args || {};
@@ -65,7 +67,7 @@ export interface GetSecretsArgs {
      */
     like?: string;
     /**
-     * Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: boolean;
 }
@@ -91,7 +93,7 @@ export interface GetSecretsResult {
      */
     readonly secrets: outputs.GetSecretsSecret[];
     /**
-     * Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
      */
     readonly withDescribe?: boolean;
 }
@@ -130,6 +132,8 @@ export interface GetSecretsResult {
  * });
  * export const onlyShowOutput = onlyShow.then(onlyShow => onlyShow.secrets);
  * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
  */
 export function getSecretsOutput(args?: GetSecretsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretsResult> {
     args = args || {};
@@ -154,7 +158,7 @@ export interface GetSecretsOutputArgs {
      */
     like?: pulumi.Input<string>;
     /**
-     * Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: pulumi.Input<boolean>;
 }

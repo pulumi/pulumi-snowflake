@@ -47,14 +47,14 @@ public final class GetSecretsPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     @Import(name="withDescribe")
     private @Nullable Boolean withDescribe;
 
     /**
-     * @return Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     public Optional<Boolean> withDescribe() {
@@ -110,7 +110,7 @@ public final class GetSecretsPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param withDescribe Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+         * @param withDescribe (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
          * 
          * @return builder
          * 

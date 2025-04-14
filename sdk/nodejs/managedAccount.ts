@@ -76,7 +76,7 @@ export class ManagedAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly region!: pulumi.Output<string>;
     /**
-     * Specifies the type of managed account.
+     * (Default: `READER`) Specifies the type of managed account.
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
@@ -176,7 +176,7 @@ export interface ManagedAccountState {
      */
     region?: pulumi.Input<string>;
     /**
-     * Specifies the type of managed account.
+     * (Default: `READER`) Specifies the type of managed account.
      */
     type?: pulumi.Input<string>;
     /**
@@ -206,7 +206,7 @@ export interface ManagedAccountArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the type of managed account.
+     * (Default: `READER`) Specifies the type of managed account.
      */
     type?: pulumi.Input<string>;
 }

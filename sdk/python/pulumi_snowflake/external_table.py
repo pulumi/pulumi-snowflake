@@ -44,14 +44,14 @@ class ExternalTableArgs:
         :param pulumi.Input[builtins.str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[builtins.str] location: Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         :param pulumi.Input[builtins.str] schema: The schema in which to create the external table.
-        :param pulumi.Input[builtins.bool] auto_refresh: Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+        :param pulumi.Input[builtins.bool] auto_refresh: (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         :param pulumi.Input[builtins.str] aws_sns_topic: Specifies the aws sns topic for the external table.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the external table.
-        :param pulumi.Input[builtins.bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+        :param pulumi.Input[builtins.bool] copy_grants: (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[builtins.str] pattern: Specifies the file names and/or paths on the external stage to match.
-        :param pulumi.Input[builtins.bool] refresh_on_create: Specifies weather to refresh when an external table is created.
+        :param pulumi.Input[builtins.bool] refresh_on_create: (Default: `true`) Specifies weather to refresh when an external table is created.
         :param pulumi.Input[builtins.str] table_format: Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
@@ -148,7 +148,7 @@ class ExternalTableArgs:
     @pulumi.getter(name="autoRefresh")
     def auto_refresh(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+        (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         """
         return pulumi.get(self, "auto_refresh")
 
@@ -184,7 +184,7 @@ class ExternalTableArgs:
     @pulumi.getter(name="copyGrants")
     def copy_grants(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+        (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         """
         return pulumi.get(self, "copy_grants")
 
@@ -232,7 +232,7 @@ class ExternalTableArgs:
     @pulumi.getter(name="refreshOnCreate")
     def refresh_on_create(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies weather to refresh when an external table is created.
+        (Default: `true`) Specifies weather to refresh when an external table is created.
         """
         return pulumi.get(self, "refresh_on_create")
 
@@ -288,11 +288,11 @@ class _ExternalTableState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering ExternalTable resources.
-        :param pulumi.Input[builtins.bool] auto_refresh: Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+        :param pulumi.Input[builtins.bool] auto_refresh: (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         :param pulumi.Input[builtins.str] aws_sns_topic: Specifies the aws sns topic for the external table.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableColumnArgs']]] columns: Definitions of a column to create in the external table. Minimum one required.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the external table.
-        :param pulumi.Input[builtins.bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+        :param pulumi.Input[builtins.bool] copy_grants: (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         :param pulumi.Input[builtins.str] database: The database in which to create the external table.
         :param pulumi.Input[builtins.str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -301,7 +301,7 @@ class _ExternalTableState:
         :param pulumi.Input[builtins.str] owner: Name of the role that owns the external table.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[builtins.str] pattern: Specifies the file names and/or paths on the external stage to match.
-        :param pulumi.Input[builtins.bool] refresh_on_create: Specifies weather to refresh when an external table is created.
+        :param pulumi.Input[builtins.bool] refresh_on_create: (Default: `true`) Specifies weather to refresh when an external table is created.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the external table.
         :param pulumi.Input[builtins.str] table_format: Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalTableTagArgs']]] tags: Definitions of a tag to associate with the resource.
@@ -348,7 +348,7 @@ class _ExternalTableState:
     @pulumi.getter(name="autoRefresh")
     def auto_refresh(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+        (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         """
         return pulumi.get(self, "auto_refresh")
 
@@ -396,7 +396,7 @@ class _ExternalTableState:
     @pulumi.getter(name="copyGrants")
     def copy_grants(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+        (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         """
         return pulumi.get(self, "copy_grants")
 
@@ -504,7 +504,7 @@ class _ExternalTableState:
     @pulumi.getter(name="refreshOnCreate")
     def refresh_on_create(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies weather to refresh when an external table is created.
+        (Default: `true`) Specifies weather to refresh when an external table is created.
         """
         return pulumi.get(self, "refresh_on_create")
 
@@ -582,18 +582,18 @@ class ExternalTable(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] auto_refresh: Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+        :param pulumi.Input[builtins.bool] auto_refresh: (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         :param pulumi.Input[builtins.str] aws_sns_topic: Specifies the aws sns topic for the external table.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict']]]] columns: Definitions of a column to create in the external table. Minimum one required.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the external table.
-        :param pulumi.Input[builtins.bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+        :param pulumi.Input[builtins.bool] copy_grants: (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         :param pulumi.Input[builtins.str] database: The database in which to create the external table.
         :param pulumi.Input[builtins.str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[builtins.str] location: Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[builtins.str] pattern: Specifies the file names and/or paths on the external stage to match.
-        :param pulumi.Input[builtins.bool] refresh_on_create: Specifies weather to refresh when an external table is created.
+        :param pulumi.Input[builtins.bool] refresh_on_create: (Default: `true`) Specifies weather to refresh when an external table is created.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the external table.
         :param pulumi.Input[builtins.str] table_format: Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
@@ -713,11 +713,11 @@ class ExternalTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] auto_refresh: Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+        :param pulumi.Input[builtins.bool] auto_refresh: (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         :param pulumi.Input[builtins.str] aws_sns_topic: Specifies the aws sns topic for the external table.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableColumnArgs', 'ExternalTableColumnArgsDict']]]] columns: Definitions of a column to create in the external table. Minimum one required.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the external table.
-        :param pulumi.Input[builtins.bool] copy_grants: Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+        :param pulumi.Input[builtins.bool] copy_grants: (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         :param pulumi.Input[builtins.str] database: The database in which to create the external table.
         :param pulumi.Input[builtins.str] file_format: Specifies the file format for the external table.
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
@@ -726,7 +726,7 @@ class ExternalTable(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] owner: Name of the role that owns the external table.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] partition_bies: Specifies any partition columns to evaluate for the external table.
         :param pulumi.Input[builtins.str] pattern: Specifies the file names and/or paths on the external stage to match.
-        :param pulumi.Input[builtins.bool] refresh_on_create: Specifies weather to refresh when an external table is created.
+        :param pulumi.Input[builtins.bool] refresh_on_create: (Default: `true`) Specifies weather to refresh when an external table is created.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the external table.
         :param pulumi.Input[builtins.str] table_format: Identifies the external table table type. For now, only "delta" for Delta Lake table format is supported.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalTableTagArgs', 'ExternalTableTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
@@ -758,7 +758,7 @@ class ExternalTable(pulumi.CustomResource):
     @pulumi.getter(name="autoRefresh")
     def auto_refresh(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+        (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         """
         return pulumi.get(self, "auto_refresh")
 
@@ -790,7 +790,7 @@ class ExternalTable(pulumi.CustomResource):
     @pulumi.getter(name="copyGrants")
     def copy_grants(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+        (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         """
         return pulumi.get(self, "copy_grants")
 
@@ -862,7 +862,7 @@ class ExternalTable(pulumi.CustomResource):
     @pulumi.getter(name="refreshOnCreate")
     def refresh_on_create(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies weather to refresh when an external table is created.
+        (Default: `true`) Specifies weather to refresh when an external table is created.
         """
         return pulumi.get(self, "refresh_on_create")
 

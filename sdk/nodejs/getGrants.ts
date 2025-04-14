@@ -130,6 +130,8 @@ import * as utilities from "./utilities";
  *     },
  * });
  * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
  */
 export function getGrants(args?: GetGrantsArgs, opts?: pulumi.InvokeOptions): Promise<GetGrantsResult> {
     args = args || {};
@@ -326,6 +328,8 @@ export interface GetGrantsResult {
  *     },
  * });
  * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
  */
 export function getGrantsOutput(args?: GetGrantsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetGrantsResult> {
     args = args || {};

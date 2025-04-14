@@ -40,14 +40,14 @@ class TableConstraintArgs:
         :param pulumi.Input[builtins.str] table_id: Identifier for table to create constraint on. Format must follow: "\\"&lt;db*name&gt;\\".\\"&lt;schema*name&gt;\\".\\"&lt;table*name&gt;\\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
         :param pulumi.Input[builtins.str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
         :param pulumi.Input[builtins.str] comment: Comment for the table constraint
-        :param pulumi.Input[builtins.bool] deferrable: Whether the constraint is deferrable
-        :param pulumi.Input[builtins.bool] enable: Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
-        :param pulumi.Input[builtins.bool] enforced: Whether the constraint is enforced
+        :param pulumi.Input[builtins.bool] deferrable: (Default: `true`) Whether the constraint is deferrable
+        :param pulumi.Input[builtins.bool] enable: (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+        :param pulumi.Input[builtins.bool] enforced: (Default: `false`) Whether the constraint is enforced
         :param pulumi.Input['TableConstraintForeignKeyPropertiesArgs'] foreign_key_properties: Additional properties when type is set to foreign key. Not applicable for primary/unique keys
-        :param pulumi.Input[builtins.str] initially: Whether the constraint is initially deferred or immediate
+        :param pulumi.Input[builtins.str] initially: (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
         :param pulumi.Input[builtins.str] name: Name of constraint
-        :param pulumi.Input[builtins.bool] rely: Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
-        :param pulumi.Input[builtins.bool] validate: Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+        :param pulumi.Input[builtins.bool] rely: (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+        :param pulumi.Input[builtins.bool] validate: (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
         pulumi.set(__self__, "columns", columns)
         pulumi.set(__self__, "table_id", table_id)
@@ -127,7 +127,7 @@ class TableConstraintArgs:
     @pulumi.getter
     def deferrable(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Whether the constraint is deferrable
+        (Default: `true`) Whether the constraint is deferrable
         """
         return pulumi.get(self, "deferrable")
 
@@ -139,7 +139,7 @@ class TableConstraintArgs:
     @pulumi.getter
     def enable(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+        (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         """
         return pulumi.get(self, "enable")
 
@@ -151,7 +151,7 @@ class TableConstraintArgs:
     @pulumi.getter
     def enforced(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Whether the constraint is enforced
+        (Default: `false`) Whether the constraint is enforced
         """
         return pulumi.get(self, "enforced")
 
@@ -175,7 +175,7 @@ class TableConstraintArgs:
     @pulumi.getter
     def initially(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Whether the constraint is initially deferred or immediate
+        (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
         """
         return pulumi.get(self, "initially")
 
@@ -199,7 +199,7 @@ class TableConstraintArgs:
     @pulumi.getter
     def rely(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+        (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         """
         return pulumi.get(self, "rely")
 
@@ -211,7 +211,7 @@ class TableConstraintArgs:
     @pulumi.getter
     def validate(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+        (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
         return pulumi.get(self, "validate")
 
@@ -239,16 +239,16 @@ class _TableConstraintState:
         Input properties used for looking up and filtering TableConstraint resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] columns: Columns to use in constraint key
         :param pulumi.Input[builtins.str] comment: Comment for the table constraint
-        :param pulumi.Input[builtins.bool] deferrable: Whether the constraint is deferrable
-        :param pulumi.Input[builtins.bool] enable: Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
-        :param pulumi.Input[builtins.bool] enforced: Whether the constraint is enforced
+        :param pulumi.Input[builtins.bool] deferrable: (Default: `true`) Whether the constraint is deferrable
+        :param pulumi.Input[builtins.bool] enable: (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+        :param pulumi.Input[builtins.bool] enforced: (Default: `false`) Whether the constraint is enforced
         :param pulumi.Input['TableConstraintForeignKeyPropertiesArgs'] foreign_key_properties: Additional properties when type is set to foreign key. Not applicable for primary/unique keys
-        :param pulumi.Input[builtins.str] initially: Whether the constraint is initially deferred or immediate
+        :param pulumi.Input[builtins.str] initially: (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
         :param pulumi.Input[builtins.str] name: Name of constraint
-        :param pulumi.Input[builtins.bool] rely: Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+        :param pulumi.Input[builtins.bool] rely: (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         :param pulumi.Input[builtins.str] table_id: Identifier for table to create constraint on. Format must follow: "\\"&lt;db*name&gt;\\".\\"&lt;schema*name&gt;\\".\\"&lt;table*name&gt;\\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
         :param pulumi.Input[builtins.str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
-        :param pulumi.Input[builtins.bool] validate: Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+        :param pulumi.Input[builtins.bool] validate: (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
         if columns is not None:
             pulumi.set(__self__, "columns", columns)
@@ -307,7 +307,7 @@ class _TableConstraintState:
     @pulumi.getter
     def deferrable(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Whether the constraint is deferrable
+        (Default: `true`) Whether the constraint is deferrable
         """
         return pulumi.get(self, "deferrable")
 
@@ -319,7 +319,7 @@ class _TableConstraintState:
     @pulumi.getter
     def enable(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+        (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         """
         return pulumi.get(self, "enable")
 
@@ -331,7 +331,7 @@ class _TableConstraintState:
     @pulumi.getter
     def enforced(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Whether the constraint is enforced
+        (Default: `false`) Whether the constraint is enforced
         """
         return pulumi.get(self, "enforced")
 
@@ -355,7 +355,7 @@ class _TableConstraintState:
     @pulumi.getter
     def initially(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Whether the constraint is initially deferred or immediate
+        (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
         """
         return pulumi.get(self, "initially")
 
@@ -379,7 +379,7 @@ class _TableConstraintState:
     @pulumi.getter
     def rely(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+        (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         """
         return pulumi.get(self, "rely")
 
@@ -415,7 +415,7 @@ class _TableConstraintState:
     @pulumi.getter
     def validate(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+        (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
         return pulumi.get(self, "validate")
 
@@ -453,16 +453,16 @@ class TableConstraint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] columns: Columns to use in constraint key
         :param pulumi.Input[builtins.str] comment: Comment for the table constraint
-        :param pulumi.Input[builtins.bool] deferrable: Whether the constraint is deferrable
-        :param pulumi.Input[builtins.bool] enable: Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
-        :param pulumi.Input[builtins.bool] enforced: Whether the constraint is enforced
+        :param pulumi.Input[builtins.bool] deferrable: (Default: `true`) Whether the constraint is deferrable
+        :param pulumi.Input[builtins.bool] enable: (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+        :param pulumi.Input[builtins.bool] enforced: (Default: `false`) Whether the constraint is enforced
         :param pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']] foreign_key_properties: Additional properties when type is set to foreign key. Not applicable for primary/unique keys
-        :param pulumi.Input[builtins.str] initially: Whether the constraint is initially deferred or immediate
+        :param pulumi.Input[builtins.str] initially: (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
         :param pulumi.Input[builtins.str] name: Name of constraint
-        :param pulumi.Input[builtins.bool] rely: Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+        :param pulumi.Input[builtins.bool] rely: (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         :param pulumi.Input[builtins.str] table_id: Identifier for table to create constraint on. Format must follow: "\\"&lt;db*name&gt;\\".\\"&lt;schema*name&gt;\\".\\"&lt;table*name&gt;\\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
         :param pulumi.Input[builtins.str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
-        :param pulumi.Input[builtins.bool] validate: Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+        :param pulumi.Input[builtins.bool] validate: (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
         ...
     @overload
@@ -562,16 +562,16 @@ class TableConstraint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] columns: Columns to use in constraint key
         :param pulumi.Input[builtins.str] comment: Comment for the table constraint
-        :param pulumi.Input[builtins.bool] deferrable: Whether the constraint is deferrable
-        :param pulumi.Input[builtins.bool] enable: Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
-        :param pulumi.Input[builtins.bool] enforced: Whether the constraint is enforced
+        :param pulumi.Input[builtins.bool] deferrable: (Default: `true`) Whether the constraint is deferrable
+        :param pulumi.Input[builtins.bool] enable: (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+        :param pulumi.Input[builtins.bool] enforced: (Default: `false`) Whether the constraint is enforced
         :param pulumi.Input[Union['TableConstraintForeignKeyPropertiesArgs', 'TableConstraintForeignKeyPropertiesArgsDict']] foreign_key_properties: Additional properties when type is set to foreign key. Not applicable for primary/unique keys
-        :param pulumi.Input[builtins.str] initially: Whether the constraint is initially deferred or immediate
+        :param pulumi.Input[builtins.str] initially: (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
         :param pulumi.Input[builtins.str] name: Name of constraint
-        :param pulumi.Input[builtins.bool] rely: Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+        :param pulumi.Input[builtins.bool] rely: (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         :param pulumi.Input[builtins.str] table_id: Identifier for table to create constraint on. Format must follow: "\\"&lt;db*name&gt;\\".\\"&lt;schema*name&gt;\\".\\"&lt;table*name&gt;\\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
         :param pulumi.Input[builtins.str] type: Type of constraint, one of 'UNIQUE', 'PRIMARY KEY', or 'FOREIGN KEY'
-        :param pulumi.Input[builtins.bool] validate: Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+        :param pulumi.Input[builtins.bool] validate: (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -612,7 +612,7 @@ class TableConstraint(pulumi.CustomResource):
     @pulumi.getter
     def deferrable(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Whether the constraint is deferrable
+        (Default: `true`) Whether the constraint is deferrable
         """
         return pulumi.get(self, "deferrable")
 
@@ -620,7 +620,7 @@ class TableConstraint(pulumi.CustomResource):
     @pulumi.getter
     def enable(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+        (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         """
         return pulumi.get(self, "enable")
 
@@ -628,7 +628,7 @@ class TableConstraint(pulumi.CustomResource):
     @pulumi.getter
     def enforced(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Whether the constraint is enforced
+        (Default: `false`) Whether the constraint is enforced
         """
         return pulumi.get(self, "enforced")
 
@@ -644,7 +644,7 @@ class TableConstraint(pulumi.CustomResource):
     @pulumi.getter
     def initially(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Whether the constraint is initially deferred or immediate
+        (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
         """
         return pulumi.get(self, "initially")
 
@@ -660,7 +660,7 @@ class TableConstraint(pulumi.CustomResource):
     @pulumi.getter
     def rely(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+        (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         """
         return pulumi.get(self, "rely")
 
@@ -684,7 +684,7 @@ class TableConstraint(pulumi.CustomResource):
     @pulumi.getter
     def validate(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+        (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
         """
         return pulumi.get(self, "validate")
 

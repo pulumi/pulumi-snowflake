@@ -30,7 +30,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.FunctionSqlArgument>> Arguments { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a comment for the function.
+        /// (Default: `user-defined function`) Specifies a comment for the function.
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
@@ -42,7 +42,7 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        /// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         /// </summary>
         [Output("enableConsoleOutput")]
         public Output<bool> EnableConsoleOutput { get; private set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies a comment for the function.
+        /// (Default: `user-defined function`) Specifies a comment for the function.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        /// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         /// </summary>
         [Input("enableConsoleOutput")]
         public Input<bool>? EnableConsoleOutput { get; set; }
@@ -270,7 +270,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies a comment for the function.
+        /// (Default: `user-defined function`) Specifies a comment for the function.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        /// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         /// </summary>
         [Input("enableConsoleOutput")]
         public Input<bool>? EnableConsoleOutput { get; set; }

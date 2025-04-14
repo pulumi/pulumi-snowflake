@@ -120,14 +120,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.gracePeriodInDays;
     }
     /**
-     * Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
      * 
      */
     @Export(name="isOrgAdmin", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> isOrgAdmin;
 
     /**
-     * @return Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
      * 
      */
     public Output<Optional<String>> isOrgAdmin() {

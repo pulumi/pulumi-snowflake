@@ -26,7 +26,7 @@ type TagAssociation struct {
 	ObjectIdentifiers pulumi.StringArrayOutput `pulumi:"objectIdentifiers"`
 	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType pulumi.StringOutput `pulumi:"objectType"`
-	// If true, skips validation of the tag association.
+	// (Default: `true`) If true, skips validation of the tag association.
 	SkipValidation pulumi.BoolPtrOutput `pulumi:"skipValidation"`
 	// Specifies the identifier for the tag.
 	TagId pulumi.StringOutput `pulumi:"tagId"`
@@ -80,7 +80,7 @@ type tagAssociationState struct {
 	ObjectIdentifiers []string `pulumi:"objectIdentifiers"`
 	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType *string `pulumi:"objectType"`
-	// If true, skips validation of the tag association.
+	// (Default: `true`) If true, skips validation of the tag association.
 	SkipValidation *bool `pulumi:"skipValidation"`
 	// Specifies the identifier for the tag.
 	TagId *string `pulumi:"tagId"`
@@ -93,7 +93,7 @@ type TagAssociationState struct {
 	ObjectIdentifiers pulumi.StringArrayInput
 	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType pulumi.StringPtrInput
-	// If true, skips validation of the tag association.
+	// (Default: `true`) If true, skips validation of the tag association.
 	SkipValidation pulumi.BoolPtrInput
 	// Specifies the identifier for the tag.
 	TagId pulumi.StringPtrInput
@@ -110,7 +110,7 @@ type tagAssociationArgs struct {
 	ObjectIdentifiers []string `pulumi:"objectIdentifiers"`
 	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType string `pulumi:"objectType"`
-	// If true, skips validation of the tag association.
+	// (Default: `true`) If true, skips validation of the tag association.
 	SkipValidation *bool `pulumi:"skipValidation"`
 	// Specifies the identifier for the tag.
 	TagId string `pulumi:"tagId"`
@@ -124,7 +124,7 @@ type TagAssociationArgs struct {
 	ObjectIdentifiers pulumi.StringArrayInput
 	// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
 	ObjectType pulumi.StringInput
-	// If true, skips validation of the tag association.
+	// (Default: `true`) If true, skips validation of the tag association.
 	SkipValidation pulumi.BoolPtrInput
 	// Specifies the identifier for the tag.
 	TagId pulumi.StringInput
@@ -229,7 +229,7 @@ func (o TagAssociationOutput) ObjectType() pulumi.StringOutput {
 	return o.ApplyT(func(v *TagAssociation) pulumi.StringOutput { return v.ObjectType }).(pulumi.StringOutput)
 }
 
-// If true, skips validation of the tag association.
+// (Default: `true`) If true, skips validation of the tag association.
 func (o TagAssociationOutput) SkipValidation() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TagAssociation) pulumi.BoolPtrOutput { return v.SkipValidation }).(pulumi.BoolPtrOutput)
 }

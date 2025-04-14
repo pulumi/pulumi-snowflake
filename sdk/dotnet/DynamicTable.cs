@@ -68,7 +68,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        /// (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         /// </summary>
         [Output("initialize")]
         public Output<string?> Initialize { get; private set; } = null!;
@@ -98,7 +98,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to replace the dynamic table if it already exists.
+        /// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
         /// </summary>
         [Output("orReplace")]
         public Output<bool?> OrReplace { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Snowflake
         public Output<string> Query { get; private set; } = null!;
 
         /// <summary>
-        /// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+        /// (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         /// </summary>
         [Output("refreshMode")]
         public Output<string?> RefreshMode { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        /// (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         /// </summary>
         [Input("initialize")]
         public Input<string>? Initialize { get; set; }
@@ -228,7 +228,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether to replace the dynamic table if it already exists.
+        /// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
@@ -240,7 +240,7 @@ namespace Pulumi.Snowflake
         public Input<string> Query { get; set; } = null!;
 
         /// <summary>
-        /// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+        /// (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         /// </summary>
         [Input("refreshMode")]
         public Input<string>? RefreshMode { get; set; }
@@ -320,7 +320,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        /// (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         /// </summary>
         [Input("initialize")]
         public Input<string>? Initialize { get; set; }
@@ -350,7 +350,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether to replace the dynamic table if it already exists.
+        /// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
@@ -368,7 +368,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+        /// (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         /// </summary>
         [Input("refreshMode")]
         public Input<string>? RefreshMode { get; set; }

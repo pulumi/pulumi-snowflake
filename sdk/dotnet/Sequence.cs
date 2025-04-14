@@ -22,7 +22,7 @@ namespace Pulumi.Snowflake
     public partial class Sequence : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies a comment for the sequence.
+        /// (Default: ``) Specifies a comment for the sequence.
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.Snowflake
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// The amount the sequence will increase by each time it is used
+        /// (Default: `1`) The amount the sequence will increase by each time it is used
         /// </summary>
         [Output("increment")]
         public Output<int?> Increment { get; private set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.Snowflake
         public Output<int> NextValue { get; private set; } = null!;
 
         /// <summary>
-        /// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        /// (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         /// </summary>
         [Output("ordering")]
         public Output<string?> Ordering { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.Snowflake
     public sealed class SequenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies a comment for the sequence.
+        /// (Default: ``) Specifies a comment for the sequence.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -128,7 +128,7 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// The amount the sequence will increase by each time it is used
+        /// (Default: `1`) The amount the sequence will increase by each time it is used
         /// </summary>
         [Input("increment")]
         public Input<int>? Increment { get; set; }
@@ -140,7 +140,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        /// (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         /// </summary>
         [Input("ordering")]
         public Input<string>? Ordering { get; set; }
@@ -160,7 +160,7 @@ namespace Pulumi.Snowflake
     public sealed class SequenceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies a comment for the sequence.
+        /// (Default: ``) Specifies a comment for the sequence.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -178,7 +178,7 @@ namespace Pulumi.Snowflake
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// The amount the sequence will increase by each time it is used
+        /// (Default: `1`) The amount the sequence will increase by each time it is used
         /// </summary>
         [Input("increment")]
         public Input<int>? Increment { get; set; }
@@ -196,7 +196,7 @@ namespace Pulumi.Snowflake
         public Input<int>? NextValue { get; set; }
 
         /// <summary>
-        /// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        /// (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         /// </summary>
         [Input("ordering")]
         public Input<string>? Ordering { get; set; }

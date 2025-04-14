@@ -54,7 +54,7 @@ export class ObjectParameter extends pulumi.CustomResource {
      */
     public readonly objectType!: pulumi.Output<string | undefined>;
     /**
-     * If true, the object parameter will be set on the account level.
+     * (Default: `false`) If true, the object parameter will be set on the account level.
      */
     public readonly onAccount!: pulumi.Output<boolean | undefined>;
     /**
@@ -116,7 +116,7 @@ export interface ObjectParameterState {
      */
     objectType?: pulumi.Input<string>;
     /**
-     * If true, the object parameter will be set on the account level.
+     * (Default: `false`) If true, the object parameter will be set on the account level.
      */
     onAccount?: pulumi.Input<boolean>;
     /**
@@ -142,7 +142,7 @@ export interface ObjectParameterArgs {
      */
     objectType?: pulumi.Input<string>;
     /**
-     * If true, the object parameter will be set on the account level.
+     * (Default: `false`) If true, the object parameter will be set on the account level.
      */
     onAccount?: pulumi.Input<boolean>;
     /**

@@ -36,6 +36,8 @@ import (
 //	}
 //
 // ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetSystemGetAwsSnsIamPolicy(ctx *pulumi.Context, args *GetSystemGetAwsSnsIamPolicyArgs, opts ...pulumi.InvokeOption) (*GetSystemGetAwsSnsIamPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSystemGetAwsSnsIamPolicyResult

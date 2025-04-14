@@ -42,7 +42,7 @@ export interface GetStreamsArgs {
      */
     startsWith?: string;
     /**
-     * Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: boolean;
 }
@@ -76,7 +76,7 @@ export interface GetStreamsResult {
      */
     readonly streams: outputs.GetStreamsStream[];
     /**
-     * Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
      */
     readonly withDescribe?: boolean;
 }
@@ -116,7 +116,7 @@ export interface GetStreamsOutputArgs {
      */
     startsWith?: pulumi.Input<string>;
     /**
-     * Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
      */
     withDescribe?: pulumi.Input<boolean>;
 }

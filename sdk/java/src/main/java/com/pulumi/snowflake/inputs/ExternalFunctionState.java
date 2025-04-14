@@ -51,14 +51,14 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * A description of the external function.
+     * (Default: `user-defined function`) A description of the external function.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return A description of the external function.
+     * @return (Default: `user-defined function`) A description of the external function.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -66,14 +66,14 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+     * (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
      * 
      */
     @Import(name="compression")
     private @Nullable Output<String> compression;
 
     /**
-     * @return If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+     * @return (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
      * 
      */
     public Optional<Output<String>> compression() {
@@ -186,14 +186,14 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the behavior of the external function when called with null inputs.
+     * (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
      * 
      */
     @Import(name="nullInputBehavior")
     private @Nullable Output<String> nullInputBehavior;
 
     /**
-     * @return Specifies the behavior of the external function when called with null inputs.
+     * @return (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
      * 
      */
     public Optional<Output<String>> nullInputBehavior() {
@@ -246,14 +246,14 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+     * (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      * 
      */
     @Import(name="returnNullAllowed")
     private @Nullable Output<Boolean> returnNullAllowed;
 
     /**
-     * @return Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+     * @return (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      * 
      */
     public Optional<Output<Boolean>> returnNullAllowed() {
@@ -400,7 +400,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param comment A description of the external function.
+         * @param comment (Default: `user-defined function`) A description of the external function.
          * 
          * @return builder
          * 
@@ -411,7 +411,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param comment A description of the external function.
+         * @param comment (Default: `user-defined function`) A description of the external function.
          * 
          * @return builder
          * 
@@ -421,7 +421,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param compression If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+         * @param compression (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
          * 
          * @return builder
          * 
@@ -432,7 +432,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param compression If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+         * @param compression (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
          * 
          * @return builder
          * 
@@ -609,7 +609,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param nullInputBehavior Specifies the behavior of the external function when called with null inputs.
+         * @param nullInputBehavior (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
          * 
          * @return builder
          * 
@@ -620,7 +620,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param nullInputBehavior Specifies the behavior of the external function when called with null inputs.
+         * @param nullInputBehavior (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
          * 
          * @return builder
          * 
@@ -693,7 +693,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param returnNullAllowed Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+         * @param returnNullAllowed (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
          * 
          * @return builder
          * 
@@ -704,7 +704,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param returnNullAllowed Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+         * @param returnNullAllowed (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
          * 
          * @return builder
          * 

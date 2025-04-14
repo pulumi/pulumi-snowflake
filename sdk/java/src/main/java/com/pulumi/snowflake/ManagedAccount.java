@@ -152,14 +152,14 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies the type of managed account.
+     * (Default: `READER`) Specifies the type of managed account.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return Specifies the type of managed account.
+     * @return (Default: `READER`) Specifies the type of managed account.
      * 
      */
     public Output<Optional<String>> type() {

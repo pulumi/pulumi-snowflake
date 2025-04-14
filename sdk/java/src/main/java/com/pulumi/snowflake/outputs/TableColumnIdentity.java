@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableColumnIdentity {
     /**
-     * @return The number to start incrementing at.
+     * @return (Default: `1`) The number to start incrementing at.
      * 
      */
     private @Nullable Integer startNum;
     /**
-     * @return Step size to increment by.
+     * @return (Default: `1`) Step size to increment by.
      * 
      */
     private @Nullable Integer stepNum;
 
     private TableColumnIdentity() {}
     /**
-     * @return The number to start incrementing at.
+     * @return (Default: `1`) The number to start incrementing at.
      * 
      */
     public Optional<Integer> startNum() {
         return Optional.ofNullable(this.startNum);
     }
     /**
-     * @return Step size to increment by.
+     * @return (Default: `1`) Step size to increment by.
      * 
      */
     public Optional<Integer> stepNum() {

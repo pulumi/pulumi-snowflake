@@ -60,28 +60,28 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.args);
     }
     /**
-     * A description of the external function.
+     * (Default: `user-defined function`) A description of the external function.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return A description of the external function.
+     * @return (Default: `user-defined function`) A description of the external function.
      * 
      */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
     /**
-     * If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+     * (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
      * 
      */
     @Export(name="compression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> compression;
 
     /**
-     * @return If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+     * @return (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
      * 
      */
     public Output<Optional<String>> compression() {
@@ -186,14 +186,14 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies the behavior of the external function when called with null inputs.
+     * (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
      * 
      */
     @Export(name="nullInputBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nullInputBehavior;
 
     /**
-     * @return Specifies the behavior of the external function when called with null inputs.
+     * @return (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
      * 
      */
     public Output<Optional<String>> nullInputBehavior() {
@@ -242,14 +242,14 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
         return this.returnBehavior;
     }
     /**
-     * Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+     * (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      * 
      */
     @Export(name="returnNullAllowed", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> returnNullAllowed;
 
     /**
-     * @return Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+     * @return (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      * 
      */
     public Output<Optional<Boolean>> returnNullAllowed() {

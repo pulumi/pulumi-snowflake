@@ -140,14 +140,14 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
         return this.fullyQualifiedName;
     }
     /**
-     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
      * 
      */
     @Export(name="initialize", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> initialize;
 
     /**
-     * @return Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * @return (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
      * 
      */
     public Output<Optional<String>> initialize() {
@@ -210,14 +210,14 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies whether to replace the dynamic table if it already exists.
+     * (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
      * 
      */
     @Export(name="orReplace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> orReplace;
 
     /**
-     * @return Specifies whether to replace the dynamic table if it already exists.
+     * @return (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
      * 
      */
     public Output<Optional<Boolean>> orReplace() {
@@ -252,14 +252,14 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
         return this.query;
     }
     /**
-     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+     * (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      * 
      */
     @Export(name="refreshMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> refreshMode;
 
     /**
-     * @return INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+     * @return (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      * 
      */
     public Output<Optional<String>> refreshMode() {

@@ -74,7 +74,7 @@ namespace Pulumi.Snowflake
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of managed account.
+        /// (Default: `READER`) Specifies the type of managed account.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the type of managed account.
+        /// (Default: `READER`) Specifies the type of managed account.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Specifies the type of managed account.
+        /// (Default: `READER`) Specifies the type of managed account.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

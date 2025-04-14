@@ -64,14 +64,14 @@ public final class GetRowAccessPoliciesArgs extends com.pulumi.resources.InvokeA
     }
 
     /**
-     * Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     @Import(name="withDescribe")
     private @Nullable Output<Boolean> withDescribe;
 
     /**
-     * @return Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * @return (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
     public Optional<Output<Boolean>> withDescribe() {
@@ -169,7 +169,7 @@ public final class GetRowAccessPoliciesArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param withDescribe Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+         * @param withDescribe (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class GetRowAccessPoliciesArgs extends com.pulumi.resources.InvokeA
         }
 
         /**
-         * @param withDescribe Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+         * @param withDescribe (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
          * 
          * @return builder
          * 

@@ -46,14 +46,14 @@ public final class GetParametersArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
+     * (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
      * 
      */
     @Import(name="parameterType")
     private @Nullable Output<String> parameterType;
 
     /**
-     * @return The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
+     * @return (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
      * 
      */
     public Optional<Output<String>> parameterType() {
@@ -161,7 +161,7 @@ public final class GetParametersArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param parameterType The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
+         * @param parameterType (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class GetParametersArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param parameterType The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
+         * @param parameterType (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
          * 
          * @return builder
          * 

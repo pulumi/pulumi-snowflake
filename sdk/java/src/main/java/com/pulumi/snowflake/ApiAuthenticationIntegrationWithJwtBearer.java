@@ -100,14 +100,14 @@ public class ApiAuthenticationIntegrationWithJwtBearer extends com.pulumi.resour
         return this.name;
     }
     /**
-     * Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      * 
      */
     @Export(name="oauthAccessTokenValidity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> oauthAccessTokenValidity;
 
     /**
-     * @return Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      * 
      */
     public Output<Optional<Integer>> oauthAccessTokenValidity() {

@@ -63,14 +63,14 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+     * (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
      * 
      */
     @Import(name="history")
     private @Nullable Output<Integer> history;
 
     /**
-     * @return Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+     * @return (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
      * 
      */
     public Optional<Output<Integer>> history() {
@@ -78,14 +78,14 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Prevent overwriting a previous password policy with the same name.
+     * (Default: `false`) Prevent overwriting a previous password policy with the same name.
      * 
      */
     @Import(name="ifNotExists")
     private @Nullable Output<Boolean> ifNotExists;
 
     /**
-     * @return Prevent overwriting a previous password policy with the same name.
+     * @return (Default: `false`) Prevent overwriting a previous password policy with the same name.
      * 
      */
     public Optional<Output<Boolean>> ifNotExists() {
@@ -93,14 +93,14 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
+     * (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
      * 
      */
     @Import(name="lockoutTimeMins")
     private @Nullable Output<Integer> lockoutTimeMins;
 
     /**
-     * @return Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
+     * @return (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
      * 
      */
     public Optional<Output<Integer>> lockoutTimeMins() {
@@ -108,14 +108,14 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
+     * (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
      * 
      */
     @Import(name="maxAgeDays")
     private @Nullable Output<Integer> maxAgeDays;
 
     /**
-     * @return Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
+     * @return (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
      * 
      */
     public Optional<Output<Integer>> maxAgeDays() {
@@ -123,14 +123,14 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
+     * (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
      * 
      */
     @Import(name="maxLength")
     private @Nullable Output<Integer> maxLength;
 
     /**
-     * @return Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
+     * @return (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
      * 
      */
     public Optional<Output<Integer>> maxLength() {
@@ -138,14 +138,14 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
+     * (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
      * 
      */
     @Import(name="maxRetries")
     private @Nullable Output<Integer> maxRetries;
 
     /**
-     * @return Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
+     * @return (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
      * 
      */
     public Optional<Output<Integer>> maxRetries() {
@@ -153,14 +153,14 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+     * (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
      * 
      */
     @Import(name="minAgeDays")
     private @Nullable Output<Integer> minAgeDays;
 
     /**
-     * @return Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+     * @return (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
      * 
      */
     public Optional<Output<Integer>> minAgeDays() {
@@ -168,14 +168,14 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
+     * (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
      * 
      */
     @Import(name="minLength")
     private @Nullable Output<Integer> minLength;
 
     /**
-     * @return Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
+     * @return (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
      * 
      */
     public Optional<Output<Integer>> minLength() {
@@ -183,14 +183,14 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      * 
      */
     @Import(name="minLowerCaseChars")
     private @Nullable Output<Integer> minLowerCaseChars;
 
     /**
-     * @return Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * @return (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      * 
      */
     public Optional<Output<Integer>> minLowerCaseChars() {
@@ -198,14 +198,14 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      * 
      */
     @Import(name="minNumericChars")
     private @Nullable Output<Integer> minNumericChars;
 
     /**
-     * @return Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * @return (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      * 
      */
     public Optional<Output<Integer>> minNumericChars() {
@@ -213,14 +213,14 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      * 
      */
     @Import(name="minSpecialChars")
     private @Nullable Output<Integer> minSpecialChars;
 
     /**
-     * @return Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * @return (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      * 
      */
     public Optional<Output<Integer>> minSpecialChars() {
@@ -228,14 +228,14 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      * 
      */
     @Import(name="minUpperCaseChars")
     private @Nullable Output<Integer> minUpperCaseChars;
 
     /**
-     * @return Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * @return (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
      * 
      */
     public Optional<Output<Integer>> minUpperCaseChars() {
@@ -258,14 +258,14 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Whether to override a previous password policy with the same name.
+     * (Default: `false`) Whether to override a previous password policy with the same name.
      * 
      */
     @Import(name="orReplace")
     private @Nullable Output<Boolean> orReplace;
 
     /**
-     * @return Whether to override a previous password policy with the same name.
+     * @return (Default: `false`) Whether to override a previous password policy with the same name.
      * 
      */
     public Optional<Output<Boolean>> orReplace() {
@@ -392,7 +392,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param history Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+         * @param history (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param history Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+         * @param history (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
          * 
          * @return builder
          * 
@@ -413,7 +413,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ifNotExists Prevent overwriting a previous password policy with the same name.
+         * @param ifNotExists (Default: `false`) Prevent overwriting a previous password policy with the same name.
          * 
          * @return builder
          * 
@@ -424,7 +424,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param ifNotExists Prevent overwriting a previous password policy with the same name.
+         * @param ifNotExists (Default: `false`) Prevent overwriting a previous password policy with the same name.
          * 
          * @return builder
          * 
@@ -434,7 +434,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param lockoutTimeMins Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
+         * @param lockoutTimeMins (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
          * 
          * @return builder
          * 
@@ -445,7 +445,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param lockoutTimeMins Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
+         * @param lockoutTimeMins (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param maxAgeDays Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
+         * @param maxAgeDays (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
          * 
          * @return builder
          * 
@@ -466,7 +466,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param maxAgeDays Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
+         * @param maxAgeDays (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
          * 
          * @return builder
          * 
@@ -476,7 +476,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param maxLength Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
+         * @param maxLength (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param maxLength Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
+         * @param maxLength (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param maxRetries Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
+         * @param maxRetries (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
          * 
          * @return builder
          * 
@@ -508,7 +508,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param maxRetries Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
+         * @param maxRetries (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
          * 
          * @return builder
          * 
@@ -518,7 +518,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param minAgeDays Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+         * @param minAgeDays (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
          * 
          * @return builder
          * 
@@ -529,7 +529,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param minAgeDays Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+         * @param minAgeDays (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
          * 
          * @return builder
          * 
@@ -539,7 +539,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param minLength Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
+         * @param minLength (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
          * 
          * @return builder
          * 
@@ -550,7 +550,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param minLength Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
+         * @param minLength (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
          * 
          * @return builder
          * 
@@ -560,7 +560,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param minLowerCaseChars Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+         * @param minLowerCaseChars (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
          * 
          * @return builder
          * 
@@ -571,7 +571,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param minLowerCaseChars Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+         * @param minLowerCaseChars (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
          * 
          * @return builder
          * 
@@ -581,7 +581,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param minNumericChars Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+         * @param minNumericChars (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
          * 
          * @return builder
          * 
@@ -592,7 +592,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param minNumericChars Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+         * @param minNumericChars (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
          * 
          * @return builder
          * 
@@ -602,7 +602,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param minSpecialChars Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+         * @param minSpecialChars (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
          * 
          * @return builder
          * 
@@ -613,7 +613,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param minSpecialChars Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+         * @param minSpecialChars (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
          * 
          * @return builder
          * 
@@ -623,7 +623,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param minUpperCaseChars Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+         * @param minUpperCaseChars (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
          * 
          * @return builder
          * 
@@ -634,7 +634,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param minUpperCaseChars Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+         * @param minUpperCaseChars (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
          * 
          * @return builder
          * 
@@ -665,7 +665,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param orReplace Whether to override a previous password policy with the same name.
+         * @param orReplace (Default: `false`) Whether to override a previous password policy with the same name.
          * 
          * @return builder
          * 
@@ -676,7 +676,7 @@ public final class PasswordPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param orReplace Whether to override a previous password policy with the same name.
+         * @param orReplace (Default: `false`) Whether to override a previous password policy with the same name.
          * 
          * @return builder
          * 

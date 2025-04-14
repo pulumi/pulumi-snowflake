@@ -64,7 +64,7 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly gracePeriodInDays!: pulumi.Output<number>;
     /**
-     * Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
      */
     public readonly isOrgAdmin!: pulumi.Output<string | undefined>;
     public readonly lastName!: pulumi.Output<string | undefined>;
@@ -182,7 +182,7 @@ export interface AccountState {
      */
     gracePeriodInDays?: pulumi.Input<number>;
     /**
-     * Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
      */
     isOrgAdmin?: pulumi.Input<string>;
     lastName?: pulumi.Input<string>;
@@ -228,7 +228,7 @@ export interface AccountArgs {
      */
     gracePeriodInDays: pulumi.Input<number>;
     /**
-     * Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
      */
     isOrgAdmin?: pulumi.Input<string>;
     lastName?: pulumi.Input<string>;

@@ -44,7 +44,7 @@ export class ExternalTable extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+     * (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      */
     public readonly autoRefresh!: pulumi.Output<boolean | undefined>;
     /**
@@ -60,7 +60,7 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+     * (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      */
     public readonly copyGrants!: pulumi.Output<boolean | undefined>;
     /**
@@ -96,7 +96,7 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public readonly pattern!: pulumi.Output<string | undefined>;
     /**
-     * Specifies weather to refresh when an external table is created.
+     * (Default: `true`) Specifies weather to refresh when an external table is created.
      */
     public readonly refreshOnCreate!: pulumi.Output<boolean | undefined>;
     /**
@@ -189,7 +189,7 @@ export class ExternalTable extends pulumi.CustomResource {
  */
 export interface ExternalTableState {
     /**
-     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+     * (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      */
     autoRefresh?: pulumi.Input<boolean>;
     /**
@@ -205,7 +205,7 @@ export interface ExternalTableState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+     * (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      */
     copyGrants?: pulumi.Input<boolean>;
     /**
@@ -241,7 +241,7 @@ export interface ExternalTableState {
      */
     pattern?: pulumi.Input<string>;
     /**
-     * Specifies weather to refresh when an external table is created.
+     * (Default: `true`) Specifies weather to refresh when an external table is created.
      */
     refreshOnCreate?: pulumi.Input<boolean>;
     /**
@@ -265,7 +265,7 @@ export interface ExternalTableState {
  */
 export interface ExternalTableArgs {
     /**
-     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
+     * (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      */
     autoRefresh?: pulumi.Input<boolean>;
     /**
@@ -281,7 +281,7 @@ export interface ExternalTableArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
+     * (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      */
     copyGrants?: pulumi.Input<boolean>;
     /**
@@ -309,7 +309,7 @@ export interface ExternalTableArgs {
      */
     pattern?: pulumi.Input<string>;
     /**
-     * Specifies weather to refresh when an external table is created.
+     * (Default: `true`) Specifies weather to refresh when an external table is created.
      */
     refreshOnCreate?: pulumi.Input<boolean>;
     /**

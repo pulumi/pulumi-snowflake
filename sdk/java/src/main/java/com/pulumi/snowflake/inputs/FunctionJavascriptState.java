@@ -36,14 +36,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies a comment for the function.
+     * (Default: `user-defined function`) Specifies a comment for the function.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return Specifies a comment for the function.
+     * @return (Default: `user-defined function`) Specifies a comment for the function.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -66,14 +66,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     @Import(name="enableConsoleOutput")
     private @Nullable Output<Boolean> enableConsoleOutput;
 
     /**
-     * @return Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * @return Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     public Optional<Output<Boolean>> enableConsoleOutput() {
@@ -355,7 +355,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param comment Specifies a comment for the function.
+         * @param comment (Default: `user-defined function`) Specifies a comment for the function.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param comment Specifies a comment for the function.
+         * @param comment (Default: `user-defined function`) Specifies a comment for the function.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
          * 
          * @return builder
          * 

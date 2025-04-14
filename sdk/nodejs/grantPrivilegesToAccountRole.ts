@@ -68,16 +68,16 @@ export class GrantPrivilegesToAccountRole extends pulumi.CustomResource {
      */
     public readonly accountRoleName!: pulumi.Output<string>;
     /**
-     * Grant all privileges on the account role.
+     * (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
      */
     public readonly allPrivileges!: pulumi.Output<boolean | undefined>;
     public readonly alwaysApply!: pulumi.Output<boolean | undefined>;
     /**
-     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
+     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
     public readonly alwaysApplyTrigger!: pulumi.Output<string | undefined>;
     /**
-     * If true, the privileges will be granted on the account.
+     * (Default: `false`) If true, the privileges will be granted on the account.
      */
     public readonly onAccount!: pulumi.Output<boolean | undefined>;
     /**
@@ -97,7 +97,7 @@ export class GrantPrivilegesToAccountRole extends pulumi.CustomResource {
      */
     public readonly privileges!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies whether the grantee can grant the privileges to other users.
+     * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      */
     public readonly withGrantOption!: pulumi.Output<boolean | undefined>;
 
@@ -154,16 +154,16 @@ export interface GrantPrivilegesToAccountRoleState {
      */
     accountRoleName?: pulumi.Input<string>;
     /**
-     * Grant all privileges on the account role.
+     * (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
      */
     allPrivileges?: pulumi.Input<boolean>;
     alwaysApply?: pulumi.Input<boolean>;
     /**
-     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
+     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
     alwaysApplyTrigger?: pulumi.Input<string>;
     /**
-     * If true, the privileges will be granted on the account.
+     * (Default: `false`) If true, the privileges will be granted on the account.
      */
     onAccount?: pulumi.Input<boolean>;
     /**
@@ -183,7 +183,7 @@ export interface GrantPrivilegesToAccountRoleState {
      */
     privileges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies whether the grantee can grant the privileges to other users.
+     * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      */
     withGrantOption?: pulumi.Input<boolean>;
 }
@@ -197,16 +197,16 @@ export interface GrantPrivilegesToAccountRoleArgs {
      */
     accountRoleName: pulumi.Input<string>;
     /**
-     * Grant all privileges on the account role.
+     * (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
      */
     allPrivileges?: pulumi.Input<boolean>;
     alwaysApply?: pulumi.Input<boolean>;
     /**
-     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
+     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
      */
     alwaysApplyTrigger?: pulumi.Input<string>;
     /**
-     * If true, the privileges will be granted on the account.
+     * (Default: `false`) If true, the privileges will be granted on the account.
      */
     onAccount?: pulumi.Input<boolean>;
     /**
@@ -226,7 +226,7 @@ export interface GrantPrivilegesToAccountRoleArgs {
      */
     privileges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies whether the grantee can grant the privileges to other users.
+     * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      */
     withGrantOption?: pulumi.Input<boolean>;
 }

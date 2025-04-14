@@ -36,14 +36,14 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
     }
 
     /**
-     * Grant all privileges on the account role.
+     * (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
      * 
      */
     @Import(name="allPrivileges")
     private @Nullable Output<Boolean> allPrivileges;
 
     /**
-     * @return Grant all privileges on the account role.
+     * @return (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
      * 
      */
     public Optional<Output<Boolean>> allPrivileges() {
@@ -58,14 +58,14 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
     }
 
     /**
-     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     @Import(name="alwaysApplyTrigger")
     private @Nullable Output<String> alwaysApplyTrigger;
 
     /**
-     * @return This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+     * @return (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     public Optional<Output<String>> alwaysApplyTrigger() {
@@ -73,14 +73,14 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
     }
 
     /**
-     * If true, the privileges will be granted on the account.
+     * (Default: `false`) If true, the privileges will be granted on the account.
      * 
      */
     @Import(name="onAccount")
     private @Nullable Output<Boolean> onAccount;
 
     /**
-     * @return If true, the privileges will be granted on the account.
+     * @return (Default: `false`) If true, the privileges will be granted on the account.
      * 
      */
     public Optional<Output<Boolean>> onAccount() {
@@ -148,14 +148,14 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
     }
 
     /**
-     * Specifies whether the grantee can grant the privileges to other users.
+     * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      * 
      */
     @Import(name="withGrantOption")
     private @Nullable Output<Boolean> withGrantOption;
 
     /**
-     * @return Specifies whether the grantee can grant the privileges to other users.
+     * @return (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      * 
      */
     public Optional<Output<Boolean>> withGrantOption() {
@@ -217,7 +217,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         }
 
         /**
-         * @param allPrivileges Grant all privileges on the account role.
+         * @param allPrivileges (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
          * 
          * @return builder
          * 
@@ -228,7 +228,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         }
 
         /**
-         * @param allPrivileges Grant all privileges on the account role.
+         * @param allPrivileges (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         }
 
         /**
-         * @param alwaysApplyTrigger This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+         * @param alwaysApplyTrigger (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         }
 
         /**
-         * @param alwaysApplyTrigger This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+         * @param alwaysApplyTrigger (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         }
 
         /**
-         * @param onAccount If true, the privileges will be granted on the account.
+         * @param onAccount (Default: `false`) If true, the privileges will be granted on the account.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         }
 
         /**
-         * @param onAccount If true, the privileges will be granted on the account.
+         * @param onAccount (Default: `false`) If true, the privileges will be granted on the account.
          * 
          * @return builder
          * 
@@ -383,7 +383,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         }
 
         /**
-         * @param withGrantOption Specifies whether the grantee can grant the privileges to other users.
+         * @param withGrantOption (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
          * 
          * @return builder
          * 
@@ -394,7 +394,7 @@ public final class GrantPrivilegesToAccountRoleState extends com.pulumi.resource
         }
 
         /**
-         * @param withGrantOption Specifies whether the grantee can grant the privileges to other users.
+         * @param withGrantOption (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
          * 
          * @return builder
          * 

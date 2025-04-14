@@ -66,7 +66,7 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Allows replicating objects to accounts on lower editions.
+     * (Default: `false`) Allows replicating objects to accounts on lower editions.
      */
     public readonly ignoreEditionCheck!: pulumi.Output<boolean | undefined>;
     /**
@@ -152,7 +152,7 @@ export interface FailoverGroupState {
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Allows replicating objects to accounts on lower editions.
+     * (Default: `false`) Allows replicating objects to accounts on lower editions.
      */
     ignoreEditionCheck?: pulumi.Input<boolean>;
     /**
@@ -194,7 +194,7 @@ export interface FailoverGroupArgs {
      */
     fromReplica?: pulumi.Input<inputs.FailoverGroupFromReplica>;
     /**
-     * Allows replicating objects to accounts on lower editions.
+     * (Default: `false`) Allows replicating objects to accounts on lower editions.
      */
     ignoreEditionCheck?: pulumi.Input<boolean>;
     /**

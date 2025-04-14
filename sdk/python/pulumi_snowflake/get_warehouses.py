@@ -73,7 +73,7 @@ class GetWarehousesResult:
     @pulumi.getter(name="withDescribe")
     def with_describe(self) -> Optional[builtins.bool]:
         """
-        Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+        (Default: `true`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
         """
         return pulumi.get(self, "with_describe")
 
@@ -81,7 +81,7 @@ class GetWarehousesResult:
     @pulumi.getter(name="withParameters")
     def with_parameters(self) -> Optional[builtins.bool]:
         """
-        Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        (Default: `true`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
         """
         return pulumi.get(self, "with_parameters")
 
@@ -108,8 +108,8 @@ def get_warehouses(like: Optional[builtins.str] = None,
 
 
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param builtins.bool with_describe: Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
-    :param builtins.bool with_parameters: Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+    :param builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
     """
     __args__ = dict()
     __args__['like'] = like
@@ -133,8 +133,8 @@ def get_warehouses_output(like: Optional[pulumi.Input[Optional[builtins.str]]] =
 
 
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param builtins.bool with_describe: Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
-    :param builtins.bool with_parameters: Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+    :param builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
     """
     __args__ = dict()
     __args__['like'] = like
