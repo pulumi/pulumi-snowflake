@@ -238,6 +238,10 @@
             "tokenAccessor": {
                 "$ref": "#/types/snowflake:config/tokenAccessor:tokenAccessor"
             },
+            "useLegacyTomlFile": {
+                "type": "boolean",
+                "description": "True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new\nformat. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment\nvariable.\n"
+            },
             "user": {
                 "type": "string",
                 "description": "Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.\n"
@@ -4512,7 +4516,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | DATASETS.\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -4603,7 +4607,7 @@
                 },
                 "objectTypePlural": {
                     "type": "string",
-                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | DATASETS.\n",
+                    "description": "The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.\n",
                     "willReplaceOnChanges": true
                 }
             },
@@ -33046,6 +33050,10 @@
             "tokenAccessor": {
                 "$ref": "#/types/snowflake:index/ProviderTokenAccessor:ProviderTokenAccessor"
             },
+            "useLegacyTomlFile": {
+                "type": "boolean",
+                "description": "True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new\nformat. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment\nvariable.\n"
+            },
             "user": {
                 "type": "string",
                 "description": "Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.\n"
@@ -33249,6 +33257,10 @@
             },
             "tokenAccessor": {
                 "$ref": "#/types/snowflake:index/ProviderTokenAccessor:ProviderTokenAccessor"
+            },
+            "useLegacyTomlFile": {
+                "type": "boolean",
+                "description": "True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new\nformat. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment\nvariable.\n"
             },
             "user": {
                 "type": "string",
