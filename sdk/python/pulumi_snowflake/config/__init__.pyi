@@ -240,6 +240,13 @@ variable.
 
 tokenAccessor: Optional[str]
 
+useLegacyTomlFile: Optional[bool]
+"""
+True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+variable.
+"""
+
 user: Optional[str]
 """
 Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.

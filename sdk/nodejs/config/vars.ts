@@ -462,6 +462,19 @@ Object.defineProperty(exports, "tokenAccessor", {
 });
 
 /**
+ * True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+ * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+ * variable.
+ */
+export declare const useLegacyTomlFile: boolean | undefined;
+Object.defineProperty(exports, "useLegacyTomlFile", {
+    get() {
+        return __config.getObject<boolean>("useLegacyTomlFile");
+    },
+    enumerable: true,
+});
+
+/**
  * Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
  */
 export declare const user: string | undefined;

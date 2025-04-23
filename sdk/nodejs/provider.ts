@@ -199,6 +199,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["tmpDirectoryPath"] = args ? args.tmpDirectoryPath : undefined;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
             resourceInputs["tokenAccessor"] = pulumi.output(args ? args.tokenAccessor : undefined).apply(JSON.stringify);
+            resourceInputs["useLegacyTomlFile"] = pulumi.output(args ? args.useLegacyTomlFile : undefined).apply(JSON.stringify);
             resourceInputs["user"] = args ? args.user : undefined;
             resourceInputs["validateDefaultParameters"] = args ? args.validateDefaultParameters : undefined;
             resourceInputs["warehouse"] = (args ? args.warehouse : undefined) ?? utilities.getEnv("SNOWFLAKE_WAREHOUSE");
@@ -400,6 +401,12 @@ export interface ProviderArgs {
      */
     token?: pulumi.Input<string>;
     tokenAccessor?: pulumi.Input<inputs.ProviderTokenAccessor>;
+    /**
+     * True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+     * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+     * variable.
+     */
+    useLegacyTomlFile?: pulumi.Input<boolean>;
     /**
      * Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
      */
