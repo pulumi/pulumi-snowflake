@@ -760,6 +760,9 @@ class _FunctionJavaState:
 
 
 class FunctionJava(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/functionJava:FunctionJava"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

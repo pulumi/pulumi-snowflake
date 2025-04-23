@@ -387,6 +387,9 @@ class _OauthIntegrationForPartnerApplicationsState:
 
 
 class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -456,6 +456,9 @@ class _StorageIntegrationState:
 
 
 class StorageIntegration(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/storageIntegration:StorageIntegration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

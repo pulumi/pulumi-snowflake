@@ -551,6 +551,9 @@ class _ExternalTableState:
 
 
 class ExternalTable(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/externalTable:ExternalTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

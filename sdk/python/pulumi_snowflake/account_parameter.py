@@ -96,6 +96,9 @@ class _AccountParameterState:
 
 
 class AccountParameter(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/accountParameter:AccountParameter"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

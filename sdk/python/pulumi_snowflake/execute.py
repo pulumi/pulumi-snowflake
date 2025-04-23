@@ -144,6 +144,9 @@ class _ExecuteState:
 
 
 class Execute(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/execute:Execute"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

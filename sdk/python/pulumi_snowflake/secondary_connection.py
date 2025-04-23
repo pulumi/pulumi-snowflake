@@ -179,6 +179,9 @@ class _SecondaryConnectionState:
 
 
 class SecondaryConnection(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/secondaryConnection:SecondaryConnection"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

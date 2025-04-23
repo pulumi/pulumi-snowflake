@@ -340,6 +340,9 @@ class _FailoverGroupState:
 
 
 class FailoverGroup(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/failoverGroup:FailoverGroup"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
