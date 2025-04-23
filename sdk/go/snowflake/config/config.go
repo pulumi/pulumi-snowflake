@@ -285,6 +285,13 @@ func GetTokenAccessor(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:tokenAccessor")
 }
 
+// True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+// format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+// variable.
+func GetUseLegacyTomlFile(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "snowflake:useLegacyTomlFile")
+}
+
 // Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
 func GetUser(ctx *pulumi.Context) string {
 	return config.Get(ctx, "snowflake:user")

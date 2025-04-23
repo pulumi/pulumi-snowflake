@@ -323,6 +323,15 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('tokenAccessor')
 
     @property
+    def use_legacy_toml_file(self) -> Optional[bool]:
+        """
+        True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+        format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+        variable.
+        """
+        return __config__.get_bool('useLegacyTomlFile')
+
+    @property
     def user(self) -> Optional[str]:
         """
         Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.

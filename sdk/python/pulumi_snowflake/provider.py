@@ -59,6 +59,7 @@ class ProviderArgs:
                  tmp_directory_path: Optional[pulumi.Input[builtins.str]] = None,
                  token: Optional[pulumi.Input[builtins.str]] = None,
                  token_accessor: Optional[pulumi.Input['ProviderTokenAccessorArgs']] = None,
+                 use_legacy_toml_file: Optional[pulumi.Input[builtins.bool]] = None,
                  user: Optional[pulumi.Input[builtins.str]] = None,
                  validate_default_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  warehouse: Optional[pulumi.Input[builtins.str]] = None):
@@ -139,6 +140,9 @@ class ProviderArgs:
         :param pulumi.Input[builtins.str] tmp_directory_path: Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
                the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
         :param pulumi.Input[builtins.str] token: Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
+               variable.
+        :param pulumi.Input[builtins.bool] use_legacy_toml_file: True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+               format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
                variable.
         :param pulumi.Input[builtins.str] user: Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
         :param pulumi.Input[builtins.str] validate_default_parameters: True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
@@ -234,6 +238,8 @@ class ProviderArgs:
             pulumi.set(__self__, "token", token)
         if token_accessor is not None:
             pulumi.set(__self__, "token_accessor", token_accessor)
+        if use_legacy_toml_file is not None:
+            pulumi.set(__self__, "use_legacy_toml_file", use_legacy_toml_file)
         if user is not None:
             pulumi.set(__self__, "user", user)
         if validate_default_parameters is not None:
@@ -734,6 +740,20 @@ class ProviderArgs:
         pulumi.set(self, "token_accessor", value)
 
     @property
+    @pulumi.getter(name="useLegacyTomlFile")
+    def use_legacy_toml_file(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+        format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+        variable.
+        """
+        return pulumi.get(self, "use_legacy_toml_file")
+
+    @use_legacy_toml_file.setter
+    def use_legacy_toml_file(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "use_legacy_toml_file", value)
+
+    @property
     @pulumi.getter
     def user(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -815,6 +835,7 @@ class Provider(pulumi.ProviderResource):
                  tmp_directory_path: Optional[pulumi.Input[builtins.str]] = None,
                  token: Optional[pulumi.Input[builtins.str]] = None,
                  token_accessor: Optional[pulumi.Input[Union['ProviderTokenAccessorArgs', 'ProviderTokenAccessorArgsDict']]] = None,
+                 use_legacy_toml_file: Optional[pulumi.Input[builtins.bool]] = None,
                  user: Optional[pulumi.Input[builtins.str]] = None,
                  validate_default_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  warehouse: Optional[pulumi.Input[builtins.str]] = None,
@@ -903,6 +924,9 @@ class Provider(pulumi.ProviderResource):
                the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
         :param pulumi.Input[builtins.str] token: Token to use for OAuth and other forms of token based auth. Can also be sourced from the `SNOWFLAKE_TOKEN` environment
                variable.
+        :param pulumi.Input[builtins.bool] use_legacy_toml_file: True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+               format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+               variable.
         :param pulumi.Input[builtins.str] user: Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
         :param pulumi.Input[builtins.str] validate_default_parameters: True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
                connection is established. Can also be sourced from the `SNOWFLAKE_VALIDATE_DEFAULT_PARAMETERS` environment variable.
@@ -974,6 +998,7 @@ class Provider(pulumi.ProviderResource):
                  tmp_directory_path: Optional[pulumi.Input[builtins.str]] = None,
                  token: Optional[pulumi.Input[builtins.str]] = None,
                  token_accessor: Optional[pulumi.Input[Union['ProviderTokenAccessorArgs', 'ProviderTokenAccessorArgsDict']]] = None,
+                 use_legacy_toml_file: Optional[pulumi.Input[builtins.bool]] = None,
                  user: Optional[pulumi.Input[builtins.str]] = None,
                  validate_default_parameters: Optional[pulumi.Input[builtins.str]] = None,
                  warehouse: Optional[pulumi.Input[builtins.str]] = None,
@@ -1036,6 +1061,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["tmp_directory_path"] = tmp_directory_path
             __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
             __props__.__dict__["token_accessor"] = pulumi.Output.from_input(token_accessor).apply(pulumi.runtime.to_json) if token_accessor is not None else None
+            __props__.__dict__["use_legacy_toml_file"] = pulumi.Output.from_input(use_legacy_toml_file).apply(pulumi.runtime.to_json) if use_legacy_toml_file is not None else None
             __props__.__dict__["user"] = user
             __props__.__dict__["validate_default_parameters"] = validate_default_parameters
             if warehouse is None:

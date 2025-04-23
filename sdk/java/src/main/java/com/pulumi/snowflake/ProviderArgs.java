@@ -656,6 +656,25 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+     * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+     * variable.
+     * 
+     */
+    @Import(name="useLegacyTomlFile", json=true)
+    private @Nullable Output<Boolean> useLegacyTomlFile;
+
+    /**
+     * @return True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+     * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+     * variable.
+     * 
+     */
+    public Optional<Output<Boolean>> useLegacyTomlFile() {
+        return Optional.ofNullable(this.useLegacyTomlFile);
+    }
+
+    /**
      * Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
      * 
      */
@@ -745,6 +764,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.tmpDirectoryPath = $.tmpDirectoryPath;
         this.token = $.token;
         this.tokenAccessor = $.tokenAccessor;
+        this.useLegacyTomlFile = $.useLegacyTomlFile;
         this.user = $.user;
         this.validateDefaultParameters = $.validateDefaultParameters;
         this.warehouse = $.warehouse;
@@ -1624,6 +1644,31 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
 
         public Builder tokenAccessor(ProviderTokenAccessorArgs tokenAccessor) {
             return tokenAccessor(Output.of(tokenAccessor));
+        }
+
+        /**
+         * @param useLegacyTomlFile True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+         * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+         * variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useLegacyTomlFile(@Nullable Output<Boolean> useLegacyTomlFile) {
+            $.useLegacyTomlFile = useLegacyTomlFile;
+            return this;
+        }
+
+        /**
+         * @param useLegacyTomlFile True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+         * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+         * variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useLegacyTomlFile(Boolean useLegacyTomlFile) {
+            return useLegacyTomlFile(Output.of(useLegacyTomlFile));
         }
 
         /**

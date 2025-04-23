@@ -279,6 +279,10 @@ type providerArgs struct {
 	// variable.
 	Token         *string                `pulumi:"token"`
 	TokenAccessor *ProviderTokenAccessor `pulumi:"tokenAccessor"`
+	// True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+	// format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+	// variable.
+	UseLegacyTomlFile *bool `pulumi:"useLegacyTomlFile"`
 	// Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
 	User *string `pulumi:"user"`
 	// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a
@@ -405,6 +409,10 @@ type ProviderArgs struct {
 	// variable.
 	Token         pulumi.StringPtrInput
 	TokenAccessor ProviderTokenAccessorPtrInput
+	// True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+	// format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+	// variable.
+	UseLegacyTomlFile pulumi.BoolPtrInput
 	// Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
 	User pulumi.StringPtrInput
 	// True by default. If false, disables the validation checks for Database, Schema, Warehouse and Role at the time a

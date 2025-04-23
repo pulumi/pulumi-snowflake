@@ -446,6 +446,18 @@ namespace Pulumi.Snowflake
             set => _tokenAccessor.Set(value);
         }
 
+        private static readonly __Value<bool?> _useLegacyTomlFile = new __Value<bool?>(() => __config.GetBoolean("useLegacyTomlFile"));
+        /// <summary>
+        /// True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+        /// format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
+        /// variable.
+        /// </summary>
+        public static bool? UseLegacyTomlFile
+        {
+            get => _useLegacyTomlFile.Get();
+            set => _useLegacyTomlFile.Set(value);
+        }
+
         private static readonly __Value<string?> _user = new __Value<string?>(() => __config.Get("user"));
         /// <summary>
         /// Username. Required unless using `profile`. Can also be sourced from the `SNOWFLAKE_USER` environment variable.
