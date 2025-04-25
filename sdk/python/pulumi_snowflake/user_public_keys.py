@@ -130,6 +130,9 @@ class _UserPublicKeysState:
 
 
 class UserPublicKeys(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/userPublicKeys:UserPublicKeys"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

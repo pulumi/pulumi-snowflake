@@ -269,6 +269,9 @@ class _NetworkRuleState:
 
 
 class NetworkRule(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/networkRule:NetworkRule"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

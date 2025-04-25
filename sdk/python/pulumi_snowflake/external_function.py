@@ -606,6 +606,9 @@ class _ExternalFunctionState:
 
 
 class ExternalFunction(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/externalFunction:ExternalFunction"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

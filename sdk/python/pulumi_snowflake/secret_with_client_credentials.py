@@ -288,6 +288,9 @@ class _SecretWithClientCredentialsState:
 
 
 class SecretWithClientCredentials(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/secretWithClientCredentials:SecretWithClientCredentials"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

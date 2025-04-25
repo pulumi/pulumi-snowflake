@@ -425,6 +425,9 @@ class _TableConstraintState:
 
 
 class TableConstraint(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/tableConstraint:TableConstraint"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

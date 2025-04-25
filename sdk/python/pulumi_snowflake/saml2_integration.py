@@ -624,6 +624,9 @@ class _Saml2IntegrationState:
 
 
 class Saml2Integration(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/saml2Integration:Saml2Integration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -759,6 +759,9 @@ class _FunctionScalaState:
 
 
 class FunctionScala(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/functionScala:FunctionScala"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
