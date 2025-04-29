@@ -163,6 +163,9 @@ class _DatabaseRoleState:
 
 
 class DatabaseRole(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/databaseRole:DatabaseRole"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

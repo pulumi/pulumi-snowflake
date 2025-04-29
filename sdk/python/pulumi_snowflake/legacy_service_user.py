@@ -2444,6 +2444,9 @@ class _LegacyServiceUserState:
 
 
 class LegacyServiceUser(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/legacyServiceUser:LegacyServiceUser"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

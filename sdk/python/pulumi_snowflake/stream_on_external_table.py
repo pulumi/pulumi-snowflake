@@ -373,6 +373,9 @@ class _StreamOnExternalTableState:
 
 
 class StreamOnExternalTable(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/streamOnExternalTable:StreamOnExternalTable"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

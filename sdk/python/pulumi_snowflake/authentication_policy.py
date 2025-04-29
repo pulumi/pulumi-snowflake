@@ -370,6 +370,9 @@ class _AuthenticationPolicyState:
 
 
 class AuthenticationPolicy(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/authenticationPolicy:AuthenticationPolicy"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

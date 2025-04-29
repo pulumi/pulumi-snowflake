@@ -798,6 +798,9 @@ class _ProcedureScalaState:
 
 
 class ProcedureScala(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/procedureScala:ProcedureScala"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -129,6 +129,9 @@ class _NetworkPolicyAttachmentState:
 
 
 class NetworkPolicyAttachment(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

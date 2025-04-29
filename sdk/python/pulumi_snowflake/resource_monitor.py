@@ -356,6 +356,9 @@ class _ResourceMonitorState:
 
 
 class ResourceMonitor(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/resourceMonitor:ResourceMonitor"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

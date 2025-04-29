@@ -211,6 +211,9 @@ class _ExternalVolumeState:
 
 
 class ExternalVolume(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/externalVolume:ExternalVolume"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

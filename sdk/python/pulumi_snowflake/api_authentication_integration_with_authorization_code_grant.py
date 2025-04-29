@@ -425,6 +425,9 @@ class _ApiAuthenticationIntegrationWithAuthorizationCodeGrantState:
 
 
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrant(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

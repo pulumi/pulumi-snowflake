@@ -607,6 +607,9 @@ class _ExternalOauthIntegrationState:
 
 
 class ExternalOauthIntegration(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/externalOauthIntegration:ExternalOauthIntegration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
