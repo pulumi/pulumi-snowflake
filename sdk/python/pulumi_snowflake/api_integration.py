@@ -496,6 +496,9 @@ class _ApiIntegrationState:
 
 
 class ApiIntegration(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/apiIntegration:ApiIntegration"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

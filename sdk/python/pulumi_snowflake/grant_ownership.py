@@ -163,6 +163,9 @@ class _GrantOwnershipState:
 
 
 class GrantOwnership(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/grantOwnership:GrantOwnership"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

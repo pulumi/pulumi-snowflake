@@ -798,6 +798,9 @@ class _ProcedureJavaState:
 
 
 class ProcedureJava(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/procedureJava:ProcedureJava"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

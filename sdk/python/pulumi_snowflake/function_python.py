@@ -759,6 +759,9 @@ class _FunctionPythonState:
 
 
 class FunctionPython(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/functionPython:FunctionPython"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

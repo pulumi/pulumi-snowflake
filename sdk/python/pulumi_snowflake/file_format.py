@@ -1199,6 +1199,9 @@ class _FileFormatState:
 
 
 class FileFormat(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/fileFormat:FileFormat"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

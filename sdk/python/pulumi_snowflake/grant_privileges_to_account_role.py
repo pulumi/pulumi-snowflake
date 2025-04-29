@@ -347,6 +347,9 @@ class _GrantPrivilegesToAccountRoleState:
 
 
 class GrantPrivilegesToAccountRole(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

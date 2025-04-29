@@ -129,6 +129,9 @@ class _GrantApplicationRoleState:
 
 
 class GrantApplicationRole(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/grantApplicationRole:GrantApplicationRole"
+
     @overload
     def __init__(__self__,
                  resource_name: str,

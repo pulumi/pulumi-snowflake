@@ -311,6 +311,9 @@ class _SecretWithAuthorizationCodeGrantState:
 
 
 class SecretWithAuthorizationCodeGrant(pulumi.CustomResource):
+
+    pulumi_type = "snowflake:index/secretWithAuthorizationCodeGrant:SecretWithAuthorizationCodeGrant"
+
     @overload
     def __init__(__self__,
                  resource_name: str,
