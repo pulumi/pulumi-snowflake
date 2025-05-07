@@ -33279,6 +33279,9 @@
                     ]
                 }
             }
+        },
+        "methods": {
+            "terraformConfig": "pulumi:providers:snowflake/terraformConfig"
         }
     },
     "resources": {
@@ -53377,6 +53380,35 @@
         }
     },
     "functions": {
+        "pulumi:providers:snowflake/terraformConfig": {
+            "description": "This function returns a Terraform config object with terraform-namecased keys,to be used with the Terraform Module Provider.",
+            "inputs": {
+                "properties": {
+                    "__self__": {
+                        "type": "ref",
+                        "$ref": "#/resources/pulumi:providers:snowflake"
+                    }
+                },
+                "type": "pulumi:providers:snowflake/terraformConfig",
+                "required": [
+                    "__self__"
+                ]
+            },
+            "outputs": {
+                "properties": {
+                    "result": {
+                        "additionalProperties": {
+                            "$ref": "pulumi.json#/Any"
+                        },
+                        "type": "object"
+                    }
+                },
+                "required": [
+                    "result"
+                ],
+                "type": "object"
+            }
+        },
         "snowflake:index/getAccountRoles:getAccountRoles": {
             "description": "Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.\n\n",
             "inputs": {
