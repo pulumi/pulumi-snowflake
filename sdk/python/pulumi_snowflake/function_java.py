@@ -759,10 +759,8 @@ class _FunctionJavaState:
         pulumi.set(self, "trace_level", value)
 
 
+@pulumi.type_token("snowflake:index/functionJava:FunctionJava")
 class FunctionJava(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/functionJava:FunctionJava"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

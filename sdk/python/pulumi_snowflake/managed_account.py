@@ -287,10 +287,8 @@ class _ManagedAccountState:
         pulumi.set(self, "url", value)
 
 
+@pulumi.type_token("snowflake:index/managedAccount:ManagedAccount")
 class ManagedAccount(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/managedAccount:ManagedAccount"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

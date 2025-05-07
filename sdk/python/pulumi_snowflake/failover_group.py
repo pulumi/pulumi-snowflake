@@ -339,10 +339,8 @@ class _FailoverGroupState:
         pulumi.set(self, "replication_schedule", value)
 
 
+@pulumi.type_token("snowflake:index/failoverGroup:FailoverGroup")
 class FailoverGroup(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/failoverGroup:FailoverGroup"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

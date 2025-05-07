@@ -319,10 +319,8 @@ class _GrantPrivilegesToShareState:
         pulumi.set(self, "to_share", value)
 
 
+@pulumi.type_token("snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare")
 class GrantPrivilegesToShare(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

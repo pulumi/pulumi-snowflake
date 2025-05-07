@@ -688,10 +688,8 @@ class _SecondaryDatabaseState:
         pulumi.set(self, "user_task_timeout_ms", value)
 
 
+@pulumi.type_token("snowflake:index/secondaryDatabase:SecondaryDatabase")
 class SecondaryDatabase(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/secondaryDatabase:SecondaryDatabase"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

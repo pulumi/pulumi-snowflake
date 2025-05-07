@@ -424,10 +424,8 @@ class _TableConstraintState:
         pulumi.set(self, "validate", value)
 
 
+@pulumi.type_token("snowflake:index/tableConstraint:TableConstraint")
 class TableConstraint(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/tableConstraint:TableConstraint"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

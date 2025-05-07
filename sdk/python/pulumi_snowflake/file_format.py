@@ -1198,10 +1198,8 @@ class _FileFormatState:
         pulumi.set(self, "trim_space", value)
 
 
+@pulumi.type_token("snowflake:index/fileFormat:FileFormat")
 class FileFormat(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/fileFormat:FileFormat"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

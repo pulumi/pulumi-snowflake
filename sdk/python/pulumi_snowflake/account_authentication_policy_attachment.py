@@ -64,10 +64,8 @@ class _AccountAuthenticationPolicyAttachmentState:
         pulumi.set(self, "authentication_policy", value)
 
 
+@pulumi.type_token("snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment")
 class AccountAuthenticationPolicyAttachment(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/accountAuthenticationPolicyAttachment:AccountAuthenticationPolicyAttachment"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -591,10 +591,8 @@ class _PasswordPolicyState:
         pulumi.set(self, "schema", value)
 
 
+@pulumi.type_token("snowflake:index/passwordPolicy:PasswordPolicy")
 class PasswordPolicy(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/passwordPolicy:PasswordPolicy"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

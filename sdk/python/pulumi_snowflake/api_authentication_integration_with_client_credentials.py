@@ -392,10 +392,8 @@ class _ApiAuthenticationIntegrationWithClientCredentialsState:
         pulumi.set(self, "show_outputs", value)
 
 
+@pulumi.type_token("snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials")
 class ApiAuthenticationIntegrationWithClientCredentials(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

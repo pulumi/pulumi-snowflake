@@ -128,10 +128,8 @@ class _GrantApplicationRoleState:
         pulumi.set(self, "parent_account_role_name", value)
 
 
+@pulumi.type_token("snowflake:index/grantApplicationRole:GrantApplicationRole")
 class GrantApplicationRole(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/grantApplicationRole:GrantApplicationRole"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

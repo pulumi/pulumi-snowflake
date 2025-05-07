@@ -334,10 +334,8 @@ class _AlertState:
         pulumi.set(self, "warehouse", value)
 
 
+@pulumi.type_token("snowflake:index/alert:Alert")
 class Alert(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/alert:Alert"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

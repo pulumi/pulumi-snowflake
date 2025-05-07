@@ -561,10 +561,8 @@ class _OauthIntegrationForCustomClientsState:
         pulumi.set(self, "show_outputs", value)
 
 
+@pulumi.type_token("snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients")
 class OauthIntegrationForCustomClients(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

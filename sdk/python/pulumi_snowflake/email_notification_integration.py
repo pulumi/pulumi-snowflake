@@ -160,10 +160,8 @@ class _EmailNotificationIntegrationState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("snowflake:index/emailNotificationIntegration:EmailNotificationIntegration")
 class EmailNotificationIntegration(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/emailNotificationIntegration:EmailNotificationIntegration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

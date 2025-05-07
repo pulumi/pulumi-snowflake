@@ -175,10 +175,8 @@ class _PrimaryConnectionState:
         pulumi.set(self, "show_outputs", value)
 
 
+@pulumi.type_token("snowflake:index/primaryConnection:PrimaryConnection")
 class PrimaryConnection(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/primaryConnection:PrimaryConnection"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
