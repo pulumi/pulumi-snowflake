@@ -399,10 +399,8 @@ class _StreamlitState:
         pulumi.set(self, "title", value)
 
 
+@pulumi.type_token("snowflake:index/streamlit:Streamlit")
 class Streamlit(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/streamlit:Streamlit"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

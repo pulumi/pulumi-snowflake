@@ -595,10 +595,8 @@ class _WarehouseState:
         pulumi.set(self, "warehouse_type", value)
 
 
+@pulumi.type_token("snowflake:index/warehouse:Warehouse")
 class Warehouse(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/warehouse:Warehouse"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

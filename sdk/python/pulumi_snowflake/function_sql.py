@@ -503,10 +503,8 @@ class _FunctionSqlState:
         pulumi.set(self, "trace_level", value)
 
 
+@pulumi.type_token("snowflake:index/functionSql:FunctionSql")
 class FunctionSql(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/functionSql:FunctionSql"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

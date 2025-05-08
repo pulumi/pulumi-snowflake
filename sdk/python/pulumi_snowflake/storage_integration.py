@@ -455,10 +455,8 @@ class _StorageIntegrationState:
         pulumi.set(self, "type", value)
 
 
+@pulumi.type_token("snowflake:index/storageIntegration:StorageIntegration")
 class StorageIntegration(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/storageIntegration:StorageIntegration"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

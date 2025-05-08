@@ -162,10 +162,8 @@ class _DatabaseRoleState:
         pulumi.set(self, "show_outputs", value)
 
 
+@pulumi.type_token("snowflake:index/databaseRole:DatabaseRole")
 class DatabaseRole(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/databaseRole:DatabaseRole"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

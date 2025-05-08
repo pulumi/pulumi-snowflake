@@ -193,10 +193,8 @@ class _ObjectParameterState:
         pulumi.set(self, "value", value)
 
 
+@pulumi.type_token("snowflake:index/objectParameter:ObjectParameter")
 class ObjectParameter(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/objectParameter:ObjectParameter"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

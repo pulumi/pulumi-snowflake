@@ -386,10 +386,8 @@ class _OauthIntegrationForPartnerApplicationsState:
         pulumi.set(self, "show_outputs", value)
 
 
+@pulumi.type_token("snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications")
 class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

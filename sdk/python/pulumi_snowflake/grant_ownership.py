@@ -162,10 +162,8 @@ class _GrantOwnershipState:
         pulumi.set(self, "outbound_privileges", value)
 
 
+@pulumi.type_token("snowflake:index/grantOwnership:GrantOwnership")
 class GrantOwnership(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/grantOwnership:GrantOwnership"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
