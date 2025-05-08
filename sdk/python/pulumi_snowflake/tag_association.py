@@ -189,10 +189,8 @@ class _TagAssociationState:
         pulumi.set(self, "tag_value", value)
 
 
+@pulumi.type_token("snowflake:index/tagAssociation:TagAssociation")
 class TagAssociation(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/tagAssociation:TagAssociation"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

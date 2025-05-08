@@ -123,10 +123,8 @@ class _AccountRoleState:
         pulumi.set(self, "show_outputs", value)
 
 
+@pulumi.type_token("snowflake:index/accountRole:AccountRole")
 class AccountRole(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/accountRole:AccountRole"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

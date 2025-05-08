@@ -543,10 +543,8 @@ class _ProcedureJavascriptState:
         pulumi.set(self, "trace_level", value)
 
 
+@pulumi.type_token("snowflake:index/procedureJavascript:ProcedureJavascript")
 class ProcedureJavascript(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/procedureJavascript:ProcedureJavascript"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

@@ -347,10 +347,8 @@ class _CortexSearchServiceState:
         pulumi.set(self, "warehouse", value)
 
 
+@pulumi.type_token("snowflake:index/cortexSearchService:CortexSearchService")
 class CortexSearchService(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/cortexSearchService:CortexSearchService"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

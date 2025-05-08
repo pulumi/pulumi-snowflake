@@ -145,10 +145,8 @@ class _ShareState:
         pulumi.set(self, "name", value)
 
 
+@pulumi.type_token("snowflake:index/share:Share")
 class Share(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/share:Share"
-
     @overload
     def __init__(__self__,
                  resource_name: str,

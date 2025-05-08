@@ -248,10 +248,8 @@ class _SecretWithGenericStringState:
         pulumi.set(self, "show_outputs", value)
 
 
+@pulumi.type_token("snowflake:index/secretWithGenericString:SecretWithGenericString")
 class SecretWithGenericString(pulumi.CustomResource):
-
-    pulumi_type = "snowflake:index/secretWithGenericString:SecretWithGenericString"
-
     @overload
     def __init__(__self__,
                  resource_name: str,
