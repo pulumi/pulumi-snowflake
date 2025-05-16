@@ -7,23 +7,20 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ```sh
-// $ pulumi import snowflake:index/share:Share example name
-// ```
 type Share struct {
 	pulumi.CustomResourceState
 
-	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+	// 'organization_name.account_name
 	Accounts pulumi.StringArrayOutput `pulumi:"accounts"`
 	// Specifies a comment for the managed account.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the share; must be unique for the account in which the share is created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -59,22 +56,26 @@ func GetShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Share resources.
 type shareState struct {
-	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+	// 'organization_name.account_name
 	Accounts []string `pulumi:"accounts"`
 	// Specifies a comment for the managed account.
 	Comment *string `pulumi:"comment"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the share; must be unique for the account in which the share is created.
 	Name *string `pulumi:"name"`
 }
 
 type ShareState struct {
-	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+	// 'organization_name.account_name
 	Accounts pulumi.StringArrayInput
 	// Specifies a comment for the managed account.
 	Comment pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the identifier for the share; must be unique for the account in which the share is created.
 	Name pulumi.StringPtrInput
@@ -85,7 +86,8 @@ func (ShareState) ElementType() reflect.Type {
 }
 
 type shareArgs struct {
-	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+	// 'organization_name.account_name
 	Accounts []string `pulumi:"accounts"`
 	// Specifies a comment for the managed account.
 	Comment *string `pulumi:"comment"`
@@ -95,7 +97,8 @@ type shareArgs struct {
 
 // The set of arguments for constructing a Share resource.
 type ShareArgs struct {
-	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+	// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+	// 'organization_name.account_name
 	Accounts pulumi.StringArrayInput
 	// Specifies a comment for the managed account.
 	Comment pulumi.StringPtrInput
@@ -190,7 +193,8 @@ func (o ShareOutput) ToShareOutputWithContext(ctx context.Context) ShareOutput {
 	return o
 }
 
-// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+// 'organization_name.account_name
 func (o ShareOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringArrayOutput { return v.Accounts }).(pulumi.StringArrayOutput)
 }
@@ -200,7 +204,8 @@ func (o ShareOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o ShareOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Share) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }

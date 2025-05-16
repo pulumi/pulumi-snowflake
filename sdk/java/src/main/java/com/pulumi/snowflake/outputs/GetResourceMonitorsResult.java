@@ -19,15 +19,7 @@ public final class GetResourceMonitorsResult {
      * 
      */
     private String id;
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     private @Nullable String like;
-    /**
-     * @return Holds the aggregated output of all resource monitor details queries.
-     * 
-     */
     private List<GetResourceMonitorsResourceMonitor> resourceMonitors;
 
     private GetResourceMonitorsResult() {}
@@ -38,17 +30,9 @@ public final class GetResourceMonitorsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
-    /**
-     * @return Holds the aggregated output of all resource monitor details queries.
-     * 
-     */
     public List<GetResourceMonitorsResourceMonitor> resourceMonitors() {
         return this.resourceMonitors;
     }

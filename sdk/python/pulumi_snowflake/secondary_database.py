@@ -42,26 +42,60 @@ class SecondaryDatabaseArgs:
                  user_task_timeout_ms: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a SecondaryDatabase resource.
-        :param pulumi.Input[builtins.str] as_replica_of: A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        :param pulumi.Input[builtins.str] as_replica_of: A fully qualified path to a database to create a replica from. A fully qualified path follows the format of
+               `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+               [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the database.
-        :param pulumi.Input[builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
-        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
+               as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
+               [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+               schema or table level. For more information, see [collation
+               specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         :param pulumi.Input[builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
-        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
-        :param pulumi.Input[builtins.bool] is_transient: Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
-        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
-        :param pulumi.Input[builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
-        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
-        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
-        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
-        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
-        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
-        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+               [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        :param pulumi.Input[builtins.bool] is_transient: Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional
+               storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+               a data loss.
+        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+               options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+               ingested. For more information, see
+               [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        :param pulumi.Input[builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
+               tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
+               parameter, see
+               [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication
+               and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary
+               database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e.
+               '<db>.<schema>.<object>') by other objects in the same database, such as querying a fully-qualified table name in a
+               view. If a secondary database has a different name from the primary database, then these object references would break
+               in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`,
+               `.`, `"`.
+        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see
+               [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+               an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+               see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+               OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+               third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+               table performance within Snowflake. For more information, see
+               [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+               information, see
+               [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see
+               [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+               about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+               [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds.
-        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see
+               [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         pulumi.set(__self__, "as_replica_of", as_replica_of)
         if catalog is not None:
@@ -107,7 +141,8 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="asReplicaOf")
     def as_replica_of(self) -> pulumi.Input[builtins.str]:
         """
-        A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
+        A fully qualified path to a database to create a replica from. A fully qualified path follows the format of
+        `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "as_replica_of")
 
@@ -119,7 +154,8 @@ class SecondaryDatabaseArgs:
     @pulumi.getter
     def catalog(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+        [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         """
         return pulumi.get(self, "catalog")
 
@@ -143,7 +179,9 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
+        as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
+        [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
@@ -155,7 +193,9 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="defaultDdlCollation")
     def default_ddl_collation(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+        schema or table level. For more information, see [collation
+        specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         """
         return pulumi.get(self, "default_ddl_collation")
 
@@ -179,7 +219,8 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="externalVolume")
     def external_volume(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+        [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         """
         return pulumi.get(self, "external_volume")
 
@@ -191,7 +232,9 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="isTransient")
     def is_transient(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional
+        storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+        a data loss.
         """
         return pulumi.get(self, "is_transient")
 
@@ -203,7 +246,10 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+        options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+        ingested. For more information, see
+        [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -215,7 +261,10 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="maxDataExtensionTimeInDays")
     def max_data_extension_time_in_days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+        Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
+        tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
+        parameter, see
+        [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
         """
         return pulumi.get(self, "max_data_extension_time_in_days")
 
@@ -227,7 +276,13 @@ class SecondaryDatabaseArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication
+        and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary
+        database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e.
+        '<db>.<schema>.<object>') by other objects in the same database, such as querying a fully-qualified table name in a
+        view. If a secondary database has a different name from the primary database, then these object references would break
+        in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`,
+        `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -239,7 +294,8 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="quotedIdentifiersIgnoreCase")
     def quoted_identifiers_ignore_case(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        If true, the case of quoted identifiers is ignored. For more information, see
+        [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         """
         return pulumi.get(self, "quoted_identifiers_ignore_case")
 
@@ -251,7 +307,9 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="replaceInvalidCharacters")
     def replace_invalid_characters(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+        an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+        see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         """
         return pulumi.get(self, "replace_invalid_characters")
 
@@ -263,7 +321,11 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="storageSerializationPolicy")
     def storage_serialization_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+        OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+        third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+        table performance within Snowflake. For more information, see
+        [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         """
         return pulumi.get(self, "storage_serialization_policy")
 
@@ -275,7 +337,9 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="suspendTaskAfterNumFailures")
     def suspend_task_after_num_failures(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+        information, see
+        [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         """
         return pulumi.get(self, "suspend_task_after_num_failures")
 
@@ -287,7 +351,8 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="taskAutoRetryAttempts")
     def task_auto_retry_attempts(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        Maximum automatic retries allowed for a user task. For more information, see
+        [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         """
         return pulumi.get(self, "task_auto_retry_attempts")
 
@@ -299,7 +364,8 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+        about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -311,7 +377,8 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
     def user_task_managed_initial_warehouse_size(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+        [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
@@ -335,7 +402,8 @@ class SecondaryDatabaseArgs:
     @pulumi.getter(name="userTaskTimeoutMs")
     def user_task_timeout_ms(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        User task execution timeout in milliseconds. For more information, see
+        [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         return pulumi.get(self, "user_task_timeout_ms")
 
@@ -370,27 +438,62 @@ class _SecondaryDatabaseState:
                  user_task_timeout_ms: Optional[pulumi.Input[builtins.int]] = None):
         """
         Input properties used for looking up and filtering SecondaryDatabase resources.
-        :param pulumi.Input[builtins.str] as_replica_of: A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        :param pulumi.Input[builtins.str] as_replica_of: A fully qualified path to a database to create a replica from. A fully qualified path follows the format of
+               `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+               [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the database.
-        :param pulumi.Input[builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
-        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
+               as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
+               [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+               schema or table level. For more information, see [collation
+               specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         :param pulumi.Input[builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
-        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.bool] is_transient: Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
-        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
-        :param pulumi.Input[builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
-        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
-        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
-        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
-        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
-        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
-        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+               [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.bool] is_transient: Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional
+               storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+               a data loss.
+        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+               options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+               ingested. For more information, see
+               [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        :param pulumi.Input[builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
+               tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
+               parameter, see
+               [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication
+               and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary
+               database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e.
+               '<db>.<schema>.<object>') by other objects in the same database, such as querying a fully-qualified table name in a
+               view. If a secondary database has a different name from the primary database, then these object references would break
+               in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`,
+               `.`, `"`.
+        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see
+               [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+               an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+               see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+               OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+               third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+               table performance within Snowflake. For more information, see
+               [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+               information, see
+               [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see
+               [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+               about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+               [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds.
-        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see
+               [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         if as_replica_of is not None:
             pulumi.set(__self__, "as_replica_of", as_replica_of)
@@ -439,7 +542,8 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="asReplicaOf")
     def as_replica_of(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
+        A fully qualified path to a database to create a replica from. A fully qualified path follows the format of
+        `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "as_replica_of")
 
@@ -451,7 +555,8 @@ class _SecondaryDatabaseState:
     @pulumi.getter
     def catalog(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+        [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         """
         return pulumi.get(self, "catalog")
 
@@ -475,7 +580,9 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
+        as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
+        [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
@@ -487,7 +594,9 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="defaultDdlCollation")
     def default_ddl_collation(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+        schema or table level. For more information, see [collation
+        specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         """
         return pulumi.get(self, "default_ddl_collation")
 
@@ -511,7 +620,8 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="externalVolume")
     def external_volume(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+        [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         """
         return pulumi.get(self, "external_volume")
 
@@ -523,7 +633,8 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -535,7 +646,9 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="isTransient")
     def is_transient(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional
+        storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+        a data loss.
         """
         return pulumi.get(self, "is_transient")
 
@@ -547,7 +660,10 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+        options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+        ingested. For more information, see
+        [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -559,7 +675,10 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="maxDataExtensionTimeInDays")
     def max_data_extension_time_in_days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+        Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
+        tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
+        parameter, see
+        [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
         """
         return pulumi.get(self, "max_data_extension_time_in_days")
 
@@ -571,7 +690,13 @@ class _SecondaryDatabaseState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication
+        and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary
+        database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e.
+        '<db>.<schema>.<object>') by other objects in the same database, such as querying a fully-qualified table name in a
+        view. If a secondary database has a different name from the primary database, then these object references would break
+        in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`,
+        `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -583,7 +708,8 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="quotedIdentifiersIgnoreCase")
     def quoted_identifiers_ignore_case(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        If true, the case of quoted identifiers is ignored. For more information, see
+        [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         """
         return pulumi.get(self, "quoted_identifiers_ignore_case")
 
@@ -595,7 +721,9 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="replaceInvalidCharacters")
     def replace_invalid_characters(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+        an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+        see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         """
         return pulumi.get(self, "replace_invalid_characters")
 
@@ -607,7 +735,11 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="storageSerializationPolicy")
     def storage_serialization_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+        OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+        third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+        table performance within Snowflake. For more information, see
+        [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         """
         return pulumi.get(self, "storage_serialization_policy")
 
@@ -619,7 +751,9 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="suspendTaskAfterNumFailures")
     def suspend_task_after_num_failures(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+        information, see
+        [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         """
         return pulumi.get(self, "suspend_task_after_num_failures")
 
@@ -631,7 +765,8 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="taskAutoRetryAttempts")
     def task_auto_retry_attempts(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        Maximum automatic retries allowed for a user task. For more information, see
+        [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         """
         return pulumi.get(self, "task_auto_retry_attempts")
 
@@ -643,7 +778,8 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+        about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -655,7 +791,8 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
     def user_task_managed_initial_warehouse_size(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+        [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
@@ -679,7 +816,8 @@ class _SecondaryDatabaseState:
     @pulumi.getter(name="userTaskTimeoutMs")
     def user_task_timeout_ms(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        User task execution timeout in milliseconds. For more information, see
+        [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         return pulumi.get(self, "user_task_timeout_ms")
 
@@ -716,34 +854,63 @@ class SecondaryDatabase(pulumi.CustomResource):
                  user_task_timeout_ms: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/secondaryDatabase:SecondaryDatabase example '"<secondary_database_name>"'
-        ```
-
+        Create a SecondaryDatabase resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] as_replica_of: A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        :param pulumi.Input[builtins.str] as_replica_of: A fully qualified path to a database to create a replica from. A fully qualified path follows the format of
+               `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+               [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the database.
-        :param pulumi.Input[builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
-        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
+               as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
+               [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+               schema or table level. For more information, see [collation
+               specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         :param pulumi.Input[builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
-        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
-        :param pulumi.Input[builtins.bool] is_transient: Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
-        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
-        :param pulumi.Input[builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
-        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
-        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
-        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
-        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
-        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
-        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+               [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        :param pulumi.Input[builtins.bool] is_transient: Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional
+               storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+               a data loss.
+        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+               options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+               ingested. For more information, see
+               [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        :param pulumi.Input[builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
+               tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
+               parameter, see
+               [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication
+               and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary
+               database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e.
+               '<db>.<schema>.<object>') by other objects in the same database, such as querying a fully-qualified table name in a
+               view. If a secondary database has a different name from the primary database, then these object references would break
+               in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`,
+               `.`, `"`.
+        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see
+               [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+               an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+               see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+               OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+               third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+               table performance within Snowflake. For more information, see
+               [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+               information, see
+               [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see
+               [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+               about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+               [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds.
-        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see
+               [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         ...
     @overload
@@ -752,12 +919,7 @@ class SecondaryDatabase(pulumi.CustomResource):
                  args: SecondaryDatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/secondaryDatabase:SecondaryDatabase example '"<secondary_database_name>"'
-        ```
-
+        Create a SecondaryDatabase resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SecondaryDatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -863,27 +1025,62 @@ class SecondaryDatabase(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] as_replica_of: A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        :param pulumi.Input[builtins.str] as_replica_of: A fully qualified path to a database to create a replica from. A fully qualified path follows the format of
+               `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+               [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the database.
-        :param pulumi.Input[builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
-        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[builtins.int] data_retention_time_in_days: Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
+               as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
+               [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+               schema or table level. For more information, see [collation
+               specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         :param pulumi.Input[builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
-        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.bool] is_transient: Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
-        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
-        :param pulumi.Input[builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
-        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
-        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
-        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
-        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
-        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
-        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+               [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.bool] is_transient: Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional
+               storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+               a data loss.
+        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+               options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+               ingested. For more information, see
+               [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        :param pulumi.Input[builtins.int] max_data_extension_time_in_days: Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
+               tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
+               parameter, see
+               [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication
+               and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary
+               database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e.
+               '<db>.<schema>.<object>') by other objects in the same database, such as querying a fully-qualified table name in a
+               view. If a secondary database has a different name from the primary database, then these object references would break
+               in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`,
+               `.`, `"`.
+        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see
+               [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+               an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+               see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+               OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+               third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+               table performance within Snowflake. For more information, see
+               [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+               information, see
+               [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see
+               [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+               about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+               [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds.
-        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see
+               [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -916,7 +1113,8 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="asReplicaOf")
     def as_replica_of(self) -> pulumi.Output[builtins.str]:
         """
-        A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
+        A fully qualified path to a database to create a replica from. A fully qualified path follows the format of
+        `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "as_replica_of")
 
@@ -924,7 +1122,8 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter
     def catalog(self) -> pulumi.Output[builtins.str]:
         """
-        The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+        [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         """
         return pulumi.get(self, "catalog")
 
@@ -940,7 +1139,9 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> pulumi.Output[builtins.int]:
         """
-        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+        Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
+        as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
+        [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
@@ -948,7 +1149,9 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="defaultDdlCollation")
     def default_ddl_collation(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+        schema or table level. For more information, see [collation
+        specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         """
         return pulumi.get(self, "default_ddl_collation")
 
@@ -964,7 +1167,8 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="externalVolume")
     def external_volume(self) -> pulumi.Output[builtins.str]:
         """
-        The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+        [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         """
         return pulumi.get(self, "external_volume")
 
@@ -972,7 +1176,8 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -980,7 +1185,9 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="isTransient")
     def is_transient(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
+        Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional
+        storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
+        a data loss.
         """
         return pulumi.get(self, "is_transient")
 
@@ -988,7 +1195,10 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+        options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+        ingested. For more information, see
+        [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -996,7 +1206,10 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="maxDataExtensionTimeInDays")
     def max_data_extension_time_in_days(self) -> pulumi.Output[builtins.int]:
         """
-        Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+        Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
+        tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
+        parameter, see
+        [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
         """
         return pulumi.get(self, "max_data_extension_time_in_days")
 
@@ -1004,7 +1217,13 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\\n\\n.\\n\\n.\\n\\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication
+        and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary
+        database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e.
+        '<db>.<schema>.<object>') by other objects in the same database, such as querying a fully-qualified table name in a
+        view. If a secondary database has a different name from the primary database, then these object references would break
+        in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`,
+        `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -1012,7 +1231,8 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="quotedIdentifiersIgnoreCase")
     def quoted_identifiers_ignore_case(self) -> pulumi.Output[builtins.bool]:
         """
-        If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        If true, the case of quoted identifiers is ignored. For more information, see
+        [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         """
         return pulumi.get(self, "quoted_identifiers_ignore_case")
 
@@ -1020,7 +1240,9 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="replaceInvalidCharacters")
     def replace_invalid_characters(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+        an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+        see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         """
         return pulumi.get(self, "replace_invalid_characters")
 
@@ -1028,7 +1250,11 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="storageSerializationPolicy")
     def storage_serialization_policy(self) -> pulumi.Output[builtins.str]:
         """
-        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+        OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+        third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+        table performance within Snowflake. For more information, see
+        [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         """
         return pulumi.get(self, "storage_serialization_policy")
 
@@ -1036,7 +1262,9 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="suspendTaskAfterNumFailures")
     def suspend_task_after_num_failures(self) -> pulumi.Output[builtins.int]:
         """
-        How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+        information, see
+        [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         """
         return pulumi.get(self, "suspend_task_after_num_failures")
 
@@ -1044,7 +1272,8 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="taskAutoRetryAttempts")
     def task_auto_retry_attempts(self) -> pulumi.Output[builtins.int]:
         """
-        Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        Maximum automatic retries allowed for a user task. For more information, see
+        [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         """
         return pulumi.get(self, "task_auto_retry_attempts")
 
@@ -1052,7 +1281,8 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> pulumi.Output[builtins.str]:
         """
-        Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+        about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -1060,7 +1290,8 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
     def user_task_managed_initial_warehouse_size(self) -> pulumi.Output[builtins.str]:
         """
-        The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+        [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
@@ -1076,7 +1307,8 @@ class SecondaryDatabase(pulumi.CustomResource):
     @pulumi.getter(name="userTaskTimeoutMs")
     def user_task_timeout_ms(self) -> pulumi.Output[builtins.int]:
         """
-        User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        User task execution timeout in milliseconds. For more information, see
+        [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         return pulumi.get(self, "user_task_timeout_ms")
 

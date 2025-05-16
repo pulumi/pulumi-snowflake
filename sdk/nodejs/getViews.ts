@@ -6,9 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
- */
 export function getViews(args?: GetViewsArgs, opts?: pulumi.InvokeOptions): Promise<GetViewsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,25 +22,10 @@ export function getViews(args?: GetViewsArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getViews.
  */
 export interface GetViewsArgs {
-    /**
-     * IN clause to filter the list of views
-     */
     in?: inputs.GetViewsIn;
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     */
     like?: string;
-    /**
-     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-     */
     limit?: inputs.GetViewsLimit;
-    /**
-     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-     */
     startsWith?: string;
-    /**
-     * (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
-     */
     withDescribe?: boolean;
 }
 
@@ -55,34 +37,13 @@ export interface GetViewsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * IN clause to filter the list of views
-     */
     readonly in?: outputs.GetViewsIn;
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     */
     readonly like?: string;
-    /**
-     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-     */
     readonly limit?: outputs.GetViewsLimit;
-    /**
-     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-     */
     readonly startsWith?: string;
-    /**
-     * Holds the aggregated output of all views details queries.
-     */
     readonly views: outputs.GetViewsView[];
-    /**
-     * (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
-     */
     readonly withDescribe?: boolean;
 }
-/**
- * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
- */
 export function getViewsOutput(args?: GetViewsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetViewsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -99,24 +60,9 @@ export function getViewsOutput(args?: GetViewsOutputArgs, opts?: pulumi.InvokeOu
  * A collection of arguments for invoking getViews.
  */
 export interface GetViewsOutputArgs {
-    /**
-     * IN clause to filter the list of views
-     */
     in?: pulumi.Input<inputs.GetViewsInArgs>;
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     */
     like?: pulumi.Input<string>;
-    /**
-     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-     */
     limit?: pulumi.Input<inputs.GetViewsLimitArgs>;
-    /**
-     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-     */
     startsWith?: pulumi.Input<string>;
-    /**
-     * (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
-     */
     withDescribe?: pulumi.Input<boolean>;
 }

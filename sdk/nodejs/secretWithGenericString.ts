@@ -6,13 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Import
- *
- * ```sh
- * $ pulumi import snowflake:index/secretWithGenericString:SecretWithGenericString example '"<database_name>"."<schema_name>"."<secret_name>"'
- * ```
- */
 export class SecretWithGenericString extends pulumi.CustomResource {
     /**
      * Get an existing SecretWithGenericString resource's state with the given name, ID, and optional extra
@@ -46,7 +39,8 @@ export class SecretWithGenericString extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -54,20 +48,24 @@ export class SecretWithGenericString extends pulumi.CustomResource {
      */
     public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.SecretWithGenericStringDescribeOutput[]>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     public readonly schema!: pulumi.Output<string>;
     public readonly secretString!: pulumi.Output<string>;
     /**
-     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+     * needed.
      */
     public /*out*/ readonly secretType!: pulumi.Output<string>;
     /**
@@ -134,7 +132,8 @@ export interface SecretWithGenericStringState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     database?: pulumi.Input<string>;
     /**
@@ -142,20 +141,24 @@ export interface SecretWithGenericStringState {
      */
     describeOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithGenericStringDescribeOutput>[]>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string>;
     secretString?: pulumi.Input<string>;
     /**
-     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+     * needed.
      */
     secretType?: pulumi.Input<string>;
     /**
@@ -173,15 +176,18 @@ export interface SecretWithGenericStringArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     database: pulumi.Input<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     schema: pulumi.Input<string>;
     secretString: pulumi.Input<string>;

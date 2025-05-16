@@ -16,25 +16,19 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/apiIntegration:ApiIntegration")
 public class ApiIntegration extends com.pulumi.resources.CustomResource {
     /**
-     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+     * resources within those proxies.
      * 
      */
     @Export(name="apiAllowedPrefixes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> apiAllowedPrefixes;
 
     /**
-     * @return Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+     * @return Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+     * resources within those proxies.
      * 
      */
     public Output<List<String>> apiAllowedPrefixes() {
@@ -69,14 +63,14 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
         return this.apiAwsIamUserArn;
     }
     /**
-     * (Default: ``) ARN of a cloud platform role.
+     * ARN of a cloud platform role.
      * 
      */
     @Export(name="apiAwsRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiAwsRoleArn;
 
     /**
-     * @return (Default: ``) ARN of a cloud platform role.
+     * @return ARN of a cloud platform role.
      * 
      */
     public Output<Optional<String>> apiAwsRoleArn() {
@@ -139,14 +133,14 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
         return this.apiProvider;
     }
     /**
-     * (Default: ``) The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
+     * The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
      * 
      */
     @Export(name="azureAdApplicationId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureAdApplicationId;
 
     /**
-     * @return (Default: ``) The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
+     * @return The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
      * 
      */
     public Output<Optional<String>> azureAdApplicationId() {
@@ -165,14 +159,14 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
         return this.azureMultiTenantAppName;
     }
     /**
-     * (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+     * Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      * 
      */
     @Export(name="azureTenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureTenantId;
 
     /**
-     * @return (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+     * @return Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      * 
      */
     public Output<Optional<String>> azureTenantId() {
@@ -199,56 +193,62 @@ public class ApiIntegration extends com.pulumi.resources.CustomResource {
         return this.createdOn;
     }
     /**
-     * (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+     * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+     * that relies on it will not work.
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+     * @return Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+     * that relies on it will not work.
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      * 
      */
     @Export(name="googleAudience", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> googleAudience;
 
     /**
-     * @return (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * @return The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      * 
      */
     public Output<Optional<String>> googleAudience() {
         return Codegen.optional(this.googleAudience);
     }
     /**
-     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+     * among api integrations in your account.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+     * @return Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+     * among api integrations in your account.
      * 
      */
     public Output<String> name() {

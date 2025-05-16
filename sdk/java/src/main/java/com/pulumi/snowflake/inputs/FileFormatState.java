@@ -124,14 +124,16 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
+     * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
+     * native representation.
      * 
      */
     @Import(name="disableAutoConvert")
     private @Nullable Output<Boolean> disableAutoConvert;
 
     /**
-     * @return Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
+     * @return Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
+     * native representation.
      * 
      */
     public Optional<Output<Boolean>> disableAutoConvert() {
@@ -154,14 +156,16 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
+     * Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
+     * delimiters.
      * 
      */
     @Import(name="emptyFieldAsNull")
     private @Nullable Output<Boolean> emptyFieldAsNull;
 
     /**
-     * @return Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
+     * @return Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
+     * delimiters.
      * 
      */
     public Optional<Output<Boolean>> emptyFieldAsNull() {
@@ -199,14 +203,16 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
+     * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
+     * file does not match the number of columns in the corresponding table.
      * 
      */
     @Import(name="errorOnColumnCountMismatch")
     private @Nullable Output<Boolean> errorOnColumnCountMismatch;
 
     /**
-     * @return Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
+     * @return Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
+     * file does not match the number of columns in the corresponding table.
      * 
      */
     public Optional<Output<Boolean>> errorOnColumnCountMismatch() {
@@ -244,14 +250,16 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
+     * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
+     * unloaded file (data unloading).
      * 
      */
     @Import(name="fieldDelimiter")
     private @Nullable Output<String> fieldDelimiter;
 
     /**
-     * @return Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
+     * @return Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
+     * unloaded file (data unloading).
      * 
      */
     public Optional<Output<String>> fieldDelimiter() {
@@ -304,14 +312,16 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -334,14 +344,16 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
+     * Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
+     * created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
+     * @return Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
+     * created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -394,14 +406,16 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
+     * Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
+     * unloaded file (data unloading).
      * 
      */
     @Import(name="recordDelimiter")
     private @Nullable Output<String> recordDelimiter;
 
     /**
-     * @return Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
+     * @return Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
+     * unloaded file (data unloading).
      * 
      */
     public Optional<Output<String>> recordDelimiter() {
@@ -514,14 +528,16 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
+     * Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
+     * documents.
      * 
      */
     @Import(name="stripOuterElement")
     private @Nullable Output<Boolean> stripOuterElement;
 
     /**
-     * @return Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
+     * @return Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
+     * documents.
      * 
      */
     public Optional<Output<Boolean>> stripOuterElement() {
@@ -781,7 +797,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableAutoConvert Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
+         * @param disableAutoConvert Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
+         * native representation.
          * 
          * @return builder
          * 
@@ -792,7 +809,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param disableAutoConvert Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
+         * @param disableAutoConvert Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
+         * native representation.
          * 
          * @return builder
          * 
@@ -823,7 +841,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emptyFieldAsNull Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
+         * @param emptyFieldAsNull Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
+         * delimiters.
          * 
          * @return builder
          * 
@@ -834,7 +853,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emptyFieldAsNull Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
+         * @param emptyFieldAsNull Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
+         * delimiters.
          * 
          * @return builder
          * 
@@ -886,7 +906,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorOnColumnCountMismatch Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
+         * @param errorOnColumnCountMismatch Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
+         * file does not match the number of columns in the corresponding table.
          * 
          * @return builder
          * 
@@ -897,7 +918,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorOnColumnCountMismatch Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
+         * @param errorOnColumnCountMismatch Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
+         * file does not match the number of columns in the corresponding table.
          * 
          * @return builder
          * 
@@ -949,7 +971,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fieldDelimiter Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
+         * @param fieldDelimiter Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
+         * unloaded file (data unloading).
          * 
          * @return builder
          * 
@@ -960,7 +983,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fieldDelimiter Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
+         * @param fieldDelimiter Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
+         * unloaded file (data unloading).
          * 
          * @return builder
          * 
@@ -1033,7 +1057,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -1044,7 +1069,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -1075,7 +1101,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
+         * @param name Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
+         * created.
          * 
          * @return builder
          * 
@@ -1086,7 +1113,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
+         * @param name Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
+         * created.
          * 
          * @return builder
          * 
@@ -1169,7 +1197,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recordDelimiter Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
+         * @param recordDelimiter Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
+         * unloaded file (data unloading).
          * 
          * @return builder
          * 
@@ -1180,7 +1209,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recordDelimiter Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
+         * @param recordDelimiter Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
+         * unloaded file (data unloading).
          * 
          * @return builder
          * 
@@ -1337,7 +1367,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stripOuterElement Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
+         * @param stripOuterElement Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
+         * documents.
          * 
          * @return builder
          * 
@@ -1348,7 +1379,8 @@ public final class FileFormatState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stripOuterElement Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
+         * @param stripOuterElement Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
+         * documents.
          * 
          * @return builder
          * 

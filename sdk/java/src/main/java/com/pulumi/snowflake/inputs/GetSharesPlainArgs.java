@@ -14,17 +14,9 @@ public final class GetSharesPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetSharesPlainArgs Empty = new GetSharesPlainArgs();
 
-    /**
-     * Filters the command output by object name.
-     * 
-     */
     @Import(name="pattern")
     private @Nullable String pattern;
 
-    /**
-     * @return Filters the command output by object name.
-     * 
-     */
     public Optional<String> pattern() {
         return Optional.ofNullable(this.pattern);
     }
@@ -53,12 +45,6 @@ public final class GetSharesPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetSharesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param pattern Filters the command output by object name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder pattern(@Nullable String pattern) {
             $.pattern = pattern;
             return this;

@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
 func GetConnections(ctx *pulumi.Context, args *GetConnectionsArgs, opts ...pulumi.InvokeOption) (*GetConnectionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetConnectionsResult
@@ -24,17 +23,14 @@ func GetConnections(ctx *pulumi.Context, args *GetConnectionsArgs, opts ...pulum
 
 // A collection of arguments for invoking getConnections.
 type GetConnectionsArgs struct {
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
 }
 
 // A collection of values returned by getConnections.
 type GetConnectionsResult struct {
-	// Holds the aggregated output of all connections details queries.
 	Connections []GetConnectionsConnection `pulumi:"connections"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Id   string  `pulumi:"id"`
 	Like *string `pulumi:"like"`
 }
 
@@ -49,7 +45,6 @@ func GetConnectionsOutput(ctx *pulumi.Context, args GetConnectionsOutputArgs, op
 
 // A collection of arguments for invoking getConnections.
 type GetConnectionsOutputArgs struct {
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like pulumi.StringPtrInput `pulumi:"like"`
 }
 
@@ -72,7 +67,6 @@ func (o GetConnectionsResultOutput) ToGetConnectionsResultOutputWithContext(ctx 
 	return o
 }
 
-// Holds the aggregated output of all connections details queries.
 func (o GetConnectionsResultOutput) Connections() GetConnectionsConnectionArrayOutput {
 	return o.ApplyT(func(v GetConnectionsResult) []GetConnectionsConnection { return v.Connections }).(GetConnectionsConnectionArrayOutput)
 }
@@ -82,7 +76,6 @@ func (o GetConnectionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetConnectionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetConnectionsResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetConnectionsResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }

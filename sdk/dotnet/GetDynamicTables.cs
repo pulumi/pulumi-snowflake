@@ -11,27 +11,12 @@ namespace Pulumi.Snowflake
 {
     public static class GetDynamicTables
     {
-        /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
-        /// </summary>
         public static Task<GetDynamicTablesResult> InvokeAsync(GetDynamicTablesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDynamicTablesResult>("snowflake:index/getDynamicTables:getDynamicTables", args ?? new GetDynamicTablesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
-        /// </summary>
         public static Output<GetDynamicTablesResult> Invoke(GetDynamicTablesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDynamicTablesResult>("snowflake:index/getDynamicTables:getDynamicTables", args ?? new GetDynamicTablesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
-        /// </summary>
         public static Output<GetDynamicTablesResult> Invoke(GetDynamicTablesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDynamicTablesResult>("snowflake:index/getDynamicTables:getDynamicTables", args ?? new GetDynamicTablesInvokeArgs(), options.WithDefaults());
     }
@@ -39,27 +24,15 @@ namespace Pulumi.Snowflake
 
     public sealed class GetDynamicTablesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// IN clause to filter the list of dynamic tables.
-        /// </summary>
         [Input("in")]
         public Inputs.GetDynamicTablesInArgs? In { get; set; }
 
-        /// <summary>
-        /// LIKE clause to filter the list of dynamic tables.
-        /// </summary>
         [Input("like")]
         public Inputs.GetDynamicTablesLikeArgs? Like { get; set; }
 
-        /// <summary>
-        /// Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-        /// </summary>
         [Input("limit")]
         public Inputs.GetDynamicTablesLimitArgs? Limit { get; set; }
 
-        /// <summary>
-        /// Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
-        /// </summary>
         [Input("startsWith")]
         public string? StartsWith { get; set; }
 
@@ -71,27 +44,15 @@ namespace Pulumi.Snowflake
 
     public sealed class GetDynamicTablesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// IN clause to filter the list of dynamic tables.
-        /// </summary>
         [Input("in")]
         public Input<Inputs.GetDynamicTablesInInputArgs>? In { get; set; }
 
-        /// <summary>
-        /// LIKE clause to filter the list of dynamic tables.
-        /// </summary>
         [Input("like")]
         public Input<Inputs.GetDynamicTablesLikeInputArgs>? Like { get; set; }
 
-        /// <summary>
-        /// Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-        /// </summary>
         [Input("limit")]
         public Input<Inputs.GetDynamicTablesLimitInputArgs>? Limit { get; set; }
 
-        /// <summary>
-        /// Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
-        /// </summary>
         [Input("startsWith")]
         public Input<string>? StartsWith { get; set; }
 
@@ -109,25 +70,10 @@ namespace Pulumi.Snowflake
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// IN clause to filter the list of dynamic tables.
-        /// </summary>
         public readonly Outputs.GetDynamicTablesInResult? In;
-        /// <summary>
-        /// LIKE clause to filter the list of dynamic tables.
-        /// </summary>
         public readonly Outputs.GetDynamicTablesLikeResult? Like;
-        /// <summary>
-        /// Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-        /// </summary>
         public readonly Outputs.GetDynamicTablesLimitResult? Limit;
-        /// <summary>
-        /// The list of dynamic tables.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetDynamicTablesRecordResult> Records;
-        /// <summary>
-        /// Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
-        /// </summary>
         public readonly string? StartsWith;
 
         [OutputConstructor]

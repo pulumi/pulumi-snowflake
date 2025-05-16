@@ -16,27 +16,19 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * format is database name | schema name | stage name
- * 
- * ```sh
- * $ pulumi import snowflake:index/stage:Stage example &#39;dbName|schemaName|stageName&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/stage:Stage")
 public class Stage extends com.pulumi.resources.CustomResource {
     /**
-     * A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+     * A unique ID assigned to the specific stage. The ID has the following format:
+     * &amp;lt;snowflakeAccount&amp;gt;_SFCRole=&amp;lt;snowflakeRoleId&amp;gt;_&amp;lt;randomId&amp;gt;
      * 
      */
     @Export(name="awsExternalId", refs={String.class}, tree="[0]")
     private Output<String> awsExternalId;
 
     /**
-     * @return A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+     * @return A unique ID assigned to the specific stage. The ID has the following format:
+     * &amp;lt;snowflakeAccount&amp;gt;_SFCRole=&amp;lt;snowflakeRoleId&amp;gt;_&amp;lt;randomId&amp;gt;
      * 
      */
     public Output<String> awsExternalId() {
@@ -126,29 +118,23 @@ public class Stage extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> encryption() {
         return Codegen.optional(this.encryption);
     }
-    /**
-     * Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` \n\n2. from dynamic value:\n\n `file_format = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` \n\n3. from expression:\n\n `file_format = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
-     * 
-     */
     @Export(name="fileFormat", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> fileFormat;
 
-    /**
-     * @return Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` \n\n2. from dynamic value:\n\n `file_format = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` \n\n3. from expression:\n\n `file_format = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
-     * 
-     */
     public Output<Optional<String>> fileFormat() {
         return Codegen.optional(this.fileFormat);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
@@ -183,28 +169,32 @@ public class Stage extends com.pulumi.resources.CustomResource {
         return this.schema;
     }
     /**
-     * An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     * An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
+     * account.
      * 
      */
     @Export(name="snowflakeIamUser", refs={String.class}, tree="[0]")
     private Output<String> snowflakeIamUser;
 
     /**
-     * @return An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     * @return An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
+     * account.
      * 
      */
     public Output<String> snowflakeIamUser() {
         return this.snowflakeIamUser;
     }
     /**
-     * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+     * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+     * to a Snowflake identity and access management (IAM) entity.
      * 
      */
     @Export(name="storageIntegration", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> storageIntegration;
 
     /**
-     * @return Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+     * @return Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+     * to a Snowflake identity and access management (IAM) entity.
      * 
      */
     public Output<Optional<String>> storageIntegration() {

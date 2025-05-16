@@ -17,67 +17,67 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/objectParameter:ObjectParameter s &lt;key&gt;|&lt;object_type&gt;|&lt;object_identifier&gt;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/objectParameter:ObjectParameter")
 public class ObjectParameter extends com.pulumi.resources.CustomResource {
     /**
-     * Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
+     * Name of object parameter. Valid values are those in [object
+     * parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
      * 
      */
     @Export(name="key", refs={String.class}, tree="[0]")
     private Output<String> key;
 
     /**
-     * @return Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
+     * @return Name of object parameter. Valid values are those in [object
+     * parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
      * 
      */
     public Output<String> key() {
         return this.key;
     }
     /**
-     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
+     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to
+     * setting the object parameter at account level.
      * 
      */
     @Export(name="objectIdentifiers", refs={List.class,ObjectParameterObjectIdentifier.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ObjectParameterObjectIdentifier>> objectIdentifiers;
 
     /**
-     * @return Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
+     * @return Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to
+     * setting the object parameter at account level.
      * 
      */
     public Output<Optional<List<ObjectParameterObjectIdentifier>>> objectIdentifiers() {
         return Codegen.optional(this.objectIdentifiers);
     }
     /**
-     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
+     * Type of object to which the parameter applies. Valid values are those in [object
+     * types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the
+     * resource will default to setting the object parameter at account level.
      * 
      */
     @Export(name="objectType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> objectType;
 
     /**
-     * @return Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
+     * @return Type of object to which the parameter applies. Valid values are those in [object
+     * types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the
+     * resource will default to setting the object parameter at account level.
      * 
      */
     public Output<Optional<String>> objectType() {
         return Codegen.optional(this.objectType);
     }
     /**
-     * (Default: `false`) If true, the object parameter will be set on the account level.
+     * If true, the object parameter will be set on the account level.
      * 
      */
     @Export(name="onAccount", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> onAccount;
 
     /**
-     * @return (Default: `false`) If true, the object parameter will be set on the account level.
+     * @return If true, the object parameter will be set on the account level.
      * 
      */
     public Output<Optional<Boolean>> onAccount() {

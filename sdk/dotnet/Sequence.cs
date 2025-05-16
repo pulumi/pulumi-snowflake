@@ -9,20 +9,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// format is database name | schema name | sequence name
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/sequence:Sequence")]
     public partial class Sequence : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Default: ``) Specifies a comment for the sequence.
+        /// Specifies a comment for the sequence.
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
@@ -34,13 +25,14 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `1`) The amount the sequence will increase by each time it is used
+        /// The amount the sequence will increase by each time it is used
         /// </summary>
         [Output("increment")]
         public Output<int?> Increment { get; private set; } = null!;
@@ -58,7 +50,7 @@ namespace Pulumi.Snowflake
         public Output<int> NextValue { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        /// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         /// </summary>
         [Output("ordering")]
         public Output<string?> Ordering { get; private set; } = null!;
@@ -116,7 +108,7 @@ namespace Pulumi.Snowflake
     public sealed class SequenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: ``) Specifies a comment for the sequence.
+        /// Specifies a comment for the sequence.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -128,7 +120,7 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// (Default: `1`) The amount the sequence will increase by each time it is used
+        /// The amount the sequence will increase by each time it is used
         /// </summary>
         [Input("increment")]
         public Input<int>? Increment { get; set; }
@@ -140,7 +132,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        /// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         /// </summary>
         [Input("ordering")]
         public Input<string>? Ordering { get; set; }
@@ -160,7 +152,7 @@ namespace Pulumi.Snowflake
     public sealed class SequenceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: ``) Specifies a comment for the sequence.
+        /// Specifies a comment for the sequence.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -172,13 +164,14 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// (Default: `1`) The amount the sequence will increase by each time it is used
+        /// The amount the sequence will increase by each time it is used
         /// </summary>
         [Input("increment")]
         public Input<int>? Increment { get; set; }
@@ -196,7 +189,7 @@ namespace Pulumi.Snowflake
         public Input<int>? NextValue { get; set; }
 
         /// <summary>
-        /// (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        /// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         /// </summary>
         [Input("ordering")]
         public Input<string>? Ordering { get; set; }

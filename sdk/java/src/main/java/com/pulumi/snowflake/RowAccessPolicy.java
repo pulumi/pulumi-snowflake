@@ -18,39 +18,39 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;row_access_policy_name&gt;&#34;&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/rowAccessPolicy:RowAccessPolicy")
 public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+     * List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to
+     * determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be
+     * protected by the row access policy. If any argument name or type is changed, the resource is recreated.
      * 
      */
     @Export(name="arguments", refs={List.class,RowAccessPolicyArgument.class}, tree="[0,1]")
     private Output<List<RowAccessPolicyArgument>> arguments;
 
     /**
-     * @return List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+     * @return List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to
+     * determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be
+     * protected by the row access policy. If any argument name or type is changed, the resource is recreated.
      * 
      */
     public Output<List<RowAccessPolicyArgument>> arguments() {
         return this.arguments;
     }
     /**
-     * Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this
+     * field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
+     * case or run of whitespace is semantically significant.
      * 
      */
     @Export(name="body", refs={String.class}, tree="[0]")
     private Output<String> body;
 
     /**
-     * @return Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * @return Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this
+     * field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
+     * case or run of whitespace is semantically significant.
      * 
      */
     public Output<String> body() {
@@ -71,14 +71,16 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -99,42 +101,48 @@ public class RowAccessPolicy extends com.pulumi.resources.CustomResource {
         return this.describeOutputs;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+     * policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+     * policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {

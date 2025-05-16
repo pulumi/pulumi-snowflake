@@ -6,13 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Import
- *
- * ```sh
- * $ pulumi import snowflake:index/streamOnExternalTable:StreamOnExternalTable example '"<database_name>"."<schema_name>"."<stream_name>"'
- * ```
- */
 export class StreamOnExternalTable extends pulumi.CustomResource {
     /**
      * Get an existing StreamOnExternalTable resource's state with the given name, ID, and optional extra
@@ -49,7 +42,8 @@ export class StreamOnExternalTable extends pulumi.CustomResource {
     public readonly comment!: pulumi.Output<string | undefined>;
     public readonly copyGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -57,23 +51,28 @@ export class StreamOnExternalTable extends pulumi.CustomResource {
      */
     public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.StreamOnExternalTableDescribeOutput[]>;
     /**
-     * Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+     * Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here),
+     * avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
     public readonly externalTable!: pulumi.Output<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an insert-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * Specifies whether this is an insert-only stream. Available options are: "true" or "false". When the value is not set in
+     * the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly insertOnly!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -82,7 +81,8 @@ export class StreamOnExternalTable extends pulumi.CustomResource {
     public /*out*/ readonly showOutputs!: pulumi.Output<outputs.StreamOnExternalTableShowOutput[]>;
     public /*out*/ readonly stale!: pulumi.Output<boolean>;
     /**
-     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+     * needed.
      */
     public /*out*/ readonly streamType!: pulumi.Output<string>;
 
@@ -156,7 +156,8 @@ export interface StreamOnExternalTableState {
     comment?: pulumi.Input<string>;
     copyGrants?: pulumi.Input<boolean>;
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     database?: pulumi.Input<string>;
     /**
@@ -164,23 +165,28 @@ export interface StreamOnExternalTableState {
      */
     describeOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnExternalTableDescribeOutput>[]>;
     /**
-     * Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+     * Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here),
+     * avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
     externalTable?: pulumi.Input<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an insert-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * Specifies whether this is an insert-only stream. Available options are: "true" or "false". When the value is not set in
+     * the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     insertOnly?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string>;
     /**
@@ -189,7 +195,8 @@ export interface StreamOnExternalTableState {
     showOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnExternalTableShowOutput>[]>;
     stale?: pulumi.Input<boolean>;
     /**
-     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+     * needed.
      */
     streamType?: pulumi.Input<string>;
 }
@@ -206,23 +213,28 @@ export interface StreamOnExternalTableArgs {
     comment?: pulumi.Input<string>;
     copyGrants?: pulumi.Input<boolean>;
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+     * Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here),
+     * avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
     externalTable: pulumi.Input<string>;
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an insert-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * Specifies whether this is an insert-only stream. Available options are: "true" or "false". When the value is not set in
+     * the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     insertOnly?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     schema: pulumi.Input<string>;
 }

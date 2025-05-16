@@ -38,9 +38,9 @@ class MaterializedViewArgs:
         :param pulumi.Input[builtins.str] statement: Specifies the query used to create the view.
         :param pulumi.Input[builtins.str] warehouse: The warehouse name.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the view.
-        :param pulumi.Input[builtins.bool] is_secure: (Default: `false`) Specifies that the view is secure.
+        :param pulumi.Input[builtins.bool] is_secure: Specifies that the view is secure.
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
-        :param pulumi.Input[builtins.bool] or_replace: (Default: `false`) Overwrites the View if it exists.
+        :param pulumi.Input[builtins.bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
         """
         pulumi.set(__self__, "database", database)
@@ -125,7 +125,7 @@ class MaterializedViewArgs:
     @pulumi.getter(name="isSecure")
     def is_secure(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        (Default: `false`) Specifies that the view is secure.
+        Specifies that the view is secure.
         """
         return pulumi.get(self, "is_secure")
 
@@ -149,7 +149,7 @@ class MaterializedViewArgs:
     @pulumi.getter(name="orReplace")
     def or_replace(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        (Default: `false`) Overwrites the View if it exists.
+        Overwrites the View if it exists.
         """
         return pulumi.get(self, "or_replace")
 
@@ -188,10 +188,11 @@ class _MaterializedViewState:
         Input properties used for looking up and filtering MaterializedView resources.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the view.
         :param pulumi.Input[builtins.str] database: The database in which to create the view. Don't use the | character.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.bool] is_secure: (Default: `false`) Specifies that the view is secure.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.bool] is_secure: Specifies that the view is secure.
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
-        :param pulumi.Input[builtins.bool] or_replace: (Default: `false`) Overwrites the View if it exists.
+        :param pulumi.Input[builtins.bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[builtins.str] statement: Specifies the query used to create the view.
         :param pulumi.Input[Sequence[pulumi.Input['MaterializedViewTagArgs']]] tags: Definitions of a tag to associate with the resource.
@@ -249,7 +250,8 @@ class _MaterializedViewState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -261,7 +263,7 @@ class _MaterializedViewState:
     @pulumi.getter(name="isSecure")
     def is_secure(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        (Default: `false`) Specifies that the view is secure.
+        Specifies that the view is secure.
         """
         return pulumi.get(self, "is_secure")
 
@@ -285,7 +287,7 @@ class _MaterializedViewState:
     @pulumi.getter(name="orReplace")
     def or_replace(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        (Default: `false`) Overwrites the View if it exists.
+        Overwrites the View if it exists.
         """
         return pulumi.get(self, "or_replace")
 
@@ -360,21 +362,14 @@ class MaterializedView(pulumi.CustomResource):
                  warehouse: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        format is database name | schema name | view name
-
-        ```sh
-        $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
-        ```
-
+        Create a MaterializedView resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the view.
         :param pulumi.Input[builtins.str] database: The database in which to create the view. Don't use the | character.
-        :param pulumi.Input[builtins.bool] is_secure: (Default: `false`) Specifies that the view is secure.
+        :param pulumi.Input[builtins.bool] is_secure: Specifies that the view is secure.
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
-        :param pulumi.Input[builtins.bool] or_replace: (Default: `false`) Overwrites the View if it exists.
+        :param pulumi.Input[builtins.bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[builtins.str] statement: Specifies the query used to create the view.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
@@ -387,14 +382,7 @@ class MaterializedView(pulumi.CustomResource):
                  args: MaterializedViewArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        format is database name | schema name | view name
-
-        ```sh
-        $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
-        ```
-
+        Create a MaterializedView resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param MaterializedViewArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -475,10 +463,11 @@ class MaterializedView(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the view.
         :param pulumi.Input[builtins.str] database: The database in which to create the view. Don't use the | character.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.bool] is_secure: (Default: `false`) Specifies that the view is secure.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.bool] is_secure: Specifies that the view is secure.
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the view; must be unique for the schema in which the view is created.
-        :param pulumi.Input[builtins.bool] or_replace: (Default: `false`) Overwrites the View if it exists.
+        :param pulumi.Input[builtins.bool] or_replace: Overwrites the View if it exists.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the view. Don't use the | character.
         :param pulumi.Input[builtins.str] statement: Specifies the query used to create the view.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MaterializedViewTagArgs', 'MaterializedViewTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
@@ -520,7 +509,8 @@ class MaterializedView(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -528,7 +518,7 @@ class MaterializedView(pulumi.CustomResource):
     @pulumi.getter(name="isSecure")
     def is_secure(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        (Default: `false`) Specifies that the view is secure.
+        Specifies that the view is secure.
         """
         return pulumi.get(self, "is_secure")
 
@@ -544,7 +534,7 @@ class MaterializedView(pulumi.CustomResource):
     @pulumi.getter(name="orReplace")
     def or_replace(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        (Default: `false`) Overwrites the View if it exists.
+        Overwrites the View if it exists.
         """
         return pulumi.get(self, "or_replace")
 

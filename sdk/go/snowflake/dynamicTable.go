@@ -8,15 +8,10 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ```sh
-// $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
-// ```
 type DynamicTable struct {
 	pulumi.CustomResourceState
 
@@ -34,9 +29,10 @@ type DynamicTable struct {
 	DataTimestamp pulumi.StringOutput `pulumi:"dataTimestamp"`
 	// The database in which to create the dynamic table.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+	// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
 	Initialize pulumi.StringPtrOutput `pulumi:"initialize"`
 	// TRUE if the dynamic table has been cloned, else FALSE.
 	IsClone pulumi.BoolOutput `pulumi:"isClone"`
@@ -44,15 +40,17 @@ type DynamicTable struct {
 	IsReplica pulumi.BoolOutput `pulumi:"isReplica"`
 	// Timestamp of last suspension.
 	LastSuspendedOn pulumi.StringOutput `pulumi:"lastSuspendedOn"`
-	// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+	// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+	// created.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+	// Specifies whether to replace the dynamic table if it already exists.
 	OrReplace pulumi.BoolPtrOutput `pulumi:"orReplace"`
 	// Role that owns the dynamic table.
 	Owner pulumi.StringOutput `pulumi:"owner"`
 	// Specifies the query to use to populate the dynamic table.
 	Query pulumi.StringOutput `pulumi:"query"`
-	// (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+	// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+	// decide.
 	RefreshMode pulumi.StringPtrOutput `pulumi:"refreshMode"`
 	// Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
 	RefreshModeReason pulumi.StringOutput `pulumi:"refreshModeReason"`
@@ -127,9 +125,10 @@ type dynamicTableState struct {
 	DataTimestamp *string `pulumi:"dataTimestamp"`
 	// The database in which to create the dynamic table.
 	Database *string `pulumi:"database"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+	// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
 	Initialize *string `pulumi:"initialize"`
 	// TRUE if the dynamic table has been cloned, else FALSE.
 	IsClone *bool `pulumi:"isClone"`
@@ -137,15 +136,17 @@ type dynamicTableState struct {
 	IsReplica *bool `pulumi:"isReplica"`
 	// Timestamp of last suspension.
 	LastSuspendedOn *string `pulumi:"lastSuspendedOn"`
-	// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+	// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+	// created.
 	Name *string `pulumi:"name"`
-	// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+	// Specifies whether to replace the dynamic table if it already exists.
 	OrReplace *bool `pulumi:"orReplace"`
 	// Role that owns the dynamic table.
 	Owner *string `pulumi:"owner"`
 	// Specifies the query to use to populate the dynamic table.
 	Query *string `pulumi:"query"`
-	// (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+	// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+	// decide.
 	RefreshMode *string `pulumi:"refreshMode"`
 	// Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
 	RefreshModeReason *string `pulumi:"refreshModeReason"`
@@ -176,9 +177,10 @@ type DynamicTableState struct {
 	DataTimestamp pulumi.StringPtrInput
 	// The database in which to create the dynamic table.
 	Database pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+	// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
 	Initialize pulumi.StringPtrInput
 	// TRUE if the dynamic table has been cloned, else FALSE.
 	IsClone pulumi.BoolPtrInput
@@ -186,15 +188,17 @@ type DynamicTableState struct {
 	IsReplica pulumi.BoolPtrInput
 	// Timestamp of last suspension.
 	LastSuspendedOn pulumi.StringPtrInput
-	// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+	// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+	// created.
 	Name pulumi.StringPtrInput
-	// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+	// Specifies whether to replace the dynamic table if it already exists.
 	OrReplace pulumi.BoolPtrInput
 	// Role that owns the dynamic table.
 	Owner pulumi.StringPtrInput
 	// Specifies the query to use to populate the dynamic table.
 	Query pulumi.StringPtrInput
-	// (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+	// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+	// decide.
 	RefreshMode pulumi.StringPtrInput
 	// Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
 	RefreshModeReason pulumi.StringPtrInput
@@ -219,15 +223,17 @@ type dynamicTableArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the dynamic table.
 	Database string `pulumi:"database"`
-	// (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+	// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
 	Initialize *string `pulumi:"initialize"`
-	// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+	// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+	// created.
 	Name *string `pulumi:"name"`
-	// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+	// Specifies whether to replace the dynamic table if it already exists.
 	OrReplace *bool `pulumi:"orReplace"`
 	// Specifies the query to use to populate the dynamic table.
 	Query string `pulumi:"query"`
-	// (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+	// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+	// decide.
 	RefreshMode *string `pulumi:"refreshMode"`
 	// The schema in which to create the dynamic table.
 	Schema string `pulumi:"schema"`
@@ -243,15 +249,17 @@ type DynamicTableArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the dynamic table.
 	Database pulumi.StringInput
-	// (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+	// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
 	Initialize pulumi.StringPtrInput
-	// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+	// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+	// created.
 	Name pulumi.StringPtrInput
-	// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+	// Specifies whether to replace the dynamic table if it already exists.
 	OrReplace pulumi.BoolPtrInput
 	// Specifies the query to use to populate the dynamic table.
 	Query pulumi.StringInput
-	// (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+	// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+	// decide.
 	RefreshMode pulumi.StringPtrInput
 	// The schema in which to create the dynamic table.
 	Schema pulumi.StringInput
@@ -383,12 +391,13 @@ func (o DynamicTableOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *DynamicTable) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o DynamicTableOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *DynamicTable) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
 func (o DynamicTableOutput) Initialize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DynamicTable) pulumi.StringPtrOutput { return v.Initialize }).(pulumi.StringPtrOutput)
 }
@@ -408,12 +417,13 @@ func (o DynamicTableOutput) LastSuspendedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DynamicTable) pulumi.StringOutput { return v.LastSuspendedOn }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+// created.
 func (o DynamicTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *DynamicTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+// Specifies whether to replace the dynamic table if it already exists.
 func (o DynamicTableOutput) OrReplace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DynamicTable) pulumi.BoolPtrOutput { return v.OrReplace }).(pulumi.BoolPtrOutput)
 }
@@ -428,7 +438,8 @@ func (o DynamicTableOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v *DynamicTable) pulumi.StringOutput { return v.Query }).(pulumi.StringOutput)
 }
 
-// (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+// decide.
 func (o DynamicTableOutput) RefreshMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DynamicTable) pulumi.StringPtrOutput { return v.RefreshMode }).(pulumi.StringPtrOutput)
 }

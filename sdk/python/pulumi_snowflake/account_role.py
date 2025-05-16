@@ -26,7 +26,8 @@ class AccountRoleArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a AccountRole resource.
-        :param pulumi.Input[builtins.str] name: Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] name: Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
+               following characters: `|`, `.`, `"`.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -46,7 +47,8 @@ class AccountRoleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
+        following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -64,8 +66,10 @@ class _AccountRoleState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['AccountRoleShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering AccountRole resources.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
+               following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['AccountRoleShowOutputArgs']]] show_outputs: Outputs the result of `SHOW ROLES` for the given role.
         """
         if comment is not None:
@@ -90,7 +94,8 @@ class _AccountRoleState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -102,7 +107,8 @@ class _AccountRoleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
+        following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -133,15 +139,11 @@ class AccountRole(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/accountRole:AccountRole example '"<account_role_name>"'
-        ```
-
+        Create a AccountRole resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] name: Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] name: Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
+               following characters: `|`, `.`, `"`.
         """
         ...
     @overload
@@ -150,12 +152,7 @@ class AccountRole(pulumi.CustomResource):
                  args: Optional[AccountRoleArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/accountRole:AccountRole example '"<account_role_name>"'
-        ```
-
+        Create a AccountRole resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param AccountRoleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -207,8 +204,10 @@ class AccountRole(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
+               following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['AccountRoleShowOutputArgs', 'AccountRoleShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW ROLES` for the given role.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -230,7 +229,8 @@ class AccountRole(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -238,7 +238,8 @@ class AccountRole(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
+        following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 

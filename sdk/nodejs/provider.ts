@@ -184,7 +184,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["oktaUrl"] = args ? args.oktaUrl : undefined;
             resourceInputs["organizationName"] = args ? args.organizationName : undefined;
             resourceInputs["params"] = pulumi.output(args ? args.params : undefined).apply(JSON.stringify);
-            resourceInputs["passcode"] = args ? args.passcode : undefined;
+            resourceInputs["passcode"] = args?.passcode ? pulumi.secret(args.passcode) : undefined;
             resourceInputs["passcodeInPassword"] = pulumi.output(args ? args.passcodeInPassword : undefined).apply(JSON.stringify);
             resourceInputs["password"] = (args?.password ? pulumi.secret(args.password) : undefined) ?? utilities.getEnv("SNOWFLAKE_PASSWORD");
             resourceInputs["port"] = pulumi.output((args ? args.port : undefined) ?? utilities.getEnvNumber("SNOWFLAKE_PORT")).apply(JSON.stringify);
@@ -205,7 +205,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["warehouse"] = (args ? args.warehouse : undefined) ?? utilities.getEnv("SNOWFLAKE_WAREHOUSE");
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["password", "privateKey", "privateKeyPassphrase", "token"] };
+        const secretOpts = { additionalSecretOutputs: ["passcode", "password", "privateKey", "privateKeyPassphrase", "token"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
@@ -393,10 +393,10 @@ export interface ProviderArgs {
      */
     role?: pulumi.Input<string>;
     /**
-     * True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-     * the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
-     * - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
-     * variable.
+     * False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+     * the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
+     * the proper privileges - see the section below. Can also be sourced from the
+     * `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
      */
     skipTomlFilePermissionVerification?: pulumi.Input<boolean>;
     /**
@@ -411,7 +411,7 @@ export interface ProviderArgs {
     token?: pulumi.Input<string>;
     tokenAccessor?: pulumi.Input<inputs.ProviderTokenAccessor>;
     /**
-     * True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+     * False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
      * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
      * variable.
      */

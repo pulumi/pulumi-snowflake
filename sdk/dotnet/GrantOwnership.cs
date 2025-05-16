@@ -9,64 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// ### Import examples
-    /// 
-    /// #### OnObject on Schema ToAccountRole
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnObject|SCHEMA|"database_name"."schema_name"'`
-    /// ```
-    /// 
-    /// #### OnObject on Schema ToDatabaseRole
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToDatabaseRole|"database_name"."database_role_name"|COPY|OnObject|SCHEMA|"database_name"."schema_name"'`
-    /// ```
-    /// 
-    /// #### OnObject on Table
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnObject|TABLE|"database_name"."schema_name"."table_name"'`
-    /// ```
-    /// 
-    /// #### OnAll InDatabase
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|REVOKE|OnAll|TABLES|InDatabase|"database_name"'`
-    /// ```
-    /// 
-    /// #### OnAll InSchema
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"||OnAll|TABLES|InSchema|"database_name"."schema_name"'`
-    /// ```
-    /// 
-    /// #### OnFuture InDatabase
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"||OnFuture|TABLES|InDatabase|"database_name"'`
-    /// ```
-    /// 
-    /// #### OnFuture InSchema
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnFuture|TABLES|InSchema|"database_name"."schema_name"'`
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/grantOwnership:GrantOwnership")]
     public partial class GrantOwnership : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the account role to which privileges will be granted. For more information about this
+        /// resource, see docs.
         /// </summary>
         [Output("accountRoleName")]
         public Output<string?> AccountRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the database role to which privileges will be granted. For more information about this
+        /// resource, see docs.
         /// </summary>
         [Output("databaseRoleName")]
         public Output<string?> DatabaseRoleName { get; private set; } = null!;
@@ -78,7 +33,10 @@ namespace Pulumi.Snowflake
         public Output<Outputs.GrantOwnershipOn> On { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+        /// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+        /// a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+        /// more information head over to [Snowflake
+        /// documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
         /// </summary>
         [Output("outboundPrivileges")]
         public Output<string?> OutboundPrivileges { get; private set; } = null!;
@@ -130,13 +88,15 @@ namespace Pulumi.Snowflake
     public sealed class GrantOwnershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the account role to which privileges will be granted. For more information about this
+        /// resource, see docs.
         /// </summary>
         [Input("accountRoleName")]
         public Input<string>? AccountRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the database role to which privileges will be granted. For more information about this
+        /// resource, see docs.
         /// </summary>
         [Input("databaseRoleName")]
         public Input<string>? DatabaseRoleName { get; set; }
@@ -148,7 +108,10 @@ namespace Pulumi.Snowflake
         public Input<Inputs.GrantOwnershipOnArgs> On { get; set; } = null!;
 
         /// <summary>
-        /// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+        /// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+        /// a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+        /// more information head over to [Snowflake
+        /// documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
         /// </summary>
         [Input("outboundPrivileges")]
         public Input<string>? OutboundPrivileges { get; set; }
@@ -162,13 +125,15 @@ namespace Pulumi.Snowflake
     public sealed class GrantOwnershipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the account role to which privileges will be granted. For more information about this
+        /// resource, see docs.
         /// </summary>
         [Input("accountRoleName")]
         public Input<string>? AccountRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the database role to which privileges will be granted. For more information about this
+        /// resource, see docs.
         /// </summary>
         [Input("databaseRoleName")]
         public Input<string>? DatabaseRoleName { get; set; }
@@ -180,7 +145,10 @@ namespace Pulumi.Snowflake
         public Input<Inputs.GrantOwnershipOnGetArgs>? On { get; set; }
 
         /// <summary>
-        /// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+        /// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+        /// a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+        /// more information head over to [Snowflake
+        /// documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
         /// </summary>
         [Input("outboundPrivileges")]
         public Input<string>? OutboundPrivileges { get; set; }

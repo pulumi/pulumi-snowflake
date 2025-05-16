@@ -8,31 +8,24 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ```sh
-// $ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
-// ```
 type StorageIntegration struct {
 	pulumi.CustomResourceState
 
 	// The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
 	AzureConsentUrl pulumi.StringOutput `pulumi:"azureConsentUrl"`
 	// This is the name of the Snowflake client application created for your account.
-	AzureMultiTenantAppName pulumi.StringOutput `pulumi:"azureMultiTenantAppName"`
-	// (Default: ``)
-	AzureTenantId pulumi.StringPtrOutput `pulumi:"azureTenantId"`
-	// (Default: ``)
-	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	AzureMultiTenantAppName pulumi.StringOutput    `pulumi:"azureMultiTenantAppName"`
+	AzureTenantId           pulumi.StringPtrOutput `pulumi:"azureTenantId"`
+	Comment                 pulumi.StringPtrOutput `pulumi:"comment"`
 	// Date and time when the storage integration was created.
-	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// (Default: `true`)
-	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	CreatedOn pulumi.StringOutput  `pulumi:"createdOn"`
+	Enabled   pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	Name               pulumi.StringOutput `pulumi:"name"`
 	// Explicitly limits external stages that use the integration to reference one or more storage locations.
@@ -43,16 +36,14 @@ type StorageIntegration struct {
 	StorageAwsIamUserArn pulumi.StringOutput `pulumi:"storageAwsIamUserArn"`
 	// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
 	StorageAwsObjectAcl pulumi.StringPtrOutput `pulumi:"storageAwsObjectAcl"`
-	// (Default: ``)
-	StorageAwsRoleArn pulumi.StringPtrOutput `pulumi:"storageAwsRoleArn"`
+	StorageAwsRoleArn   pulumi.StringPtrOutput `pulumi:"storageAwsRoleArn"`
 	// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
 	StorageBlockedLocations pulumi.StringArrayOutput `pulumi:"storageBlockedLocations"`
 	// This is the name of the Snowflake Google Service Account created for your account.
 	StorageGcpServiceAccount pulumi.StringOutput `pulumi:"storageGcpServiceAccount"`
 	// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
-	StorageProvider pulumi.StringOutput `pulumi:"storageProvider"`
-	// (Default: `EXTERNAL_STAGE`)
-	Type pulumi.StringPtrOutput `pulumi:"type"`
+	StorageProvider pulumi.StringOutput    `pulumi:"storageProvider"`
+	Type            pulumi.StringPtrOutput `pulumi:"type"`
 }
 
 // NewStorageIntegration registers a new resource with the given unique name, arguments, and options.
@@ -68,6 +59,10 @@ func NewStorageIntegration(ctx *pulumi.Context,
 	if args.StorageProvider == nil {
 		return nil, errors.New("invalid value for required argument 'StorageProvider'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"azureConsentUrl",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StorageIntegration
 	err := ctx.RegisterResource("snowflake:index/storageIntegration:StorageIntegration", name, args, &resource, opts...)
@@ -95,15 +90,13 @@ type storageIntegrationState struct {
 	AzureConsentUrl *string `pulumi:"azureConsentUrl"`
 	// This is the name of the Snowflake client application created for your account.
 	AzureMultiTenantAppName *string `pulumi:"azureMultiTenantAppName"`
-	// (Default: ``)
-	AzureTenantId *string `pulumi:"azureTenantId"`
-	// (Default: ``)
-	Comment *string `pulumi:"comment"`
+	AzureTenantId           *string `pulumi:"azureTenantId"`
+	Comment                 *string `pulumi:"comment"`
 	// Date and time when the storage integration was created.
 	CreatedOn *string `pulumi:"createdOn"`
-	// (Default: `true`)
-	Enabled *bool `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	Enabled   *bool   `pulumi:"enabled"`
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	Name               *string `pulumi:"name"`
 	// Explicitly limits external stages that use the integration to reference one or more storage locations.
@@ -114,16 +107,14 @@ type storageIntegrationState struct {
 	StorageAwsIamUserArn *string `pulumi:"storageAwsIamUserArn"`
 	// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
 	StorageAwsObjectAcl *string `pulumi:"storageAwsObjectAcl"`
-	// (Default: ``)
-	StorageAwsRoleArn *string `pulumi:"storageAwsRoleArn"`
+	StorageAwsRoleArn   *string `pulumi:"storageAwsRoleArn"`
 	// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
 	StorageBlockedLocations []string `pulumi:"storageBlockedLocations"`
 	// This is the name of the Snowflake Google Service Account created for your account.
 	StorageGcpServiceAccount *string `pulumi:"storageGcpServiceAccount"`
 	// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
 	StorageProvider *string `pulumi:"storageProvider"`
-	// (Default: `EXTERNAL_STAGE`)
-	Type *string `pulumi:"type"`
+	Type            *string `pulumi:"type"`
 }
 
 type StorageIntegrationState struct {
@@ -131,15 +122,13 @@ type StorageIntegrationState struct {
 	AzureConsentUrl pulumi.StringPtrInput
 	// This is the name of the Snowflake client application created for your account.
 	AzureMultiTenantAppName pulumi.StringPtrInput
-	// (Default: ``)
-	AzureTenantId pulumi.StringPtrInput
-	// (Default: ``)
-	Comment pulumi.StringPtrInput
+	AzureTenantId           pulumi.StringPtrInput
+	Comment                 pulumi.StringPtrInput
 	// Date and time when the storage integration was created.
 	CreatedOn pulumi.StringPtrInput
-	// (Default: `true`)
-	Enabled pulumi.BoolPtrInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	Enabled   pulumi.BoolPtrInput
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	Name               pulumi.StringPtrInput
 	// Explicitly limits external stages that use the integration to reference one or more storage locations.
@@ -150,16 +139,14 @@ type StorageIntegrationState struct {
 	StorageAwsIamUserArn pulumi.StringPtrInput
 	// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
 	StorageAwsObjectAcl pulumi.StringPtrInput
-	// (Default: ``)
-	StorageAwsRoleArn pulumi.StringPtrInput
+	StorageAwsRoleArn   pulumi.StringPtrInput
 	// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
 	StorageBlockedLocations pulumi.StringArrayInput
 	// This is the name of the Snowflake Google Service Account created for your account.
 	StorageGcpServiceAccount pulumi.StringPtrInput
 	// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
 	StorageProvider pulumi.StringPtrInput
-	// (Default: `EXTERNAL_STAGE`)
-	Type pulumi.StringPtrInput
+	Type            pulumi.StringPtrInput
 }
 
 func (StorageIntegrationState) ElementType() reflect.Type {
@@ -167,48 +154,38 @@ func (StorageIntegrationState) ElementType() reflect.Type {
 }
 
 type storageIntegrationArgs struct {
-	// (Default: ``)
 	AzureTenantId *string `pulumi:"azureTenantId"`
-	// (Default: ``)
-	Comment *string `pulumi:"comment"`
-	// (Default: `true`)
-	Enabled *bool   `pulumi:"enabled"`
-	Name    *string `pulumi:"name"`
+	Comment       *string `pulumi:"comment"`
+	Enabled       *bool   `pulumi:"enabled"`
+	Name          *string `pulumi:"name"`
 	// Explicitly limits external stages that use the integration to reference one or more storage locations.
 	StorageAllowedLocations []string `pulumi:"storageAllowedLocations"`
 	// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
 	StorageAwsObjectAcl *string `pulumi:"storageAwsObjectAcl"`
-	// (Default: ``)
-	StorageAwsRoleArn *string `pulumi:"storageAwsRoleArn"`
+	StorageAwsRoleArn   *string `pulumi:"storageAwsRoleArn"`
 	// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
 	StorageBlockedLocations []string `pulumi:"storageBlockedLocations"`
 	// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
-	StorageProvider string `pulumi:"storageProvider"`
-	// (Default: `EXTERNAL_STAGE`)
-	Type *string `pulumi:"type"`
+	StorageProvider string  `pulumi:"storageProvider"`
+	Type            *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a StorageIntegration resource.
 type StorageIntegrationArgs struct {
-	// (Default: ``)
 	AzureTenantId pulumi.StringPtrInput
-	// (Default: ``)
-	Comment pulumi.StringPtrInput
-	// (Default: `true`)
-	Enabled pulumi.BoolPtrInput
-	Name    pulumi.StringPtrInput
+	Comment       pulumi.StringPtrInput
+	Enabled       pulumi.BoolPtrInput
+	Name          pulumi.StringPtrInput
 	// Explicitly limits external stages that use the integration to reference one or more storage locations.
 	StorageAllowedLocations pulumi.StringArrayInput
 	// "bucket-owner-full-control" Enables support for AWS access control lists (ACLs) to grant the bucket owner full control.
 	StorageAwsObjectAcl pulumi.StringPtrInput
-	// (Default: ``)
-	StorageAwsRoleArn pulumi.StringPtrInput
+	StorageAwsRoleArn   pulumi.StringPtrInput
 	// Explicitly prohibits external stages that use the integration from referencing one or more storage locations.
 	StorageBlockedLocations pulumi.StringArrayInput
 	// Specifies the storage provider for the integration. Valid options are: `S3` | `S3GOV` | `S3CHINA` | `GCS` | `AZURE`
 	StorageProvider pulumi.StringInput
-	// (Default: `EXTERNAL_STAGE`)
-	Type pulumi.StringPtrInput
+	Type            pulumi.StringPtrInput
 }
 
 func (StorageIntegrationArgs) ElementType() reflect.Type {
@@ -308,12 +285,10 @@ func (o StorageIntegrationOutput) AzureMultiTenantAppName() pulumi.StringOutput 
 	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.AzureMultiTenantAppName }).(pulumi.StringOutput)
 }
 
-// (Default: “)
 func (o StorageIntegrationOutput) AzureTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageIntegration) pulumi.StringPtrOutput { return v.AzureTenantId }).(pulumi.StringPtrOutput)
 }
 
-// (Default: “)
 func (o StorageIntegrationOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageIntegration) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -323,12 +298,12 @@ func (o StorageIntegrationOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// (Default: `true`)
 func (o StorageIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StorageIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o StorageIntegrationOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
@@ -357,7 +332,6 @@ func (o StorageIntegrationOutput) StorageAwsObjectAcl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageIntegration) pulumi.StringPtrOutput { return v.StorageAwsObjectAcl }).(pulumi.StringPtrOutput)
 }
 
-// (Default: “)
 func (o StorageIntegrationOutput) StorageAwsRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageIntegration) pulumi.StringPtrOutput { return v.StorageAwsRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -377,7 +351,6 @@ func (o StorageIntegrationOutput) StorageProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageIntegration) pulumi.StringOutput { return v.StorageProvider }).(pulumi.StringOutput)
 }
 
-// (Default: `EXTERNAL_STAGE`)
 func (o StorageIntegrationOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageIntegration) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

@@ -21,10 +21,6 @@ public final class GetDatabaseResult {
     private String id;
     private Boolean isCurrent;
     private Boolean isDefault;
-    /**
-     * @return The database from which to return its metadata.
-     * 
-     */
     private String name;
     private String options;
     private String origin;
@@ -51,10 +47,6 @@ public final class GetDatabaseResult {
     public Boolean isDefault() {
         return this.isDefault;
     }
-    /**
-     * @return The database from which to return its metadata.
-     * 
-     */
     public String name() {
         return this.name;
     }

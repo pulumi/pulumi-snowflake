@@ -15,27 +15,17 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * format is database name | schema name | pipe name
- * 
- * ```sh
- * $ pulumi import snowflake:index/pipe:Pipe example &#39;dbName|schemaName|pipeName&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/pipe:Pipe")
 public class Pipe extends com.pulumi.resources.CustomResource {
     /**
-     * (Default: `false`) Specifies a auto_ingest param for the pipe.
+     * Specifies a auto_ingest param for the pipe.
      * 
      */
     @Export(name="autoIngest", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoIngest;
 
     /**
-     * @return (Default: `false`) Specifies a auto_ingest param for the pipe.
+     * @return Specifies a auto_ingest param for the pipe.
      * 
      */
     public Output<Optional<Boolean>> autoIngest() {
@@ -112,14 +102,16 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.errorIntegration);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {

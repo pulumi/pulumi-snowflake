@@ -4,13 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Import
- *
- * ```sh
- * $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
- * ```
- */
 export class ManagedAccount extends pulumi.CustomResource {
     /**
      * Get an existing ManagedAccount resource's state with the given name, ID, and optional extra
@@ -40,11 +33,13 @@ export class ManagedAccount extends pulumi.CustomResource {
     }
 
     /**
-     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+     * administrator for the account.
      */
     public readonly adminName!: pulumi.Output<string>;
     /**
-     * Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+     * Password for the initial user in the managed account. Check [Snowflake-provided password
+     * policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      */
     public readonly adminPassword!: pulumi.Output<string>;
     /**
@@ -60,7 +55,8 @@ export class ManagedAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
@@ -76,7 +72,7 @@ export class ManagedAccount extends pulumi.CustomResource {
      */
     public /*out*/ readonly region!: pulumi.Output<string>;
     /**
-     * (Default: `READER`) Specifies the type of managed account.
+     * Specifies the type of managed account.
      */
     public readonly type!: pulumi.Output<string | undefined>;
     /**
@@ -140,11 +136,13 @@ export class ManagedAccount extends pulumi.CustomResource {
  */
 export interface ManagedAccountState {
     /**
-     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+     * administrator for the account.
      */
     adminName?: pulumi.Input<string>;
     /**
-     * Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+     * Password for the initial user in the managed account. Check [Snowflake-provided password
+     * policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      */
     adminPassword?: pulumi.Input<string>;
     /**
@@ -160,7 +158,8 @@ export interface ManagedAccountState {
      */
     createdOn?: pulumi.Input<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
@@ -176,7 +175,7 @@ export interface ManagedAccountState {
      */
     region?: pulumi.Input<string>;
     /**
-     * (Default: `READER`) Specifies the type of managed account.
+     * Specifies the type of managed account.
      */
     type?: pulumi.Input<string>;
     /**
@@ -190,11 +189,13 @@ export interface ManagedAccountState {
  */
 export interface ManagedAccountArgs {
     /**
-     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+     * administrator for the account.
      */
     adminName: pulumi.Input<string>;
     /**
-     * Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+     * Password for the initial user in the managed account. Check [Snowflake-provided password
+     * policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      */
     adminPassword: pulumi.Input<string>;
     /**
@@ -206,7 +207,7 @@ export interface ManagedAccountArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Default: `READER`) Specifies the type of managed account.
+     * Specifies the type of managed account.
      */
     type?: pulumi.Input<string>;
 }

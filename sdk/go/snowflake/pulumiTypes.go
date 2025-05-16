@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -743,7 +743,6 @@ type ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput struct
 	OauthAllowedScopes          []ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope          `pulumi:"oauthAllowedScopes"`
 	OauthAuthorizationEndpoints []ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint `pulumi:"oauthAuthorizationEndpoints"`
 	OauthClientAuthMethods      []ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod      `pulumi:"oauthClientAuthMethods"`
-	OauthClientIds              []ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId              `pulumi:"oauthClientIds"`
 	OauthGrants                 []ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant                 `pulumi:"oauthGrants"`
 	OauthRefreshTokenValidities []ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity  `pulumi:"oauthRefreshTokenValidities"`
 	OauthTokenEndpoints         []ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint         `pulumi:"oauthTokenEndpoints"`
@@ -769,7 +768,6 @@ type ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs st
 	OauthAllowedScopes          ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScopeArrayInput          `pulumi:"oauthAllowedScopes"`
 	OauthAuthorizationEndpoints ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArrayInput `pulumi:"oauthAuthorizationEndpoints"`
 	OauthClientAuthMethods      ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArrayInput      `pulumi:"oauthClientAuthMethods"`
-	OauthClientIds              ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayInput              `pulumi:"oauthClientIds"`
 	OauthGrants                 ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArrayInput                 `pulumi:"oauthGrants"`
 	OauthRefreshTokenValidities ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArrayInput  `pulumi:"oauthRefreshTokenValidities"`
 	OauthTokenEndpoints         ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpointArrayInput         `pulumi:"oauthTokenEndpoints"`
@@ -867,12 +865,6 @@ func (o ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOutp
 	return o.ApplyT(func(v ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput) []ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod {
 		return v.OauthClientAuthMethods
 	}).(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArrayOutput)
-}
-
-func (o ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOutput) OauthClientIds() ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput) []ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId {
-		return v.OauthClientIds
-	}).(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput)
 }
 
 func (o ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOutput) OauthGrants() ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArrayOutput {
@@ -1759,126 +1751,6 @@ func (o ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOaut
 	}).(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodOutput)
 }
 
-type ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdInput is an input type that accepts ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs and ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput values.
-// You can construct a concrete instance of `ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdInput` via:
-//
-//	ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs{...}
-type ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdInput interface {
-	pulumi.Input
-
-	ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput() ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput
-	ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutputWithContext(context.Context) ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput
-}
-
-type ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (i ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs) ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput() ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput {
-	return i.ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutputWithContext(context.Background())
-}
-
-func (i ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs) ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutputWithContext(ctx context.Context) ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput)
-}
-
-// ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayInput is an input type that accepts ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArray and ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput values.
-// You can construct a concrete instance of `ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayInput` via:
-//
-//	ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArray{ ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs{...} }
-type ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayInput interface {
-	pulumi.Input
-
-	ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput() ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput
-	ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutputWithContext(context.Context) ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput
-}
-
-type ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArray []ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdInput
-
-func (ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (i ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArray) ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput() ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput {
-	return i.ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutputWithContext(context.Background())
-}
-
-func (i ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArray) ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutputWithContext(ctx context.Context) ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput)
-}
-
-type ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput struct{ *pulumi.OutputState }
-
-func (ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (o ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput) ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput() ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput {
-	return o
-}
-
-func (o ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput) ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutputWithContext(ctx context.Context) ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput {
-	return o
-}
-
-func (o ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId) *string {
-		return v.Default
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId) *string {
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId) *string {
-		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput struct{ *pulumi.OutputState }
-
-func (ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (o ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput) ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput() ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput {
-	return o
-}
-
-func (o ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput) ToApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutputWithContext(ctx context.Context) ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput {
-	return o
-}
-
-func (o ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput) Index(i pulumi.IntInput) ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId {
-		return vs[0].([]ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId)[vs[1].(int)]
-	}).(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput)
-}
-
 type ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant struct {
 	Default *string `pulumi:"default"`
 	Name    *string `pulumi:"name"`
@@ -2493,7 +2365,6 @@ type ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput struct {
 	OauthAllowedScopes          []ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope          `pulumi:"oauthAllowedScopes"`
 	OauthAuthorizationEndpoints []ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint `pulumi:"oauthAuthorizationEndpoints"`
 	OauthClientAuthMethods      []ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod      `pulumi:"oauthClientAuthMethods"`
-	OauthClientIds              []ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId              `pulumi:"oauthClientIds"`
 	OauthGrants                 []ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant                 `pulumi:"oauthGrants"`
 	OauthRefreshTokenValidities []ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity  `pulumi:"oauthRefreshTokenValidities"`
 	OauthTokenEndpoints         []ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint         `pulumi:"oauthTokenEndpoints"`
@@ -2519,7 +2390,6 @@ type ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgs struct 
 	OauthAllowedScopes          ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScopeArrayInput          `pulumi:"oauthAllowedScopes"`
 	OauthAuthorizationEndpoints ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArrayInput `pulumi:"oauthAuthorizationEndpoints"`
 	OauthClientAuthMethods      ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArrayInput      `pulumi:"oauthClientAuthMethods"`
-	OauthClientIds              ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayInput              `pulumi:"oauthClientIds"`
 	OauthGrants                 ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArrayInput                 `pulumi:"oauthGrants"`
 	OauthRefreshTokenValidities ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityArrayInput  `pulumi:"oauthRefreshTokenValidities"`
 	OauthTokenEndpoints         ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpointArrayInput         `pulumi:"oauthTokenEndpoints"`
@@ -2617,12 +2487,6 @@ func (o ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOutput) O
 	return o.ApplyT(func(v ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput) []ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod {
 		return v.OauthClientAuthMethods
 	}).(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArrayOutput)
-}
-
-func (o ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOutput) OauthClientIds() ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput) []ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId {
-		return v.OauthClientIds
-	}).(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput)
 }
 
 func (o ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOutput) OauthGrants() ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArrayOutput {
@@ -3493,126 +3357,6 @@ func (o ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClie
 	}).(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodOutput)
 }
 
-type ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdInput is an input type that accepts ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs and ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput values.
-// You can construct a concrete instance of `ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdInput` via:
-//
-//	ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs{...}
-type ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdInput interface {
-	pulumi.Input
-
-	ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput() ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput
-	ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutputWithContext(context.Context) ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput
-}
-
-type ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (i ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs) ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput() ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput {
-	return i.ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutputWithContext(context.Background())
-}
-
-func (i ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs) ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutputWithContext(ctx context.Context) ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput)
-}
-
-// ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayInput is an input type that accepts ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArray and ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput values.
-// You can construct a concrete instance of `ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayInput` via:
-//
-//	ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArray{ ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs{...} }
-type ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayInput interface {
-	pulumi.Input
-
-	ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput() ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput
-	ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutputWithContext(context.Context) ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput
-}
-
-type ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArray []ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdInput
-
-func (ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (i ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArray) ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput() ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput {
-	return i.ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutputWithContext(context.Background())
-}
-
-func (i ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArray) ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutputWithContext(ctx context.Context) ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput)
-}
-
-type ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput struct{ *pulumi.OutputState }
-
-func (ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (o ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput) ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput() ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput {
-	return o
-}
-
-func (o ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput) ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutputWithContext(ctx context.Context) ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput {
-	return o
-}
-
-func (o ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId) *string {
-		return v.Default
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId) *string {
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId) *string {
-		return v.Type
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId) *string {
-		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
-type ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput struct{ *pulumi.OutputState }
-
-func (ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (o ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput) ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput() ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput {
-	return o
-}
-
-func (o ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput) ToApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutputWithContext(ctx context.Context) ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput {
-	return o
-}
-
-func (o ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput) Index(i pulumi.IntInput) ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId {
-		return vs[0].([]ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId)[vs[1].(int)]
-	}).(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput)
-}
-
 type ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant struct {
 	Default *string `pulumi:"default"`
 	Name    *string `pulumi:"name"`
@@ -4225,7 +3969,6 @@ type ApiAuthenticationIntegrationWithJwtBearerDescribeOutput struct {
 	OauthAllowedScopes          []ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope          `pulumi:"oauthAllowedScopes"`
 	OauthAuthorizationEndpoints []ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint `pulumi:"oauthAuthorizationEndpoints"`
 	OauthClientAuthMethods      []ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod      `pulumi:"oauthClientAuthMethods"`
-	OauthClientIds              []ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId              `pulumi:"oauthClientIds"`
 	OauthGrants                 []ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant                 `pulumi:"oauthGrants"`
 	OauthRefreshTokenValidities []ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity  `pulumi:"oauthRefreshTokenValidities"`
 	OauthTokenEndpoints         []ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint         `pulumi:"oauthTokenEndpoints"`
@@ -4251,7 +3994,6 @@ type ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs struct {
 	OauthAllowedScopes          ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScopeArrayInput          `pulumi:"oauthAllowedScopes"`
 	OauthAuthorizationEndpoints ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArrayInput `pulumi:"oauthAuthorizationEndpoints"`
 	OauthClientAuthMethods      ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArrayInput      `pulumi:"oauthClientAuthMethods"`
-	OauthClientIds              ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayInput              `pulumi:"oauthClientIds"`
 	OauthGrants                 ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArrayInput                 `pulumi:"oauthGrants"`
 	OauthRefreshTokenValidities ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityArrayInput  `pulumi:"oauthRefreshTokenValidities"`
 	OauthTokenEndpoints         ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpointArrayInput         `pulumi:"oauthTokenEndpoints"`
@@ -4349,12 +4091,6 @@ func (o ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOutput) OauthClie
 	return o.ApplyT(func(v ApiAuthenticationIntegrationWithJwtBearerDescribeOutput) []ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod {
 		return v.OauthClientAuthMethods
 	}).(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArrayOutput)
-}
-
-func (o ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOutput) OauthClientIds() ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithJwtBearerDescribeOutput) []ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId {
-		return v.OauthClientIds
-	}).(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput)
 }
 
 func (o ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOutput) OauthGrants() ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArrayOutput {
@@ -5215,118 +4951,6 @@ func (o ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMe
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod {
 		return vs[0].([]ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod)[vs[1].(int)]
 	}).(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodOutput)
-}
-
-type ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdInput is an input type that accepts ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs and ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput values.
-// You can construct a concrete instance of `ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdInput` via:
-//
-//	ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs{...}
-type ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdInput interface {
-	pulumi.Input
-
-	ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput() ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput
-	ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutputWithContext(context.Context) ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput
-}
-
-type ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (i ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs) ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput() ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput {
-	return i.ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutputWithContext(context.Background())
-}
-
-func (i ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs) ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutputWithContext(ctx context.Context) ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput)
-}
-
-// ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayInput is an input type that accepts ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArray and ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput values.
-// You can construct a concrete instance of `ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayInput` via:
-//
-//	ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArray{ ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs{...} }
-type ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayInput interface {
-	pulumi.Input
-
-	ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput() ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput
-	ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutputWithContext(context.Context) ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput
-}
-
-type ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArray []ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdInput
-
-func (ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (i ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArray) ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput() ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput {
-	return i.ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutputWithContext(context.Background())
-}
-
-func (i ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArray) ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutputWithContext(ctx context.Context) ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput)
-}
-
-type ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput struct{ *pulumi.OutputState }
-
-func (ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (o ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput) ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput() ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput {
-	return o
-}
-
-func (o ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput) ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutputWithContext(ctx context.Context) ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput {
-	return o
-}
-
-func (o ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput struct{ *pulumi.OutputState }
-
-func (ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (o ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput) ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput() ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput {
-	return o
-}
-
-func (o ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput) ToApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutputWithContext(ctx context.Context) ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput {
-	return o
-}
-
-func (o ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput) Index(i pulumi.IntInput) ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId {
-		return vs[0].([]ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId)[vs[1].(int)]
-	}).(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput)
 }
 
 type ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant struct {
@@ -10908,7 +10532,7 @@ func (o FunctionJavaParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) Fun
 }
 
 type FunctionJavaSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 	SecretId string `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName string `pulumi:"secretVariableName"`
@@ -10926,7 +10550,7 @@ type FunctionJavaSecretInput interface {
 }
 
 type FunctionJavaSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
@@ -10983,7 +10607,7 @@ func (o FunctionJavaSecretOutput) ToFunctionJavaSecretOutputWithContext(ctx cont
 	return o
 }
 
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 func (o FunctionJavaSecretOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionJavaSecret) string { return v.SecretId }).(pulumi.StringOutput)
 }
@@ -13081,7 +12705,7 @@ func (o FunctionPythonParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) F
 }
 
 type FunctionPythonSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 	SecretId string `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName string `pulumi:"secretVariableName"`
@@ -13099,7 +12723,7 @@ type FunctionPythonSecretInput interface {
 }
 
 type FunctionPythonSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
@@ -13156,7 +12780,7 @@ func (o FunctionPythonSecretOutput) ToFunctionPythonSecretOutputWithContext(ctx 
 	return o
 }
 
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 func (o FunctionPythonSecretOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionPythonSecret) string { return v.SecretId }).(pulumi.StringOutput)
 }
@@ -14196,7 +13820,7 @@ func (o FunctionScalaParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) Fu
 }
 
 type FunctionScalaSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 	SecretId string `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName string `pulumi:"secretVariableName"`
@@ -14214,7 +13838,7 @@ type FunctionScalaSecretInput interface {
 }
 
 type FunctionScalaSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
@@ -14271,7 +13895,7 @@ func (o FunctionScalaSecretOutput) ToFunctionScalaSecretOutputWithContext(ctx co
 	return o
 }
 
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 func (o FunctionScalaSecretOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionScalaSecret) string { return v.SecretId }).(pulumi.StringOutput)
 }
@@ -26164,13 +25788,11 @@ type OauthIntegrationForCustomClientsDescribeOutput struct {
 	OauthAllowedAuthorizationEndpoints []OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint `pulumi:"oauthAllowedAuthorizationEndpoints"`
 	OauthAllowedTokenEndpoints         []OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint         `pulumi:"oauthAllowedTokenEndpoints"`
 	OauthAuthorizationEndpoints        []OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint        `pulumi:"oauthAuthorizationEndpoints"`
-	OauthClientIds                     []OauthIntegrationForCustomClientsDescribeOutputOauthClientId                     `pulumi:"oauthClientIds"`
 	OauthClientRsaPublicKey2Fps        []OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp        `pulumi:"oauthClientRsaPublicKey2Fps"`
 	OauthClientRsaPublicKeyFps         []OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp         `pulumi:"oauthClientRsaPublicKeyFps"`
 	OauthClientTypes                   []OauthIntegrationForCustomClientsDescribeOutputOauthClientType                   `pulumi:"oauthClientTypes"`
 	OauthEnforcePkces                  []OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce                  `pulumi:"oauthEnforcePkces"`
 	OauthIssueRefreshTokens            []OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken            `pulumi:"oauthIssueRefreshTokens"`
-	OauthRedirectUris                  []OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri                  `pulumi:"oauthRedirectUris"`
 	OauthRefreshTokenValidities        []OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity         `pulumi:"oauthRefreshTokenValidities"`
 	OauthTokenEndpoints                []OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint                `pulumi:"oauthTokenEndpoints"`
 	OauthUseSecondaryRoles             []OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole             `pulumi:"oauthUseSecondaryRoles"`
@@ -26197,13 +25819,11 @@ type OauthIntegrationForCustomClientsDescribeOutputArgs struct {
 	OauthAllowedAuthorizationEndpoints OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpointArrayInput `pulumi:"oauthAllowedAuthorizationEndpoints"`
 	OauthAllowedTokenEndpoints         OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArrayInput         `pulumi:"oauthAllowedTokenEndpoints"`
 	OauthAuthorizationEndpoints        OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArrayInput        `pulumi:"oauthAuthorizationEndpoints"`
-	OauthClientIds                     OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayInput                     `pulumi:"oauthClientIds"`
 	OauthClientRsaPublicKey2Fps        OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArrayInput        `pulumi:"oauthClientRsaPublicKey2Fps"`
 	OauthClientRsaPublicKeyFps         OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArrayInput         `pulumi:"oauthClientRsaPublicKeyFps"`
 	OauthClientTypes                   OauthIntegrationForCustomClientsDescribeOutputOauthClientTypeArrayInput                   `pulumi:"oauthClientTypes"`
 	OauthEnforcePkces                  OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArrayInput                  `pulumi:"oauthEnforcePkces"`
 	OauthIssueRefreshTokens            OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArrayInput            `pulumi:"oauthIssueRefreshTokens"`
-	OauthRedirectUris                  OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayInput                  `pulumi:"oauthRedirectUris"`
 	OauthRefreshTokenValidities        OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArrayInput         `pulumi:"oauthRefreshTokenValidities"`
 	OauthTokenEndpoints                OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArrayInput                `pulumi:"oauthTokenEndpoints"`
 	OauthUseSecondaryRoles             OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRoleArrayInput             `pulumi:"oauthUseSecondaryRoles"`
@@ -26309,12 +25929,6 @@ func (o OauthIntegrationForCustomClientsDescribeOutputOutput) OauthAuthorization
 	}).(OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArrayOutput)
 }
 
-func (o OauthIntegrationForCustomClientsDescribeOutputOutput) OauthClientIds() OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput {
-	return o.ApplyT(func(v OauthIntegrationForCustomClientsDescribeOutput) []OauthIntegrationForCustomClientsDescribeOutputOauthClientId {
-		return v.OauthClientIds
-	}).(OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput)
-}
-
 func (o OauthIntegrationForCustomClientsDescribeOutputOutput) OauthClientRsaPublicKey2Fps() OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArrayOutput {
 	return o.ApplyT(func(v OauthIntegrationForCustomClientsDescribeOutput) []OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp {
 		return v.OauthClientRsaPublicKey2Fps
@@ -26343,12 +25957,6 @@ func (o OauthIntegrationForCustomClientsDescribeOutputOutput) OauthIssueRefreshT
 	return o.ApplyT(func(v OauthIntegrationForCustomClientsDescribeOutput) []OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken {
 		return v.OauthIssueRefreshTokens
 	}).(OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArrayOutput)
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOutput) OauthRedirectUris() OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput {
-	return o.ApplyT(func(v OauthIntegrationForCustomClientsDescribeOutput) []OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri {
-		return v.OauthRedirectUris
-	}).(OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput)
 }
 
 func (o OauthIntegrationForCustomClientsDescribeOutputOutput) OauthRefreshTokenValidities() OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArrayOutput {
@@ -27319,118 +26927,6 @@ func (o OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint
 	}).(OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointOutput)
 }
 
-type OauthIntegrationForCustomClientsDescribeOutputOauthClientId struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// OauthIntegrationForCustomClientsDescribeOutputOauthClientIdInput is an input type that accepts OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs and OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput values.
-// You can construct a concrete instance of `OauthIntegrationForCustomClientsDescribeOutputOauthClientIdInput` via:
-//
-//	OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs{...}
-type OauthIntegrationForCustomClientsDescribeOutputOauthClientIdInput interface {
-	pulumi.Input
-
-	ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput() OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput
-	ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutputWithContext(context.Context) OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput
-}
-
-type OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (i OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs) ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput() OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput {
-	return i.ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutputWithContext(context.Background())
-}
-
-func (i OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs) ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutputWithContext(ctx context.Context) OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput)
-}
-
-// OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayInput is an input type that accepts OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArray and OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput values.
-// You can construct a concrete instance of `OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayInput` via:
-//
-//	OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArray{ OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs{...} }
-type OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayInput interface {
-	pulumi.Input
-
-	ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput() OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput
-	ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutputWithContext(context.Context) OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput
-}
-
-type OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArray []OauthIntegrationForCustomClientsDescribeOutputOauthClientIdInput
-
-func (OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OauthIntegrationForCustomClientsDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (i OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArray) ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput() OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput {
-	return i.ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutputWithContext(context.Background())
-}
-
-func (i OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArray) ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutputWithContext(ctx context.Context) OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput)
-}
-
-type OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput struct{ *pulumi.OutputState }
-
-func (OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput) ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput() OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput {
-	return o
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput) ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutputWithContext(ctx context.Context) OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput {
-	return o
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForCustomClientsDescribeOutputOauthClientId) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForCustomClientsDescribeOutputOauthClientId) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForCustomClientsDescribeOutputOauthClientId) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForCustomClientsDescribeOutputOauthClientId) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput struct{ *pulumi.OutputState }
-
-func (OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OauthIntegrationForCustomClientsDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput) ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput() OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput {
-	return o
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput) ToOauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutputWithContext(ctx context.Context) OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput {
-	return o
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput) Index(i pulumi.IntInput) OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OauthIntegrationForCustomClientsDescribeOutputOauthClientId {
-		return vs[0].([]OauthIntegrationForCustomClientsDescribeOutputOauthClientId)[vs[1].(int)]
-	}).(OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput)
-}
-
 type OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp struct {
 	Default *string `pulumi:"default"`
 	Name    *string `pulumi:"name"`
@@ -28001,118 +27497,6 @@ func (o OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArra
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken {
 		return vs[0].([]OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken)[vs[1].(int)]
 	}).(OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenOutput)
-}
-
-type OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriInput is an input type that accepts OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs and OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput values.
-// You can construct a concrete instance of `OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriInput` via:
-//
-//	OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs{...}
-type OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriInput interface {
-	pulumi.Input
-
-	ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput() OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput
-	ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutputWithContext(context.Context) OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput
-}
-
-type OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri)(nil)).Elem()
-}
-
-func (i OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs) ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput() OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput {
-	return i.ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutputWithContext(context.Background())
-}
-
-func (i OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs) ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutputWithContext(ctx context.Context) OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput)
-}
-
-// OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayInput is an input type that accepts OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArray and OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput values.
-// You can construct a concrete instance of `OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayInput` via:
-//
-//	OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArray{ OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs{...} }
-type OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayInput interface {
-	pulumi.Input
-
-	ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput() OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput
-	ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutputWithContext(context.Context) OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput
-}
-
-type OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArray []OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriInput
-
-func (OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri)(nil)).Elem()
-}
-
-func (i OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArray) ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput() OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput {
-	return i.ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutputWithContext(context.Background())
-}
-
-func (i OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArray) ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutputWithContext(ctx context.Context) OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput)
-}
-
-type OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput struct{ *pulumi.OutputState }
-
-func (OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri)(nil)).Elem()
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput) ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput() OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput {
-	return o
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput) ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutputWithContext(ctx context.Context) OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput {
-	return o
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput struct{ *pulumi.OutputState }
-
-func (OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri)(nil)).Elem()
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput) ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput() OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput {
-	return o
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput) ToOauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutputWithContext(ctx context.Context) OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput {
-	return o
-}
-
-func (o OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput) Index(i pulumi.IntInput) OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri {
-		return vs[0].([]OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri)[vs[1].(int)]
-	}).(OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput)
 }
 
 type OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity struct {
@@ -28924,13 +28308,11 @@ type OauthIntegrationForPartnerApplicationsDescribeOutput struct {
 	OauthAllowedAuthorizationEndpoints []OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint `pulumi:"oauthAllowedAuthorizationEndpoints"`
 	OauthAllowedTokenEndpoints         []OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint         `pulumi:"oauthAllowedTokenEndpoints"`
 	OauthAuthorizationEndpoints        []OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint        `pulumi:"oauthAuthorizationEndpoints"`
-	OauthClientIds                     []OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId                     `pulumi:"oauthClientIds"`
 	OauthClientRsaPublicKey2Fps        []OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp        `pulumi:"oauthClientRsaPublicKey2Fps"`
 	OauthClientRsaPublicKeyFps         []OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp         `pulumi:"oauthClientRsaPublicKeyFps"`
 	OauthClientTypes                   []OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType                   `pulumi:"oauthClientTypes"`
 	OauthEnforcePkces                  []OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce                  `pulumi:"oauthEnforcePkces"`
 	OauthIssueRefreshTokens            []OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken            `pulumi:"oauthIssueRefreshTokens"`
-	OauthRedirectUris                  []OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri                  `pulumi:"oauthRedirectUris"`
 	OauthRefreshTokenValidities        []OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity         `pulumi:"oauthRefreshTokenValidities"`
 	OauthTokenEndpoints                []OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint                `pulumi:"oauthTokenEndpoints"`
 	OauthUseSecondaryRoles             []OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole             `pulumi:"oauthUseSecondaryRoles"`
@@ -28957,13 +28339,11 @@ type OauthIntegrationForPartnerApplicationsDescribeOutputArgs struct {
 	OauthAllowedAuthorizationEndpoints OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpointArrayInput `pulumi:"oauthAllowedAuthorizationEndpoints"`
 	OauthAllowedTokenEndpoints         OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArrayInput         `pulumi:"oauthAllowedTokenEndpoints"`
 	OauthAuthorizationEndpoints        OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArrayInput        `pulumi:"oauthAuthorizationEndpoints"`
-	OauthClientIds                     OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayInput                     `pulumi:"oauthClientIds"`
 	OauthClientRsaPublicKey2Fps        OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArrayInput        `pulumi:"oauthClientRsaPublicKey2Fps"`
 	OauthClientRsaPublicKeyFps         OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArrayInput         `pulumi:"oauthClientRsaPublicKeyFps"`
 	OauthClientTypes                   OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientTypeArrayInput                   `pulumi:"oauthClientTypes"`
 	OauthEnforcePkces                  OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArrayInput                  `pulumi:"oauthEnforcePkces"`
 	OauthIssueRefreshTokens            OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArrayInput            `pulumi:"oauthIssueRefreshTokens"`
-	OauthRedirectUris                  OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayInput                  `pulumi:"oauthRedirectUris"`
 	OauthRefreshTokenValidities        OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArrayInput         `pulumi:"oauthRefreshTokenValidities"`
 	OauthTokenEndpoints                OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArrayInput                `pulumi:"oauthTokenEndpoints"`
 	OauthUseSecondaryRoles             OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRoleArrayInput             `pulumi:"oauthUseSecondaryRoles"`
@@ -29069,12 +28449,6 @@ func (o OauthIntegrationForPartnerApplicationsDescribeOutputOutput) OauthAuthori
 	}).(OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArrayOutput)
 }
 
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOutput) OauthClientIds() OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput {
-	return o.ApplyT(func(v OauthIntegrationForPartnerApplicationsDescribeOutput) []OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId {
-		return v.OauthClientIds
-	}).(OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput)
-}
-
 func (o OauthIntegrationForPartnerApplicationsDescribeOutputOutput) OauthClientRsaPublicKey2Fps() OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArrayOutput {
 	return o.ApplyT(func(v OauthIntegrationForPartnerApplicationsDescribeOutput) []OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp {
 		return v.OauthClientRsaPublicKey2Fps
@@ -29103,12 +28477,6 @@ func (o OauthIntegrationForPartnerApplicationsDescribeOutputOutput) OauthIssueRe
 	return o.ApplyT(func(v OauthIntegrationForPartnerApplicationsDescribeOutput) []OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken {
 		return v.OauthIssueRefreshTokens
 	}).(OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArrayOutput)
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOutput) OauthRedirectUris() OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput {
-	return o.ApplyT(func(v OauthIntegrationForPartnerApplicationsDescribeOutput) []OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri {
-		return v.OauthRedirectUris
-	}).(OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput)
 }
 
 func (o OauthIntegrationForPartnerApplicationsDescribeOutputOutput) OauthRefreshTokenValidities() OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArrayOutput {
@@ -30083,118 +29451,6 @@ func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEn
 	}).(OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointOutput)
 }
 
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdInput is an input type that accepts OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs and OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput values.
-// You can construct a concrete instance of `OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdInput` via:
-//
-//	OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs{...}
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdInput interface {
-	pulumi.Input
-
-	ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput() OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput
-	ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutputWithContext(context.Context) OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput
-}
-
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (i OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput() OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput {
-	return i.ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutputWithContext(context.Background())
-}
-
-func (i OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutputWithContext(ctx context.Context) OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput)
-}
-
-// OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayInput is an input type that accepts OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArray and OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput values.
-// You can construct a concrete instance of `OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayInput` via:
-//
-//	OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArray{ OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs{...} }
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayInput interface {
-	pulumi.Input
-
-	ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput() OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput
-	ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutputWithContext(context.Context) OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput
-}
-
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArray []OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdInput
-
-func (OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (i OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArray) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput() OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput {
-	return i.ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutputWithContext(context.Background())
-}
-
-func (i OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArray) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutputWithContext(ctx context.Context) OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput)
-}
-
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput struct{ *pulumi.OutputState }
-
-func (OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput() OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput {
-	return o
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutputWithContext(ctx context.Context) OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput {
-	return o
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput struct{ *pulumi.OutputState }
-
-func (OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId)(nil)).Elem()
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput() OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput {
-	return o
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutputWithContext(ctx context.Context) OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput {
-	return o
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput) Index(i pulumi.IntInput) OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId {
-		return vs[0].([]OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId)[vs[1].(int)]
-	}).(OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput)
-}
-
 type OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp struct {
 	Default *string `pulumi:"default"`
 	Name    *string `pulumi:"name"`
@@ -30777,118 +30033,6 @@ func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTok
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken {
 		return vs[0].([]OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken)[vs[1].(int)]
 	}).(OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenOutput)
-}
-
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriInput is an input type that accepts OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs and OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput values.
-// You can construct a concrete instance of `OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriInput` via:
-//
-//	OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs{...}
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriInput interface {
-	pulumi.Input
-
-	ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput() OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput
-	ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutputWithContext(context.Context) OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput
-}
-
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri)(nil)).Elem()
-}
-
-func (i OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput() OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput {
-	return i.ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutputWithContext(context.Background())
-}
-
-func (i OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutputWithContext(ctx context.Context) OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput)
-}
-
-// OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayInput is an input type that accepts OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArray and OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput values.
-// You can construct a concrete instance of `OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayInput` via:
-//
-//	OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArray{ OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs{...} }
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayInput interface {
-	pulumi.Input
-
-	ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput() OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput
-	ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutputWithContext(context.Context) OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput
-}
-
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArray []OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriInput
-
-func (OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri)(nil)).Elem()
-}
-
-func (i OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArray) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput() OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput {
-	return i.ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutputWithContext(context.Background())
-}
-
-func (i OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArray) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutputWithContext(ctx context.Context) OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput)
-}
-
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput struct{ *pulumi.OutputState }
-
-func (OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri)(nil)).Elem()
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput() OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput {
-	return o
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutputWithContext(ctx context.Context) OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput {
-	return o
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput struct{ *pulumi.OutputState }
-
-func (OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri)(nil)).Elem()
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput() OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput {
-	return o
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput) ToOauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutputWithContext(ctx context.Context) OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput {
-	return o
-}
-
-func (o OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput) Index(i pulumi.IntInput) OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri {
-		return vs[0].([]OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri)[vs[1].(int)]
-	}).(OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput)
 }
 
 type OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity struct {
@@ -32790,7 +31934,7 @@ func (o ProcedureJavaParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) Pr
 }
 
 type ProcedureJavaSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 	SecretId string `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName string `pulumi:"secretVariableName"`
@@ -32808,7 +31952,7 @@ type ProcedureJavaSecretInput interface {
 }
 
 type ProcedureJavaSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
@@ -32865,7 +32009,7 @@ func (o ProcedureJavaSecretOutput) ToProcedureJavaSecretOutputWithContext(ctx co
 	return o
 }
 
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 func (o ProcedureJavaSecretOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureJavaSecret) string { return v.SecretId }).(pulumi.StringOutput)
 }
@@ -34915,7 +34059,7 @@ func (o ProcedurePythonParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type ProcedurePythonSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 	SecretId string `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName string `pulumi:"secretVariableName"`
@@ -34933,7 +34077,7 @@ type ProcedurePythonSecretInput interface {
 }
 
 type ProcedurePythonSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
@@ -34990,7 +34134,7 @@ func (o ProcedurePythonSecretOutput) ToProcedurePythonSecretOutputWithContext(ct
 	return o
 }
 
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 func (o ProcedurePythonSecretOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedurePythonSecret) string { return v.SecretId }).(pulumi.StringOutput)
 }
@@ -36006,7 +35150,7 @@ func (o ProcedureScalaParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type ProcedureScalaSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 	SecretId string `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName string `pulumi:"secretVariableName"`
@@ -36024,7 +35168,7 @@ type ProcedureScalaSecretInput interface {
 }
 
 type ProcedureScalaSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
@@ -36081,7 +35225,7 @@ func (o ProcedureScalaSecretOutput) ToProcedureScalaSecretOutputWithContext(ctx 
 	return o
 }
 
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
 func (o ProcedureScalaSecretOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureScalaSecret) string { return v.SecretId }).(pulumi.StringOutput)
 }
@@ -38184,10 +37328,8 @@ type Saml2IntegrationDescribeOutput struct {
 	Saml2SnowflakeAcsUrls           []Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl           `pulumi:"saml2SnowflakeAcsUrls"`
 	Saml2SnowflakeIssuerUrls        []Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl        `pulumi:"saml2SnowflakeIssuerUrls"`
 	Saml2SnowflakeMetadatas         []Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata         `pulumi:"saml2SnowflakeMetadatas"`
-	Saml2SnowflakeX509Certs         []Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert         `pulumi:"saml2SnowflakeX509Certs"`
 	Saml2SpInitiatedLoginPageLabels []Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel `pulumi:"saml2SpInitiatedLoginPageLabels"`
 	Saml2SsoUrls                    []Saml2IntegrationDescribeOutputSaml2SsoUrl                    `pulumi:"saml2SsoUrls"`
-	Saml2X509Certs                  []Saml2IntegrationDescribeOutputSaml2X509Cert                  `pulumi:"saml2X509Certs"`
 }
 
 // Saml2IntegrationDescribeOutputInput is an input type that accepts Saml2IntegrationDescribeOutputArgs and Saml2IntegrationDescribeOutputOutput values.
@@ -38217,10 +37359,8 @@ type Saml2IntegrationDescribeOutputArgs struct {
 	Saml2SnowflakeAcsUrls           Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArrayInput           `pulumi:"saml2SnowflakeAcsUrls"`
 	Saml2SnowflakeIssuerUrls        Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayInput        `pulumi:"saml2SnowflakeIssuerUrls"`
 	Saml2SnowflakeMetadatas         Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayInput         `pulumi:"saml2SnowflakeMetadatas"`
-	Saml2SnowflakeX509Certs         Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayInput         `pulumi:"saml2SnowflakeX509Certs"`
 	Saml2SpInitiatedLoginPageLabels Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayInput `pulumi:"saml2SpInitiatedLoginPageLabels"`
 	Saml2SsoUrls                    Saml2IntegrationDescribeOutputSaml2SsoUrlArrayInput                    `pulumi:"saml2SsoUrls"`
-	Saml2X509Certs                  Saml2IntegrationDescribeOutputSaml2X509CertArrayInput                  `pulumi:"saml2X509Certs"`
 }
 
 func (Saml2IntegrationDescribeOutputArgs) ElementType() reflect.Type {
@@ -38362,12 +37502,6 @@ func (o Saml2IntegrationDescribeOutputOutput) Saml2SnowflakeMetadatas() Saml2Int
 	}).(Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput)
 }
 
-func (o Saml2IntegrationDescribeOutputOutput) Saml2SnowflakeX509Certs() Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert {
-		return v.Saml2SnowflakeX509Certs
-	}).(Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput)
-}
-
 func (o Saml2IntegrationDescribeOutputOutput) Saml2SpInitiatedLoginPageLabels() Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput {
 	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
 		return v.Saml2SpInitiatedLoginPageLabels
@@ -38378,12 +37512,6 @@ func (o Saml2IntegrationDescribeOutputOutput) Saml2SsoUrls() Saml2IntegrationDes
 	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2SsoUrl {
 		return v.Saml2SsoUrls
 	}).(Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputOutput) Saml2X509Certs() Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutput) []Saml2IntegrationDescribeOutputSaml2X509Cert {
-		return v.Saml2X509Certs
-	}).(Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput)
 }
 
 type Saml2IntegrationDescribeOutputArrayOutput struct{ *pulumi.OutputState }
@@ -40086,118 +39214,6 @@ func (o Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput) Index(i
 	}).(Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput)
 }
 
-type Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs and Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs{...}
-type Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs) ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs) ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArray and Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArray{ Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArray []Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertInput
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArray) ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArray) ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput() Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput) ToSaml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput)
-}
-
 type Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel struct {
 	Default *string `pulumi:"default"`
 	Name    *string `pulumi:"name"`
@@ -40420,118 +39436,6 @@ func (o Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput) Index(i pulumi.Int
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2SsoUrl {
 		return vs[0].([]Saml2IntegrationDescribeOutputSaml2SsoUrl)[vs[1].(int)]
 	}).(Saml2IntegrationDescribeOutputSaml2SsoUrlOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2X509Cert struct {
-	Default *string `pulumi:"default"`
-	Name    *string `pulumi:"name"`
-	Type    *string `pulumi:"type"`
-	Value   *string `pulumi:"value"`
-}
-
-// Saml2IntegrationDescribeOutputSaml2X509CertInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2X509CertArgs and Saml2IntegrationDescribeOutputSaml2X509CertOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2X509CertInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2X509CertArgs{...}
-type Saml2IntegrationDescribeOutputSaml2X509CertInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2X509CertOutput() Saml2IntegrationDescribeOutputSaml2X509CertOutput
-	ToSaml2IntegrationDescribeOutputSaml2X509CertOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2X509CertOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2X509CertArgs struct {
-	Default pulumi.StringPtrInput `pulumi:"default"`
-	Name    pulumi.StringPtrInput `pulumi:"name"`
-	Type    pulumi.StringPtrInput `pulumi:"type"`
-	Value   pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (Saml2IntegrationDescribeOutputSaml2X509CertArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2X509Cert)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2X509CertArgs) ToSaml2IntegrationDescribeOutputSaml2X509CertOutput() Saml2IntegrationDescribeOutputSaml2X509CertOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2X509CertOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2X509CertArgs) ToSaml2IntegrationDescribeOutputSaml2X509CertOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2X509CertOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2X509CertOutput)
-}
-
-// Saml2IntegrationDescribeOutputSaml2X509CertArrayInput is an input type that accepts Saml2IntegrationDescribeOutputSaml2X509CertArray and Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput values.
-// You can construct a concrete instance of `Saml2IntegrationDescribeOutputSaml2X509CertArrayInput` via:
-//
-//	Saml2IntegrationDescribeOutputSaml2X509CertArray{ Saml2IntegrationDescribeOutputSaml2X509CertArgs{...} }
-type Saml2IntegrationDescribeOutputSaml2X509CertArrayInput interface {
-	pulumi.Input
-
-	ToSaml2IntegrationDescribeOutputSaml2X509CertArrayOutput() Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput
-	ToSaml2IntegrationDescribeOutputSaml2X509CertArrayOutputWithContext(context.Context) Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput
-}
-
-type Saml2IntegrationDescribeOutputSaml2X509CertArray []Saml2IntegrationDescribeOutputSaml2X509CertInput
-
-func (Saml2IntegrationDescribeOutputSaml2X509CertArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2X509Cert)(nil)).Elem()
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2X509CertArray) ToSaml2IntegrationDescribeOutputSaml2X509CertArrayOutput() Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput {
-	return i.ToSaml2IntegrationDescribeOutputSaml2X509CertArrayOutputWithContext(context.Background())
-}
-
-func (i Saml2IntegrationDescribeOutputSaml2X509CertArray) ToSaml2IntegrationDescribeOutputSaml2X509CertArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2X509CertOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2X509CertOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2X509Cert)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2X509CertOutput) ToSaml2IntegrationDescribeOutputSaml2X509CertOutput() Saml2IntegrationDescribeOutputSaml2X509CertOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2X509CertOutput) ToSaml2IntegrationDescribeOutputSaml2X509CertOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2X509CertOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2X509CertOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2X509Cert) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2X509CertOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2X509Cert) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2X509CertOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2X509Cert) *string { return v.Type }).(pulumi.StringPtrOutput)
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2X509CertOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Saml2IntegrationDescribeOutputSaml2X509Cert) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput struct{ *pulumi.OutputState }
-
-func (Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Saml2IntegrationDescribeOutputSaml2X509Cert)(nil)).Elem()
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput) ToSaml2IntegrationDescribeOutputSaml2X509CertArrayOutput() Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput) ToSaml2IntegrationDescribeOutputSaml2X509CertArrayOutputWithContext(ctx context.Context) Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput {
-	return o
-}
-
-func (o Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput) Index(i pulumi.IntInput) Saml2IntegrationDescribeOutputSaml2X509CertOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Saml2IntegrationDescribeOutputSaml2X509Cert {
-		return vs[0].([]Saml2IntegrationDescribeOutputSaml2X509Cert)[vs[1].(int)]
-	}).(Saml2IntegrationDescribeOutputSaml2X509CertOutput)
 }
 
 type Saml2IntegrationShowOutput struct {
@@ -53391,7 +52295,7 @@ type StreamOnExternalTableAt struct {
 	Statement *string `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream *string `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
@@ -53413,7 +52317,7 @@ type StreamOnExternalTableAtArgs struct {
 	Statement pulumi.StringPtrInput `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream pulumi.StringPtrInput `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
@@ -53509,7 +52413,7 @@ func (o StreamOnExternalTableAtOutput) Stream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnExternalTableAt) *string { return v.Stream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnExternalTableAtOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnExternalTableAt) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -53568,7 +52472,7 @@ func (o StreamOnExternalTableAtPtrOutput) Stream() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnExternalTableAtPtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnExternalTableAt) *string {
 		if v == nil {
@@ -53585,7 +52489,7 @@ type StreamOnExternalTableBefore struct {
 	Statement *string `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream *string `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
@@ -53607,7 +52511,7 @@ type StreamOnExternalTableBeforeArgs struct {
 	Statement pulumi.StringPtrInput `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream pulumi.StringPtrInput `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
@@ -53703,7 +52607,7 @@ func (o StreamOnExternalTableBeforeOutput) Stream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnExternalTableBefore) *string { return v.Stream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnExternalTableBeforeOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnExternalTableBefore) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -53762,7 +52666,7 @@ func (o StreamOnExternalTableBeforePtrOutput) Stream() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnExternalTableBeforePtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnExternalTableBefore) *string {
 		if v == nil {
@@ -54135,7 +53039,7 @@ type StreamOnTableAt struct {
 	Statement *string `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream *string `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
@@ -54157,7 +53061,7 @@ type StreamOnTableAtArgs struct {
 	Statement pulumi.StringPtrInput `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream pulumi.StringPtrInput `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
@@ -54253,7 +53157,7 @@ func (o StreamOnTableAtOutput) Stream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnTableAt) *string { return v.Stream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnTableAtOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnTableAt) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -54312,7 +53216,7 @@ func (o StreamOnTableAtPtrOutput) Stream() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnTableAtPtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnTableAt) *string {
 		if v == nil {
@@ -54329,7 +53233,7 @@ type StreamOnTableBefore struct {
 	Statement *string `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream *string `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
@@ -54351,7 +53255,7 @@ type StreamOnTableBeforeArgs struct {
 	Statement pulumi.StringPtrInput `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream pulumi.StringPtrInput `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
@@ -54447,7 +53351,7 @@ func (o StreamOnTableBeforeOutput) Stream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnTableBefore) *string { return v.Stream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnTableBeforeOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnTableBefore) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -54506,7 +53410,7 @@ func (o StreamOnTableBeforePtrOutput) Stream() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnTableBeforePtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnTableBefore) *string {
 		if v == nil {
@@ -54879,7 +53783,7 @@ type StreamOnViewAt struct {
 	Statement *string `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream *string `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
@@ -54901,7 +53805,7 @@ type StreamOnViewAtArgs struct {
 	Statement pulumi.StringPtrInput `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream pulumi.StringPtrInput `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
@@ -54997,7 +53901,7 @@ func (o StreamOnViewAtOutput) Stream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnViewAt) *string { return v.Stream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnViewAtOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnViewAt) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -55056,7 +53960,7 @@ func (o StreamOnViewAtPtrOutput) Stream() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnViewAtPtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnViewAt) *string {
 		if v == nil {
@@ -55073,7 +53977,7 @@ type StreamOnViewBefore struct {
 	Statement *string `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream *string `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
@@ -55095,7 +53999,7 @@ type StreamOnViewBeforeArgs struct {
 	Statement pulumi.StringPtrInput `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream pulumi.StringPtrInput `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
@@ -55191,7 +54095,7 @@ func (o StreamOnViewBeforeOutput) Stream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnViewBefore) *string { return v.Stream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnViewBeforeOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnViewBefore) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -55250,7 +54154,7 @@ func (o StreamOnViewBeforePtrOutput) Stream() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnViewBeforePtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnViewBefore) *string {
 		if v == nil {
@@ -55919,19 +54823,19 @@ func (o StreamlitShowOutputArrayOutput) Index(i pulumi.IntInput) StreamlitShowOu
 }
 
 type TableColumn struct {
-	// (Default: ``) Column collation, e.g. utf8
+	// Column collation, e.g. utf8
 	Collate *string `pulumi:"collate"`
-	// (Default: ``) Column comment
+	// Column comment
 	Comment *string `pulumi:"comment"`
 	// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
 	Default *TableColumnDefault `pulumi:"default"`
 	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 	Identity *TableColumnIdentity `pulumi:"identity"`
-	// (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+	// Masking policy to apply on column. It has to be a fully qualified name.
 	MaskingPolicy *string `pulumi:"maskingPolicy"`
 	// Column name
 	Name string `pulumi:"name"`
-	// (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
 	Nullable *bool `pulumi:"nullable"`
 	// Record of schema evolution.
 	SchemaEvolutionRecord *string `pulumi:"schemaEvolutionRecord"`
@@ -55951,19 +54855,19 @@ type TableColumnInput interface {
 }
 
 type TableColumnArgs struct {
-	// (Default: ``) Column collation, e.g. utf8
+	// Column collation, e.g. utf8
 	Collate pulumi.StringPtrInput `pulumi:"collate"`
-	// (Default: ``) Column comment
+	// Column comment
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
 	// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
 	Default TableColumnDefaultPtrInput `pulumi:"default"`
 	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 	Identity TableColumnIdentityPtrInput `pulumi:"identity"`
-	// (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+	// Masking policy to apply on column. It has to be a fully qualified name.
 	MaskingPolicy pulumi.StringPtrInput `pulumi:"maskingPolicy"`
 	// Column name
 	Name pulumi.StringInput `pulumi:"name"`
-	// (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
 	Nullable pulumi.BoolPtrInput `pulumi:"nullable"`
 	// Record of schema evolution.
 	SchemaEvolutionRecord pulumi.StringPtrInput `pulumi:"schemaEvolutionRecord"`
@@ -56022,12 +54926,12 @@ func (o TableColumnOutput) ToTableColumnOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// (Default: “) Column collation, e.g. utf8
+// Column collation, e.g. utf8
 func (o TableColumnOutput) Collate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumn) *string { return v.Collate }).(pulumi.StringPtrOutput)
 }
 
-// (Default: “) Column comment
+// Column comment
 func (o TableColumnOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -56042,7 +54946,7 @@ func (o TableColumnOutput) Identity() TableColumnIdentityPtrOutput {
 	return o.ApplyT(func(v TableColumn) *TableColumnIdentity { return v.Identity }).(TableColumnIdentityPtrOutput)
 }
 
-// (Default: “) Masking policy to apply on column. It has to be a fully qualified name.
+// Masking policy to apply on column. It has to be a fully qualified name.
 func (o TableColumnOutput) MaskingPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumn) *string { return v.MaskingPolicy }).(pulumi.StringPtrOutput)
 }
@@ -56052,7 +54956,7 @@ func (o TableColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
 func (o TableColumnOutput) Nullable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableColumn) *bool { return v.Nullable }).(pulumi.BoolPtrOutput)
 }
@@ -56263,9 +55167,9 @@ func (o TableColumnDefaultPtrOutput) Sequence() pulumi.StringPtrOutput {
 }
 
 type TableColumnIdentity struct {
-	// (Default: `1`) The number to start incrementing at.
+	// The number to start incrementing at.
 	StartNum *int `pulumi:"startNum"`
-	// (Default: `1`) Step size to increment by.
+	// Step size to increment by.
 	StepNum *int `pulumi:"stepNum"`
 }
 
@@ -56281,9 +55185,9 @@ type TableColumnIdentityInput interface {
 }
 
 type TableColumnIdentityArgs struct {
-	// (Default: `1`) The number to start incrementing at.
+	// The number to start incrementing at.
 	StartNum pulumi.IntPtrInput `pulumi:"startNum"`
-	// (Default: `1`) Step size to increment by.
+	// Step size to increment by.
 	StepNum pulumi.IntPtrInput `pulumi:"stepNum"`
 }
 
@@ -56364,12 +55268,12 @@ func (o TableColumnIdentityOutput) ToTableColumnIdentityPtrOutputWithContext(ctx
 	}).(TableColumnIdentityPtrOutput)
 }
 
-// (Default: `1`) The number to start incrementing at.
+// The number to start incrementing at.
 func (o TableColumnIdentityOutput) StartNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableColumnIdentity) *int { return v.StartNum }).(pulumi.IntPtrOutput)
 }
 
-// (Default: `1`) Step size to increment by.
+// Step size to increment by.
 func (o TableColumnIdentityOutput) StepNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableColumnIdentity) *int { return v.StepNum }).(pulumi.IntPtrOutput)
 }
@@ -56398,7 +55302,7 @@ func (o TableColumnIdentityPtrOutput) Elem() TableColumnIdentityOutput {
 	}).(TableColumnIdentityOutput)
 }
 
-// (Default: `1`) The number to start incrementing at.
+// The number to start incrementing at.
 func (o TableColumnIdentityPtrOutput) StartNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableColumnIdentity) *int {
 		if v == nil {
@@ -56408,7 +55312,7 @@ func (o TableColumnIdentityPtrOutput) StartNum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// (Default: `1`) Step size to increment by.
+// Step size to increment by.
 func (o TableColumnIdentityPtrOutput) StepNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableColumnIdentity) *int {
 		if v == nil {
@@ -56419,11 +55323,11 @@ func (o TableColumnIdentityPtrOutput) StepNum() pulumi.IntPtrOutput {
 }
 
 type TableConstraintForeignKeyProperties struct {
-	// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+	// The match type for the foreign key. Not applicable for primary/unique keys
 	Match *string `pulumi:"match"`
-	// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+	// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
 	OnDelete *string `pulumi:"onDelete"`
-	// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+	// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 	OnUpdate *string `pulumi:"onUpdate"`
 	// The table and columns that the foreign key references.
 	References TableConstraintForeignKeyPropertiesReferences `pulumi:"references"`
@@ -56441,11 +55345,11 @@ type TableConstraintForeignKeyPropertiesInput interface {
 }
 
 type TableConstraintForeignKeyPropertiesArgs struct {
-	// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+	// The match type for the foreign key. Not applicable for primary/unique keys
 	Match pulumi.StringPtrInput `pulumi:"match"`
-	// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+	// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
 	OnDelete pulumi.StringPtrInput `pulumi:"onDelete"`
-	// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+	// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 	OnUpdate pulumi.StringPtrInput `pulumi:"onUpdate"`
 	// The table and columns that the foreign key references.
 	References TableConstraintForeignKeyPropertiesReferencesInput `pulumi:"references"`
@@ -56528,17 +55432,17 @@ func (o TableConstraintForeignKeyPropertiesOutput) ToTableConstraintForeignKeyPr
 	}).(TableConstraintForeignKeyPropertiesPtrOutput)
 }
 
-// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+// The match type for the foreign key. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesOutput) Match() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *string { return v.Match }).(pulumi.StringPtrOutput)
 }
 
-// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesOutput) OnDelete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *string { return v.OnDelete }).(pulumi.StringPtrOutput)
 }
 
-// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesOutput) OnUpdate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *string { return v.OnUpdate }).(pulumi.StringPtrOutput)
 }
@@ -56574,7 +55478,7 @@ func (o TableConstraintForeignKeyPropertiesPtrOutput) Elem() TableConstraintFore
 	}).(TableConstraintForeignKeyPropertiesOutput)
 }
 
-// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+// The match type for the foreign key. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesPtrOutput) Match() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *string {
 		if v == nil {
@@ -56584,7 +55488,7 @@ func (o TableConstraintForeignKeyPropertiesPtrOutput) Match() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesPtrOutput) OnDelete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *string {
 		if v == nil {
@@ -56594,7 +55498,7 @@ func (o TableConstraintForeignKeyPropertiesPtrOutput) OnDelete() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesPtrOutput) OnUpdate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *string {
 		if v == nil {
@@ -64644,6 +63548,1500 @@ func (o TaskSchedulePtrOutput) UsingCron() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type TaskShowOutput struct {
+	AllowOverlappingExecution *bool                        `pulumi:"allowOverlappingExecution"`
+	Budget                    *string                      `pulumi:"budget"`
+	Comment                   *string                      `pulumi:"comment"`
+	Condition                 *string                      `pulumi:"condition"`
+	Config                    *string                      `pulumi:"config"`
+	CreatedOn                 *string                      `pulumi:"createdOn"`
+	DatabaseName              *string                      `pulumi:"databaseName"`
+	Definition                *string                      `pulumi:"definition"`
+	ErrorIntegration          *string                      `pulumi:"errorIntegration"`
+	Id                        *string                      `pulumi:"id"`
+	LastCommittedOn           *string                      `pulumi:"lastCommittedOn"`
+	LastSuspendedOn           *string                      `pulumi:"lastSuspendedOn"`
+	LastSuspendedReason       *string                      `pulumi:"lastSuspendedReason"`
+	Name                      *string                      `pulumi:"name"`
+	Owner                     *string                      `pulumi:"owner"`
+	OwnerRoleType             *string                      `pulumi:"ownerRoleType"`
+	Predecessors              []string                     `pulumi:"predecessors"`
+	Schedule                  *string                      `pulumi:"schedule"`
+	SchemaName                *string                      `pulumi:"schemaName"`
+	State                     *string                      `pulumi:"state"`
+	TaskRelations             []TaskShowOutputTaskRelation `pulumi:"taskRelations"`
+	Warehouse                 *string                      `pulumi:"warehouse"`
+}
+
+// TaskShowOutputInput is an input type that accepts TaskShowOutputArgs and TaskShowOutputOutput values.
+// You can construct a concrete instance of `TaskShowOutputInput` via:
+//
+//	TaskShowOutputArgs{...}
+type TaskShowOutputInput interface {
+	pulumi.Input
+
+	ToTaskShowOutputOutput() TaskShowOutputOutput
+	ToTaskShowOutputOutputWithContext(context.Context) TaskShowOutputOutput
+}
+
+type TaskShowOutputArgs struct {
+	AllowOverlappingExecution pulumi.BoolPtrInput                  `pulumi:"allowOverlappingExecution"`
+	Budget                    pulumi.StringPtrInput                `pulumi:"budget"`
+	Comment                   pulumi.StringPtrInput                `pulumi:"comment"`
+	Condition                 pulumi.StringPtrInput                `pulumi:"condition"`
+	Config                    pulumi.StringPtrInput                `pulumi:"config"`
+	CreatedOn                 pulumi.StringPtrInput                `pulumi:"createdOn"`
+	DatabaseName              pulumi.StringPtrInput                `pulumi:"databaseName"`
+	Definition                pulumi.StringPtrInput                `pulumi:"definition"`
+	ErrorIntegration          pulumi.StringPtrInput                `pulumi:"errorIntegration"`
+	Id                        pulumi.StringPtrInput                `pulumi:"id"`
+	LastCommittedOn           pulumi.StringPtrInput                `pulumi:"lastCommittedOn"`
+	LastSuspendedOn           pulumi.StringPtrInput                `pulumi:"lastSuspendedOn"`
+	LastSuspendedReason       pulumi.StringPtrInput                `pulumi:"lastSuspendedReason"`
+	Name                      pulumi.StringPtrInput                `pulumi:"name"`
+	Owner                     pulumi.StringPtrInput                `pulumi:"owner"`
+	OwnerRoleType             pulumi.StringPtrInput                `pulumi:"ownerRoleType"`
+	Predecessors              pulumi.StringArrayInput              `pulumi:"predecessors"`
+	Schedule                  pulumi.StringPtrInput                `pulumi:"schedule"`
+	SchemaName                pulumi.StringPtrInput                `pulumi:"schemaName"`
+	State                     pulumi.StringPtrInput                `pulumi:"state"`
+	TaskRelations             TaskShowOutputTaskRelationArrayInput `pulumi:"taskRelations"`
+	Warehouse                 pulumi.StringPtrInput                `pulumi:"warehouse"`
+}
+
+func (TaskShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskShowOutput)(nil)).Elem()
+}
+
+func (i TaskShowOutputArgs) ToTaskShowOutputOutput() TaskShowOutputOutput {
+	return i.ToTaskShowOutputOutputWithContext(context.Background())
+}
+
+func (i TaskShowOutputArgs) ToTaskShowOutputOutputWithContext(ctx context.Context) TaskShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskShowOutputOutput)
+}
+
+// TaskShowOutputArrayInput is an input type that accepts TaskShowOutputArray and TaskShowOutputArrayOutput values.
+// You can construct a concrete instance of `TaskShowOutputArrayInput` via:
+//
+//	TaskShowOutputArray{ TaskShowOutputArgs{...} }
+type TaskShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToTaskShowOutputArrayOutput() TaskShowOutputArrayOutput
+	ToTaskShowOutputArrayOutputWithContext(context.Context) TaskShowOutputArrayOutput
+}
+
+type TaskShowOutputArray []TaskShowOutputInput
+
+func (TaskShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskShowOutput)(nil)).Elem()
+}
+
+func (i TaskShowOutputArray) ToTaskShowOutputArrayOutput() TaskShowOutputArrayOutput {
+	return i.ToTaskShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i TaskShowOutputArray) ToTaskShowOutputArrayOutputWithContext(ctx context.Context) TaskShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskShowOutputArrayOutput)
+}
+
+type TaskShowOutputOutput struct{ *pulumi.OutputState }
+
+func (TaskShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskShowOutput)(nil)).Elem()
+}
+
+func (o TaskShowOutputOutput) ToTaskShowOutputOutput() TaskShowOutputOutput {
+	return o
+}
+
+func (o TaskShowOutputOutput) ToTaskShowOutputOutputWithContext(ctx context.Context) TaskShowOutputOutput {
+	return o
+}
+
+func (o TaskShowOutputOutput) AllowOverlappingExecution() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *bool { return v.AllowOverlappingExecution }).(pulumi.BoolPtrOutput)
+}
+
+func (o TaskShowOutputOutput) Budget() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.Budget }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) Condition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.Condition }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) Config() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.Config }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) Definition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.Definition }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) ErrorIntegration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.ErrorIntegration }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) LastCommittedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.LastCommittedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) LastSuspendedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.LastSuspendedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) LastSuspendedReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.LastSuspendedReason }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) Predecessors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TaskShowOutput) []string { return v.Predecessors }).(pulumi.StringArrayOutput)
+}
+
+func (o TaskShowOutputOutput) Schedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.Schedule }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputOutput) TaskRelations() TaskShowOutputTaskRelationArrayOutput {
+	return o.ApplyT(func(v TaskShowOutput) []TaskShowOutputTaskRelation { return v.TaskRelations }).(TaskShowOutputTaskRelationArrayOutput)
+}
+
+func (o TaskShowOutputOutput) Warehouse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutput) *string { return v.Warehouse }).(pulumi.StringPtrOutput)
+}
+
+type TaskShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskShowOutput)(nil)).Elem()
+}
+
+func (o TaskShowOutputArrayOutput) ToTaskShowOutputArrayOutput() TaskShowOutputArrayOutput {
+	return o
+}
+
+func (o TaskShowOutputArrayOutput) ToTaskShowOutputArrayOutputWithContext(ctx context.Context) TaskShowOutputArrayOutput {
+	return o
+}
+
+func (o TaskShowOutputArrayOutput) Index(i pulumi.IntInput) TaskShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskShowOutput {
+		return vs[0].([]TaskShowOutput)[vs[1].(int)]
+	}).(TaskShowOutputOutput)
+}
+
+type TaskShowOutputTaskRelation struct {
+	FinalizedRootTask *string  `pulumi:"finalizedRootTask"`
+	Finalizer         *string  `pulumi:"finalizer"`
+	Predecessors      []string `pulumi:"predecessors"`
+}
+
+// TaskShowOutputTaskRelationInput is an input type that accepts TaskShowOutputTaskRelationArgs and TaskShowOutputTaskRelationOutput values.
+// You can construct a concrete instance of `TaskShowOutputTaskRelationInput` via:
+//
+//	TaskShowOutputTaskRelationArgs{...}
+type TaskShowOutputTaskRelationInput interface {
+	pulumi.Input
+
+	ToTaskShowOutputTaskRelationOutput() TaskShowOutputTaskRelationOutput
+	ToTaskShowOutputTaskRelationOutputWithContext(context.Context) TaskShowOutputTaskRelationOutput
+}
+
+type TaskShowOutputTaskRelationArgs struct {
+	FinalizedRootTask pulumi.StringPtrInput   `pulumi:"finalizedRootTask"`
+	Finalizer         pulumi.StringPtrInput   `pulumi:"finalizer"`
+	Predecessors      pulumi.StringArrayInput `pulumi:"predecessors"`
+}
+
+func (TaskShowOutputTaskRelationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskShowOutputTaskRelation)(nil)).Elem()
+}
+
+func (i TaskShowOutputTaskRelationArgs) ToTaskShowOutputTaskRelationOutput() TaskShowOutputTaskRelationOutput {
+	return i.ToTaskShowOutputTaskRelationOutputWithContext(context.Background())
+}
+
+func (i TaskShowOutputTaskRelationArgs) ToTaskShowOutputTaskRelationOutputWithContext(ctx context.Context) TaskShowOutputTaskRelationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskShowOutputTaskRelationOutput)
+}
+
+// TaskShowOutputTaskRelationArrayInput is an input type that accepts TaskShowOutputTaskRelationArray and TaskShowOutputTaskRelationArrayOutput values.
+// You can construct a concrete instance of `TaskShowOutputTaskRelationArrayInput` via:
+//
+//	TaskShowOutputTaskRelationArray{ TaskShowOutputTaskRelationArgs{...} }
+type TaskShowOutputTaskRelationArrayInput interface {
+	pulumi.Input
+
+	ToTaskShowOutputTaskRelationArrayOutput() TaskShowOutputTaskRelationArrayOutput
+	ToTaskShowOutputTaskRelationArrayOutputWithContext(context.Context) TaskShowOutputTaskRelationArrayOutput
+}
+
+type TaskShowOutputTaskRelationArray []TaskShowOutputTaskRelationInput
+
+func (TaskShowOutputTaskRelationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskShowOutputTaskRelation)(nil)).Elem()
+}
+
+func (i TaskShowOutputTaskRelationArray) ToTaskShowOutputTaskRelationArrayOutput() TaskShowOutputTaskRelationArrayOutput {
+	return i.ToTaskShowOutputTaskRelationArrayOutputWithContext(context.Background())
+}
+
+func (i TaskShowOutputTaskRelationArray) ToTaskShowOutputTaskRelationArrayOutputWithContext(ctx context.Context) TaskShowOutputTaskRelationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TaskShowOutputTaskRelationArrayOutput)
+}
+
+type TaskShowOutputTaskRelationOutput struct{ *pulumi.OutputState }
+
+func (TaskShowOutputTaskRelationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TaskShowOutputTaskRelation)(nil)).Elem()
+}
+
+func (o TaskShowOutputTaskRelationOutput) ToTaskShowOutputTaskRelationOutput() TaskShowOutputTaskRelationOutput {
+	return o
+}
+
+func (o TaskShowOutputTaskRelationOutput) ToTaskShowOutputTaskRelationOutputWithContext(ctx context.Context) TaskShowOutputTaskRelationOutput {
+	return o
+}
+
+func (o TaskShowOutputTaskRelationOutput) FinalizedRootTask() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutputTaskRelation) *string { return v.FinalizedRootTask }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputTaskRelationOutput) Finalizer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TaskShowOutputTaskRelation) *string { return v.Finalizer }).(pulumi.StringPtrOutput)
+}
+
+func (o TaskShowOutputTaskRelationOutput) Predecessors() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TaskShowOutputTaskRelation) []string { return v.Predecessors }).(pulumi.StringArrayOutput)
+}
+
+type TaskShowOutputTaskRelationArrayOutput struct{ *pulumi.OutputState }
+
+func (TaskShowOutputTaskRelationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TaskShowOutputTaskRelation)(nil)).Elem()
+}
+
+func (o TaskShowOutputTaskRelationArrayOutput) ToTaskShowOutputTaskRelationArrayOutput() TaskShowOutputTaskRelationArrayOutput {
+	return o
+}
+
+func (o TaskShowOutputTaskRelationArrayOutput) ToTaskShowOutputTaskRelationArrayOutputWithContext(ctx context.Context) TaskShowOutputTaskRelationArrayOutput {
+	return o
+}
+
+func (o TaskShowOutputTaskRelationArrayOutput) Index(i pulumi.IntInput) TaskShowOutputTaskRelationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskShowOutputTaskRelation {
+		return vs[0].([]TaskShowOutputTaskRelation)[vs[1].(int)]
+	}).(TaskShowOutputTaskRelationOutput)
+}
+
+type UserParameter struct {
+	AbortDetachedQueries                       []UserParameterAbortDetachedQuery                       `pulumi:"abortDetachedQueries"`
+	Autocommits                                []UserParameterAutocommit                               `pulumi:"autocommits"`
+	BinaryInputFormats                         []UserParameterBinaryInputFormat                        `pulumi:"binaryInputFormats"`
+	BinaryOutputFormats                        []UserParameterBinaryOutputFormat                       `pulumi:"binaryOutputFormats"`
+	ClientMemoryLimits                         []UserParameterClientMemoryLimit                        `pulumi:"clientMemoryLimits"`
+	ClientMetadataRequestUseConnectionCtxes    []UserParameterClientMetadataRequestUseConnectionCtx    `pulumi:"clientMetadataRequestUseConnectionCtxes"`
+	ClientPrefetchThreads                      []UserParameterClientPrefetchThread                     `pulumi:"clientPrefetchThreads"`
+	ClientResultChunkSizes                     []UserParameterClientResultChunkSize                    `pulumi:"clientResultChunkSizes"`
+	ClientResultColumnCaseInsensitives         []UserParameterClientResultColumnCaseInsensitive        `pulumi:"clientResultColumnCaseInsensitives"`
+	ClientSessionKeepAliveHeartbeatFrequencies []UserParameterClientSessionKeepAliveHeartbeatFrequency `pulumi:"clientSessionKeepAliveHeartbeatFrequencies"`
+	ClientSessionKeepAlives                    []UserParameterClientSessionKeepAlife                   `pulumi:"clientSessionKeepAlives"`
+	ClientTimestampTypeMappings                []UserParameterClientTimestampTypeMapping               `pulumi:"clientTimestampTypeMappings"`
+	DateInputFormats                           []UserParameterDateInputFormat                          `pulumi:"dateInputFormats"`
+	DateOutputFormats                          []UserParameterDateOutputFormat                         `pulumi:"dateOutputFormats"`
+	EnableUnloadPhysicalTypeOptimizations      []UserParameterEnableUnloadPhysicalTypeOptimization     `pulumi:"enableUnloadPhysicalTypeOptimizations"`
+	EnableUnredactedQuerySyntaxErrors          []UserParameterEnableUnredactedQuerySyntaxError         `pulumi:"enableUnredactedQuerySyntaxErrors"`
+	ErrorOnNondeterministicMerges              []UserParameterErrorOnNondeterministicMerge             `pulumi:"errorOnNondeterministicMerges"`
+	ErrorOnNondeterministicUpdates             []UserParameterErrorOnNondeterministicUpdate            `pulumi:"errorOnNondeterministicUpdates"`
+	GeographyOutputFormats                     []UserParameterGeographyOutputFormat                    `pulumi:"geographyOutputFormats"`
+	GeometryOutputFormats                      []UserParameterGeometryOutputFormat                     `pulumi:"geometryOutputFormats"`
+	JdbcTreatDecimalAsInts                     []UserParameterJdbcTreatDecimalAsInt                    `pulumi:"jdbcTreatDecimalAsInts"`
+	JdbcTreatTimestampNtzAsUtcs                []UserParameterJdbcTreatTimestampNtzAsUtc               `pulumi:"jdbcTreatTimestampNtzAsUtcs"`
+	JdbcUseSessionTimezones                    []UserParameterJdbcUseSessionTimezone                   `pulumi:"jdbcUseSessionTimezones"`
+	JsonIndents                                []UserParameterJsonIndent                               `pulumi:"jsonIndents"`
+	LockTimeouts                               []UserParameterLockTimeout                              `pulumi:"lockTimeouts"`
+	LogLevels                                  []UserParameterLogLevel                                 `pulumi:"logLevels"`
+	MultiStatementCounts                       []UserParameterMultiStatementCount                      `pulumi:"multiStatementCounts"`
+	NetworkPolicies                            []UserParameterNetworkPolicy                            `pulumi:"networkPolicies"`
+	NoorderSequenceAsDefaults                  []UserParameterNoorderSequenceAsDefault                 `pulumi:"noorderSequenceAsDefaults"`
+	OdbcTreatDecimalAsInts                     []UserParameterOdbcTreatDecimalAsInt                    `pulumi:"odbcTreatDecimalAsInts"`
+	PreventUnloadToInternalStages              []UserParameterPreventUnloadToInternalStage             `pulumi:"preventUnloadToInternalStages"`
+	QueryTags                                  []UserParameterQueryTag                                 `pulumi:"queryTags"`
+	QuotedIdentifiersIgnoreCases               []UserParameterQuotedIdentifiersIgnoreCase              `pulumi:"quotedIdentifiersIgnoreCases"`
+	RowsPerResultsets                          []UserParameterRowsPerResultset                         `pulumi:"rowsPerResultsets"`
+	S3StageVpceDnsNames                        []UserParameterS3StageVpceDnsName                       `pulumi:"s3StageVpceDnsNames"`
+	SearchPaths                                []UserParameterSearchPath                               `pulumi:"searchPaths"`
+	SimulatedDataSharingConsumers              []UserParameterSimulatedDataSharingConsumer             `pulumi:"simulatedDataSharingConsumers"`
+	StatementQueuedTimeoutInSeconds            []UserParameterStatementQueuedTimeoutInSecond           `pulumi:"statementQueuedTimeoutInSeconds"`
+	StatementTimeoutInSeconds                  []UserParameterStatementTimeoutInSecond                 `pulumi:"statementTimeoutInSeconds"`
+	StrictJsonOutputs                          []UserParameterStrictJsonOutput                         `pulumi:"strictJsonOutputs"`
+	TimeInputFormats                           []UserParameterTimeInputFormat                          `pulumi:"timeInputFormats"`
+	TimeOutputFormats                          []UserParameterTimeOutputFormat                         `pulumi:"timeOutputFormats"`
+	TimestampDayIsAlways24hs                   []UserParameterTimestampDayIsAlways24h                  `pulumi:"timestampDayIsAlways24hs"`
+	TimestampInputFormats                      []UserParameterTimestampInputFormat                     `pulumi:"timestampInputFormats"`
+	TimestampLtzOutputFormats                  []UserParameterTimestampLtzOutputFormat                 `pulumi:"timestampLtzOutputFormats"`
+	TimestampNtzOutputFormats                  []UserParameterTimestampNtzOutputFormat                 `pulumi:"timestampNtzOutputFormats"`
+	TimestampOutputFormats                     []UserParameterTimestampOutputFormat                    `pulumi:"timestampOutputFormats"`
+	TimestampTypeMappings                      []UserParameterTimestampTypeMapping                     `pulumi:"timestampTypeMappings"`
+	TimestampTzOutputFormats                   []UserParameterTimestampTzOutputFormat                  `pulumi:"timestampTzOutputFormats"`
+	Timezones                                  []UserParameterTimezone                                 `pulumi:"timezones"`
+	TraceLevels                                []UserParameterTraceLevel                               `pulumi:"traceLevels"`
+	TransactionAbortOnErrors                   []UserParameterTransactionAbortOnError                  `pulumi:"transactionAbortOnErrors"`
+	TransactionDefaultIsolationLevels          []UserParameterTransactionDefaultIsolationLevel         `pulumi:"transactionDefaultIsolationLevels"`
+	TwoDigitCenturyStarts                      []UserParameterTwoDigitCenturyStart                     `pulumi:"twoDigitCenturyStarts"`
+	UnsupportedDdlActions                      []UserParameterUnsupportedDdlAction                     `pulumi:"unsupportedDdlActions"`
+	UseCachedResults                           []UserParameterUseCachedResult                          `pulumi:"useCachedResults"`
+	WeekOfYearPolicies                         []UserParameterWeekOfYearPolicy                         `pulumi:"weekOfYearPolicies"`
+	WeekStarts                                 []UserParameterWeekStart                                `pulumi:"weekStarts"`
+}
+
+// UserParameterInput is an input type that accepts UserParameterArgs and UserParameterOutput values.
+// You can construct a concrete instance of `UserParameterInput` via:
+//
+//	UserParameterArgs{...}
+type UserParameterInput interface {
+	pulumi.Input
+
+	ToUserParameterOutput() UserParameterOutput
+	ToUserParameterOutputWithContext(context.Context) UserParameterOutput
+}
+
+type UserParameterArgs struct {
+	AbortDetachedQueries                       UserParameterAbortDetachedQueryArrayInput                       `pulumi:"abortDetachedQueries"`
+	Autocommits                                UserParameterAutocommitArrayInput                               `pulumi:"autocommits"`
+	BinaryInputFormats                         UserParameterBinaryInputFormatArrayInput                        `pulumi:"binaryInputFormats"`
+	BinaryOutputFormats                        UserParameterBinaryOutputFormatArrayInput                       `pulumi:"binaryOutputFormats"`
+	ClientMemoryLimits                         UserParameterClientMemoryLimitArrayInput                        `pulumi:"clientMemoryLimits"`
+	ClientMetadataRequestUseConnectionCtxes    UserParameterClientMetadataRequestUseConnectionCtxArrayInput    `pulumi:"clientMetadataRequestUseConnectionCtxes"`
+	ClientPrefetchThreads                      UserParameterClientPrefetchThreadArrayInput                     `pulumi:"clientPrefetchThreads"`
+	ClientResultChunkSizes                     UserParameterClientResultChunkSizeArrayInput                    `pulumi:"clientResultChunkSizes"`
+	ClientResultColumnCaseInsensitives         UserParameterClientResultColumnCaseInsensitiveArrayInput        `pulumi:"clientResultColumnCaseInsensitives"`
+	ClientSessionKeepAliveHeartbeatFrequencies UserParameterClientSessionKeepAliveHeartbeatFrequencyArrayInput `pulumi:"clientSessionKeepAliveHeartbeatFrequencies"`
+	ClientSessionKeepAlives                    UserParameterClientSessionKeepAlifeArrayInput                   `pulumi:"clientSessionKeepAlives"`
+	ClientTimestampTypeMappings                UserParameterClientTimestampTypeMappingArrayInput               `pulumi:"clientTimestampTypeMappings"`
+	DateInputFormats                           UserParameterDateInputFormatArrayInput                          `pulumi:"dateInputFormats"`
+	DateOutputFormats                          UserParameterDateOutputFormatArrayInput                         `pulumi:"dateOutputFormats"`
+	EnableUnloadPhysicalTypeOptimizations      UserParameterEnableUnloadPhysicalTypeOptimizationArrayInput     `pulumi:"enableUnloadPhysicalTypeOptimizations"`
+	EnableUnredactedQuerySyntaxErrors          UserParameterEnableUnredactedQuerySyntaxErrorArrayInput         `pulumi:"enableUnredactedQuerySyntaxErrors"`
+	ErrorOnNondeterministicMerges              UserParameterErrorOnNondeterministicMergeArrayInput             `pulumi:"errorOnNondeterministicMerges"`
+	ErrorOnNondeterministicUpdates             UserParameterErrorOnNondeterministicUpdateArrayInput            `pulumi:"errorOnNondeterministicUpdates"`
+	GeographyOutputFormats                     UserParameterGeographyOutputFormatArrayInput                    `pulumi:"geographyOutputFormats"`
+	GeometryOutputFormats                      UserParameterGeometryOutputFormatArrayInput                     `pulumi:"geometryOutputFormats"`
+	JdbcTreatDecimalAsInts                     UserParameterJdbcTreatDecimalAsIntArrayInput                    `pulumi:"jdbcTreatDecimalAsInts"`
+	JdbcTreatTimestampNtzAsUtcs                UserParameterJdbcTreatTimestampNtzAsUtcArrayInput               `pulumi:"jdbcTreatTimestampNtzAsUtcs"`
+	JdbcUseSessionTimezones                    UserParameterJdbcUseSessionTimezoneArrayInput                   `pulumi:"jdbcUseSessionTimezones"`
+	JsonIndents                                UserParameterJsonIndentArrayInput                               `pulumi:"jsonIndents"`
+	LockTimeouts                               UserParameterLockTimeoutArrayInput                              `pulumi:"lockTimeouts"`
+	LogLevels                                  UserParameterLogLevelArrayInput                                 `pulumi:"logLevels"`
+	MultiStatementCounts                       UserParameterMultiStatementCountArrayInput                      `pulumi:"multiStatementCounts"`
+	NetworkPolicies                            UserParameterNetworkPolicyArrayInput                            `pulumi:"networkPolicies"`
+	NoorderSequenceAsDefaults                  UserParameterNoorderSequenceAsDefaultArrayInput                 `pulumi:"noorderSequenceAsDefaults"`
+	OdbcTreatDecimalAsInts                     UserParameterOdbcTreatDecimalAsIntArrayInput                    `pulumi:"odbcTreatDecimalAsInts"`
+	PreventUnloadToInternalStages              UserParameterPreventUnloadToInternalStageArrayInput             `pulumi:"preventUnloadToInternalStages"`
+	QueryTags                                  UserParameterQueryTagArrayInput                                 `pulumi:"queryTags"`
+	QuotedIdentifiersIgnoreCases               UserParameterQuotedIdentifiersIgnoreCaseArrayInput              `pulumi:"quotedIdentifiersIgnoreCases"`
+	RowsPerResultsets                          UserParameterRowsPerResultsetArrayInput                         `pulumi:"rowsPerResultsets"`
+	S3StageVpceDnsNames                        UserParameterS3StageVpceDnsNameArrayInput                       `pulumi:"s3StageVpceDnsNames"`
+	SearchPaths                                UserParameterSearchPathArrayInput                               `pulumi:"searchPaths"`
+	SimulatedDataSharingConsumers              UserParameterSimulatedDataSharingConsumerArrayInput             `pulumi:"simulatedDataSharingConsumers"`
+	StatementQueuedTimeoutInSeconds            UserParameterStatementQueuedTimeoutInSecondArrayInput           `pulumi:"statementQueuedTimeoutInSeconds"`
+	StatementTimeoutInSeconds                  UserParameterStatementTimeoutInSecondArrayInput                 `pulumi:"statementTimeoutInSeconds"`
+	StrictJsonOutputs                          UserParameterStrictJsonOutputArrayInput                         `pulumi:"strictJsonOutputs"`
+	TimeInputFormats                           UserParameterTimeInputFormatArrayInput                          `pulumi:"timeInputFormats"`
+	TimeOutputFormats                          UserParameterTimeOutputFormatArrayInput                         `pulumi:"timeOutputFormats"`
+	TimestampDayIsAlways24hs                   UserParameterTimestampDayIsAlways24hArrayInput                  `pulumi:"timestampDayIsAlways24hs"`
+	TimestampInputFormats                      UserParameterTimestampInputFormatArrayInput                     `pulumi:"timestampInputFormats"`
+	TimestampLtzOutputFormats                  UserParameterTimestampLtzOutputFormatArrayInput                 `pulumi:"timestampLtzOutputFormats"`
+	TimestampNtzOutputFormats                  UserParameterTimestampNtzOutputFormatArrayInput                 `pulumi:"timestampNtzOutputFormats"`
+	TimestampOutputFormats                     UserParameterTimestampOutputFormatArrayInput                    `pulumi:"timestampOutputFormats"`
+	TimestampTypeMappings                      UserParameterTimestampTypeMappingArrayInput                     `pulumi:"timestampTypeMappings"`
+	TimestampTzOutputFormats                   UserParameterTimestampTzOutputFormatArrayInput                  `pulumi:"timestampTzOutputFormats"`
+	Timezones                                  UserParameterTimezoneArrayInput                                 `pulumi:"timezones"`
+	TraceLevels                                UserParameterTraceLevelArrayInput                               `pulumi:"traceLevels"`
+	TransactionAbortOnErrors                   UserParameterTransactionAbortOnErrorArrayInput                  `pulumi:"transactionAbortOnErrors"`
+	TransactionDefaultIsolationLevels          UserParameterTransactionDefaultIsolationLevelArrayInput         `pulumi:"transactionDefaultIsolationLevels"`
+	TwoDigitCenturyStarts                      UserParameterTwoDigitCenturyStartArrayInput                     `pulumi:"twoDigitCenturyStarts"`
+	UnsupportedDdlActions                      UserParameterUnsupportedDdlActionArrayInput                     `pulumi:"unsupportedDdlActions"`
+	UseCachedResults                           UserParameterUseCachedResultArrayInput                          `pulumi:"useCachedResults"`
+	WeekOfYearPolicies                         UserParameterWeekOfYearPolicyArrayInput                         `pulumi:"weekOfYearPolicies"`
+	WeekStarts                                 UserParameterWeekStartArrayInput                                `pulumi:"weekStarts"`
+}
+
+func (UserParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameter)(nil)).Elem()
+}
+
+func (i UserParameterArgs) ToUserParameterOutput() UserParameterOutput {
+	return i.ToUserParameterOutputWithContext(context.Background())
+}
+
+func (i UserParameterArgs) ToUserParameterOutputWithContext(ctx context.Context) UserParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterOutput)
+}
+
+// UserParameterArrayInput is an input type that accepts UserParameterArray and UserParameterArrayOutput values.
+// You can construct a concrete instance of `UserParameterArrayInput` via:
+//
+//	UserParameterArray{ UserParameterArgs{...} }
+type UserParameterArrayInput interface {
+	pulumi.Input
+
+	ToUserParameterArrayOutput() UserParameterArrayOutput
+	ToUserParameterArrayOutputWithContext(context.Context) UserParameterArrayOutput
+}
+
+type UserParameterArray []UserParameterInput
+
+func (UserParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameter)(nil)).Elem()
+}
+
+func (i UserParameterArray) ToUserParameterArrayOutput() UserParameterArrayOutput {
+	return i.ToUserParameterArrayOutputWithContext(context.Background())
+}
+
+func (i UserParameterArray) ToUserParameterArrayOutputWithContext(ctx context.Context) UserParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterArrayOutput)
+}
+
+type UserParameterOutput struct{ *pulumi.OutputState }
+
+func (UserParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameter)(nil)).Elem()
+}
+
+func (o UserParameterOutput) ToUserParameterOutput() UserParameterOutput {
+	return o
+}
+
+func (o UserParameterOutput) ToUserParameterOutputWithContext(ctx context.Context) UserParameterOutput {
+	return o
+}
+
+func (o UserParameterOutput) AbortDetachedQueries() UserParameterAbortDetachedQueryArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterAbortDetachedQuery { return v.AbortDetachedQueries }).(UserParameterAbortDetachedQueryArrayOutput)
+}
+
+func (o UserParameterOutput) Autocommits() UserParameterAutocommitArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterAutocommit { return v.Autocommits }).(UserParameterAutocommitArrayOutput)
+}
+
+func (o UserParameterOutput) BinaryInputFormats() UserParameterBinaryInputFormatArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterBinaryInputFormat { return v.BinaryInputFormats }).(UserParameterBinaryInputFormatArrayOutput)
+}
+
+func (o UserParameterOutput) BinaryOutputFormats() UserParameterBinaryOutputFormatArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterBinaryOutputFormat { return v.BinaryOutputFormats }).(UserParameterBinaryOutputFormatArrayOutput)
+}
+
+func (o UserParameterOutput) ClientMemoryLimits() UserParameterClientMemoryLimitArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterClientMemoryLimit { return v.ClientMemoryLimits }).(UserParameterClientMemoryLimitArrayOutput)
+}
+
+func (o UserParameterOutput) ClientMetadataRequestUseConnectionCtxes() UserParameterClientMetadataRequestUseConnectionCtxArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterClientMetadataRequestUseConnectionCtx {
+		return v.ClientMetadataRequestUseConnectionCtxes
+	}).(UserParameterClientMetadataRequestUseConnectionCtxArrayOutput)
+}
+
+func (o UserParameterOutput) ClientPrefetchThreads() UserParameterClientPrefetchThreadArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterClientPrefetchThread { return v.ClientPrefetchThreads }).(UserParameterClientPrefetchThreadArrayOutput)
+}
+
+func (o UserParameterOutput) ClientResultChunkSizes() UserParameterClientResultChunkSizeArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterClientResultChunkSize { return v.ClientResultChunkSizes }).(UserParameterClientResultChunkSizeArrayOutput)
+}
+
+func (o UserParameterOutput) ClientResultColumnCaseInsensitives() UserParameterClientResultColumnCaseInsensitiveArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterClientResultColumnCaseInsensitive {
+		return v.ClientResultColumnCaseInsensitives
+	}).(UserParameterClientResultColumnCaseInsensitiveArrayOutput)
+}
+
+func (o UserParameterOutput) ClientSessionKeepAliveHeartbeatFrequencies() UserParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterClientSessionKeepAliveHeartbeatFrequency {
+		return v.ClientSessionKeepAliveHeartbeatFrequencies
+	}).(UserParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput)
+}
+
+func (o UserParameterOutput) ClientSessionKeepAlives() UserParameterClientSessionKeepAlifeArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterClientSessionKeepAlife { return v.ClientSessionKeepAlives }).(UserParameterClientSessionKeepAlifeArrayOutput)
+}
+
+func (o UserParameterOutput) ClientTimestampTypeMappings() UserParameterClientTimestampTypeMappingArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterClientTimestampTypeMapping { return v.ClientTimestampTypeMappings }).(UserParameterClientTimestampTypeMappingArrayOutput)
+}
+
+func (o UserParameterOutput) DateInputFormats() UserParameterDateInputFormatArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterDateInputFormat { return v.DateInputFormats }).(UserParameterDateInputFormatArrayOutput)
+}
+
+func (o UserParameterOutput) DateOutputFormats() UserParameterDateOutputFormatArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterDateOutputFormat { return v.DateOutputFormats }).(UserParameterDateOutputFormatArrayOutput)
+}
+
+func (o UserParameterOutput) EnableUnloadPhysicalTypeOptimizations() UserParameterEnableUnloadPhysicalTypeOptimizationArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterEnableUnloadPhysicalTypeOptimization {
+		return v.EnableUnloadPhysicalTypeOptimizations
+	}).(UserParameterEnableUnloadPhysicalTypeOptimizationArrayOutput)
+}
+
+func (o UserParameterOutput) EnableUnredactedQuerySyntaxErrors() UserParameterEnableUnredactedQuerySyntaxErrorArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterEnableUnredactedQuerySyntaxError {
+		return v.EnableUnredactedQuerySyntaxErrors
+	}).(UserParameterEnableUnredactedQuerySyntaxErrorArrayOutput)
+}
+
+func (o UserParameterOutput) ErrorOnNondeterministicMerges() UserParameterErrorOnNondeterministicMergeArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterErrorOnNondeterministicMerge {
+		return v.ErrorOnNondeterministicMerges
+	}).(UserParameterErrorOnNondeterministicMergeArrayOutput)
+}
+
+func (o UserParameterOutput) ErrorOnNondeterministicUpdates() UserParameterErrorOnNondeterministicUpdateArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterErrorOnNondeterministicUpdate {
+		return v.ErrorOnNondeterministicUpdates
+	}).(UserParameterErrorOnNondeterministicUpdateArrayOutput)
+}
+
+func (o UserParameterOutput) GeographyOutputFormats() UserParameterGeographyOutputFormatArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterGeographyOutputFormat { return v.GeographyOutputFormats }).(UserParameterGeographyOutputFormatArrayOutput)
+}
+
+func (o UserParameterOutput) GeometryOutputFormats() UserParameterGeometryOutputFormatArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterGeometryOutputFormat { return v.GeometryOutputFormats }).(UserParameterGeometryOutputFormatArrayOutput)
+}
+
+func (o UserParameterOutput) JdbcTreatDecimalAsInts() UserParameterJdbcTreatDecimalAsIntArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterJdbcTreatDecimalAsInt { return v.JdbcTreatDecimalAsInts }).(UserParameterJdbcTreatDecimalAsIntArrayOutput)
+}
+
+func (o UserParameterOutput) JdbcTreatTimestampNtzAsUtcs() UserParameterJdbcTreatTimestampNtzAsUtcArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterJdbcTreatTimestampNtzAsUtc { return v.JdbcTreatTimestampNtzAsUtcs }).(UserParameterJdbcTreatTimestampNtzAsUtcArrayOutput)
+}
+
+func (o UserParameterOutput) JdbcUseSessionTimezones() UserParameterJdbcUseSessionTimezoneArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterJdbcUseSessionTimezone { return v.JdbcUseSessionTimezones }).(UserParameterJdbcUseSessionTimezoneArrayOutput)
+}
+
+func (o UserParameterOutput) JsonIndents() UserParameterJsonIndentArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterJsonIndent { return v.JsonIndents }).(UserParameterJsonIndentArrayOutput)
+}
+
+func (o UserParameterOutput) LockTimeouts() UserParameterLockTimeoutArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterLockTimeout { return v.LockTimeouts }).(UserParameterLockTimeoutArrayOutput)
+}
+
+func (o UserParameterOutput) LogLevels() UserParameterLogLevelArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterLogLevel { return v.LogLevels }).(UserParameterLogLevelArrayOutput)
+}
+
+func (o UserParameterOutput) MultiStatementCounts() UserParameterMultiStatementCountArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterMultiStatementCount { return v.MultiStatementCounts }).(UserParameterMultiStatementCountArrayOutput)
+}
+
+func (o UserParameterOutput) NetworkPolicies() UserParameterNetworkPolicyArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterNetworkPolicy { return v.NetworkPolicies }).(UserParameterNetworkPolicyArrayOutput)
+}
+
+func (o UserParameterOutput) NoorderSequenceAsDefaults() UserParameterNoorderSequenceAsDefaultArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterNoorderSequenceAsDefault { return v.NoorderSequenceAsDefaults }).(UserParameterNoorderSequenceAsDefaultArrayOutput)
+}
+
+func (o UserParameterOutput) OdbcTreatDecimalAsInts() UserParameterOdbcTreatDecimalAsIntArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterOdbcTreatDecimalAsInt { return v.OdbcTreatDecimalAsInts }).(UserParameterOdbcTreatDecimalAsIntArrayOutput)
+}
+
+func (o UserParameterOutput) PreventUnloadToInternalStages() UserParameterPreventUnloadToInternalStageArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterPreventUnloadToInternalStage {
+		return v.PreventUnloadToInternalStages
+	}).(UserParameterPreventUnloadToInternalStageArrayOutput)
+}
+
+func (o UserParameterOutput) QueryTags() UserParameterQueryTagArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterQueryTag { return v.QueryTags }).(UserParameterQueryTagArrayOutput)
+}
+
+func (o UserParameterOutput) QuotedIdentifiersIgnoreCases() UserParameterQuotedIdentifiersIgnoreCaseArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterQuotedIdentifiersIgnoreCase {
+		return v.QuotedIdentifiersIgnoreCases
+	}).(UserParameterQuotedIdentifiersIgnoreCaseArrayOutput)
+}
+
+func (o UserParameterOutput) RowsPerResultsets() UserParameterRowsPerResultsetArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterRowsPerResultset { return v.RowsPerResultsets }).(UserParameterRowsPerResultsetArrayOutput)
+}
+
+func (o UserParameterOutput) S3StageVpceDnsNames() UserParameterS3StageVpceDnsNameArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterS3StageVpceDnsName { return v.S3StageVpceDnsNames }).(UserParameterS3StageVpceDnsNameArrayOutput)
+}
+
+func (o UserParameterOutput) SearchPaths() UserParameterSearchPathArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterSearchPath { return v.SearchPaths }).(UserParameterSearchPathArrayOutput)
+}
+
+func (o UserParameterOutput) SimulatedDataSharingConsumers() UserParameterSimulatedDataSharingConsumerArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterSimulatedDataSharingConsumer {
+		return v.SimulatedDataSharingConsumers
+	}).(UserParameterSimulatedDataSharingConsumerArrayOutput)
+}
+
+func (o UserParameterOutput) StatementQueuedTimeoutInSeconds() UserParameterStatementQueuedTimeoutInSecondArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterStatementQueuedTimeoutInSecond {
+		return v.StatementQueuedTimeoutInSeconds
+	}).(UserParameterStatementQueuedTimeoutInSecondArrayOutput)
+}
+
+func (o UserParameterOutput) StatementTimeoutInSeconds() UserParameterStatementTimeoutInSecondArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterStatementTimeoutInSecond { return v.StatementTimeoutInSeconds }).(UserParameterStatementTimeoutInSecondArrayOutput)
+}
+
+func (o UserParameterOutput) StrictJsonOutputs() UserParameterStrictJsonOutputArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterStrictJsonOutput { return v.StrictJsonOutputs }).(UserParameterStrictJsonOutputArrayOutput)
+}
+
+func (o UserParameterOutput) TimeInputFormats() UserParameterTimeInputFormatArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTimeInputFormat { return v.TimeInputFormats }).(UserParameterTimeInputFormatArrayOutput)
+}
+
+func (o UserParameterOutput) TimeOutputFormats() UserParameterTimeOutputFormatArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTimeOutputFormat { return v.TimeOutputFormats }).(UserParameterTimeOutputFormatArrayOutput)
+}
+
+func (o UserParameterOutput) TimestampDayIsAlways24hs() UserParameterTimestampDayIsAlways24hArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTimestampDayIsAlways24h { return v.TimestampDayIsAlways24hs }).(UserParameterTimestampDayIsAlways24hArrayOutput)
+}
+
+func (o UserParameterOutput) TimestampInputFormats() UserParameterTimestampInputFormatArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTimestampInputFormat { return v.TimestampInputFormats }).(UserParameterTimestampInputFormatArrayOutput)
+}
+
+func (o UserParameterOutput) TimestampLtzOutputFormats() UserParameterTimestampLtzOutputFormatArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTimestampLtzOutputFormat { return v.TimestampLtzOutputFormats }).(UserParameterTimestampLtzOutputFormatArrayOutput)
+}
+
+func (o UserParameterOutput) TimestampNtzOutputFormats() UserParameterTimestampNtzOutputFormatArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTimestampNtzOutputFormat { return v.TimestampNtzOutputFormats }).(UserParameterTimestampNtzOutputFormatArrayOutput)
+}
+
+func (o UserParameterOutput) TimestampOutputFormats() UserParameterTimestampOutputFormatArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTimestampOutputFormat { return v.TimestampOutputFormats }).(UserParameterTimestampOutputFormatArrayOutput)
+}
+
+func (o UserParameterOutput) TimestampTypeMappings() UserParameterTimestampTypeMappingArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTimestampTypeMapping { return v.TimestampTypeMappings }).(UserParameterTimestampTypeMappingArrayOutput)
+}
+
+func (o UserParameterOutput) TimestampTzOutputFormats() UserParameterTimestampTzOutputFormatArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTimestampTzOutputFormat { return v.TimestampTzOutputFormats }).(UserParameterTimestampTzOutputFormatArrayOutput)
+}
+
+func (o UserParameterOutput) Timezones() UserParameterTimezoneArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTimezone { return v.Timezones }).(UserParameterTimezoneArrayOutput)
+}
+
+func (o UserParameterOutput) TraceLevels() UserParameterTraceLevelArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTraceLevel { return v.TraceLevels }).(UserParameterTraceLevelArrayOutput)
+}
+
+func (o UserParameterOutput) TransactionAbortOnErrors() UserParameterTransactionAbortOnErrorArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTransactionAbortOnError { return v.TransactionAbortOnErrors }).(UserParameterTransactionAbortOnErrorArrayOutput)
+}
+
+func (o UserParameterOutput) TransactionDefaultIsolationLevels() UserParameterTransactionDefaultIsolationLevelArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTransactionDefaultIsolationLevel {
+		return v.TransactionDefaultIsolationLevels
+	}).(UserParameterTransactionDefaultIsolationLevelArrayOutput)
+}
+
+func (o UserParameterOutput) TwoDigitCenturyStarts() UserParameterTwoDigitCenturyStartArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterTwoDigitCenturyStart { return v.TwoDigitCenturyStarts }).(UserParameterTwoDigitCenturyStartArrayOutput)
+}
+
+func (o UserParameterOutput) UnsupportedDdlActions() UserParameterUnsupportedDdlActionArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterUnsupportedDdlAction { return v.UnsupportedDdlActions }).(UserParameterUnsupportedDdlActionArrayOutput)
+}
+
+func (o UserParameterOutput) UseCachedResults() UserParameterUseCachedResultArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterUseCachedResult { return v.UseCachedResults }).(UserParameterUseCachedResultArrayOutput)
+}
+
+func (o UserParameterOutput) WeekOfYearPolicies() UserParameterWeekOfYearPolicyArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterWeekOfYearPolicy { return v.WeekOfYearPolicies }).(UserParameterWeekOfYearPolicyArrayOutput)
+}
+
+func (o UserParameterOutput) WeekStarts() UserParameterWeekStartArrayOutput {
+	return o.ApplyT(func(v UserParameter) []UserParameterWeekStart { return v.WeekStarts }).(UserParameterWeekStartArrayOutput)
+}
+
+type UserParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (UserParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameter)(nil)).Elem()
+}
+
+func (o UserParameterArrayOutput) ToUserParameterArrayOutput() UserParameterArrayOutput {
+	return o
+}
+
+func (o UserParameterArrayOutput) ToUserParameterArrayOutputWithContext(ctx context.Context) UserParameterArrayOutput {
+	return o
+}
+
+func (o UserParameterArrayOutput) Index(i pulumi.IntInput) UserParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameter {
+		return vs[0].([]UserParameter)[vs[1].(int)]
+	}).(UserParameterOutput)
+}
+
+type UserParameterAbortDetachedQuery struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// UserParameterAbortDetachedQueryInput is an input type that accepts UserParameterAbortDetachedQueryArgs and UserParameterAbortDetachedQueryOutput values.
+// You can construct a concrete instance of `UserParameterAbortDetachedQueryInput` via:
+//
+//	UserParameterAbortDetachedQueryArgs{...}
+type UserParameterAbortDetachedQueryInput interface {
+	pulumi.Input
+
+	ToUserParameterAbortDetachedQueryOutput() UserParameterAbortDetachedQueryOutput
+	ToUserParameterAbortDetachedQueryOutputWithContext(context.Context) UserParameterAbortDetachedQueryOutput
+}
+
+type UserParameterAbortDetachedQueryArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (UserParameterAbortDetachedQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameterAbortDetachedQuery)(nil)).Elem()
+}
+
+func (i UserParameterAbortDetachedQueryArgs) ToUserParameterAbortDetachedQueryOutput() UserParameterAbortDetachedQueryOutput {
+	return i.ToUserParameterAbortDetachedQueryOutputWithContext(context.Background())
+}
+
+func (i UserParameterAbortDetachedQueryArgs) ToUserParameterAbortDetachedQueryOutputWithContext(ctx context.Context) UserParameterAbortDetachedQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterAbortDetachedQueryOutput)
+}
+
+// UserParameterAbortDetachedQueryArrayInput is an input type that accepts UserParameterAbortDetachedQueryArray and UserParameterAbortDetachedQueryArrayOutput values.
+// You can construct a concrete instance of `UserParameterAbortDetachedQueryArrayInput` via:
+//
+//	UserParameterAbortDetachedQueryArray{ UserParameterAbortDetachedQueryArgs{...} }
+type UserParameterAbortDetachedQueryArrayInput interface {
+	pulumi.Input
+
+	ToUserParameterAbortDetachedQueryArrayOutput() UserParameterAbortDetachedQueryArrayOutput
+	ToUserParameterAbortDetachedQueryArrayOutputWithContext(context.Context) UserParameterAbortDetachedQueryArrayOutput
+}
+
+type UserParameterAbortDetachedQueryArray []UserParameterAbortDetachedQueryInput
+
+func (UserParameterAbortDetachedQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameterAbortDetachedQuery)(nil)).Elem()
+}
+
+func (i UserParameterAbortDetachedQueryArray) ToUserParameterAbortDetachedQueryArrayOutput() UserParameterAbortDetachedQueryArrayOutput {
+	return i.ToUserParameterAbortDetachedQueryArrayOutputWithContext(context.Background())
+}
+
+func (i UserParameterAbortDetachedQueryArray) ToUserParameterAbortDetachedQueryArrayOutputWithContext(ctx context.Context) UserParameterAbortDetachedQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterAbortDetachedQueryArrayOutput)
+}
+
+type UserParameterAbortDetachedQueryOutput struct{ *pulumi.OutputState }
+
+func (UserParameterAbortDetachedQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameterAbortDetachedQuery)(nil)).Elem()
+}
+
+func (o UserParameterAbortDetachedQueryOutput) ToUserParameterAbortDetachedQueryOutput() UserParameterAbortDetachedQueryOutput {
+	return o
+}
+
+func (o UserParameterAbortDetachedQueryOutput) ToUserParameterAbortDetachedQueryOutputWithContext(ctx context.Context) UserParameterAbortDetachedQueryOutput {
+	return o
+}
+
+func (o UserParameterAbortDetachedQueryOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterAbortDetachedQuery) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterAbortDetachedQueryOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterAbortDetachedQuery) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterAbortDetachedQueryOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterAbortDetachedQuery) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterAbortDetachedQueryOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterAbortDetachedQuery) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterAbortDetachedQueryOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterAbortDetachedQuery) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type UserParameterAbortDetachedQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (UserParameterAbortDetachedQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameterAbortDetachedQuery)(nil)).Elem()
+}
+
+func (o UserParameterAbortDetachedQueryArrayOutput) ToUserParameterAbortDetachedQueryArrayOutput() UserParameterAbortDetachedQueryArrayOutput {
+	return o
+}
+
+func (o UserParameterAbortDetachedQueryArrayOutput) ToUserParameterAbortDetachedQueryArrayOutputWithContext(ctx context.Context) UserParameterAbortDetachedQueryArrayOutput {
+	return o
+}
+
+func (o UserParameterAbortDetachedQueryArrayOutput) Index(i pulumi.IntInput) UserParameterAbortDetachedQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameterAbortDetachedQuery {
+		return vs[0].([]UserParameterAbortDetachedQuery)[vs[1].(int)]
+	}).(UserParameterAbortDetachedQueryOutput)
+}
+
+type UserParameterAutocommit struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// UserParameterAutocommitInput is an input type that accepts UserParameterAutocommitArgs and UserParameterAutocommitOutput values.
+// You can construct a concrete instance of `UserParameterAutocommitInput` via:
+//
+//	UserParameterAutocommitArgs{...}
+type UserParameterAutocommitInput interface {
+	pulumi.Input
+
+	ToUserParameterAutocommitOutput() UserParameterAutocommitOutput
+	ToUserParameterAutocommitOutputWithContext(context.Context) UserParameterAutocommitOutput
+}
+
+type UserParameterAutocommitArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (UserParameterAutocommitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameterAutocommit)(nil)).Elem()
+}
+
+func (i UserParameterAutocommitArgs) ToUserParameterAutocommitOutput() UserParameterAutocommitOutput {
+	return i.ToUserParameterAutocommitOutputWithContext(context.Background())
+}
+
+func (i UserParameterAutocommitArgs) ToUserParameterAutocommitOutputWithContext(ctx context.Context) UserParameterAutocommitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterAutocommitOutput)
+}
+
+// UserParameterAutocommitArrayInput is an input type that accepts UserParameterAutocommitArray and UserParameterAutocommitArrayOutput values.
+// You can construct a concrete instance of `UserParameterAutocommitArrayInput` via:
+//
+//	UserParameterAutocommitArray{ UserParameterAutocommitArgs{...} }
+type UserParameterAutocommitArrayInput interface {
+	pulumi.Input
+
+	ToUserParameterAutocommitArrayOutput() UserParameterAutocommitArrayOutput
+	ToUserParameterAutocommitArrayOutputWithContext(context.Context) UserParameterAutocommitArrayOutput
+}
+
+type UserParameterAutocommitArray []UserParameterAutocommitInput
+
+func (UserParameterAutocommitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameterAutocommit)(nil)).Elem()
+}
+
+func (i UserParameterAutocommitArray) ToUserParameterAutocommitArrayOutput() UserParameterAutocommitArrayOutput {
+	return i.ToUserParameterAutocommitArrayOutputWithContext(context.Background())
+}
+
+func (i UserParameterAutocommitArray) ToUserParameterAutocommitArrayOutputWithContext(ctx context.Context) UserParameterAutocommitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterAutocommitArrayOutput)
+}
+
+type UserParameterAutocommitOutput struct{ *pulumi.OutputState }
+
+func (UserParameterAutocommitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameterAutocommit)(nil)).Elem()
+}
+
+func (o UserParameterAutocommitOutput) ToUserParameterAutocommitOutput() UserParameterAutocommitOutput {
+	return o
+}
+
+func (o UserParameterAutocommitOutput) ToUserParameterAutocommitOutputWithContext(ctx context.Context) UserParameterAutocommitOutput {
+	return o
+}
+
+func (o UserParameterAutocommitOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterAutocommit) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterAutocommitOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterAutocommit) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterAutocommitOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterAutocommit) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterAutocommitOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterAutocommit) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterAutocommitOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterAutocommit) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type UserParameterAutocommitArrayOutput struct{ *pulumi.OutputState }
+
+func (UserParameterAutocommitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameterAutocommit)(nil)).Elem()
+}
+
+func (o UserParameterAutocommitArrayOutput) ToUserParameterAutocommitArrayOutput() UserParameterAutocommitArrayOutput {
+	return o
+}
+
+func (o UserParameterAutocommitArrayOutput) ToUserParameterAutocommitArrayOutputWithContext(ctx context.Context) UserParameterAutocommitArrayOutput {
+	return o
+}
+
+func (o UserParameterAutocommitArrayOutput) Index(i pulumi.IntInput) UserParameterAutocommitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameterAutocommit {
+		return vs[0].([]UserParameterAutocommit)[vs[1].(int)]
+	}).(UserParameterAutocommitOutput)
+}
+
+type UserParameterBinaryInputFormat struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// UserParameterBinaryInputFormatInput is an input type that accepts UserParameterBinaryInputFormatArgs and UserParameterBinaryInputFormatOutput values.
+// You can construct a concrete instance of `UserParameterBinaryInputFormatInput` via:
+//
+//	UserParameterBinaryInputFormatArgs{...}
+type UserParameterBinaryInputFormatInput interface {
+	pulumi.Input
+
+	ToUserParameterBinaryInputFormatOutput() UserParameterBinaryInputFormatOutput
+	ToUserParameterBinaryInputFormatOutputWithContext(context.Context) UserParameterBinaryInputFormatOutput
+}
+
+type UserParameterBinaryInputFormatArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (UserParameterBinaryInputFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameterBinaryInputFormat)(nil)).Elem()
+}
+
+func (i UserParameterBinaryInputFormatArgs) ToUserParameterBinaryInputFormatOutput() UserParameterBinaryInputFormatOutput {
+	return i.ToUserParameterBinaryInputFormatOutputWithContext(context.Background())
+}
+
+func (i UserParameterBinaryInputFormatArgs) ToUserParameterBinaryInputFormatOutputWithContext(ctx context.Context) UserParameterBinaryInputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterBinaryInputFormatOutput)
+}
+
+// UserParameterBinaryInputFormatArrayInput is an input type that accepts UserParameterBinaryInputFormatArray and UserParameterBinaryInputFormatArrayOutput values.
+// You can construct a concrete instance of `UserParameterBinaryInputFormatArrayInput` via:
+//
+//	UserParameterBinaryInputFormatArray{ UserParameterBinaryInputFormatArgs{...} }
+type UserParameterBinaryInputFormatArrayInput interface {
+	pulumi.Input
+
+	ToUserParameterBinaryInputFormatArrayOutput() UserParameterBinaryInputFormatArrayOutput
+	ToUserParameterBinaryInputFormatArrayOutputWithContext(context.Context) UserParameterBinaryInputFormatArrayOutput
+}
+
+type UserParameterBinaryInputFormatArray []UserParameterBinaryInputFormatInput
+
+func (UserParameterBinaryInputFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameterBinaryInputFormat)(nil)).Elem()
+}
+
+func (i UserParameterBinaryInputFormatArray) ToUserParameterBinaryInputFormatArrayOutput() UserParameterBinaryInputFormatArrayOutput {
+	return i.ToUserParameterBinaryInputFormatArrayOutputWithContext(context.Background())
+}
+
+func (i UserParameterBinaryInputFormatArray) ToUserParameterBinaryInputFormatArrayOutputWithContext(ctx context.Context) UserParameterBinaryInputFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterBinaryInputFormatArrayOutput)
+}
+
+type UserParameterBinaryInputFormatOutput struct{ *pulumi.OutputState }
+
+func (UserParameterBinaryInputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameterBinaryInputFormat)(nil)).Elem()
+}
+
+func (o UserParameterBinaryInputFormatOutput) ToUserParameterBinaryInputFormatOutput() UserParameterBinaryInputFormatOutput {
+	return o
+}
+
+func (o UserParameterBinaryInputFormatOutput) ToUserParameterBinaryInputFormatOutputWithContext(ctx context.Context) UserParameterBinaryInputFormatOutput {
+	return o
+}
+
+func (o UserParameterBinaryInputFormatOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterBinaryInputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterBinaryInputFormatOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterBinaryInputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterBinaryInputFormatOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterBinaryInputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterBinaryInputFormatOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterBinaryInputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterBinaryInputFormatOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterBinaryInputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type UserParameterBinaryInputFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (UserParameterBinaryInputFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameterBinaryInputFormat)(nil)).Elem()
+}
+
+func (o UserParameterBinaryInputFormatArrayOutput) ToUserParameterBinaryInputFormatArrayOutput() UserParameterBinaryInputFormatArrayOutput {
+	return o
+}
+
+func (o UserParameterBinaryInputFormatArrayOutput) ToUserParameterBinaryInputFormatArrayOutputWithContext(ctx context.Context) UserParameterBinaryInputFormatArrayOutput {
+	return o
+}
+
+func (o UserParameterBinaryInputFormatArrayOutput) Index(i pulumi.IntInput) UserParameterBinaryInputFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameterBinaryInputFormat {
+		return vs[0].([]UserParameterBinaryInputFormat)[vs[1].(int)]
+	}).(UserParameterBinaryInputFormatOutput)
+}
+
+type UserParameterBinaryOutputFormat struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// UserParameterBinaryOutputFormatInput is an input type that accepts UserParameterBinaryOutputFormatArgs and UserParameterBinaryOutputFormatOutput values.
+// You can construct a concrete instance of `UserParameterBinaryOutputFormatInput` via:
+//
+//	UserParameterBinaryOutputFormatArgs{...}
+type UserParameterBinaryOutputFormatInput interface {
+	pulumi.Input
+
+	ToUserParameterBinaryOutputFormatOutput() UserParameterBinaryOutputFormatOutput
+	ToUserParameterBinaryOutputFormatOutputWithContext(context.Context) UserParameterBinaryOutputFormatOutput
+}
+
+type UserParameterBinaryOutputFormatArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (UserParameterBinaryOutputFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameterBinaryOutputFormat)(nil)).Elem()
+}
+
+func (i UserParameterBinaryOutputFormatArgs) ToUserParameterBinaryOutputFormatOutput() UserParameterBinaryOutputFormatOutput {
+	return i.ToUserParameterBinaryOutputFormatOutputWithContext(context.Background())
+}
+
+func (i UserParameterBinaryOutputFormatArgs) ToUserParameterBinaryOutputFormatOutputWithContext(ctx context.Context) UserParameterBinaryOutputFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterBinaryOutputFormatOutput)
+}
+
+// UserParameterBinaryOutputFormatArrayInput is an input type that accepts UserParameterBinaryOutputFormatArray and UserParameterBinaryOutputFormatArrayOutput values.
+// You can construct a concrete instance of `UserParameterBinaryOutputFormatArrayInput` via:
+//
+//	UserParameterBinaryOutputFormatArray{ UserParameterBinaryOutputFormatArgs{...} }
+type UserParameterBinaryOutputFormatArrayInput interface {
+	pulumi.Input
+
+	ToUserParameterBinaryOutputFormatArrayOutput() UserParameterBinaryOutputFormatArrayOutput
+	ToUserParameterBinaryOutputFormatArrayOutputWithContext(context.Context) UserParameterBinaryOutputFormatArrayOutput
+}
+
+type UserParameterBinaryOutputFormatArray []UserParameterBinaryOutputFormatInput
+
+func (UserParameterBinaryOutputFormatArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameterBinaryOutputFormat)(nil)).Elem()
+}
+
+func (i UserParameterBinaryOutputFormatArray) ToUserParameterBinaryOutputFormatArrayOutput() UserParameterBinaryOutputFormatArrayOutput {
+	return i.ToUserParameterBinaryOutputFormatArrayOutputWithContext(context.Background())
+}
+
+func (i UserParameterBinaryOutputFormatArray) ToUserParameterBinaryOutputFormatArrayOutputWithContext(ctx context.Context) UserParameterBinaryOutputFormatArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterBinaryOutputFormatArrayOutput)
+}
+
+type UserParameterBinaryOutputFormatOutput struct{ *pulumi.OutputState }
+
+func (UserParameterBinaryOutputFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameterBinaryOutputFormat)(nil)).Elem()
+}
+
+func (o UserParameterBinaryOutputFormatOutput) ToUserParameterBinaryOutputFormatOutput() UserParameterBinaryOutputFormatOutput {
+	return o
+}
+
+func (o UserParameterBinaryOutputFormatOutput) ToUserParameterBinaryOutputFormatOutputWithContext(ctx context.Context) UserParameterBinaryOutputFormatOutput {
+	return o
+}
+
+func (o UserParameterBinaryOutputFormatOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterBinaryOutputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterBinaryOutputFormatOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterBinaryOutputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterBinaryOutputFormatOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterBinaryOutputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterBinaryOutputFormatOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterBinaryOutputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterBinaryOutputFormatOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterBinaryOutputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type UserParameterBinaryOutputFormatArrayOutput struct{ *pulumi.OutputState }
+
+func (UserParameterBinaryOutputFormatArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameterBinaryOutputFormat)(nil)).Elem()
+}
+
+func (o UserParameterBinaryOutputFormatArrayOutput) ToUserParameterBinaryOutputFormatArrayOutput() UserParameterBinaryOutputFormatArrayOutput {
+	return o
+}
+
+func (o UserParameterBinaryOutputFormatArrayOutput) ToUserParameterBinaryOutputFormatArrayOutputWithContext(ctx context.Context) UserParameterBinaryOutputFormatArrayOutput {
+	return o
+}
+
+func (o UserParameterBinaryOutputFormatArrayOutput) Index(i pulumi.IntInput) UserParameterBinaryOutputFormatOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameterBinaryOutputFormat {
+		return vs[0].([]UserParameterBinaryOutputFormat)[vs[1].(int)]
+	}).(UserParameterBinaryOutputFormatOutput)
+}
+
+type UserParameterClientMemoryLimit struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// UserParameterClientMemoryLimitInput is an input type that accepts UserParameterClientMemoryLimitArgs and UserParameterClientMemoryLimitOutput values.
+// You can construct a concrete instance of `UserParameterClientMemoryLimitInput` via:
+//
+//	UserParameterClientMemoryLimitArgs{...}
+type UserParameterClientMemoryLimitInput interface {
+	pulumi.Input
+
+	ToUserParameterClientMemoryLimitOutput() UserParameterClientMemoryLimitOutput
+	ToUserParameterClientMemoryLimitOutputWithContext(context.Context) UserParameterClientMemoryLimitOutput
+}
+
+type UserParameterClientMemoryLimitArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (UserParameterClientMemoryLimitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameterClientMemoryLimit)(nil)).Elem()
+}
+
+func (i UserParameterClientMemoryLimitArgs) ToUserParameterClientMemoryLimitOutput() UserParameterClientMemoryLimitOutput {
+	return i.ToUserParameterClientMemoryLimitOutputWithContext(context.Background())
+}
+
+func (i UserParameterClientMemoryLimitArgs) ToUserParameterClientMemoryLimitOutputWithContext(ctx context.Context) UserParameterClientMemoryLimitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterClientMemoryLimitOutput)
+}
+
+// UserParameterClientMemoryLimitArrayInput is an input type that accepts UserParameterClientMemoryLimitArray and UserParameterClientMemoryLimitArrayOutput values.
+// You can construct a concrete instance of `UserParameterClientMemoryLimitArrayInput` via:
+//
+//	UserParameterClientMemoryLimitArray{ UserParameterClientMemoryLimitArgs{...} }
+type UserParameterClientMemoryLimitArrayInput interface {
+	pulumi.Input
+
+	ToUserParameterClientMemoryLimitArrayOutput() UserParameterClientMemoryLimitArrayOutput
+	ToUserParameterClientMemoryLimitArrayOutputWithContext(context.Context) UserParameterClientMemoryLimitArrayOutput
+}
+
+type UserParameterClientMemoryLimitArray []UserParameterClientMemoryLimitInput
+
+func (UserParameterClientMemoryLimitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameterClientMemoryLimit)(nil)).Elem()
+}
+
+func (i UserParameterClientMemoryLimitArray) ToUserParameterClientMemoryLimitArrayOutput() UserParameterClientMemoryLimitArrayOutput {
+	return i.ToUserParameterClientMemoryLimitArrayOutputWithContext(context.Background())
+}
+
+func (i UserParameterClientMemoryLimitArray) ToUserParameterClientMemoryLimitArrayOutputWithContext(ctx context.Context) UserParameterClientMemoryLimitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterClientMemoryLimitArrayOutput)
+}
+
+type UserParameterClientMemoryLimitOutput struct{ *pulumi.OutputState }
+
+func (UserParameterClientMemoryLimitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameterClientMemoryLimit)(nil)).Elem()
+}
+
+func (o UserParameterClientMemoryLimitOutput) ToUserParameterClientMemoryLimitOutput() UserParameterClientMemoryLimitOutput {
+	return o
+}
+
+func (o UserParameterClientMemoryLimitOutput) ToUserParameterClientMemoryLimitOutputWithContext(ctx context.Context) UserParameterClientMemoryLimitOutput {
+	return o
+}
+
+func (o UserParameterClientMemoryLimitOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterClientMemoryLimit) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterClientMemoryLimitOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterClientMemoryLimit) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterClientMemoryLimitOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterClientMemoryLimit) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterClientMemoryLimitOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterClientMemoryLimit) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterClientMemoryLimitOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterClientMemoryLimit) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type UserParameterClientMemoryLimitArrayOutput struct{ *pulumi.OutputState }
+
+func (UserParameterClientMemoryLimitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameterClientMemoryLimit)(nil)).Elem()
+}
+
+func (o UserParameterClientMemoryLimitArrayOutput) ToUserParameterClientMemoryLimitArrayOutput() UserParameterClientMemoryLimitArrayOutput {
+	return o
+}
+
+func (o UserParameterClientMemoryLimitArrayOutput) ToUserParameterClientMemoryLimitArrayOutputWithContext(ctx context.Context) UserParameterClientMemoryLimitArrayOutput {
+	return o
+}
+
+func (o UserParameterClientMemoryLimitArrayOutput) Index(i pulumi.IntInput) UserParameterClientMemoryLimitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameterClientMemoryLimit {
+		return vs[0].([]UserParameterClientMemoryLimit)[vs[1].(int)]
+	}).(UserParameterClientMemoryLimitOutput)
+}
+
+type UserParameterClientMetadataRequestUseConnectionCtx struct {
+	Default     *string `pulumi:"default"`
+	Description *string `pulumi:"description"`
+	Key         *string `pulumi:"key"`
+	Level       *string `pulumi:"level"`
+	Value       *string `pulumi:"value"`
+}
+
+// UserParameterClientMetadataRequestUseConnectionCtxInput is an input type that accepts UserParameterClientMetadataRequestUseConnectionCtxArgs and UserParameterClientMetadataRequestUseConnectionCtxOutput values.
+// You can construct a concrete instance of `UserParameterClientMetadataRequestUseConnectionCtxInput` via:
+//
+//	UserParameterClientMetadataRequestUseConnectionCtxArgs{...}
+type UserParameterClientMetadataRequestUseConnectionCtxInput interface {
+	pulumi.Input
+
+	ToUserParameterClientMetadataRequestUseConnectionCtxOutput() UserParameterClientMetadataRequestUseConnectionCtxOutput
+	ToUserParameterClientMetadataRequestUseConnectionCtxOutputWithContext(context.Context) UserParameterClientMetadataRequestUseConnectionCtxOutput
+}
+
+type UserParameterClientMetadataRequestUseConnectionCtxArgs struct {
+	Default     pulumi.StringPtrInput `pulumi:"default"`
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	Key         pulumi.StringPtrInput `pulumi:"key"`
+	Level       pulumi.StringPtrInput `pulumi:"level"`
+	Value       pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (UserParameterClientMetadataRequestUseConnectionCtxArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameterClientMetadataRequestUseConnectionCtx)(nil)).Elem()
+}
+
+func (i UserParameterClientMetadataRequestUseConnectionCtxArgs) ToUserParameterClientMetadataRequestUseConnectionCtxOutput() UserParameterClientMetadataRequestUseConnectionCtxOutput {
+	return i.ToUserParameterClientMetadataRequestUseConnectionCtxOutputWithContext(context.Background())
+}
+
+func (i UserParameterClientMetadataRequestUseConnectionCtxArgs) ToUserParameterClientMetadataRequestUseConnectionCtxOutputWithContext(ctx context.Context) UserParameterClientMetadataRequestUseConnectionCtxOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterClientMetadataRequestUseConnectionCtxOutput)
+}
+
+// UserParameterClientMetadataRequestUseConnectionCtxArrayInput is an input type that accepts UserParameterClientMetadataRequestUseConnectionCtxArray and UserParameterClientMetadataRequestUseConnectionCtxArrayOutput values.
+// You can construct a concrete instance of `UserParameterClientMetadataRequestUseConnectionCtxArrayInput` via:
+//
+//	UserParameterClientMetadataRequestUseConnectionCtxArray{ UserParameterClientMetadataRequestUseConnectionCtxArgs{...} }
+type UserParameterClientMetadataRequestUseConnectionCtxArrayInput interface {
+	pulumi.Input
+
+	ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutput() UserParameterClientMetadataRequestUseConnectionCtxArrayOutput
+	ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutputWithContext(context.Context) UserParameterClientMetadataRequestUseConnectionCtxArrayOutput
+}
+
+type UserParameterClientMetadataRequestUseConnectionCtxArray []UserParameterClientMetadataRequestUseConnectionCtxInput
+
+func (UserParameterClientMetadataRequestUseConnectionCtxArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameterClientMetadataRequestUseConnectionCtx)(nil)).Elem()
+}
+
+func (i UserParameterClientMetadataRequestUseConnectionCtxArray) ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutput() UserParameterClientMetadataRequestUseConnectionCtxArrayOutput {
+	return i.ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutputWithContext(context.Background())
+}
+
+func (i UserParameterClientMetadataRequestUseConnectionCtxArray) ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutputWithContext(ctx context.Context) UserParameterClientMetadataRequestUseConnectionCtxArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserParameterClientMetadataRequestUseConnectionCtxArrayOutput)
+}
+
+type UserParameterClientMetadataRequestUseConnectionCtxOutput struct{ *pulumi.OutputState }
+
+func (UserParameterClientMetadataRequestUseConnectionCtxOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserParameterClientMetadataRequestUseConnectionCtx)(nil)).Elem()
+}
+
+func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) ToUserParameterClientMetadataRequestUseConnectionCtxOutput() UserParameterClientMetadataRequestUseConnectionCtxOutput {
+	return o
+}
+
+func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) ToUserParameterClientMetadataRequestUseConnectionCtxOutputWithContext(ctx context.Context) UserParameterClientMetadataRequestUseConnectionCtxOutput {
+	return o
+}
+
+func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) Default() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterClientMetadataRequestUseConnectionCtx) *string { return v.Default }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterClientMetadataRequestUseConnectionCtx) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterClientMetadataRequestUseConnectionCtx) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) Level() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterClientMetadataRequestUseConnectionCtx) *string { return v.Level }).(pulumi.StringPtrOutput)
+}
+
+func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v UserParameterClientMetadataRequestUseConnectionCtx) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type UserParameterClientMetadataRequestUseConnectionCtxArrayOutput struct{ *pulumi.OutputState }
+
+func (UserParameterClientMetadataRequestUseConnectionCtxArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]UserParameterClientMetadataRequestUseConnectionCtx)(nil)).Elem()
+}
+
+func (o UserParameterClientMetadataRequestUseConnectionCtxArrayOutput) ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutput() UserParameterClientMetadataRequestUseConnectionCtxArrayOutput {
+	return o
+}
+
+func (o UserParameterClientMetadataRequestUseConnectionCtxArrayOutput) ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutputWithContext(ctx context.Context) UserParameterClientMetadataRequestUseConnectionCtxArrayOutput {
+	return o
+}
+
+func (o UserParameterClientMetadataRequestUseConnectionCtxArrayOutput) Index(i pulumi.IntInput) UserParameterClientMetadataRequestUseConnectionCtxOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameterClientMetadataRequestUseConnectionCtx {
+		return vs[0].([]UserParameterClientMetadataRequestUseConnectionCtx)[vs[1].(int)]
+	}).(UserParameterClientMetadataRequestUseConnectionCtxOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputInput)(nil)).Elem(), AccountRoleShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputArrayInput)(nil)).Elem(), AccountRoleShowOutputArray{})
@@ -64669,8 +65067,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodInput)(nil)).Elem(), ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdInput)(nil)).Elem(), ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantInput)(nil)).Elem(), ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityInput)(nil)).Elem(), ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArgs{})
@@ -64697,8 +65093,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodInput)(nil)).Elem(), ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdInput)(nil)).Elem(), ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantInput)(nil)).Elem(), ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityInput)(nil)).Elem(), ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityArgs{})
@@ -64725,8 +65119,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodInput)(nil)).Elem(), ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdInput)(nil)).Elem(), ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantInput)(nil)).Elem(), ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArrayInput)(nil)).Elem(), ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityInput)(nil)).Elem(), ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityArgs{})
@@ -65065,8 +65457,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArrayInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArrayInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthClientIdInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArrayInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArgs{})
@@ -65077,8 +65467,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArrayInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArrayInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArrayInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointInput)(nil)).Elem(), OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgs{})
@@ -65111,8 +65499,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArrayInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArrayInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArrayInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArgs{})
@@ -65123,8 +65509,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArrayInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArrayInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArrayInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointInput)(nil)).Elem(), OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgs{})
@@ -65273,14 +65657,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SsoUrlInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SsoUrlArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2SsoUrlArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2SsoUrlArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2X509CertInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2X509CertArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationDescribeOutputSaml2X509CertArrayInput)(nil)).Elem(), Saml2IntegrationDescribeOutputSaml2X509CertArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationShowOutputInput)(nil)).Elem(), Saml2IntegrationShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*Saml2IntegrationShowOutputArrayInput)(nil)).Elem(), Saml2IntegrationShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchemaDescribeOutputInput)(nil)).Elem(), SchemaDescribeOutputArgs{})
@@ -65645,6 +66025,24 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterWeekStartArrayInput)(nil)).Elem(), TaskParameterWeekStartArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskScheduleInput)(nil)).Elem(), TaskScheduleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskSchedulePtrInput)(nil)).Elem(), TaskScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskShowOutputInput)(nil)).Elem(), TaskShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskShowOutputArrayInput)(nil)).Elem(), TaskShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskShowOutputTaskRelationInput)(nil)).Elem(), TaskShowOutputTaskRelationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TaskShowOutputTaskRelationArrayInput)(nil)).Elem(), TaskShowOutputTaskRelationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterInput)(nil)).Elem(), UserParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterArrayInput)(nil)).Elem(), UserParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterAbortDetachedQueryInput)(nil)).Elem(), UserParameterAbortDetachedQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterAbortDetachedQueryArrayInput)(nil)).Elem(), UserParameterAbortDetachedQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterAutocommitInput)(nil)).Elem(), UserParameterAutocommitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterAutocommitArrayInput)(nil)).Elem(), UserParameterAutocommitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterBinaryInputFormatInput)(nil)).Elem(), UserParameterBinaryInputFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterBinaryInputFormatArrayInput)(nil)).Elem(), UserParameterBinaryInputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterBinaryOutputFormatInput)(nil)).Elem(), UserParameterBinaryOutputFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterBinaryOutputFormatArrayInput)(nil)).Elem(), UserParameterBinaryOutputFormatArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterClientMemoryLimitInput)(nil)).Elem(), UserParameterClientMemoryLimitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterClientMemoryLimitArrayInput)(nil)).Elem(), UserParameterClientMemoryLimitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterClientMetadataRequestUseConnectionCtxInput)(nil)).Elem(), UserParameterClientMetadataRequestUseConnectionCtxArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterClientMetadataRequestUseConnectionCtxArrayInput)(nil)).Elem(), UserParameterClientMetadataRequestUseConnectionCtxArray{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputOutput{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AccountShowOutputOutput{})
@@ -65669,8 +66067,6 @@ func init() {
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArrayOutput{})
-	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdOutput{})
-	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArrayOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArrayOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityOutput{})
@@ -65697,8 +66093,6 @@ func init() {
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArrayOutput{})
-	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdOutput{})
-	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArrayOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArrayOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityOutput{})
@@ -65725,8 +66119,6 @@ func init() {
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArrayOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArrayOutput{})
-	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdOutput{})
-	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArrayOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArrayOutput{})
 	pulumi.RegisterOutputType(ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityOutput{})
@@ -66065,8 +66457,6 @@ func init() {
 	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArrayOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArrayOutput{})
-	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthClientIdOutput{})
-	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArrayOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArrayOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpOutput{})
@@ -66077,8 +66467,6 @@ func init() {
 	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArrayOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArrayOutput{})
-	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriOutput{})
-	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArrayOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArrayOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointOutput{})
@@ -66111,8 +66499,6 @@ func init() {
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArrayOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArrayOutput{})
-	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdOutput{})
-	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArrayOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArrayOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpOutput{})
@@ -66123,8 +66509,6 @@ func init() {
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArrayOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArrayOutput{})
-	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriOutput{})
-	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArrayOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArrayOutput{})
 	pulumi.RegisterOutputType(OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointOutput{})
@@ -66273,14 +66657,10 @@ func init() {
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArrayOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArrayOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArrayOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SsoUrlOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2SsoUrlArrayOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2X509CertOutput{})
-	pulumi.RegisterOutputType(Saml2IntegrationDescribeOutputSaml2X509CertArrayOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationShowOutputOutput{})
 	pulumi.RegisterOutputType(Saml2IntegrationShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(SchemaDescribeOutputOutput{})
@@ -66645,4 +67025,22 @@ func init() {
 	pulumi.RegisterOutputType(TaskParameterWeekStartArrayOutput{})
 	pulumi.RegisterOutputType(TaskScheduleOutput{})
 	pulumi.RegisterOutputType(TaskSchedulePtrOutput{})
+	pulumi.RegisterOutputType(TaskShowOutputOutput{})
+	pulumi.RegisterOutputType(TaskShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(TaskShowOutputTaskRelationOutput{})
+	pulumi.RegisterOutputType(TaskShowOutputTaskRelationArrayOutput{})
+	pulumi.RegisterOutputType(UserParameterOutput{})
+	pulumi.RegisterOutputType(UserParameterArrayOutput{})
+	pulumi.RegisterOutputType(UserParameterAbortDetachedQueryOutput{})
+	pulumi.RegisterOutputType(UserParameterAbortDetachedQueryArrayOutput{})
+	pulumi.RegisterOutputType(UserParameterAutocommitOutput{})
+	pulumi.RegisterOutputType(UserParameterAutocommitArrayOutput{})
+	pulumi.RegisterOutputType(UserParameterBinaryInputFormatOutput{})
+	pulumi.RegisterOutputType(UserParameterBinaryInputFormatArrayOutput{})
+	pulumi.RegisterOutputType(UserParameterBinaryOutputFormatOutput{})
+	pulumi.RegisterOutputType(UserParameterBinaryOutputFormatArrayOutput{})
+	pulumi.RegisterOutputType(UserParameterClientMemoryLimitOutput{})
+	pulumi.RegisterOutputType(UserParameterClientMemoryLimitArrayOutput{})
+	pulumi.RegisterOutputType(UserParameterClientMetadataRequestUseConnectionCtxOutput{})
+	pulumi.RegisterOutputType(UserParameterClientMetadataRequestUseConnectionCtxArrayOutput{})
 }

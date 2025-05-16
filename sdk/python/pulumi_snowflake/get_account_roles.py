@@ -45,9 +45,6 @@ class GetAccountRolesResult:
     @property
     @pulumi.getter(name="accountRoles")
     def account_roles(self) -> Sequence['outputs.GetAccountRolesAccountRoleResult']:
-        """
-        Holds the aggregated output of all account role details queries.
-        """
         return pulumi.get(self, "account_roles")
 
     @property
@@ -61,17 +58,11 @@ class GetAccountRolesResult:
     @property
     @pulumi.getter(name="inClass")
     def in_class(self) -> Optional[builtins.str]:
-        """
-        Filters the SHOW GRANTS output by class name.
-        """
         return pulumi.get(self, "in_class")
 
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
-        """
-        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-        """
         return pulumi.get(self, "like")
 
 
@@ -91,11 +82,7 @@ def get_account_roles(in_class: Optional[builtins.str] = None,
                       like: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountRolesResult:
     """
-    Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.
-
-
-    :param builtins.str in_class: Filters the SHOW GRANTS output by class name.
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['inClass'] = in_class
@@ -112,11 +99,7 @@ def get_account_roles_output(in_class: Optional[pulumi.Input[Optional[builtins.s
                              like: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountRolesResult]:
     """
-    Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `in_class` are all supported). The results of SHOW are encapsulated in one output collection.
-
-
-    :param builtins.str in_class: Filters the SHOW GRANTS output by class name.
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['inClass'] = in_class

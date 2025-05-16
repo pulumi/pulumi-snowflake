@@ -16,14 +16,14 @@ public final class TableColumnIdentityArgs extends com.pulumi.resources.Resource
     public static final TableColumnIdentityArgs Empty = new TableColumnIdentityArgs();
 
     /**
-     * (Default: `1`) The number to start incrementing at.
+     * The number to start incrementing at.
      * 
      */
     @Import(name="startNum")
     private @Nullable Output<Integer> startNum;
 
     /**
-     * @return (Default: `1`) The number to start incrementing at.
+     * @return The number to start incrementing at.
      * 
      */
     public Optional<Output<Integer>> startNum() {
@@ -31,14 +31,14 @@ public final class TableColumnIdentityArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * (Default: `1`) Step size to increment by.
+     * Step size to increment by.
      * 
      */
     @Import(name="stepNum")
     private @Nullable Output<Integer> stepNum;
 
     /**
-     * @return (Default: `1`) Step size to increment by.
+     * @return Step size to increment by.
      * 
      */
     public Optional<Output<Integer>> stepNum() {
@@ -71,7 +71,7 @@ public final class TableColumnIdentityArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param startNum (Default: `1`) The number to start incrementing at.
+         * @param startNum The number to start incrementing at.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class TableColumnIdentityArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param startNum (Default: `1`) The number to start incrementing at.
+         * @param startNum The number to start incrementing at.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class TableColumnIdentityArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param stepNum (Default: `1`) Step size to increment by.
+         * @param stepNum Step size to increment by.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class TableColumnIdentityArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param stepNum (Default: `1`) Step size to increment by.
+         * @param stepNum Step size to increment by.
          * 
          * @return builder
          * 

@@ -60,41 +60,26 @@ class GetDynamicTablesResult:
     @property
     @pulumi.getter(name="in")
     def in_(self) -> Optional['outputs.GetDynamicTablesInResult']:
-        """
-        IN clause to filter the list of dynamic tables.
-        """
         return pulumi.get(self, "in_")
 
     @property
     @pulumi.getter
     def like(self) -> Optional['outputs.GetDynamicTablesLikeResult']:
-        """
-        LIKE clause to filter the list of dynamic tables.
-        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter
     def limit(self) -> Optional['outputs.GetDynamicTablesLimitResult']:
-        """
-        Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-        """
         return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter
     def records(self) -> Sequence['outputs.GetDynamicTablesRecordResult']:
-        """
-        The list of dynamic tables.
-        """
         return pulumi.get(self, "records")
 
     @property
     @pulumi.getter(name="startsWith")
     def starts_with(self) -> Optional[builtins.str]:
-        """
-        Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
-        """
         return pulumi.get(self, "starts_with")
 
 
@@ -118,15 +103,7 @@ def get_dynamic_tables(in_: Optional[Union['GetDynamicTablesInArgs', 'GetDynamic
                        starts_with: Optional[builtins.str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDynamicTablesResult:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
-
-
-    :param Union['GetDynamicTablesInArgs', 'GetDynamicTablesInArgsDict'] in_: IN clause to filter the list of dynamic tables.
-    :param Union['GetDynamicTablesLikeArgs', 'GetDynamicTablesLikeArgsDict'] like: LIKE clause to filter the list of dynamic tables.
-    :param Union['GetDynamicTablesLimitArgs', 'GetDynamicTablesLimitArgsDict'] limit: Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-    :param builtins.str starts_with: Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['in'] = in_
@@ -149,15 +126,7 @@ def get_dynamic_tables_output(in_: Optional[pulumi.Input[Optional[Union['GetDyna
                               starts_with: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                               opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDynamicTablesResult]:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
-
-
-    :param Union['GetDynamicTablesInArgs', 'GetDynamicTablesInArgsDict'] in_: IN clause to filter the list of dynamic tables.
-    :param Union['GetDynamicTablesLikeArgs', 'GetDynamicTablesLikeArgsDict'] like: LIKE clause to filter the list of dynamic tables.
-    :param Union['GetDynamicTablesLimitArgs', 'GetDynamicTablesLimitArgsDict'] limit: Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-    :param builtins.str starts_with: Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['in'] = in_

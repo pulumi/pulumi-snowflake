@@ -4,22 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const scim = snowflake.getSystemGenerateScimAccessToken({
- *     integrationName: "AAD_PROVISIONING",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
- */
 export function getSystemGenerateScimAccessToken(args: GetSystemGenerateScimAccessTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemGenerateScimAccessTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", {
@@ -31,9 +15,6 @@ export function getSystemGenerateScimAccessToken(args: GetSystemGenerateScimAcce
  * A collection of arguments for invoking getSystemGenerateScimAccessToken.
  */
 export interface GetSystemGenerateScimAccessTokenArgs {
-    /**
-     * SCIM Integration Name
-     */
     integrationName: string;
 }
 
@@ -41,35 +22,13 @@ export interface GetSystemGenerateScimAccessTokenArgs {
  * A collection of values returned by getSystemGenerateScimAccessToken.
  */
 export interface GetSystemGenerateScimAccessTokenResult {
-    /**
-     * SCIM Access Token
-     */
     readonly accessToken: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * SCIM Integration Name
-     */
     readonly integrationName: string;
 }
-/**
- * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const scim = snowflake.getSystemGenerateScimAccessToken({
- *     integrationName: "AAD_PROVISIONING",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
- */
 export function getSystemGenerateScimAccessTokenOutput(args: GetSystemGenerateScimAccessTokenOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemGenerateScimAccessTokenResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getSystemGenerateScimAccessToken:getSystemGenerateScimAccessToken", {
@@ -81,8 +40,5 @@ export function getSystemGenerateScimAccessTokenOutput(args: GetSystemGenerateSc
  * A collection of arguments for invoking getSystemGenerateScimAccessToken.
  */
 export interface GetSystemGenerateScimAccessTokenOutputArgs {
-    /**
-     * SCIM Integration Name
-     */
     integrationName: pulumi.Input<string>;
 }

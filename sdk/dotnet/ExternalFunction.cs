@@ -9,15 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;external_function_name&gt;(&lt;arg types, separated with ','&gt;)
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName.schemaName.externalFunctionName(varchar, varchar, varchar)'
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/externalFunction:ExternalFunction")]
     public partial class ExternalFunction : global::Pulumi.CustomResource
     {
@@ -28,19 +19,21 @@ namespace Pulumi.Snowflake
         public Output<string> ApiIntegration { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+        /// service expects.
         /// </summary>
         [Output("args")]
         public Output<ImmutableArray<Outputs.ExternalFunctionArg>> Args { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `user-defined function`) A description of the external function.
+        /// A description of the external function.
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+        /// proxy service to Snowflake.
         /// </summary>
         [Output("compression")]
         public Output<string?> Compression { get; private set; } = null!;
@@ -64,7 +57,8 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
@@ -82,13 +76,14 @@ namespace Pulumi.Snowflake
         public Output<int?> MaxBatchRows { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+        /// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
+        /// Specifies the behavior of the external function when called with null inputs.
         /// </summary>
         [Output("nullInputBehavior")]
         public Output<string?> NullInputBehavior { get; private set; } = null!;
@@ -112,7 +107,7 @@ namespace Pulumi.Snowflake
         public Output<string> ReturnBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        /// Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         /// </summary>
         [Output("returnNullAllowed")]
         public Output<bool?> ReturnNullAllowed { get; private set; } = null!;
@@ -191,7 +186,8 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.ExternalFunctionArgArgs>? _args;
 
         /// <summary>
-        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+        /// service expects.
         /// </summary>
         public InputList<Inputs.ExternalFunctionArgArgs> Args
         {
@@ -200,13 +196,14 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// (Default: `user-defined function`) A description of the external function.
+        /// A description of the external function.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+        /// proxy service to Snowflake.
         /// </summary>
         [Input("compression")]
         public Input<string>? Compression { get; set; }
@@ -248,13 +245,14 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxBatchRows { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+        /// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
+        /// Specifies the behavior of the external function when called with null inputs.
         /// </summary>
         [Input("nullInputBehavior")]
         public Input<string>? NullInputBehavior { get; set; }
@@ -278,7 +276,7 @@ namespace Pulumi.Snowflake
         public Input<string> ReturnBehavior { get; set; } = null!;
 
         /// <summary>
-        /// (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        /// Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         /// </summary>
         [Input("returnNullAllowed")]
         public Input<bool>? ReturnNullAllowed { get; set; }
@@ -319,7 +317,8 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.ExternalFunctionArgGetArgs>? _args;
 
         /// <summary>
-        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+        /// Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+        /// service expects.
         /// </summary>
         public InputList<Inputs.ExternalFunctionArgGetArgs> Args
         {
@@ -328,13 +327,14 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// (Default: `user-defined function`) A description of the external function.
+        /// A description of the external function.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+        /// If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+        /// proxy service to Snowflake.
         /// </summary>
         [Input("compression")]
         public Input<string>? Compression { get; set; }
@@ -364,7 +364,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
@@ -388,13 +389,14 @@ namespace Pulumi.Snowflake
         public Input<int>? MaxBatchRows { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        /// Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+        /// well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
+        /// Specifies the behavior of the external function when called with null inputs.
         /// </summary>
         [Input("nullInputBehavior")]
         public Input<string>? NullInputBehavior { get; set; }
@@ -418,7 +420,7 @@ namespace Pulumi.Snowflake
         public Input<string>? ReturnBehavior { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        /// Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         /// </summary>
         [Input("returnNullAllowed")]
         public Input<bool>? ReturnNullAllowed { get; set; }

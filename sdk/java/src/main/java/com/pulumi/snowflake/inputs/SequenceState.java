@@ -17,14 +17,14 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
     public static final SequenceState Empty = new SequenceState();
 
     /**
-     * (Default: ``) Specifies a comment for the sequence.
+     * Specifies a comment for the sequence.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return (Default: ``) Specifies a comment for the sequence.
+     * @return Specifies a comment for the sequence.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -47,14 +47,16 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -62,14 +64,14 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: `1`) The amount the sequence will increase by each time it is used
+     * The amount the sequence will increase by each time it is used
      * 
      */
     @Import(name="increment")
     private @Nullable Output<Integer> increment;
 
     /**
-     * @return (Default: `1`) The amount the sequence will increase by each time it is used
+     * @return The amount the sequence will increase by each time it is used
      * 
      */
     public Optional<Output<Integer>> increment() {
@@ -107,14 +109,14 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      * 
      */
     @Import(name="ordering")
     private @Nullable Output<String> ordering;
 
     /**
-     * @return (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * @return The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      * 
      */
     public Optional<Output<String>> ordering() {
@@ -168,7 +170,7 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment (Default: ``) Specifies a comment for the sequence.
+         * @param comment Specifies a comment for the sequence.
          * 
          * @return builder
          * 
@@ -179,7 +181,7 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment (Default: ``) Specifies a comment for the sequence.
+         * @param comment Specifies a comment for the sequence.
          * 
          * @return builder
          * 
@@ -210,7 +212,8 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -221,7 +224,8 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -231,7 +235,7 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param increment (Default: `1`) The amount the sequence will increase by each time it is used
+         * @param increment The amount the sequence will increase by each time it is used
          * 
          * @return builder
          * 
@@ -242,7 +246,7 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param increment (Default: `1`) The amount the sequence will increase by each time it is used
+         * @param increment The amount the sequence will increase by each time it is used
          * 
          * @return builder
          * 
@@ -294,7 +298,7 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ordering (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+         * @param ordering The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
          * 
          * @return builder
          * 
@@ -305,7 +309,7 @@ public final class SequenceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ordering (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+         * @param ordering The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
          * 
          * @return builder
          * 

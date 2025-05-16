@@ -19,35 +19,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetGrantsResult {
-    /**
-     * @return Lists all privileges on new (i.e. future) objects.
-     * 
-     */
     private @Nullable GetGrantsFutureGrantsIn futureGrantsIn;
-    /**
-     * @return Lists all privileges granted to the object on new (i.e. future) objects.
-     * 
-     */
     private @Nullable GetGrantsFutureGrantsTo futureGrantsTo;
-    /**
-     * @return The list of grants
-     * 
-     */
     private List<GetGrantsGrant> grants;
-    /**
-     * @return Lists all objects to which the given object has been granted.
-     * 
-     */
     private @Nullable GetGrantsGrantsOf grantsOf;
-    /**
-     * @return Lists all privileges that have been granted on an object or on an account.
-     * 
-     */
     private @Nullable GetGrantsGrantsOn grantsOn;
-    /**
-     * @return Lists all privileges granted to the object.
-     * 
-     */
     private @Nullable GetGrantsGrantsTo grantsTo;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -56,45 +32,21 @@ public final class GetGrantsResult {
     private String id;
 
     private GetGrantsResult() {}
-    /**
-     * @return Lists all privileges on new (i.e. future) objects.
-     * 
-     */
     public Optional<GetGrantsFutureGrantsIn> futureGrantsIn() {
         return Optional.ofNullable(this.futureGrantsIn);
     }
-    /**
-     * @return Lists all privileges granted to the object on new (i.e. future) objects.
-     * 
-     */
     public Optional<GetGrantsFutureGrantsTo> futureGrantsTo() {
         return Optional.ofNullable(this.futureGrantsTo);
     }
-    /**
-     * @return The list of grants
-     * 
-     */
     public List<GetGrantsGrant> grants() {
         return this.grants;
     }
-    /**
-     * @return Lists all objects to which the given object has been granted.
-     * 
-     */
     public Optional<GetGrantsGrantsOf> grantsOf() {
         return Optional.ofNullable(this.grantsOf);
     }
-    /**
-     * @return Lists all privileges that have been granted on an object or on an account.
-     * 
-     */
     public Optional<GetGrantsGrantsOn> grantsOn() {
         return Optional.ofNullable(this.grantsOn);
     }
-    /**
-     * @return Lists all privileges granted to the object.
-     * 
-     */
     public Optional<GetGrantsGrantsTo> grantsTo() {
         return Optional.ofNullable(this.grantsTo);
     }

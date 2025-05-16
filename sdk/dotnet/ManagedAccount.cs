@@ -9,24 +9,19 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/managedAccount:ManagedAccount")]
     public partial class ManagedAccount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+        /// administrator for the account.
         /// </summary>
         [Output("adminName")]
         public Output<string> AdminName { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+        /// Password for the initial user in the managed account. Check [Snowflake-provided password
+        /// policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         /// </summary>
         [Output("adminPassword")]
         public Output<string> AdminPassword { get; private set; } = null!;
@@ -50,7 +45,8 @@ namespace Pulumi.Snowflake
         public Output<string> CreatedOn { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
@@ -74,7 +70,7 @@ namespace Pulumi.Snowflake
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `READER`) Specifies the type of managed account.
+        /// Specifies the type of managed account.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -136,7 +132,8 @@ namespace Pulumi.Snowflake
     public sealed class ManagedAccountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+        /// administrator for the account.
         /// </summary>
         [Input("adminName", required: true)]
         public Input<string> AdminName { get; set; } = null!;
@@ -145,7 +142,8 @@ namespace Pulumi.Snowflake
         private Input<string>? _adminPassword;
 
         /// <summary>
-        /// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+        /// Password for the initial user in the managed account. Check [Snowflake-provided password
+        /// policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -170,7 +168,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `READER`) Specifies the type of managed account.
+        /// Specifies the type of managed account.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -184,7 +182,8 @@ namespace Pulumi.Snowflake
     public sealed class ManagedAccountState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+        /// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+        /// administrator for the account.
         /// </summary>
         [Input("adminName")]
         public Input<string>? AdminName { get; set; }
@@ -193,7 +192,8 @@ namespace Pulumi.Snowflake
         private Input<string>? _adminPassword;
 
         /// <summary>
-        /// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+        /// Password for the initial user in the managed account. Check [Snowflake-provided password
+        /// policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
         /// </summary>
         public Input<string>? AdminPassword
         {
@@ -224,7 +224,8 @@ namespace Pulumi.Snowflake
         public Input<string>? CreatedOn { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
@@ -248,7 +249,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// (Default: `READER`) Specifies the type of managed account.
+        /// Specifies the type of managed account.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

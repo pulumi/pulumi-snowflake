@@ -9,18 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/share:Share example name
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/share:Share")]
     public partial class Share : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+        /// 'organization_name.account_name
         /// </summary>
         [Output("accounts")]
         public Output<ImmutableArray<string>> Accounts { get; private set; } = null!;
@@ -32,7 +26,8 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
@@ -93,7 +88,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _accounts;
 
         /// <summary>
-        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+        /// 'organization_name.account_name
         /// </summary>
         public InputList<string> Accounts
         {
@@ -125,7 +121,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _accounts;
 
         /// <summary>
-        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
+        /// A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+        /// 'organization_name.account_name
         /// </summary>
         public InputList<string> Accounts
         {
@@ -140,7 +137,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }

@@ -4,13 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Import
- *
- * ```sh
- * $ pulumi import snowflake:index/apiIntegration:ApiIntegration example name
- * ```
- */
 export class ApiIntegration extends pulumi.CustomResource {
     /**
      * Get an existing ApiIntegration resource's state with the given name, ID, and optional extra
@@ -40,7 +33,8 @@ export class ApiIntegration extends pulumi.CustomResource {
     }
 
     /**
-     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+     * resources within those proxies.
      */
     public readonly apiAllowedPrefixes!: pulumi.Output<string[]>;
     /**
@@ -52,7 +46,7 @@ export class ApiIntegration extends pulumi.CustomResource {
      */
     public /*out*/ readonly apiAwsIamUserArn!: pulumi.Output<string>;
     /**
-     * (Default: ``) ARN of a cloud platform role.
+     * ARN of a cloud platform role.
      */
     public readonly apiAwsRoleArn!: pulumi.Output<string | undefined>;
     /**
@@ -72,13 +66,13 @@ export class ApiIntegration extends pulumi.CustomResource {
      */
     public readonly apiProvider!: pulumi.Output<string>;
     /**
-     * (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
+     * The 'Application (client) id' of the Azure AD app for your remote service.
      */
     public readonly azureAdApplicationId!: pulumi.Output<string | undefined>;
     public /*out*/ readonly azureConsentUrl!: pulumi.Output<string>;
     public /*out*/ readonly azureMultiTenantAppName!: pulumi.Output<string>;
     /**
-     * (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+     * Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      */
     public readonly azureTenantId!: pulumi.Output<string | undefined>;
     public readonly comment!: pulumi.Output<string | undefined>;
@@ -87,19 +81,22 @@ export class ApiIntegration extends pulumi.CustomResource {
      */
     public /*out*/ readonly createdOn!: pulumi.Output<string>;
     /**
-     * (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+     * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+     * that relies on it will not work.
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      */
     public readonly googleAudience!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+     * among api integrations in your account.
      */
     public readonly name!: pulumi.Output<string>;
 
@@ -173,7 +170,8 @@ export class ApiIntegration extends pulumi.CustomResource {
  */
 export interface ApiIntegrationState {
     /**
-     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+     * resources within those proxies.
      */
     apiAllowedPrefixes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -185,7 +183,7 @@ export interface ApiIntegrationState {
      */
     apiAwsIamUserArn?: pulumi.Input<string>;
     /**
-     * (Default: ``) ARN of a cloud platform role.
+     * ARN of a cloud platform role.
      */
     apiAwsRoleArn?: pulumi.Input<string>;
     /**
@@ -205,13 +203,13 @@ export interface ApiIntegrationState {
      */
     apiProvider?: pulumi.Input<string>;
     /**
-     * (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
+     * The 'Application (client) id' of the Azure AD app for your remote service.
      */
     azureAdApplicationId?: pulumi.Input<string>;
     azureConsentUrl?: pulumi.Input<string>;
     azureMultiTenantAppName?: pulumi.Input<string>;
     /**
-     * (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+     * Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      */
     azureTenantId?: pulumi.Input<string>;
     comment?: pulumi.Input<string>;
@@ -220,19 +218,22 @@ export interface ApiIntegrationState {
      */
     createdOn?: pulumi.Input<string>;
     /**
-     * (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+     * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+     * that relies on it will not work.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      */
     googleAudience?: pulumi.Input<string>;
     /**
-     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+     * among api integrations in your account.
      */
     name?: pulumi.Input<string>;
 }
@@ -242,11 +243,12 @@ export interface ApiIntegrationState {
  */
 export interface ApiIntegrationArgs {
     /**
-     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+     * resources within those proxies.
      */
     apiAllowedPrefixes: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Default: ``) ARN of a cloud platform role.
+     * ARN of a cloud platform role.
      */
     apiAwsRoleArn?: pulumi.Input<string>;
     /**
@@ -266,24 +268,26 @@ export interface ApiIntegrationArgs {
      */
     apiProvider: pulumi.Input<string>;
     /**
-     * (Default: ``) The 'Application (client) id' of the Azure AD app for your remote service.
+     * The 'Application (client) id' of the Azure AD app for your remote service.
      */
     azureAdApplicationId?: pulumi.Input<string>;
     /**
-     * (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+     * Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      */
     azureTenantId?: pulumi.Input<string>;
     comment?: pulumi.Input<string>;
     /**
-     * (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+     * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+     * that relies on it will not work.
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      */
     googleAudience?: pulumi.Input<string>;
     /**
-     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+     * among api integrations in your account.
      */
     name?: pulumi.Input<string>;
 }

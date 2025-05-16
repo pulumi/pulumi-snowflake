@@ -27,9 +27,11 @@ class DatabaseRoleArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a DatabaseRole resource.
-        :param pulumi.Input[builtins.str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the
+               following characters: `|`, `.`, `"`.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the database role.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
         """
         pulumi.set(__self__, "database", database)
         if comment is not None:
@@ -41,7 +43,8 @@ class DatabaseRoleArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[builtins.str]:
         """
-        The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The database in which to create the database role. Due to technical limitations (read more here), avoid using the
+        following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -65,7 +68,8 @@ class DatabaseRoleArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -85,10 +89,14 @@ class _DatabaseRoleState:
         """
         Input properties used for looking up and filtering DatabaseRole resources.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the database role.
-        :param pulumi.Input[builtins.str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input['DatabaseRoleShowOutputArgs']]] show_outputs: Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+        :param pulumi.Input[builtins.str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the
+               following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input['DatabaseRoleShowOutputArgs']]] show_outputs: Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed
+               whenever comment field changes.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -117,7 +125,8 @@ class _DatabaseRoleState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The database in which to create the database role. Due to technical limitations (read more here), avoid using the
+        following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -129,7 +138,8 @@ class _DatabaseRoleState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -141,7 +151,8 @@ class _DatabaseRoleState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -153,7 +164,8 @@ class _DatabaseRoleState:
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DatabaseRoleShowOutputArgs']]]]:
         """
-        Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+        Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed
+        whenever comment field changes.
         """
         return pulumi.get(self, "show_outputs")
 
@@ -173,17 +185,14 @@ class DatabaseRole(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/databaseRole:DatabaseRole example '"<database_name>"."<database_role_name>"'
-        ```
-
+        Create a DatabaseRole resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the database role.
-        :param pulumi.Input[builtins.str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the
+               following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
         """
         ...
     @overload
@@ -192,12 +201,7 @@ class DatabaseRole(pulumi.CustomResource):
                  args: DatabaseRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/databaseRole:DatabaseRole example '"<database_name>"."<database_role_name>"'
-        ```
-
+        Create a DatabaseRole resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DatabaseRoleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,10 +259,14 @@ class DatabaseRole(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the database role.
-        :param pulumi.Input[builtins.str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['DatabaseRoleShowOutputArgs', 'DatabaseRoleShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+        :param pulumi.Input[builtins.str] database: The database in which to create the database role. Due to technical limitations (read more here), avoid using the
+               following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['DatabaseRoleShowOutputArgs', 'DatabaseRoleShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed
+               whenever comment field changes.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -283,7 +291,8 @@ class DatabaseRole(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[builtins.str]:
         """
-        The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The database in which to create the database role. Due to technical limitations (read more here), avoid using the
+        following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -291,7 +300,8 @@ class DatabaseRole(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -299,7 +309,8 @@ class DatabaseRole(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -307,7 +318,8 @@ class DatabaseRole(pulumi.CustomResource):
     @pulumi.getter(name="showOutputs")
     def show_outputs(self) -> pulumi.Output[Sequence['outputs.DatabaseRoleShowOutput']]:
         """
-        Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+        Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed
+        whenever comment field changes.
         """
         return pulumi.get(self, "show_outputs")
 

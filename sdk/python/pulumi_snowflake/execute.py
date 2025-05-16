@@ -82,7 +82,8 @@ class _ExecuteState:
         Input properties used for looking up and filtering Execute resources.
         :param pulumi.Input[builtins.str] execute: SQL statement to execute. Forces recreation of resource on change.
         :param pulumi.Input[builtins.str] query: Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]] query_results: List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]] query_results: List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
+               error.
         :param pulumi.Input[builtins.str] revert: SQL statement to revert the execute statement. Invoked when resource is being destroyed.
         """
         if execute is not None:
@@ -122,7 +123,8 @@ class _ExecuteState:
     @pulumi.getter(name="queryResults")
     def query_results(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]]]:
         """
-        List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
+        List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
+        error.
         """
         return pulumi.get(self, "query_results")
 
@@ -154,12 +156,7 @@ class Execute(pulumi.CustomResource):
                  revert: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/execute:Execute example '<random_uuid>'
-        ```
-
+        Create a Execute resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] execute: SQL statement to execute. Forces recreation of resource on change.
@@ -173,12 +170,7 @@ class Execute(pulumi.CustomResource):
                  args: ExecuteArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/execute:Execute example '<random_uuid>'
-        ```
-
+        Create a Execute resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ExecuteArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -237,7 +229,8 @@ class Execute(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] execute: SQL statement to execute. Forces recreation of resource on change.
         :param pulumi.Input[builtins.str] query: Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]] query_results: List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]] query_results: List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
+               error.
         :param pulumi.Input[builtins.str] revert: SQL statement to revert the execute statement. Invoked when resource is being destroyed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -270,7 +263,8 @@ class Execute(pulumi.CustomResource):
     @pulumi.getter(name="queryResults")
     def query_results(self) -> pulumi.Output[Sequence[Mapping[str, builtins.str]]]:
         """
-        List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
+        List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
+        error.
         """
         return pulumi.get(self, "query_results")
 

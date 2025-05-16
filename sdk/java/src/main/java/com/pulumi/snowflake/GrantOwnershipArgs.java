@@ -18,14 +18,16 @@ public final class GrantOwnershipArgs extends com.pulumi.resources.ResourceArgs 
     public static final GrantOwnershipArgs Empty = new GrantOwnershipArgs();
 
     /**
-     * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the account role to which privileges will be granted. For more information about this
+     * resource, see docs.
      * 
      */
     @Import(name="accountRoleName")
     private @Nullable Output<String> accountRoleName;
 
     /**
-     * @return The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the account role to which privileges will be granted. For more information about this
+     * resource, see docs.
      * 
      */
     public Optional<Output<String>> accountRoleName() {
@@ -33,14 +35,16 @@ public final class GrantOwnershipArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this
+     * resource, see docs.
      * 
      */
     @Import(name="databaseRoleName")
     private @Nullable Output<String> databaseRoleName;
 
     /**
-     * @return The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the database role to which privileges will be granted. For more information about this
+     * resource, see docs.
      * 
      */
     public Optional<Output<String>> databaseRoleName() {
@@ -63,14 +67,20 @@ public final class GrantOwnershipArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+     * Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+     * a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+     * more information head over to [Snowflake
+     * documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
      * 
      */
     @Import(name="outboundPrivileges")
     private @Nullable Output<String> outboundPrivileges;
 
     /**
-     * @return Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+     * @return Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+     * a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+     * more information head over to [Snowflake
+     * documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
      * 
      */
     public Optional<Output<String>> outboundPrivileges() {
@@ -105,7 +115,8 @@ public final class GrantOwnershipArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param accountRoleName The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+         * @param accountRoleName The fully qualified name of the account role to which privileges will be granted. For more information about this
+         * resource, see docs.
          * 
          * @return builder
          * 
@@ -116,7 +127,8 @@ public final class GrantOwnershipArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param accountRoleName The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+         * @param accountRoleName The fully qualified name of the account role to which privileges will be granted. For more information about this
+         * resource, see docs.
          * 
          * @return builder
          * 
@@ -126,7 +138,8 @@ public final class GrantOwnershipArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param databaseRoleName The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+         * @param databaseRoleName The fully qualified name of the database role to which privileges will be granted. For more information about this
+         * resource, see docs.
          * 
          * @return builder
          * 
@@ -137,7 +150,8 @@ public final class GrantOwnershipArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param databaseRoleName The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+         * @param databaseRoleName The fully qualified name of the database role to which privileges will be granted. For more information about this
+         * resource, see docs.
          * 
          * @return builder
          * 
@@ -168,7 +182,10 @@ public final class GrantOwnershipArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param outboundPrivileges Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+         * @param outboundPrivileges Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+         * a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+         * more information head over to [Snowflake
+         * documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
          * 
          * @return builder
          * 
@@ -179,7 +196,10 @@ public final class GrantOwnershipArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param outboundPrivileges Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+         * @param outboundPrivileges Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+         * a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+         * more information head over to [Snowflake
+         * documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
          * 
          * @return builder
          * 

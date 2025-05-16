@@ -14,32 +14,16 @@ public final class GetExternalFunctionsPlainArgs extends com.pulumi.resources.In
 
     public static final GetExternalFunctionsPlainArgs Empty = new GetExternalFunctionsPlainArgs();
 
-    /**
-     * The database from which to return the schemas from.
-     * 
-     */
     @Import(name="database")
     private @Nullable String database;
 
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public Optional<String> database() {
         return Optional.ofNullable(this.database);
     }
 
-    /**
-     * The schema from which to return the external functions from.
-     * 
-     */
     @Import(name="schema")
     private @Nullable String schema;
 
-    /**
-     * @return The schema from which to return the external functions from.
-     * 
-     */
     public Optional<String> schema() {
         return Optional.ofNullable(this.schema);
     }
@@ -69,23 +53,11 @@ public final class GetExternalFunctionsPlainArgs extends com.pulumi.resources.In
             $ = new GetExternalFunctionsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param database The database from which to return the schemas from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(@Nullable String database) {
             $.database = database;
             return this;
         }
 
-        /**
-         * @param schema The schema from which to return the external functions from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(@Nullable String schema) {
             $.schema = schema;
             return this;

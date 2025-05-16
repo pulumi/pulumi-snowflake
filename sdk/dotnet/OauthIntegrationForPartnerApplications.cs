@@ -9,18 +9,14 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications example "name"
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications")]
     public partial class OauthIntegrationForPartnerApplications : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+        /// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
+        /// includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
+        /// ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
+        /// information about this resource, see docs.
         /// </summary>
         [Output("blockedRolesLists")]
         public Output<ImmutableArray<string>> BlockedRolesLists { get; private set; } = null!;
@@ -38,49 +34,59 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.OauthIntegrationForPartnerApplicationsDescribeOutput>> DescribeOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the
+        /// value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for
+        /// this value.
         /// </summary>
         [Output("enabled")]
         public Output<string?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+        /// unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+        /// following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
+        /// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
+        /// | `TABLEAU_SERVER`.
         /// </summary>
         [Output("oauthClient")]
         public Output<string> OauthClient { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+        /// expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+        /// "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("oauthIssueRefreshTokens")]
         public Output<string?> OauthIssueRefreshTokens { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+        /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
+        /// only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
         /// </summary>
         [Output("oauthRedirectUri")]
         public Output<string?> OauthRedirectUri { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+        /// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
         /// </summary>
         [Output("oauthRefreshTokenValidity")]
         public Output<int?> OauthRefreshTokenValidity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being
+        /// opened. Valid options are: `IMPLICIT` | `NONE`.
         /// </summary>
         [Output("oauthUseSecondaryRoles")]
         public Output<string?> OauthUseSecondaryRoles { get; private set; } = null!;
@@ -120,6 +126,10 @@ namespace Pulumi.Snowflake
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "oauthRedirectUri",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -147,7 +157,10 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedRolesLists;
 
         /// <summary>
-        /// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+        /// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
+        /// includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
+        /// ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
+        /// information about this resource, see docs.
         /// </summary>
         public InputList<string> BlockedRolesLists
         {
@@ -162,43 +175,62 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the
+        /// value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for
+        /// this value.
         /// </summary>
         [Input("enabled")]
         public Input<string>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+        /// unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+        /// following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
+        /// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
+        /// | `TABLEAU_SERVER`.
         /// </summary>
         [Input("oauthClient", required: true)]
         public Input<string> OauthClient { get; set; } = null!;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+        /// expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+        /// "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("oauthIssueRefreshTokens")]
         public Input<string>? OauthIssueRefreshTokens { get; set; }
 
-        /// <summary>
-        /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
-        /// </summary>
         [Input("oauthRedirectUri")]
-        public Input<string>? OauthRedirectUri { get; set; }
+        private Input<string>? _oauthRedirectUri;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+        /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
+        /// only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+        /// </summary>
+        public Input<string>? OauthRedirectUri
+        {
+            get => _oauthRedirectUri;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthRedirectUri = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
         /// </summary>
         [Input("oauthRefreshTokenValidity")]
         public Input<int>? OauthRefreshTokenValidity { get; set; }
 
         /// <summary>
-        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being
+        /// opened. Valid options are: `IMPLICIT` | `NONE`.
         /// </summary>
         [Input("oauthUseSecondaryRoles")]
         public Input<string>? OauthUseSecondaryRoles { get; set; }
@@ -215,7 +247,10 @@ namespace Pulumi.Snowflake
         private InputList<string>? _blockedRolesLists;
 
         /// <summary>
-        /// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+        /// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
+        /// includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
+        /// ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
+        /// information about this resource, see docs.
         /// </summary>
         public InputList<string> BlockedRolesLists
         {
@@ -242,49 +277,69 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the
+        /// value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for
+        /// this value.
         /// </summary>
         [Input("enabled")]
         public Input<string>? Enabled { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+        /// unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+        /// following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
+        /// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
+        /// | `TABLEAU_SERVER`.
         /// </summary>
         [Input("oauthClient")]
         public Input<string>? OauthClient { get; set; }
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+        /// expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+        /// "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("oauthIssueRefreshTokens")]
         public Input<string>? OauthIssueRefreshTokens { get; set; }
 
-        /// <summary>
-        /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
-        /// </summary>
         [Input("oauthRedirectUri")]
-        public Input<string>? OauthRedirectUri { get; set; }
+        private Input<string>? _oauthRedirectUri;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+        /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
+        /// only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+        /// </summary>
+        public Input<string>? OauthRedirectUri
+        {
+            get => _oauthRedirectUri;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthRedirectUri = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
         /// </summary>
         [Input("oauthRefreshTokenValidity")]
         public Input<int>? OauthRefreshTokenValidity { get; set; }
 
         /// <summary>
-        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+        /// Specifies whether default secondary roles set in the user properties are activated by default in the session being
+        /// opened. Valid options are: `IMPLICIT` | `NONE`.
         /// </summary>
         [Input("oauthUseSecondaryRoles")]
         public Input<string>? OauthUseSecondaryRoles { get; set; }

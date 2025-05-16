@@ -6,15 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Import
- *
- * format is database name | schema name | view name
- *
- * ```sh
- * $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
- * ```
- */
 export class MaterializedView extends pulumi.CustomResource {
     /**
      * Get an existing MaterializedView resource's state with the given name, ID, and optional extra
@@ -52,11 +43,12 @@ export class MaterializedView extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * (Default: `false`) Specifies that the view is secure.
+     * Specifies that the view is secure.
      */
     public readonly isSecure!: pulumi.Output<boolean | undefined>;
     /**
@@ -64,7 +56,7 @@ export class MaterializedView extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * (Default: `false`) Overwrites the View if it exists.
+     * Overwrites the View if it exists.
      */
     public readonly orReplace!: pulumi.Output<boolean | undefined>;
     /**
@@ -152,11 +144,12 @@ export interface MaterializedViewState {
      */
     database?: pulumi.Input<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * (Default: `false`) Specifies that the view is secure.
+     * Specifies that the view is secure.
      */
     isSecure?: pulumi.Input<boolean>;
     /**
@@ -164,7 +157,7 @@ export interface MaterializedViewState {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Default: `false`) Overwrites the View if it exists.
+     * Overwrites the View if it exists.
      */
     orReplace?: pulumi.Input<boolean>;
     /**
@@ -200,7 +193,7 @@ export interface MaterializedViewArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * (Default: `false`) Specifies that the view is secure.
+     * Specifies that the view is secure.
      */
     isSecure?: pulumi.Input<boolean>;
     /**
@@ -208,7 +201,7 @@ export interface MaterializedViewArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * (Default: `false`) Overwrites the View if it exists.
+     * Overwrites the View if it exists.
      */
     orReplace?: pulumi.Input<boolean>;
     /**

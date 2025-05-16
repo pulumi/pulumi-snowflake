@@ -9,15 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// format is database name | schema name | view name
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/materializedView:MaterializedView example 'dbName|schemaName|viewName'
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/materializedView:MaterializedView")]
     public partial class MaterializedView : global::Pulumi.CustomResource
     {
@@ -34,13 +25,14 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Specifies that the view is secure.
+        /// Specifies that the view is secure.
         /// </summary>
         [Output("isSecure")]
         public Output<bool?> IsSecure { get; private set; } = null!;
@@ -52,7 +44,7 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Overwrites the View if it exists.
+        /// Overwrites the View if it exists.
         /// </summary>
         [Output("orReplace")]
         public Output<bool?> OrReplace { get; private set; } = null!;
@@ -140,7 +132,7 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Specifies that the view is secure.
+        /// Specifies that the view is secure.
         /// </summary>
         [Input("isSecure")]
         public Input<bool>? IsSecure { get; set; }
@@ -152,7 +144,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Overwrites the View if it exists.
+        /// Overwrites the View if it exists.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
@@ -209,13 +201,14 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Specifies that the view is secure.
+        /// Specifies that the view is secure.
         /// </summary>
         [Input("isSecure")]
         public Input<bool>? IsSecure { get; set; }
@@ -227,7 +220,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Overwrites the View if it exists.
+        /// Overwrites the View if it exists.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }

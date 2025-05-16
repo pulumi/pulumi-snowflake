@@ -17,14 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/streamlit:Streamlit example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;streamlit_name&gt;&#34;&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/streamlit:Streamlit")
 public class Streamlit extends com.pulumi.resources.CustomResource {
     /**
@@ -42,14 +34,16 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -70,14 +64,16 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
         return this.describeOutputs;
     }
     /**
-     * Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
+     * Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml
+     * file.
      * 
      */
     @Export(name="directoryLocation", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> directoryLocation;
 
     /**
-     * @return Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
+     * @return Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml
+     * file.
      * 
      */
     public Output<Optional<String>> directoryLocation() {
@@ -98,70 +94,80 @@ public class Streamlit extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.externalAccessIntegrations);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of
+     * `directory_location`
      * 
      */
     @Export(name="mainFile", refs={String.class}, tree="[0]")
     private Output<String> mainFile;
 
     /**
-     * @return Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+     * @return Specifies the filename of the Streamlit Python application. This filename is relative to the value of
+     * `directory_location`
      * 
      */
     public Output<String> mainFile() {
         return this.mainFile;
     }
     /**
-     * String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
+     * Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations
+     * warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
      * 
      */
     @Export(name="queryWarehouse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> queryWarehouse;
 
     /**
-     * @return Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
+     * @return Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations
+     * warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> queryWarehouse() {
         return Codegen.optional(this.queryWarehouse);
     }
     /**
-     * The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {

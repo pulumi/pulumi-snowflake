@@ -68,14 +68,6 @@ namespace Pulumi.Snowflake.Inputs
             set => _oauthClientAuthMethods = value;
         }
 
-        [Input("oauthClientIds")]
-        private InputList<Inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdGetArgs>? _oauthClientIds;
-        public InputList<Inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdGetArgs> OauthClientIds
-        {
-            get => _oauthClientIds ?? (_oauthClientIds = new InputList<Inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdGetArgs>());
-            set => _oauthClientIds = value;
-        }
-
         [Input("oauthGrants")]
         private InputList<Inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantGetArgs>? _oauthGrants;
         public InputList<Inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantGetArgs> OauthGrants

@@ -23,12 +23,12 @@ public final class GetGrantsGrantsTo {
      */
     private @Nullable String application;
     /**
-     * @return Lists all the privileges and roles granted to the application role. Must be a fully qualified name (&#34;&amp;lt;app*name&amp;gt;&#34;.&#34;&amp;lt;app*role_name&amp;gt;&#34;).
+     * @return Lists all the privileges and roles granted to the application role. Must be a fully qualified name (&#34;&amp;lt;app_name&amp;gt;&#34;.&#34;&amp;lt;app_role_name&amp;gt;&#34;).
      * 
      */
     private @Nullable String applicationRole;
     /**
-     * @return Lists all privileges and roles granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * @return Lists all privileges and roles granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db_name&amp;gt;&#34;.&#34;&amp;lt;database_role_name&amp;gt;&#34;).
      * 
      */
     private @Nullable String databaseRole;
@@ -59,14 +59,14 @@ public final class GetGrantsGrantsTo {
         return Optional.ofNullable(this.application);
     }
     /**
-     * @return Lists all the privileges and roles granted to the application role. Must be a fully qualified name (&#34;&amp;lt;app*name&amp;gt;&#34;.&#34;&amp;lt;app*role_name&amp;gt;&#34;).
+     * @return Lists all the privileges and roles granted to the application role. Must be a fully qualified name (&#34;&amp;lt;app_name&amp;gt;&#34;.&#34;&amp;lt;app_role_name&amp;gt;&#34;).
      * 
      */
     public Optional<String> applicationRole() {
         return Optional.ofNullable(this.applicationRole);
     }
     /**
-     * @return Lists all privileges and roles granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
+     * @return Lists all privileges and roles granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db_name&amp;gt;&#34;.&#34;&amp;lt;database_role_name&amp;gt;&#34;).
      * 
      */
     public Optional<String> databaseRole() {

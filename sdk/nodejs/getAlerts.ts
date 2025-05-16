@@ -6,23 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getAlerts({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
- */
 export function getAlerts(args?: GetAlertsArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -37,17 +20,8 @@ export function getAlerts(args?: GetAlertsArgs, opts?: pulumi.InvokeOptions): Pr
  * A collection of arguments for invoking getAlerts.
  */
 export interface GetAlertsArgs {
-    /**
-     * The database from which to return the alerts from.
-     */
     database?: string;
-    /**
-     * Filters the command output by object name.
-     */
     pattern?: string;
-    /**
-     * The schema from which to return the alerts from.
-     */
     schema?: string;
 }
 
@@ -55,44 +29,15 @@ export interface GetAlertsArgs {
  * A collection of values returned by getAlerts.
  */
 export interface GetAlertsResult {
-    /**
-     * Lists alerts for the current/specified database or schema, or across the entire account.
-     */
     readonly alerts: outputs.GetAlertsAlert[];
-    /**
-     * The database from which to return the alerts from.
-     */
     readonly database?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Filters the command output by object name.
-     */
     readonly pattern?: string;
-    /**
-     * The schema from which to return the alerts from.
-     */
     readonly schema?: string;
 }
-/**
- * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getAlerts({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
- */
 export function getAlertsOutput(args?: GetAlertsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAlertsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -107,16 +52,7 @@ export function getAlertsOutput(args?: GetAlertsOutputArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getAlerts.
  */
 export interface GetAlertsOutputArgs {
-    /**
-     * The database from which to return the alerts from.
-     */
     database?: pulumi.Input<string>;
-    /**
-     * Filters the command output by object name.
-     */
     pattern?: pulumi.Input<string>;
-    /**
-     * The schema from which to return the alerts from.
-     */
     schema?: pulumi.Input<string>;
 }

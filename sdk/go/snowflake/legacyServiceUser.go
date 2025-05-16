@@ -7,172 +7,341 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ```sh
-// $ pulumi import snowflake:index/legacyServiceUser:LegacyServiceUser example '"<user_name>"'
-// ```
-//
-// Note: pulumi preview+apply may be needed after successful import to fill out all the missing fields (like `password`) in state.
 type LegacyServiceUser struct {
 	pulumi.CustomResourceState
 
-	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+	// of a session (e.g. network outage, browser termination, service interruption). For more information, check
+	// [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
 	AbortDetachedQuery pulumi.BoolOutput `pulumi:"abortDetachedQuery"`
-	// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+	// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+	// without an active transaction, is automatically committed after the statement successfully completes. For more
+	// information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+	// [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
 	Autocommit pulumi.BoolOutput `pulumi:"autocommit"`
-	// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+	// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+	// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+	// [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
 	BinaryInputFormat pulumi.StringOutput `pulumi:"binaryInputFormat"`
-	// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+	// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+	// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+	// [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
 	BinaryOutputFormat pulumi.StringOutput `pulumi:"binaryOutputFormat"`
-	// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+	// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+	// queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
 	ClientMemoryLimit pulumi.IntOutput `pulumi:"clientMemoryLimit"`
-	// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+	// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+	// databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+	// quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
 	ClientMetadataRequestUseConnectionCtx pulumi.BoolOutput `pulumi:"clientMetadataRequestUseConnectionCtx"`
-	// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+	// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+	// attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+	// resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
 	ClientPrefetchThreads pulumi.IntOutput `pulumi:"clientPrefetchThreads"`
-	// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+	// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+	// downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
 	ClientResultChunkSize pulumi.IntOutput `pulumi:"clientResultChunkSize"`
-	// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+	// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+	// information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
 	ClientResultColumnCaseInsensitive pulumi.BoolOutput `pulumi:"clientResultColumnCaseInsensitive"`
-	// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+	// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+	// information, check [CLIENT_SESSION_KEEP_ALIVE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
 	ClientSessionKeepAlive pulumi.BoolOutput `pulumi:"clientSessionKeepAlive"`
-	// Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+	// Number of seconds in-between client attempts to update the token for the session. For more information, check
+	// [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
 	ClientSessionKeepAliveHeartbeatFrequency pulumi.IntOutput `pulumi:"clientSessionKeepAliveHeartbeatFrequency"`
-	// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+	// Specifies the [TIMESTAMP_*
+	// variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+	// use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+	// information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
 	ClientTimestampTypeMapping pulumi.StringOutput `pulumi:"clientTimestampTypeMapping"`
 	// Specifies a comment for the user.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+	// Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
 	DateInputFormat pulumi.StringOutput `pulumi:"dateInputFormat"`
-	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
 	DateOutputFormat pulumi.StringOutput `pulumi:"dateOutputFormat"`
 	DaysToExpiry     pulumi.IntPtrOutput `pulumi:"daysToExpiry"`
-	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
+	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+	// login. Note that the CREATE USER operation does not verify that the namespace exists.
 	DefaultNamespace pulumi.StringPtrOutput `pulumi:"defaultNamespace"`
-	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
+	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role
+	// for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT
+	// ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does
+	// not verify that the role exists. For more information about this resource, see docs.
 	DefaultRole pulumi.StringPtrOutput `pulumi:"defaultRole"`
-	// (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+	// Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive):
+	// `DEFAULT` | `NONE` | `ALL`. More information can be found in
+	// [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
 	DefaultSecondaryRolesOption pulumi.StringPtrOutput `pulumi:"defaultSecondaryRolesOption"`
-	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER
+	// operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse pulumi.StringPtrOutput `pulumi:"defaultWarehouse"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the
+	// user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+	// "default" there which means to use the Snowflake default for this value.
 	Disabled pulumi.StringPtrOutput `pulumi:"disabled"`
 	// Name displayed for the user in the Snowflake web interface.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// Email address for the user.
 	Email pulumi.StringPtrOutput `pulumi:"email"`
-	// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+	// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+	// the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+	// support the values in the output columns of the unload SQL statement or source table). For more information, check
+	// [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
 	EnableUnloadPhysicalTypeOptimization pulumi.BoolOutput `pulumi:"enableUnloadPhysicalTypeOptimization"`
-	// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+	// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content
+	// of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role
+	// that is granted or inherits the AUDIT privilege can set the ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR parameter. When using
+	// the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the
+	// query text, not the user who executed the query (if those are different users). For more information, check
+	// [ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
 	EnableUnredactedQuerySyntaxError pulumi.BoolOutput `pulumi:"enableUnredactedQuerySyntaxError"`
-	// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+	// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+	// used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+	// perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
 	ErrorOnNondeterministicMerge pulumi.BoolOutput `pulumi:"errorOnNondeterministicMerge"`
-	// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+	// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+	// is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+	// the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
 	ErrorOnNondeterministicUpdate pulumi.BoolOutput `pulumi:"errorOnNondeterministicUpdate"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+	// Display format for [GEOGRAPHY
+	// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+	// information, check [GEOGRAPHY_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
 	GeographyOutputFormat pulumi.StringOutput `pulumi:"geographyOutputFormat"`
-	// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+	// Display format for [GEOMETRY
+	// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+	// information, check [GEOMETRY_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
 	GeometryOutputFormat pulumi.StringOutput `pulumi:"geometryOutputFormat"`
-	// Specifies how JDBC processes columns that have a scale of zero (0). For more information, check [JDBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
+	// Specifies how JDBC processes columns that have a scale of zero (0). For more information, check
+	// [JDBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
 	JdbcTreatDecimalAsInt pulumi.BoolOutput `pulumi:"jdbcTreatDecimalAsInt"`
-	// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+	// Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
 	JdbcTreatTimestampNtzAsUtc pulumi.BoolOutput `pulumi:"jdbcTreatTimestampNtzAsUtc"`
-	// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+	// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+	// [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+	// getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
 	JdbcUseSessionTimezone pulumi.BoolOutput `pulumi:"jdbcUseSessionTimezone"`
-	// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+	// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+	// insert newline characters after each element. For more information, check [JSON_INDENT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
 	JsonIndent pulumi.IntOutput `pulumi:"jsonIndent"`
-	// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+	// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+	// information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
 	LockTimeout pulumi.IntOutput `pulumi:"lockTimeout"`
-	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+	// at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+	// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+	// [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringOutput `pulumi:"logLevel"`
 	// The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
 	LoginName    pulumi.StringPtrOutput `pulumi:"loginName"`
 	MinsToUnlock pulumi.IntPtrOutput    `pulumi:"minsToUnlock"`
-	// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+	// Number of statements to execute when using the multi-statement capability. For more information, check
+	// [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
 	MultiStatementCount pulumi.IntOutput `pulumi:"multiStatementCount"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+	// the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will
+	// put "default" there which means to use the Snowflake default for this value.
 	MustChangePassword pulumi.StringPtrOutput `pulumi:"mustChangePassword"`
-	// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Name of the user. Note that if you do not supply loginName this will be used as login_name. Check the
+	// [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
+	// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account
+	// based on users’ IP address. For more details, see [Controlling network traffic with network
+	// policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE
+	// NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check
+	// [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
 	NetworkPolicy pulumi.StringOutput `pulumi:"networkPolicy"`
-	// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+	// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+	// column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+	// auto-incremented column in [increasing or decreasing
+	// order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+	// more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
 	NoorderSequenceAsDefault pulumi.BoolOutput `pulumi:"noorderSequenceAsDefault"`
-	// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+	// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+	// [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
 	OdbcTreatDecimalAsInt pulumi.BoolOutput `pulumi:"odbcTreatDecimalAsInt"`
 	// Outputs the result of `SHOW PARAMETERS IN USER` for the given user.
 	Parameters LegacyServiceUserParameterArrayOutput `pulumi:"parameters"`
 	Password   pulumi.StringPtrOutput                `pulumi:"password"`
-	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
+	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO
+	// <location>](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check
+	// [PREVENT_UNLOAD_TO_INTERNAL_STAGES
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
 	PreventUnloadToInternalStages pulumi.BoolOutput `pulumi:"preventUnloadToInternalStages"`
-	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+	// displayed in the output of the [QUERY_HISTORY,
+	// QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+	// information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
 	QueryTag pulumi.StringOutput `pulumi:"queryTag"`
-	// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+	// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+	// Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+	// [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+	// You can use this parameter in situations in which [third-party applications always use double quotes around
+	// identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+	// more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
 	QuotedIdentifiersIgnoreCase pulumi.BoolOutput `pulumi:"quotedIdentifiersIgnoreCase"`
-	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+	// check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
 	RowsPerResultset pulumi.IntOutput `pulumi:"rowsPerResultset"`
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey pulumi.StringPtrOutput `pulumi:"rsaPublicKey"`
-	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrOutput `pulumi:"rsaPublicKey2"`
-	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+	// PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+	// use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+	// endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+	// For more information, check [S3_STAGE_VPCE_DNS_NAME
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
 	S3StageVpceDnsName pulumi.StringOutput `pulumi:"s3StageVpceDnsName"`
-	// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+	// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+	// in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+	// Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+	// information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
 	SearchPath pulumi.StringOutput `pulumi:"searchPath"`
 	// Outputs the result of `SHOW USER` for the given user.
 	ShowOutputs LegacyServiceUserShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, see [Introduction to Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
+	// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure
+	// views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer
+	// account rather than the provider account. For more information, see [Introduction to Secure Data
+	// Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with
+	// shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check
+	// [SIMULATED_DATA_SHARING_CONSUMER
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
 	SimulatedDataSharingConsumer pulumi.StringOutput `pulumi:"simulatedDataSharingConsumer"`
-	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+	// by the system. This parameter can be used in conjunction with the
+	// [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+	// ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds pulumi.IntOutput `pulumi:"statementQueuedTimeoutInSeconds"`
-	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+	// more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds pulumi.IntOutput `pulumi:"statementTimeoutInSeconds"`
-	// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+	// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+	// [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+	// these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+	// languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+	// check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
 	StrictJsonOutput pulumi.BoolOutput `pulumi:"strictJsonOutput"`
-	// Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+	// Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+	// (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+	// session). For more information, check [TIME_INPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
 	TimeInputFormat pulumi.StringOutput `pulumi:"timeInputFormat"`
-	// Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+	// Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
 	TimeOutputFormat pulumi.StringOutput `pulumi:"timeOutputFormat"`
-	// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+	// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+	// aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+	// check [TIMESTAMP_DAY_IS_ALWAYS_24H
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
 	TimestampDayIsAlways24h pulumi.BoolOutput `pulumi:"timestampDayIsAlways24h"`
-	// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+	// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+	// AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+	// during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
 	TimestampInputFormat pulumi.StringOutput `pulumi:"timestampInputFormat"`
-	// Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+	// Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+	// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+	// more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
 	TimestampLtzOutputFormat pulumi.StringOutput `pulumi:"timestampLtzOutputFormat"`
-	// Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+	// Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
 	TimestampNtzOutputFormat pulumi.StringOutput `pulumi:"timestampNtzOutputFormat"`
-	// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+	// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+	// output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
 	TimestampOutputFormat pulumi.StringOutput `pulumi:"timestampOutputFormat"`
-	// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+	// Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+	// [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
 	TimestampTypeMapping pulumi.StringOutput `pulumi:"timestampTypeMapping"`
-	// Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+	// Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+	// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+	// more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
 	TimestampTzOutputFormat pulumi.StringOutput `pulumi:"timestampTzOutputFormat"`
-	// Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+	// Specifies the time zone for the session. You can specify a [time zone
+	// name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+	// name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+	// Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+	// information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
 	Timezone pulumi.StringOutput `pulumi:"timezone"`
-	// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+	// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+	// [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel pulumi.StringOutput `pulumi:"traceLevel"`
-	// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+	// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+	// more information, check [TRANSACTION_ABORT_ON_ERROR
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
 	TransactionAbortOnError pulumi.BoolOutput `pulumi:"transactionAbortOnError"`
-	// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+	// Specifies the isolation level for transactions in the user session. For more information, check
+	// [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
 	TransactionDefaultIsolationLevel pulumi.StringOutput `pulumi:"transactionDefaultIsolationLevel"`
-	// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+	// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+	// parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+	// represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
 	TwoDigitCenturyStart pulumi.IntOutput `pulumi:"twoDigitCenturyStart"`
-	// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+	// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+	// information, check [UNSUPPORTED_DDL_ACTION
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
 	UnsupportedDdlAction pulumi.StringOutput `pulumi:"unsupportedDdlAction"`
-	// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+	// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+	// information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
 	UseCachedResult pulumi.BoolOutput `pulumi:"useCachedResult"`
 	// Specifies a type for the user.
 	UserType pulumi.StringOutput `pulumi:"userType"`
-	// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+	// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+	// which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+	// first week of the year and December 31 is included in the last week of the year. For more information, check
+	// [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
 	WeekOfYearPolicy pulumi.IntOutput `pulumi:"weekOfYearPolicy"`
-	// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+	// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+	// ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+	// day of the week. For more information, check [WEEK_START
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
 	WeekStart pulumi.IntOutput `pulumi:"weekStart"`
 }
 
@@ -221,314 +390,666 @@ func GetLegacyServiceUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LegacyServiceUser resources.
 type legacyServiceUserState struct {
-	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+	// of a session (e.g. network outage, browser termination, service interruption). For more information, check
+	// [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
 	AbortDetachedQuery *bool `pulumi:"abortDetachedQuery"`
-	// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+	// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+	// without an active transaction, is automatically committed after the statement successfully completes. For more
+	// information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+	// [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
 	Autocommit *bool `pulumi:"autocommit"`
-	// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+	// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+	// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+	// [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
 	BinaryInputFormat *string `pulumi:"binaryInputFormat"`
-	// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+	// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+	// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+	// [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
 	BinaryOutputFormat *string `pulumi:"binaryOutputFormat"`
-	// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+	// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+	// queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
 	ClientMemoryLimit *int `pulumi:"clientMemoryLimit"`
-	// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+	// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+	// databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+	// quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
 	ClientMetadataRequestUseConnectionCtx *bool `pulumi:"clientMetadataRequestUseConnectionCtx"`
-	// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+	// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+	// attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+	// resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
 	ClientPrefetchThreads *int `pulumi:"clientPrefetchThreads"`
-	// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+	// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+	// downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
 	ClientResultChunkSize *int `pulumi:"clientResultChunkSize"`
-	// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+	// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+	// information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
 	ClientResultColumnCaseInsensitive *bool `pulumi:"clientResultColumnCaseInsensitive"`
-	// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+	// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+	// information, check [CLIENT_SESSION_KEEP_ALIVE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
 	ClientSessionKeepAlive *bool `pulumi:"clientSessionKeepAlive"`
-	// Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+	// Number of seconds in-between client attempts to update the token for the session. For more information, check
+	// [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
 	ClientSessionKeepAliveHeartbeatFrequency *int `pulumi:"clientSessionKeepAliveHeartbeatFrequency"`
-	// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+	// Specifies the [TIMESTAMP_*
+	// variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+	// use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+	// information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
 	ClientTimestampTypeMapping *string `pulumi:"clientTimestampTypeMapping"`
 	// Specifies a comment for the user.
 	Comment *string `pulumi:"comment"`
-	// Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+	// Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
 	DateInputFormat *string `pulumi:"dateInputFormat"`
-	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
 	DateOutputFormat *string `pulumi:"dateOutputFormat"`
 	DaysToExpiry     *int    `pulumi:"daysToExpiry"`
-	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
+	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+	// login. Note that the CREATE USER operation does not verify that the namespace exists.
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
-	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
+	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role
+	// for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT
+	// ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does
+	// not verify that the role exists. For more information about this resource, see docs.
 	DefaultRole *string `pulumi:"defaultRole"`
-	// (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+	// Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive):
+	// `DEFAULT` | `NONE` | `ALL`. More information can be found in
+	// [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
 	DefaultSecondaryRolesOption *string `pulumi:"defaultSecondaryRolesOption"`
-	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER
+	// operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse *string `pulumi:"defaultWarehouse"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the
+	// user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+	// "default" there which means to use the Snowflake default for this value.
 	Disabled *string `pulumi:"disabled"`
 	// Name displayed for the user in the Snowflake web interface.
 	DisplayName *string `pulumi:"displayName"`
 	// Email address for the user.
 	Email *string `pulumi:"email"`
-	// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+	// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+	// the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+	// support the values in the output columns of the unload SQL statement or source table). For more information, check
+	// [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
 	EnableUnloadPhysicalTypeOptimization *bool `pulumi:"enableUnloadPhysicalTypeOptimization"`
-	// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+	// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content
+	// of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role
+	// that is granted or inherits the AUDIT privilege can set the ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR parameter. When using
+	// the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the
+	// query text, not the user who executed the query (if those are different users). For more information, check
+	// [ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
 	EnableUnredactedQuerySyntaxError *bool `pulumi:"enableUnredactedQuerySyntaxError"`
-	// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+	// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+	// used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+	// perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
 	ErrorOnNondeterministicMerge *bool `pulumi:"errorOnNondeterministicMerge"`
-	// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+	// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+	// is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+	// the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
 	ErrorOnNondeterministicUpdate *bool `pulumi:"errorOnNondeterministicUpdate"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+	// Display format for [GEOGRAPHY
+	// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+	// information, check [GEOGRAPHY_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
 	GeographyOutputFormat *string `pulumi:"geographyOutputFormat"`
-	// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+	// Display format for [GEOMETRY
+	// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+	// information, check [GEOMETRY_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
 	GeometryOutputFormat *string `pulumi:"geometryOutputFormat"`
-	// Specifies how JDBC processes columns that have a scale of zero (0). For more information, check [JDBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
+	// Specifies how JDBC processes columns that have a scale of zero (0). For more information, check
+	// [JDBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
 	JdbcTreatDecimalAsInt *bool `pulumi:"jdbcTreatDecimalAsInt"`
-	// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+	// Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
 	JdbcTreatTimestampNtzAsUtc *bool `pulumi:"jdbcTreatTimestampNtzAsUtc"`
-	// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+	// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+	// [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+	// getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
 	JdbcUseSessionTimezone *bool `pulumi:"jdbcUseSessionTimezone"`
-	// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+	// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+	// insert newline characters after each element. For more information, check [JSON_INDENT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
 	JsonIndent *int `pulumi:"jsonIndent"`
-	// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+	// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+	// information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
 	LockTimeout *int `pulumi:"lockTimeout"`
-	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+	// at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+	// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+	// [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel *string `pulumi:"logLevel"`
 	// The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
 	LoginName    *string `pulumi:"loginName"`
 	MinsToUnlock *int    `pulumi:"minsToUnlock"`
-	// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+	// Number of statements to execute when using the multi-statement capability. For more information, check
+	// [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
 	MultiStatementCount *int `pulumi:"multiStatementCount"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+	// the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will
+	// put "default" there which means to use the Snowflake default for this value.
 	MustChangePassword *string `pulumi:"mustChangePassword"`
-	// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Name of the user. Note that if you do not supply loginName this will be used as login_name. Check the
+	// [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
+	// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account
+	// based on users’ IP address. For more details, see [Controlling network traffic with network
+	// policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE
+	// NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check
+	// [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
 	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+	// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+	// column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+	// auto-incremented column in [increasing or decreasing
+	// order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+	// more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
 	NoorderSequenceAsDefault *bool `pulumi:"noorderSequenceAsDefault"`
-	// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+	// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+	// [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
 	OdbcTreatDecimalAsInt *bool `pulumi:"odbcTreatDecimalAsInt"`
 	// Outputs the result of `SHOW PARAMETERS IN USER` for the given user.
 	Parameters []LegacyServiceUserParameter `pulumi:"parameters"`
 	Password   *string                      `pulumi:"password"`
-	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
+	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO
+	// <location>](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check
+	// [PREVENT_UNLOAD_TO_INTERNAL_STAGES
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
 	PreventUnloadToInternalStages *bool `pulumi:"preventUnloadToInternalStages"`
-	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+	// displayed in the output of the [QUERY_HISTORY,
+	// QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+	// information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
 	QueryTag *string `pulumi:"queryTag"`
-	// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+	// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+	// Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+	// [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+	// You can use this parameter in situations in which [third-party applications always use double quotes around
+	// identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+	// more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
 	QuotedIdentifiersIgnoreCase *bool `pulumi:"quotedIdentifiersIgnoreCase"`
-	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+	// check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
 	RowsPerResultset *int `pulumi:"rowsPerResultset"`
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey *string `pulumi:"rsaPublicKey"`
-	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 *string `pulumi:"rsaPublicKey2"`
-	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+	// PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+	// use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+	// endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+	// For more information, check [S3_STAGE_VPCE_DNS_NAME
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
 	S3StageVpceDnsName *string `pulumi:"s3StageVpceDnsName"`
-	// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+	// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+	// in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+	// Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+	// information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
 	SearchPath *string `pulumi:"searchPath"`
 	// Outputs the result of `SHOW USER` for the given user.
 	ShowOutputs []LegacyServiceUserShowOutput `pulumi:"showOutputs"`
-	// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, see [Introduction to Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
+	// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure
+	// views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer
+	// account rather than the provider account. For more information, see [Introduction to Secure Data
+	// Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with
+	// shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check
+	// [SIMULATED_DATA_SHARING_CONSUMER
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
 	SimulatedDataSharingConsumer *string `pulumi:"simulatedDataSharingConsumer"`
-	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+	// by the system. This parameter can be used in conjunction with the
+	// [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+	// ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
-	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+	// more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
-	// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+	// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+	// [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+	// these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+	// languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+	// check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
 	StrictJsonOutput *bool `pulumi:"strictJsonOutput"`
-	// Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+	// Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+	// (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+	// session). For more information, check [TIME_INPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
 	TimeInputFormat *string `pulumi:"timeInputFormat"`
-	// Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+	// Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
 	TimeOutputFormat *string `pulumi:"timeOutputFormat"`
-	// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+	// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+	// aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+	// check [TIMESTAMP_DAY_IS_ALWAYS_24H
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
 	TimestampDayIsAlways24h *bool `pulumi:"timestampDayIsAlways24h"`
-	// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+	// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+	// AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+	// during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
 	TimestampInputFormat *string `pulumi:"timestampInputFormat"`
-	// Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+	// Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+	// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+	// more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
 	TimestampLtzOutputFormat *string `pulumi:"timestampLtzOutputFormat"`
-	// Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+	// Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
 	TimestampNtzOutputFormat *string `pulumi:"timestampNtzOutputFormat"`
-	// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+	// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+	// output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
 	TimestampOutputFormat *string `pulumi:"timestampOutputFormat"`
-	// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+	// Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+	// [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
 	TimestampTypeMapping *string `pulumi:"timestampTypeMapping"`
-	// Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+	// Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+	// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+	// more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
 	TimestampTzOutputFormat *string `pulumi:"timestampTzOutputFormat"`
-	// Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+	// Specifies the time zone for the session. You can specify a [time zone
+	// name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+	// name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+	// Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+	// information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
 	Timezone *string `pulumi:"timezone"`
-	// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+	// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+	// [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel *string `pulumi:"traceLevel"`
-	// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+	// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+	// more information, check [TRANSACTION_ABORT_ON_ERROR
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
 	TransactionAbortOnError *bool `pulumi:"transactionAbortOnError"`
-	// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+	// Specifies the isolation level for transactions in the user session. For more information, check
+	// [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
 	TransactionDefaultIsolationLevel *string `pulumi:"transactionDefaultIsolationLevel"`
-	// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+	// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+	// parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+	// represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
 	TwoDigitCenturyStart *int `pulumi:"twoDigitCenturyStart"`
-	// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+	// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+	// information, check [UNSUPPORTED_DDL_ACTION
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
 	UnsupportedDdlAction *string `pulumi:"unsupportedDdlAction"`
-	// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+	// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+	// information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
 	UseCachedResult *bool `pulumi:"useCachedResult"`
 	// Specifies a type for the user.
 	UserType *string `pulumi:"userType"`
-	// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+	// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+	// which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+	// first week of the year and December 31 is included in the last week of the year. For more information, check
+	// [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
 	WeekOfYearPolicy *int `pulumi:"weekOfYearPolicy"`
-	// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+	// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+	// ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+	// day of the week. For more information, check [WEEK_START
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
 	WeekStart *int `pulumi:"weekStart"`
 }
 
 type LegacyServiceUserState struct {
-	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+	// of a session (e.g. network outage, browser termination, service interruption). For more information, check
+	// [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
 	AbortDetachedQuery pulumi.BoolPtrInput
-	// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+	// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+	// without an active transaction, is automatically committed after the statement successfully completes. For more
+	// information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+	// [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
 	Autocommit pulumi.BoolPtrInput
-	// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+	// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+	// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+	// [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
 	BinaryInputFormat pulumi.StringPtrInput
-	// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+	// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+	// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+	// [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
 	BinaryOutputFormat pulumi.StringPtrInput
-	// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+	// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+	// queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
 	ClientMemoryLimit pulumi.IntPtrInput
-	// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+	// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+	// databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+	// quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
 	ClientMetadataRequestUseConnectionCtx pulumi.BoolPtrInput
-	// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+	// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+	// attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+	// resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
 	ClientPrefetchThreads pulumi.IntPtrInput
-	// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+	// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+	// downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
 	ClientResultChunkSize pulumi.IntPtrInput
-	// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+	// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+	// information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
 	ClientResultColumnCaseInsensitive pulumi.BoolPtrInput
-	// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+	// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+	// information, check [CLIENT_SESSION_KEEP_ALIVE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
 	ClientSessionKeepAlive pulumi.BoolPtrInput
-	// Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+	// Number of seconds in-between client attempts to update the token for the session. For more information, check
+	// [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
 	ClientSessionKeepAliveHeartbeatFrequency pulumi.IntPtrInput
-	// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+	// Specifies the [TIMESTAMP_*
+	// variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+	// use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+	// information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
 	ClientTimestampTypeMapping pulumi.StringPtrInput
 	// Specifies a comment for the user.
 	Comment pulumi.StringPtrInput
-	// Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+	// Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
 	DateInputFormat pulumi.StringPtrInput
-	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
 	DateOutputFormat pulumi.StringPtrInput
 	DaysToExpiry     pulumi.IntPtrInput
-	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
+	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+	// login. Note that the CREATE USER operation does not verify that the namespace exists.
 	DefaultNamespace pulumi.StringPtrInput
-	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
+	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role
+	// for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT
+	// ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does
+	// not verify that the role exists. For more information about this resource, see docs.
 	DefaultRole pulumi.StringPtrInput
-	// (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+	// Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive):
+	// `DEFAULT` | `NONE` | `ALL`. More information can be found in
+	// [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
 	DefaultSecondaryRolesOption pulumi.StringPtrInput
-	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER
+	// operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse pulumi.StringPtrInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the
+	// user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+	// "default" there which means to use the Snowflake default for this value.
 	Disabled pulumi.StringPtrInput
 	// Name displayed for the user in the Snowflake web interface.
 	DisplayName pulumi.StringPtrInput
 	// Email address for the user.
 	Email pulumi.StringPtrInput
-	// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+	// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+	// the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+	// support the values in the output columns of the unload SQL statement or source table). For more information, check
+	// [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
 	EnableUnloadPhysicalTypeOptimization pulumi.BoolPtrInput
-	// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+	// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content
+	// of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role
+	// that is granted or inherits the AUDIT privilege can set the ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR parameter. When using
+	// the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the
+	// query text, not the user who executed the query (if those are different users). For more information, check
+	// [ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
 	EnableUnredactedQuerySyntaxError pulumi.BoolPtrInput
-	// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+	// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+	// used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+	// perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
 	ErrorOnNondeterministicMerge pulumi.BoolPtrInput
-	// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+	// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+	// is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+	// the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
 	ErrorOnNondeterministicUpdate pulumi.BoolPtrInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+	// Display format for [GEOGRAPHY
+	// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+	// information, check [GEOGRAPHY_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
 	GeographyOutputFormat pulumi.StringPtrInput
-	// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+	// Display format for [GEOMETRY
+	// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+	// information, check [GEOMETRY_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
 	GeometryOutputFormat pulumi.StringPtrInput
-	// Specifies how JDBC processes columns that have a scale of zero (0). For more information, check [JDBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
+	// Specifies how JDBC processes columns that have a scale of zero (0). For more information, check
+	// [JDBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
 	JdbcTreatDecimalAsInt pulumi.BoolPtrInput
-	// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+	// Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
 	JdbcTreatTimestampNtzAsUtc pulumi.BoolPtrInput
-	// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+	// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+	// [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+	// getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
 	JdbcUseSessionTimezone pulumi.BoolPtrInput
-	// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+	// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+	// insert newline characters after each element. For more information, check [JSON_INDENT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
 	JsonIndent pulumi.IntPtrInput
-	// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+	// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+	// information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
 	LockTimeout pulumi.IntPtrInput
-	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+	// at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+	// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+	// [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringPtrInput
 	// The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
 	LoginName    pulumi.StringPtrInput
 	MinsToUnlock pulumi.IntPtrInput
-	// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+	// Number of statements to execute when using the multi-statement capability. For more information, check
+	// [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
 	MultiStatementCount pulumi.IntPtrInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+	// the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will
+	// put "default" there which means to use the Snowflake default for this value.
 	MustChangePassword pulumi.StringPtrInput
-	// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Name of the user. Note that if you do not supply loginName this will be used as login_name. Check the
+	// [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
+	// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account
+	// based on users’ IP address. For more details, see [Controlling network traffic with network
+	// policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE
+	// NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check
+	// [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
 	NetworkPolicy pulumi.StringPtrInput
-	// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+	// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+	// column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+	// auto-incremented column in [increasing or decreasing
+	// order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+	// more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
 	NoorderSequenceAsDefault pulumi.BoolPtrInput
-	// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+	// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+	// [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
 	OdbcTreatDecimalAsInt pulumi.BoolPtrInput
 	// Outputs the result of `SHOW PARAMETERS IN USER` for the given user.
 	Parameters LegacyServiceUserParameterArrayInput
 	Password   pulumi.StringPtrInput
-	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
+	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO
+	// <location>](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check
+	// [PREVENT_UNLOAD_TO_INTERNAL_STAGES
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
 	PreventUnloadToInternalStages pulumi.BoolPtrInput
-	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+	// displayed in the output of the [QUERY_HISTORY,
+	// QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+	// information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
 	QueryTag pulumi.StringPtrInput
-	// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+	// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+	// Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+	// [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+	// You can use this parameter in situations in which [third-party applications always use double quotes around
+	// identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+	// more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
 	QuotedIdentifiersIgnoreCase pulumi.BoolPtrInput
-	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+	// check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
 	RowsPerResultset pulumi.IntPtrInput
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey pulumi.StringPtrInput
-	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrInput
-	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+	// PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+	// use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+	// endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+	// For more information, check [S3_STAGE_VPCE_DNS_NAME
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
 	S3StageVpceDnsName pulumi.StringPtrInput
-	// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+	// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+	// in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+	// Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+	// information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
 	SearchPath pulumi.StringPtrInput
 	// Outputs the result of `SHOW USER` for the given user.
 	ShowOutputs LegacyServiceUserShowOutputArrayInput
-	// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, see [Introduction to Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
+	// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure
+	// views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer
+	// account rather than the provider account. For more information, see [Introduction to Secure Data
+	// Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with
+	// shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check
+	// [SIMULATED_DATA_SHARING_CONSUMER
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
 	SimulatedDataSharingConsumer pulumi.StringPtrInput
-	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+	// by the system. This parameter can be used in conjunction with the
+	// [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+	// ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
-	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+	// more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds pulumi.IntPtrInput
-	// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+	// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+	// [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+	// these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+	// languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+	// check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
 	StrictJsonOutput pulumi.BoolPtrInput
-	// Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+	// Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+	// (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+	// session). For more information, check [TIME_INPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
 	TimeInputFormat pulumi.StringPtrInput
-	// Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+	// Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
 	TimeOutputFormat pulumi.StringPtrInput
-	// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+	// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+	// aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+	// check [TIMESTAMP_DAY_IS_ALWAYS_24H
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
 	TimestampDayIsAlways24h pulumi.BoolPtrInput
-	// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+	// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+	// AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+	// during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
 	TimestampInputFormat pulumi.StringPtrInput
-	// Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+	// Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+	// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+	// more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
 	TimestampLtzOutputFormat pulumi.StringPtrInput
-	// Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+	// Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
 	TimestampNtzOutputFormat pulumi.StringPtrInput
-	// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+	// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+	// output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
 	TimestampOutputFormat pulumi.StringPtrInput
-	// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+	// Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+	// [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
 	TimestampTypeMapping pulumi.StringPtrInput
-	// Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+	// Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+	// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+	// more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
 	TimestampTzOutputFormat pulumi.StringPtrInput
-	// Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+	// Specifies the time zone for the session. You can specify a [time zone
+	// name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+	// name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+	// Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+	// information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
 	Timezone pulumi.StringPtrInput
-	// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+	// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+	// [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel pulumi.StringPtrInput
-	// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+	// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+	// more information, check [TRANSACTION_ABORT_ON_ERROR
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
 	TransactionAbortOnError pulumi.BoolPtrInput
-	// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+	// Specifies the isolation level for transactions in the user session. For more information, check
+	// [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
 	TransactionDefaultIsolationLevel pulumi.StringPtrInput
-	// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+	// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+	// parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+	// represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
 	TwoDigitCenturyStart pulumi.IntPtrInput
-	// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+	// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+	// information, check [UNSUPPORTED_DDL_ACTION
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
 	UnsupportedDdlAction pulumi.StringPtrInput
-	// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+	// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+	// information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
 	UseCachedResult pulumi.BoolPtrInput
 	// Specifies a type for the user.
 	UserType pulumi.StringPtrInput
-	// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+	// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+	// which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+	// first week of the year and December 31 is included in the last week of the year. For more information, check
+	// [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
 	WeekOfYearPolicy pulumi.IntPtrInput
-	// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+	// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+	// ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+	// day of the week. For more information, check [WEEK_START
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
 	WeekStart pulumi.IntPtrInput
 }
 
@@ -537,299 +1058,649 @@ func (LegacyServiceUserState) ElementType() reflect.Type {
 }
 
 type legacyServiceUserArgs struct {
-	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+	// of a session (e.g. network outage, browser termination, service interruption). For more information, check
+	// [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
 	AbortDetachedQuery *bool `pulumi:"abortDetachedQuery"`
-	// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+	// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+	// without an active transaction, is automatically committed after the statement successfully completes. For more
+	// information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+	// [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
 	Autocommit *bool `pulumi:"autocommit"`
-	// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+	// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+	// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+	// [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
 	BinaryInputFormat *string `pulumi:"binaryInputFormat"`
-	// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+	// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+	// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+	// [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
 	BinaryOutputFormat *string `pulumi:"binaryOutputFormat"`
-	// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+	// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+	// queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
 	ClientMemoryLimit *int `pulumi:"clientMemoryLimit"`
-	// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+	// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+	// databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+	// quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
 	ClientMetadataRequestUseConnectionCtx *bool `pulumi:"clientMetadataRequestUseConnectionCtx"`
-	// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+	// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+	// attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+	// resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
 	ClientPrefetchThreads *int `pulumi:"clientPrefetchThreads"`
-	// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+	// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+	// downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
 	ClientResultChunkSize *int `pulumi:"clientResultChunkSize"`
-	// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+	// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+	// information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
 	ClientResultColumnCaseInsensitive *bool `pulumi:"clientResultColumnCaseInsensitive"`
-	// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+	// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+	// information, check [CLIENT_SESSION_KEEP_ALIVE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
 	ClientSessionKeepAlive *bool `pulumi:"clientSessionKeepAlive"`
-	// Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+	// Number of seconds in-between client attempts to update the token for the session. For more information, check
+	// [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
 	ClientSessionKeepAliveHeartbeatFrequency *int `pulumi:"clientSessionKeepAliveHeartbeatFrequency"`
-	// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+	// Specifies the [TIMESTAMP_*
+	// variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+	// use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+	// information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
 	ClientTimestampTypeMapping *string `pulumi:"clientTimestampTypeMapping"`
 	// Specifies a comment for the user.
 	Comment *string `pulumi:"comment"`
-	// Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+	// Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
 	DateInputFormat *string `pulumi:"dateInputFormat"`
-	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
 	DateOutputFormat *string `pulumi:"dateOutputFormat"`
 	DaysToExpiry     *int    `pulumi:"daysToExpiry"`
-	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
+	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+	// login. Note that the CREATE USER operation does not verify that the namespace exists.
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
-	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
+	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role
+	// for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT
+	// ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does
+	// not verify that the role exists. For more information about this resource, see docs.
 	DefaultRole *string `pulumi:"defaultRole"`
-	// (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+	// Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive):
+	// `DEFAULT` | `NONE` | `ALL`. More information can be found in
+	// [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
 	DefaultSecondaryRolesOption *string `pulumi:"defaultSecondaryRolesOption"`
-	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER
+	// operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse *string `pulumi:"defaultWarehouse"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the
+	// user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+	// "default" there which means to use the Snowflake default for this value.
 	Disabled *string `pulumi:"disabled"`
 	// Name displayed for the user in the Snowflake web interface.
 	DisplayName *string `pulumi:"displayName"`
 	// Email address for the user.
 	Email *string `pulumi:"email"`
-	// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+	// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+	// the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+	// support the values in the output columns of the unload SQL statement or source table). For more information, check
+	// [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
 	EnableUnloadPhysicalTypeOptimization *bool `pulumi:"enableUnloadPhysicalTypeOptimization"`
-	// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+	// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content
+	// of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role
+	// that is granted or inherits the AUDIT privilege can set the ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR parameter. When using
+	// the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the
+	// query text, not the user who executed the query (if those are different users). For more information, check
+	// [ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
 	EnableUnredactedQuerySyntaxError *bool `pulumi:"enableUnredactedQuerySyntaxError"`
-	// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+	// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+	// used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+	// perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
 	ErrorOnNondeterministicMerge *bool `pulumi:"errorOnNondeterministicMerge"`
-	// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+	// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+	// is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+	// the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
 	ErrorOnNondeterministicUpdate *bool `pulumi:"errorOnNondeterministicUpdate"`
-	// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+	// Display format for [GEOGRAPHY
+	// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+	// information, check [GEOGRAPHY_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
 	GeographyOutputFormat *string `pulumi:"geographyOutputFormat"`
-	// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+	// Display format for [GEOMETRY
+	// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+	// information, check [GEOMETRY_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
 	GeometryOutputFormat *string `pulumi:"geometryOutputFormat"`
-	// Specifies how JDBC processes columns that have a scale of zero (0). For more information, check [JDBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
+	// Specifies how JDBC processes columns that have a scale of zero (0). For more information, check
+	// [JDBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
 	JdbcTreatDecimalAsInt *bool `pulumi:"jdbcTreatDecimalAsInt"`
-	// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+	// Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
 	JdbcTreatTimestampNtzAsUtc *bool `pulumi:"jdbcTreatTimestampNtzAsUtc"`
-	// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+	// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+	// [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+	// getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
 	JdbcUseSessionTimezone *bool `pulumi:"jdbcUseSessionTimezone"`
-	// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+	// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+	// insert newline characters after each element. For more information, check [JSON_INDENT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
 	JsonIndent *int `pulumi:"jsonIndent"`
-	// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+	// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+	// information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
 	LockTimeout *int `pulumi:"lockTimeout"`
-	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+	// at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+	// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+	// [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel *string `pulumi:"logLevel"`
 	// The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
 	LoginName    *string `pulumi:"loginName"`
 	MinsToUnlock *int    `pulumi:"minsToUnlock"`
-	// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+	// Number of statements to execute when using the multi-statement capability. For more information, check
+	// [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
 	MultiStatementCount *int `pulumi:"multiStatementCount"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+	// the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will
+	// put "default" there which means to use the Snowflake default for this value.
 	MustChangePassword *string `pulumi:"mustChangePassword"`
-	// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Name of the user. Note that if you do not supply loginName this will be used as login_name. Check the
+	// [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
+	// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account
+	// based on users’ IP address. For more details, see [Controlling network traffic with network
+	// policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE
+	// NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check
+	// [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
 	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+	// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+	// column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+	// auto-incremented column in [increasing or decreasing
+	// order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+	// more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
 	NoorderSequenceAsDefault *bool `pulumi:"noorderSequenceAsDefault"`
-	// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+	// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+	// [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
 	OdbcTreatDecimalAsInt *bool   `pulumi:"odbcTreatDecimalAsInt"`
 	Password              *string `pulumi:"password"`
-	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
+	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO
+	// <location>](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check
+	// [PREVENT_UNLOAD_TO_INTERNAL_STAGES
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
 	PreventUnloadToInternalStages *bool `pulumi:"preventUnloadToInternalStages"`
-	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+	// displayed in the output of the [QUERY_HISTORY,
+	// QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+	// information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
 	QueryTag *string `pulumi:"queryTag"`
-	// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+	// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+	// Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+	// [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+	// You can use this parameter in situations in which [third-party applications always use double quotes around
+	// identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+	// more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
 	QuotedIdentifiersIgnoreCase *bool `pulumi:"quotedIdentifiersIgnoreCase"`
-	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+	// check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
 	RowsPerResultset *int `pulumi:"rowsPerResultset"`
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey *string `pulumi:"rsaPublicKey"`
-	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 *string `pulumi:"rsaPublicKey2"`
-	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+	// PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+	// use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+	// endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+	// For more information, check [S3_STAGE_VPCE_DNS_NAME
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
 	S3StageVpceDnsName *string `pulumi:"s3StageVpceDnsName"`
-	// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+	// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+	// in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+	// Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+	// information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
 	SearchPath *string `pulumi:"searchPath"`
-	// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, see [Introduction to Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
+	// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure
+	// views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer
+	// account rather than the provider account. For more information, see [Introduction to Secure Data
+	// Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with
+	// shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check
+	// [SIMULATED_DATA_SHARING_CONSUMER
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
 	SimulatedDataSharingConsumer *string `pulumi:"simulatedDataSharingConsumer"`
-	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+	// by the system. This parameter can be used in conjunction with the
+	// [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+	// ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds *int `pulumi:"statementQueuedTimeoutInSeconds"`
-	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+	// more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds *int `pulumi:"statementTimeoutInSeconds"`
-	// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+	// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+	// [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+	// these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+	// languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+	// check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
 	StrictJsonOutput *bool `pulumi:"strictJsonOutput"`
-	// Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+	// Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+	// (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+	// session). For more information, check [TIME_INPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
 	TimeInputFormat *string `pulumi:"timeInputFormat"`
-	// Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+	// Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
 	TimeOutputFormat *string `pulumi:"timeOutputFormat"`
-	// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+	// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+	// aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+	// check [TIMESTAMP_DAY_IS_ALWAYS_24H
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
 	TimestampDayIsAlways24h *bool `pulumi:"timestampDayIsAlways24h"`
-	// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+	// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+	// AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+	// during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
 	TimestampInputFormat *string `pulumi:"timestampInputFormat"`
-	// Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+	// Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+	// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+	// more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
 	TimestampLtzOutputFormat *string `pulumi:"timestampLtzOutputFormat"`
-	// Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+	// Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
 	TimestampNtzOutputFormat *string `pulumi:"timestampNtzOutputFormat"`
-	// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+	// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+	// output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
 	TimestampOutputFormat *string `pulumi:"timestampOutputFormat"`
-	// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+	// Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+	// [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
 	TimestampTypeMapping *string `pulumi:"timestampTypeMapping"`
-	// Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+	// Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+	// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+	// more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
 	TimestampTzOutputFormat *string `pulumi:"timestampTzOutputFormat"`
-	// Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+	// Specifies the time zone for the session. You can specify a [time zone
+	// name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+	// name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+	// Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+	// information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
 	Timezone *string `pulumi:"timezone"`
-	// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+	// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+	// [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel *string `pulumi:"traceLevel"`
-	// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+	// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+	// more information, check [TRANSACTION_ABORT_ON_ERROR
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
 	TransactionAbortOnError *bool `pulumi:"transactionAbortOnError"`
-	// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+	// Specifies the isolation level for transactions in the user session. For more information, check
+	// [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
 	TransactionDefaultIsolationLevel *string `pulumi:"transactionDefaultIsolationLevel"`
-	// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+	// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+	// parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+	// represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
 	TwoDigitCenturyStart *int `pulumi:"twoDigitCenturyStart"`
-	// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+	// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+	// information, check [UNSUPPORTED_DDL_ACTION
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
 	UnsupportedDdlAction *string `pulumi:"unsupportedDdlAction"`
-	// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+	// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+	// information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
 	UseCachedResult *bool `pulumi:"useCachedResult"`
-	// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+	// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+	// which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+	// first week of the year and December 31 is included in the last week of the year. For more information, check
+	// [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
 	WeekOfYearPolicy *int `pulumi:"weekOfYearPolicy"`
-	// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+	// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+	// ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+	// day of the week. For more information, check [WEEK_START
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
 	WeekStart *int `pulumi:"weekStart"`
 }
 
 // The set of arguments for constructing a LegacyServiceUser resource.
 type LegacyServiceUserArgs struct {
-	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+	// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+	// of a session (e.g. network outage, browser termination, service interruption). For more information, check
+	// [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
 	AbortDetachedQuery pulumi.BoolPtrInput
-	// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+	// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+	// without an active transaction, is automatically committed after the statement successfully completes. For more
+	// information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+	// [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
 	Autocommit pulumi.BoolPtrInput
-	// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+	// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+	// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+	// [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
 	BinaryInputFormat pulumi.StringPtrInput
-	// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+	// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+	// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+	// [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
 	BinaryOutputFormat pulumi.StringPtrInput
-	// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+	// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+	// queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
 	ClientMemoryLimit pulumi.IntPtrInput
-	// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+	// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+	// databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+	// quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
 	ClientMetadataRequestUseConnectionCtx pulumi.BoolPtrInput
-	// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+	// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+	// attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+	// resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
 	ClientPrefetchThreads pulumi.IntPtrInput
-	// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+	// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+	// downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
 	ClientResultChunkSize pulumi.IntPtrInput
-	// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+	// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+	// information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
 	ClientResultColumnCaseInsensitive pulumi.BoolPtrInput
-	// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+	// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+	// information, check [CLIENT_SESSION_KEEP_ALIVE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
 	ClientSessionKeepAlive pulumi.BoolPtrInput
-	// Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+	// Number of seconds in-between client attempts to update the token for the session. For more information, check
+	// [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
 	ClientSessionKeepAliveHeartbeatFrequency pulumi.IntPtrInput
-	// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+	// Specifies the [TIMESTAMP_*
+	// variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+	// use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+	// information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
 	ClientTimestampTypeMapping pulumi.StringPtrInput
 	// Specifies a comment for the user.
 	Comment pulumi.StringPtrInput
-	// Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+	// Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
 	DateInputFormat pulumi.StringPtrInput
-	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+	// Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
 	DateOutputFormat pulumi.StringPtrInput
 	DaysToExpiry     pulumi.IntPtrInput
-	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
+	// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+	// login. Note that the CREATE USER operation does not verify that the namespace exists.
 	DefaultNamespace pulumi.StringPtrInput
-	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
+	// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role
+	// for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT
+	// ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does
+	// not verify that the role exists. For more information about this resource, see docs.
 	DefaultRole pulumi.StringPtrInput
-	// (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+	// Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive):
+	// `DEFAULT` | `NONE` | `ALL`. More information can be found in
+	// [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
 	DefaultSecondaryRolesOption pulumi.StringPtrInput
-	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+	// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER
+	// operation does not verify that the warehouse exists. For more information about this resource, see docs.
 	DefaultWarehouse pulumi.StringPtrInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the
+	// user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+	// "default" there which means to use the Snowflake default for this value.
 	Disabled pulumi.StringPtrInput
 	// Name displayed for the user in the Snowflake web interface.
 	DisplayName pulumi.StringPtrInput
 	// Email address for the user.
 	Email pulumi.StringPtrInput
-	// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+	// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+	// the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+	// support the values in the output columns of the unload SQL statement or source table). For more information, check
+	// [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
 	EnableUnloadPhysicalTypeOptimization pulumi.BoolPtrInput
-	// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+	// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content
+	// of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role
+	// that is granted or inherits the AUDIT privilege can set the ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR parameter. When using
+	// the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the
+	// query text, not the user who executed the query (if those are different users). For more information, check
+	// [ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
 	EnableUnredactedQuerySyntaxError pulumi.BoolPtrInput
-	// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+	// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+	// used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+	// perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
 	ErrorOnNondeterministicMerge pulumi.BoolPtrInput
-	// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+	// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+	// is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+	// the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
 	ErrorOnNondeterministicUpdate pulumi.BoolPtrInput
-	// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+	// Display format for [GEOGRAPHY
+	// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+	// information, check [GEOGRAPHY_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
 	GeographyOutputFormat pulumi.StringPtrInput
-	// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+	// Display format for [GEOMETRY
+	// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+	// information, check [GEOMETRY_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
 	GeometryOutputFormat pulumi.StringPtrInput
-	// Specifies how JDBC processes columns that have a scale of zero (0). For more information, check [JDBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
+	// Specifies how JDBC processes columns that have a scale of zero (0). For more information, check
+	// [JDBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
 	JdbcTreatDecimalAsInt pulumi.BoolPtrInput
-	// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+	// Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
 	JdbcTreatTimestampNtzAsUtc pulumi.BoolPtrInput
-	// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+	// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+	// [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+	// getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
 	JdbcUseSessionTimezone pulumi.BoolPtrInput
-	// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+	// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+	// insert newline characters after each element. For more information, check [JSON_INDENT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
 	JsonIndent pulumi.IntPtrInput
-	// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+	// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+	// information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
 	LockTimeout pulumi.IntPtrInput
-	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+	// at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+	// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+	// [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringPtrInput
 	// The name users use to log in. If not supplied, snowflake will use name instead. Login names are always case-insensitive.
 	LoginName    pulumi.StringPtrInput
 	MinsToUnlock pulumi.IntPtrInput
-	// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+	// Number of statements to execute when using the multi-statement capability. For more information, check
+	// [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
 	MultiStatementCount pulumi.IntPtrInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+	// the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will
+	// put "default" there which means to use the Snowflake default for this value.
 	MustChangePassword pulumi.StringPtrInput
-	// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Name of the user. Note that if you do not supply loginName this will be used as login_name. Check the
+	// [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
+	// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account
+	// based on users’ IP address. For more details, see [Controlling network traffic with network
+	// policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE
+	// NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check
+	// [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
 	NetworkPolicy pulumi.StringPtrInput
-	// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+	// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+	// column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+	// auto-incremented column in [increasing or decreasing
+	// order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+	// more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
 	NoorderSequenceAsDefault pulumi.BoolPtrInput
-	// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+	// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+	// [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
 	OdbcTreatDecimalAsInt pulumi.BoolPtrInput
 	Password              pulumi.StringPtrInput
-	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
+	// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO
+	// <location>](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check
+	// [PREVENT_UNLOAD_TO_INTERNAL_STAGES
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
 	PreventUnloadToInternalStages pulumi.BoolPtrInput
-	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+	// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+	// displayed in the output of the [QUERY_HISTORY,
+	// QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+	// information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
 	QueryTag pulumi.StringPtrInput
-	// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+	// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+	// Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+	// [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+	// You can use this parameter in situations in which [third-party applications always use double quotes around
+	// identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+	// more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
 	QuotedIdentifiersIgnoreCase pulumi.BoolPtrInput
-	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+	// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+	// check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
 	RowsPerResultset pulumi.IntPtrInput
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey pulumi.StringPtrInput
-	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrInput
-	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+	// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+	// PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+	// use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+	// endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+	// For more information, check [S3_STAGE_VPCE_DNS_NAME
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
 	S3StageVpceDnsName pulumi.StringPtrInput
-	// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+	// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+	// in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+	// Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+	// information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
 	SearchPath pulumi.StringPtrInput
-	// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, see [Introduction to Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
+	// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure
+	// views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer
+	// account rather than the provider account. For more information, see [Introduction to Secure Data
+	// Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with
+	// shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check
+	// [SIMULATED_DATA_SHARING_CONSUMER
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
 	SimulatedDataSharingConsumer pulumi.StringPtrInput
-	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+	// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+	// by the system. This parameter can be used in conjunction with the
+	// [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+	// ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 	StatementQueuedTimeoutInSeconds pulumi.IntPtrInput
-	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+	// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+	// more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 	StatementTimeoutInSeconds pulumi.IntPtrInput
-	// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+	// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+	// [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+	// these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+	// languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+	// check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
 	StrictJsonOutput pulumi.BoolPtrInput
-	// Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+	// Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+	// (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+	// session). For more information, check [TIME_INPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
 	TimeInputFormat pulumi.StringPtrInput
-	// Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+	// Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
 	TimeOutputFormat pulumi.StringPtrInput
-	// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+	// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+	// aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+	// check [TIMESTAMP_DAY_IS_ALWAYS_24H
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
 	TimestampDayIsAlways24h pulumi.BoolPtrInput
-	// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+	// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+	// AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+	// during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
 	TimestampInputFormat pulumi.StringPtrInput
-	// Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+	// Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+	// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+	// more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
 	TimestampLtzOutputFormat pulumi.StringPtrInput
-	// Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+	// Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
 	TimestampNtzOutputFormat pulumi.StringPtrInput
-	// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+	// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+	// output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
 	TimestampOutputFormat pulumi.StringPtrInput
-	// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+	// Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+	// [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
 	TimestampTypeMapping pulumi.StringPtrInput
-	// Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+	// Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+	// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+	// more information, see [Date and time input and output
+	// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+	// [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
 	TimestampTzOutputFormat pulumi.StringPtrInput
-	// Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+	// Specifies the time zone for the session. You can specify a [time zone
+	// name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+	// name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+	// Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+	// information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
 	Timezone pulumi.StringPtrInput
-	// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+	// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+	// [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel pulumi.StringPtrInput
-	// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+	// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+	// more information, check [TRANSACTION_ABORT_ON_ERROR
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
 	TransactionAbortOnError pulumi.BoolPtrInput
-	// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+	// Specifies the isolation level for transactions in the user session. For more information, check
+	// [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
 	TransactionDefaultIsolationLevel pulumi.StringPtrInput
-	// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+	// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+	// parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+	// represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
 	TwoDigitCenturyStart pulumi.IntPtrInput
-	// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+	// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+	// information, check [UNSUPPORTED_DDL_ACTION
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
 	UnsupportedDdlAction pulumi.StringPtrInput
-	// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+	// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+	// information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
 	UseCachedResult pulumi.BoolPtrInput
-	// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+	// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+	// which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+	// first week of the year and December 31 is included in the last week of the year. For more information, check
+	// [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
 	WeekOfYearPolicy pulumi.IntPtrInput
-	// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+	// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+	// ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+	// day of the week. For more information, check [WEEK_START
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
 	WeekStart pulumi.IntPtrInput
 }
 
@@ -920,62 +1791,91 @@ func (o LegacyServiceUserOutput) ToLegacyServiceUserOutputWithContext(ctx contex
 	return o
 }
 
-// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+// of a session (e.g. network outage, browser termination, service interruption). For more information, check
+// [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
 func (o LegacyServiceUserOutput) AbortDetachedQuery() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.AbortDetachedQuery }).(pulumi.BoolOutput)
 }
 
-// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+// without an active transaction, is automatically committed after the statement successfully completes. For more
+// information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+// [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
 func (o LegacyServiceUserOutput) Autocommit() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.Autocommit }).(pulumi.BoolOutput)
 }
 
-// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+// [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
 func (o LegacyServiceUserOutput) BinaryInputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.BinaryInputFormat }).(pulumi.StringOutput)
 }
 
-// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+// [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
 func (o LegacyServiceUserOutput) BinaryOutputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.BinaryOutputFormat }).(pulumi.StringOutput)
 }
 
-// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+// queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
 func (o LegacyServiceUserOutput) ClientMemoryLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntOutput { return v.ClientMemoryLimit }).(pulumi.IntOutput)
 }
 
-// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+// databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+// quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
 func (o LegacyServiceUserOutput) ClientMetadataRequestUseConnectionCtx() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.ClientMetadataRequestUseConnectionCtx }).(pulumi.BoolOutput)
 }
 
-// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+// attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+// resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
 func (o LegacyServiceUserOutput) ClientPrefetchThreads() pulumi.IntOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntOutput { return v.ClientPrefetchThreads }).(pulumi.IntOutput)
 }
 
-// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+// downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
 func (o LegacyServiceUserOutput) ClientResultChunkSize() pulumi.IntOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntOutput { return v.ClientResultChunkSize }).(pulumi.IntOutput)
 }
 
-// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+// information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
 func (o LegacyServiceUserOutput) ClientResultColumnCaseInsensitive() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.ClientResultColumnCaseInsensitive }).(pulumi.BoolOutput)
 }
 
-// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+// information, check [CLIENT_SESSION_KEEP_ALIVE
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
 func (o LegacyServiceUserOutput) ClientSessionKeepAlive() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.ClientSessionKeepAlive }).(pulumi.BoolOutput)
 }
 
-// Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+// Number of seconds in-between client attempts to update the token for the session. For more information, check
+// [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
 func (o LegacyServiceUserOutput) ClientSessionKeepAliveHeartbeatFrequency() pulumi.IntOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntOutput { return v.ClientSessionKeepAliveHeartbeatFrequency }).(pulumi.IntOutput)
 }
 
-// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+// Specifies the [TIMESTAMP_*
+// variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+// use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+// information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
 func (o LegacyServiceUserOutput) ClientTimestampTypeMapping() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.ClientTimestampTypeMapping }).(pulumi.StringOutput)
 }
@@ -985,12 +1885,16 @@ func (o LegacyServiceUserOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+// Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+// [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
 func (o LegacyServiceUserOutput) DateInputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.DateInputFormat }).(pulumi.StringOutput)
 }
 
-// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+// Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+// [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
 func (o LegacyServiceUserOutput) DateOutputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.DateOutputFormat }).(pulumi.StringOutput)
 }
@@ -999,27 +1903,36 @@ func (o LegacyServiceUserOutput) DaysToExpiry() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntPtrOutput { return v.DaysToExpiry }).(pulumi.IntPtrOutput)
 }
 
-// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
+// Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
+// login. Note that the CREATE USER operation does not verify that the namespace exists.
 func (o LegacyServiceUserOutput) DefaultNamespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.DefaultNamespace }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
+// Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role
+// for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT
+// ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does
+// not verify that the role exists. For more information about this resource, see docs.
 func (o LegacyServiceUserOutput) DefaultRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.DefaultRole }).(pulumi.StringPtrOutput)
 }
 
-// (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+// Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive):
+// `DEFAULT` | `NONE` | `ALL`. More information can be found in
+// [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
 func (o LegacyServiceUserOutput) DefaultSecondaryRolesOption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.DefaultSecondaryRolesOption }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
+// Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER
+// operation does not verify that the warehouse exists. For more information about this resource, see docs.
 func (o LegacyServiceUserOutput) DefaultWarehouse() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.DefaultWarehouse }).(pulumi.StringPtrOutput)
 }
 
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+// Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the
+// user. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+// "default" there which means to use the Snowflake default for this value.
 func (o LegacyServiceUserOutput) Disabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.Disabled }).(pulumi.StringPtrOutput)
 }
@@ -1034,67 +1947,101 @@ func (o LegacyServiceUserOutput) Email() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.Email }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+// the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+// support the values in the output columns of the unload SQL statement or source table). For more information, check
+// [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
 func (o LegacyServiceUserOutput) EnableUnloadPhysicalTypeOptimization() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.EnableUnloadPhysicalTypeOptimization }).(pulumi.BoolOutput)
 }
 
-// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+// Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content
+// of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role
+// that is granted or inherits the AUDIT privilege can set the ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR parameter. When using
+// the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the
+// query text, not the user who executed the query (if those are different users). For more information, check
+// [ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
 func (o LegacyServiceUserOutput) EnableUnredactedQuerySyntaxError() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.EnableUnredactedQuerySyntaxError }).(pulumi.BoolOutput)
 }
 
-// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+// used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+// perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
 func (o LegacyServiceUserOutput) ErrorOnNondeterministicMerge() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.ErrorOnNondeterministicMerge }).(pulumi.BoolOutput)
 }
 
-// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+// is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+// the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
 func (o LegacyServiceUserOutput) ErrorOnNondeterministicUpdate() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.ErrorOnNondeterministicUpdate }).(pulumi.BoolOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o LegacyServiceUserOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+// Display format for [GEOGRAPHY
+// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+// information, check [GEOGRAPHY_OUTPUT_FORMAT
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
 func (o LegacyServiceUserOutput) GeographyOutputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.GeographyOutputFormat }).(pulumi.StringOutput)
 }
 
-// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+// Display format for [GEOMETRY
+// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+// information, check [GEOMETRY_OUTPUT_FORMAT
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
 func (o LegacyServiceUserOutput) GeometryOutputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.GeometryOutputFormat }).(pulumi.StringOutput)
 }
 
-// Specifies how JDBC processes columns that have a scale of zero (0). For more information, check [JDBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
+// Specifies how JDBC processes columns that have a scale of zero (0). For more information, check
+// [JDBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
 func (o LegacyServiceUserOutput) JdbcTreatDecimalAsInt() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.JdbcTreatDecimalAsInt }).(pulumi.BoolOutput)
 }
 
-// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+// Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
 func (o LegacyServiceUserOutput) JdbcTreatTimestampNtzAsUtc() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.JdbcTreatTimestampNtzAsUtc }).(pulumi.BoolOutput)
 }
 
-// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+// [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+// getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
 func (o LegacyServiceUserOutput) JdbcUseSessionTimezone() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.JdbcUseSessionTimezone }).(pulumi.BoolOutput)
 }
 
-// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+// insert newline characters after each element. For more information, check [JSON_INDENT
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
 func (o LegacyServiceUserOutput) JsonIndent() pulumi.IntOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntOutput { return v.JsonIndent }).(pulumi.IntOutput)
 }
 
-// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+// information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
 func (o LegacyServiceUserOutput) LockTimeout() pulumi.IntOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntOutput { return v.LockTimeout }).(pulumi.IntOutput)
 }
 
-// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+// at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+// [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 func (o LegacyServiceUserOutput) LogLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.LogLevel }).(pulumi.StringOutput)
 }
@@ -1108,32 +2055,47 @@ func (o LegacyServiceUserOutput) MinsToUnlock() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntPtrOutput { return v.MinsToUnlock }).(pulumi.IntPtrOutput)
 }
 
-// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+// Number of statements to execute when using the multi-statement capability. For more information, check
+// [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
 func (o LegacyServiceUserOutput) MultiStatementCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntOutput { return v.MultiStatementCount }).(pulumi.IntOutput)
 }
 
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+// Specifies whether the user is forced to change their password on next login (including their first/initial login) into
+// the system. Available options are: "true" or "false". When the value is not set in the configuration the provider will
+// put "default" there which means to use the Snowflake default for this value.
 func (o LegacyServiceUserOutput) MustChangePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.MustChangePassword }).(pulumi.StringPtrOutput)
 }
 
-// Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// Name of the user. Note that if you do not supply loginName this will be used as login_name. Check the
+// [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical
+// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o LegacyServiceUserOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
+// Specifies the network policy to enforce for your account. Network policies enable restricting access to your account
+// based on users’ IP address. For more details, see [Controlling network traffic with network
+// policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE
+// NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check
+// [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
 func (o LegacyServiceUserOutput) NetworkPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.NetworkPolicy }).(pulumi.StringOutput)
 }
 
-// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+// column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+// auto-incremented column in [increasing or decreasing
+// order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+// more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
 func (o LegacyServiceUserOutput) NoorderSequenceAsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.NoorderSequenceAsDefault }).(pulumi.BoolOutput)
 }
 
-// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+// [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
 func (o LegacyServiceUserOutput) OdbcTreatDecimalAsInt() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.OdbcTreatDecimalAsInt }).(pulumi.BoolOutput)
 }
@@ -1147,22 +2109,35 @@ func (o LegacyServiceUserOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
+// Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO
+// <location>](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check
+// [PREVENT_UNLOAD_TO_INTERNAL_STAGES
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
 func (o LegacyServiceUserOutput) PreventUnloadToInternalStages() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.PreventUnloadToInternalStages }).(pulumi.BoolOutput)
 }
 
-// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+// displayed in the output of the [QUERY_HISTORY,
+// QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+// information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
 func (o LegacyServiceUserOutput) QueryTag() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.QueryTag }).(pulumi.StringOutput)
 }
 
-// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+// Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+// [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+// You can use this parameter in situations in which [third-party applications always use double quotes around
+// identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+// more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
 func (o LegacyServiceUserOutput) QuotedIdentifiersIgnoreCase() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.QuotedIdentifiersIgnoreCase }).(pulumi.BoolOutput)
 }
 
-// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+// check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
 func (o LegacyServiceUserOutput) RowsPerResultset() pulumi.IntOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntOutput { return v.RowsPerResultset }).(pulumi.IntOutput)
 }
@@ -1172,17 +2147,26 @@ func (o LegacyServiceUserOutput) RsaPublicKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.RsaPublicKey }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+// Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
+// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 func (o LegacyServiceUserOutput) RsaPublicKey2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringPtrOutput { return v.RsaPublicKey2 }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+// PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+// use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+// endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+// For more information, check [S3_STAGE_VPCE_DNS_NAME
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
 func (o LegacyServiceUserOutput) S3StageVpceDnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.S3StageVpceDnsName }).(pulumi.StringOutput)
 }
 
-// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+// in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+// Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+// information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
 func (o LegacyServiceUserOutput) SearchPath() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.SearchPath }).(pulumi.StringOutput)
 }
@@ -1192,102 +2176,159 @@ func (o LegacyServiceUserOutput) ShowOutputs() LegacyServiceUserShowOutputArrayO
 	return o.ApplyT(func(v *LegacyServiceUser) LegacyServiceUserShowOutputArrayOutput { return v.ShowOutputs }).(LegacyServiceUserShowOutputArrayOutput)
 }
 
-// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, see [Introduction to Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
+// Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure
+// views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer
+// account rather than the provider account. For more information, see [Introduction to Secure Data
+// Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with
+// shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check
+// [SIMULATED_DATA_SHARING_CONSUMER
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
 func (o LegacyServiceUserOutput) SimulatedDataSharingConsumer() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.SimulatedDataSharingConsumer }).(pulumi.StringOutput)
 }
 
-// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+// by the system. This parameter can be used in conjunction with the
+// [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+// ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
 func (o LegacyServiceUserOutput) StatementQueuedTimeoutInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntOutput { return v.StatementQueuedTimeoutInSeconds }).(pulumi.IntOutput)
 }
 
-// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+// more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
 func (o LegacyServiceUserOutput) StatementTimeoutInSeconds() pulumi.IntOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntOutput { return v.StatementTimeoutInSeconds }).(pulumi.IntOutput)
 }
 
-// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+// [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+// these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+// languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+// check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
 func (o LegacyServiceUserOutput) StrictJsonOutput() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.StrictJsonOutput }).(pulumi.BoolOutput)
 }
 
-// Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+// Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+// (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+// session). For more information, check [TIME_INPUT_FORMAT
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
 func (o LegacyServiceUserOutput) TimeInputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.TimeInputFormat }).(pulumi.StringOutput)
 }
 
-// Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+// Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+// [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
 func (o LegacyServiceUserOutput) TimeOutputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.TimeOutputFormat }).(pulumi.StringOutput)
 }
 
-// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+// aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+// check [TIMESTAMP_DAY_IS_ALWAYS_24H
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
 func (o LegacyServiceUserOutput) TimestampDayIsAlways24h() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.TimestampDayIsAlways24h }).(pulumi.BoolOutput)
 }
 
-// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+// AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+// during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
 func (o LegacyServiceUserOutput) TimestampInputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.TimestampInputFormat }).(pulumi.StringOutput)
 }
 
-// Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+// Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+// more information, see [Date and time input and output
+// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+// [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
 func (o LegacyServiceUserOutput) TimestampLtzOutputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.TimestampLtzOutputFormat }).(pulumi.StringOutput)
 }
 
-// Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+// Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
 func (o LegacyServiceUserOutput) TimestampNtzOutputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.TimestampNtzOutputFormat }).(pulumi.StringOutput)
 }
 
-// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+// output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+// [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
 func (o LegacyServiceUserOutput) TimestampOutputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.TimestampOutputFormat }).(pulumi.StringOutput)
 }
 
-// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+// Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+// [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
 func (o LegacyServiceUserOutput) TimestampTypeMapping() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.TimestampTypeMapping }).(pulumi.StringOutput)
 }
 
-// Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+// Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+// more information, see [Date and time input and output
+// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+// [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
 func (o LegacyServiceUserOutput) TimestampTzOutputFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.TimestampTzOutputFormat }).(pulumi.StringOutput)
 }
 
-// Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+// Specifies the time zone for the session. You can specify a [time zone
+// name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+// name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+// Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+// information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
 func (o LegacyServiceUserOutput) Timezone() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.Timezone }).(pulumi.StringOutput)
 }
 
-// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+// [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 func (o LegacyServiceUserOutput) TraceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.TraceLevel }).(pulumi.StringOutput)
 }
 
-// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+// more information, check [TRANSACTION_ABORT_ON_ERROR
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
 func (o LegacyServiceUserOutput) TransactionAbortOnError() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.TransactionAbortOnError }).(pulumi.BoolOutput)
 }
 
-// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+// Specifies the isolation level for transactions in the user session. For more information, check
+// [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
 func (o LegacyServiceUserOutput) TransactionDefaultIsolationLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.TransactionDefaultIsolationLevel }).(pulumi.StringOutput)
 }
 
-// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+// parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+// represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
 func (o LegacyServiceUserOutput) TwoDigitCenturyStart() pulumi.IntOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntOutput { return v.TwoDigitCenturyStart }).(pulumi.IntOutput)
 }
 
-// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+// information, check [UNSUPPORTED_DDL_ACTION
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
 func (o LegacyServiceUserOutput) UnsupportedDdlAction() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.UnsupportedDdlAction }).(pulumi.StringOutput)
 }
 
-// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+// information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
 func (o LegacyServiceUserOutput) UseCachedResult() pulumi.BoolOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.BoolOutput { return v.UseCachedResult }).(pulumi.BoolOutput)
 }
@@ -1297,12 +2338,18 @@ func (o LegacyServiceUserOutput) UserType() pulumi.StringOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.StringOutput { return v.UserType }).(pulumi.StringOutput)
 }
 
-// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+// which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+// first week of the year and December 31 is included in the last week of the year. For more information, check
+// [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
 func (o LegacyServiceUserOutput) WeekOfYearPolicy() pulumi.IntOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntOutput { return v.WeekOfYearPolicy }).(pulumi.IntOutput)
 }
 
-// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+// ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+// day of the week. For more information, check [WEEK_START
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
 func (o LegacyServiceUserOutput) WeekStart() pulumi.IntOutput {
 	return o.ApplyT(func(v *LegacyServiceUser) pulumi.IntOutput { return v.WeekStart }).(pulumi.IntOutput)
 }

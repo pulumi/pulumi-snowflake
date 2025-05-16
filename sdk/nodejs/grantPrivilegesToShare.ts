@@ -4,15 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Import
- *
- * ### OnView
- *
- * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare example '<share_name>|<privileges>|OnView|<database_name>.<schema_name>.<view_name>'`
- * ```
- */
 export class GrantPrivilegesToShare extends pulumi.CustomResource {
     /**
      * Get an existing GrantPrivilegesToShare resource's state with the given name, ID, and optional extra
@@ -46,7 +37,8 @@ export class GrantPrivilegesToShare extends pulumi.CustomResource {
      */
     public readonly onAllTablesInSchema!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+     * see docs.
      */
     public readonly onDatabase!: pulumi.Output<string | undefined>;
     /**
@@ -54,27 +46,33 @@ export class GrantPrivilegesToShare extends pulumi.CustomResource {
      */
     public readonly onFunction!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+     * see docs.
      */
     public readonly onSchema!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+     * docs.
      */
     public readonly onTable!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+     * docs.
      */
     public readonly onTag!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+     * docs.
      */
     public readonly onView!: pulumi.Output<string | undefined>;
     /**
-     * The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+     * The privileges to grant on the share. See available list of privileges:
+     * https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
      */
     public readonly privileges!: pulumi.Output<string[]>;
     /**
-     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+     * docs.
      */
     public readonly toShare!: pulumi.Output<string>;
 
@@ -132,7 +130,8 @@ export interface GrantPrivilegesToShareState {
      */
     onAllTablesInSchema?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+     * see docs.
      */
     onDatabase?: pulumi.Input<string>;
     /**
@@ -140,27 +139,33 @@ export interface GrantPrivilegesToShareState {
      */
     onFunction?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+     * see docs.
      */
     onSchema?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+     * docs.
      */
     onTable?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+     * docs.
      */
     onTag?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+     * docs.
      */
     onView?: pulumi.Input<string>;
     /**
-     * The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+     * The privileges to grant on the share. See available list of privileges:
+     * https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
      */
     privileges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+     * docs.
      */
     toShare?: pulumi.Input<string>;
 }
@@ -174,7 +179,8 @@ export interface GrantPrivilegesToShareArgs {
      */
     onAllTablesInSchema?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+     * see docs.
      */
     onDatabase?: pulumi.Input<string>;
     /**
@@ -182,27 +188,33 @@ export interface GrantPrivilegesToShareArgs {
      */
     onFunction?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+     * see docs.
      */
     onSchema?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+     * docs.
      */
     onTable?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+     * docs.
      */
     onTag?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+     * docs.
      */
     onView?: pulumi.Input<string>;
     /**
-     * The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+     * The privileges to grant on the share. See available list of privileges:
+     * https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
      */
     privileges: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+     * docs.
      */
     toShare: pulumi.Input<string>;
 }

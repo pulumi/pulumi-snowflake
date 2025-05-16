@@ -7,13 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-//
-// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetSystemGetSnowflakePlatformInfo(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetSystemGetSnowflakePlatformInfoResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSystemGetSnowflakePlatformInfoResult
@@ -26,9 +23,7 @@ func GetSystemGetSnowflakePlatformInfo(ctx *pulumi.Context, opts ...pulumi.Invok
 
 // A collection of values returned by getSystemGetSnowflakePlatformInfo.
 type GetSystemGetSnowflakePlatformInfoResult struct {
-	// Snowflake AWS Virtual Private Cloud IDs
-	AwsVpcIds []string `pulumi:"awsVpcIds"`
-	// Snowflake Azure Virtual Network Subnet IDs
+	AwsVpcIds          []string `pulumi:"awsVpcIds"`
 	AzureVnetSubnetIds []string `pulumi:"azureVnetSubnetIds"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -56,12 +51,10 @@ func (o GetSystemGetSnowflakePlatformInfoResultOutput) ToGetSystemGetSnowflakePl
 	return o
 }
 
-// Snowflake AWS Virtual Private Cloud IDs
 func (o GetSystemGetSnowflakePlatformInfoResultOutput) AwsVpcIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSystemGetSnowflakePlatformInfoResult) []string { return v.AwsVpcIds }).(pulumi.StringArrayOutput)
 }
 
-// Snowflake Azure Virtual Network Subnet IDs
 func (o GetSystemGetSnowflakePlatformInfoResultOutput) AzureVnetSubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetSystemGetSnowflakePlatformInfoResult) []string { return v.AzureVnetSubnetIds }).(pulumi.StringArrayOutput)
 }

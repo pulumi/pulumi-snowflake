@@ -6,23 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getExternalFunctions({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
- */
 export function getExternalFunctions(args?: GetExternalFunctionsArgs, opts?: pulumi.InvokeOptions): Promise<GetExternalFunctionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -36,13 +19,7 @@ export function getExternalFunctions(args?: GetExternalFunctionsArgs, opts?: pul
  * A collection of arguments for invoking getExternalFunctions.
  */
 export interface GetExternalFunctionsArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database?: string;
-    /**
-     * The schema from which to return the external functions from.
-     */
     schema?: string;
 }
 
@@ -50,40 +27,14 @@ export interface GetExternalFunctionsArgs {
  * A collection of values returned by getExternalFunctions.
  */
 export interface GetExternalFunctionsResult {
-    /**
-     * The database from which to return the schemas from.
-     */
     readonly database?: string;
-    /**
-     * The external functions in the schema
-     */
     readonly externalFunctions: outputs.GetExternalFunctionsExternalFunction[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The schema from which to return the external functions from.
-     */
     readonly schema?: string;
 }
-/**
- * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getExternalFunctions({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
- */
 export function getExternalFunctionsOutput(args?: GetExternalFunctionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetExternalFunctionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -97,12 +48,6 @@ export function getExternalFunctionsOutput(args?: GetExternalFunctionsOutputArgs
  * A collection of arguments for invoking getExternalFunctions.
  */
 export interface GetExternalFunctionsOutputArgs {
-    /**
-     * The database from which to return the schemas from.
-     */
     database?: pulumi.Input<string>;
-    /**
-     * The schema from which to return the external functions from.
-     */
     schema?: pulumi.Input<string>;
 }

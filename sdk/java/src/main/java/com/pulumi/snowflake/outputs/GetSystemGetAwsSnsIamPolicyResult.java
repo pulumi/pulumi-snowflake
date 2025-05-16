@@ -10,15 +10,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSystemGetAwsSnsIamPolicyResult {
-    /**
-     * @return Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-     * 
-     */
     private String awsSnsTopicArn;
-    /**
-     * @return IAM policy for Snowflake’s SQS queue to subscribe to this topic
-     * 
-     */
     private String awsSnsTopicPolicyJson;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -27,17 +19,9 @@ public final class GetSystemGetAwsSnsIamPolicyResult {
     private String id;
 
     private GetSystemGetAwsSnsIamPolicyResult() {}
-    /**
-     * @return Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-     * 
-     */
     public String awsSnsTopicArn() {
         return this.awsSnsTopicArn;
     }
-    /**
-     * @return IAM policy for Snowflake’s SQS queue to subscribe to this topic
-     * 
-     */
     public String awsSnsTopicPolicyJson() {
         return this.awsSnsTopicPolicyJson;
     }

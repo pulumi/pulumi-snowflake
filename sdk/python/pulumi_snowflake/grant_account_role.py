@@ -25,9 +25,12 @@ class GrantAccountRoleArgs:
                  user_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a GrantAccountRole resource.
-        :param pulumi.Input[builtins.str] role_name: The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] user_name: The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] role_name: The fully qualified name of the role which will be granted to the user or parent role. For more information about this
+               resource, see docs.
+        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
+               information about this resource, see docs.
+        :param pulumi.Input[builtins.str] user_name: The fully qualified name of the user on which specified role will be granted. For more information about this resource,
+               see docs.
         """
         pulumi.set(__self__, "role_name", role_name)
         if parent_role_name is not None:
@@ -39,7 +42,8 @@ class GrantAccountRoleArgs:
     @pulumi.getter(name="roleName")
     def role_name(self) -> pulumi.Input[builtins.str]:
         """
-        The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
+        The fully qualified name of the role which will be granted to the user or parent role. For more information about this
+        resource, see docs.
         """
         return pulumi.get(self, "role_name")
 
@@ -51,7 +55,8 @@ class GrantAccountRoleArgs:
     @pulumi.getter(name="parentRoleName")
     def parent_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+        The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
+        information about this resource, see docs.
         """
         return pulumi.get(self, "parent_role_name")
 
@@ -63,7 +68,8 @@ class GrantAccountRoleArgs:
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
+        The fully qualified name of the user on which specified role will be granted. For more information about this resource,
+        see docs.
         """
         return pulumi.get(self, "user_name")
 
@@ -80,9 +86,12 @@ class _GrantAccountRoleState:
                  user_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering GrantAccountRole resources.
-        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] role_name: The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] user_name: The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
+               information about this resource, see docs.
+        :param pulumi.Input[builtins.str] role_name: The fully qualified name of the role which will be granted to the user or parent role. For more information about this
+               resource, see docs.
+        :param pulumi.Input[builtins.str] user_name: The fully qualified name of the user on which specified role will be granted. For more information about this resource,
+               see docs.
         """
         if parent_role_name is not None:
             pulumi.set(__self__, "parent_role_name", parent_role_name)
@@ -95,7 +104,8 @@ class _GrantAccountRoleState:
     @pulumi.getter(name="parentRoleName")
     def parent_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+        The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
+        information about this resource, see docs.
         """
         return pulumi.get(self, "parent_role_name")
 
@@ -107,7 +117,8 @@ class _GrantAccountRoleState:
     @pulumi.getter(name="roleName")
     def role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
+        The fully qualified name of the role which will be granted to the user or parent role. For more information about this
+        resource, see docs.
         """
         return pulumi.get(self, "role_name")
 
@@ -119,7 +130,8 @@ class _GrantAccountRoleState:
     @pulumi.getter(name="userName")
     def user_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
+        The fully qualified name of the user on which specified role will be granted. For more information about this resource,
+        see docs.
         """
         return pulumi.get(self, "user_name")
 
@@ -139,19 +151,15 @@ class GrantAccountRole(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)
-
-        ```sh
-        $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole example '"test_role"|ROLE|"test_parent_role"'
-        ```
-
+        Create a GrantAccountRole resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] role_name: The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] user_name: The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
+               information about this resource, see docs.
+        :param pulumi.Input[builtins.str] role_name: The fully qualified name of the role which will be granted to the user or parent role. For more information about this
+               resource, see docs.
+        :param pulumi.Input[builtins.str] user_name: The fully qualified name of the user on which specified role will be granted. For more information about this resource,
+               see docs.
         """
         ...
     @overload
@@ -160,14 +168,7 @@ class GrantAccountRole(pulumi.CustomResource):
                  args: GrantAccountRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)
-
-        ```sh
-        $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole example '"test_role"|ROLE|"test_parent_role"'
-        ```
-
+        Create a GrantAccountRole resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GrantAccountRoleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -220,9 +221,12 @@ class GrantAccountRole(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] role_name: The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] user_name: The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
+               information about this resource, see docs.
+        :param pulumi.Input[builtins.str] role_name: The fully qualified name of the role which will be granted to the user or parent role. For more information about this
+               resource, see docs.
+        :param pulumi.Input[builtins.str] user_name: The fully qualified name of the user on which specified role will be granted. For more information about this resource,
+               see docs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -237,7 +241,8 @@ class GrantAccountRole(pulumi.CustomResource):
     @pulumi.getter(name="parentRoleName")
     def parent_role_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+        The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
+        information about this resource, see docs.
         """
         return pulumi.get(self, "parent_role_name")
 
@@ -245,7 +250,8 @@ class GrantAccountRole(pulumi.CustomResource):
     @pulumi.getter(name="roleName")
     def role_name(self) -> pulumi.Output[builtins.str]:
         """
-        The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
+        The fully qualified name of the role which will be granted to the user or parent role. For more information about this
+        resource, see docs.
         """
         return pulumi.get(self, "role_name")
 
@@ -253,7 +259,8 @@ class GrantAccountRole(pulumi.CustomResource):
     @pulumi.getter(name="userName")
     def user_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
+        The fully qualified name of the user on which specified role will be granted. For more information about this resource,
+        see docs.
         """
         return pulumi.get(self, "user_name")
 

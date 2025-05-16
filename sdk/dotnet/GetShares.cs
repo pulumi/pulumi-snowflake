@@ -11,87 +11,12 @@ namespace Pulumi.Snowflake
 {
     public static class GetShares
     {
-        /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @this = Snowflake.GetShares.Invoke();
-        /// 
-        ///     var ad = Snowflake.GetShares.Invoke(new()
-        ///     {
-        ///         Pattern = "usage",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
-        /// </summary>
         public static Task<GetSharesResult> InvokeAsync(GetSharesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSharesResult>("snowflake:index/getShares:getShares", args ?? new GetSharesArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @this = Snowflake.GetShares.Invoke();
-        /// 
-        ///     var ad = Snowflake.GetShares.Invoke(new()
-        ///     {
-        ///         Pattern = "usage",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
-        /// </summary>
         public static Output<GetSharesResult> Invoke(GetSharesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharesResult>("snowflake:index/getShares:getShares", args ?? new GetSharesInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-        /// 
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var @this = Snowflake.GetShares.Invoke();
-        /// 
-        ///     var ad = Snowflake.GetShares.Invoke(new()
-        ///     {
-        ///         Pattern = "usage",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
-        /// </summary>
         public static Output<GetSharesResult> Invoke(GetSharesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSharesResult>("snowflake:index/getShares:getShares", args ?? new GetSharesInvokeArgs(), options.WithDefaults());
     }
@@ -99,9 +24,6 @@ namespace Pulumi.Snowflake
 
     public sealed class GetSharesArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filters the command output by object name.
-        /// </summary>
         [Input("pattern")]
         public string? Pattern { get; set; }
 
@@ -113,9 +35,6 @@ namespace Pulumi.Snowflake
 
     public sealed class GetSharesInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filters the command output by object name.
-        /// </summary>
         [Input("pattern")]
         public Input<string>? Pattern { get; set; }
 
@@ -133,13 +52,7 @@ namespace Pulumi.Snowflake
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Filters the command output by object name.
-        /// </summary>
         public readonly string? Pattern;
-        /// <summary>
-        /// List of all the shares available in the system.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetSharesShareResult> Shares;
 
         [OutputConstructor]

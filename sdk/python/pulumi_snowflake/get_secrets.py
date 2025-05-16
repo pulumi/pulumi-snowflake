@@ -57,33 +57,21 @@ class GetSecretsResult:
     @property
     @pulumi.getter(name="in")
     def in_(self) -> Optional['outputs.GetSecretsInResult']:
-        """
-        IN clause to filter the list of secrets
-        """
         return pulumi.get(self, "in_")
 
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
-        """
-        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter
     def secrets(self) -> Sequence['outputs.GetSecretsSecretResult']:
-        """
-        Holds the aggregated output of all secrets details queries.
-        """
         return pulumi.get(self, "secrets")
 
     @property
     @pulumi.getter(name="withDescribe")
     def with_describe(self) -> Optional[builtins.bool]:
-        """
-        (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
-        """
         return pulumi.get(self, "with_describe")
 
 
@@ -105,39 +93,7 @@ def get_secrets(in_: Optional[Union['GetSecretsInArgs', 'GetSecretsInArgsDict']]
                 with_describe: Optional[builtins.bool] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretsResult:
     """
-    Data source used to get details of filtered secrets. Filtering is aligned with the current possibilities for [SHOW SECRETS](https://docs.snowflake.com/en/sql-reference/sql/show-secrets) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `secrets`.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    # Simple usage
-    simple = snowflake.get_secrets()
-    pulumi.export("simpleOutput", simple.secrets)
-    # Filtering (like)
-    like = snowflake.get_secrets(like="secret-name")
-    pulumi.export("likeOutput", like.secrets)
-    # Filtering by prefix (like)
-    like_prefix = snowflake.get_secrets(like="prefix%")
-    pulumi.export("likePrefixOutput", like_prefix.secrets)
-    # Filtering (in)
-    in_ = snowflake.get_secrets(in_={
-        "schema": test["fullyQualifiedName"],
-    })
-    pulumi.export("inOutput", in_.secrets)
-    # Without additional data (to limit the number of calls make for every found secret)
-    only_show = snowflake.get_secrets(with_describe=False)
-    pulumi.export("onlyShowOutput", only_show.secrets)
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
-
-
-    :param Union['GetSecretsInArgs', 'GetSecretsInArgsDict'] in_: IN clause to filter the list of secrets
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param builtins.bool with_describe: (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['in'] = in_
@@ -157,39 +113,7 @@ def get_secrets_output(in_: Optional[pulumi.Input[Optional[Union['GetSecretsInAr
                        with_describe: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretsResult]:
     """
-    Data source used to get details of filtered secrets. Filtering is aligned with the current possibilities for [SHOW SECRETS](https://docs.snowflake.com/en/sql-reference/sql/show-secrets) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `secrets`.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    # Simple usage
-    simple = snowflake.get_secrets()
-    pulumi.export("simpleOutput", simple.secrets)
-    # Filtering (like)
-    like = snowflake.get_secrets(like="secret-name")
-    pulumi.export("likeOutput", like.secrets)
-    # Filtering by prefix (like)
-    like_prefix = snowflake.get_secrets(like="prefix%")
-    pulumi.export("likePrefixOutput", like_prefix.secrets)
-    # Filtering (in)
-    in_ = snowflake.get_secrets(in_={
-        "schema": test["fullyQualifiedName"],
-    })
-    pulumi.export("inOutput", in_.secrets)
-    # Without additional data (to limit the number of calls make for every found secret)
-    only_show = snowflake.get_secrets(with_describe=False)
-    pulumi.export("onlyShowOutput", only_show.secrets)
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
-
-
-    :param Union['GetSecretsInArgs', 'GetSecretsInArgsDict'] in_: IN clause to filter the list of secrets
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param builtins.bool with_describe: (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['in'] = in_

@@ -9,13 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/tableConstraint:TableConstraint")]
     public partial class TableConstraint : global::Pulumi.CustomResource
     {
@@ -32,19 +25,19 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `true`) Whether the constraint is deferrable
+        /// Whether the constraint is deferrable
         /// </summary>
         [Output("deferrable")]
         public Output<bool?> Deferrable { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+        /// Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         /// </summary>
         [Output("enable")]
         public Output<bool?> Enable { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Whether the constraint is enforced
+        /// Whether the constraint is enforced
         /// </summary>
         [Output("enforced")]
         public Output<bool?> Enforced { get; private set; } = null!;
@@ -56,7 +49,7 @@ namespace Pulumi.Snowflake
         public Output<Outputs.TableConstraintForeignKeyProperties?> ForeignKeyProperties { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
+        /// Whether the constraint is initially deferred or immediate
         /// </summary>
         [Output("initially")]
         public Output<string?> Initially { get; private set; } = null!;
@@ -68,13 +61,15 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+        /// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         /// </summary>
         [Output("rely")]
         public Output<bool?> Rely { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier for table to create constraint on. Format must follow: "\"&amp;lt;db*name&amp;gt;\".\"&amp;lt;schema*name&amp;gt;\".\"&amp;lt;table*name&amp;gt;\"" or "&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;" (snowflake*table.my*table.id)
+        /// Identifier for table to create constraint on. Format must follow:
+        /// "\"&amp;lt;db_name&amp;gt;\".\"&amp;lt;schema_name&amp;gt;\".\"&amp;lt;table_name&amp;gt;\"" or
+        /// "&amp;lt;db_name&amp;gt;.&amp;lt;schema_name&amp;gt;.&amp;lt;table_name&amp;gt;" (snowflake_table.my_table.id)
         /// </summary>
         [Output("tableId")]
         public Output<string> TableId { get; private set; } = null!;
@@ -86,7 +81,8 @@ namespace Pulumi.Snowflake
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+        /// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the
+        /// ENABLE property.
         /// </summary>
         [Output("validate")]
         public Output<bool?> Validate { get; private set; } = null!;
@@ -156,19 +152,19 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Whether the constraint is deferrable
+        /// Whether the constraint is deferrable
         /// </summary>
         [Input("deferrable")]
         public Input<bool>? Deferrable { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+        /// Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Whether the constraint is enforced
+        /// Whether the constraint is enforced
         /// </summary>
         [Input("enforced")]
         public Input<bool>? Enforced { get; set; }
@@ -180,7 +176,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.TableConstraintForeignKeyPropertiesArgs>? ForeignKeyProperties { get; set; }
 
         /// <summary>
-        /// (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
+        /// Whether the constraint is initially deferred or immediate
         /// </summary>
         [Input("initially")]
         public Input<string>? Initially { get; set; }
@@ -192,13 +188,15 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+        /// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         /// </summary>
         [Input("rely")]
         public Input<bool>? Rely { get; set; }
 
         /// <summary>
-        /// Identifier for table to create constraint on. Format must follow: "\"&amp;lt;db*name&amp;gt;\".\"&amp;lt;schema*name&amp;gt;\".\"&amp;lt;table*name&amp;gt;\"" or "&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;" (snowflake*table.my*table.id)
+        /// Identifier for table to create constraint on. Format must follow:
+        /// "\"&amp;lt;db_name&amp;gt;\".\"&amp;lt;schema_name&amp;gt;\".\"&amp;lt;table_name&amp;gt;\"" or
+        /// "&amp;lt;db_name&amp;gt;.&amp;lt;schema_name&amp;gt;.&amp;lt;table_name&amp;gt;" (snowflake_table.my_table.id)
         /// </summary>
         [Input("tableId", required: true)]
         public Input<string> TableId { get; set; } = null!;
@@ -210,7 +208,8 @@ namespace Pulumi.Snowflake
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+        /// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the
+        /// ENABLE property.
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }
@@ -242,19 +241,19 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Whether the constraint is deferrable
+        /// Whether the constraint is deferrable
         /// </summary>
         [Input("deferrable")]
         public Input<bool>? Deferrable { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+        /// Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
         /// </summary>
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Whether the constraint is enforced
+        /// Whether the constraint is enforced
         /// </summary>
         [Input("enforced")]
         public Input<bool>? Enforced { get; set; }
@@ -266,7 +265,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.TableConstraintForeignKeyPropertiesGetArgs>? ForeignKeyProperties { get; set; }
 
         /// <summary>
-        /// (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
+        /// Whether the constraint is initially deferred or immediate
         /// </summary>
         [Input("initially")]
         public Input<string>? Initially { get; set; }
@@ -278,13 +277,15 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+        /// Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
         /// </summary>
         [Input("rely")]
         public Input<bool>? Rely { get; set; }
 
         /// <summary>
-        /// Identifier for table to create constraint on. Format must follow: "\"&amp;lt;db*name&amp;gt;\".\"&amp;lt;schema*name&amp;gt;\".\"&amp;lt;table*name&amp;gt;\"" or "&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;" (snowflake*table.my*table.id)
+        /// Identifier for table to create constraint on. Format must follow:
+        /// "\"&amp;lt;db_name&amp;gt;\".\"&amp;lt;schema_name&amp;gt;\".\"&amp;lt;table_name&amp;gt;\"" or
+        /// "&amp;lt;db_name&amp;gt;.&amp;lt;schema_name&amp;gt;.&amp;lt;table_name&amp;gt;" (snowflake_table.my_table.id)
         /// </summary>
         [Input("tableId")]
         public Input<string>? TableId { get; set; }
@@ -296,7 +297,8 @@ namespace Pulumi.Snowflake
         public Input<string>? Type { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
+        /// Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the
+        /// ENABLE property.
         /// </summary>
         [Input("validate")]
         public Input<bool>? Validate { get; set; }

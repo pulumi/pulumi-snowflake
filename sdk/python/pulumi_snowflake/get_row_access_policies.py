@@ -60,41 +60,26 @@ class GetRowAccessPoliciesResult:
     @property
     @pulumi.getter(name="in")
     def in_(self) -> Optional['outputs.GetRowAccessPoliciesInResult']:
-        """
-        IN clause to filter the list of row access policies
-        """
         return pulumi.get(self, "in_")
 
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
-        """
-        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter
     def limit(self) -> Optional['outputs.GetRowAccessPoliciesLimitResult']:
-        """
-        Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-        """
         return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter(name="rowAccessPolicies")
     def row_access_policies(self) -> Sequence['outputs.GetRowAccessPoliciesRowAccessPolicyResult']:
-        """
-        Holds the aggregated output of all views details queries.
-        """
         return pulumi.get(self, "row_access_policies")
 
     @property
     @pulumi.getter(name="withDescribe")
     def with_describe(self) -> Optional[builtins.bool]:
-        """
-        (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
-        """
         return pulumi.get(self, "with_describe")
 
 
@@ -118,13 +103,7 @@ def get_row_access_policies(in_: Optional[Union['GetRowAccessPoliciesInArgs', 'G
                             with_describe: Optional[builtins.bool] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRowAccessPoliciesResult:
     """
-    Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
-
-
-    :param Union['GetRowAccessPoliciesInArgs', 'GetRowAccessPoliciesInArgsDict'] in_: IN clause to filter the list of row access policies
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetRowAccessPoliciesLimitArgs', 'GetRowAccessPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param builtins.bool with_describe: (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['in'] = in_
@@ -147,13 +126,7 @@ def get_row_access_policies_output(in_: Optional[pulumi.Input[Optional[Union['Ge
                                    with_describe: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRowAccessPoliciesResult]:
     """
-    Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
-
-
-    :param Union['GetRowAccessPoliciesInArgs', 'GetRowAccessPoliciesInArgsDict'] in_: IN clause to filter the list of row access policies
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetRowAccessPoliciesLimitArgs', 'GetRowAccessPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param builtins.bool with_describe: (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['in'] = in_

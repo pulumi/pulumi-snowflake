@@ -28,8 +28,13 @@ class PrimaryConnectionArgs:
         """
         The set of arguments for constructing a PrimaryConnection resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the connection.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_failover_to_accounts: Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_failover_to_accounts: Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a
+               secondary connection for this primary connection can be promoted to serve as the primary connection. Include your
+               organization name for each account in the list. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+               only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique
+               across connection names and account names in the organization. Due to technical limitations (read more here), avoid
+               using the following characters: `|`, `.`, `"`.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -54,7 +59,9 @@ class PrimaryConnectionArgs:
     @pulumi.getter(name="enableFailoverToAccounts")
     def enable_failover_to_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
+        Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a
+        secondary connection for this primary connection can be promoted to serve as the primary connection. Include your
+        organization name for each account in the list. For more information about this resource, see docs.
         """
         return pulumi.get(self, "enable_failover_to_accounts")
 
@@ -66,7 +73,10 @@ class PrimaryConnectionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+        only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique
+        across connection names and account names in the organization. Due to technical limitations (read more here), avoid
+        using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -87,9 +97,15 @@ class _PrimaryConnectionState:
         """
         Input properties used for looking up and filtering PrimaryConnection resources.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the connection.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_failover_to_accounts: Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_failover_to_accounts: Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a
+               secondary connection for this primary connection can be promoted to serve as the primary connection. Include your
+               organization name for each account in the list. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+               only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique
+               across connection names and account names in the organization. Due to technical limitations (read more here), avoid
+               using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['PrimaryConnectionShowOutputArgs']]] show_outputs: Outputs the result of `SHOW CONNECTIONS` for the given connection.
         """
         if comment is not None:
@@ -121,7 +137,9 @@ class _PrimaryConnectionState:
     @pulumi.getter(name="enableFailoverToAccounts")
     def enable_failover_to_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
+        Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a
+        secondary connection for this primary connection can be promoted to serve as the primary connection. Include your
+        organization name for each account in the list. For more information about this resource, see docs.
         """
         return pulumi.get(self, "enable_failover_to_accounts")
 
@@ -133,7 +151,8 @@ class _PrimaryConnectionState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -154,7 +173,10 @@ class _PrimaryConnectionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+        only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique
+        across connection names and account names in the organization. Due to technical limitations (read more here), avoid
+        using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -186,17 +208,17 @@ class PrimaryConnection(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/primaryConnection:PrimaryConnection example '"<primary_connection_name>"'
-        ```
-
+        Create a PrimaryConnection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the connection.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_failover_to_accounts: Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_failover_to_accounts: Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a
+               secondary connection for this primary connection can be promoted to serve as the primary connection. Include your
+               organization name for each account in the list. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+               only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique
+               across connection names and account names in the organization. Due to technical limitations (read more here), avoid
+               using the following characters: `|`, `.`, `"`.
         """
         ...
     @overload
@@ -205,12 +227,7 @@ class PrimaryConnection(pulumi.CustomResource):
                  args: Optional[PrimaryConnectionArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/primaryConnection:PrimaryConnection example '"<primary_connection_name>"'
-        ```
-
+        Create a PrimaryConnection resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param PrimaryConnectionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -268,9 +285,15 @@ class PrimaryConnection(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the connection.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_failover_to_accounts: Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] enable_failover_to_accounts: Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a
+               secondary connection for this primary connection can be promoted to serve as the primary connection. Include your
+               organization name for each account in the list. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+               only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique
+               across connection names and account names in the organization. Due to technical limitations (read more here), avoid
+               using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PrimaryConnectionShowOutputArgs', 'PrimaryConnectionShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW CONNECTIONS` for the given connection.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -297,7 +320,9 @@ class PrimaryConnection(pulumi.CustomResource):
     @pulumi.getter(name="enableFailoverToAccounts")
     def enable_failover_to_accounts(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
+        Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a
+        secondary connection for this primary connection can be promoted to serve as the primary connection. Include your
+        organization name for each account in the list. For more information about this resource, see docs.
         """
         return pulumi.get(self, "enable_failover_to_accounts")
 
@@ -305,7 +330,8 @@ class PrimaryConnection(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -318,7 +344,10 @@ class PrimaryConnection(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+        only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique
+        across connection names and account names in the organization. Due to technical limitations (read more here), avoid
+        using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 

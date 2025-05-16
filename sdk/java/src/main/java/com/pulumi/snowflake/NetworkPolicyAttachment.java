@@ -16,14 +16,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment example attachment_policyname
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment")
 public class NetworkPolicyAttachment extends com.pulumi.resources.CustomResource {
     /**
@@ -40,17 +32,9 @@ public class NetworkPolicyAttachment extends com.pulumi.resources.CustomResource
     public Output<String> networkPolicyName() {
         return this.networkPolicyName;
     }
-    /**
-     * (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
-     * 
-     */
     @Export(name="setForAccount", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> setForAccount;
 
-    /**
-     * @return (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
-     * 
-     */
     public Output<Optional<Boolean>> setForAccount() {
         return Codegen.optional(this.setForAccount);
     }

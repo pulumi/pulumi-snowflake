@@ -8,15 +8,10 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ```sh
-// $ pulumi import snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials example '"<integration_name>"'
-// ```
 type ApiAuthenticationIntegrationWithClientCredentials struct {
 	pulumi.CustomResourceState
 
@@ -26,22 +21,28 @@ type ApiAuthenticationIntegrationWithClientCredentials struct {
 	DescribeOutputs ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrOutput `pulumi:"oauthAccessTokenValidity"`
-	// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
+	// the OAuth client credentials flow.
 	OauthAllowedScopes pulumi.StringArrayOutput `pulumi:"oauthAllowedScopes"`
-	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the
+	// resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod pulumi.StringPtrOutput `pulumi:"oauthClientAuthMethod"`
 	// Specifies the client ID for the OAuth application in the external service.
 	OauthClientId     pulumi.StringOutput `pulumi:"oauthClientId"`
 	OauthClientSecret pulumi.StringOutput `pulumi:"oauthClientSecret"`
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity pulumi.IntPtrOutput `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
+	// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
+	// refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
+	// access token is issued directly). If removed from the config, the resource is recreated.
 	OauthTokenEndpoint pulumi.StringPtrOutput `pulumi:"oauthTokenEndpoint"`
 	// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
 	ShowOutputs ApiAuthenticationIntegrationWithClientCredentialsShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -63,6 +64,17 @@ func NewApiAuthenticationIntegrationWithClientCredentials(ctx *pulumi.Context,
 	if args.OauthClientSecret == nil {
 		return nil, errors.New("invalid value for required argument 'OauthClientSecret'")
 	}
+	if args.OauthClientId != nil {
+		args.OauthClientId = pulumi.ToSecret(args.OauthClientId).(pulumi.StringInput)
+	}
+	if args.OauthClientSecret != nil {
+		args.OauthClientSecret = pulumi.ToSecret(args.OauthClientSecret).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"oauthClientId",
+		"oauthClientSecret",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiAuthenticationIntegrationWithClientCredentials
 	err := ctx.RegisterResource("snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials", name, args, &resource, opts...)
@@ -92,22 +104,28 @@ type apiAuthenticationIntegrationWithClientCredentialsState struct {
 	DescribeOutputs []ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput `pulumi:"describeOutputs"`
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled *bool `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity *int `pulumi:"oauthAccessTokenValidity"`
-	// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
+	// the OAuth client credentials flow.
 	OauthAllowedScopes []string `pulumi:"oauthAllowedScopes"`
-	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the
+	// resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod *string `pulumi:"oauthClientAuthMethod"`
 	// Specifies the client ID for the OAuth application in the external service.
 	OauthClientId     *string `pulumi:"oauthClientId"`
 	OauthClientSecret *string `pulumi:"oauthClientSecret"`
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
+	// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
+	// refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
+	// access token is issued directly). If removed from the config, the resource is recreated.
 	OauthTokenEndpoint *string `pulumi:"oauthTokenEndpoint"`
 	// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
 	ShowOutputs []ApiAuthenticationIntegrationWithClientCredentialsShowOutput `pulumi:"showOutputs"`
@@ -120,22 +138,28 @@ type ApiAuthenticationIntegrationWithClientCredentialsState struct {
 	DescribeOutputs ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArrayInput
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled pulumi.BoolPtrInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrInput
-	// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
+	// the OAuth client credentials flow.
 	OauthAllowedScopes pulumi.StringArrayInput
-	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the
+	// resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod pulumi.StringPtrInput
 	// Specifies the client ID for the OAuth application in the external service.
 	OauthClientId     pulumi.StringPtrInput
 	OauthClientSecret pulumi.StringPtrInput
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
-	// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
+	// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
+	// refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
+	// access token is issued directly). If removed from the config, the resource is recreated.
 	OauthTokenEndpoint pulumi.StringPtrInput
 	// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
 	ShowOutputs ApiAuthenticationIntegrationWithClientCredentialsShowOutputArrayInput
@@ -150,20 +174,25 @@ type apiAuthenticationIntegrationWithClientCredentialsArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled bool `pulumi:"enabled"`
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity *int `pulumi:"oauthAccessTokenValidity"`
-	// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
+	// the OAuth client credentials flow.
 	OauthAllowedScopes []string `pulumi:"oauthAllowedScopes"`
-	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the
+	// resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod *string `pulumi:"oauthClientAuthMethod"`
 	// Specifies the client ID for the OAuth application in the external service.
 	OauthClientId     string `pulumi:"oauthClientId"`
 	OauthClientSecret string `pulumi:"oauthClientSecret"`
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
+	// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
+	// refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
+	// access token is issued directly). If removed from the config, the resource is recreated.
 	OauthTokenEndpoint *string `pulumi:"oauthTokenEndpoint"`
 }
 
@@ -173,20 +202,25 @@ type ApiAuthenticationIntegrationWithClientCredentialsArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specifies whether this security integration is enabled or disabled.
 	Enabled pulumi.BoolInput
-	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+	// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 	OauthAccessTokenValidity pulumi.IntPtrInput
-	// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
+	// the OAuth client credentials flow.
 	OauthAllowedScopes pulumi.StringArrayInput
-	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+	// Specifies that POST is used as the authentication method to the external service. If removed from the config, the
+	// resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 	OauthClientAuthMethod pulumi.StringPtrInput
 	// Specifies the client ID for the OAuth application in the external service.
 	OauthClientId     pulumi.StringInput
 	OauthClientSecret pulumi.StringInput
 	// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
-	// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
+	// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
+	// refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
+	// access token is issued directly). If removed from the config, the resource is recreated.
 	OauthTokenEndpoint pulumi.StringPtrInput
 }
 
@@ -294,33 +328,37 @@ func (o ApiAuthenticationIntegrationWithClientCredentialsOutput) Enabled() pulum
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithClientCredentials) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o ApiAuthenticationIntegrationWithClientCredentialsOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithClientCredentials) pulumi.StringOutput {
 		return v.FullyQualifiedName
 	}).(pulumi.StringOutput)
 }
 
-// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
+// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ApiAuthenticationIntegrationWithClientCredentialsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithClientCredentials) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
 func (o ApiAuthenticationIntegrationWithClientCredentialsOutput) OauthAccessTokenValidity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithClientCredentials) pulumi.IntPtrOutput {
 		return v.OauthAccessTokenValidity
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
+// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
+// the OAuth client credentials flow.
 func (o ApiAuthenticationIntegrationWithClientCredentialsOutput) OauthAllowedScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithClientCredentials) pulumi.StringArrayOutput {
 		return v.OauthAllowedScopes
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+// Specifies that POST is used as the authentication method to the external service. If removed from the config, the
+// resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
 func (o ApiAuthenticationIntegrationWithClientCredentialsOutput) OauthClientAuthMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithClientCredentials) pulumi.StringPtrOutput {
 		return v.OauthClientAuthMethod
@@ -345,7 +383,9 @@ func (o ApiAuthenticationIntegrationWithClientCredentialsOutput) OauthRefreshTok
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
+// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
+// refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
+// access token is issued directly). If removed from the config, the resource is recreated.
 func (o ApiAuthenticationIntegrationWithClientCredentialsOutput) OauthTokenEndpoint() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApiAuthenticationIntegrationWithClientCredentials) pulumi.StringPtrOutput {
 		return v.OauthTokenEndpoint

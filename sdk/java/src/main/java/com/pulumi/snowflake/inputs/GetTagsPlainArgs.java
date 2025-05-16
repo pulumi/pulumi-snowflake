@@ -15,32 +15,16 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTagsPlainArgs Empty = new GetTagsPlainArgs();
 
-    /**
-     * IN clause to filter the list of objects
-     * 
-     */
     @Import(name="in")
     private @Nullable GetTagsIn in;
 
-    /**
-     * @return IN clause to filter the list of objects
-     * 
-     */
     public Optional<GetTagsIn> in() {
         return Optional.ofNullable(this.in);
     }
 
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     @Import(name="like")
     private @Nullable String like;
 
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
@@ -70,23 +54,11 @@ public final class GetTagsPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTagsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param in IN clause to filter the list of objects
-         * 
-         * @return builder
-         * 
-         */
         public Builder in(@Nullable GetTagsIn in) {
             $.in = in;
             return this;
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(@Nullable String like) {
             $.like = like;
             return this;

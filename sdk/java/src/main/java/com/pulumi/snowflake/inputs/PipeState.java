@@ -17,14 +17,14 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     public static final PipeState Empty = new PipeState();
 
     /**
-     * (Default: `false`) Specifies a auto_ingest param for the pipe.
+     * Specifies a auto_ingest param for the pipe.
      * 
      */
     @Import(name="autoIngest")
     private @Nullable Output<Boolean> autoIngest;
 
     /**
-     * @return (Default: `false`) Specifies a auto_ingest param for the pipe.
+     * @return Specifies a auto_ingest param for the pipe.
      * 
      */
     public Optional<Output<Boolean>> autoIngest() {
@@ -107,14 +107,16 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -232,7 +234,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoIngest (Default: `false`) Specifies a auto_ingest param for the pipe.
+         * @param autoIngest Specifies a auto_ingest param for the pipe.
          * 
          * @return builder
          * 
@@ -243,7 +245,7 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoIngest (Default: `false`) Specifies a auto_ingest param for the pipe.
+         * @param autoIngest Specifies a auto_ingest param for the pipe.
          * 
          * @return builder
          * 
@@ -358,7 +360,8 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -369,7 +372,8 @@ public final class PipeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 

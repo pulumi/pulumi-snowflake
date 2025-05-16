@@ -62,33 +62,21 @@ class GetSystemGetPrivateLinkConfigResult:
     @property
     @pulumi.getter(name="accountName")
     def account_name(self) -> builtins.str:
-        """
-        The name of your Snowflake account.
-        """
         return pulumi.get(self, "account_name")
 
     @property
     @pulumi.getter(name="accountUrl")
     def account_url(self) -> builtins.str:
-        """
-        The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
-        """
         return pulumi.get(self, "account_url")
 
     @property
     @pulumi.getter(name="awsVpceId")
     def aws_vpce_id(self) -> builtins.str:
-        """
-        The AWS VPCE ID for your account.
-        """
         return pulumi.get(self, "aws_vpce_id")
 
     @property
     @pulumi.getter(name="azurePlsId")
     def azure_pls_id(self) -> builtins.str:
-        """
-        The Azure Private Link Service ID for your account.
-        """
         return pulumi.get(self, "azure_pls_id")
 
     @property
@@ -102,41 +90,26 @@ class GetSystemGetPrivateLinkConfigResult:
     @property
     @pulumi.getter(name="internalStage")
     def internal_stage(self) -> builtins.str:
-        """
-        The endpoint to connect to your Snowflake internal stage using AWS PrivateLink or Azure Private Link.
-        """
         return pulumi.get(self, "internal_stage")
 
     @property
     @pulumi.getter(name="ocspUrl")
     def ocsp_url(self) -> builtins.str:
-        """
-        The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
-        """
         return pulumi.get(self, "ocsp_url")
 
     @property
     @pulumi.getter(name="regionlessAccountUrl")
     def regionless_account_url(self) -> builtins.str:
-        """
-        The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
-        """
         return pulumi.get(self, "regionless_account_url")
 
     @property
     @pulumi.getter(name="regionlessSnowsightUrl")
     def regionless_snowsight_url(self) -> builtins.str:
-        """
-        The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
-        """
         return pulumi.get(self, "regionless_snowsight_url")
 
     @property
     @pulumi.getter(name="snowsightUrl")
     def snowsight_url(self) -> builtins.str:
-        """
-        The URL containing the cloud region to access Snowsight and the Snowflake Marketplace using Private Connectivity to the Snowflake Service.
-        """
         return pulumi.get(self, "snowsight_url")
 
 
@@ -160,59 +133,7 @@ class AwaitableGetSystemGetPrivateLinkConfigResult(GetSystemGetPrivateLinkConfig
 
 def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemGetPrivateLinkConfigResult:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_snowflake as snowflake
-
-    snowflake_private_link = snowflake.get_system_get_private_link_config()
-    snowflake_private_link_security_group = aws.index.SecurityGroup("snowflake_private_link",
-        vpc_id=vpc_id,
-        ingress=[
-            {
-                fromPort: 80,
-                toPort: 80,
-                cidrBlocks: vpc_cidr,
-                protocol: tcp,
-            },
-            {
-                fromPort: 443,
-                toPort: 443,
-                cidrBlocks: vpc_cidr,
-                protocol: tcp,
-            },
-        ])
-    snowflake_private_link_vpc_endpoint = aws.index.VpcEndpoint("snowflake_private_link",
-        vpc_id=vpc_id,
-        service_name=snowflake_private_link.aws_vpce_id,
-        vpc_endpoint_type=Interface,
-        security_group_ids=[snowflake_private_link_security_group.id],
-        subnet_ids=subnet_ids,
-        private_dns_enabled=False)
-    snowflake_private_link_route53_zone = aws.index.Route53Zone("snowflake_private_link",
-        name=privatelink.snowflakecomputing.com,
-        vpc=[{
-            vpcId: vpc_id,
-        }])
-    snowflake_private_link_url = aws.index.Route53Record("snowflake_private_link_url",
-        zone_id=snowflake_private_link_route53_zone.zone_id,
-        name=snowflake_private_link.account_url,
-        type=CNAME,
-        ttl=300,
-        records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])
-    snowflake_private_link_ocsp_url = aws.index.Route53Record("snowflake_private_link_ocsp_url",
-        zone_id=snowflake_private_link_route53_zone.zone_id,
-        name=snowflake_private_link.ocsp_url,
-        type=CNAME,
-        ttl=300,
-        records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -231,59 +152,7 @@ def get_system_get_private_link_config(opts: Optional[pulumi.InvokeOptions] = No
         snowsight_url=pulumi.get(__ret__, 'snowsight_url'))
 def get_system_get_private_link_config_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemGetPrivateLinkConfigResult]:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_snowflake as snowflake
-
-    snowflake_private_link = snowflake.get_system_get_private_link_config()
-    snowflake_private_link_security_group = aws.index.SecurityGroup("snowflake_private_link",
-        vpc_id=vpc_id,
-        ingress=[
-            {
-                fromPort: 80,
-                toPort: 80,
-                cidrBlocks: vpc_cidr,
-                protocol: tcp,
-            },
-            {
-                fromPort: 443,
-                toPort: 443,
-                cidrBlocks: vpc_cidr,
-                protocol: tcp,
-            },
-        ])
-    snowflake_private_link_vpc_endpoint = aws.index.VpcEndpoint("snowflake_private_link",
-        vpc_id=vpc_id,
-        service_name=snowflake_private_link.aws_vpce_id,
-        vpc_endpoint_type=Interface,
-        security_group_ids=[snowflake_private_link_security_group.id],
-        subnet_ids=subnet_ids,
-        private_dns_enabled=False)
-    snowflake_private_link_route53_zone = aws.index.Route53Zone("snowflake_private_link",
-        name=privatelink.snowflakecomputing.com,
-        vpc=[{
-            vpcId: vpc_id,
-        }])
-    snowflake_private_link_url = aws.index.Route53Record("snowflake_private_link_url",
-        zone_id=snowflake_private_link_route53_zone.zone_id,
-        name=snowflake_private_link.account_url,
-        type=CNAME,
-        ttl=300,
-        records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])
-    snowflake_private_link_ocsp_url = aws.index.Route53Record("snowflake_private_link_ocsp_url",
-        zone_id=snowflake_private_link_route53_zone.zone_id,
-        name=snowflake_private_link.ocsp_url,
-        type=CNAME,
-        ttl=300,
-        records=[snowflake_private_link_vpc_endpoint.dns_entry[0].dns_name])
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

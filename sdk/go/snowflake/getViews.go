@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
 func GetViews(ctx *pulumi.Context, args *GetViewsArgs, opts ...pulumi.InvokeOption) (*GetViewsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetViewsResult
@@ -24,34 +23,23 @@ func GetViews(ctx *pulumi.Context, args *GetViewsArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getViews.
 type GetViewsArgs struct {
-	// IN clause to filter the list of views
-	In *GetViewsIn `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit *GetViewsLimit `pulumi:"limit"`
-	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-	StartsWith *string `pulumi:"startsWith"`
-	// (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe *bool `pulumi:"withDescribe"`
+	In           *GetViewsIn    `pulumi:"in"`
+	Like         *string        `pulumi:"like"`
+	Limit        *GetViewsLimit `pulumi:"limit"`
+	StartsWith   *string        `pulumi:"startsWith"`
+	WithDescribe *bool          `pulumi:"withDescribe"`
 }
 
 // A collection of values returned by getViews.
 type GetViewsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// IN clause to filter the list of views
-	In *GetViewsIn `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit *GetViewsLimit `pulumi:"limit"`
-	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-	StartsWith *string `pulumi:"startsWith"`
-	// Holds the aggregated output of all views details queries.
-	Views []GetViewsView `pulumi:"views"`
-	// (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe *bool `pulumi:"withDescribe"`
+	Id           string         `pulumi:"id"`
+	In           *GetViewsIn    `pulumi:"in"`
+	Like         *string        `pulumi:"like"`
+	Limit        *GetViewsLimit `pulumi:"limit"`
+	StartsWith   *string        `pulumi:"startsWith"`
+	Views        []GetViewsView `pulumi:"views"`
+	WithDescribe *bool          `pulumi:"withDescribe"`
 }
 
 func GetViewsOutput(ctx *pulumi.Context, args GetViewsOutputArgs, opts ...pulumi.InvokeOption) GetViewsResultOutput {
@@ -65,16 +53,11 @@ func GetViewsOutput(ctx *pulumi.Context, args GetViewsOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getViews.
 type GetViewsOutputArgs struct {
-	// IN clause to filter the list of views
-	In GetViewsInPtrInput `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like pulumi.StringPtrInput `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit GetViewsLimitPtrInput `pulumi:"limit"`
-	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
-	// (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
+	In           GetViewsInPtrInput    `pulumi:"in"`
+	Like         pulumi.StringPtrInput `pulumi:"like"`
+	Limit        GetViewsLimitPtrInput `pulumi:"limit"`
+	StartsWith   pulumi.StringPtrInput `pulumi:"startsWith"`
+	WithDescribe pulumi.BoolPtrInput   `pulumi:"withDescribe"`
 }
 
 func (GetViewsOutputArgs) ElementType() reflect.Type {
@@ -101,32 +84,26 @@ func (o GetViewsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetViewsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// IN clause to filter the list of views
 func (o GetViewsResultOutput) In() GetViewsInPtrOutput {
 	return o.ApplyT(func(v GetViewsResult) *GetViewsIn { return v.In }).(GetViewsInPtrOutput)
 }
 
-// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetViewsResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetViewsResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 func (o GetViewsResultOutput) Limit() GetViewsLimitPtrOutput {
 	return o.ApplyT(func(v GetViewsResult) *GetViewsLimit { return v.Limit }).(GetViewsLimitPtrOutput)
 }
 
-// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 func (o GetViewsResultOutput) StartsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetViewsResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
 }
 
-// Holds the aggregated output of all views details queries.
 func (o GetViewsResultOutput) Views() GetViewsViewArrayOutput {
 	return o.ApplyT(func(v GetViewsResult) []GetViewsView { return v.Views }).(GetViewsViewArrayOutput)
 }
 
-// (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetViewsResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetViewsResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }

@@ -17,14 +17,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/dynamicTable:DynamicTable dt &#34;mydb|myschema|product&#34;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/dynamicTable:DynamicTable")
 public class DynamicTable extends com.pulumi.resources.CustomResource {
     /**
@@ -126,28 +118,30 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
      * 
      */
     @Export(name="initialize", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> initialize;
 
     /**
-     * @return (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * @return Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
      * 
      */
     public Output<Optional<String>> initialize() {
@@ -196,28 +190,30 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
         return this.lastSuspendedOn;
     }
     /**
-     * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+     * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+     * created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+     * @return Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+     * created.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+     * Specifies whether to replace the dynamic table if it already exists.
      * 
      */
     @Export(name="orReplace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> orReplace;
 
     /**
-     * @return (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+     * @return Specifies whether to replace the dynamic table if it already exists.
      * 
      */
     public Output<Optional<Boolean>> orReplace() {
@@ -252,14 +248,16 @@ public class DynamicTable extends com.pulumi.resources.CustomResource {
         return this.query;
     }
     /**
-     * (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+     * decide.
      * 
      */
     @Export(name="refreshMode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> refreshMode;
 
     /**
-     * @return (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+     * @return INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+     * decide.
      * 
      */
     public Output<Optional<String>> refreshMode() {

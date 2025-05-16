@@ -94,14 +94,14 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+     * Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+     * @return Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -291,7 +291,7 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+         * @param enabled Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
          * 
          * @return builder
          * 
@@ -302,7 +302,7 @@ public final class AlertArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+         * @param enabled Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
          * 
          * @return builder
          * 

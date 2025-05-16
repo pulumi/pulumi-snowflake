@@ -8,65 +8,25 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ### Import examples
-//
-// #### OnObject on Schema ToAccountRole
-//
-// ```sh
-// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnObject|SCHEMA|"database_name"."schema_name"'`
-// ```
-//
-// #### OnObject on Schema ToDatabaseRole
-//
-// ```sh
-// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToDatabaseRole|"database_name"."database_role_name"|COPY|OnObject|SCHEMA|"database_name"."schema_name"'`
-// ```
-//
-// #### OnObject on Table
-//
-// ```sh
-// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnObject|TABLE|"database_name"."schema_name"."table_name"'`
-// ```
-//
-// #### OnAll InDatabase
-//
-// ```sh
-// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|REVOKE|OnAll|TABLES|InDatabase|"database_name"'`
-// ```
-//
-// #### OnAll InSchema
-//
-// ```sh
-// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"||OnAll|TABLES|InSchema|"database_name"."schema_name"'`
-// ```
-//
-// #### OnFuture InDatabase
-//
-// ```sh
-// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"||OnFuture|TABLES|InDatabase|"database_name"'`
-// ```
-//
-// #### OnFuture InSchema
-//
-// ```sh
-// $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnFuture|TABLES|InSchema|"database_name"."schema_name"'`
-// ```
 type GrantOwnership struct {
 	pulumi.CustomResourceState
 
-	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this
+	// resource, see docs.
 	AccountRoleName pulumi.StringPtrOutput `pulumi:"accountRoleName"`
-	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this
+	// resource, see docs.
 	DatabaseRoleName pulumi.StringPtrOutput `pulumi:"databaseRoleName"`
 	// Configures which object(s) should transfer their ownership to the specified role.
 	On GrantOwnershipOnOutput `pulumi:"on"`
-	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+	// a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+	// more information head over to [Snowflake
+	// documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
 	OutboundPrivileges pulumi.StringPtrOutput `pulumi:"outboundPrivileges"`
 }
 
@@ -103,24 +63,34 @@ func GetGrantOwnership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GrantOwnership resources.
 type grantOwnershipState struct {
-	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this
+	// resource, see docs.
 	AccountRoleName *string `pulumi:"accountRoleName"`
-	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this
+	// resource, see docs.
 	DatabaseRoleName *string `pulumi:"databaseRoleName"`
 	// Configures which object(s) should transfer their ownership to the specified role.
 	On *GrantOwnershipOn `pulumi:"on"`
-	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+	// a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+	// more information head over to [Snowflake
+	// documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
 	OutboundPrivileges *string `pulumi:"outboundPrivileges"`
 }
 
 type GrantOwnershipState struct {
-	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this
+	// resource, see docs.
 	AccountRoleName pulumi.StringPtrInput
-	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this
+	// resource, see docs.
 	DatabaseRoleName pulumi.StringPtrInput
 	// Configures which object(s) should transfer their ownership to the specified role.
 	On GrantOwnershipOnPtrInput
-	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+	// a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+	// more information head over to [Snowflake
+	// documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
 	OutboundPrivileges pulumi.StringPtrInput
 }
 
@@ -129,25 +99,35 @@ func (GrantOwnershipState) ElementType() reflect.Type {
 }
 
 type grantOwnershipArgs struct {
-	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this
+	// resource, see docs.
 	AccountRoleName *string `pulumi:"accountRoleName"`
-	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this
+	// resource, see docs.
 	DatabaseRoleName *string `pulumi:"databaseRoleName"`
 	// Configures which object(s) should transfer their ownership to the specified role.
 	On GrantOwnershipOn `pulumi:"on"`
-	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+	// a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+	// more information head over to [Snowflake
+	// documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
 	OutboundPrivileges *string `pulumi:"outboundPrivileges"`
 }
 
 // The set of arguments for constructing a GrantOwnership resource.
 type GrantOwnershipArgs struct {
-	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this
+	// resource, see docs.
 	AccountRoleName pulumi.StringPtrInput
-	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this
+	// resource, see docs.
 	DatabaseRoleName pulumi.StringPtrInput
 	// Configures which object(s) should transfer their ownership to the specified role.
 	On GrantOwnershipOnInput
-	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+	// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+	// a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+	// more information head over to [Snowflake
+	// documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
 	OutboundPrivileges pulumi.StringPtrInput
 }
 
@@ -238,12 +218,14 @@ func (o GrantOwnershipOutput) ToGrantOwnershipOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+// The fully qualified name of the account role to which privileges will be granted. For more information about this
+// resource, see docs.
 func (o GrantOwnershipOutput) AccountRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantOwnership) pulumi.StringPtrOutput { return v.AccountRoleName }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+// The fully qualified name of the database role to which privileges will be granted. For more information about this
+// resource, see docs.
 func (o GrantOwnershipOutput) DatabaseRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantOwnership) pulumi.StringPtrOutput { return v.DatabaseRoleName }).(pulumi.StringPtrOutput)
 }
@@ -253,7 +235,10 @@ func (o GrantOwnershipOutput) On() GrantOwnershipOnOutput {
 	return o.ApplyT(func(v *GrantOwnership) GrantOwnershipOnOutput { return v.On }).(GrantOwnershipOnOutput)
 }
 
-// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+// Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+// a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+// more information head over to [Snowflake
+// documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
 func (o GrantOwnershipOutput) OutboundPrivileges() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantOwnership) pulumi.StringPtrOutput { return v.OutboundPrivileges }).(pulumi.StringPtrOutput)
 }

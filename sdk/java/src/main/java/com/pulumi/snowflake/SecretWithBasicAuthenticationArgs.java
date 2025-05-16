@@ -32,14 +32,16 @@ public final class SecretWithBasicAuthenticationArgs extends com.pulumi.resource
     }
 
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -47,14 +49,16 @@ public final class SecretWithBasicAuthenticationArgs extends com.pulumi.resource
     }
 
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -69,14 +73,16 @@ public final class SecretWithBasicAuthenticationArgs extends com.pulumi.resource
     }
 
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -149,7 +155,8 @@ public final class SecretWithBasicAuthenticationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -160,7 +167,8 @@ public final class SecretWithBasicAuthenticationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -170,7 +178,8 @@ public final class SecretWithBasicAuthenticationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -181,7 +190,8 @@ public final class SecretWithBasicAuthenticationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -200,7 +210,8 @@ public final class SecretWithBasicAuthenticationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -211,7 +222,8 @@ public final class SecretWithBasicAuthenticationArgs extends com.pulumi.resource
         }
 
         /**
-         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

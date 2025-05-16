@@ -6,13 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Import
- *
- * ```sh
- * $ pulumi import snowflake:index/secondaryConnection:SecondaryConnection example '"<secondary_connection_name>"'
- * ```
- */
 export class SecondaryConnection extends pulumi.CustomResource {
     /**
      * Get an existing SecondaryConnection resource's state with the given name, ID, and optional extra
@@ -42,7 +35,8 @@ export class SecondaryConnection extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
+     * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
+     * information about this resource, see docs.
      */
     public readonly asReplicaOf!: pulumi.Output<string>;
     /**
@@ -50,7 +44,8 @@ export class SecondaryConnection extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
@@ -58,7 +53,10 @@ export class SecondaryConnection extends pulumi.CustomResource {
      */
     public /*out*/ readonly isPrimary!: pulumi.Output<boolean>;
     /**
-     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+     * only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
+     * name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
+     * `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -107,7 +105,8 @@ export class SecondaryConnection extends pulumi.CustomResource {
  */
 export interface SecondaryConnectionState {
     /**
-     * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
+     * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
+     * information about this resource, see docs.
      */
     asReplicaOf?: pulumi.Input<string>;
     /**
@@ -115,7 +114,8 @@ export interface SecondaryConnectionState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
@@ -123,7 +123,10 @@ export interface SecondaryConnectionState {
      */
     isPrimary?: pulumi.Input<boolean>;
     /**
-     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+     * only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
+     * name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
+     * `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -137,7 +140,8 @@ export interface SecondaryConnectionState {
  */
 export interface SecondaryConnectionArgs {
     /**
-     * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
+     * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
+     * information about this resource, see docs.
      */
     asReplicaOf: pulumi.Input<string>;
     /**
@@ -145,7 +149,10 @@ export interface SecondaryConnectionArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+     * only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
+     * name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
+     * `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
 }

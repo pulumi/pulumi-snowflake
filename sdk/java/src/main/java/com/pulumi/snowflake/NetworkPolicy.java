@@ -17,14 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/networkPolicy:NetworkPolicy example &#39;&#34;&lt;network_policy_name&gt;&#34;&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/networkPolicy:NetworkPolicy")
 public class NetworkPolicy extends com.pulumi.resources.CustomResource {
     /**
@@ -42,42 +34,50 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allowedIpLists);
     }
     /**
-     * Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
+     * Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to
+     * Snowflake. For more information about this resource, see docs.
      * 
      */
     @Export(name="allowedNetworkRuleLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> allowedNetworkRuleLists;
 
     /**
-     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to Snowflake. For more information about this resource, see docs.
+     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are allowed access to
+     * Snowflake. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<List<String>>> allowedNetworkRuleLists() {
         return Codegen.optional(this.allowedNetworkRuleLists);
     }
     /**
-     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
+     * Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add
+     * `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP
+     * addresses to `allowed_ip_list`.
      * 
      */
     @Export(name="blockedIpLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blockedIpLists;
 
     /**
-     * @return Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP addresses to `allowed_ip_list`.
+     * @return Specifies one or more IPv4 addresses (CIDR notation) that are denied access to your Snowflake account. **Do not** add
+     * `0.0.0.0/0` to `blocked_ip_list`, in order to block all IP addresses except a select list, you only need to add IP
+     * addresses to `allowed_ip_list`.
      * 
      */
     public Output<Optional<List<String>>> blockedIpLists() {
         return Codegen.optional(this.blockedIpLists);
     }
     /**
-     * Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
+     * Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to
+     * Snowflake. For more information about this resource, see docs.
      * 
      */
     @Export(name="blockedNetworkRuleLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blockedNetworkRuleLists;
 
     /**
-     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to Snowflake. For more information about this resource, see docs.
+     * @return Specifies a list of fully qualified network rules that contain the network identifiers that are denied access to
+     * Snowflake. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<List<String>>> blockedNetworkRuleLists() {
@@ -112,28 +112,32 @@ public class NetworkPolicy extends com.pulumi.resources.CustomResource {
         return this.describeOutputs;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
+     * Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the network policy; must be unique for the account in which the network policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the network policy; must be unique for the account in which the network policy is created.
+     * Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {

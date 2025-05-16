@@ -14,44 +14,20 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAlertsResult {
-    /**
-     * @return Lists alerts for the current/specified database or schema, or across the entire account.
-     * 
-     */
     private List<GetAlertsAlert> alerts;
-    /**
-     * @return The database from which to return the alerts from.
-     * 
-     */
     private @Nullable String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Filters the command output by object name.
-     * 
-     */
     private @Nullable String pattern;
-    /**
-     * @return The schema from which to return the alerts from.
-     * 
-     */
     private @Nullable String schema;
 
     private GetAlertsResult() {}
-    /**
-     * @return Lists alerts for the current/specified database or schema, or across the entire account.
-     * 
-     */
     public List<GetAlertsAlert> alerts() {
         return this.alerts;
     }
-    /**
-     * @return The database from which to return the alerts from.
-     * 
-     */
     public Optional<String> database() {
         return Optional.ofNullable(this.database);
     }
@@ -62,17 +38,9 @@ public final class GetAlertsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Filters the command output by object name.
-     * 
-     */
     public Optional<String> pattern() {
         return Optional.ofNullable(this.pattern);
     }
-    /**
-     * @return The schema from which to return the alerts from.
-     * 
-     */
     public Optional<String> schema() {
         return Optional.ofNullable(this.schema);
     }

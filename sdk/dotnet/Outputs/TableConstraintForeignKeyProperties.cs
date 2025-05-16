@@ -14,15 +14,15 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class TableConstraintForeignKeyProperties
     {
         /// <summary>
-        /// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+        /// The match type for the foreign key. Not applicable for primary/unique keys
         /// </summary>
         public readonly string? Match;
         /// <summary>
-        /// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        /// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
         /// </summary>
         public readonly string? OnDelete;
         /// <summary>
-        /// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        /// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
         /// </summary>
         public readonly string? OnUpdate;
         /// <summary>

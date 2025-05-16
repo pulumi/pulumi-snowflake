@@ -21,13 +21,11 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint> OauthAllowedAuthorizationEndpoints;
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint> OauthAllowedTokenEndpoints;
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint> OauthAuthorizationEndpoints;
-        public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientId> OauthClientIds;
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp> OauthClientRsaPublicKey2Fps;
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp> OauthClientRsaPublicKeyFps;
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientType> OauthClientTypes;
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce> OauthEnforcePkces;
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken> OauthIssueRefreshTokens;
-        public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri> OauthRedirectUris;
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity> OauthRefreshTokenValidities;
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint> OauthTokenEndpoints;
         public readonly ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole> OauthUseSecondaryRoles;
@@ -51,8 +49,6 @@ namespace Pulumi.Snowflake.Outputs
 
             ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint> oauthAuthorizationEndpoints,
 
-            ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientId> oauthClientIds,
-
             ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp> oauthClientRsaPublicKey2Fps,
 
             ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp> oauthClientRsaPublicKeyFps,
@@ -62,8 +58,6 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce> oauthEnforcePkces,
 
             ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken> oauthIssueRefreshTokens,
-
-            ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri> oauthRedirectUris,
 
             ImmutableArray<Outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity> oauthRefreshTokenValidities,
 
@@ -81,13 +75,11 @@ namespace Pulumi.Snowflake.Outputs
             OauthAllowedAuthorizationEndpoints = oauthAllowedAuthorizationEndpoints;
             OauthAllowedTokenEndpoints = oauthAllowedTokenEndpoints;
             OauthAuthorizationEndpoints = oauthAuthorizationEndpoints;
-            OauthClientIds = oauthClientIds;
             OauthClientRsaPublicKey2Fps = oauthClientRsaPublicKey2Fps;
             OauthClientRsaPublicKeyFps = oauthClientRsaPublicKeyFps;
             OauthClientTypes = oauthClientTypes;
             OauthEnforcePkces = oauthEnforcePkces;
             OauthIssueRefreshTokens = oauthIssueRefreshTokens;
-            OauthRedirectUris = oauthRedirectUris;
             OauthRefreshTokenValidities = oauthRefreshTokenValidities;
             OauthTokenEndpoints = oauthTokenEndpoints;
             OauthUseSecondaryRoles = oauthUseSecondaryRoles;

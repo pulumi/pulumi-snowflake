@@ -8,21 +8,18 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ```sh
-// $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
-// ```
 type ManagedAccount struct {
 	pulumi.CustomResourceState
 
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+	// administrator for the account.
 	AdminName pulumi.StringOutput `pulumi:"adminName"`
-	// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+	// Password for the initial user in the managed account. Check [Snowflake-provided password
+	// policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
 	AdminPassword pulumi.StringOutput `pulumi:"adminPassword"`
 	// Cloud in which the managed account is located.
 	Cloud pulumi.StringOutput `pulumi:"cloud"`
@@ -30,7 +27,8 @@ type ManagedAccount struct {
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Date and time when the managed account was created.
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Display name of the managed account.
 	Locator pulumi.StringOutput `pulumi:"locator"`
@@ -38,7 +36,7 @@ type ManagedAccount struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Snowflake Region in which the managed account is located.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// (Default: `READER`) Specifies the type of managed account.
+	// Specifies the type of managed account.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 	// URL for accessing the managed account, particularly through the web interface.
 	Url pulumi.StringOutput `pulumi:"url"`
@@ -87,9 +85,11 @@ func GetManagedAccount(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ManagedAccount resources.
 type managedAccountState struct {
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+	// administrator for the account.
 	AdminName *string `pulumi:"adminName"`
-	// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+	// Password for the initial user in the managed account. Check [Snowflake-provided password
+	// policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
 	AdminPassword *string `pulumi:"adminPassword"`
 	// Cloud in which the managed account is located.
 	Cloud *string `pulumi:"cloud"`
@@ -97,7 +97,8 @@ type managedAccountState struct {
 	Comment *string `pulumi:"comment"`
 	// Date and time when the managed account was created.
 	CreatedOn *string `pulumi:"createdOn"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Display name of the managed account.
 	Locator *string `pulumi:"locator"`
@@ -105,16 +106,18 @@ type managedAccountState struct {
 	Name *string `pulumi:"name"`
 	// Snowflake Region in which the managed account is located.
 	Region *string `pulumi:"region"`
-	// (Default: `READER`) Specifies the type of managed account.
+	// Specifies the type of managed account.
 	Type *string `pulumi:"type"`
 	// URL for accessing the managed account, particularly through the web interface.
 	Url *string `pulumi:"url"`
 }
 
 type ManagedAccountState struct {
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+	// administrator for the account.
 	AdminName pulumi.StringPtrInput
-	// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+	// Password for the initial user in the managed account. Check [Snowflake-provided password
+	// policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
 	AdminPassword pulumi.StringPtrInput
 	// Cloud in which the managed account is located.
 	Cloud pulumi.StringPtrInput
@@ -122,7 +125,8 @@ type ManagedAccountState struct {
 	Comment pulumi.StringPtrInput
 	// Date and time when the managed account was created.
 	CreatedOn pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	// Display name of the managed account.
 	Locator pulumi.StringPtrInput
@@ -130,7 +134,7 @@ type ManagedAccountState struct {
 	Name pulumi.StringPtrInput
 	// Snowflake Region in which the managed account is located.
 	Region pulumi.StringPtrInput
-	// (Default: `READER`) Specifies the type of managed account.
+	// Specifies the type of managed account.
 	Type pulumi.StringPtrInput
 	// URL for accessing the managed account, particularly through the web interface.
 	Url pulumi.StringPtrInput
@@ -141,29 +145,33 @@ func (ManagedAccountState) ElementType() reflect.Type {
 }
 
 type managedAccountArgs struct {
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+	// administrator for the account.
 	AdminName string `pulumi:"adminName"`
-	// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+	// Password for the initial user in the managed account. Check [Snowflake-provided password
+	// policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
 	AdminPassword string `pulumi:"adminPassword"`
 	// Specifies a comment for the managed account.
 	Comment *string `pulumi:"comment"`
 	// Identifier for the managed account; must be unique for your account.
 	Name *string `pulumi:"name"`
-	// (Default: `READER`) Specifies the type of managed account.
+	// Specifies the type of managed account.
 	Type *string `pulumi:"type"`
 }
 
 // The set of arguments for constructing a ManagedAccount resource.
 type ManagedAccountArgs struct {
-	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+	// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+	// administrator for the account.
 	AdminName pulumi.StringInput
-	// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+	// Password for the initial user in the managed account. Check [Snowflake-provided password
+	// policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
 	AdminPassword pulumi.StringInput
 	// Specifies a comment for the managed account.
 	Comment pulumi.StringPtrInput
 	// Identifier for the managed account; must be unique for your account.
 	Name pulumi.StringPtrInput
-	// (Default: `READER`) Specifies the type of managed account.
+	// Specifies the type of managed account.
 	Type pulumi.StringPtrInput
 }
 
@@ -254,12 +262,14 @@ func (o ManagedAccountOutput) ToManagedAccountOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
+// Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
+// administrator for the account.
 func (o ManagedAccountOutput) AdminName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.AdminName }).(pulumi.StringOutput)
 }
 
-// Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+// Password for the initial user in the managed account. Check [Snowflake-provided password
+// policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
 func (o ManagedAccountOutput) AdminPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.AdminPassword }).(pulumi.StringOutput)
 }
@@ -279,7 +289,8 @@ func (o ManagedAccountOutput) CreatedOn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.CreatedOn }).(pulumi.StringOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o ManagedAccountOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
@@ -299,7 +310,7 @@ func (o ManagedAccountOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedAccount) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// (Default: `READER`) Specifies the type of managed account.
+// Specifies the type of managed account.
 func (o ManagedAccountOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ManagedAccount) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
 }

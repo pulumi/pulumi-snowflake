@@ -18,14 +18,16 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     public static final ApiIntegrationState Empty = new ApiIntegrationState();
 
     /**
-     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+     * Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+     * resources within those proxies.
      * 
      */
     @Import(name="apiAllowedPrefixes")
     private @Nullable Output<List<String>> apiAllowedPrefixes;
 
     /**
-     * @return Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+     * @return Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+     * resources within those proxies.
      * 
      */
     public Optional<Output<List<String>>> apiAllowedPrefixes() {
@@ -63,14 +65,14 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * (Default: ``) ARN of a cloud platform role.
+     * ARN of a cloud platform role.
      * 
      */
     @Import(name="apiAwsRoleArn")
     private @Nullable Output<String> apiAwsRoleArn;
 
     /**
-     * @return (Default: ``) ARN of a cloud platform role.
+     * @return ARN of a cloud platform role.
      * 
      */
     public Optional<Output<String>> apiAwsRoleArn() {
@@ -138,14 +140,14 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * (Default: ``) The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
+     * The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
      * 
      */
     @Import(name="azureAdApplicationId")
     private @Nullable Output<String> azureAdApplicationId;
 
     /**
-     * @return (Default: ``) The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
+     * @return The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
      * 
      */
     public Optional<Output<String>> azureAdApplicationId() {
@@ -167,14 +169,14 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+     * Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      * 
      */
     @Import(name="azureTenantId")
     private @Nullable Output<String> azureTenantId;
 
     /**
-     * @return (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+     * @return Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
      * 
      */
     public Optional<Output<String>> azureTenantId() {
@@ -204,14 +206,16 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+     * Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+     * that relies on it will not work.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+     * @return Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+     * that relies on it will not work.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -219,14 +223,16 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -234,14 +240,14 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      * 
      */
     @Import(name="googleAudience")
     private @Nullable Output<String> googleAudience;
 
     /**
-     * @return (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+     * @return The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
      * 
      */
     public Optional<Output<String>> googleAudience() {
@@ -249,14 +255,16 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+     * Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+     * among api integrations in your account.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+     * @return Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+     * among api integrations in your account.
      * 
      */
     public Optional<Output<String>> name() {
@@ -305,7 +313,8 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param apiAllowedPrefixes Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+         * @param apiAllowedPrefixes Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+         * resources within those proxies.
          * 
          * @return builder
          * 
@@ -316,7 +325,8 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param apiAllowedPrefixes Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+         * @param apiAllowedPrefixes Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+         * resources within those proxies.
          * 
          * @return builder
          * 
@@ -326,7 +336,8 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param apiAllowedPrefixes Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and resources within those proxies.
+         * @param apiAllowedPrefixes Explicitly limits external functions that use the integration to reference one or more HTTPS proxy service endpoints and
+         * resources within those proxies.
          * 
          * @return builder
          * 
@@ -378,7 +389,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param apiAwsRoleArn (Default: ``) ARN of a cloud platform role.
+         * @param apiAwsRoleArn ARN of a cloud platform role.
          * 
          * @return builder
          * 
@@ -389,7 +400,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param apiAwsRoleArn (Default: ``) ARN of a cloud platform role.
+         * @param apiAwsRoleArn ARN of a cloud platform role.
          * 
          * @return builder
          * 
@@ -493,7 +504,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param azureAdApplicationId (Default: ``) The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
+         * @param azureAdApplicationId The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
          * 
          * @return builder
          * 
@@ -504,7 +515,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param azureAdApplicationId (Default: ``) The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
+         * @param azureAdApplicationId The &#39;Application (client) id&#39; of the Azure AD app for your remote service.
          * 
          * @return builder
          * 
@@ -532,7 +543,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param azureTenantId (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+         * @param azureTenantId Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
          * 
          * @return builder
          * 
@@ -543,7 +554,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param azureTenantId (Default: ``) Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
+         * @param azureTenantId Specifies the ID for your Office 365 tenant that all Azure API Management instances belong to.
          * 
          * @return builder
          * 
@@ -583,7 +594,8 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+         * @param enabled Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+         * that relies on it will not work.
          * 
          * @return builder
          * 
@@ -594,7 +606,8 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enabled (Default: `true`) Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function that relies on it will not work.
+         * @param enabled Specifies whether this API integration is enabled or disabled. If the API integration is disabled, any external function
+         * that relies on it will not work.
          * 
          * @return builder
          * 
@@ -604,7 +617,8 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -615,7 +629,8 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -625,7 +640,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param googleAudience (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+         * @param googleAudience The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
          * 
          * @return builder
          * 
@@ -636,7 +651,7 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param googleAudience (Default: ``) The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
+         * @param googleAudience The audience claim when generating the JWT (JSON Web Token) to authenticate to the Google API Gateway.
          * 
          * @return builder
          * 
@@ -646,7 +661,8 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+         * @param name Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+         * among api integrations in your account.
          * 
          * @return builder
          * 
@@ -657,7 +673,8 @@ public final class ApiIntegrationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique among api integrations in your account.
+         * @param name Specifies the name of the API integration. This name follows the rules for Object Identifiers. The name should be unique
+         * among api integrations in your account.
          * 
          * @return builder
          * 

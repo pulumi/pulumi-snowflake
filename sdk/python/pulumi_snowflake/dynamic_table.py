@@ -40,10 +40,12 @@ class DynamicTableArgs:
         :param pulumi.Input['DynamicTableTargetLagArgs'] target_lag: Specifies the target lag time for the dynamic table.
         :param pulumi.Input[builtins.str] warehouse: The warehouse in which to create the dynamic table.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the dynamic table.
-        :param pulumi.Input[builtins.str] initialize: (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
-        :param pulumi.Input[builtins.bool] or_replace: (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
-        :param pulumi.Input[builtins.str] refresh_mode: (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+        :param pulumi.Input[builtins.str] initialize: Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+               created.
+        :param pulumi.Input[builtins.bool] or_replace: Specifies whether to replace the dynamic table if it already exists.
+        :param pulumi.Input[builtins.str] refresh_mode: INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+               decide.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "query", query)
@@ -137,7 +139,7 @@ class DynamicTableArgs:
     @pulumi.getter
     def initialize(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
         """
         return pulumi.get(self, "initialize")
 
@@ -149,7 +151,8 @@ class DynamicTableArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+        Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+        created.
         """
         return pulumi.get(self, "name")
 
@@ -161,7 +164,7 @@ class DynamicTableArgs:
     @pulumi.getter(name="orReplace")
     def or_replace(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+        Specifies whether to replace the dynamic table if it already exists.
         """
         return pulumi.get(self, "or_replace")
 
@@ -173,7 +176,8 @@ class DynamicTableArgs:
     @pulumi.getter(name="refreshMode")
     def refresh_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+        INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+        decide.
         """
         return pulumi.get(self, "refresh_mode")
 
@@ -217,16 +221,19 @@ class _DynamicTableState:
         :param pulumi.Input[builtins.str] created_on: Time when this dynamic table was created.
         :param pulumi.Input[builtins.str] data_timestamp: Timestamp of the data in the base object(s) that is included in the dynamic table.
         :param pulumi.Input[builtins.str] database: The database in which to create the dynamic table.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] initialize: (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] initialize: Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
         :param pulumi.Input[builtins.bool] is_clone: TRUE if the dynamic table has been cloned, else FALSE.
         :param pulumi.Input[builtins.bool] is_replica: TRUE if the dynamic table is a replica. else FALSE.
         :param pulumi.Input[builtins.str] last_suspended_on: Timestamp of last suspension.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
-        :param pulumi.Input[builtins.bool] or_replace: (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+               created.
+        :param pulumi.Input[builtins.bool] or_replace: Specifies whether to replace the dynamic table if it already exists.
         :param pulumi.Input[builtins.str] owner: Role that owns the dynamic table.
         :param pulumi.Input[builtins.str] query: Specifies the query to use to populate the dynamic table.
-        :param pulumi.Input[builtins.str] refresh_mode: (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+        :param pulumi.Input[builtins.str] refresh_mode: INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+               decide.
         :param pulumi.Input[builtins.str] refresh_mode_reason: Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
         :param pulumi.Input[builtins.int] rows: Number of rows in the table.
         :param pulumi.Input[builtins.str] scheduling_state: Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
@@ -369,7 +376,8 @@ class _DynamicTableState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -381,7 +389,7 @@ class _DynamicTableState:
     @pulumi.getter
     def initialize(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
         """
         return pulumi.get(self, "initialize")
 
@@ -429,7 +437,8 @@ class _DynamicTableState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+        Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+        created.
         """
         return pulumi.get(self, "name")
 
@@ -441,7 +450,7 @@ class _DynamicTableState:
     @pulumi.getter(name="orReplace")
     def or_replace(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+        Specifies whether to replace the dynamic table if it already exists.
         """
         return pulumi.get(self, "or_replace")
 
@@ -477,7 +486,8 @@ class _DynamicTableState:
     @pulumi.getter(name="refreshMode")
     def refresh_mode(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+        INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+        decide.
         """
         return pulumi.get(self, "refresh_mode")
 
@@ -576,21 +586,18 @@ class DynamicTable(pulumi.CustomResource):
                  warehouse: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
-        ```
-
+        Create a DynamicTable resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the dynamic table.
         :param pulumi.Input[builtins.str] database: The database in which to create the dynamic table.
-        :param pulumi.Input[builtins.str] initialize: (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
-        :param pulumi.Input[builtins.bool] or_replace: (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+        :param pulumi.Input[builtins.str] initialize: Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+               created.
+        :param pulumi.Input[builtins.bool] or_replace: Specifies whether to replace the dynamic table if it already exists.
         :param pulumi.Input[builtins.str] query: Specifies the query to use to populate the dynamic table.
-        :param pulumi.Input[builtins.str] refresh_mode: (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+        :param pulumi.Input[builtins.str] refresh_mode: INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+               decide.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the dynamic table.
         :param pulumi.Input[Union['DynamicTableTargetLagArgs', 'DynamicTableTargetLagArgsDict']] target_lag: Specifies the target lag time for the dynamic table.
         :param pulumi.Input[builtins.str] warehouse: The warehouse in which to create the dynamic table.
@@ -602,12 +609,7 @@ class DynamicTable(pulumi.CustomResource):
                  args: DynamicTableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
-        ```
-
+        Create a DynamicTable resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param DynamicTableArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -722,16 +724,19 @@ class DynamicTable(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] created_on: Time when this dynamic table was created.
         :param pulumi.Input[builtins.str] data_timestamp: Timestamp of the data in the base object(s) that is included in the dynamic table.
         :param pulumi.Input[builtins.str] database: The database in which to create the dynamic table.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] initialize: (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] initialize: Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
         :param pulumi.Input[builtins.bool] is_clone: TRUE if the dynamic table has been cloned, else FALSE.
         :param pulumi.Input[builtins.bool] is_replica: TRUE if the dynamic table is a replica. else FALSE.
         :param pulumi.Input[builtins.str] last_suspended_on: Timestamp of last suspension.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
-        :param pulumi.Input[builtins.bool] or_replace: (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+               created.
+        :param pulumi.Input[builtins.bool] or_replace: Specifies whether to replace the dynamic table if it already exists.
         :param pulumi.Input[builtins.str] owner: Role that owns the dynamic table.
         :param pulumi.Input[builtins.str] query: Specifies the query to use to populate the dynamic table.
-        :param pulumi.Input[builtins.str] refresh_mode: (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+        :param pulumi.Input[builtins.str] refresh_mode: INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+               decide.
         :param pulumi.Input[builtins.str] refresh_mode_reason: Explanation for why FULL refresh mode was chosen. NULL if refresh mode is not FULL.
         :param pulumi.Input[builtins.int] rows: Number of rows in the table.
         :param pulumi.Input[builtins.str] scheduling_state: Displays ACTIVE for dynamic tables that are actively scheduling refreshes and SUSPENDED for suspended dynamic tables.
@@ -828,7 +833,8 @@ class DynamicTable(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -836,7 +842,7 @@ class DynamicTable(pulumi.CustomResource):
     @pulumi.getter
     def initialize(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+        Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
         """
         return pulumi.get(self, "initialize")
 
@@ -868,7 +874,8 @@ class DynamicTable(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+        Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+        created.
         """
         return pulumi.get(self, "name")
 
@@ -876,7 +883,7 @@ class DynamicTable(pulumi.CustomResource):
     @pulumi.getter(name="orReplace")
     def or_replace(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+        Specifies whether to replace the dynamic table if it already exists.
         """
         return pulumi.get(self, "or_replace")
 
@@ -900,7 +907,8 @@ class DynamicTable(pulumi.CustomResource):
     @pulumi.getter(name="refreshMode")
     def refresh_mode(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+        INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+        decide.
         """
         return pulumi.get(self, "refresh_mode")
 

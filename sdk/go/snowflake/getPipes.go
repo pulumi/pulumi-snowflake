@@ -7,40 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetPipes(ctx, &snowflake.GetPipesArgs{
-//				Database: "MYDB",
-//				Schema:   "MYSCHEMA",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetPipes(ctx *pulumi.Context, args *GetPipesArgs, opts ...pulumi.InvokeOption) (*GetPipesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPipesResult
@@ -53,22 +23,17 @@ func GetPipes(ctx *pulumi.Context, args *GetPipesArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getPipes.
 type GetPipesArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the pipes from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getPipes.
 type GetPipesResult struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The pipes in the schema
-	Pipes []GetPipesPipe `pulumi:"pipes"`
-	// The schema from which to return the pipes from.
-	Schema string `pulumi:"schema"`
+	Id     string         `pulumi:"id"`
+	Pipes  []GetPipesPipe `pulumi:"pipes"`
+	Schema string         `pulumi:"schema"`
 }
 
 func GetPipesOutput(ctx *pulumi.Context, args GetPipesOutputArgs, opts ...pulumi.InvokeOption) GetPipesResultOutput {
@@ -82,10 +47,8 @@ func GetPipesOutput(ctx *pulumi.Context, args GetPipesOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getPipes.
 type GetPipesOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the pipes from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetPipesOutputArgs) ElementType() reflect.Type {
@@ -107,7 +70,6 @@ func (o GetPipesResultOutput) ToGetPipesResultOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The database from which to return the schemas from.
 func (o GetPipesResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPipesResult) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -117,12 +79,10 @@ func (o GetPipesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPipesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The pipes in the schema
 func (o GetPipesResultOutput) Pipes() GetPipesPipeArrayOutput {
 	return o.ApplyT(func(v GetPipesResult) []GetPipesPipe { return v.Pipes }).(GetPipesPipeArrayOutput)
 }
 
-// The schema from which to return the pipes from.
 func (o GetPipesResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPipesResult) string { return v.Schema }).(pulumi.StringOutput)
 }

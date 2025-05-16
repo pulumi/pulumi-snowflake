@@ -9,40 +9,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// ### Import examples
-    /// 
-    /// #### Grant all privileges OnDatabase
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|ALL|OnDatabase|"test_db"'`
-    /// ```
-    /// 
-    /// #### Grant list of privileges OnAllSchemasInDatabase
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|"test_db"'`
-    /// ```
-    /// 
-    /// #### Grant list of privileges on table
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|"test_db"."test_schema"."test_table"'`
-    /// ```
-    /// 
-    /// #### Grant list of privileges OnAll tables in schema
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|"test_db"."test_schema"'`
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole")]
     public partial class GrantPrivilegesToDatabaseRole : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Default: `false`) Grant all privileges on the database role.
+        /// Grant all privileges on the database role.
         /// </summary>
         [Output("allPrivileges")]
         public Output<bool?> AllPrivileges { get; private set; } = null!;
@@ -51,19 +22,22 @@ namespace Pulumi.Snowflake
         public Output<bool?> AlwaysApply { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+        /// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
+        /// always_apply field.
         /// </summary>
         [Output("alwaysApplyTrigger")]
         public Output<string?> AlwaysApplyTrigger { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the database role to which privileges will be granted. For more information about this
+        /// resource, see docs.
         /// </summary>
         [Output("databaseRoleName")]
         public Output<string> DatabaseRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+        /// see docs.
         /// </summary>
         [Output("onDatabase")]
         public Output<string?> OnDatabase { get; private set; } = null!;
@@ -87,7 +61,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> Privileges { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
+        /// If specified, allows the recipient role to grant the privileges to other roles.
         /// </summary>
         [Output("withGrantOption")]
         public Output<bool?> WithGrantOption { get; private set; } = null!;
@@ -139,7 +113,7 @@ namespace Pulumi.Snowflake
     public sealed class GrantPrivilegesToDatabaseRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: `false`) Grant all privileges on the database role.
+        /// Grant all privileges on the database role.
         /// </summary>
         [Input("allPrivileges")]
         public Input<bool>? AllPrivileges { get; set; }
@@ -148,19 +122,22 @@ namespace Pulumi.Snowflake
         public Input<bool>? AlwaysApply { get; set; }
 
         /// <summary>
-        /// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+        /// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
+        /// always_apply field.
         /// </summary>
         [Input("alwaysApplyTrigger")]
         public Input<string>? AlwaysApplyTrigger { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the database role to which privileges will be granted. For more information about this
+        /// resource, see docs.
         /// </summary>
         [Input("databaseRoleName", required: true)]
         public Input<string> DatabaseRoleName { get; set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+        /// see docs.
         /// </summary>
         [Input("onDatabase")]
         public Input<string>? OnDatabase { get; set; }
@@ -190,7 +167,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
+        /// If specified, allows the recipient role to grant the privileges to other roles.
         /// </summary>
         [Input("withGrantOption")]
         public Input<bool>? WithGrantOption { get; set; }
@@ -204,7 +181,7 @@ namespace Pulumi.Snowflake
     public sealed class GrantPrivilegesToDatabaseRoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: `false`) Grant all privileges on the database role.
+        /// Grant all privileges on the database role.
         /// </summary>
         [Input("allPrivileges")]
         public Input<bool>? AllPrivileges { get; set; }
@@ -213,19 +190,22 @@ namespace Pulumi.Snowflake
         public Input<bool>? AlwaysApply { get; set; }
 
         /// <summary>
-        /// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+        /// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
+        /// always_apply field.
         /// </summary>
         [Input("alwaysApplyTrigger")]
         public Input<string>? AlwaysApplyTrigger { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the database role to which privileges will be granted. For more information about this
+        /// resource, see docs.
         /// </summary>
         [Input("databaseRoleName")]
         public Input<string>? DatabaseRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+        /// see docs.
         /// </summary>
         [Input("onDatabase")]
         public Input<string>? OnDatabase { get; set; }
@@ -255,7 +235,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
+        /// If specified, allows the recipient role to grant the privileges to other roles.
         /// </summary>
         [Input("withGrantOption")]
         public Input<bool>? WithGrantOption { get; set; }

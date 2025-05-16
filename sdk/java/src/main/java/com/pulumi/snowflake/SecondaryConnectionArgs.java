@@ -17,14 +17,16 @@ public final class SecondaryConnectionArgs extends com.pulumi.resources.Resource
     public static final SecondaryConnectionArgs Empty = new SecondaryConnectionArgs();
 
     /**
-     * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
+     * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
+     * information about this resource, see docs.
      * 
      */
     @Import(name="asReplicaOf", required=true)
     private Output<String> asReplicaOf;
 
     /**
-     * @return Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
+     * @return Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
+     * information about this resource, see docs.
      * 
      */
     public Output<String> asReplicaOf() {
@@ -47,14 +49,20 @@ public final class SecondaryConnectionArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+     * only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
+     * name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
+     * `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+     * only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
+     * name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
+     * `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -88,7 +96,8 @@ public final class SecondaryConnectionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param asReplicaOf Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
+         * @param asReplicaOf Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
+         * information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -99,7 +108,8 @@ public final class SecondaryConnectionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param asReplicaOf Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
+         * @param asReplicaOf Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
+         * information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -130,7 +140,10 @@ public final class SecondaryConnectionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+         * only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
+         * name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
+         * `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -141,7 +154,10 @@ public final class SecondaryConnectionArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+         * only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
+         * name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
+         * `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

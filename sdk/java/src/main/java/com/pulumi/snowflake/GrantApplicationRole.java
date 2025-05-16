@@ -14,16 +14,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * format is application_role_name (string) | object_type (ACCOUNT_ROLE|APPLICATION) | grantee_name (string)
- * 
- * ```sh
- * $ pulumi import snowflake:index/grantApplicationRole:GrantApplicationRole example &#39;&#34;my_application&#34;.&#34;app_role_1&#34;|ACCOUNT_ROLE|&#34;my_role&#34;&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/grantApplicationRole:GrantApplicationRole")
 public class GrantApplicationRole extends com.pulumi.resources.CustomResource {
     /**
@@ -55,14 +45,16 @@ public class GrantApplicationRole extends com.pulumi.resources.CustomResource {
         return this.applicationRoleName;
     }
     /**
-     * The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the account role on which application role will be granted. For more information about this
+     * resource, see docs.
      * 
      */
     @Export(name="parentAccountRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentAccountRoleName;
 
     /**
-     * @return The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the account role on which application role will be granted. For more information about this
+     * resource, see docs.
      * 
      */
     public Output<Optional<String>> parentAccountRoleName() {

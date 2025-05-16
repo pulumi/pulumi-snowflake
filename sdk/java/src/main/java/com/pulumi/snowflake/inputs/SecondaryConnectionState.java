@@ -19,14 +19,16 @@ public final class SecondaryConnectionState extends com.pulumi.resources.Resourc
     public static final SecondaryConnectionState Empty = new SecondaryConnectionState();
 
     /**
-     * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
+     * Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
+     * information about this resource, see docs.
      * 
      */
     @Import(name="asReplicaOf")
     private @Nullable Output<String> asReplicaOf;
 
     /**
-     * @return Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
+     * @return Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
+     * information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> asReplicaOf() {
@@ -49,14 +51,16 @@ public final class SecondaryConnectionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -79,14 +83,20 @@ public final class SecondaryConnectionState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+     * only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
+     * name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
+     * `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+     * only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
+     * name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
+     * `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -138,7 +148,8 @@ public final class SecondaryConnectionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param asReplicaOf Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
+         * @param asReplicaOf Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
+         * information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -149,7 +160,8 @@ public final class SecondaryConnectionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param asReplicaOf Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
+         * @param asReplicaOf Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
+         * information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -180,7 +192,8 @@ public final class SecondaryConnectionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -191,7 +204,8 @@ public final class SecondaryConnectionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -222,7 +236,10 @@ public final class SecondaryConnectionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+         * only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
+         * name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
+         * `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -233,7 +250,10 @@ public final class SecondaryConnectionState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+         * only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
+         * name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
+         * `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

@@ -29,9 +29,14 @@ class GrantOwnershipArgs:
         """
         The set of arguments for constructing a GrantOwnership resource.
         :param pulumi.Input['GrantOwnershipOnArgs'] on: Configures which object(s) should transfer their ownership to the specified role.
-        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] outbound_privileges: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this
+               resource, see docs.
+        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this
+               resource, see docs.
+        :param pulumi.Input[builtins.str] outbound_privileges: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+               a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+               more information head over to [Snowflake
+               documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
         """
         pulumi.set(__self__, "on", on)
         if account_role_name is not None:
@@ -57,7 +62,8 @@ class GrantOwnershipArgs:
     @pulumi.getter(name="accountRoleName")
     def account_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+        The fully qualified name of the account role to which privileges will be granted. For more information about this
+        resource, see docs.
         """
         return pulumi.get(self, "account_role_name")
 
@@ -69,7 +75,8 @@ class GrantOwnershipArgs:
     @pulumi.getter(name="databaseRoleName")
     def database_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        The fully qualified name of the database role to which privileges will be granted. For more information about this
+        resource, see docs.
         """
         return pulumi.get(self, "database_role_name")
 
@@ -81,7 +88,10 @@ class GrantOwnershipArgs:
     @pulumi.getter(name="outboundPrivileges")
     def outbound_privileges(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+        Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+        a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+        more information head over to [Snowflake
+        documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
         """
         return pulumi.get(self, "outbound_privileges")
 
@@ -99,10 +109,15 @@ class _GrantOwnershipState:
                  outbound_privileges: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering GrantOwnership resources.
-        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this
+               resource, see docs.
+        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this
+               resource, see docs.
         :param pulumi.Input['GrantOwnershipOnArgs'] on: Configures which object(s) should transfer their ownership to the specified role.
-        :param pulumi.Input[builtins.str] outbound_privileges: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+        :param pulumi.Input[builtins.str] outbound_privileges: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+               a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+               more information head over to [Snowflake
+               documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
         """
         if account_role_name is not None:
             pulumi.set(__self__, "account_role_name", account_role_name)
@@ -117,7 +132,8 @@ class _GrantOwnershipState:
     @pulumi.getter(name="accountRoleName")
     def account_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+        The fully qualified name of the account role to which privileges will be granted. For more information about this
+        resource, see docs.
         """
         return pulumi.get(self, "account_role_name")
 
@@ -129,7 +145,8 @@ class _GrantOwnershipState:
     @pulumi.getter(name="databaseRoleName")
     def database_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        The fully qualified name of the database role to which privileges will be granted. For more information about this
+        resource, see docs.
         """
         return pulumi.get(self, "database_role_name")
 
@@ -153,7 +170,10 @@ class _GrantOwnershipState:
     @pulumi.getter(name="outboundPrivileges")
     def outbound_privileges(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+        Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+        a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+        more information head over to [Snowflake
+        documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
         """
         return pulumi.get(self, "outbound_privileges")
 
@@ -174,58 +194,18 @@ class GrantOwnership(pulumi.CustomResource):
                  outbound_privileges: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ### Import examples
-
-        #### OnObject on Schema ToAccountRole
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnObject|SCHEMA|"database_name"."schema_name"'`
-        ```
-
-        #### OnObject on Schema ToDatabaseRole
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToDatabaseRole|"database_name"."database_role_name"|COPY|OnObject|SCHEMA|"database_name"."schema_name"'`
-        ```
-
-        #### OnObject on Table
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnObject|TABLE|"database_name"."schema_name"."table_name"'`
-        ```
-
-        #### OnAll InDatabase
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|REVOKE|OnAll|TABLES|InDatabase|"database_name"'`
-        ```
-
-        #### OnAll InSchema
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"||OnAll|TABLES|InSchema|"database_name"."schema_name"'`
-        ```
-
-        #### OnFuture InDatabase
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"||OnFuture|TABLES|InDatabase|"database_name"'`
-        ```
-
-        #### OnFuture InSchema
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnFuture|TABLES|InSchema|"database_name"."schema_name"'`
-        ```
-
+        Create a GrantOwnership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this
+               resource, see docs.
+        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this
+               resource, see docs.
         :param pulumi.Input[Union['GrantOwnershipOnArgs', 'GrantOwnershipOnArgsDict']] on: Configures which object(s) should transfer their ownership to the specified role.
-        :param pulumi.Input[builtins.str] outbound_privileges: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+        :param pulumi.Input[builtins.str] outbound_privileges: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+               a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+               more information head over to [Snowflake
+               documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
         """
         ...
     @overload
@@ -234,52 +214,7 @@ class GrantOwnership(pulumi.CustomResource):
                  args: GrantOwnershipArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ### Import examples
-
-        #### OnObject on Schema ToAccountRole
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnObject|SCHEMA|"database_name"."schema_name"'`
-        ```
-
-        #### OnObject on Schema ToDatabaseRole
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToDatabaseRole|"database_name"."database_role_name"|COPY|OnObject|SCHEMA|"database_name"."schema_name"'`
-        ```
-
-        #### OnObject on Table
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnObject|TABLE|"database_name"."schema_name"."table_name"'`
-        ```
-
-        #### OnAll InDatabase
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|REVOKE|OnAll|TABLES|InDatabase|"database_name"'`
-        ```
-
-        #### OnAll InSchema
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"||OnAll|TABLES|InSchema|"database_name"."schema_name"'`
-        ```
-
-        #### OnFuture InDatabase
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"||OnFuture|TABLES|InDatabase|"database_name"'`
-        ```
-
-        #### OnFuture InSchema
-
-        ```sh
-        $ pulumi import snowflake:index/grantOwnership:GrantOwnership example 'ToAccountRole|"account_role"|COPY|OnFuture|TABLES|InSchema|"database_name"."schema_name"'`
-        ```
-
+        Create a GrantOwnership resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param GrantOwnershipArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -335,10 +270,15 @@ class GrantOwnership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this
+               resource, see docs.
+        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role to which privileges will be granted. For more information about this
+               resource, see docs.
         :param pulumi.Input[Union['GrantOwnershipOnArgs', 'GrantOwnershipOnArgsDict']] on: Configures which object(s) should transfer their ownership to the specified role.
-        :param pulumi.Input[builtins.str] outbound_privileges: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+        :param pulumi.Input[builtins.str] outbound_privileges: Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+               a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+               more information head over to [Snowflake
+               documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -354,7 +294,8 @@ class GrantOwnership(pulumi.CustomResource):
     @pulumi.getter(name="accountRoleName")
     def account_role_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+        The fully qualified name of the account role to which privileges will be granted. For more information about this
+        resource, see docs.
         """
         return pulumi.get(self, "account_role_name")
 
@@ -362,7 +303,8 @@ class GrantOwnership(pulumi.CustomResource):
     @pulumi.getter(name="databaseRoleName")
     def database_role_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+        The fully qualified name of the database role to which privileges will be granted. For more information about this
+        resource, see docs.
         """
         return pulumi.get(self, "database_role_name")
 
@@ -378,7 +320,10 @@ class GrantOwnership(pulumi.CustomResource):
     @pulumi.getter(name="outboundPrivileges")
     def outbound_privileges(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+        Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
+        a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
+        more information head over to [Snowflake
+        documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
         """
         return pulumi.get(self, "outbound_privileges")
 

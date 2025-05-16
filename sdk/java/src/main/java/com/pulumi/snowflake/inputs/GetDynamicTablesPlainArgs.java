@@ -17,62 +17,30 @@ public final class GetDynamicTablesPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetDynamicTablesPlainArgs Empty = new GetDynamicTablesPlainArgs();
 
-    /**
-     * IN clause to filter the list of dynamic tables.
-     * 
-     */
     @Import(name="in")
     private @Nullable GetDynamicTablesIn in;
 
-    /**
-     * @return IN clause to filter the list of dynamic tables.
-     * 
-     */
     public Optional<GetDynamicTablesIn> in() {
         return Optional.ofNullable(this.in);
     }
 
-    /**
-     * LIKE clause to filter the list of dynamic tables.
-     * 
-     */
     @Import(name="like")
     private @Nullable GetDynamicTablesLike like;
 
-    /**
-     * @return LIKE clause to filter the list of dynamic tables.
-     * 
-     */
     public Optional<GetDynamicTablesLike> like() {
         return Optional.ofNullable(this.like);
     }
 
-    /**
-     * Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-     * 
-     */
     @Import(name="limit")
     private @Nullable GetDynamicTablesLimit limit;
 
-    /**
-     * @return Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-     * 
-     */
     public Optional<GetDynamicTablesLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
 
-    /**
-     * Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
-     * 
-     */
     @Import(name="startsWith")
     private @Nullable String startsWith;
 
-    /**
-     * @return Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
-     * 
-     */
     public Optional<String> startsWith() {
         return Optional.ofNullable(this.startsWith);
     }
@@ -104,45 +72,21 @@ public final class GetDynamicTablesPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetDynamicTablesPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param in IN clause to filter the list of dynamic tables.
-         * 
-         * @return builder
-         * 
-         */
         public Builder in(@Nullable GetDynamicTablesIn in) {
             $.in = in;
             return this;
         }
 
-        /**
-         * @param like LIKE clause to filter the list of dynamic tables.
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(@Nullable GetDynamicTablesLike like) {
             $.like = like;
             return this;
         }
 
-        /**
-         * @param limit Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-         * 
-         * @return builder
-         * 
-         */
         public Builder limit(@Nullable GetDynamicTablesLimit limit) {
             $.limit = limit;
             return this;
         }
 
-        /**
-         * @param startsWith Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startsWith(@Nullable String startsWith) {
             $.startsWith = startsWith;
             return this;

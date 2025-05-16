@@ -19,14 +19,18 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
     public static final MaskingPolicyArgs Empty = new MaskingPolicyArgs();
 
     /**
-     * List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+     * List of the arguments for the masking policy. The first column and its data type always indicate the column data type
+     * values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
+     * first column argument in a conditional masking policy.
      * 
      */
     @Import(name="arguments", required=true)
     private Output<List<MaskingPolicyArgumentArgs>> arguments;
 
     /**
-     * @return List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+     * @return List of the arguments for the masking policy. The first column and its data type always indicate the column data type
+     * values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
+     * first column argument in a conditional masking policy.
      * 
      */
     public Output<List<MaskingPolicyArgumentArgs>> arguments() {
@@ -34,14 +38,18 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
+     * characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
+     * semantically significant.
      * 
      */
     @Import(name="body", required=true)
     private Output<String> body;
 
     /**
-     * @return Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * @return Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
+     * characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
+     * semantically significant.
      * 
      */
     public Output<String> body() {
@@ -64,14 +72,16 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -79,14 +89,20 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
+     * by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
+     * are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means
+     * to use the Snowflake default for this value.
      * 
      */
     @Import(name="exemptOtherPolicies")
     private @Nullable Output<String> exemptOtherPolicies;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
+     * by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
+     * are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means
+     * to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> exemptOtherPolicies() {
@@ -94,14 +110,16 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+     * is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+     * is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -109,14 +127,18 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+     * The return data type must match the input data type of the first column that is specified as an input column. For more
+     * information about data types, check [Snowflake
+     * docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     @Import(name="returnDataType", required=true)
     private Output<String> returnDataType;
 
     /**
-     * @return The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+     * @return The return data type must match the input data type of the first column that is specified as an input column. For more
+     * information about data types, check [Snowflake
+     * docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     public Output<String> returnDataType() {
@@ -124,14 +146,16 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -170,7 +194,9 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arguments List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+         * @param arguments List of the arguments for the masking policy. The first column and its data type always indicate the column data type
+         * values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
+         * first column argument in a conditional masking policy.
          * 
          * @return builder
          * 
@@ -181,7 +207,9 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arguments List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+         * @param arguments List of the arguments for the masking policy. The first column and its data type always indicate the column data type
+         * values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
+         * first column argument in a conditional masking policy.
          * 
          * @return builder
          * 
@@ -191,7 +219,9 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arguments List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+         * @param arguments List of the arguments for the masking policy. The first column and its data type always indicate the column data type
+         * values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
+         * first column argument in a conditional masking policy.
          * 
          * @return builder
          * 
@@ -201,7 +231,9 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param body Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+         * @param body Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
+         * characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
+         * semantically significant.
          * 
          * @return builder
          * 
@@ -212,7 +244,9 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param body Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+         * @param body Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
+         * characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
+         * semantically significant.
          * 
          * @return builder
          * 
@@ -243,7 +277,8 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
+         * following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -254,7 +289,8 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
+         * following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -264,7 +300,10 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exemptOtherPolicies (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param exemptOtherPolicies Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
+         * by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
+         * are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means
+         * to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -275,7 +314,10 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param exemptOtherPolicies (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param exemptOtherPolicies Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
+         * by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
+         * are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means
+         * to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -285,7 +327,8 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+         * is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -296,7 +339,8 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
+         * is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -306,7 +350,9 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param returnDataType The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+         * @param returnDataType The return data type must match the input data type of the first column that is specified as an input column. For more
+         * information about data types, check [Snowflake
+         * docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
          * 
          * @return builder
          * 
@@ -317,7 +363,9 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param returnDataType The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+         * @param returnDataType The return data type must match the input data type of the first column that is specified as an input column. For more
+         * information about data types, check [Snowflake
+         * docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
          * 
          * @return builder
          * 
@@ -327,7 +375,8 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
+         * following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -338,7 +387,8 @@ public final class MaskingPolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
+         * following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

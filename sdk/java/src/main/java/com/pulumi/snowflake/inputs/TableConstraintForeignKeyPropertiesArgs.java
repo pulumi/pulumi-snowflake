@@ -18,14 +18,14 @@ public final class TableConstraintForeignKeyPropertiesArgs extends com.pulumi.re
     public static final TableConstraintForeignKeyPropertiesArgs Empty = new TableConstraintForeignKeyPropertiesArgs();
 
     /**
-     * (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+     * The match type for the foreign key. Not applicable for primary/unique keys
      * 
      */
     @Import(name="match")
     private @Nullable Output<String> match;
 
     /**
-     * @return (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+     * @return The match type for the foreign key. Not applicable for primary/unique keys
      * 
      */
     public Optional<Output<String>> match() {
@@ -33,14 +33,14 @@ public final class TableConstraintForeignKeyPropertiesArgs extends com.pulumi.re
     }
 
     /**
-     * (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+     * Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
      * 
      */
     @Import(name="onDelete")
     private @Nullable Output<String> onDelete;
 
     /**
-     * @return (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+     * @return Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
      * 
      */
     public Optional<Output<String>> onDelete() {
@@ -48,14 +48,14 @@ public final class TableConstraintForeignKeyPropertiesArgs extends com.pulumi.re
     }
 
     /**
-     * (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+     * Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
      * 
      */
     @Import(name="onUpdate")
     private @Nullable Output<String> onUpdate;
 
     /**
-     * @return (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+     * @return Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
      * 
      */
     public Optional<Output<String>> onUpdate() {
@@ -105,7 +105,7 @@ public final class TableConstraintForeignKeyPropertiesArgs extends com.pulumi.re
         }
 
         /**
-         * @param match (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+         * @param match The match type for the foreign key. Not applicable for primary/unique keys
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class TableConstraintForeignKeyPropertiesArgs extends com.pulumi.re
         }
 
         /**
-         * @param match (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+         * @param match The match type for the foreign key. Not applicable for primary/unique keys
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class TableConstraintForeignKeyPropertiesArgs extends com.pulumi.re
         }
 
         /**
-         * @param onDelete (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+         * @param onDelete Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class TableConstraintForeignKeyPropertiesArgs extends com.pulumi.re
         }
 
         /**
-         * @param onDelete (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+         * @param onDelete Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class TableConstraintForeignKeyPropertiesArgs extends com.pulumi.re
         }
 
         /**
-         * @param onUpdate (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+         * @param onUpdate Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class TableConstraintForeignKeyPropertiesArgs extends com.pulumi.re
         }
 
         /**
-         * @param onUpdate (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+         * @param onUpdate Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
          * 
          * @return builder
          * 

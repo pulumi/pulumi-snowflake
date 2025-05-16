@@ -19,7 +19,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? AccountRole { get; set; }
 
         /// <summary>
-        /// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&amp;lt;db*name&amp;gt;"."&amp;lt;database*role_name&amp;gt;").
+        /// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&amp;lt;db_name&amp;gt;"."&amp;lt;database_role_name&amp;gt;").
         /// </summary>
         [Input("databaseRole")]
         public Input<string>? DatabaseRole { get; set; }

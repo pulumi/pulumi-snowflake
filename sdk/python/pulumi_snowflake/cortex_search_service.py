@@ -183,7 +183,8 @@ class _CortexSearchServiceState:
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the Cortex search service.
         :param pulumi.Input[builtins.str] created_on: Creation date for the given Cortex search service.
         :param pulumi.Input[builtins.str] database: The database in which to create the Cortex search service.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
         :param pulumi.Input[builtins.str] on: Specifies the column to use as the search column for the Cortex search service; must be a text value.
         :param pulumi.Input[builtins.str] query: Specifies the query to use to populate the Cortex search service.
@@ -266,7 +267,8 @@ class _CortexSearchServiceState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -364,12 +366,7 @@ class CortexSearchService(pulumi.CustomResource):
                  warehouse: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/cortexSearchService:CortexSearchService example 'dbName|schemaName|fileFormatName'
-        ```
-
+        Create a CortexSearchService resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] attributes: Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
@@ -389,12 +386,7 @@ class CortexSearchService(pulumi.CustomResource):
                  args: CortexSearchServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/cortexSearchService:CortexSearchService example 'dbName|schemaName|fileFormatName'
-        ```
-
+        Create a CortexSearchService resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param CortexSearchServiceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -483,7 +475,8 @@ class CortexSearchService(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the Cortex search service.
         :param pulumi.Input[builtins.str] created_on: Creation date for the given Cortex search service.
         :param pulumi.Input[builtins.str] database: The database in which to create the Cortex search service.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
         :param pulumi.Input[builtins.str] on: Specifies the column to use as the search column for the Cortex search service; must be a text value.
         :param pulumi.Input[builtins.str] query: Specifies the query to use to populate the Cortex search service.
@@ -544,7 +537,8 @@ class CortexSearchService(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 

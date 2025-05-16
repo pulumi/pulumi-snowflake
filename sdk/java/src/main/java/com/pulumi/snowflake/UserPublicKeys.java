@@ -45,14 +45,16 @@ public class UserPublicKeys extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rsaPublicKey);
     }
     /**
-     * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+     * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+     * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      * 
      */
     @Export(name="rsaPublicKey2", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rsaPublicKey2;
 
     /**
-     * @return Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+     * @return Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+     * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      * 
      */
     public Output<Optional<String>> rsaPublicKey2() {

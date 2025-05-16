@@ -40,8 +40,6 @@ __all__ = [
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgs',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgsDict',
-    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs',
-    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgs',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgsDict',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArgs',
@@ -68,8 +66,6 @@ __all__ = [
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgs',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgsDict',
-    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs',
-    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgs',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgsDict',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityArgs',
@@ -96,8 +92,6 @@ __all__ = [
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgs',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgsDict',
-    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs',
-    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgs',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgsDict',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityArgs',
@@ -436,8 +430,6 @@ __all__ = [
     'OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgs',
     'OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgsDict',
-    'OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs',
-    'OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgs',
     'OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArgs',
@@ -448,8 +440,6 @@ __all__ = [
     'OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgs',
     'OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgsDict',
-    'OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs',
-    'OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgs',
     'OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgsDict',
     'OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgs',
@@ -482,8 +472,6 @@ __all__ = [
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgs',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgsDict',
-    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs',
-    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgs',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArgs',
@@ -494,8 +482,6 @@ __all__ = [
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgs',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgsDict',
-    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs',
-    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgs',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgsDict',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgs',
@@ -644,14 +630,10 @@ __all__ = [
     'Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgsDict',
     'Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs',
     'Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgsDict',
-    'Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs',
-    'Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgsDict',
     'Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs',
     'Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgsDict',
     'Saml2IntegrationDescribeOutputSaml2SsoUrlArgs',
     'Saml2IntegrationDescribeOutputSaml2SsoUrlArgsDict',
-    'Saml2IntegrationDescribeOutputSaml2X509CertArgs',
-    'Saml2IntegrationDescribeOutputSaml2X509CertArgsDict',
     'Saml2IntegrationShowOutputArgs',
     'Saml2IntegrationShowOutputArgsDict',
     'SchemaDescribeOutputArgs',
@@ -1870,7 +1852,6 @@ if not MYPY:
         oauth_allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScopeArgsDict']]]]
         oauth_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArgsDict']]]]
         oauth_client_auth_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgsDict']]]]
-        oauth_client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgsDict']]]]
         oauth_grants: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgsDict']]]]
         oauth_refresh_token_validities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArgsDict']]]]
         oauth_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpointArgsDict']]]]
@@ -1888,7 +1869,6 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs:
                  oauth_allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScopeArgs']]]] = None,
                  oauth_authorization_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArgs']]]] = None,
                  oauth_client_auth_methods: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgs']]]] = None,
-                 oauth_client_ids: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs']]]] = None,
                  oauth_grants: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgs']]]] = None,
                  oauth_refresh_token_validities: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArgs']]]] = None,
                  oauth_token_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpointArgs']]]] = None,
@@ -1907,8 +1887,6 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs:
             pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
         if oauth_client_auth_methods is not None:
             pulumi.set(__self__, "oauth_client_auth_methods", oauth_client_auth_methods)
-        if oauth_client_ids is not None:
-            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
         if oauth_grants is not None:
             pulumi.set(__self__, "oauth_grants", oauth_grants)
         if oauth_refresh_token_validities is not None:
@@ -1980,15 +1958,6 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputArgs:
     @oauth_client_auth_methods.setter
     def oauth_client_auth_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgs']]]]):
         pulumi.set(self, "oauth_client_auth_methods", value)
-
-    @property
-    @pulumi.getter(name="oauthClientIds")
-    def oauth_client_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs']]]]:
-        return pulumi.get(self, "oauth_client_ids")
-
-    @oauth_client_ids.setter
-    def oauth_client_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs']]]]):
-        pulumi.set(self, "oauth_client_ids", value)
 
     @property
     @pulumi.getter(name="oauthGrants")
@@ -2462,68 +2431,6 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthC
 
 
 if not MYPY:
-    class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgsDict(TypedDict):
-        default: NotRequired[pulumi.Input[builtins.str]]
-        name: NotRequired[pulumi.Input[builtins.str]]
-        type: NotRequired[pulumi.Input[builtins.str]]
-        value: NotRequired[pulumi.Input[builtins.str]]
-elif False:
-    ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs:
-    def __init__(__self__, *,
-                 default: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
-                 value: Optional[pulumi.Input[builtins.str]] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "default")
-
-    @default.setter
-    def default(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "default", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "value", value)
-
-
-if not MYPY:
     class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgsDict(TypedDict):
         default: NotRequired[pulumi.Input[builtins.str]]
         name: NotRequired[pulumi.Input[builtins.str]]
@@ -2868,7 +2775,6 @@ if not MYPY:
         oauth_allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScopeArgsDict']]]]
         oauth_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArgsDict']]]]
         oauth_client_auth_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgsDict']]]]
-        oauth_client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgsDict']]]]
         oauth_grants: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgsDict']]]]
         oauth_refresh_token_validities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityArgsDict']]]]
         oauth_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpointArgsDict']]]]
@@ -2886,7 +2792,6 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgs:
                  oauth_allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScopeArgs']]]] = None,
                  oauth_authorization_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpointArgs']]]] = None,
                  oauth_client_auth_methods: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgs']]]] = None,
-                 oauth_client_ids: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs']]]] = None,
                  oauth_grants: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgs']]]] = None,
                  oauth_refresh_token_validities: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidityArgs']]]] = None,
                  oauth_token_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpointArgs']]]] = None,
@@ -2905,8 +2810,6 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgs:
             pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
         if oauth_client_auth_methods is not None:
             pulumi.set(__self__, "oauth_client_auth_methods", oauth_client_auth_methods)
-        if oauth_client_ids is not None:
-            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
         if oauth_grants is not None:
             pulumi.set(__self__, "oauth_grants", oauth_grants)
         if oauth_refresh_token_validities is not None:
@@ -2978,15 +2881,6 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgs:
     @oauth_client_auth_methods.setter
     def oauth_client_auth_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethodArgs']]]]):
         pulumi.set(self, "oauth_client_auth_methods", value)
-
-    @property
-    @pulumi.getter(name="oauthClientIds")
-    def oauth_client_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs']]]]:
-        return pulumi.get(self, "oauth_client_ids")
-
-    @oauth_client_ids.setter
-    def oauth_client_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs']]]]):
-        pulumi.set(self, "oauth_client_ids", value)
 
     @property
     @pulumi.getter(name="oauthGrants")
@@ -3460,68 +3354,6 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClient
 
 
 if not MYPY:
-    class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgsDict(TypedDict):
-        default: NotRequired[pulumi.Input[builtins.str]]
-        name: NotRequired[pulumi.Input[builtins.str]]
-        type: NotRequired[pulumi.Input[builtins.str]]
-        value: NotRequired[pulumi.Input[builtins.str]]
-elif False:
-    ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientIdArgs:
-    def __init__(__self__, *,
-                 default: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
-                 value: Optional[pulumi.Input[builtins.str]] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "default")
-
-    @default.setter
-    def default(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "default", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "value", value)
-
-
-if not MYPY:
     class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrantArgsDict(TypedDict):
         default: NotRequired[pulumi.Input[builtins.str]]
         name: NotRequired[pulumi.Input[builtins.str]]
@@ -3866,7 +3698,6 @@ if not MYPY:
         oauth_allowed_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScopeArgsDict']]]]
         oauth_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArgsDict']]]]
         oauth_client_auth_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgsDict']]]]
-        oauth_client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgsDict']]]]
         oauth_grants: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgsDict']]]]
         oauth_refresh_token_validities: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityArgsDict']]]]
         oauth_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpointArgsDict']]]]
@@ -3884,7 +3715,6 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs:
                  oauth_allowed_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScopeArgs']]]] = None,
                  oauth_authorization_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpointArgs']]]] = None,
                  oauth_client_auth_methods: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgs']]]] = None,
-                 oauth_client_ids: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs']]]] = None,
                  oauth_grants: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrantArgs']]]] = None,
                  oauth_refresh_token_validities: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidityArgs']]]] = None,
                  oauth_token_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpointArgs']]]] = None,
@@ -3903,8 +3733,6 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs:
             pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
         if oauth_client_auth_methods is not None:
             pulumi.set(__self__, "oauth_client_auth_methods", oauth_client_auth_methods)
-        if oauth_client_ids is not None:
-            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
         if oauth_grants is not None:
             pulumi.set(__self__, "oauth_grants", oauth_grants)
         if oauth_refresh_token_validities is not None:
@@ -3976,15 +3804,6 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputArgs:
     @oauth_client_auth_methods.setter
     def oauth_client_auth_methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgs']]]]):
         pulumi.set(self, "oauth_client_auth_methods", value)
-
-    @property
-    @pulumi.getter(name="oauthClientIds")
-    def oauth_client_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs']]]]:
-        return pulumi.get(self, "oauth_client_ids")
-
-    @oauth_client_ids.setter
-    def oauth_client_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs']]]]):
-        pulumi.set(self, "oauth_client_ids", value)
 
     @property
     @pulumi.getter(name="oauthGrants")
@@ -4406,68 +4225,6 @@ elif False:
 
 @pulumi.input_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethodArgs:
-    def __init__(__self__, *,
-                 default: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
-                 value: Optional[pulumi.Input[builtins.str]] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "default")
-
-    @default.setter
-    def default(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "default", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "value", value)
-
-
-if not MYPY:
-    class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgsDict(TypedDict):
-        default: NotRequired[pulumi.Input[builtins.str]]
-        name: NotRequired[pulumi.Input[builtins.str]]
-        type: NotRequired[pulumi.Input[builtins.str]]
-        value: NotRequired[pulumi.Input[builtins.str]]
-elif False:
-    ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientIdArgs:
     def __init__(__self__, *,
                  default: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -7762,7 +7519,7 @@ if not MYPY:
     class FunctionJavaSecretArgsDict(TypedDict):
         secret_id: pulumi.Input[builtins.str]
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         """
         secret_variable_name: pulumi.Input[builtins.str]
         """
@@ -7777,7 +7534,7 @@ class FunctionJavaSecretArgs:
                  secret_id: pulumi.Input[builtins.str],
                  secret_variable_name: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         :param pulumi.Input[builtins.str] secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
         pulumi.set(__self__, "secret_id", secret_id)
@@ -7787,7 +7544,7 @@ class FunctionJavaSecretArgs:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[builtins.str]:
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secret_id")
 
@@ -9288,7 +9045,7 @@ if not MYPY:
     class FunctionPythonSecretArgsDict(TypedDict):
         secret_id: pulumi.Input[builtins.str]
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         """
         secret_variable_name: pulumi.Input[builtins.str]
         """
@@ -9303,7 +9060,7 @@ class FunctionPythonSecretArgs:
                  secret_id: pulumi.Input[builtins.str],
                  secret_variable_name: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         :param pulumi.Input[builtins.str] secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
         pulumi.set(__self__, "secret_id", secret_id)
@@ -9313,7 +9070,7 @@ class FunctionPythonSecretArgs:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[builtins.str]:
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secret_id")
 
@@ -10076,7 +9833,7 @@ if not MYPY:
     class FunctionScalaSecretArgsDict(TypedDict):
         secret_id: pulumi.Input[builtins.str]
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         """
         secret_variable_name: pulumi.Input[builtins.str]
         """
@@ -10091,7 +9848,7 @@ class FunctionScalaSecretArgs:
                  secret_id: pulumi.Input[builtins.str],
                  secret_variable_name: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         :param pulumi.Input[builtins.str] secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
         pulumi.set(__self__, "secret_id", secret_id)
@@ -10101,7 +9858,7 @@ class FunctionScalaSecretArgs:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[builtins.str]:
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secret_id")
 
@@ -18024,13 +17781,11 @@ if not MYPY:
         oauth_allowed_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpointArgsDict']]]]
         oauth_allowed_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArgsDict']]]]
         oauth_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgsDict']]]]
-        oauth_client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgsDict']]]]
         oauth_client_rsa_public_key2_fps: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgsDict']]]]
         oauth_client_rsa_public_key_fps: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArgsDict']]]]
         oauth_client_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientTypeArgsDict']]]]
         oauth_enforce_pkces: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArgsDict']]]]
         oauth_issue_refresh_tokens: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgsDict']]]]
-        oauth_redirect_uris: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgsDict']]]]
         oauth_refresh_token_validities: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgsDict']]]]
         oauth_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgsDict']]]]
         oauth_use_secondary_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRoleArgsDict']]]]
@@ -18049,13 +17804,11 @@ class OauthIntegrationForCustomClientsDescribeOutputArgs:
                  oauth_allowed_authorization_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpointArgs']]]] = None,
                  oauth_allowed_token_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArgs']]]] = None,
                  oauth_authorization_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgs']]]] = None,
-                 oauth_client_ids: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs']]]] = None,
                  oauth_client_rsa_public_key2_fps: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgs']]]] = None,
                  oauth_client_rsa_public_key_fps: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArgs']]]] = None,
                  oauth_client_types: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientTypeArgs']]]] = None,
                  oauth_enforce_pkces: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArgs']]]] = None,
                  oauth_issue_refresh_tokens: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgs']]]] = None,
-                 oauth_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs']]]] = None,
                  oauth_refresh_token_validities: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgs']]]] = None,
                  oauth_token_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgs']]]] = None,
                  oauth_use_secondary_roles: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRoleArgs']]]] = None,
@@ -18076,8 +17829,6 @@ class OauthIntegrationForCustomClientsDescribeOutputArgs:
             pulumi.set(__self__, "oauth_allowed_token_endpoints", oauth_allowed_token_endpoints)
         if oauth_authorization_endpoints is not None:
             pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
-        if oauth_client_ids is not None:
-            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
         if oauth_client_rsa_public_key2_fps is not None:
             pulumi.set(__self__, "oauth_client_rsa_public_key2_fps", oauth_client_rsa_public_key2_fps)
         if oauth_client_rsa_public_key_fps is not None:
@@ -18088,8 +17839,6 @@ class OauthIntegrationForCustomClientsDescribeOutputArgs:
             pulumi.set(__self__, "oauth_enforce_pkces", oauth_enforce_pkces)
         if oauth_issue_refresh_tokens is not None:
             pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
-        if oauth_redirect_uris is not None:
-            pulumi.set(__self__, "oauth_redirect_uris", oauth_redirect_uris)
         if oauth_refresh_token_validities is not None:
             pulumi.set(__self__, "oauth_refresh_token_validities", oauth_refresh_token_validities)
         if oauth_token_endpoints is not None:
@@ -18172,15 +17921,6 @@ class OauthIntegrationForCustomClientsDescribeOutputArgs:
         pulumi.set(self, "oauth_authorization_endpoints", value)
 
     @property
-    @pulumi.getter(name="oauthClientIds")
-    def oauth_client_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs']]]]:
-        return pulumi.get(self, "oauth_client_ids")
-
-    @oauth_client_ids.setter
-    def oauth_client_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs']]]]):
-        pulumi.set(self, "oauth_client_ids", value)
-
-    @property
     @pulumi.getter(name="oauthClientRsaPublicKey2Fps")
     def oauth_client_rsa_public_key2_fps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgs']]]]:
         return pulumi.get(self, "oauth_client_rsa_public_key2_fps")
@@ -18224,15 +17964,6 @@ class OauthIntegrationForCustomClientsDescribeOutputArgs:
     @oauth_issue_refresh_tokens.setter
     def oauth_issue_refresh_tokens(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgs']]]]):
         pulumi.set(self, "oauth_issue_refresh_tokens", value)
-
-    @property
-    @pulumi.getter(name="oauthRedirectUris")
-    def oauth_redirect_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs']]]]:
-        return pulumi.get(self, "oauth_redirect_uris")
-
-    @oauth_redirect_uris.setter
-    def oauth_redirect_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs']]]]):
-        pulumi.set(self, "oauth_redirect_uris", value)
 
     @property
     @pulumi.getter(name="oauthRefreshTokenValidities")
@@ -18768,68 +18499,6 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointAr
 
 
 if not MYPY:
-    class OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgsDict(TypedDict):
-        default: NotRequired[pulumi.Input[builtins.str]]
-        name: NotRequired[pulumi.Input[builtins.str]]
-        type: NotRequired[pulumi.Input[builtins.str]]
-        value: NotRequired[pulumi.Input[builtins.str]]
-elif False:
-    OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs:
-    def __init__(__self__, *,
-                 default: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
-                 value: Optional[pulumi.Input[builtins.str]] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "default")
-
-    @default.setter
-    def default(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "default", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "value", value)
-
-
-if not MYPY:
     class OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgsDict(TypedDict):
         default: NotRequired[pulumi.Input[builtins.str]]
         name: NotRequired[pulumi.Input[builtins.str]]
@@ -19088,68 +18757,6 @@ elif False:
 
 @pulumi.input_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgs:
-    def __init__(__self__, *,
-                 default: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
-                 value: Optional[pulumi.Input[builtins.str]] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "default")
-
-    @default.setter
-    def default(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "default", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "value", value)
-
-
-if not MYPY:
-    class OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgsDict(TypedDict):
-        default: NotRequired[pulumi.Input[builtins.str]]
-        name: NotRequired[pulumi.Input[builtins.str]]
-        type: NotRequired[pulumi.Input[builtins.str]]
-        value: NotRequired[pulumi.Input[builtins.str]]
-elif False:
-    OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs:
     def __init__(__self__, *,
                  default: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -19645,13 +19252,11 @@ if not MYPY:
         oauth_allowed_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpointArgsDict']]]]
         oauth_allowed_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArgsDict']]]]
         oauth_authorization_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgsDict']]]]
-        oauth_client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgsDict']]]]
         oauth_client_rsa_public_key2_fps: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgsDict']]]]
         oauth_client_rsa_public_key_fps: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArgsDict']]]]
         oauth_client_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientTypeArgsDict']]]]
         oauth_enforce_pkces: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArgsDict']]]]
         oauth_issue_refresh_tokens: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgsDict']]]]
-        oauth_redirect_uris: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgsDict']]]]
         oauth_refresh_token_validities: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgsDict']]]]
         oauth_token_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgsDict']]]]
         oauth_use_secondary_roles: NotRequired[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRoleArgsDict']]]]
@@ -19670,13 +19275,11 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputArgs:
                  oauth_allowed_authorization_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpointArgs']]]] = None,
                  oauth_allowed_token_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArgs']]]] = None,
                  oauth_authorization_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgs']]]] = None,
-                 oauth_client_ids: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs']]]] = None,
                  oauth_client_rsa_public_key2_fps: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgs']]]] = None,
                  oauth_client_rsa_public_key_fps: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArgs']]]] = None,
                  oauth_client_types: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientTypeArgs']]]] = None,
                  oauth_enforce_pkces: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArgs']]]] = None,
                  oauth_issue_refresh_tokens: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgs']]]] = None,
-                 oauth_redirect_uris: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs']]]] = None,
                  oauth_refresh_token_validities: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgs']]]] = None,
                  oauth_token_endpoints: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgs']]]] = None,
                  oauth_use_secondary_roles: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRoleArgs']]]] = None,
@@ -19697,8 +19300,6 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputArgs:
             pulumi.set(__self__, "oauth_allowed_token_endpoints", oauth_allowed_token_endpoints)
         if oauth_authorization_endpoints is not None:
             pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
-        if oauth_client_ids is not None:
-            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
         if oauth_client_rsa_public_key2_fps is not None:
             pulumi.set(__self__, "oauth_client_rsa_public_key2_fps", oauth_client_rsa_public_key2_fps)
         if oauth_client_rsa_public_key_fps is not None:
@@ -19709,8 +19310,6 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputArgs:
             pulumi.set(__self__, "oauth_enforce_pkces", oauth_enforce_pkces)
         if oauth_issue_refresh_tokens is not None:
             pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
-        if oauth_redirect_uris is not None:
-            pulumi.set(__self__, "oauth_redirect_uris", oauth_redirect_uris)
         if oauth_refresh_token_validities is not None:
             pulumi.set(__self__, "oauth_refresh_token_validities", oauth_refresh_token_validities)
         if oauth_token_endpoints is not None:
@@ -19793,15 +19392,6 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputArgs:
         pulumi.set(self, "oauth_authorization_endpoints", value)
 
     @property
-    @pulumi.getter(name="oauthClientIds")
-    def oauth_client_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs']]]]:
-        return pulumi.get(self, "oauth_client_ids")
-
-    @oauth_client_ids.setter
-    def oauth_client_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs']]]]):
-        pulumi.set(self, "oauth_client_ids", value)
-
-    @property
     @pulumi.getter(name="oauthClientRsaPublicKey2Fps")
     def oauth_client_rsa_public_key2_fps(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgs']]]]:
         return pulumi.get(self, "oauth_client_rsa_public_key2_fps")
@@ -19845,15 +19435,6 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputArgs:
     @oauth_issue_refresh_tokens.setter
     def oauth_issue_refresh_tokens(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgs']]]]):
         pulumi.set(self, "oauth_issue_refresh_tokens", value)
-
-    @property
-    @pulumi.getter(name="oauthRedirectUris")
-    def oauth_redirect_uris(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs']]]]:
-        return pulumi.get(self, "oauth_redirect_uris")
-
-    @oauth_redirect_uris.setter
-    def oauth_redirect_uris(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs']]]]):
-        pulumi.set(self, "oauth_redirect_uris", value)
 
     @property
     @pulumi.getter(name="oauthRefreshTokenValidities")
@@ -20389,68 +19970,6 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndp
 
 
 if not MYPY:
-    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgsDict(TypedDict):
-        default: NotRequired[pulumi.Input[builtins.str]]
-        name: NotRequired[pulumi.Input[builtins.str]]
-        type: NotRequired[pulumi.Input[builtins.str]]
-        value: NotRequired[pulumi.Input[builtins.str]]
-elif False:
-    OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs:
-    def __init__(__self__, *,
-                 default: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
-                 value: Optional[pulumi.Input[builtins.str]] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "default")
-
-    @default.setter
-    def default(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "default", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "value", value)
-
-
-if not MYPY:
     class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgsDict(TypedDict):
         default: NotRequired[pulumi.Input[builtins.str]]
         name: NotRequired[pulumi.Input[builtins.str]]
@@ -20709,68 +20228,6 @@ elif False:
 
 @pulumi.input_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgs:
-    def __init__(__self__, *,
-                 default: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
-                 value: Optional[pulumi.Input[builtins.str]] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "default")
-
-    @default.setter
-    def default(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "default", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "value", value)
-
-
-if not MYPY:
-    class OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgsDict(TypedDict):
-        default: NotRequired[pulumi.Input[builtins.str]]
-        name: NotRequired[pulumi.Input[builtins.str]]
-        type: NotRequired[pulumi.Input[builtins.str]]
-        value: NotRequired[pulumi.Input[builtins.str]]
-elif False:
-    OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs:
     def __init__(__self__, *,
                  default: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -21965,7 +21422,7 @@ if not MYPY:
     class ProcedureJavaSecretArgsDict(TypedDict):
         secret_id: pulumi.Input[builtins.str]
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         """
         secret_variable_name: pulumi.Input[builtins.str]
         """
@@ -21980,7 +21437,7 @@ class ProcedureJavaSecretArgs:
                  secret_id: pulumi.Input[builtins.str],
                  secret_variable_name: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         :param pulumi.Input[builtins.str] secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
         pulumi.set(__self__, "secret_id", secret_id)
@@ -21990,7 +21447,7 @@ class ProcedureJavaSecretArgs:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[builtins.str]:
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secret_id")
 
@@ -23387,7 +22844,7 @@ if not MYPY:
     class ProcedurePythonSecretArgsDict(TypedDict):
         secret_id: pulumi.Input[builtins.str]
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         """
         secret_variable_name: pulumi.Input[builtins.str]
         """
@@ -23402,7 +22859,7 @@ class ProcedurePythonSecretArgs:
                  secret_id: pulumi.Input[builtins.str],
                  secret_variable_name: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         :param pulumi.Input[builtins.str] secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
         pulumi.set(__self__, "secret_id", secret_id)
@@ -23412,7 +22869,7 @@ class ProcedurePythonSecretArgs:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[builtins.str]:
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secret_id")
 
@@ -24123,7 +23580,7 @@ if not MYPY:
     class ProcedureScalaSecretArgsDict(TypedDict):
         secret_id: pulumi.Input[builtins.str]
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         """
         secret_variable_name: pulumi.Input[builtins.str]
         """
@@ -24138,7 +23595,7 @@ class ProcedureScalaSecretArgs:
                  secret_id: pulumi.Input[builtins.str],
                  secret_variable_name: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         :param pulumi.Input[builtins.str] secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
         pulumi.set(__self__, "secret_id", secret_id)
@@ -24148,7 +23605,7 @@ class ProcedureScalaSecretArgs:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[builtins.str]:
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secret_id")
 
@@ -25651,10 +25108,8 @@ if not MYPY:
         saml2_snowflake_acs_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgsDict']]]]
         saml2_snowflake_issuer_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgsDict']]]]
         saml2_snowflake_metadatas: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgsDict']]]]
-        saml2_snowflake_x509_certs: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgsDict']]]]
         saml2_sp_initiated_login_page_labels: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgsDict']]]]
         saml2_sso_urls: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SsoUrlArgsDict']]]]
-        saml2_x509_certs: NotRequired[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2X509CertArgsDict']]]]
 elif False:
     Saml2IntegrationDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -25676,10 +25131,8 @@ class Saml2IntegrationDescribeOutputArgs:
                  saml2_snowflake_acs_urls: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs']]]] = None,
                  saml2_snowflake_issuer_urls: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs']]]] = None,
                  saml2_snowflake_metadatas: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs']]]] = None,
-                 saml2_snowflake_x509_certs: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs']]]] = None,
                  saml2_sp_initiated_login_page_labels: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs']]]] = None,
-                 saml2_sso_urls: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SsoUrlArgs']]]] = None,
-                 saml2_x509_certs: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2X509CertArgs']]]] = None):
+                 saml2_sso_urls: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SsoUrlArgs']]]] = None):
         if allowed_email_patterns is not None:
             pulumi.set(__self__, "allowed_email_patterns", allowed_email_patterns)
         if allowed_user_domains is not None:
@@ -25710,14 +25163,10 @@ class Saml2IntegrationDescribeOutputArgs:
             pulumi.set(__self__, "saml2_snowflake_issuer_urls", saml2_snowflake_issuer_urls)
         if saml2_snowflake_metadatas is not None:
             pulumi.set(__self__, "saml2_snowflake_metadatas", saml2_snowflake_metadatas)
-        if saml2_snowflake_x509_certs is not None:
-            pulumi.set(__self__, "saml2_snowflake_x509_certs", saml2_snowflake_x509_certs)
         if saml2_sp_initiated_login_page_labels is not None:
             pulumi.set(__self__, "saml2_sp_initiated_login_page_labels", saml2_sp_initiated_login_page_labels)
         if saml2_sso_urls is not None:
             pulumi.set(__self__, "saml2_sso_urls", saml2_sso_urls)
-        if saml2_x509_certs is not None:
-            pulumi.set(__self__, "saml2_x509_certs", saml2_x509_certs)
 
     @property
     @pulumi.getter(name="allowedEmailPatterns")
@@ -25855,15 +25304,6 @@ class Saml2IntegrationDescribeOutputArgs:
         pulumi.set(self, "saml2_snowflake_metadatas", value)
 
     @property
-    @pulumi.getter(name="saml2SnowflakeX509Certs")
-    def saml2_snowflake_x509_certs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs']]]]:
-        return pulumi.get(self, "saml2_snowflake_x509_certs")
-
-    @saml2_snowflake_x509_certs.setter
-    def saml2_snowflake_x509_certs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs']]]]):
-        pulumi.set(self, "saml2_snowflake_x509_certs", value)
-
-    @property
     @pulumi.getter(name="saml2SpInitiatedLoginPageLabels")
     def saml2_sp_initiated_login_page_labels(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs']]]]:
         return pulumi.get(self, "saml2_sp_initiated_login_page_labels")
@@ -25880,15 +25320,6 @@ class Saml2IntegrationDescribeOutputArgs:
     @saml2_sso_urls.setter
     def saml2_sso_urls(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2SsoUrlArgs']]]]):
         pulumi.set(self, "saml2_sso_urls", value)
-
-    @property
-    @pulumi.getter(name="saml2X509Certs")
-    def saml2_x509_certs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2X509CertArgs']]]]:
-        return pulumi.get(self, "saml2_x509_certs")
-
-    @saml2_x509_certs.setter
-    def saml2_x509_certs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['Saml2IntegrationDescribeOutputSaml2X509CertArgs']]]]):
-        pulumi.set(self, "saml2_x509_certs", value)
 
 
 if not MYPY:
@@ -26822,68 +26253,6 @@ class Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs:
 
 
 if not MYPY:
-    class Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgsDict(TypedDict):
-        default: NotRequired[pulumi.Input[builtins.str]]
-        name: NotRequired[pulumi.Input[builtins.str]]
-        type: NotRequired[pulumi.Input[builtins.str]]
-        value: NotRequired[pulumi.Input[builtins.str]]
-elif False:
-    Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs:
-    def __init__(__self__, *,
-                 default: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
-                 value: Optional[pulumi.Input[builtins.str]] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "default")
-
-    @default.setter
-    def default(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "default", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "value", value)
-
-
-if not MYPY:
     class Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgsDict(TypedDict):
         default: NotRequired[pulumi.Input[builtins.str]]
         name: NotRequired[pulumi.Input[builtins.str]]
@@ -26956,68 +26325,6 @@ elif False:
 
 @pulumi.input_type
 class Saml2IntegrationDescribeOutputSaml2SsoUrlArgs:
-    def __init__(__self__, *,
-                 default: Optional[pulumi.Input[builtins.str]] = None,
-                 name: Optional[pulumi.Input[builtins.str]] = None,
-                 type: Optional[pulumi.Input[builtins.str]] = None,
-                 value: Optional[pulumi.Input[builtins.str]] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "default")
-
-    @default.setter
-    def default(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "default", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "type")
-
-    @type.setter
-    def type(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "type", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[builtins.str]]:
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "value", value)
-
-
-if not MYPY:
-    class Saml2IntegrationDescribeOutputSaml2X509CertArgsDict(TypedDict):
-        default: NotRequired[pulumi.Input[builtins.str]]
-        name: NotRequired[pulumi.Input[builtins.str]]
-        type: NotRequired[pulumi.Input[builtins.str]]
-        value: NotRequired[pulumi.Input[builtins.str]]
-elif False:
-    Saml2IntegrationDescribeOutputSaml2X509CertArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class Saml2IntegrationDescribeOutputSaml2X509CertArgs:
     def __init__(__self__, *,
                  default: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -36680,7 +35987,7 @@ if not MYPY:
         """
         timestamp: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
 elif False:
     StreamOnExternalTableAtArgsDict: TypeAlias = Mapping[str, Any]
@@ -36696,7 +36003,7 @@ class StreamOnExternalTableAtArgs:
         :param pulumi.Input[builtins.str] offset: Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
         :param pulumi.Input[builtins.str] statement: Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
         :param pulumi.Input[builtins.str] stream: Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
-        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
@@ -36747,7 +36054,7 @@ class StreamOnExternalTableAtArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
         return pulumi.get(self, "timestamp")
 
@@ -36772,7 +36079,7 @@ if not MYPY:
         """
         timestamp: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
 elif False:
     StreamOnExternalTableBeforeArgsDict: TypeAlias = Mapping[str, Any]
@@ -36788,7 +36095,7 @@ class StreamOnExternalTableBeforeArgs:
         :param pulumi.Input[builtins.str] offset: Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
         :param pulumi.Input[builtins.str] statement: Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
         :param pulumi.Input[builtins.str] stream: Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
-        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
@@ -36839,7 +36146,7 @@ class StreamOnExternalTableBeforeArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
         return pulumi.get(self, "timestamp")
 
@@ -37274,7 +36581,7 @@ if not MYPY:
         """
         timestamp: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
 elif False:
     StreamOnTableAtArgsDict: TypeAlias = Mapping[str, Any]
@@ -37290,7 +36597,7 @@ class StreamOnTableAtArgs:
         :param pulumi.Input[builtins.str] offset: Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
         :param pulumi.Input[builtins.str] statement: Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
         :param pulumi.Input[builtins.str] stream: Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
-        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
@@ -37341,7 +36648,7 @@ class StreamOnTableAtArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
         return pulumi.get(self, "timestamp")
 
@@ -37366,7 +36673,7 @@ if not MYPY:
         """
         timestamp: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
 elif False:
     StreamOnTableBeforeArgsDict: TypeAlias = Mapping[str, Any]
@@ -37382,7 +36689,7 @@ class StreamOnTableBeforeArgs:
         :param pulumi.Input[builtins.str] offset: Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
         :param pulumi.Input[builtins.str] statement: Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
         :param pulumi.Input[builtins.str] stream: Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
-        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
@@ -37433,7 +36740,7 @@ class StreamOnTableBeforeArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
         return pulumi.get(self, "timestamp")
 
@@ -37868,7 +37175,7 @@ if not MYPY:
         """
         timestamp: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
 elif False:
     StreamOnViewAtArgsDict: TypeAlias = Mapping[str, Any]
@@ -37884,7 +37191,7 @@ class StreamOnViewAtArgs:
         :param pulumi.Input[builtins.str] offset: Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
         :param pulumi.Input[builtins.str] statement: Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
         :param pulumi.Input[builtins.str] stream: Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
-        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
@@ -37935,7 +37242,7 @@ class StreamOnViewAtArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
         return pulumi.get(self, "timestamp")
 
@@ -37960,7 +37267,7 @@ if not MYPY:
         """
         timestamp: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
 elif False:
     StreamOnViewBeforeArgsDict: TypeAlias = Mapping[str, Any]
@@ -37976,7 +37283,7 @@ class StreamOnViewBeforeArgs:
         :param pulumi.Input[builtins.str] offset: Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
         :param pulumi.Input[builtins.str] statement: Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
         :param pulumi.Input[builtins.str] stream: Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
-        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
@@ -38027,7 +37334,7 @@ class StreamOnViewBeforeArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
         """
         return pulumi.get(self, "timestamp")
 
@@ -38751,11 +38058,11 @@ if not MYPY:
         """
         collate: NotRequired[pulumi.Input[builtins.str]]
         """
-        (Default: ``) Column collation, e.g. utf8
+        Column collation, e.g. utf8
         """
         comment: NotRequired[pulumi.Input[builtins.str]]
         """
-        (Default: ``) Column comment
+        Column comment
         """
         default: NotRequired[pulumi.Input['TableColumnDefaultArgsDict']]
         """
@@ -38767,11 +38074,11 @@ if not MYPY:
         """
         masking_policy: NotRequired[pulumi.Input[builtins.str]]
         """
-        (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+        Masking policy to apply on column. It has to be a fully qualified name.
         """
         nullable: NotRequired[pulumi.Input[builtins.bool]]
         """
-        (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
         schema_evolution_record: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -38795,12 +38102,12 @@ class TableColumnArgs:
         """
         :param pulumi.Input[builtins.str] name: Column name
         :param pulumi.Input[builtins.str] type: Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
-        :param pulumi.Input[builtins.str] collate: (Default: ``) Column collation, e.g. utf8
-        :param pulumi.Input[builtins.str] comment: (Default: ``) Column comment
+        :param pulumi.Input[builtins.str] collate: Column collation, e.g. utf8
+        :param pulumi.Input[builtins.str] comment: Column comment
         :param pulumi.Input['TableColumnDefaultArgs'] default: Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
         :param pulumi.Input['TableColumnIdentityArgs'] identity: Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
-        :param pulumi.Input[builtins.str] masking_policy: (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
-        :param pulumi.Input[builtins.bool] nullable: (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        :param pulumi.Input[builtins.str] masking_policy: Masking policy to apply on column. It has to be a fully qualified name.
+        :param pulumi.Input[builtins.bool] nullable: Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         :param pulumi.Input[builtins.str] schema_evolution_record: Record of schema evolution.
         """
         pulumi.set(__self__, "name", name)
@@ -38848,7 +38155,7 @@ class TableColumnArgs:
     @pulumi.getter
     def collate(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: ``) Column collation, e.g. utf8
+        Column collation, e.g. utf8
         """
         return pulumi.get(self, "collate")
 
@@ -38860,7 +38167,7 @@ class TableColumnArgs:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: ``) Column comment
+        Column comment
         """
         return pulumi.get(self, "comment")
 
@@ -38896,7 +38203,7 @@ class TableColumnArgs:
     @pulumi.getter(name="maskingPolicy")
     def masking_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+        Masking policy to apply on column. It has to be a fully qualified name.
         """
         return pulumi.get(self, "masking_policy")
 
@@ -38908,7 +38215,7 @@ class TableColumnArgs:
     @pulumi.getter
     def nullable(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
         return pulumi.get(self, "nullable")
 
@@ -39005,11 +38312,11 @@ if not MYPY:
     class TableColumnIdentityArgsDict(TypedDict):
         start_num: NotRequired[pulumi.Input[builtins.int]]
         """
-        (Default: `1`) The number to start incrementing at.
+        The number to start incrementing at.
         """
         step_num: NotRequired[pulumi.Input[builtins.int]]
         """
-        (Default: `1`) Step size to increment by.
+        Step size to increment by.
         """
 elif False:
     TableColumnIdentityArgsDict: TypeAlias = Mapping[str, Any]
@@ -39020,8 +38327,8 @@ class TableColumnIdentityArgs:
                  start_num: Optional[pulumi.Input[builtins.int]] = None,
                  step_num: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.int] start_num: (Default: `1`) The number to start incrementing at.
-        :param pulumi.Input[builtins.int] step_num: (Default: `1`) Step size to increment by.
+        :param pulumi.Input[builtins.int] start_num: The number to start incrementing at.
+        :param pulumi.Input[builtins.int] step_num: Step size to increment by.
         """
         if start_num is not None:
             pulumi.set(__self__, "start_num", start_num)
@@ -39032,7 +38339,7 @@ class TableColumnIdentityArgs:
     @pulumi.getter(name="startNum")
     def start_num(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        (Default: `1`) The number to start incrementing at.
+        The number to start incrementing at.
         """
         return pulumi.get(self, "start_num")
 
@@ -39044,7 +38351,7 @@ class TableColumnIdentityArgs:
     @pulumi.getter(name="stepNum")
     def step_num(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        (Default: `1`) Step size to increment by.
+        Step size to increment by.
         """
         return pulumi.get(self, "step_num")
 
@@ -39061,15 +38368,15 @@ if not MYPY:
         """
         match: NotRequired[pulumi.Input[builtins.str]]
         """
-        (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+        The match type for the foreign key. Not applicable for primary/unique keys
         """
         on_delete: NotRequired[pulumi.Input[builtins.str]]
         """
-        (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
         """
         on_update: NotRequired[pulumi.Input[builtins.str]]
         """
-        (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
         """
 elif False:
     TableConstraintForeignKeyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -39083,9 +38390,9 @@ class TableConstraintForeignKeyPropertiesArgs:
                  on_update: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs'] references: The table and columns that the foreign key references.
-        :param pulumi.Input[builtins.str] match: (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
-        :param pulumi.Input[builtins.str] on_delete: (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
-        :param pulumi.Input[builtins.str] on_update: (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        :param pulumi.Input[builtins.str] match: The match type for the foreign key. Not applicable for primary/unique keys
+        :param pulumi.Input[builtins.str] on_delete: Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        :param pulumi.Input[builtins.str] on_update: Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
         """
         pulumi.set(__self__, "references", references)
         if match is not None:
@@ -39111,7 +38418,7 @@ class TableConstraintForeignKeyPropertiesArgs:
     @pulumi.getter
     def match(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+        The match type for the foreign key. Not applicable for primary/unique keys
         """
         return pulumi.get(self, "match")
 
@@ -39123,7 +38430,7 @@ class TableConstraintForeignKeyPropertiesArgs:
     @pulumi.getter(name="onDelete")
     def on_delete(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
         """
         return pulumi.get(self, "on_delete")
 
@@ -39135,7 +38442,7 @@ class TableConstraintForeignKeyPropertiesArgs:
     @pulumi.getter(name="onUpdate")
     def on_update(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
         """
         return pulumi.get(self, "on_update")
 
@@ -50730,9 +50037,6 @@ class ViewDataMetricFunctionArgs:
 if not MYPY:
     class ViewDataMetricScheduleArgsDict(TypedDict):
         minutes: NotRequired[pulumi.Input[builtins.int]]
-        """
-        Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `using_cron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `using_cron` field, or replace*triggered*by metadata argument.
-        """
         using_cron: NotRequired[pulumi.Input[builtins.str]]
         """
         Specifies a cron expression and time zone for periodically running the data metric function. Supports a subset of standard cron utility syntax. Conflicts with `minutes`.
@@ -50746,7 +50050,6 @@ class ViewDataMetricScheduleArgs:
                  minutes: Optional[pulumi.Input[builtins.int]] = None,
                  using_cron: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.int] minutes: Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `using_cron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `using_cron` field, or replace*triggered*by metadata argument.
         :param pulumi.Input[builtins.str] using_cron: Specifies a cron expression and time zone for periodically running the data metric function. Supports a subset of standard cron utility syntax. Conflicts with `minutes`.
         """
         if minutes is not None:
@@ -50757,9 +50060,6 @@ class ViewDataMetricScheduleArgs:
     @property
     @pulumi.getter
     def minutes(self) -> Optional[pulumi.Input[builtins.int]]:
-        """
-        Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `using_cron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `using_cron` field, or replace*triggered*by metadata argument.
-        """
         return pulumi.get(self, "minutes")
 
     @minutes.setter
@@ -52197,7 +51497,7 @@ if not MYPY:
         """
         schema: NotRequired[builtins.str]
         """
-        Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+        Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db_name&gt;"."&lt;schema_name&gt;").
         """
 elif False:
     GetGrantsFutureGrantsInArgsDict: TypeAlias = Mapping[str, Any]
@@ -52209,7 +51509,7 @@ class GetGrantsFutureGrantsInArgs:
                  schema: Optional[builtins.str] = None):
         """
         :param builtins.str database: Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
-        :param builtins.str schema: Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+        :param builtins.str schema: Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db_name&gt;"."&lt;schema_name&gt;").
         """
         if database is not None:
             pulumi.set(__self__, "database", database)
@@ -52232,7 +51532,7 @@ class GetGrantsFutureGrantsInArgs:
     @pulumi.getter
     def schema(self) -> Optional[builtins.str]:
         """
-        Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+        Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db_name&gt;"."&lt;schema_name&gt;").
         """
         return pulumi.get(self, "schema")
 
@@ -52249,7 +51549,7 @@ if not MYPY:
         """
         database_role: NotRequired[builtins.str]
         """
-        Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
         """
 elif False:
     GetGrantsFutureGrantsToArgsDict: TypeAlias = Mapping[str, Any]
@@ -52261,7 +51561,7 @@ class GetGrantsFutureGrantsToArgs:
                  database_role: Optional[builtins.str] = None):
         """
         :param builtins.str account_role: Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
-        :param builtins.str database_role: Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        :param builtins.str database_role: Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
         """
         if account_role is not None:
             pulumi.set(__self__, "account_role", account_role)
@@ -52284,7 +51584,7 @@ class GetGrantsFutureGrantsToArgs:
     @pulumi.getter(name="databaseRole")
     def database_role(self) -> Optional[builtins.str]:
         """
-        Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
         """
         return pulumi.get(self, "database_role")
 
@@ -52301,11 +51601,11 @@ if not MYPY:
         """
         application_role: NotRequired[builtins.str]
         """
-        Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
         """
         database_role: NotRequired[builtins.str]
         """
-        Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
         """
         share: NotRequired[builtins.str]
         """
@@ -52323,8 +51623,8 @@ class GetGrantsGrantsOfArgs:
                  share: Optional[builtins.str] = None):
         """
         :param builtins.str account_role: Lists all users and roles to which the account role has been granted.
-        :param builtins.str application_role: Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
-        :param builtins.str database_role: Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        :param builtins.str application_role: Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+        :param builtins.str database_role: Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
         :param builtins.str share: Lists all the accounts for the share and indicates the accounts that are using the share.
         """
         if account_role is not None:
@@ -52352,7 +51652,7 @@ class GetGrantsGrantsOfArgs:
     @pulumi.getter(name="applicationRole")
     def application_role(self) -> Optional[builtins.str]:
         """
-        Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
         """
         return pulumi.get(self, "application_role")
 
@@ -52364,7 +51664,7 @@ class GetGrantsGrantsOfArgs:
     @pulumi.getter(name="databaseRole")
     def database_role(self) -> Optional[builtins.str]:
         """
-        Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
         """
         return pulumi.get(self, "database_role")
 
@@ -52469,11 +51769,11 @@ if not MYPY:
         """
         application_role: NotRequired[builtins.str]
         """
-        Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
+        Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app_name&gt;"."&lt;app_role_name&gt;").
         """
         database_role: NotRequired[builtins.str]
         """
-        Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
         """
         share: NotRequired['GetGrantsGrantsToShareArgsDict']
         """
@@ -52498,8 +51798,8 @@ class GetGrantsGrantsToArgs:
         """
         :param builtins.str account_role: Lists all privileges and roles granted to the role.
         :param builtins.str application: Lists all the privileges and roles granted to the application.
-        :param builtins.str application_role: Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
-        :param builtins.str database_role: Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        :param builtins.str application_role: Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app_name&gt;"."&lt;app_role_name&gt;").
+        :param builtins.str database_role: Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
         :param 'GetGrantsGrantsToShareArgs' share: Lists all the privileges granted to the share.
         :param builtins.str user: Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
         """
@@ -52544,7 +51844,7 @@ class GetGrantsGrantsToArgs:
     @pulumi.getter(name="applicationRole")
     def application_role(self) -> Optional[builtins.str]:
         """
-        Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
+        Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app_name&gt;"."&lt;app_role_name&gt;").
         """
         return pulumi.get(self, "application_role")
 
@@ -52556,7 +51856,7 @@ class GetGrantsGrantsToArgs:
     @pulumi.getter(name="databaseRole")
     def database_role(self) -> Optional[builtins.str]:
         """
-        Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
         """
         return pulumi.get(self, "database_role")
 

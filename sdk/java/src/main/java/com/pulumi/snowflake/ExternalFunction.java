@@ -19,16 +19,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * format is &lt;database_name&gt;.&lt;schema_name&gt;.&lt;external_function_name&gt;(&lt;arg types, separated with &#39;,&#39;&gt;)
- * 
- * ```sh
- * $ pulumi import snowflake:index/externalFunction:ExternalFunction example &#39;dbName.schemaName.externalFunctionName(varchar, varchar, varchar)&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/externalFunction:ExternalFunction")
 public class ExternalFunction extends com.pulumi.resources.CustomResource {
     /**
@@ -46,42 +36,46 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
         return this.apiIntegration;
     }
     /**
-     * Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+     * Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+     * service expects.
      * 
      */
     @Export(name="args", refs={List.class,ExternalFunctionArg.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ExternalFunctionArg>> args;
 
     /**
-     * @return Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+     * @return Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+     * service expects.
      * 
      */
     public Output<Optional<List<ExternalFunctionArg>>> args() {
         return Codegen.optional(this.args);
     }
     /**
-     * (Default: `user-defined function`) A description of the external function.
+     * A description of the external function.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return (Default: `user-defined function`) A description of the external function.
+     * @return A description of the external function.
      * 
      */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
     /**
-     * (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+     * If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+     * proxy service to Snowflake.
      * 
      */
     @Export(name="compression", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> compression;
 
     /**
-     * @return (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+     * @return If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+     * proxy service to Snowflake.
      * 
      */
     public Output<Optional<String>> compression() {
@@ -130,14 +124,16 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
@@ -172,28 +168,30 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maxBatchRows);
     }
     /**
-     * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
+     * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+     * well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
+     * @return Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+     * well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
+     * Specifies the behavior of the external function when called with null inputs.
      * 
      */
     @Export(name="nullInputBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nullInputBehavior;
 
     /**
-     * @return (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
+     * @return Specifies the behavior of the external function when called with null inputs.
      * 
      */
     public Output<Optional<String>> nullInputBehavior() {
@@ -242,14 +240,14 @@ public class ExternalFunction extends com.pulumi.resources.CustomResource {
         return this.returnBehavior;
     }
     /**
-     * (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+     * Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      * 
      */
     @Export(name="returnNullAllowed", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> returnNullAllowed;
 
     /**
-     * @return (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+     * @return Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      * 
      */
     public Output<Optional<Boolean>> returnNullAllowed() {

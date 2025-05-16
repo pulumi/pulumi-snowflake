@@ -33,17 +33,9 @@ public final class NetworkPolicyAttachmentArgs extends com.pulumi.resources.Reso
         return this.networkPolicyName;
     }
 
-    /**
-     * (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
-     * 
-     */
     @Import(name="setForAccount")
     private @Nullable Output<Boolean> setForAccount;
 
-    /**
-     * @return (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
-     * 
-     */
     public Optional<Output<Boolean>> setForAccount() {
         return Optional.ofNullable(this.setForAccount);
     }
@@ -110,23 +102,11 @@ public final class NetworkPolicyAttachmentArgs extends com.pulumi.resources.Reso
             return networkPolicyName(Output.of(networkPolicyName));
         }
 
-        /**
-         * @param setForAccount (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder setForAccount(@Nullable Output<Boolean> setForAccount) {
             $.setForAccount = setForAccount;
             return this;
         }
 
-        /**
-         * @param setForAccount (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user&#39;s responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
-         * 
-         * @return builder
-         * 
-         */
         public Builder setForAccount(Boolean setForAccount) {
             return setForAccount(Output.of(setForAccount));
         }

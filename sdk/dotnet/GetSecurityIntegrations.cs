@@ -11,21 +11,12 @@ namespace Pulumi.Snowflake
 {
     public static class GetSecurityIntegrations
     {
-        /// <summary>
-        /// Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
-        /// </summary>
         public static Task<GetSecurityIntegrationsResult> InvokeAsync(GetSecurityIntegrationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityIntegrationsResult>("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", args ?? new GetSecurityIntegrationsArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
-        /// </summary>
         public static Output<GetSecurityIntegrationsResult> Invoke(GetSecurityIntegrationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityIntegrationsResult>("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", args ?? new GetSecurityIntegrationsInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
-        /// </summary>
         public static Output<GetSecurityIntegrationsResult> Invoke(GetSecurityIntegrationsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityIntegrationsResult>("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", args ?? new GetSecurityIntegrationsInvokeArgs(), options.WithDefaults());
     }
@@ -33,15 +24,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetSecurityIntegrationsArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-        /// </summary>
         [Input("like")]
         public string? Like { get; set; }
 
-        /// <summary>
-        /// (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
-        /// </summary>
         [Input("withDescribe")]
         public bool? WithDescribe { get; set; }
 
@@ -53,15 +38,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetSecurityIntegrationsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-        /// </summary>
         [Input("like")]
         public Input<string>? Like { get; set; }
 
-        /// <summary>
-        /// (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
-        /// </summary>
         [Input("withDescribe")]
         public Input<bool>? WithDescribe { get; set; }
 
@@ -79,17 +58,8 @@ namespace Pulumi.Snowflake
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-        /// </summary>
         public readonly string? Like;
-        /// <summary>
-        /// Holds the aggregated output of all security integrations details queries.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationResult> SecurityIntegrations;
-        /// <summary>
-        /// (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
-        /// </summary>
         public readonly bool? WithDescribe;
 
         [OutputConstructor]

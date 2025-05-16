@@ -48,17 +48,11 @@ class GetAlertsResult:
     @property
     @pulumi.getter
     def alerts(self) -> Sequence['outputs.GetAlertsAlertResult']:
-        """
-        Lists alerts for the current/specified database or schema, or across the entire account.
-        """
         return pulumi.get(self, "alerts")
 
     @property
     @pulumi.getter
     def database(self) -> Optional[builtins.str]:
-        """
-        The database from which to return the alerts from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -72,17 +66,11 @@ class GetAlertsResult:
     @property
     @pulumi.getter
     def pattern(self) -> Optional[builtins.str]:
-        """
-        Filters the command output by object name.
-        """
         return pulumi.get(self, "pattern")
 
     @property
     @pulumi.getter
     def schema(self) -> Optional[builtins.str]:
-        """
-        The schema from which to return the alerts from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -104,24 +92,7 @@ def get_alerts(database: Optional[builtins.str] = None,
                schema: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAlertsResult:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_alerts(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
-
-
-    :param builtins.str database: The database from which to return the alerts from.
-    :param builtins.str pattern: Filters the command output by object name.
-    :param builtins.str schema: The schema from which to return the alerts from.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -141,24 +112,7 @@ def get_alerts_output(database: Optional[pulumi.Input[Optional[builtins.str]]] =
                       schema: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAlertsResult]:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_alerts(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
-
-
-    :param builtins.str database: The database from which to return the alerts from.
-    :param builtins.str pattern: Filters the command output by object name.
-    :param builtins.str schema: The schema from which to return the alerts from.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['database'] = database

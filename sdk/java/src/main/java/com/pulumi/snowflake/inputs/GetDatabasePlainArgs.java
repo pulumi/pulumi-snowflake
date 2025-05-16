@@ -13,17 +13,9 @@ public final class GetDatabasePlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetDatabasePlainArgs Empty = new GetDatabasePlainArgs();
 
-    /**
-     * The database from which to return its metadata.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return The database from which to return its metadata.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -52,12 +44,6 @@ public final class GetDatabasePlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetDatabasePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param name The database from which to return its metadata.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;

@@ -18,47 +18,23 @@ public final class StorageIntegrationArgs extends com.pulumi.resources.ResourceA
 
     public static final StorageIntegrationArgs Empty = new StorageIntegrationArgs();
 
-    /**
-     * (Default: ``)
-     * 
-     */
     @Import(name="azureTenantId")
     private @Nullable Output<String> azureTenantId;
 
-    /**
-     * @return (Default: ``)
-     * 
-     */
     public Optional<Output<String>> azureTenantId() {
         return Optional.ofNullable(this.azureTenantId);
     }
 
-    /**
-     * (Default: ``)
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return (Default: ``)
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
 
-    /**
-     * (Default: `true`)
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return (Default: `true`)
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
@@ -100,17 +76,9 @@ public final class StorageIntegrationArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.storageAwsObjectAcl);
     }
 
-    /**
-     * (Default: ``)
-     * 
-     */
     @Import(name="storageAwsRoleArn")
     private @Nullable Output<String> storageAwsRoleArn;
 
-    /**
-     * @return (Default: ``)
-     * 
-     */
     public Optional<Output<String>> storageAwsRoleArn() {
         return Optional.ofNullable(this.storageAwsRoleArn);
     }
@@ -145,17 +113,9 @@ public final class StorageIntegrationArgs extends com.pulumi.resources.ResourceA
         return this.storageProvider;
     }
 
-    /**
-     * (Default: `EXTERNAL_STAGE`)
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return (Default: `EXTERNAL_STAGE`)
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -193,65 +153,29 @@ public final class StorageIntegrationArgs extends com.pulumi.resources.ResourceA
             $ = new StorageIntegrationArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param azureTenantId (Default: ``)
-         * 
-         * @return builder
-         * 
-         */
         public Builder azureTenantId(@Nullable Output<String> azureTenantId) {
             $.azureTenantId = azureTenantId;
             return this;
         }
 
-        /**
-         * @param azureTenantId (Default: ``)
-         * 
-         * @return builder
-         * 
-         */
         public Builder azureTenantId(String azureTenantId) {
             return azureTenantId(Output.of(azureTenantId));
         }
 
-        /**
-         * @param comment (Default: ``)
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment (Default: ``)
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
 
-        /**
-         * @param enabled (Default: `true`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled (Default: `true`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
@@ -317,23 +241,11 @@ public final class StorageIntegrationArgs extends com.pulumi.resources.ResourceA
             return storageAwsObjectAcl(Output.of(storageAwsObjectAcl));
         }
 
-        /**
-         * @param storageAwsRoleArn (Default: ``)
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageAwsRoleArn(@Nullable Output<String> storageAwsRoleArn) {
             $.storageAwsRoleArn = storageAwsRoleArn;
             return this;
         }
 
-        /**
-         * @param storageAwsRoleArn (Default: ``)
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageAwsRoleArn(String storageAwsRoleArn) {
             return storageAwsRoleArn(Output.of(storageAwsRoleArn));
         }
@@ -390,23 +302,11 @@ public final class StorageIntegrationArgs extends com.pulumi.resources.ResourceA
             return storageProvider(Output.of(storageProvider));
         }
 
-        /**
-         * @param type (Default: `EXTERNAL_STAGE`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type (Default: `EXTERNAL_STAGE`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

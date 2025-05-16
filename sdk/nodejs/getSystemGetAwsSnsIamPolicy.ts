@@ -4,20 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const snowflakePolicy = snowflake.getSystemGetAwsSnsIamPolicy({
- *     awsSnsTopicArn: "<aws_sns_topic_arn>",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
- */
 export function getSystemGetAwsSnsIamPolicy(args: GetSystemGetAwsSnsIamPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSystemGetAwsSnsIamPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", {
@@ -29,9 +15,6 @@ export function getSystemGetAwsSnsIamPolicy(args: GetSystemGetAwsSnsIamPolicyArg
  * A collection of arguments for invoking getSystemGetAwsSnsIamPolicy.
  */
 export interface GetSystemGetAwsSnsIamPolicyArgs {
-    /**
-     * Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-     */
     awsSnsTopicArn: string;
 }
 
@@ -39,33 +22,13 @@ export interface GetSystemGetAwsSnsIamPolicyArgs {
  * A collection of values returned by getSystemGetAwsSnsIamPolicy.
  */
 export interface GetSystemGetAwsSnsIamPolicyResult {
-    /**
-     * Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-     */
     readonly awsSnsTopicArn: string;
-    /**
-     * IAM policy for Snowflake’s SQS queue to subscribe to this topic
-     */
     readonly awsSnsTopicPolicyJson: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
 }
-/**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const snowflakePolicy = snowflake.getSystemGetAwsSnsIamPolicy({
- *     awsSnsTopicArn: "<aws_sns_topic_arn>",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
- */
 export function getSystemGetAwsSnsIamPolicyOutput(args: GetSystemGetAwsSnsIamPolicyOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemGetAwsSnsIamPolicyResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", {
@@ -77,8 +40,5 @@ export function getSystemGetAwsSnsIamPolicyOutput(args: GetSystemGetAwsSnsIamPol
  * A collection of arguments for invoking getSystemGetAwsSnsIamPolicy.
  */
 export interface GetSystemGetAwsSnsIamPolicyOutputArgs {
-    /**
-     * Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-     */
     awsSnsTopicArn: pulumi.Input<string>;
 }

@@ -22,14 +22,14 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     public static final TableState Empty = new TableState();
 
     /**
-     * (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
+     * Specifies whether to enable change tracking on the table. Default false.
      * 
      */
     @Import(name="changeTracking")
     private @Nullable Output<Boolean> changeTracking;
 
     /**
-     * @return (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
+     * @return Specifies whether to enable change tracking on the table. Default false.
      * 
      */
     public Optional<Output<Boolean>> changeTracking() {
@@ -82,14 +82,20 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+     * historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
+     * argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
+     * Snowflake default - in this case the schema value
      * 
      */
     @Import(name="dataRetentionTimeInDays")
     private @Nullable Output<Integer> dataRetentionTimeInDays;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+     * @return Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+     * historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
+     * argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
+     * Snowflake default - in this case the schema value
      * 
      */
     public Optional<Output<Integer>> dataRetentionTimeInDays() {
@@ -112,14 +118,16 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -253,7 +261,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param changeTracking (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
+         * @param changeTracking Specifies whether to enable change tracking on the table. Default false.
          * 
          * @return builder
          * 
@@ -264,7 +272,7 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param changeTracking (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
+         * @param changeTracking Specifies whether to enable change tracking on the table. Default false.
          * 
          * @return builder
          * 
@@ -357,7 +365,10 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataRetentionTimeInDays (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+         * @param dataRetentionTimeInDays Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+         * historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
+         * argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
+         * Snowflake default - in this case the schema value
          * 
          * @return builder
          * 
@@ -368,7 +379,10 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataRetentionTimeInDays (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+         * @param dataRetentionTimeInDays Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+         * historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
+         * argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
+         * Snowflake default - in this case the schema value
          * 
          * @return builder
          * 
@@ -399,7 +413,8 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -410,7 +425,8 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 

@@ -8,15 +8,10 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ```sh
-// $ pulumi import snowflake:index/account:Account example '"<organization_name>"."<account_name>"'
-// ```
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -26,23 +21,37 @@ type Account struct {
 	AdminUserType     pulumi.StringPtrOutput `pulumi:"adminUserType"`
 	// Specifies a comment for the account.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
+	// Snowflake Edition of the account. See more about Snowflake Editions in the [official
+	// documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` |
+	// `BUSINESS_CRITICAL`
 	Edition   pulumi.StringOutput    `pulumi:"edition"`
 	Email     pulumi.StringOutput    `pulumi:"email"`
 	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the
+	// maximum is 90 days.
 	GracePeriodInDays pulumi.IntOutput `pulumi:"gracePeriodInDays"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+	// Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization
+	// administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin         pulumi.StringPtrOutput `pulumi:"isOrgAdmin"`
 	LastName           pulumi.StringPtrOutput `pulumi:"lastName"`
 	MustChangePassword pulumi.StringPtrOutput `pulumi:"mustChangePassword"`
-	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which
+	// Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special
+	// characters except for underscores (_). Note that if the account name includes underscores, features that do not accept
+	// account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes
+	// hyphens (-) for the underscores.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids)
+	// of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake
+	// Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
 	Region pulumi.StringPtrOutput `pulumi:"region"`
-	// ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
+	// ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your
+	// organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For
+	// information about when you might need to specify region group, see [Region
+	// groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
 	RegionGroup pulumi.StringPtrOutput `pulumi:"regionGroup"`
 	// Outputs the result of `SHOW ACCOUNTS` for the given account.
 	ShowOutputs AccountShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -119,23 +128,37 @@ type accountState struct {
 	AdminUserType     *string `pulumi:"adminUserType"`
 	// Specifies a comment for the account.
 	Comment *string `pulumi:"comment"`
-	// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
+	// Snowflake Edition of the account. See more about Snowflake Editions in the [official
+	// documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` |
+	// `BUSINESS_CRITICAL`
 	Edition   *string `pulumi:"edition"`
 	Email     *string `pulumi:"email"`
 	FirstName *string `pulumi:"firstName"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the
+	// maximum is 90 days.
 	GracePeriodInDays *int `pulumi:"gracePeriodInDays"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+	// Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization
+	// administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin         *string `pulumi:"isOrgAdmin"`
 	LastName           *string `pulumi:"lastName"`
 	MustChangePassword *string `pulumi:"mustChangePassword"`
-	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which
+	// Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special
+	// characters except for underscores (_). Note that if the account name includes underscores, features that do not accept
+	// account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes
+	// hyphens (-) for the underscores.
 	Name *string `pulumi:"name"`
-	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids)
+	// of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake
+	// Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
 	Region *string `pulumi:"region"`
-	// ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
+	// ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your
+	// organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For
+	// information about when you might need to specify region group, see [Region
+	// groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
 	RegionGroup *string `pulumi:"regionGroup"`
 	// Outputs the result of `SHOW ACCOUNTS` for the given account.
 	ShowOutputs []AccountShowOutput `pulumi:"showOutputs"`
@@ -148,23 +171,37 @@ type AccountState struct {
 	AdminUserType     pulumi.StringPtrInput
 	// Specifies a comment for the account.
 	Comment pulumi.StringPtrInput
-	// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
+	// Snowflake Edition of the account. See more about Snowflake Editions in the [official
+	// documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` |
+	// `BUSINESS_CRITICAL`
 	Edition   pulumi.StringPtrInput
 	Email     pulumi.StringPtrInput
 	FirstName pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the
+	// maximum is 90 days.
 	GracePeriodInDays pulumi.IntPtrInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+	// Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization
+	// administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin         pulumi.StringPtrInput
 	LastName           pulumi.StringPtrInput
 	MustChangePassword pulumi.StringPtrInput
-	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which
+	// Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special
+	// characters except for underscores (_). Note that if the account name includes underscores, features that do not accept
+	// account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes
+	// hyphens (-) for the underscores.
 	Name pulumi.StringPtrInput
-	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids)
+	// of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake
+	// Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
 	Region pulumi.StringPtrInput
-	// ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
+	// ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your
+	// organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For
+	// information about when you might need to specify region group, see [Region
+	// groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
 	RegionGroup pulumi.StringPtrInput
 	// Outputs the result of `SHOW ACCOUNTS` for the given account.
 	ShowOutputs AccountShowOutputArrayInput
@@ -181,21 +218,34 @@ type accountArgs struct {
 	AdminUserType     *string `pulumi:"adminUserType"`
 	// Specifies a comment for the account.
 	Comment *string `pulumi:"comment"`
-	// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
+	// Snowflake Edition of the account. See more about Snowflake Editions in the [official
+	// documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` |
+	// `BUSINESS_CRITICAL`
 	Edition   string  `pulumi:"edition"`
 	Email     string  `pulumi:"email"`
 	FirstName *string `pulumi:"firstName"`
-	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the
+	// maximum is 90 days.
 	GracePeriodInDays int `pulumi:"gracePeriodInDays"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+	// Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization
+	// administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin         *string `pulumi:"isOrgAdmin"`
 	LastName           *string `pulumi:"lastName"`
 	MustChangePassword *string `pulumi:"mustChangePassword"`
-	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which
+	// Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special
+	// characters except for underscores (_). Note that if the account name includes underscores, features that do not accept
+	// account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes
+	// hyphens (-) for the underscores.
 	Name *string `pulumi:"name"`
-	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids)
+	// of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake
+	// Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
 	Region *string `pulumi:"region"`
-	// ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
+	// ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your
+	// organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For
+	// information about when you might need to specify region group, see [Region
+	// groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
 	RegionGroup *string `pulumi:"regionGroup"`
 }
 
@@ -207,21 +257,34 @@ type AccountArgs struct {
 	AdminUserType     pulumi.StringPtrInput
 	// Specifies a comment for the account.
 	Comment pulumi.StringPtrInput
-	// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
+	// Snowflake Edition of the account. See more about Snowflake Editions in the [official
+	// documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` |
+	// `BUSINESS_CRITICAL`
 	Edition   pulumi.StringInput
 	Email     pulumi.StringInput
 	FirstName pulumi.StringPtrInput
-	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+	// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the
+	// maximum is 90 days.
 	GracePeriodInDays pulumi.IntInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+	// Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization
+	// administrator (i.e. user with the ORGADMIN role) can set the property.
 	IsOrgAdmin         pulumi.StringPtrInput
 	LastName           pulumi.StringPtrInput
 	MustChangePassword pulumi.StringPtrInput
-	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+	// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which
+	// Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special
+	// characters except for underscores (_). Note that if the account name includes underscores, features that do not accept
+	// account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes
+	// hyphens (-) for the underscores.
 	Name pulumi.StringPtrInput
-	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+	// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids)
+	// of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake
+	// Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
 	Region pulumi.StringPtrInput
-	// ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
+	// ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your
+	// organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For
+	// information about when you might need to specify region group, see [Region
+	// groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
 	RegionGroup pulumi.StringPtrInput
 }
 
@@ -333,7 +396,9 @@ func (o AccountOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
+// Snowflake Edition of the account. See more about Snowflake Editions in the [official
+// documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` |
+// `BUSINESS_CRITICAL`
 func (o AccountOutput) Edition() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Edition }).(pulumi.StringOutput)
 }
@@ -346,17 +411,20 @@ func (o AccountOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o AccountOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+// Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the
+// maximum is 90 days.
 func (o AccountOutput) GracePeriodInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *Account) pulumi.IntOutput { return v.GracePeriodInDays }).(pulumi.IntOutput)
 }
 
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+// Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization
+// administrator (i.e. user with the ORGADMIN role) can set the property.
 func (o AccountOutput) IsOrgAdmin() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.IsOrgAdmin }).(pulumi.StringPtrOutput)
 }
@@ -369,17 +437,26 @@ func (o AccountOutput) MustChangePassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.MustChangePassword }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+// Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which
+// Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special
+// characters except for underscores (_). Note that if the account name includes underscores, features that do not accept
+// account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes
+// hyphens (-) for the underscores.
 func (o AccountOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+// [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids)
+// of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake
+// Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
 func (o AccountOutput) Region() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.Region }).(pulumi.StringPtrOutput)
 }
 
-// ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
+// ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your
+// organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For
+// information about when you might need to specify region group, see [Region
+// groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
 func (o AccountOutput) RegionGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.RegionGroup }).(pulumi.StringPtrOutput)
 }

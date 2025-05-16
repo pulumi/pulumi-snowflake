@@ -16,14 +16,6 @@ import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/execute:Execute example &#39;&lt;random_uuid&gt;&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/execute:Execute")
 public class Execute extends com.pulumi.resources.CustomResource {
     /**
@@ -55,14 +47,16 @@ public class Execute extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.query);
     }
     /**
-     * List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
+     * List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
+     * error.
      * 
      */
     @Export(name="queryResults", refs={List.class,Map.class,String.class}, tree="[0,[1,2,2]]")
     private Output<List<Map<String,String>>> queryResults;
 
     /**
-     * @return List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
+     * @return List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
+     * error.
      * 
      */
     public Output<List<Map<String,String>>> queryResults() {

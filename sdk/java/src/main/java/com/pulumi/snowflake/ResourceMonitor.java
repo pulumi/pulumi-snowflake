@@ -17,25 +17,21 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example &#39;&#34;&lt;resource_monitor_name&gt;&#34;&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/resourceMonitor:ResourceMonitor")
 public class ResourceMonitor extends com.pulumi.resources.CustomResource {
     /**
-     * The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
+     * The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses
+     * assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be
+     * at 100% of quota.
      * 
      */
     @Export(name="creditQuota", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> creditQuota;
 
     /**
-     * @return The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
+     * @return The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses
+     * assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be
+     * at 100% of quota.
      * 
      */
     public Output<Optional<Integer>> creditQuota() {
@@ -56,70 +52,88 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.endTimestamp);
     }
     /**
-     * The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
+     * The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` |
+     * `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If
+     * you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from
+     * the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to
+     * Snowflake limitation and the lack of unset functionality for this parameter.
      * 
      */
     @Export(name="frequency", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> frequency;
 
     /**
-     * @return The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
+     * @return The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` |
+     * `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If
+     * you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from
+     * the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to
+     * Snowflake limitation and the lack of unset functionality for this parameter.
      * 
      */
     public Output<Optional<String>> frequency() {
         return Codegen.optional(this.frequency);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here),
+     * avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here),
+     * avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
+     * Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the
+     * notify_users field will be notified (to receive the notification they should have notifications enabled). Values over
+     * 100 are supported.
      * 
      */
     @Export(name="notifyTriggers", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> notifyTriggers;
 
     /**
-     * @return Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
+     * @return Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the
+     * notify_users field will be notified (to receive the notification they should have notifications enabled). Values over
+     * 100 are supported.
      * 
      */
     public Output<Optional<List<Integer>>> notifyTriggers() {
         return Codegen.optional(this.notifyTriggers);
     }
     /**
-     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
+     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more
+     * information about this resource, see docs.
      * 
      */
     @Export(name="notifyUsers", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> notifyUsers;
 
     /**
-     * @return Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
+     * @return Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more
+     * information about this resource, see docs.
      * 
      */
     public Output<Optional<List<String>>> notifyUsers() {
@@ -140,42 +154,58 @@ public class ResourceMonitor extends com.pulumi.resources.CustomResource {
         return this.showOutputs;
     }
     /**
-     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
+     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a
+     * `start_timestamp` for a resource monitor, you must also set `frequency`. After removing this field from the config, the
+     * previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation
+     * and the lack of unset functionality for this parameter.
      * 
      */
     @Export(name="startTimestamp", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> startTimestamp;
 
     /**
-     * @return The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
+     * @return The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a
+     * `start_timestamp` for a resource monitor, you must also set `frequency`. After removing this field from the config, the
+     * previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation
+     * and the lack of unset functionality for this parameter.
      * 
      */
     public Output<Optional<String>> startTimestamp() {
         return Codegen.optional(this.startTimestamp);
     }
     /**
-     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
+     * this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this
+     * action sends a notification to all users who have enabled notifications for themselves.
      * 
      */
     @Export(name="suspendImmediateTrigger", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> suspendImmediateTrigger;
 
     /**
-     * @return Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+     * @return Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
+     * this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this
+     * action sends a notification to all users who have enabled notifications for themselves.
      * 
      */
     public Output<Optional<Integer>> suspendImmediateTrigger() {
         return Codegen.optional(this.suspendImmediateTrigger);
     }
     /**
-     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
+     * this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new
+     * queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition,
+     * this action sends a notification to all users who have enabled notifications for themselves.
      * 
      */
     @Export(name="suspendTrigger", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> suspendTrigger;
 
     /**
-     * @return Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+     * @return Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
+     * this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new
+     * queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition,
+     * this action sends a notification to all users who have enabled notifications for themselves.
      * 
      */
     public Output<Optional<Integer>> suspendTrigger() {

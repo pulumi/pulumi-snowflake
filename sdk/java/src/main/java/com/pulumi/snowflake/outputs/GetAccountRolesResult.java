@@ -14,32 +14,16 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccountRolesResult {
-    /**
-     * @return Holds the aggregated output of all account role details queries.
-     * 
-     */
     private List<GetAccountRolesAccountRole> accountRoles;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Filters the SHOW GRANTS output by class name.
-     * 
-     */
     private @Nullable String inClass;
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     private @Nullable String like;
 
     private GetAccountRolesResult() {}
-    /**
-     * @return Holds the aggregated output of all account role details queries.
-     * 
-     */
     public List<GetAccountRolesAccountRole> accountRoles() {
         return this.accountRoles;
     }
@@ -50,17 +34,9 @@ public final class GetAccountRolesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Filters the SHOW GRANTS output by class name.
-     * 
-     */
     public Optional<String> inClass() {
         return Optional.ofNullable(this.inClass);
     }
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }

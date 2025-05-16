@@ -45,9 +45,6 @@ class GetAccountsResult:
     @property
     @pulumi.getter
     def accounts(self) -> Sequence['outputs.GetAccountsAccountResult']:
-        """
-        Holds the aggregated output of all accounts details queries.
-        """
         return pulumi.get(self, "accounts")
 
     @property
@@ -61,17 +58,11 @@ class GetAccountsResult:
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
-        """
-        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter(name="withHistory")
     def with_history(self) -> Optional[builtins.bool]:
-        """
-        Includes dropped accounts that have not yet been deleted.
-        """
         return pulumi.get(self, "with_history")
 
 
@@ -91,11 +82,7 @@ def get_accounts(like: Optional[builtins.str] = None,
                  with_history: Optional[builtins.bool] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAccountsResult:
     """
-    Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
-
-
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param builtins.bool with_history: Includes dropped accounts that have not yet been deleted.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['like'] = like
@@ -112,11 +99,7 @@ def get_accounts_output(like: Optional[pulumi.Input[Optional[builtins.str]]] = N
                         with_history: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetAccountsResult]:
     """
-    Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
-
-
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param builtins.bool with_history: Includes dropped accounts that have not yet been deleted.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['like'] = like

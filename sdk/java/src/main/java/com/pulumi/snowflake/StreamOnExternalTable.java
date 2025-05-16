@@ -20,14 +20,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/streamOnExternalTable:StreamOnExternalTable example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;stream_name&gt;&#34;&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/streamOnExternalTable:StreamOnExternalTable")
 public class StreamOnExternalTable extends com.pulumi.resources.CustomResource {
     @Export(name="at", refs={StreamOnExternalTableAt.class}, tree="[0]")
@@ -63,14 +55,16 @@ public class StreamOnExternalTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.copyGrants);
     }
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -91,70 +85,80 @@ public class StreamOnExternalTable extends com.pulumi.resources.CustomResource {
         return this.describeOutputs;
     }
     /**
-     * Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here),
+     * avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     @Export(name="externalTable", refs={String.class}, tree="[0]")
     private Output<String> externalTable;
 
     /**
-     * @return Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * @return Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here),
+     * avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     public Output<String> externalTable() {
         return this.externalTable;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an insert-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * Specifies whether this is an insert-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
+     * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Export(name="insertOnly", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> insertOnly;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an insert-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return Specifies whether this is an insert-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
+     * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Output<Optional<String>> insertOnly() {
         return Codegen.optional(this.insertOnly);
     }
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -181,14 +185,16 @@ public class StreamOnExternalTable extends com.pulumi.resources.CustomResource {
         return this.stale;
     }
     /**
-     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+     * needed.
      * 
      */
     @Export(name="streamType", refs={String.class}, tree="[0]")
     private Output<String> streamType;
 
     /**
-     * @return Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     * @return Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+     * needed.
      * 
      */
     public Output<String> streamType() {

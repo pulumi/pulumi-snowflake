@@ -28,10 +28,8 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl> Saml2SnowflakeAcsUrls;
         public readonly ImmutableArray<Outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl> Saml2SnowflakeIssuerUrls;
         public readonly ImmutableArray<Outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata> Saml2SnowflakeMetadatas;
-        public readonly ImmutableArray<Outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert> Saml2SnowflakeX509Certs;
         public readonly ImmutableArray<Outputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel> Saml2SpInitiatedLoginPageLabels;
         public readonly ImmutableArray<Outputs.Saml2IntegrationDescribeOutputSaml2SsoUrl> Saml2SsoUrls;
-        public readonly ImmutableArray<Outputs.Saml2IntegrationDescribeOutputSaml2X509Cert> Saml2X509Certs;
 
         [OutputConstructor]
         private Saml2IntegrationDescribeOutput(
@@ -65,13 +63,9 @@ namespace Pulumi.Snowflake.Outputs
 
             ImmutableArray<Outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata> saml2SnowflakeMetadatas,
 
-            ImmutableArray<Outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert> saml2SnowflakeX509Certs,
-
             ImmutableArray<Outputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel> saml2SpInitiatedLoginPageLabels,
 
-            ImmutableArray<Outputs.Saml2IntegrationDescribeOutputSaml2SsoUrl> saml2SsoUrls,
-
-            ImmutableArray<Outputs.Saml2IntegrationDescribeOutputSaml2X509Cert> saml2X509Certs)
+            ImmutableArray<Outputs.Saml2IntegrationDescribeOutputSaml2SsoUrl> saml2SsoUrls)
         {
             AllowedEmailPatterns = allowedEmailPatterns;
             AllowedUserDomains = allowedUserDomains;
@@ -88,10 +82,8 @@ namespace Pulumi.Snowflake.Outputs
             Saml2SnowflakeAcsUrls = saml2SnowflakeAcsUrls;
             Saml2SnowflakeIssuerUrls = saml2SnowflakeIssuerUrls;
             Saml2SnowflakeMetadatas = saml2SnowflakeMetadatas;
-            Saml2SnowflakeX509Certs = saml2SnowflakeX509Certs;
             Saml2SpInitiatedLoginPageLabels = saml2SpInitiatedLoginPageLabels;
             Saml2SsoUrls = saml2SsoUrls;
-            Saml2X509Certs = saml2X509Certs;
         }
     }
 }

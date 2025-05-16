@@ -23,14 +23,16 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     public static final FunctionScalaArgs Empty = new FunctionScalaArgs();
 
     /**
-     * List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+     * List of the arguments for the function. Consult the
+     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
      * 
      */
     @Import(name="arguments")
     private @Nullable Output<List<FunctionScalaArgumentArgs>> arguments;
 
     /**
-     * @return List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+     * @return List of the arguments for the function. Consult the
+     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
      * 
      */
     public Optional<Output<List<FunctionScalaArgumentArgs>>> arguments() {
@@ -38,14 +40,14 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: `user-defined function`) Specifies a comment for the function.
+     * Specifies a comment for the function.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return (Default: `user-defined function`) Specifies a comment for the function.
+     * @return Specifies a comment for the function.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -53,14 +55,16 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the function. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the function. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -68,14 +72,18 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
+     * For more information, check [ENABLE_CONSOLE_OUTPUT
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     @Import(name="enableConsoleOutput")
     private @Nullable Output<Boolean> enableConsoleOutput;
 
     /**
-     * @return Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * @return Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
+     * For more information, check [ENABLE_CONSOLE_OUTPUT
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     public Optional<Output<Boolean>> enableConsoleOutput() {
@@ -83,14 +91,24 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+     * The names of [external access
+     * integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
+     * this function’s handler code to access external networks. An external access integration specifies [network
+     * rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
+     * [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
+     * (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
      * 
      */
     @Import(name="externalAccessIntegrations")
     private @Nullable Output<List<String>> externalAccessIntegrations;
 
     /**
-     * @return The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+     * @return The names of [external access
+     * integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
+     * this function’s handler code to access external networks. An external access integration specifies [network
+     * rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
+     * [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
+     * (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
      * 
      */
     public Optional<Output<List<String>>> externalAccessIntegrations() {
@@ -98,14 +116,22 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
+     * do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction
+     * to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on
+     * this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
+     * change in case or run of whitespace is semantically significant.
      * 
      */
     @Import(name="functionDefinition")
     private @Nullable Output<String> functionDefinition;
 
     /**
-     * @return Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * @return Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
+     * do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction
+     * to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on
+     * this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
+     * change in case or run of whitespace is semantically significant.
      * 
      */
     public Optional<Output<String>> functionDefinition() {
@@ -113,14 +139,16 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+     * The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
+     * value should be a method name, as in the following form: `MyClass.myMethod`.
      * 
      */
     @Import(name="handler", required=true)
     private Output<String> handler;
 
     /**
-     * @return The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+     * @return The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
+     * value should be a method name, as in the following form: `MyClass.myMethod`.
      * 
      */
     public Output<String> handler() {
@@ -128,14 +156,24 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
+     * The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might
+     * contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java
+     * Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java
+     * bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in
+     * IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports).
+     * Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
      * 
      */
     @Import(name="imports")
     private @Nullable Output<List<FunctionScalaImportArgs>> imports;
 
     /**
-     * @return The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
+     * @return The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might
+     * contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java
+     * Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java
+     * bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in
+     * IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports).
+     * Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
      * 
      */
     public Optional<Output<List<FunctionScalaImportArgs>>> imports() {
@@ -150,14 +188,16 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     @Import(name="logLevel")
     private @Nullable Output<String> logLevel;
 
     /**
-     * @return LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * @return LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     public Optional<Output<String>> logLevel() {
@@ -165,14 +205,16 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+     * METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      * 
      */
     @Import(name="metricLevel")
     private @Nullable Output<String> metricLevel;
 
     /**
-     * @return METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+     * @return METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      * 
      */
     public Optional<Output<String>> metricLevel() {
@@ -180,14 +222,20 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The name of the function; the identifier does not need to be unique for the schema in which the function is created
+     * because UDFs are identified and resolved by the combination of the name and argument types. Check the
+     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
+     * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The name of the function; the identifier does not need to be unique for the schema in which the function is created
+     * because UDFs are identified and resolved by the combination of the name and argument types. Check the
+     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
+     * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -195,14 +243,16 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+     * Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+     * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      * 
      */
     @Import(name="nullInputBehavior")
     private @Nullable Output<String> nullInputBehavior;
 
     /**
-     * @return Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+     * @return Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+     * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      * 
      */
     public Optional<Output<String>> nullInputBehavior() {
@@ -210,14 +260,16 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+     * The name and version number of Snowflake system packages required as dependencies. The value should be of the form
+     * `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
      * 
      */
     @Import(name="packages")
     private @Nullable Output<List<String>> packages;
 
     /**
-     * @return The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+     * @return The name and version number of Snowflake system packages required as dependencies. The value should be of the form
+     * `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
      * 
      */
     public Optional<Output<List<String>>> packages() {
@@ -225,14 +277,16 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+     * Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
+     * `IMMUTABLE`.
      * 
      */
     @Import(name="returnResultsBehavior")
     private @Nullable Output<String> returnResultsBehavior;
 
     /**
-     * @return Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+     * @return Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
+     * `IMMUTABLE`.
      * 
      */
     public Optional<Output<String>> returnResultsBehavior() {
@@ -240,14 +294,20 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+     * Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar
+     * UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
+     * table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
+     * the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
      * 
      */
     @Import(name="returnType", required=true)
     private Output<String> returnType;
 
     /**
-     * @return Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+     * @return Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar
+     * UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
+     * table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
+     * the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
      * 
      */
     public Output<String> returnType() {
@@ -270,14 +330,16 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -285,14 +347,22 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     * Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
+     * can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
+     * specify here must be allowed by the [external access
+     * integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
+     * this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
      * 
      */
     @Import(name="secrets")
     private @Nullable Output<List<FunctionScalaSecretArgs>> secrets;
 
     /**
-     * @return Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     * @return Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
+     * can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
+     * specify here must be allowed by the [external access
+     * integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
+     * this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
      * 
      */
     public Optional<Output<List<FunctionScalaSecretArgs>>> secrets() {
@@ -300,14 +370,16 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+     * The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
+     * value should be a method name, as in the following form: `MyClass.myMethod`.
      * 
      */
     @Import(name="targetPath")
     private @Nullable Output<FunctionScalaTargetPathArgs> targetPath;
 
     /**
-     * @return The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+     * @return The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
+     * value should be a method name, as in the following form: `MyClass.myMethod`.
      * 
      */
     public Optional<Output<FunctionScalaTargetPathArgs>> targetPath() {
@@ -315,14 +387,16 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     @Import(name="traceLevel")
     private @Nullable Output<String> traceLevel;
 
     /**
-     * @return Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * @return Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     public Optional<Output<String>> traceLevel() {
@@ -374,7 +448,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arguments List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+         * @param arguments List of the arguments for the function. Consult the
+         * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
          * 
          * @return builder
          * 
@@ -385,7 +460,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arguments List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+         * @param arguments List of the arguments for the function. Consult the
+         * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
          * 
          * @return builder
          * 
@@ -395,7 +471,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arguments List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+         * @param arguments List of the arguments for the function. Consult the
+         * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
          * 
          * @return builder
          * 
@@ -405,7 +482,7 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment (Default: `user-defined function`) Specifies a comment for the function.
+         * @param comment Specifies a comment for the function.
          * 
          * @return builder
          * 
@@ -416,7 +493,7 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment (Default: `user-defined function`) Specifies a comment for the function.
+         * @param comment Specifies a comment for the function.
          * 
          * @return builder
          * 
@@ -426,7 +503,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the function. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -437,7 +515,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the function. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -447,7 +526,9 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
+         * For more information, check [ENABLE_CONSOLE_OUTPUT
+         * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
          * 
          * @return builder
          * 
@@ -458,7 +539,9 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
+         * For more information, check [ENABLE_CONSOLE_OUTPUT
+         * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
          * 
          * @return builder
          * 
@@ -468,7 +551,12 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalAccessIntegrations The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+         * @param externalAccessIntegrations The names of [external access
+         * integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
+         * this function’s handler code to access external networks. An external access integration specifies [network
+         * rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
+         * [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
+         * (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
          * 
          * @return builder
          * 
@@ -479,7 +567,12 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalAccessIntegrations The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+         * @param externalAccessIntegrations The names of [external access
+         * integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
+         * this function’s handler code to access external networks. An external access integration specifies [network
+         * rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
+         * [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
+         * (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
          * 
          * @return builder
          * 
@@ -489,7 +582,12 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalAccessIntegrations The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+         * @param externalAccessIntegrations The names of [external access
+         * integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
+         * this function’s handler code to access external networks. An external access integration specifies [network
+         * rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
+         * [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
+         * (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
          * 
          * @return builder
          * 
@@ -499,7 +597,11 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionDefinition Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+         * @param functionDefinition Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
+         * do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction
+         * to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on
+         * this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
+         * change in case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 
@@ -510,7 +612,11 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param functionDefinition Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+         * @param functionDefinition Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
+         * do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction
+         * to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on
+         * this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
+         * change in case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 
@@ -520,7 +626,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param handler The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+         * @param handler The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
+         * value should be a method name, as in the following form: `MyClass.myMethod`.
          * 
          * @return builder
          * 
@@ -531,7 +638,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param handler The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+         * @param handler The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
+         * value should be a method name, as in the following form: `MyClass.myMethod`.
          * 
          * @return builder
          * 
@@ -541,7 +649,12 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imports The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
+         * @param imports The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might
+         * contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java
+         * Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java
+         * bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in
+         * IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports).
+         * Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
          * 
          * @return builder
          * 
@@ -552,7 +665,12 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imports The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
+         * @param imports The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might
+         * contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java
+         * Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java
+         * bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in
+         * IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports).
+         * Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
          * 
          * @return builder
          * 
@@ -562,7 +680,12 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imports The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
+         * @param imports The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might
+         * contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java
+         * Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java
+         * bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in
+         * IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports).
+         * Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
          * 
          * @return builder
          * 
@@ -581,7 +704,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logLevel LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+         * @param logLevel LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+         * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
          * 
          * @return builder
          * 
@@ -592,7 +716,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logLevel LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+         * @param logLevel LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+         * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
          * 
          * @return builder
          * 
@@ -602,7 +727,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricLevel METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+         * @param metricLevel METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+         * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
          * 
          * @return builder
          * 
@@ -613,7 +739,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param metricLevel METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+         * @param metricLevel METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+         * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
          * 
          * @return builder
          * 
@@ -623,7 +750,10 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name The name of the function; the identifier does not need to be unique for the schema in which the function is created
+         * because UDFs are identified and resolved by the combination of the name and argument types. Check the
+         * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
+         * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -634,7 +764,10 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name The name of the function; the identifier does not need to be unique for the schema in which the function is created
+         * because UDFs are identified and resolved by the combination of the name and argument types. Check the
+         * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
+         * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -644,7 +777,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nullInputBehavior Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+         * @param nullInputBehavior Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+         * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
          * 
          * @return builder
          * 
@@ -655,7 +789,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nullInputBehavior Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+         * @param nullInputBehavior Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+         * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
          * 
          * @return builder
          * 
@@ -665,7 +800,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param packages The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+         * @param packages The name and version number of Snowflake system packages required as dependencies. The value should be of the form
+         * `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
          * 
          * @return builder
          * 
@@ -676,7 +812,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param packages The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+         * @param packages The name and version number of Snowflake system packages required as dependencies. The value should be of the form
+         * `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
          * 
          * @return builder
          * 
@@ -686,7 +823,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param packages The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+         * @param packages The name and version number of Snowflake system packages required as dependencies. The value should be of the form
+         * `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
          * 
          * @return builder
          * 
@@ -696,7 +834,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param returnResultsBehavior Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+         * @param returnResultsBehavior Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
+         * `IMMUTABLE`.
          * 
          * @return builder
          * 
@@ -707,7 +846,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param returnResultsBehavior Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+         * @param returnResultsBehavior Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
+         * `IMMUTABLE`.
          * 
          * @return builder
          * 
@@ -717,7 +857,10 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param returnType Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+         * @param returnType Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar
+         * UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
+         * table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
+         * the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
          * 
          * @return builder
          * 
@@ -728,7 +871,10 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param returnType Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+         * @param returnType Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar
+         * UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
+         * table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
+         * the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
          * 
          * @return builder
          * 
@@ -759,7 +905,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -770,7 +917,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -780,7 +928,11 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secrets Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
+         * @param secrets Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
+         * can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
+         * specify here must be allowed by the [external access
+         * integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
+         * this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
          * 
          * @return builder
          * 
@@ -791,7 +943,11 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secrets Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
+         * @param secrets Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
+         * can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
+         * specify here must be allowed by the [external access
+         * integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
+         * this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
          * 
          * @return builder
          * 
@@ -801,7 +957,11 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param secrets Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
+         * @param secrets Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
+         * can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
+         * specify here must be allowed by the [external access
+         * integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
+         * this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
          * 
          * @return builder
          * 
@@ -811,7 +971,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetPath The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+         * @param targetPath The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
+         * value should be a method name, as in the following form: `MyClass.myMethod`.
          * 
          * @return builder
          * 
@@ -822,7 +983,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetPath The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+         * @param targetPath The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
+         * value should be a method name, as in the following form: `MyClass.myMethod`.
          * 
          * @return builder
          * 
@@ -832,7 +994,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+         * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
          * 
          * @return builder
          * 
@@ -843,7 +1006,8 @@ public final class FunctionScalaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+         * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
          * 
          * @return builder
          * 

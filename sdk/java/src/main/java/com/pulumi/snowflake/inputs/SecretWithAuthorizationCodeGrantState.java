@@ -19,14 +19,16 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
     public static final SecretWithAuthorizationCodeGrantState Empty = new SecretWithAuthorizationCodeGrantState();
 
     /**
-     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+     * information about this resource, see docs.
      * 
      */
     @Import(name="apiAuthentication")
     private @Nullable Output<String> apiAuthentication;
 
     /**
-     * @return Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+     * @return Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+     * information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> apiAuthentication() {
@@ -49,14 +51,16 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
     }
 
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> database() {
@@ -79,14 +83,16 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -94,14 +100,16 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
     }
 
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -116,14 +124,16 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
     }
 
     /**
-     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
+     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD,
+     * YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI &lt;timezone&gt;
      * 
      */
     @Import(name="oauthRefreshTokenExpiryTime")
     private @Nullable Output<String> oauthRefreshTokenExpiryTime;
 
     /**
-     * @return Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
+     * @return Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD,
+     * YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI &lt;timezone&gt;
      * 
      */
     public Optional<Output<String>> oauthRefreshTokenExpiryTime() {
@@ -131,14 +141,16 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
     }
 
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -146,14 +158,16 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
     }
 
     /**
-     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+     * needed.
      * 
      */
     @Import(name="secretType")
     private @Nullable Output<String> secretType;
 
     /**
-     * @return Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+     * @return Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+     * needed.
      * 
      */
     public Optional<Output<String>> secretType() {
@@ -210,7 +224,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param apiAuthentication Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+         * @param apiAuthentication Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+         * information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -221,7 +236,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param apiAuthentication Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+         * @param apiAuthentication Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+         * information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -252,7 +268,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -263,7 +280,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -304,7 +322,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -315,7 +334,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -325,7 +345,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -336,7 +357,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -355,7 +377,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param oauthRefreshTokenExpiryTime Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
+         * @param oauthRefreshTokenExpiryTime Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD,
+         * YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI &lt;timezone&gt;
          * 
          * @return builder
          * 
@@ -366,7 +389,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param oauthRefreshTokenExpiryTime Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
+         * @param oauthRefreshTokenExpiryTime Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD,
+         * YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI &lt;timezone&gt;
          * 
          * @return builder
          * 
@@ -376,7 +400,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -387,7 +412,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -397,7 +423,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param secretType Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+         * @param secretType Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+         * needed.
          * 
          * @return builder
          * 
@@ -408,7 +435,8 @@ public final class SecretWithAuthorizationCodeGrantState extends com.pulumi.reso
         }
 
         /**
-         * @param secretType Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+         * @param secretType Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+         * needed.
          * 
          * @return builder
          * 

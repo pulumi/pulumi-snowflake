@@ -17,77 +17,37 @@ public final class GetStreamsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetStreamsPlainArgs Empty = new GetStreamsPlainArgs();
 
-    /**
-     * IN clause to filter the list of objects
-     * 
-     */
     @Import(name="in")
     private @Nullable GetStreamsIn in;
 
-    /**
-     * @return IN clause to filter the list of objects
-     * 
-     */
     public Optional<GetStreamsIn> in() {
         return Optional.ofNullable(this.in);
     }
 
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     @Import(name="like")
     private @Nullable String like;
 
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
 
-    /**
-     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-     * 
-     */
     @Import(name="limit")
     private @Nullable GetStreamsLimit limit;
 
-    /**
-     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-     * 
-     */
     public Optional<GetStreamsLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
 
-    /**
-     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-     * 
-     */
     @Import(name="startsWith")
     private @Nullable String startsWith;
 
-    /**
-     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-     * 
-     */
     public Optional<String> startsWith() {
         return Optional.ofNullable(this.startsWith);
     }
 
-    /**
-     * (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     @Import(name="withDescribe")
     private @Nullable Boolean withDescribe;
 
-    /**
-     * @return (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     public Optional<Boolean> withDescribe() {
         return Optional.ofNullable(this.withDescribe);
     }
@@ -120,56 +80,26 @@ public final class GetStreamsPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetStreamsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param in IN clause to filter the list of objects
-         * 
-         * @return builder
-         * 
-         */
         public Builder in(@Nullable GetStreamsIn in) {
             $.in = in;
             return this;
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(@Nullable String like) {
             $.like = like;
             return this;
         }
 
-        /**
-         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limit(@Nullable GetStreamsLimit limit) {
             $.limit = limit;
             return this;
         }
 
-        /**
-         * @param startsWith Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startsWith(@Nullable String startsWith) {
             $.startsWith = startsWith;
             return this;
         }
 
-        /**
-         * @param withDescribe (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withDescribe(@Nullable Boolean withDescribe) {
             $.withDescribe = withDescribe;
             return this;

@@ -11,75 +11,12 @@ namespace Pulumi.Snowflake
 {
     public static class GetSystemGetAwsSnsIamPolicy
     {
-        /// <summary>
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var snowflakePolicy = Snowflake.GetSystemGetAwsSnsIamPolicy.Invoke(new()
-        ///     {
-        ///         AwsSnsTopicArn = "&lt;aws_sns_topic_arn&gt;",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
-        /// </summary>
         public static Task<GetSystemGetAwsSnsIamPolicyResult> InvokeAsync(GetSystemGetAwsSnsIamPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSystemGetAwsSnsIamPolicyResult>("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args ?? new GetSystemGetAwsSnsIamPolicyArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var snowflakePolicy = Snowflake.GetSystemGetAwsSnsIamPolicy.Invoke(new()
-        ///     {
-        ///         AwsSnsTopicArn = "&lt;aws_sns_topic_arn&gt;",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
-        /// </summary>
         public static Output<GetSystemGetAwsSnsIamPolicyResult> Invoke(GetSystemGetAwsSnsIamPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemGetAwsSnsIamPolicyResult>("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args ?? new GetSystemGetAwsSnsIamPolicyInvokeArgs(), options.WithDefaults());
 
-        /// <summary>
-        /// ## Example Usage
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using Snowflake = Pulumi.Snowflake;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var snowflakePolicy = Snowflake.GetSystemGetAwsSnsIamPolicy.Invoke(new()
-        ///     {
-        ///         AwsSnsTopicArn = "&lt;aws_sns_topic_arn&gt;",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// 
-        /// &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
-        /// </summary>
         public static Output<GetSystemGetAwsSnsIamPolicyResult> Invoke(GetSystemGetAwsSnsIamPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSystemGetAwsSnsIamPolicyResult>("snowflake:index/getSystemGetAwsSnsIamPolicy:getSystemGetAwsSnsIamPolicy", args ?? new GetSystemGetAwsSnsIamPolicyInvokeArgs(), options.WithDefaults());
     }
@@ -87,9 +24,6 @@ namespace Pulumi.Snowflake
 
     public sealed class GetSystemGetAwsSnsIamPolicyArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-        /// </summary>
         [Input("awsSnsTopicArn", required: true)]
         public string AwsSnsTopicArn { get; set; } = null!;
 
@@ -101,9 +35,6 @@ namespace Pulumi.Snowflake
 
     public sealed class GetSystemGetAwsSnsIamPolicyInvokeArgs : global::Pulumi.InvokeArgs
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-        /// </summary>
         [Input("awsSnsTopicArn", required: true)]
         public Input<string> AwsSnsTopicArn { get; set; } = null!;
 
@@ -117,13 +48,7 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetSystemGetAwsSnsIamPolicyResult
     {
-        /// <summary>
-        /// Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-        /// </summary>
         public readonly string AwsSnsTopicArn;
-        /// <summary>
-        /// IAM policy for Snowflake’s SQS queue to subscribe to this topic
-        /// </summary>
         public readonly string AwsSnsTopicPolicyJson;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

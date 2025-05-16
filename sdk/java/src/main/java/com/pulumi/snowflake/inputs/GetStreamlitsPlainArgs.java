@@ -17,62 +17,30 @@ public final class GetStreamlitsPlainArgs extends com.pulumi.resources.InvokeArg
 
     public static final GetStreamlitsPlainArgs Empty = new GetStreamlitsPlainArgs();
 
-    /**
-     * IN clause to filter the list of streamlits
-     * 
-     */
     @Import(name="in")
     private @Nullable GetStreamlitsIn in;
 
-    /**
-     * @return IN clause to filter the list of streamlits
-     * 
-     */
     public Optional<GetStreamlitsIn> in() {
         return Optional.ofNullable(this.in);
     }
 
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     @Import(name="like")
     private @Nullable String like;
 
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
 
-    /**
-     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-     * 
-     */
     @Import(name="limit")
     private @Nullable GetStreamlitsLimit limit;
 
-    /**
-     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-     * 
-     */
     public Optional<GetStreamlitsLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
 
-    /**
-     * (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     @Import(name="withDescribe")
     private @Nullable Boolean withDescribe;
 
-    /**
-     * @return (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     public Optional<Boolean> withDescribe() {
         return Optional.ofNullable(this.withDescribe);
     }
@@ -104,45 +72,21 @@ public final class GetStreamlitsPlainArgs extends com.pulumi.resources.InvokeArg
             $ = new GetStreamlitsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param in IN clause to filter the list of streamlits
-         * 
-         * @return builder
-         * 
-         */
         public Builder in(@Nullable GetStreamlitsIn in) {
             $.in = in;
             return this;
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(@Nullable String like) {
             $.like = like;
             return this;
         }
 
-        /**
-         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limit(@Nullable GetStreamlitsLimit limit) {
             $.limit = limit;
             return this;
         }
 
-        /**
-         * @param withDescribe (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withDescribe(@Nullable Boolean withDescribe) {
             $.withDescribe = withDescribe;
             return this;

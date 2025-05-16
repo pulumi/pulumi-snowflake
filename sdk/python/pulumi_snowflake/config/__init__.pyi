@@ -220,10 +220,10 @@ Specifies the role to use by default for accessing Snowflake objects in the clie
 
 skipTomlFilePermissionVerification: Optional[bool]
 """
-True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
-- see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
-variable.
+False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
+the proper privileges - see the section below. Can also be sourced from the
+`SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
 """
 
 tmpDirectoryPath: Optional[str]
@@ -242,7 +242,7 @@ tokenAccessor: Optional[str]
 
 useLegacyTomlFile: Optional[bool]
 """
-True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
 format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
 variable.
 """
