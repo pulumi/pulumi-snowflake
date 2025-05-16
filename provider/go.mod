@@ -5,10 +5,10 @@ go 1.23.6
 toolchain go1.24.1
 
 replace (
+	github.com/Snowflake-Labs/terraform-provider-snowflake/v2 => ../upstream
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20250221232320-8d4cfd37a3cd
 	github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.1
 	gocloud.dev => gocloud.dev v0.29.0
-	github.com/Snowflake-Labs/terraform-provider-snowflake/v2 => ../upstream
 )
 
 require (
@@ -193,7 +193,7 @@ require (
 	github.com/shopspring/decimal v1.3.1 // indirect
 	github.com/sirupsen/logrus v1.9.3 // indirect
 	github.com/skeema/knownhosts v1.3.0 // indirect
-	github.com/snowflakedb/gosnowflake v1.13.1 // indirect
+	github.com/snowflakedb/gosnowflake v1.13.3 // indirect
 	github.com/spf13/afero v1.10.0 // indirect
 	github.com/spf13/cast v1.5.0 // indirect
 	github.com/spf13/cobra v1.9.1 // indirect
@@ -222,7 +222,7 @@ require (
 	golang.org/x/exp v0.0.0-20250305212735-054e65f0b394 // indirect
 	golang.org/x/mod v0.24.0 // indirect
 	golang.org/x/net v0.39.0 // indirect
-	golang.org/x/oauth2 v0.25.0 // indirect
+	golang.org/x/oauth2 v0.26.0 // indirect
 	golang.org/x/sync v0.13.0 // indirect
 	golang.org/x/sys v0.32.0 // indirect
 	golang.org/x/term v0.31.0 // indirect
