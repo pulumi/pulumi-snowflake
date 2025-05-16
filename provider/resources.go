@@ -55,7 +55,7 @@ func Provider() info.Provider {
 		Keywords:    []string{"pulumi", "snowflake"},
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
-		GitHubOrg:   "Snowflake-Labs",
+		GitHubOrg:   "snowflakedb",
 		Repository:  "https://github.com/pulumi/pulumi-snowflake",
 		Version:     version.Version,
 		DocRules:    &info.DocRule{EditRules: docEditRules},
