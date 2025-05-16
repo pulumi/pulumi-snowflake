@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-snowflake/provider
+module github.com/pulumi/pulumi-snowflake/provider/v2
 
 go 1.23.6
 
@@ -8,10 +8,11 @@ replace (
 	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20250221232320-8d4cfd37a3cd
 	github.com/mattn/go-ieproxy => github.com/mattn/go-ieproxy v0.0.1
 	gocloud.dev => gocloud.dev v0.29.0
+	github.com/Snowflake-Labs/terraform-provider-snowflake/v2 => ../upstream
 )
 
 require (
-	github.com/Snowflake-Labs/terraform-provider-snowflake v1.2.1
+	github.com/Snowflake-Labs/terraform-provider-snowflake/v2 v2.1.0
 	github.com/pulumi/providertest v0.3.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.108.0
 	github.com/stretchr/testify v1.10.0
