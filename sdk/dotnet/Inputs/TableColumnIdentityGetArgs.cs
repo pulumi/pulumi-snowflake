@@ -13,13 +13,13 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class TableColumnIdentityGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: `1`) The number to start incrementing at.
+        /// The number to start incrementing at.
         /// </summary>
         [Input("startNum")]
         public Input<int>? StartNum { get; set; }
 
         /// <summary>
-        /// (Default: `1`) Step size to increment by.
+        /// Step size to increment by.
         /// </summary>
         [Input("stepNum")]
         public Input<int>? StepNum { get; set; }

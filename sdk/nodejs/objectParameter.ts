@@ -6,13 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Import
- *
- * ```sh
- * $ pulumi import snowflake:index/objectParameter:ObjectParameter s <key>|<object_type>|<object_identifier>
- * ```
- */
 export class ObjectParameter extends pulumi.CustomResource {
     /**
      * Get an existing ObjectParameter resource's state with the given name, ID, and optional extra
@@ -42,19 +35,23 @@ export class ObjectParameter extends pulumi.CustomResource {
     }
 
     /**
-     * Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
+     * Name of object parameter. Valid values are those in [object
+     * parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
      */
     public readonly key!: pulumi.Output<string>;
     /**
-     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
+     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to
+     * setting the object parameter at account level.
      */
     public readonly objectIdentifiers!: pulumi.Output<outputs.ObjectParameterObjectIdentifier[] | undefined>;
     /**
-     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
+     * Type of object to which the parameter applies. Valid values are those in [object
+     * types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the
+     * resource will default to setting the object parameter at account level.
      */
     public readonly objectType!: pulumi.Output<string | undefined>;
     /**
-     * (Default: `false`) If true, the object parameter will be set on the account level.
+     * If true, the object parameter will be set on the account level.
      */
     public readonly onAccount!: pulumi.Output<boolean | undefined>;
     /**
@@ -104,19 +101,23 @@ export class ObjectParameter extends pulumi.CustomResource {
  */
 export interface ObjectParameterState {
     /**
-     * Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
+     * Name of object parameter. Valid values are those in [object
+     * parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
      */
     key?: pulumi.Input<string>;
     /**
-     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
+     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to
+     * setting the object parameter at account level.
      */
     objectIdentifiers?: pulumi.Input<pulumi.Input<inputs.ObjectParameterObjectIdentifier>[]>;
     /**
-     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
+     * Type of object to which the parameter applies. Valid values are those in [object
+     * types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the
+     * resource will default to setting the object parameter at account level.
      */
     objectType?: pulumi.Input<string>;
     /**
-     * (Default: `false`) If true, the object parameter will be set on the account level.
+     * If true, the object parameter will be set on the account level.
      */
     onAccount?: pulumi.Input<boolean>;
     /**
@@ -130,19 +131,23 @@ export interface ObjectParameterState {
  */
 export interface ObjectParameterArgs {
     /**
-     * Name of object parameter. Valid values are those in [object parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
+     * Name of object parameter. Valid values are those in [object
+     * parameters](https://docs.snowflake.com/en/sql-reference/parameters.html#object-parameters).
      */
     key: pulumi.Input<string>;
     /**
-     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to setting the object parameter at account level.
+     * Specifies the object identifier for the object parameter. If no value is provided, then the resource will default to
+     * setting the object parameter at account level.
      */
     objectIdentifiers?: pulumi.Input<pulumi.Input<inputs.ObjectParameterObjectIdentifier>[]>;
     /**
-     * Type of object to which the parameter applies. Valid values are those in [object types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the resource will default to setting the object parameter at account level.
+     * Type of object to which the parameter applies. Valid values are those in [object
+     * types](https://docs.snowflake.com/en/sql-reference/parameters.html#object-types). If no value is provided, then the
+     * resource will default to setting the object parameter at account level.
      */
     objectType?: pulumi.Input<string>;
     /**
-     * (Default: `false`) If true, the object parameter will be set on the account level.
+     * If true, the object parameter will be set on the account level.
      */
     onAccount?: pulumi.Input<boolean>;
     /**

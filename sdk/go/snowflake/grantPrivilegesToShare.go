@@ -8,37 +8,37 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ### OnView
-//
-// ```sh
-// $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare example '<share_name>|<privileges>|OnView|<database_name>.<schema_name>.<view_name>'`
-// ```
 type GrantPrivilegesToShare struct {
 	pulumi.CustomResourceState
 
 	// The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
 	OnAllTablesInSchema pulumi.StringPtrOutput `pulumi:"onAllTablesInSchema"`
-	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+	// see docs.
 	OnDatabase pulumi.StringPtrOutput `pulumi:"onDatabase"`
 	// The fully qualified name of the function on which privileges will be granted.
 	OnFunction pulumi.StringPtrOutput `pulumi:"onFunction"`
-	// The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+	// see docs.
 	OnSchema pulumi.StringPtrOutput `pulumi:"onSchema"`
-	// The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnTable pulumi.StringPtrOutput `pulumi:"onTable"`
-	// The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnTag pulumi.StringPtrOutput `pulumi:"onTag"`
-	// The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnView pulumi.StringPtrOutput `pulumi:"onView"`
-	// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+	// The privileges to grant on the share. See available list of privileges:
+	// https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
 	Privileges pulumi.StringArrayOutput `pulumi:"privileges"`
-	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+	// docs.
 	ToShare pulumi.StringOutput `pulumi:"toShare"`
 }
 
@@ -80,42 +80,56 @@ func GetGrantPrivilegesToShare(ctx *pulumi.Context,
 type grantPrivilegesToShareState struct {
 	// The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
 	OnAllTablesInSchema *string `pulumi:"onAllTablesInSchema"`
-	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+	// see docs.
 	OnDatabase *string `pulumi:"onDatabase"`
 	// The fully qualified name of the function on which privileges will be granted.
 	OnFunction *string `pulumi:"onFunction"`
-	// The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+	// see docs.
 	OnSchema *string `pulumi:"onSchema"`
-	// The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnTable *string `pulumi:"onTable"`
-	// The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnTag *string `pulumi:"onTag"`
-	// The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnView *string `pulumi:"onView"`
-	// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+	// The privileges to grant on the share. See available list of privileges:
+	// https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
 	Privileges []string `pulumi:"privileges"`
-	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+	// docs.
 	ToShare *string `pulumi:"toShare"`
 }
 
 type GrantPrivilegesToShareState struct {
 	// The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
 	OnAllTablesInSchema pulumi.StringPtrInput
-	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+	// see docs.
 	OnDatabase pulumi.StringPtrInput
 	// The fully qualified name of the function on which privileges will be granted.
 	OnFunction pulumi.StringPtrInput
-	// The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+	// see docs.
 	OnSchema pulumi.StringPtrInput
-	// The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnTable pulumi.StringPtrInput
-	// The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnTag pulumi.StringPtrInput
-	// The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnView pulumi.StringPtrInput
-	// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+	// The privileges to grant on the share. See available list of privileges:
+	// https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
 	Privileges pulumi.StringArrayInput
-	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+	// docs.
 	ToShare pulumi.StringPtrInput
 }
 
@@ -126,21 +140,28 @@ func (GrantPrivilegesToShareState) ElementType() reflect.Type {
 type grantPrivilegesToShareArgs struct {
 	// The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
 	OnAllTablesInSchema *string `pulumi:"onAllTablesInSchema"`
-	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+	// see docs.
 	OnDatabase *string `pulumi:"onDatabase"`
 	// The fully qualified name of the function on which privileges will be granted.
 	OnFunction *string `pulumi:"onFunction"`
-	// The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+	// see docs.
 	OnSchema *string `pulumi:"onSchema"`
-	// The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnTable *string `pulumi:"onTable"`
-	// The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnTag *string `pulumi:"onTag"`
-	// The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnView *string `pulumi:"onView"`
-	// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+	// The privileges to grant on the share. See available list of privileges:
+	// https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
 	Privileges []string `pulumi:"privileges"`
-	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+	// docs.
 	ToShare string `pulumi:"toShare"`
 }
 
@@ -148,21 +169,28 @@ type grantPrivilegesToShareArgs struct {
 type GrantPrivilegesToShareArgs struct {
 	// The fully qualified identifier for the schema for which the specified privilege will be granted for all tables.
 	OnAllTablesInSchema pulumi.StringPtrInput
-	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+	// see docs.
 	OnDatabase pulumi.StringPtrInput
 	// The fully qualified name of the function on which privileges will be granted.
 	OnFunction pulumi.StringPtrInput
-	// The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+	// see docs.
 	OnSchema pulumi.StringPtrInput
-	// The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnTable pulumi.StringPtrInput
-	// The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnTag pulumi.StringPtrInput
-	// The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+	// docs.
 	OnView pulumi.StringPtrInput
-	// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+	// The privileges to grant on the share. See available list of privileges:
+	// https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
 	Privileges pulumi.StringArrayInput
-	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+	// docs.
 	ToShare pulumi.StringInput
 }
 
@@ -258,7 +286,8 @@ func (o GrantPrivilegesToShareOutput) OnAllTablesInSchema() pulumi.StringPtrOutp
 	return o.ApplyT(func(v *GrantPrivilegesToShare) pulumi.StringPtrOutput { return v.OnAllTablesInSchema }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+// see docs.
 func (o GrantPrivilegesToShareOutput) OnDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToShare) pulumi.StringPtrOutput { return v.OnDatabase }).(pulumi.StringPtrOutput)
 }
@@ -268,32 +297,38 @@ func (o GrantPrivilegesToShareOutput) OnFunction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToShare) pulumi.StringPtrOutput { return v.OnFunction }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+// The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+// see docs.
 func (o GrantPrivilegesToShareOutput) OnSchema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToShare) pulumi.StringPtrOutput { return v.OnSchema }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+// The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+// docs.
 func (o GrantPrivilegesToShareOutput) OnTable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToShare) pulumi.StringPtrOutput { return v.OnTable }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+// The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+// docs.
 func (o GrantPrivilegesToShareOutput) OnTag() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToShare) pulumi.StringPtrOutput { return v.OnTag }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+// The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+// docs.
 func (o GrantPrivilegesToShareOutput) OnView() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToShare) pulumi.StringPtrOutput { return v.OnView }).(pulumi.StringPtrOutput)
 }
 
-// The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+// The privileges to grant on the share. See available list of privileges:
+// https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
 func (o GrantPrivilegesToShareOutput) Privileges() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToShare) pulumi.StringArrayOutput { return v.Privileges }).(pulumi.StringArrayOutput)
 }
 
-// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+// docs.
 func (o GrantPrivilegesToShareOutput) ToShare() pulumi.StringOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToShare) pulumi.StringOutput { return v.ToShare }).(pulumi.StringOutput)
 }

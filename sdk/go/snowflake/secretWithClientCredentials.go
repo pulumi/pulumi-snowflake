@@ -8,35 +8,37 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ```sh
-// $ pulumi import snowflake:index/secretWithClientCredentials:SecretWithClientCredentials example '"<database_name>"."<schema_name>"."<secret_name>"'
-// ```
 type SecretWithClientCredentials struct {
 	pulumi.CustomResourceState
 
-	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+	// information about this resource, see docs.
 	ApiAuthentication pulumi.StringOutput `pulumi:"apiAuthentication"`
 	// Specifies a comment for the secret.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE SECRET` for the given secret.
 	DescribeOutputs SecretWithClientCredentialsDescribeOutputArrayOutput `pulumi:"describeOutputs"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration
+	// during the OAuth client credentials flow.
 	OauthScopes pulumi.StringArrayOutput `pulumi:"oauthScopes"`
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+	// needed.
 	SecretType pulumi.StringOutput `pulumi:"secretType"`
 	// Outputs the result of `SHOW SECRETS` for the given secret.
 	ShowOutputs SecretWithClientCredentialsShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -84,46 +86,60 @@ func GetSecretWithClientCredentials(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecretWithClientCredentials resources.
 type secretWithClientCredentialsState struct {
-	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+	// information about this resource, see docs.
 	ApiAuthentication *string `pulumi:"apiAuthentication"`
 	// Specifies a comment for the secret.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE SECRET` for the given secret.
 	DescribeOutputs []SecretWithClientCredentialsDescribeOutput `pulumi:"describeOutputs"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration
+	// during the OAuth client credentials flow.
 	OauthScopes []string `pulumi:"oauthScopes"`
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
-	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+	// needed.
 	SecretType *string `pulumi:"secretType"`
 	// Outputs the result of `SHOW SECRETS` for the given secret.
 	ShowOutputs []SecretWithClientCredentialsShowOutput `pulumi:"showOutputs"`
 }
 
 type SecretWithClientCredentialsState struct {
-	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+	// information about this resource, see docs.
 	ApiAuthentication pulumi.StringPtrInput
 	// Specifies a comment for the secret.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE SECRET` for the given secret.
 	DescribeOutputs SecretWithClientCredentialsDescribeOutputArrayInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration
+	// during the OAuth client credentials flow.
 	OauthScopes pulumi.StringArrayInput
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
-	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+	// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+	// needed.
 	SecretType pulumi.StringPtrInput
 	// Outputs the result of `SHOW SECRETS` for the given secret.
 	ShowOutputs SecretWithClientCredentialsShowOutputArrayInput
@@ -134,33 +150,43 @@ func (SecretWithClientCredentialsState) ElementType() reflect.Type {
 }
 
 type secretWithClientCredentialsArgs struct {
-	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+	// information about this resource, see docs.
 	ApiAuthentication string `pulumi:"apiAuthentication"`
 	// Specifies a comment for the secret.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration
+	// during the OAuth client credentials flow.
 	OauthScopes []string `pulumi:"oauthScopes"`
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
 }
 
 // The set of arguments for constructing a SecretWithClientCredentials resource.
 type SecretWithClientCredentialsArgs struct {
-	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+	// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+	// information about this resource, see docs.
 	ApiAuthentication pulumi.StringInput
 	// Specifies a comment for the secret.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+	// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration
+	// during the OAuth client credentials flow.
 	OauthScopes pulumi.StringArrayInput
-	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
 }
 
@@ -251,7 +277,8 @@ func (o SecretWithClientCredentialsOutput) ToSecretWithClientCredentialsOutputWi
 	return o
 }
 
-// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+// Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+// information about this resource, see docs.
 func (o SecretWithClientCredentialsOutput) ApiAuthentication() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithClientCredentials) pulumi.StringOutput { return v.ApiAuthentication }).(pulumi.StringOutput)
 }
@@ -261,7 +288,8 @@ func (o SecretWithClientCredentialsOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretWithClientCredentials) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+// characters: `|`, `.`, `"`.
 func (o SecretWithClientCredentialsOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithClientCredentials) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -273,27 +301,32 @@ func (o SecretWithClientCredentialsOutput) DescribeOutputs() SecretWithClientCre
 	}).(SecretWithClientCredentialsDescribeOutputArrayOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o SecretWithClientCredentialsOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithClientCredentials) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o SecretWithClientCredentialsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithClientCredentials) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+// Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration
+// during the OAuth client credentials flow.
 func (o SecretWithClientCredentialsOutput) OauthScopes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SecretWithClientCredentials) pulumi.StringArrayOutput { return v.OauthScopes }).(pulumi.StringArrayOutput)
 }
 
-// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+// characters: `|`, `.`, `"`.
 func (o SecretWithClientCredentialsOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithClientCredentials) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+// needed.
 func (o SecretWithClientCredentialsOutput) SecretType() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretWithClientCredentials) pulumi.StringOutput { return v.SecretType }).(pulumi.StringOutput)
 }

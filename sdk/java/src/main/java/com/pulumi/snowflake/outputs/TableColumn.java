@@ -16,12 +16,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableColumn {
     /**
-     * @return (Default: ``) Column collation, e.g. utf8
+     * @return Column collation, e.g. utf8
      * 
      */
     private @Nullable String collate;
     /**
-     * @return (Default: ``) Column comment
+     * @return Column comment
      * 
      */
     private @Nullable String comment;
@@ -36,7 +36,7 @@ public final class TableColumn {
      */
     private @Nullable TableColumnIdentity identity;
     /**
-     * @return (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+     * @return Masking policy to apply on column. It has to be a fully qualified name.
      * 
      */
     private @Nullable String maskingPolicy;
@@ -46,7 +46,7 @@ public final class TableColumn {
      */
     private String name;
     /**
-     * @return (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+     * @return Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
      * 
      */
     private @Nullable Boolean nullable;
@@ -63,14 +63,14 @@ public final class TableColumn {
 
     private TableColumn() {}
     /**
-     * @return (Default: ``) Column collation, e.g. utf8
+     * @return Column collation, e.g. utf8
      * 
      */
     public Optional<String> collate() {
         return Optional.ofNullable(this.collate);
     }
     /**
-     * @return (Default: ``) Column comment
+     * @return Column comment
      * 
      */
     public Optional<String> comment() {
@@ -91,7 +91,7 @@ public final class TableColumn {
         return Optional.ofNullable(this.identity);
     }
     /**
-     * @return (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+     * @return Masking policy to apply on column. It has to be a fully qualified name.
      * 
      */
     public Optional<String> maskingPolicy() {
@@ -105,7 +105,7 @@ public final class TableColumn {
         return this.name;
     }
     /**
-     * @return (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+     * @return Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
      * 
      */
     public Optional<Boolean> nullable() {

@@ -7,14 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// <!-- TODO(SNOW-1844996): Remove this note.-->
-// > **Note** Field `WITH PRIVILEGES` is currently missing. It will be added in the future.
-//
-// Data source used to get details of filtered schemas. Filtering is aligned with the current possibilities for [SHOW SCHEMAS](https://docs.snowflake.com/en/sql-reference/sql/show-schemas) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
 func GetSchemas(ctx *pulumi.Context, args *GetSchemasArgs, opts ...pulumi.InvokeOption) (*GetSchemasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSchemasResult
@@ -27,38 +23,25 @@ func GetSchemas(ctx *pulumi.Context, args *GetSchemasArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getSchemas.
 type GetSchemasArgs struct {
-	// IN clause to filter the list of streamlits
-	In *GetSchemasIn `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit *GetSchemasLimit `pulumi:"limit"`
-	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-	StartsWith *string `pulumi:"startsWith"`
-	// (Default: `true`) Runs DESC SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe *bool `pulumi:"withDescribe"`
-	// (Default: `true`) Runs SHOW PARAMETERS FOR SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
-	WithParameters *bool `pulumi:"withParameters"`
+	In             *GetSchemasIn    `pulumi:"in"`
+	Like           *string          `pulumi:"like"`
+	Limit          *GetSchemasLimit `pulumi:"limit"`
+	StartsWith     *string          `pulumi:"startsWith"`
+	WithDescribe   *bool            `pulumi:"withDescribe"`
+	WithParameters *bool            `pulumi:"withParameters"`
 }
 
 // A collection of values returned by getSchemas.
 type GetSchemasResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// IN clause to filter the list of streamlits
-	In *GetSchemasIn `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit *GetSchemasLimit `pulumi:"limit"`
-	// Holds the aggregated output of all SCHEMA details queries.
-	Schemas []GetSchemasSchema `pulumi:"schemas"`
-	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-	StartsWith *string `pulumi:"startsWith"`
-	// (Default: `true`) Runs DESC SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe *bool `pulumi:"withDescribe"`
-	// (Default: `true`) Runs SHOW PARAMETERS FOR SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
-	WithParameters *bool `pulumi:"withParameters"`
+	Id             string             `pulumi:"id"`
+	In             *GetSchemasIn      `pulumi:"in"`
+	Like           *string            `pulumi:"like"`
+	Limit          *GetSchemasLimit   `pulumi:"limit"`
+	Schemas        []GetSchemasSchema `pulumi:"schemas"`
+	StartsWith     *string            `pulumi:"startsWith"`
+	WithDescribe   *bool              `pulumi:"withDescribe"`
+	WithParameters *bool              `pulumi:"withParameters"`
 }
 
 func GetSchemasOutput(ctx *pulumi.Context, args GetSchemasOutputArgs, opts ...pulumi.InvokeOption) GetSchemasResultOutput {
@@ -72,18 +55,12 @@ func GetSchemasOutput(ctx *pulumi.Context, args GetSchemasOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getSchemas.
 type GetSchemasOutputArgs struct {
-	// IN clause to filter the list of streamlits
-	In GetSchemasInPtrInput `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like pulumi.StringPtrInput `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit GetSchemasLimitPtrInput `pulumi:"limit"`
-	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
-	// (Default: `true`) Runs DESC SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
-	// (Default: `true`) Runs SHOW PARAMETERS FOR SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
-	WithParameters pulumi.BoolPtrInput `pulumi:"withParameters"`
+	In             GetSchemasInPtrInput    `pulumi:"in"`
+	Like           pulumi.StringPtrInput   `pulumi:"like"`
+	Limit          GetSchemasLimitPtrInput `pulumi:"limit"`
+	StartsWith     pulumi.StringPtrInput   `pulumi:"startsWith"`
+	WithDescribe   pulumi.BoolPtrInput     `pulumi:"withDescribe"`
+	WithParameters pulumi.BoolPtrInput     `pulumi:"withParameters"`
 }
 
 func (GetSchemasOutputArgs) ElementType() reflect.Type {
@@ -110,37 +87,30 @@ func (o GetSchemasResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSchemasResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// IN clause to filter the list of streamlits
 func (o GetSchemasResultOutput) In() GetSchemasInPtrOutput {
 	return o.ApplyT(func(v GetSchemasResult) *GetSchemasIn { return v.In }).(GetSchemasInPtrOutput)
 }
 
-// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetSchemasResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSchemasResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 func (o GetSchemasResultOutput) Limit() GetSchemasLimitPtrOutput {
 	return o.ApplyT(func(v GetSchemasResult) *GetSchemasLimit { return v.Limit }).(GetSchemasLimitPtrOutput)
 }
 
-// Holds the aggregated output of all SCHEMA details queries.
 func (o GetSchemasResultOutput) Schemas() GetSchemasSchemaArrayOutput {
 	return o.ApplyT(func(v GetSchemasResult) []GetSchemasSchema { return v.Schemas }).(GetSchemasSchemaArrayOutput)
 }
 
-// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 func (o GetSchemasResultOutput) StartsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSchemasResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
 }
 
-// (Default: `true`) Runs DESC SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetSchemasResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetSchemasResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }
 
-// (Default: `true`) Runs SHOW PARAMETERS FOR SCHEMA for each schema returned by SHOW SCHEMAS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
 func (o GetSchemasResultOutput) WithParameters() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetSchemasResult) *bool { return v.WithParameters }).(pulumi.BoolPtrOutput)
 }

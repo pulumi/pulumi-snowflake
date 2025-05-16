@@ -22,30 +22,10 @@ public final class GetDynamicTablesResult {
      * 
      */
     private String id;
-    /**
-     * @return IN clause to filter the list of dynamic tables.
-     * 
-     */
     private @Nullable GetDynamicTablesIn in;
-    /**
-     * @return LIKE clause to filter the list of dynamic tables.
-     * 
-     */
     private @Nullable GetDynamicTablesLike like;
-    /**
-     * @return Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-     * 
-     */
     private @Nullable GetDynamicTablesLimit limit;
-    /**
-     * @return The list of dynamic tables.
-     * 
-     */
     private List<GetDynamicTablesRecord> records;
-    /**
-     * @return Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
-     * 
-     */
     private @Nullable String startsWith;
 
     private GetDynamicTablesResult() {}
@@ -56,38 +36,18 @@ public final class GetDynamicTablesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IN clause to filter the list of dynamic tables.
-     * 
-     */
     public Optional<GetDynamicTablesIn> in() {
         return Optional.ofNullable(this.in);
     }
-    /**
-     * @return LIKE clause to filter the list of dynamic tables.
-     * 
-     */
     public Optional<GetDynamicTablesLike> like() {
         return Optional.ofNullable(this.like);
     }
-    /**
-     * @return Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-     * 
-     */
     public Optional<GetDynamicTablesLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
-    /**
-     * @return The list of dynamic tables.
-     * 
-     */
     public List<GetDynamicTablesRecord> records() {
         return this.records;
     }
-    /**
-     * @return Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
-     * 
-     */
     public Optional<String> startsWith() {
         return Optional.ofNullable(this.startsWith);
     }

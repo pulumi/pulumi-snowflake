@@ -32,14 +32,16 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+     * see docs.
      * 
      */
     @Import(name="onDatabase")
     private @Nullable Output<String> onDatabase;
 
     /**
-     * @return The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+     * see docs.
      * 
      */
     public Optional<Output<String>> onDatabase() {
@@ -62,14 +64,16 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+     * see docs.
      * 
      */
     @Import(name="onSchema")
     private @Nullable Output<String> onSchema;
 
     /**
-     * @return The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+     * see docs.
      * 
      */
     public Optional<Output<String>> onSchema() {
@@ -77,14 +81,16 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     @Import(name="onTable")
     private @Nullable Output<String> onTable;
 
     /**
-     * @return The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     public Optional<Output<String>> onTable() {
@@ -92,14 +98,16 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     @Import(name="onTag")
     private @Nullable Output<String> onTag;
 
     /**
-     * @return The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     public Optional<Output<String>> onTag() {
@@ -107,14 +115,16 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     @Import(name="onView")
     private @Nullable Output<String> onView;
 
     /**
-     * @return The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     public Optional<Output<String>> onView() {
@@ -122,14 +132,16 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+     * The privileges to grant on the share. See available list of privileges:
+     * https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
      * 
      */
     @Import(name="privileges")
     private @Nullable Output<List<String>> privileges;
 
     /**
-     * @return The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+     * @return The privileges to grant on the share. See available list of privileges:
+     * https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
      * 
      */
     public Optional<Output<List<String>>> privileges() {
@@ -137,14 +149,16 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     @Import(name="toShare")
     private @Nullable Output<String> toShare;
 
     /**
-     * @return The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     public Optional<Output<String>> toShare() {
@@ -205,7 +219,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onDatabase The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+         * @param onDatabase The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+         * see docs.
          * 
          * @return builder
          * 
@@ -216,7 +231,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onDatabase The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+         * @param onDatabase The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+         * see docs.
          * 
          * @return builder
          * 
@@ -247,7 +263,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onSchema The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+         * @param onSchema The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+         * see docs.
          * 
          * @return builder
          * 
@@ -258,7 +275,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onSchema The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+         * @param onSchema The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+         * see docs.
          * 
          * @return builder
          * 
@@ -268,7 +286,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onTable The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+         * @param onTable The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+         * docs.
          * 
          * @return builder
          * 
@@ -279,7 +298,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onTable The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+         * @param onTable The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+         * docs.
          * 
          * @return builder
          * 
@@ -289,7 +309,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onTag The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+         * @param onTag The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+         * docs.
          * 
          * @return builder
          * 
@@ -300,7 +321,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onTag The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+         * @param onTag The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+         * docs.
          * 
          * @return builder
          * 
@@ -310,7 +332,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onView The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+         * @param onView The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+         * docs.
          * 
          * @return builder
          * 
@@ -321,7 +344,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param onView The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+         * @param onView The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+         * docs.
          * 
          * @return builder
          * 
@@ -331,7 +355,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param privileges The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+         * @param privileges The privileges to grant on the share. See available list of privileges:
+         * https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
          * 
          * @return builder
          * 
@@ -342,7 +367,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param privileges The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+         * @param privileges The privileges to grant on the share. See available list of privileges:
+         * https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
          * 
          * @return builder
          * 
@@ -352,7 +378,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param privileges The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+         * @param privileges The privileges to grant on the share. See available list of privileges:
+         * https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
          * 
          * @return builder
          * 
@@ -362,7 +389,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param toShare The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+         * @param toShare The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+         * docs.
          * 
          * @return builder
          * 
@@ -373,7 +401,8 @@ public final class GrantPrivilegesToShareState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param toShare The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+         * @param toShare The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+         * docs.
          * 
          * @return builder
          * 

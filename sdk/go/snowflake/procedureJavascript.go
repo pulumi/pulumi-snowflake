@@ -8,57 +8,80 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ```sh
-// $ pulumi import snowflake:index/procedureJavascript:ProcedureJavascript example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
-// ```
-//
-// Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
-//
-// Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
 type ProcedureJavascript struct {
 	pulumi.CustomResourceState
 
-	// List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+	// List of the arguments for the procedure. Consult the
+	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
 	Arguments ProcedureJavascriptArgumentArrayOutput `pulumi:"arguments"`
-	// (Default: `user-defined procedure`) Specifies a comment for the procedure.
+	// Specifies a comment for the procedure.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
+	// more information, check [ENABLE_CONSOLE_OUTPUT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput pulumi.BoolOutput `pulumi:"enableConsoleOutput"`
-	// Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
+	// Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
+	// procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
+	// statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
+	// procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
+	// procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
+	// procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
+	// (case-insensitive): `CALLER` | `OWNER`.
 	ExecuteAs pulumi.StringPtrOutput `pulumi:"executeAs"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
+	// Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
+	// Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default"
+	// there which means to use the Snowflake default for this value.
 	IsSecure pulumi.StringPtrOutput `pulumi:"isSecure"`
-	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringOutput `pulumi:"logLevel"`
-	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel pulumi.StringOutput `pulumi:"metricLevel"`
-	// The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
+	// because stored procedures are [identified and resolved by the combination of the name and argument
+	// types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
+	// Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+	// Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+	// NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
 	NullInputBehavior pulumi.StringPtrOutput `pulumi:"nullInputBehavior"`
 	// Outputs the result of `SHOW PARAMETERS IN PROCEDURE` for the given procedure.
 	Parameters ProcedureJavascriptParameterArrayOutput `pulumi:"parameters"`
-	// Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedureDefinition` value must be JavaScript source code. For more information, see [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+	// Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
+	// added by the provider automatically; do not include them. The `procedureDefinition` value must be JavaScript source
+	// code. For more information, see
+	// [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate
+	// permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases
+	// where a change in case or run of whitespace is semantically significant.
 	ProcedureDefinition pulumi.StringOutput `pulumi:"procedureDefinition"`
 	// Specifies language for the procedure. Used to detect external changes.
 	ProcedureLanguage pulumi.StringOutput `pulumi:"procedureLanguage"`
-	// Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL and JavaScript data type mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)). For `RETURNS TABLE ( [ colName col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
+	// Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type
+	// that corresponds to the type of the language that you are using (see [SQL and JavaScript data type
+	// mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)).
+	// For `RETURNS TABLE ( [ colName col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the
+	// returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run
+	// time), you can omit the column names and types (i.e. `TABLE ()`).
 	ReturnType pulumi.StringOutput `pulumi:"returnType"`
-	// The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Outputs the result of `SHOW PROCEDURE` for the given procedure.
 	ShowOutputs ProcedureJavascriptShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel pulumi.StringOutput `pulumi:"traceLevel"`
 }
 
@@ -104,80 +127,144 @@ func GetProcedureJavascript(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProcedureJavascript resources.
 type procedureJavascriptState struct {
-	// List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+	// List of the arguments for the procedure. Consult the
+	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
 	Arguments []ProcedureJavascriptArgument `pulumi:"arguments"`
-	// (Default: `user-defined procedure`) Specifies a comment for the procedure.
+	// Specifies a comment for the procedure.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
-	// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
+	// more information, check [ENABLE_CONSOLE_OUTPUT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput *bool `pulumi:"enableConsoleOutput"`
-	// Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
+	// Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
+	// procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
+	// statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
+	// procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
+	// procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
+	// procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
+	// (case-insensitive): `CALLER` | `OWNER`.
 	ExecuteAs *string `pulumi:"executeAs"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
+	// Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
+	// Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default"
+	// there which means to use the Snowflake default for this value.
 	IsSecure *string `pulumi:"isSecure"`
-	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel *string `pulumi:"logLevel"`
-	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel *string `pulumi:"metricLevel"`
-	// The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
+	// because stored procedures are [identified and resolved by the combination of the name and argument
+	// types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
+	// Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+	// Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+	// NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
 	// Outputs the result of `SHOW PARAMETERS IN PROCEDURE` for the given procedure.
 	Parameters []ProcedureJavascriptParameter `pulumi:"parameters"`
-	// Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedureDefinition` value must be JavaScript source code. For more information, see [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+	// Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
+	// added by the provider automatically; do not include them. The `procedureDefinition` value must be JavaScript source
+	// code. For more information, see
+	// [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate
+	// permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases
+	// where a change in case or run of whitespace is semantically significant.
 	ProcedureDefinition *string `pulumi:"procedureDefinition"`
 	// Specifies language for the procedure. Used to detect external changes.
 	ProcedureLanguage *string `pulumi:"procedureLanguage"`
-	// Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL and JavaScript data type mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)). For `RETURNS TABLE ( [ colName col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
+	// Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type
+	// that corresponds to the type of the language that you are using (see [SQL and JavaScript data type
+	// mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)).
+	// For `RETURNS TABLE ( [ colName col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the
+	// returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run
+	// time), you can omit the column names and types (i.e. `TABLE ()`).
 	ReturnType *string `pulumi:"returnType"`
-	// The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
 	// Outputs the result of `SHOW PROCEDURE` for the given procedure.
 	ShowOutputs []ProcedureJavascriptShowOutput `pulumi:"showOutputs"`
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel *string `pulumi:"traceLevel"`
 }
 
 type ProcedureJavascriptState struct {
-	// List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+	// List of the arguments for the procedure. Consult the
+	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
 	Arguments ProcedureJavascriptArgumentArrayInput
-	// (Default: `user-defined procedure`) Specifies a comment for the procedure.
+	// Specifies a comment for the procedure.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
-	// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
+	// more information, check [ENABLE_CONSOLE_OUTPUT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput pulumi.BoolPtrInput
-	// Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
+	// Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
+	// procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
+	// statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
+	// procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
+	// procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
+	// procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
+	// (case-insensitive): `CALLER` | `OWNER`.
 	ExecuteAs pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
+	// Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
+	// Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default"
+	// there which means to use the Snowflake default for this value.
 	IsSecure pulumi.StringPtrInput
-	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringPtrInput
-	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel pulumi.StringPtrInput
-	// The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
+	// because stored procedures are [identified and resolved by the combination of the name and argument
+	// types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
+	// Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+	// Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+	// NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
 	NullInputBehavior pulumi.StringPtrInput
 	// Outputs the result of `SHOW PARAMETERS IN PROCEDURE` for the given procedure.
 	Parameters ProcedureJavascriptParameterArrayInput
-	// Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedureDefinition` value must be JavaScript source code. For more information, see [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+	// Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
+	// added by the provider automatically; do not include them. The `procedureDefinition` value must be JavaScript source
+	// code. For more information, see
+	// [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate
+	// permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases
+	// where a change in case or run of whitespace is semantically significant.
 	ProcedureDefinition pulumi.StringPtrInput
 	// Specifies language for the procedure. Used to detect external changes.
 	ProcedureLanguage pulumi.StringPtrInput
-	// Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL and JavaScript data type mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)). For `RETURNS TABLE ( [ colName col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
+	// Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type
+	// that corresponds to the type of the language that you are using (see [SQL and JavaScript data type
+	// mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)).
+	// For `RETURNS TABLE ( [ colName col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the
+	// returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run
+	// time), you can omit the column names and types (i.e. `TABLE ()`).
 	ReturnType pulumi.StringPtrInput
-	// The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
 	// Outputs the result of `SHOW PROCEDURE` for the given procedure.
 	ShowOutputs ProcedureJavascriptShowOutputArrayInput
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel pulumi.StringPtrInput
 }
 
@@ -186,65 +273,127 @@ func (ProcedureJavascriptState) ElementType() reflect.Type {
 }
 
 type procedureJavascriptArgs struct {
-	// List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+	// List of the arguments for the procedure. Consult the
+	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
 	Arguments []ProcedureJavascriptArgument `pulumi:"arguments"`
-	// (Default: `user-defined procedure`) Specifies a comment for the procedure.
+	// Specifies a comment for the procedure.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
+	// more information, check [ENABLE_CONSOLE_OUTPUT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput *bool `pulumi:"enableConsoleOutput"`
-	// Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
+	// Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
+	// procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
+	// statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
+	// procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
+	// procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
+	// procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
+	// (case-insensitive): `CALLER` | `OWNER`.
 	ExecuteAs *string `pulumi:"executeAs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
+	// Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
+	// Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default"
+	// there which means to use the Snowflake default for this value.
 	IsSecure *string `pulumi:"isSecure"`
-	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel *string `pulumi:"logLevel"`
-	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel *string `pulumi:"metricLevel"`
-	// The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
+	// because stored procedures are [identified and resolved by the combination of the name and argument
+	// types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
+	// Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+	// Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+	// NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
-	// Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedureDefinition` value must be JavaScript source code. For more information, see [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+	// Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
+	// added by the provider automatically; do not include them. The `procedureDefinition` value must be JavaScript source
+	// code. For more information, see
+	// [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate
+	// permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases
+	// where a change in case or run of whitespace is semantically significant.
 	ProcedureDefinition string `pulumi:"procedureDefinition"`
-	// Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL and JavaScript data type mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)). For `RETURNS TABLE ( [ colName col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
+	// Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type
+	// that corresponds to the type of the language that you are using (see [SQL and JavaScript data type
+	// mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)).
+	// For `RETURNS TABLE ( [ colName col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the
+	// returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run
+	// time), you can omit the column names and types (i.e. `TABLE ()`).
 	ReturnType string `pulumi:"returnType"`
-	// The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel *string `pulumi:"traceLevel"`
 }
 
 // The set of arguments for constructing a ProcedureJavascript resource.
 type ProcedureJavascriptArgs struct {
-	// List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+	// List of the arguments for the procedure. Consult the
+	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
 	Arguments ProcedureJavascriptArgumentArrayInput
-	// (Default: `user-defined procedure`) Specifies a comment for the procedure.
+	// Specifies a comment for the procedure.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
+	// more information, check [ENABLE_CONSOLE_OUTPUT
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput pulumi.BoolPtrInput
-	// Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
+	// Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
+	// procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
+	// statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
+	// procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
+	// procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
+	// procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
+	// (case-insensitive): `CALLER` | `OWNER`.
 	ExecuteAs pulumi.StringPtrInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
+	// Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
+	// Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default"
+	// there which means to use the Snowflake default for this value.
 	IsSecure pulumi.StringPtrInput
-	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringPtrInput
-	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel pulumi.StringPtrInput
-	// The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
+	// because stored procedures are [identified and resolved by the combination of the name and argument
+	// types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
+	// Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+	// Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+	// NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
 	NullInputBehavior pulumi.StringPtrInput
-	// Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedureDefinition` value must be JavaScript source code. For more information, see [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+	// Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
+	// added by the provider automatically; do not include them. The `procedureDefinition` value must be JavaScript source
+	// code. For more information, see
+	// [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate
+	// permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases
+	// where a change in case or run of whitespace is semantically significant.
 	ProcedureDefinition pulumi.StringInput
-	// Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL and JavaScript data type mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)). For `RETURNS TABLE ( [ colName col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
+	// Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type
+	// that corresponds to the type of the language that you are using (see [SQL and JavaScript data type
+	// mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)).
+	// For `RETURNS TABLE ( [ colName col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the
+	// returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run
+	// time), you can omit the column names and types (i.e. `TABLE ()`).
 	ReturnType pulumi.StringInput
-	// The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+	// characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+	// docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel pulumi.StringPtrInput
 }
 
@@ -335,57 +484,77 @@ func (o ProcedureJavascriptOutput) ToProcedureJavascriptOutputWithContext(ctx co
 	return o
 }
 
-// List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+// List of the arguments for the procedure. Consult the
+// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
 func (o ProcedureJavascriptOutput) Arguments() ProcedureJavascriptArgumentArrayOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) ProcedureJavascriptArgumentArrayOutput { return v.Arguments }).(ProcedureJavascriptArgumentArrayOutput)
 }
 
-// (Default: `user-defined procedure`) Specifies a comment for the procedure.
+// Specifies a comment for the procedure.
 func (o ProcedureJavascriptOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+// characters: `|`, `.`, `"`.
 func (o ProcedureJavascriptOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+// Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
+// more information, check [ENABLE_CONSOLE_OUTPUT
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 func (o ProcedureJavascriptOutput) EnableConsoleOutput() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.BoolOutput { return v.EnableConsoleOutput }).(pulumi.BoolOutput)
 }
 
-// Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
+// Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
+// procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
+// statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
+// procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
+// procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
+// procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
+// (case-insensitive): `CALLER` | `OWNER`.
 func (o ProcedureJavascriptOutput) ExecuteAs() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringPtrOutput { return v.ExecuteAs }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o ProcedureJavascriptOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+// Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
+// Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
+// Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default"
+// there which means to use the Snowflake default for this value.
 func (o ProcedureJavascriptOutput) IsSecure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringPtrOutput { return v.IsSecure }).(pulumi.StringPtrOutput)
 }
 
-// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+// LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 func (o ProcedureJavascriptOutput) LogLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringOutput { return v.LogLevel }).(pulumi.StringOutput)
 }
 
-// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+// METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 func (o ProcedureJavascriptOutput) MetricLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringOutput { return v.MetricLevel }).(pulumi.StringOutput)
 }
 
-// The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
+// because stored procedures are [identified and resolved by the combination of the name and argument
+// types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
+// Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ProcedureJavascriptOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+// Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+// NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
 func (o ProcedureJavascriptOutput) NullInputBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringPtrOutput { return v.NullInputBehavior }).(pulumi.StringPtrOutput)
 }
@@ -395,7 +564,12 @@ func (o ProcedureJavascriptOutput) Parameters() ProcedureJavascriptParameterArra
 	return o.ApplyT(func(v *ProcedureJavascript) ProcedureJavascriptParameterArrayOutput { return v.Parameters }).(ProcedureJavascriptParameterArrayOutput)
 }
 
-// Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedureDefinition` value must be JavaScript source code. For more information, see [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+// Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
+// added by the provider automatically; do not include them. The `procedureDefinition` value must be JavaScript source
+// code. For more information, see
+// [JavaScript](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript). To mitigate
+// permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases
+// where a change in case or run of whitespace is semantically significant.
 func (o ProcedureJavascriptOutput) ProcedureDefinition() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringOutput { return v.ProcedureDefinition }).(pulumi.StringOutput)
 }
@@ -405,12 +579,18 @@ func (o ProcedureJavascriptOutput) ProcedureLanguage() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringOutput { return v.ProcedureLanguage }).(pulumi.StringOutput)
 }
 
-// Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL and JavaScript data type mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)). For `RETURNS TABLE ( [ colName col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
+// Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type
+// that corresponds to the type of the language that you are using (see [SQL and JavaScript data type
+// mapping](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-javascript.html#label-stored-procedure-data-type-mapping)).
+// For `RETURNS TABLE ( [ colName col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the
+// returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run
+// time), you can omit the column names and types (i.e. `TABLE ()`).
 func (o ProcedureJavascriptOutput) ReturnType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringOutput { return v.ReturnType }).(pulumi.StringOutput)
 }
 
-// The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+// characters: `|`, `.`, `"`.
 func (o ProcedureJavascriptOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
@@ -420,7 +600,8 @@ func (o ProcedureJavascriptOutput) ShowOutputs() ProcedureJavascriptShowOutputAr
 	return o.ApplyT(func(v *ProcedureJavascript) ProcedureJavascriptShowOutputArrayOutput { return v.ShowOutputs }).(ProcedureJavascriptShowOutputArrayOutput)
 }
 
-// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+// docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 func (o ProcedureJavascriptOutput) TraceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProcedureJavascript) pulumi.StringOutput { return v.TraceLevel }).(pulumi.StringOutput)
 }

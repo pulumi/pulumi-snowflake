@@ -15,16 +15,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ### OnView
- * 
- * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare example &#39;&lt;share_name&gt;|&lt;privileges&gt;|OnView|&lt;database_name&gt;.&lt;schema_name&gt;.&lt;view_name&gt;&#39;`
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare")
 public class GrantPrivilegesToShare extends com.pulumi.resources.CustomResource {
     /**
@@ -42,14 +32,16 @@ public class GrantPrivilegesToShare extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.onAllTablesInSchema);
     }
     /**
-     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+     * see docs.
      * 
      */
     @Export(name="onDatabase", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onDatabase;
 
     /**
-     * @return The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+     * see docs.
      * 
      */
     public Output<Optional<String>> onDatabase() {
@@ -70,84 +62,96 @@ public class GrantPrivilegesToShare extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.onFunction);
     }
     /**
-     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+     * see docs.
      * 
      */
     @Export(name="onSchema", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onSchema;
 
     /**
-     * @return The fully qualified name of the schema on which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the schema on which privileges will be granted. For more information about this resource,
+     * see docs.
      * 
      */
     public Output<Optional<String>> onSchema() {
         return Codegen.optional(this.onSchema);
     }
     /**
-     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     @Export(name="onTable", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onTable;
 
     /**
-     * @return The fully qualified name of the table on which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the table on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     public Output<Optional<String>> onTable() {
         return Codegen.optional(this.onTable);
     }
     /**
-     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     @Export(name="onTag", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onTag;
 
     /**
-     * @return The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the tag on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     public Output<Optional<String>> onTag() {
         return Codegen.optional(this.onTag);
     }
     /**
-     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     @Export(name="onView", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onView;
 
     /**
-     * @return The fully qualified name of the view on which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the view on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     public Output<Optional<String>> onView() {
         return Codegen.optional(this.onView);
     }
     /**
-     * The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+     * The privileges to grant on the share. See available list of privileges:
+     * https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
      * 
      */
     @Export(name="privileges", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> privileges;
 
     /**
-     * @return The privileges to grant on the share. See available list of privileges: https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
+     * @return The privileges to grant on the share. See available list of privileges:
+     * https://docs.snowflake.com/en/sql-reference/sql/grant-privilege-share#syntax
      * 
      */
     public Output<List<String>> privileges() {
         return this.privileges;
     }
     /**
-     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     @Export(name="toShare", refs={String.class}, tree="[0]")
     private Output<String> toShare;
 
     /**
-     * @return The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     public Output<String> toShare() {

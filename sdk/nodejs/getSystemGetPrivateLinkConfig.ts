@@ -4,66 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const snowflakePrivateLink = snowflake.getSystemGetPrivateLinkConfig({});
- * const snowflakePrivateLinkSecurityGroup = new aws.index.SecurityGroup("snowflake_private_link", {
- *     vpcId: vpcId,
- *     ingress: [
- *         {
- *             fromPort: 80,
- *             toPort: 80,
- *             cidrBlocks: vpcCidr,
- *             protocol: "tcp",
- *         },
- *         {
- *             fromPort: 443,
- *             toPort: 443,
- *             cidrBlocks: vpcCidr,
- *             protocol: "tcp",
- *         },
- *     ],
- * });
- * const snowflakePrivateLinkVpcEndpoint = new aws.index.VpcEndpoint("snowflake_private_link", {
- *     vpcId: vpcId,
- *     serviceName: snowflakePrivateLink.awsVpceId,
- *     vpcEndpointType: "Interface",
- *     securityGroupIds: [snowflakePrivateLinkSecurityGroup.id],
- *     subnetIds: subnetIds,
- *     privateDnsEnabled: false,
- * });
- * const snowflakePrivateLinkRoute53Zone = new aws.index.Route53Zone("snowflake_private_link", {
- *     name: "privatelink.snowflakecomputing.com",
- *     vpc: [{
- *         vpcId: vpcId,
- *     }],
- * });
- * const snowflakePrivateLinkUrl = new aws.index.Route53Record("snowflake_private_link_url", {
- *     zoneId: snowflakePrivateLinkRoute53Zone.zoneId,
- *     name: snowflakePrivateLink.accountUrl,
- *     type: "CNAME",
- *     ttl: "300",
- *     records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],
- * });
- * const snowflakePrivateLinkOcspUrl = new aws.index.Route53Record("snowflake_private_link_ocsp_url", {
- *     zoneId: snowflakePrivateLinkRoute53Zone.zoneId,
- *     name: snowflakePrivateLink.ocspUrl,
- *     type: "CNAME",
- *     ttl: "300",
- *     records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
- */
 export function getSystemGetPrivateLinkConfig(opts?: pulumi.InvokeOptions): Promise<GetSystemGetPrivateLinkConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", {
@@ -74,107 +14,20 @@ export function getSystemGetPrivateLinkConfig(opts?: pulumi.InvokeOptions): Prom
  * A collection of values returned by getSystemGetPrivateLinkConfig.
  */
 export interface GetSystemGetPrivateLinkConfigResult {
-    /**
-     * The name of your Snowflake account.
-     */
     readonly accountName: string;
-    /**
-     * The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
-     */
     readonly accountUrl: string;
-    /**
-     * The AWS VPCE ID for your account.
-     */
     readonly awsVpceId: string;
-    /**
-     * The Azure Private Link Service ID for your account.
-     */
     readonly azurePlsId: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * The endpoint to connect to your Snowflake internal stage using AWS PrivateLink or Azure Private Link.
-     */
     readonly internalStage: string;
-    /**
-     * The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
-     */
     readonly ocspUrl: string;
-    /**
-     * The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
-     */
     readonly regionlessAccountUrl: string;
-    /**
-     * The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
-     */
     readonly regionlessSnowsightUrl: string;
-    /**
-     * The URL containing the cloud region to access Snowsight and the Snowflake Marketplace using Private Connectivity to the Snowflake Service.
-     */
     readonly snowsightUrl: string;
 }
-/**
- * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const snowflakePrivateLink = snowflake.getSystemGetPrivateLinkConfig({});
- * const snowflakePrivateLinkSecurityGroup = new aws.index.SecurityGroup("snowflake_private_link", {
- *     vpcId: vpcId,
- *     ingress: [
- *         {
- *             fromPort: 80,
- *             toPort: 80,
- *             cidrBlocks: vpcCidr,
- *             protocol: "tcp",
- *         },
- *         {
- *             fromPort: 443,
- *             toPort: 443,
- *             cidrBlocks: vpcCidr,
- *             protocol: "tcp",
- *         },
- *     ],
- * });
- * const snowflakePrivateLinkVpcEndpoint = new aws.index.VpcEndpoint("snowflake_private_link", {
- *     vpcId: vpcId,
- *     serviceName: snowflakePrivateLink.awsVpceId,
- *     vpcEndpointType: "Interface",
- *     securityGroupIds: [snowflakePrivateLinkSecurityGroup.id],
- *     subnetIds: subnetIds,
- *     privateDnsEnabled: false,
- * });
- * const snowflakePrivateLinkRoute53Zone = new aws.index.Route53Zone("snowflake_private_link", {
- *     name: "privatelink.snowflakecomputing.com",
- *     vpc: [{
- *         vpcId: vpcId,
- *     }],
- * });
- * const snowflakePrivateLinkUrl = new aws.index.Route53Record("snowflake_private_link_url", {
- *     zoneId: snowflakePrivateLinkRoute53Zone.zoneId,
- *     name: snowflakePrivateLink.accountUrl,
- *     type: "CNAME",
- *     ttl: "300",
- *     records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],
- * });
- * const snowflakePrivateLinkOcspUrl = new aws.index.Route53Record("snowflake_private_link_ocsp_url", {
- *     zoneId: snowflakePrivateLinkRoute53Zone.zoneId,
- *     name: snowflakePrivateLink.ocspUrl,
- *     type: "CNAME",
- *     ttl: "300",
- *     records: [snowflakePrivateLinkVpcEndpoint.dnsEntry[0].dns_name],
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
- */
 export function getSystemGetPrivateLinkConfigOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSystemGetPrivateLinkConfigResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getSystemGetPrivateLinkConfig:getSystemGetPrivateLinkConfig", {

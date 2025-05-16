@@ -19,25 +19,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients example &#39;&#34;&lt;integration_name&gt;&#34;&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/oauthIntegrationForCustomClients:OauthIntegrationForCustomClients")
 public class OauthIntegrationForCustomClients extends com.pulumi.resources.CustomResource {
     /**
-     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
+     * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
+     * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
+     * information about this resource, see docs.
      * 
      */
     @Export(name="blockedRolesLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blockedRolesLists;
 
     /**
-     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
+     * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
+     * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
+     * information about this resource, see docs.
      * 
      */
     public Output<Optional<List<String>>> blockedRolesLists() {
@@ -72,70 +70,88 @@ public class OauthIntegrationForCustomClients extends com.pulumi.resources.Custo
         return this.describeOutputs;
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the
+     * value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for
+     * this value.
      * 
      */
     @Export(name="enabled", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enabled;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the
+     * value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for
+     * this value.
      * 
      */
     public Output<Optional<String>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+     * unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+     * unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
+     * Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an
+     * authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more
+     * information about this resource, see docs.
      * 
      */
     @Export(name="networkPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> networkPolicy;
 
     /**
-     * @return Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
+     * @return Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an
+     * authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more
+     * information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> networkPolicy() {
         return Codegen.optional(this.networkPolicy);
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * If true, allows setting oauth_redirect_uri to a URI not protected by TLS. Available options are: &#34;true&#34; or &#34;false&#34;. When
+     * the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default
+     * for this value.
      * 
      */
     @Export(name="oauthAllowNonTlsRedirectUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthAllowNonTlsRedirectUri;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return If true, allows setting oauth_redirect_uri to a URI not protected by TLS. Available options are: &#34;true&#34; or &#34;false&#34;. When
+     * the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default
+     * for this value.
      * 
      */
     public Output<Optional<String>> oauthAllowNonTlsRedirectUri() {
@@ -154,42 +170,52 @@ public class OauthIntegrationForCustomClients extends com.pulumi.resources.Custo
         return Codegen.optional(this.oauthClientRsaPublicKey2);
     }
     /**
-     * Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
+     * Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options
+     * are: `PUBLIC` | `CONFIDENTIAL`.
      * 
      */
     @Export(name="oauthClientType", refs={String.class}, tree="[0]")
     private Output<String> oauthClientType;
 
     /**
-     * @return Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
+     * @return Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options
+     * are: `PUBLIC` | `CONFIDENTIAL`.
      * 
      */
     public Output<String> oauthClientType() {
         return this.oauthClientType;
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available
+     * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
+     * which means to use the Snowflake default for this value.
      * 
      */
     @Export(name="oauthEnforcePkce", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthEnforcePkce;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available
+     * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
+     * which means to use the Snowflake default for this value.
      * 
      */
     public Output<Optional<String>> oauthEnforcePkce() {
         return Codegen.optional(this.oauthEnforcePkce);
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+     * expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
+     * &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Export(name="oauthIssueRefreshTokens", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthIssueRefreshTokens;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+     * expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
+     * &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Output<Optional<String>> oauthIssueRefreshTokens() {
@@ -210,42 +236,46 @@ public class OauthIntegrationForCustomClients extends com.pulumi.resources.Custo
         return this.oauthRedirectUri;
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+     * Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
      * 
      */
     @Export(name="oauthRefreshTokenValidity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> oauthRefreshTokenValidity;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+     * @return Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
      * 
      */
     public Output<Optional<Integer>> oauthRefreshTokenValidity() {
         return Codegen.optional(this.oauthRefreshTokenValidity);
     }
     /**
-     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+     * Specifies whether default secondary roles set in the user properties are activated by default in the session being
+     * opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     @Export(name="oauthUseSecondaryRoles", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthUseSecondaryRoles;
 
     /**
-     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being
+     * opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     public Output<Optional<String>> oauthUseSecondaryRoles() {
         return Codegen.optional(this.oauthUseSecondaryRoles);
     }
     /**
-     * A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
+     * A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more
+     * information about this resource, see docs.
      * 
      */
     @Export(name="preAuthorizedRolesLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> preAuthorizedRolesLists;
 
     /**
-     * @return A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
+     * @return A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more
+     * information about this resource, see docs.
      * 
      */
     public Output<Optional<List<String>>> preAuthorizedRolesLists() {
@@ -319,6 +349,9 @@ public class OauthIntegrationForCustomClients extends com.pulumi.resources.Custo
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "oauthRedirectUri"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

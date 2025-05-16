@@ -1,0 +1,4 @@
+[submodule "upstream"]
+	path = upstream
+	url = https://github.com/Snowflake-Labs/terraform-provider-snowflake.git
+	ignore = dirty

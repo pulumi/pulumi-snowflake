@@ -132,14 +132,6 @@ namespace Pulumi.Snowflake.Inputs
             set => _saml2SnowflakeMetadatas = value;
         }
 
-        [Input("saml2SnowflakeX509Certs")]
-        private InputList<Inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs>? _saml2SnowflakeX509Certs;
-        public InputList<Inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs> Saml2SnowflakeX509Certs
-        {
-            get => _saml2SnowflakeX509Certs ?? (_saml2SnowflakeX509Certs = new InputList<Inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs>());
-            set => _saml2SnowflakeX509Certs = value;
-        }
-
         [Input("saml2SpInitiatedLoginPageLabels")]
         private InputList<Inputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs>? _saml2SpInitiatedLoginPageLabels;
         public InputList<Inputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs> Saml2SpInitiatedLoginPageLabels
@@ -154,14 +146,6 @@ namespace Pulumi.Snowflake.Inputs
         {
             get => _saml2SsoUrls ?? (_saml2SsoUrls = new InputList<Inputs.Saml2IntegrationDescribeOutputSaml2SsoUrlArgs>());
             set => _saml2SsoUrls = value;
-        }
-
-        [Input("saml2X509Certs")]
-        private InputList<Inputs.Saml2IntegrationDescribeOutputSaml2X509CertArgs>? _saml2X509Certs;
-        public InputList<Inputs.Saml2IntegrationDescribeOutputSaml2X509CertArgs> Saml2X509Certs
-        {
-            get => _saml2X509Certs ?? (_saml2X509Certs = new InputList<Inputs.Saml2IntegrationDescribeOutputSaml2X509CertArgs>());
-            set => _saml2X509Certs = value;
         }
 
         public Saml2IntegrationDescribeOutputArgs()

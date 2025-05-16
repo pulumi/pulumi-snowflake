@@ -4,13 +4,6 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
-/**
- * ## Import
- *
- * ```sh
- * $ pulumi import snowflake:index/emailNotificationIntegration:EmailNotificationIntegration example name
- * ```
- */
 export class EmailNotificationIntegration extends pulumi.CustomResource {
     /**
      * Get an existing EmailNotificationIntegration resource's state with the given name, ID, and optional extra
@@ -49,7 +42,8 @@ export class EmailNotificationIntegration extends pulumi.CustomResource {
     public readonly comment!: pulumi.Output<string | undefined>;
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
@@ -102,7 +96,8 @@ export interface EmailNotificationIntegrationState {
     comment?: pulumi.Input<string>;
     enabled?: pulumi.Input<boolean>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     name?: pulumi.Input<string>;

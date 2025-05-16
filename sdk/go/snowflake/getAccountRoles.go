@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `inClass` are all supported). The results of SHOW are encapsulated in one output collection.
 func GetAccountRoles(ctx *pulumi.Context, args *GetAccountRolesArgs, opts ...pulumi.InvokeOption) (*GetAccountRolesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAccountRolesResult
@@ -24,22 +23,17 @@ func GetAccountRoles(ctx *pulumi.Context, args *GetAccountRolesArgs, opts ...pul
 
 // A collection of arguments for invoking getAccountRoles.
 type GetAccountRolesArgs struct {
-	// Filters the SHOW GRANTS output by class name.
 	InClass *string `pulumi:"inClass"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
+	Like    *string `pulumi:"like"`
 }
 
 // A collection of values returned by getAccountRoles.
 type GetAccountRolesResult struct {
-	// Holds the aggregated output of all account role details queries.
 	AccountRoles []GetAccountRolesAccountRole `pulumi:"accountRoles"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Filters the SHOW GRANTS output by class name.
+	Id      string  `pulumi:"id"`
 	InClass *string `pulumi:"inClass"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
+	Like    *string `pulumi:"like"`
 }
 
 func GetAccountRolesOutput(ctx *pulumi.Context, args GetAccountRolesOutputArgs, opts ...pulumi.InvokeOption) GetAccountRolesResultOutput {
@@ -53,10 +47,8 @@ func GetAccountRolesOutput(ctx *pulumi.Context, args GetAccountRolesOutputArgs, 
 
 // A collection of arguments for invoking getAccountRoles.
 type GetAccountRolesOutputArgs struct {
-	// Filters the SHOW GRANTS output by class name.
 	InClass pulumi.StringPtrInput `pulumi:"inClass"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like pulumi.StringPtrInput `pulumi:"like"`
+	Like    pulumi.StringPtrInput `pulumi:"like"`
 }
 
 func (GetAccountRolesOutputArgs) ElementType() reflect.Type {
@@ -78,7 +70,6 @@ func (o GetAccountRolesResultOutput) ToGetAccountRolesResultOutputWithContext(ct
 	return o
 }
 
-// Holds the aggregated output of all account role details queries.
 func (o GetAccountRolesResultOutput) AccountRoles() GetAccountRolesAccountRoleArrayOutput {
 	return o.ApplyT(func(v GetAccountRolesResult) []GetAccountRolesAccountRole { return v.AccountRoles }).(GetAccountRolesAccountRoleArrayOutput)
 }
@@ -88,12 +79,10 @@ func (o GetAccountRolesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountRolesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Filters the SHOW GRANTS output by class name.
 func (o GetAccountRolesResultOutput) InClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAccountRolesResult) *string { return v.InClass }).(pulumi.StringPtrOutput)
 }
 
-// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetAccountRolesResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAccountRolesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }

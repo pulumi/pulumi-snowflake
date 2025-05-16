@@ -9,13 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/databaseRole:DatabaseRole example '"&lt;database_name&gt;"."&lt;database_role_name&gt;"'
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/databaseRole:DatabaseRole")]
     public partial class DatabaseRole : global::Pulumi.CustomResource
     {
@@ -26,25 +19,29 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The database in which to create the database role. Due to technical limitations (read more here), avoid using the
+        /// following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+        /// Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed
+        /// whenever comment field changes.
         /// </summary>
         [Output("showOutputs")]
         public Output<ImmutableArray<Outputs.DatabaseRoleShowOutput>> ShowOutputs { get; private set; } = null!;
@@ -102,13 +99,15 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The database in which to create the database role. Due to technical limitations (read more here), avoid using the
+        /// following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -128,19 +127,22 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The database in which to create the database role. Due to technical limitations (read more here), avoid using the
+        /// following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -149,7 +151,8 @@ namespace Pulumi.Snowflake
         private InputList<Inputs.DatabaseRoleShowOutputGetArgs>? _showOutputs;
 
         /// <summary>
-        /// Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
+        /// Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed
+        /// whenever comment field changes.
         /// </summary>
         public InputList<Inputs.DatabaseRoleShowOutputGetArgs> ShowOutputs
         {

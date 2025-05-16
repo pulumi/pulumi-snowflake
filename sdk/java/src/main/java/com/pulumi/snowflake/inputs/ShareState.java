@@ -17,14 +17,16 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
     public static final ShareState Empty = new ShareState();
 
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+     * &#39;organization_name.account_name
      * 
      */
     @Import(name="accounts")
     private @Nullable Output<List<String>> accounts;
 
     /**
-     * @return A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+     * @return A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+     * &#39;organization_name.account_name
      * 
      */
     public Optional<Output<List<String>>> accounts() {
@@ -47,14 +49,16 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -104,7 +108,8 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+         * &#39;organization_name.account_name
          * 
          * @return builder
          * 
@@ -115,7 +120,8 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+         * &#39;organization_name.account_name
          * 
          * @return builder
          * 
@@ -125,7 +131,8 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+         * &#39;organization_name.account_name
          * 
          * @return builder
          * 
@@ -156,7 +163,8 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -167,7 +175,8 @@ public final class ShareState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 

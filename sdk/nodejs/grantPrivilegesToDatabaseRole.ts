@@ -6,35 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Import
- *
- * ### Import examples
- *
- * #### Grant all privileges OnDatabase
- *
- * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|ALL|OnDatabase|"test_db"'`
- * ```
- *
- * #### Grant list of privileges OnAllSchemasInDatabase
- *
- * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|"test_db"'`
- * ```
- *
- * #### Grant list of privileges on table
- *
- * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|"test_db"."test_schema"."test_table"'`
- * ```
- *
- * #### Grant list of privileges OnAll tables in schema
- *
- * ```sh
- * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|"test_db"."test_schema"'`
- * ```
- */
 export class GrantPrivilegesToDatabaseRole extends pulumi.CustomResource {
     /**
      * Get an existing GrantPrivilegesToDatabaseRole resource's state with the given name, ID, and optional extra
@@ -64,20 +35,23 @@ export class GrantPrivilegesToDatabaseRole extends pulumi.CustomResource {
     }
 
     /**
-     * (Default: `false`) Grant all privileges on the database role.
+     * Grant all privileges on the database role.
      */
     public readonly allPrivileges!: pulumi.Output<boolean | undefined>;
     public readonly alwaysApply!: pulumi.Output<boolean | undefined>;
     /**
-     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
+     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
+     * alwaysApply field.
      */
     public readonly alwaysApplyTrigger!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this
+     * resource, see docs.
      */
     public readonly databaseRoleName!: pulumi.Output<string>;
     /**
-     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+     * see docs.
      */
     public readonly onDatabase!: pulumi.Output<string | undefined>;
     /**
@@ -93,7 +67,7 @@ export class GrantPrivilegesToDatabaseRole extends pulumi.CustomResource {
      */
     public readonly privileges!: pulumi.Output<string[] | undefined>;
     /**
-     * (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
+     * If specified, allows the recipient role to grant the privileges to other roles.
      */
     public readonly withGrantOption!: pulumi.Output<boolean | undefined>;
 
@@ -144,20 +118,23 @@ export class GrantPrivilegesToDatabaseRole extends pulumi.CustomResource {
  */
 export interface GrantPrivilegesToDatabaseRoleState {
     /**
-     * (Default: `false`) Grant all privileges on the database role.
+     * Grant all privileges on the database role.
      */
     allPrivileges?: pulumi.Input<boolean>;
     alwaysApply?: pulumi.Input<boolean>;
     /**
-     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
+     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
+     * alwaysApply field.
      */
     alwaysApplyTrigger?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this
+     * resource, see docs.
      */
     databaseRoleName?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+     * see docs.
      */
     onDatabase?: pulumi.Input<string>;
     /**
@@ -173,7 +150,7 @@ export interface GrantPrivilegesToDatabaseRoleState {
      */
     privileges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
+     * If specified, allows the recipient role to grant the privileges to other roles.
      */
     withGrantOption?: pulumi.Input<boolean>;
 }
@@ -183,20 +160,23 @@ export interface GrantPrivilegesToDatabaseRoleState {
  */
 export interface GrantPrivilegesToDatabaseRoleArgs {
     /**
-     * (Default: `false`) Grant all privileges on the database role.
+     * Grant all privileges on the database role.
      */
     allPrivileges?: pulumi.Input<boolean>;
     alwaysApply?: pulumi.Input<boolean>;
     /**
-     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
+     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
+     * alwaysApply field.
      */
     alwaysApplyTrigger?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this
+     * resource, see docs.
      */
     databaseRoleName: pulumi.Input<string>;
     /**
-     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource,
+     * see docs.
      */
     onDatabase?: pulumi.Input<string>;
     /**
@@ -212,7 +192,7 @@ export interface GrantPrivilegesToDatabaseRoleArgs {
      */
     privileges?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
+     * If specified, allows the recipient role to grant the privileges to other roles.
      */
     withGrantOption?: pulumi.Input<boolean>;
 }

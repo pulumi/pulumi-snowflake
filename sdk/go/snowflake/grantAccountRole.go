@@ -8,25 +8,21 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)
-//
-// ```sh
-// $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole example '"test_role"|ROLE|"test_parent_role"'
-// ```
 type GrantAccountRole struct {
 	pulumi.CustomResourceState
 
-	// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
+	// information about this resource, see docs.
 	ParentRoleName pulumi.StringPtrOutput `pulumi:"parentRoleName"`
-	// The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
+	// The fully qualified name of the role which will be granted to the user or parent role. For more information about this
+	// resource, see docs.
 	RoleName pulumi.StringOutput `pulumi:"roleName"`
-	// The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the user on which specified role will be granted. For more information about this resource,
+	// see docs.
 	UserName pulumi.StringPtrOutput `pulumi:"userName"`
 }
 
@@ -63,20 +59,26 @@ func GetGrantAccountRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GrantAccountRole resources.
 type grantAccountRoleState struct {
-	// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
+	// information about this resource, see docs.
 	ParentRoleName *string `pulumi:"parentRoleName"`
-	// The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
+	// The fully qualified name of the role which will be granted to the user or parent role. For more information about this
+	// resource, see docs.
 	RoleName *string `pulumi:"roleName"`
-	// The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the user on which specified role will be granted. For more information about this resource,
+	// see docs.
 	UserName *string `pulumi:"userName"`
 }
 
 type GrantAccountRoleState struct {
-	// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
+	// information about this resource, see docs.
 	ParentRoleName pulumi.StringPtrInput
-	// The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
+	// The fully qualified name of the role which will be granted to the user or parent role. For more information about this
+	// resource, see docs.
 	RoleName pulumi.StringPtrInput
-	// The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the user on which specified role will be granted. For more information about this resource,
+	// see docs.
 	UserName pulumi.StringPtrInput
 }
 
@@ -85,21 +87,27 @@ func (GrantAccountRoleState) ElementType() reflect.Type {
 }
 
 type grantAccountRoleArgs struct {
-	// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
+	// information about this resource, see docs.
 	ParentRoleName *string `pulumi:"parentRoleName"`
-	// The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
+	// The fully qualified name of the role which will be granted to the user or parent role. For more information about this
+	// resource, see docs.
 	RoleName string `pulumi:"roleName"`
-	// The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the user on which specified role will be granted. For more information about this resource,
+	// see docs.
 	UserName *string `pulumi:"userName"`
 }
 
 // The set of arguments for constructing a GrantAccountRole resource.
 type GrantAccountRoleArgs struct {
-	// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
+	// information about this resource, see docs.
 	ParentRoleName pulumi.StringPtrInput
-	// The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
+	// The fully qualified name of the role which will be granted to the user or parent role. For more information about this
+	// resource, see docs.
 	RoleName pulumi.StringInput
-	// The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the user on which specified role will be granted. For more information about this resource,
+	// see docs.
 	UserName pulumi.StringPtrInput
 }
 
@@ -190,17 +198,20 @@ func (o GrantAccountRoleOutput) ToGrantAccountRoleOutputWithContext(ctx context.
 	return o
 }
 
-// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
+// information about this resource, see docs.
 func (o GrantAccountRoleOutput) ParentRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantAccountRole) pulumi.StringPtrOutput { return v.ParentRoleName }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
+// The fully qualified name of the role which will be granted to the user or parent role. For more information about this
+// resource, see docs.
 func (o GrantAccountRoleOutput) RoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GrantAccountRole) pulumi.StringOutput { return v.RoleName }).(pulumi.StringOutput)
 }
 
-// The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
+// The fully qualified name of the user on which specified role will be granted. For more information about this resource,
+// see docs.
 func (o GrantAccountRoleOutput) UserName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantAccountRole) pulumi.StringPtrOutput { return v.UserName }).(pulumi.StringPtrOutput)
 }

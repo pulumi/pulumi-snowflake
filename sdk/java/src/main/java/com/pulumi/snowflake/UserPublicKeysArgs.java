@@ -46,14 +46,16 @@ public final class UserPublicKeysArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+     * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+     * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      * 
      */
     @Import(name="rsaPublicKey2")
     private @Nullable Output<String> rsaPublicKey2;
 
     /**
-     * @return Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+     * @return Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+     * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      * 
      */
     public Optional<Output<String>> rsaPublicKey2() {
@@ -129,7 +131,8 @@ public final class UserPublicKeysArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rsaPublicKey2 Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+         * @param rsaPublicKey2 Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+         * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
          * 
          * @return builder
          * 
@@ -140,7 +143,8 @@ public final class UserPublicKeysArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param rsaPublicKey2 Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+         * @param rsaPublicKey2 Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+         * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
          * 
          * @return builder
          * 

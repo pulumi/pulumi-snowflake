@@ -19,35 +19,11 @@ public final class GetParametersResult {
      * 
      */
     private String id;
-    /**
-     * @return If parameter*type is set to &#34;OBJECT&#34; then object*name is the name of the object to display object parameters for.
-     * 
-     */
     private @Nullable String objectName;
-    /**
-     * @return If parameter*type is set to &#34;OBJECT&#34; then object*type is the type of object to display object parameters for. Valid values are any object supported by the IN clause of the [SHOW PARAMETERS](https://docs.snowflake.com/en/sql-reference/sql/show-parameters.html#parameters) statement, including: WAREHOUSE | DATABASE | SCHEMA | TASK | TABLE
-     * 
-     */
     private @Nullable String objectType;
-    /**
-     * @return (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
-     * 
-     */
     private @Nullable String parameterType;
-    /**
-     * @return The pipes in the schema
-     * 
-     */
     private List<GetParametersParameter> parameters;
-    /**
-     * @return Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
-     * 
-     */
     private @Nullable String pattern;
-    /**
-     * @return If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
-     * 
-     */
     private @Nullable String user;
 
     private GetParametersResult() {}
@@ -58,45 +34,21 @@ public final class GetParametersResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return If parameter*type is set to &#34;OBJECT&#34; then object*name is the name of the object to display object parameters for.
-     * 
-     */
     public Optional<String> objectName() {
         return Optional.ofNullable(this.objectName);
     }
-    /**
-     * @return If parameter*type is set to &#34;OBJECT&#34; then object*type is the type of object to display object parameters for. Valid values are any object supported by the IN clause of the [SHOW PARAMETERS](https://docs.snowflake.com/en/sql-reference/sql/show-parameters.html#parameters) statement, including: WAREHOUSE | DATABASE | SCHEMA | TASK | TABLE
-     * 
-     */
     public Optional<String> objectType() {
         return Optional.ofNullable(this.objectType);
     }
-    /**
-     * @return (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: &#34;ACCOUNT&#34;, &#34;SESSION&#34;, &#34;OBJECT&#34;.
-     * 
-     */
     public Optional<String> parameterType() {
         return Optional.ofNullable(this.parameterType);
     }
-    /**
-     * @return The pipes in the schema
-     * 
-     */
     public List<GetParametersParameter> parameters() {
         return this.parameters;
     }
-    /**
-     * @return Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
-     * 
-     */
     public Optional<String> pattern() {
         return Optional.ofNullable(this.pattern);
     }
-    /**
-     * @return If parameter_type is set to &#34;SESSION&#34; then user is the name of the user to display session parameters for.
-     * 
-     */
     public Optional<String> user() {
         return Optional.ofNullable(this.user);
     }

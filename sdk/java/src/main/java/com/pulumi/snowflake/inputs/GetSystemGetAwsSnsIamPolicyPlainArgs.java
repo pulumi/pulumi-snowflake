@@ -13,17 +13,9 @@ public final class GetSystemGetAwsSnsIamPolicyPlainArgs extends com.pulumi.resou
 
     public static final GetSystemGetAwsSnsIamPolicyPlainArgs Empty = new GetSystemGetAwsSnsIamPolicyPlainArgs();
 
-    /**
-     * Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-     * 
-     */
     @Import(name="awsSnsTopicArn", required=true)
     private String awsSnsTopicArn;
 
-    /**
-     * @return Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-     * 
-     */
     public String awsSnsTopicArn() {
         return this.awsSnsTopicArn;
     }
@@ -52,12 +44,6 @@ public final class GetSystemGetAwsSnsIamPolicyPlainArgs extends com.pulumi.resou
             $ = new GetSystemGetAwsSnsIamPolicyPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param awsSnsTopicArn Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
-         * 
-         * @return builder
-         * 
-         */
         public Builder awsSnsTopicArn(String awsSnsTopicArn) {
             $.awsSnsTopicArn = awsSnsTopicArn;
             return this;

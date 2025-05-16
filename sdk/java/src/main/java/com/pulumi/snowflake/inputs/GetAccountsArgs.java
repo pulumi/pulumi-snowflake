@@ -16,32 +16,16 @@ public final class GetAccountsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAccountsArgs Empty = new GetAccountsArgs();
 
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     @Import(name="like")
     private @Nullable Output<String> like;
 
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<Output<String>> like() {
         return Optional.ofNullable(this.like);
     }
 
-    /**
-     * Includes dropped accounts that have not yet been deleted.
-     * 
-     */
     @Import(name="withHistory")
     private @Nullable Output<Boolean> withHistory;
 
-    /**
-     * @return Includes dropped accounts that have not yet been deleted.
-     * 
-     */
     public Optional<Output<Boolean>> withHistory() {
         return Optional.ofNullable(this.withHistory);
     }
@@ -71,44 +55,20 @@ public final class GetAccountsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAccountsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(@Nullable Output<String> like) {
             $.like = like;
             return this;
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(String like) {
             return like(Output.of(like));
         }
 
-        /**
-         * @param withHistory Includes dropped accounts that have not yet been deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withHistory(@Nullable Output<Boolean> withHistory) {
             $.withHistory = withHistory;
             return this;
         }
 
-        /**
-         * @param withHistory Includes dropped accounts that have not yet been deleted.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withHistory(Boolean withHistory) {
             return withHistory(Output.of(withHistory));
         }

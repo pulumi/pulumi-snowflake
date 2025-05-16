@@ -8,27 +8,24 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)
-//
-// ```sh
-// $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole example '"ABC"."test_db_role"|ROLE|"test_parent_role"'
-// ```
 type GrantDatabaseRole struct {
 	pulumi.CustomResourceState
 
-	// The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
+	// The fully qualified name of the database role which will be granted to share or parent role. For more information about
+	// this resource, see docs.
 	DatabaseRoleName pulumi.StringOutput `pulumi:"databaseRoleName"`
-	// The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
+	// For more information about this resource, see docs.
 	ParentDatabaseRoleName pulumi.StringPtrOutput `pulumi:"parentDatabaseRoleName"`
-	// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
+	// more information about this resource, see docs.
 	ParentRoleName pulumi.StringPtrOutput `pulumi:"parentRoleName"`
-	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+	// docs.
 	ShareName pulumi.StringPtrOutput `pulumi:"shareName"`
 }
 
@@ -65,24 +62,32 @@ func GetGrantDatabaseRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GrantDatabaseRole resources.
 type grantDatabaseRoleState struct {
-	// The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
+	// The fully qualified name of the database role which will be granted to share or parent role. For more information about
+	// this resource, see docs.
 	DatabaseRoleName *string `pulumi:"databaseRoleName"`
-	// The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
+	// For more information about this resource, see docs.
 	ParentDatabaseRoleName *string `pulumi:"parentDatabaseRoleName"`
-	// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
+	// more information about this resource, see docs.
 	ParentRoleName *string `pulumi:"parentRoleName"`
-	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+	// docs.
 	ShareName *string `pulumi:"shareName"`
 }
 
 type GrantDatabaseRoleState struct {
-	// The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
+	// The fully qualified name of the database role which will be granted to share or parent role. For more information about
+	// this resource, see docs.
 	DatabaseRoleName pulumi.StringPtrInput
-	// The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
+	// For more information about this resource, see docs.
 	ParentDatabaseRoleName pulumi.StringPtrInput
-	// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
+	// more information about this resource, see docs.
 	ParentRoleName pulumi.StringPtrInput
-	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+	// docs.
 	ShareName pulumi.StringPtrInput
 }
 
@@ -91,25 +96,33 @@ func (GrantDatabaseRoleState) ElementType() reflect.Type {
 }
 
 type grantDatabaseRoleArgs struct {
-	// The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
+	// The fully qualified name of the database role which will be granted to share or parent role. For more information about
+	// this resource, see docs.
 	DatabaseRoleName string `pulumi:"databaseRoleName"`
-	// The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
+	// For more information about this resource, see docs.
 	ParentDatabaseRoleName *string `pulumi:"parentDatabaseRoleName"`
-	// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
+	// more information about this resource, see docs.
 	ParentRoleName *string `pulumi:"parentRoleName"`
-	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+	// docs.
 	ShareName *string `pulumi:"shareName"`
 }
 
 // The set of arguments for constructing a GrantDatabaseRole resource.
 type GrantDatabaseRoleArgs struct {
-	// The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
+	// The fully qualified name of the database role which will be granted to share or parent role. For more information about
+	// this resource, see docs.
 	DatabaseRoleName pulumi.StringInput
-	// The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
+	// For more information about this resource, see docs.
 	ParentDatabaseRoleName pulumi.StringPtrInput
-	// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+	// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
+	// more information about this resource, see docs.
 	ParentRoleName pulumi.StringPtrInput
-	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+	// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+	// docs.
 	ShareName pulumi.StringPtrInput
 }
 
@@ -200,22 +213,26 @@ func (o GrantDatabaseRoleOutput) ToGrantDatabaseRoleOutputWithContext(ctx contex
 	return o
 }
 
-// The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
+// The fully qualified name of the database role which will be granted to share or parent role. For more information about
+// this resource, see docs.
 func (o GrantDatabaseRoleOutput) DatabaseRoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GrantDatabaseRole) pulumi.StringOutput { return v.DatabaseRoleName }).(pulumi.StringOutput)
 }
 
-// The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+// The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
+// For more information about this resource, see docs.
 func (o GrantDatabaseRoleOutput) ParentDatabaseRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantDatabaseRole) pulumi.StringPtrOutput { return v.ParentDatabaseRoleName }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
+// more information about this resource, see docs.
 func (o GrantDatabaseRoleOutput) ParentRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantDatabaseRole) pulumi.StringPtrOutput { return v.ParentRoleName }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+// docs.
 func (o GrantDatabaseRoleOutput) ShareName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantDatabaseRole) pulumi.StringPtrOutput { return v.ShareName }).(pulumi.StringPtrOutput)
 }

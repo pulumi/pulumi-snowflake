@@ -18,62 +18,30 @@ public final class GetDynamicTablesArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetDynamicTablesArgs Empty = new GetDynamicTablesArgs();
 
-    /**
-     * IN clause to filter the list of dynamic tables.
-     * 
-     */
     @Import(name="in")
     private @Nullable Output<GetDynamicTablesInArgs> in;
 
-    /**
-     * @return IN clause to filter the list of dynamic tables.
-     * 
-     */
     public Optional<Output<GetDynamicTablesInArgs>> in() {
         return Optional.ofNullable(this.in);
     }
 
-    /**
-     * LIKE clause to filter the list of dynamic tables.
-     * 
-     */
     @Import(name="like")
     private @Nullable Output<GetDynamicTablesLikeArgs> like;
 
-    /**
-     * @return LIKE clause to filter the list of dynamic tables.
-     * 
-     */
     public Optional<Output<GetDynamicTablesLikeArgs>> like() {
         return Optional.ofNullable(this.like);
     }
 
-    /**
-     * Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-     * 
-     */
     @Import(name="limit")
     private @Nullable Output<GetDynamicTablesLimitArgs> limit;
 
-    /**
-     * @return Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-     * 
-     */
     public Optional<Output<GetDynamicTablesLimitArgs>> limit() {
         return Optional.ofNullable(this.limit);
     }
 
-    /**
-     * Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
-     * 
-     */
     @Import(name="startsWith")
     private @Nullable Output<String> startsWith;
 
-    /**
-     * @return Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
-     * 
-     */
     public Optional<Output<String>> startsWith() {
         return Optional.ofNullable(this.startsWith);
     }
@@ -105,86 +73,38 @@ public final class GetDynamicTablesArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetDynamicTablesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param in IN clause to filter the list of dynamic tables.
-         * 
-         * @return builder
-         * 
-         */
         public Builder in(@Nullable Output<GetDynamicTablesInArgs> in) {
             $.in = in;
             return this;
         }
 
-        /**
-         * @param in IN clause to filter the list of dynamic tables.
-         * 
-         * @return builder
-         * 
-         */
         public Builder in(GetDynamicTablesInArgs in) {
             return in(Output.of(in));
         }
 
-        /**
-         * @param like LIKE clause to filter the list of dynamic tables.
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(@Nullable Output<GetDynamicTablesLikeArgs> like) {
             $.like = like;
             return this;
         }
 
-        /**
-         * @param like LIKE clause to filter the list of dynamic tables.
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(GetDynamicTablesLikeArgs like) {
             return like(Output.of(like));
         }
 
-        /**
-         * @param limit Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-         * 
-         * @return builder
-         * 
-         */
         public Builder limit(@Nullable Output<GetDynamicTablesLimitArgs> limit) {
             $.limit = limit;
             return this;
         }
 
-        /**
-         * @param limit Optionally limits the maximum number of rows returned, while also enabling “pagination” of the results. Note that the actual number of rows returned might be less than the specified limit (e.g. the number of existing objects is less than the specified limit).
-         * 
-         * @return builder
-         * 
-         */
         public Builder limit(GetDynamicTablesLimitArgs limit) {
             return limit(Output.of(limit));
         }
 
-        /**
-         * @param startsWith Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startsWith(@Nullable Output<String> startsWith) {
             $.startsWith = startsWith;
             return this;
         }
 
-        /**
-         * @param startsWith Optionally filters the command output based on the characters that appear at the beginning of the object name. The string is case-sensitive.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startsWith(String startsWith) {
             return startsWith(Output.of(startsWith));
         }

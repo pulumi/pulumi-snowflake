@@ -80,7 +80,6 @@ export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeO
     oauthAllowedScopes: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope[];
     oauthAuthorizationEndpoints: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint[];
     oauthClientAuthMethods: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod[];
-    oauthClientIds: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId[];
     oauthGrants: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant[];
     oauthRefreshTokenValidities: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity[];
     oauthTokenEndpoints: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint[];
@@ -136,13 +135,6 @@ export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeO
     value: string;
 }
 
-export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant {
     default: string;
     name: string;
@@ -188,7 +180,6 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput
     oauthAllowedScopes: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope[];
     oauthAuthorizationEndpoints: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint[];
     oauthClientAuthMethods: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod[];
-    oauthClientIds: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId[];
     oauthGrants: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant[];
     oauthRefreshTokenValidities: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity[];
     oauthTokenEndpoints: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint[];
@@ -244,13 +235,6 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput
     value: string;
 }
 
-export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant {
     default: string;
     name: string;
@@ -296,7 +280,6 @@ export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutput {
     oauthAllowedScopes: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope[];
     oauthAuthorizationEndpoints: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint[];
     oauthClientAuthMethods: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod[];
-    oauthClientIds: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId[];
     oauthGrants: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant[];
     oauthRefreshTokenValidities: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity[];
     oauthTokenEndpoints: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint[];
@@ -346,13 +329,6 @@ export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAut
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
-export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId {
     default: string;
     name: string;
     type: string;
@@ -794,7 +770,7 @@ export interface FunctionJavaParameterTraceLevel {
 
 export interface FunctionJavaSecret {
     /**
-     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
      */
     secretId: string;
     /**
@@ -969,7 +945,7 @@ export interface FunctionPythonParameterTraceLevel {
 
 export interface FunctionPythonSecret {
     /**
-     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
      */
     secretId: string;
     /**
@@ -1062,7 +1038,7 @@ export interface FunctionScalaParameterTraceLevel {
 
 export interface FunctionScalaSecret {
     /**
-     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
      */
     secretId: string;
     /**
@@ -1791,7 +1767,7 @@ export interface GetGrantsFutureGrantsIn {
      */
     database?: string;
     /**
-     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
+     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db_name&gt;"."&lt;schema_name&gt;").
      */
     schema?: string;
 }
@@ -1802,7 +1778,7 @@ export interface GetGrantsFutureGrantsTo {
      */
     accountRole?: string;
     /**
-     * Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+     * Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
      */
     databaseRole?: string;
 }
@@ -1848,11 +1824,11 @@ export interface GetGrantsGrantsOf {
      */
     accountRole?: string;
     /**
-     * Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+     * Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
      */
     applicationRole?: string;
     /**
-     * Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+     * Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
      */
     databaseRole?: string;
     /**
@@ -1886,11 +1862,11 @@ export interface GetGrantsGrantsTo {
      */
     application?: string;
     /**
-     * Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
+     * Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app_name&gt;"."&lt;app_role_name&gt;").
      */
     applicationRole?: string;
     /**
-     * Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+     * Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
      */
     databaseRole?: string;
     /**
@@ -2465,14 +2441,12 @@ export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     oauthAllowedTokenEndpoints: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpoint[];
     oauthAuthorizationEndpoints: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpoint[];
     oauthClientAuthMethods: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethod[];
-    oauthClientIds: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientId[];
     oauthClientRsaPublicKey2Fps: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2Fp[];
     oauthClientRsaPublicKeyFps: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFp[];
     oauthClientTypes: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientType[];
     oauthEnforcePkces: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkce[];
     oauthGrants: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrant[];
     oauthIssueRefreshTokens: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshToken[];
-    oauthRedirectUris: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUri[];
     oauthRefreshTokenValidities: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidity[];
     oauthTokenEndpoints: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpoint[];
     oauthUseSecondaryRoles: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRole[];
@@ -2491,10 +2465,8 @@ export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     saml2SnowflakeAcsUrls: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrl[];
     saml2SnowflakeIssuerUrls: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrl[];
     saml2SnowflakeMetadatas: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadata[];
-    saml2SnowflakeX509Certs: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509Cert[];
     saml2SpInitiatedLoginPageLabels: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel[];
     saml2SsoUrls: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrl[];
-    saml2X509Certs: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509Cert[];
     syncPasswords: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPassword[];
 }
 
@@ -2673,13 +2645,6 @@ export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthCl
     value: string;
 }
 
-export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientId {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2Fp {
     default: string;
     name: string;
@@ -2716,13 +2681,6 @@ export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGr
 }
 
 export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshToken {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
-export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUri {
     default: string;
     name: string;
     type: string;
@@ -2855,13 +2813,6 @@ export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2Sn
     value: string;
 }
 
-export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509Cert {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
     default: string;
     name: string;
@@ -2870,13 +2821,6 @@ export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2Sp
 }
 
 export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrl {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
-export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509Cert {
     default: string;
     name: string;
     type: string;
@@ -3788,7 +3732,6 @@ export interface GetUsersUserDescribeOutput {
     minsToUnlock: number;
     mustChangePassword: boolean;
     name: string;
-    password: string;
     passwordLastSetTime: string;
     rsaPublicKey: string;
     rsaPublicKey2: string;
@@ -5316,13 +5259,11 @@ export interface OauthIntegrationForCustomClientsDescribeOutput {
     oauthAllowedAuthorizationEndpoints: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint[];
     oauthAllowedTokenEndpoints: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint[];
     oauthAuthorizationEndpoints: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint[];
-    oauthClientIds: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientId[];
     oauthClientRsaPublicKey2Fps: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp[];
     oauthClientRsaPublicKeyFps: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp[];
     oauthClientTypes: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientType[];
     oauthEnforcePkces: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce[];
     oauthIssueRefreshTokens: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken[];
-    oauthRedirectUris: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri[];
     oauthRefreshTokenValidities: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity[];
     oauthTokenEndpoints: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint[];
     oauthUseSecondaryRoles: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole[];
@@ -5385,13 +5326,6 @@ export interface OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizatio
     value: string;
 }
 
-export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientId {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp {
     default: string;
     name: string;
@@ -5421,13 +5355,6 @@ export interface OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce 
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
-export interface OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri {
     default: string;
     name: string;
     type: string;
@@ -5492,13 +5419,11 @@ export interface OauthIntegrationForPartnerApplicationsDescribeOutput {
     oauthAllowedAuthorizationEndpoints: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint[];
     oauthAllowedTokenEndpoints: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint[];
     oauthAuthorizationEndpoints: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint[];
-    oauthClientIds: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId[];
     oauthClientRsaPublicKey2Fps: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp[];
     oauthClientRsaPublicKeyFps: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp[];
     oauthClientTypes: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType[];
     oauthEnforcePkces: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce[];
     oauthIssueRefreshTokens: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken[];
-    oauthRedirectUris: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri[];
     oauthRefreshTokenValidities: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity[];
     oauthTokenEndpoints: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint[];
     oauthUseSecondaryRoles: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole[];
@@ -5561,13 +5486,6 @@ export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthor
     value: string;
 }
 
-export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp {
     default: string;
     name: string;
@@ -5597,13 +5515,6 @@ export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforc
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
-export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri {
     default: string;
     name: string;
     type: string;
@@ -5750,7 +5661,7 @@ export interface ProcedureJavaParameterTraceLevel {
 
 export interface ProcedureJavaSecret {
     /**
-     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
      */
     secretId: string;
     /**
@@ -5917,7 +5828,7 @@ export interface ProcedurePythonParameterTraceLevel {
 
 export interface ProcedurePythonSecret {
     /**
-     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
      */
     secretId: string;
     /**
@@ -6006,7 +5917,7 @@ export interface ProcedureScalaParameterTraceLevel {
 
 export interface ProcedureScalaSecret {
     /**
-     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
      */
     secretId: string;
     /**
@@ -6179,10 +6090,8 @@ export interface Saml2IntegrationDescribeOutput {
     saml2SnowflakeAcsUrls: outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl[];
     saml2SnowflakeIssuerUrls: outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl[];
     saml2SnowflakeMetadatas: outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata[];
-    saml2SnowflakeX509Certs: outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert[];
     saml2SpInitiatedLoginPageLabels: outputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel[];
     saml2SsoUrls: outputs.Saml2IntegrationDescribeOutputSaml2SsoUrl[];
-    saml2X509Certs: outputs.Saml2IntegrationDescribeOutputSaml2X509Cert[];
 }
 
 export interface Saml2IntegrationDescribeOutputAllowedEmailPattern {
@@ -6290,13 +6199,6 @@ export interface Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata {
     value: string;
 }
 
-export interface Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
     default: string;
     name: string;
@@ -6305,13 +6207,6 @@ export interface Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2SsoUrl {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
-export interface Saml2IntegrationDescribeOutputSaml2X509Cert {
     default: string;
     name: string;
     type: string;
@@ -7303,7 +7198,7 @@ export interface StreamOnExternalTableAt {
      */
     stream?: string;
     /**
-     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
      */
     timestamp?: string;
 }
@@ -7322,7 +7217,7 @@ export interface StreamOnExternalTableBefore {
      */
     stream?: string;
     /**
-     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
      */
     timestamp?: string;
 }
@@ -7377,7 +7272,7 @@ export interface StreamOnTableAt {
      */
     stream?: string;
     /**
-     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
      */
     timestamp?: string;
 }
@@ -7396,7 +7291,7 @@ export interface StreamOnTableBefore {
      */
     stream?: string;
     /**
-     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
      */
     timestamp?: string;
 }
@@ -7451,7 +7346,7 @@ export interface StreamOnViewAt {
      */
     stream?: string;
     /**
-     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
      */
     timestamp?: string;
 }
@@ -7470,7 +7365,7 @@ export interface StreamOnViewBefore {
      */
     stream?: string;
     /**
-     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
      */
     timestamp?: string;
 }
@@ -7540,11 +7435,11 @@ export interface StreamlitShowOutput {
 
 export interface TableColumn {
     /**
-     * (Default: ``) Column collation, e.g. utf8
+     * Column collation, e.g. utf8
      */
     collate?: string;
     /**
-     * (Default: ``) Column comment
+     * Column comment
      */
     comment?: string;
     /**
@@ -7556,7 +7451,7 @@ export interface TableColumn {
      */
     identity?: outputs.TableColumnIdentity;
     /**
-     * (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+     * Masking policy to apply on column. It has to be a fully qualified name.
      */
     maskingPolicy?: string;
     /**
@@ -7564,7 +7459,7 @@ export interface TableColumn {
      */
     name: string;
     /**
-     * (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+     * Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
      */
     nullable?: boolean;
     /**
@@ -7594,26 +7489,26 @@ export interface TableColumnDefault {
 
 export interface TableColumnIdentity {
     /**
-     * (Default: `1`) The number to start incrementing at.
+     * The number to start incrementing at.
      */
     startNum?: number;
     /**
-     * (Default: `1`) Step size to increment by.
+     * Step size to increment by.
      */
     stepNum?: number;
 }
 
 export interface TableConstraintForeignKeyProperties {
     /**
-     * (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+     * The match type for the foreign key. Not applicable for primary/unique keys
      */
     match?: string;
     /**
-     * (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+     * Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
      */
     onDelete?: string;
     /**
-     * (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+     * Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
      */
     onUpdate?: string;
     /**
@@ -8855,9 +8750,6 @@ export interface ViewDataMetricFunction {
 }
 
 export interface ViewDataMetricSchedule {
-    /**
-     * Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `usingCron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `usingCron` field, or replace*triggered*by metadata argument.
-     */
     minutes?: number;
     /**
      * Specifies a cron expression and time zone for periodically running the data metric function. Supports a subset of standard cron utility syntax. Conflicts with `minutes`.

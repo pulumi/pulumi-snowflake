@@ -14,32 +14,16 @@ public final class GetDatabaseRoleArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDatabaseRoleArgs Empty = new GetDatabaseRoleArgs();
 
-    /**
-     * The database from which to return the database role from.
-     * 
-     */
     @Import(name="database", required=true)
     private Output<String> database;
 
-    /**
-     * @return The database from which to return the database role from.
-     * 
-     */
     public Output<String> database() {
         return this.database;
     }
 
-    /**
-     * Database role name.
-     * 
-     */
     @Import(name="name", required=true)
     private Output<String> name;
 
-    /**
-     * @return Database role name.
-     * 
-     */
     public Output<String> name() {
         return this.name;
     }
@@ -69,44 +53,20 @@ public final class GetDatabaseRoleArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDatabaseRoleArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param database The database from which to return the database role from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(Output<String> database) {
             $.database = database;
             return this;
         }
 
-        /**
-         * @param database The database from which to return the database role from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(String database) {
             return database(Output.of(database));
         }
 
-        /**
-         * @param name Database role name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
-        /**
-         * @param name Database role name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

@@ -14,69 +14,67 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)
- * 
- * ```sh
- * $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole example &#39;&#34;ABC&#34;.&#34;test_db_role&#34;|ROLE|&#34;test_parent_role&#34;&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/grantDatabaseRole:GrantDatabaseRole")
 public class GrantDatabaseRole extends com.pulumi.resources.CustomResource {
     /**
-     * The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
+     * The fully qualified name of the database role which will be granted to share or parent role. For more information about
+     * this resource, see docs.
      * 
      */
     @Export(name="databaseRoleName", refs={String.class}, tree="[0]")
     private Output<String> databaseRoleName;
 
     /**
-     * @return The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
+     * @return The fully qualified name of the database role which will be granted to share or parent role. For more information about
+     * this resource, see docs.
      * 
      */
     public Output<String> databaseRoleName() {
         return this.databaseRoleName;
     }
     /**
-     * The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+     * The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
+     * For more information about this resource, see docs.
      * 
      */
     @Export(name="parentDatabaseRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentDatabaseRoleName;
 
     /**
-     * @return The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+     * @return The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
+     * For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> parentDatabaseRoleName() {
         return Codegen.optional(this.parentDatabaseRoleName);
     }
     /**
-     * The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+     * The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
+     * more information about this resource, see docs.
      * 
      */
     @Export(name="parentRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentRoleName;
 
     /**
-     * @return The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+     * @return The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
+     * more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> parentRoleName() {
         return Codegen.optional(this.parentRoleName);
     }
     /**
-     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     @Export(name="shareName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> shareName;
 
     /**
-     * @return The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
+     * docs.
      * 
      */
     public Output<Optional<String>> shareName() {

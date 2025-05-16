@@ -17,62 +17,30 @@ public final class GetCortexSearchServicesArgs extends com.pulumi.resources.Invo
 
     public static final GetCortexSearchServicesArgs Empty = new GetCortexSearchServicesArgs();
 
-    /**
-     * IN clause to filter the list of cortex search services.
-     * 
-     */
     @Import(name="in")
     private @Nullable Output<GetCortexSearchServicesInArgs> in;
 
-    /**
-     * @return IN clause to filter the list of cortex search services.
-     * 
-     */
     public Optional<Output<GetCortexSearchServicesInArgs>> in() {
         return Optional.ofNullable(this.in);
     }
 
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     @Import(name="like")
     private @Nullable Output<String> like;
 
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<Output<String>> like() {
         return Optional.ofNullable(this.like);
     }
 
-    /**
-     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-     * 
-     */
     @Import(name="limit")
     private @Nullable Output<GetCortexSearchServicesLimitArgs> limit;
 
-    /**
-     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-     * 
-     */
     public Optional<Output<GetCortexSearchServicesLimitArgs>> limit() {
         return Optional.ofNullable(this.limit);
     }
 
-    /**
-     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-     * 
-     */
     @Import(name="startsWith")
     private @Nullable Output<String> startsWith;
 
-    /**
-     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-     * 
-     */
     public Optional<Output<String>> startsWith() {
         return Optional.ofNullable(this.startsWith);
     }
@@ -104,86 +72,38 @@ public final class GetCortexSearchServicesArgs extends com.pulumi.resources.Invo
             $ = new GetCortexSearchServicesArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param in IN clause to filter the list of cortex search services.
-         * 
-         * @return builder
-         * 
-         */
         public Builder in(@Nullable Output<GetCortexSearchServicesInArgs> in) {
             $.in = in;
             return this;
         }
 
-        /**
-         * @param in IN clause to filter the list of cortex search services.
-         * 
-         * @return builder
-         * 
-         */
         public Builder in(GetCortexSearchServicesInArgs in) {
             return in(Output.of(in));
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(@Nullable Output<String> like) {
             $.like = like;
             return this;
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(String like) {
             return like(Output.of(like));
         }
 
-        /**
-         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limit(@Nullable Output<GetCortexSearchServicesLimitArgs> limit) {
             $.limit = limit;
             return this;
         }
 
-        /**
-         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limit(GetCortexSearchServicesLimitArgs limit) {
             return limit(Output.of(limit));
         }
 
-        /**
-         * @param startsWith Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startsWith(@Nullable Output<String> startsWith) {
             $.startsWith = startsWith;
             return this;
         }
 
-        /**
-         * @param startsWith Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startsWith(String startsWith) {
             return startsWith(Output.of(startsWith));
         }

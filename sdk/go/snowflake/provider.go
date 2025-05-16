@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -136,6 +136,9 @@ func NewProvider(ctx *pulumi.Context,
 			args.Warehouse = pulumi.StringPtr(d.(string))
 		}
 	}
+	if args.Passcode != nil {
+		args.Passcode = pulumi.ToSecret(args.Passcode).(pulumi.StringPtrInput)
+	}
 	if args.Password != nil {
 		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
 	}
@@ -149,6 +152,7 @@ func NewProvider(ctx *pulumi.Context,
 		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"passcode",
 		"password",
 		"privateKey",
 		"privateKeyPassphrase",
@@ -267,10 +271,10 @@ type providerArgs struct {
 	// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
 	// `SNOWFLAKE_ROLE` environment variable.
 	Role *string `pulumi:"role"`
-	// True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-	// the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
-	// - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
-	//   variable.
+	// False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+	// the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
+	// the proper privileges - see the section below. Can also be sourced from the
+	// `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
 	SkipTomlFilePermissionVerification *bool `pulumi:"skipTomlFilePermissionVerification"`
 	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
 	// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
@@ -279,7 +283,7 @@ type providerArgs struct {
 	// variable.
 	Token         *string                `pulumi:"token"`
 	TokenAccessor *ProviderTokenAccessor `pulumi:"tokenAccessor"`
-	// True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+	// False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
 	// format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
 	// variable.
 	UseLegacyTomlFile *bool `pulumi:"useLegacyTomlFile"`
@@ -397,10 +401,10 @@ type ProviderArgs struct {
 	// Specifies the role to use by default for accessing Snowflake objects in the client session. Can also be sourced from the
 	// `SNOWFLAKE_ROLE` environment variable.
 	Role pulumi.StringPtrInput
-	// True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-	// the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
-	// - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
-	//   variable.
+	// False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+	// the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
+	// the proper privileges - see the section below. Can also be sourced from the
+	// `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
 	SkipTomlFilePermissionVerification pulumi.BoolPtrInput
 	// Sets temporary directory used by the driver for operations like encrypting, compressing etc. Can also be sourced from
 	// the `SNOWFLAKE_TMP_DIRECTORY_PATH` environment variable.
@@ -409,7 +413,7 @@ type ProviderArgs struct {
 	// variable.
 	Token         pulumi.StringPtrInput
 	TokenAccessor ProviderTokenAccessorPtrInput
-	// True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+	// False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
 	// format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
 	// variable.
 	UseLegacyTomlFile pulumi.BoolPtrInput

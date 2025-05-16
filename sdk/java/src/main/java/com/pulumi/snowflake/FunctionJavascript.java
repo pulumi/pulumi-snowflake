@@ -19,99 +19,107 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/functionJavascript:FunctionJavascript example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;function_name&gt;&#34;(varchar, varchar, varchar)&#39;
- * ```
- * 
- * Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
- * 
- * Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won&#39;t be empty after importing and manual state operations may be required.
- * 
- */
 @ResourceType(type="snowflake:index/functionJavascript:FunctionJavascript")
 public class FunctionJavascript extends com.pulumi.resources.CustomResource {
     /**
-     * List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+     * List of the arguments for the function. Consult the
+     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
      * 
      */
     @Export(name="arguments", refs={List.class,FunctionJavascriptArgument.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FunctionJavascriptArgument>> arguments;
 
     /**
-     * @return List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+     * @return List of the arguments for the function. Consult the
+     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
      * 
      */
     public Output<Optional<List<FunctionJavascriptArgument>>> arguments() {
         return Codegen.optional(this.arguments);
     }
     /**
-     * (Default: `user-defined function`) Specifies a comment for the function.
+     * Specifies a comment for the function.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return (Default: `user-defined function`) Specifies a comment for the function.
+     * @return Specifies a comment for the function.
      * 
      */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
     /**
-     * The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the function. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the function. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
         return this.database;
     }
     /**
-     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
+     * For more information, check [ENABLE_CONSOLE_OUTPUT
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     @Export(name="enableConsoleOutput", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableConsoleOutput;
 
     /**
-     * @return Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * @return Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
+     * For more information, check [ENABLE_CONSOLE_OUTPUT
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     public Output<Boolean> enableConsoleOutput() {
         return this.enableConsoleOutput;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be JavaScript source code. For more information, see [Introduction to JavaScript UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
+     * do not include them. The `function_definition` value must be JavaScript source code. For more information, see
+     * [Introduction to JavaScript
+     * UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff
+     * on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
+     * change in case or run of whitespace is semantically significant.
      * 
      */
     @Export(name="functionDefinition", refs={String.class}, tree="[0]")
     private Output<String> functionDefinition;
 
     /**
-     * @return Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be JavaScript source code. For more information, see [Introduction to JavaScript UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * @return Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
+     * do not include them. The `function_definition` value must be JavaScript source code. For more information, see
+     * [Introduction to JavaScript
+     * UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff
+     * on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
+     * change in case or run of whitespace is semantically significant.
      * 
      */
     public Output<String> functionDefinition() {
@@ -138,56 +146,68 @@ public class FunctionJavascript extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.isSecure);
     }
     /**
-     * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     @Export(name="logLevel", refs={String.class}, tree="[0]")
     private Output<String> logLevel;
 
     /**
-     * @return LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * @return LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     public Output<String> logLevel() {
         return this.logLevel;
     }
     /**
-     * METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+     * METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      * 
      */
     @Export(name="metricLevel", refs={String.class}, tree="[0]")
     private Output<String> metricLevel;
 
     /**
-     * @return METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+     * @return METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      * 
      */
     public Output<String> metricLevel() {
         return this.metricLevel;
     }
     /**
-     * The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The name of the function; the identifier does not need to be unique for the schema in which the function is created
+     * because UDFs are identified and resolved by the combination of the name and argument types. Check the
+     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
+     * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The name of the function; the identifier does not need to be unique for the schema in which the function is created
+     * because UDFs are identified and resolved by the combination of the name and argument types. Check the
+     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
+     * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+     * Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+     * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      * 
      */
     @Export(name="nullInputBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nullInputBehavior;
 
     /**
-     * @return Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+     * @return Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+     * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      * 
      */
     public Output<Optional<String>> nullInputBehavior() {
@@ -208,42 +228,52 @@ public class FunctionJavascript extends com.pulumi.resources.CustomResource {
         return this.parameters;
     }
     /**
-     * Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+     * Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
+     * `IMMUTABLE`.
      * 
      */
     @Export(name="returnResultsBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> returnResultsBehavior;
 
     /**
-     * @return Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+     * @return Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
+     * `IMMUTABLE`.
      * 
      */
     public Output<Optional<String>> returnResultsBehavior() {
         return Codegen.optional(this.returnResultsBehavior);
     }
     /**
-     * Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+     * Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar
+     * UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
+     * table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
+     * the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
      * 
      */
     @Export(name="returnType", refs={String.class}, tree="[0]")
     private Output<String> returnType;
 
     /**
-     * @return Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+     * @return Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar
+     * UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
+     * table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
+     * the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
      * 
      */
     public Output<String> returnType() {
         return this.returnType;
     }
     /**
-     * The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -264,14 +294,16 @@ public class FunctionJavascript extends com.pulumi.resources.CustomResource {
         return this.showOutputs;
     }
     /**
-     * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     @Export(name="traceLevel", refs={String.class}, tree="[0]")
     private Output<String> traceLevel;
 
     /**
-     * @return Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * @return Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+     * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     public Output<String> traceLevel() {

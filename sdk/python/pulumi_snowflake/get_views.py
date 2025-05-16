@@ -63,49 +63,31 @@ class GetViewsResult:
     @property
     @pulumi.getter(name="in")
     def in_(self) -> Optional['outputs.GetViewsInResult']:
-        """
-        IN clause to filter the list of views
-        """
         return pulumi.get(self, "in_")
 
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
-        """
-        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter
     def limit(self) -> Optional['outputs.GetViewsLimitResult']:
-        """
-        Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-        """
         return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter(name="startsWith")
     def starts_with(self) -> Optional[builtins.str]:
-        """
-        Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-        """
         return pulumi.get(self, "starts_with")
 
     @property
     @pulumi.getter
     def views(self) -> Sequence['outputs.GetViewsViewResult']:
-        """
-        Holds the aggregated output of all views details queries.
-        """
         return pulumi.get(self, "views")
 
     @property
     @pulumi.getter(name="withDescribe")
     def with_describe(self) -> Optional[builtins.bool]:
-        """
-        (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
-        """
         return pulumi.get(self, "with_describe")
 
 
@@ -131,14 +113,7 @@ def get_views(in_: Optional[Union['GetViewsInArgs', 'GetViewsInArgsDict']] = Non
               with_describe: Optional[builtins.bool] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewsResult:
     """
-    Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
-
-
-    :param Union['GetViewsInArgs', 'GetViewsInArgsDict'] in_: IN clause to filter the list of views
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetViewsLimitArgs', 'GetViewsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-    :param builtins.bool with_describe: (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['in'] = in_
@@ -164,14 +139,7 @@ def get_views_output(in_: Optional[pulumi.Input[Optional[Union['GetViewsInArgs',
                      with_describe: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewsResult]:
     """
-    Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
-
-
-    :param Union['GetViewsInArgs', 'GetViewsInArgsDict'] in_: IN clause to filter the list of views
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetViewsLimitArgs', 'GetViewsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-    :param builtins.bool with_describe: (Default: `true`) Runs DESC VIEW for each view returned by SHOW VIEWS. The output of describe is saved to the description field. By default this value is set to true.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['in'] = in_

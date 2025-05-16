@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `startsWith`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
 func GetDatabases(ctx *pulumi.Context, args *GetDatabasesArgs, opts ...pulumi.InvokeOption) (*GetDatabasesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDatabasesResult
@@ -24,34 +23,23 @@ func GetDatabases(ctx *pulumi.Context, args *GetDatabasesArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getDatabases.
 type GetDatabasesArgs struct {
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit *GetDatabasesLimit `pulumi:"limit"`
-	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-	StartsWith *string `pulumi:"startsWith"`
-	// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe *bool `pulumi:"withDescribe"`
-	// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
-	WithParameters *bool `pulumi:"withParameters"`
+	Like           *string            `pulumi:"like"`
+	Limit          *GetDatabasesLimit `pulumi:"limit"`
+	StartsWith     *string            `pulumi:"startsWith"`
+	WithDescribe   *bool              `pulumi:"withDescribe"`
+	WithParameters *bool              `pulumi:"withParameters"`
 }
 
 // A collection of values returned by getDatabases.
 type GetDatabasesResult struct {
-	// Holds the aggregated output of all database details queries.
 	Databases []GetDatabasesDatabase `pulumi:"databases"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit *GetDatabasesLimit `pulumi:"limit"`
-	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-	StartsWith *string `pulumi:"startsWith"`
-	// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe *bool `pulumi:"withDescribe"`
-	// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
-	WithParameters *bool `pulumi:"withParameters"`
+	Id             string             `pulumi:"id"`
+	Like           *string            `pulumi:"like"`
+	Limit          *GetDatabasesLimit `pulumi:"limit"`
+	StartsWith     *string            `pulumi:"startsWith"`
+	WithDescribe   *bool              `pulumi:"withDescribe"`
+	WithParameters *bool              `pulumi:"withParameters"`
 }
 
 func GetDatabasesOutput(ctx *pulumi.Context, args GetDatabasesOutputArgs, opts ...pulumi.InvokeOption) GetDatabasesResultOutput {
@@ -65,16 +53,11 @@ func GetDatabasesOutput(ctx *pulumi.Context, args GetDatabasesOutputArgs, opts .
 
 // A collection of arguments for invoking getDatabases.
 type GetDatabasesOutputArgs struct {
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like pulumi.StringPtrInput `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit GetDatabasesLimitPtrInput `pulumi:"limit"`
-	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
-	// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
-	// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
-	WithParameters pulumi.BoolPtrInput `pulumi:"withParameters"`
+	Like           pulumi.StringPtrInput     `pulumi:"like"`
+	Limit          GetDatabasesLimitPtrInput `pulumi:"limit"`
+	StartsWith     pulumi.StringPtrInput     `pulumi:"startsWith"`
+	WithDescribe   pulumi.BoolPtrInput       `pulumi:"withDescribe"`
+	WithParameters pulumi.BoolPtrInput       `pulumi:"withParameters"`
 }
 
 func (GetDatabasesOutputArgs) ElementType() reflect.Type {
@@ -96,7 +79,6 @@ func (o GetDatabasesResultOutput) ToGetDatabasesResultOutputWithContext(ctx cont
 	return o
 }
 
-// Holds the aggregated output of all database details queries.
 func (o GetDatabasesResultOutput) Databases() GetDatabasesDatabaseArrayOutput {
 	return o.ApplyT(func(v GetDatabasesResult) []GetDatabasesDatabase { return v.Databases }).(GetDatabasesDatabaseArrayOutput)
 }
@@ -106,27 +88,22 @@ func (o GetDatabasesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDatabasesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetDatabasesResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetDatabasesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 func (o GetDatabasesResultOutput) Limit() GetDatabasesLimitPtrOutput {
 	return o.ApplyT(func(v GetDatabasesResult) *GetDatabasesLimit { return v.Limit }).(GetDatabasesLimitPtrOutput)
 }
 
-// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 func (o GetDatabasesResultOutput) StartsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetDatabasesResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
 }
 
-// (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetDatabasesResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetDatabasesResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }
 
-// (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
 func (o GetDatabasesResultOutput) WithParameters() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetDatabasesResult) *bool { return v.WithParameters }).(pulumi.BoolPtrOutput)
 }

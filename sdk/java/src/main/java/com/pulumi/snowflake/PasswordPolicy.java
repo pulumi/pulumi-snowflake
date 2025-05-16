@@ -16,16 +16,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
- * 
- * !&gt; **Note** According to Snowflake [docs](https://docs.snowflake.com/en/sql-reference/sql/drop-password-policy#usage-notes), a password policy cannot be dropped successfully if it is currently assigned to another object. Currently, the provider does not unassign such objects automatically. Before dropping the resource, first unassign the policy from the relevant objects. See guide for more details.
- * 
- * A password policy specifies the requirements that must be met to create and reset a password to authenticate to Snowflake.
- * 
- * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
- * 
- */
 @ResourceType(type="snowflake:index/passwordPolicy:PasswordPolicy")
 public class PasswordPolicy extends com.pulumi.resources.CustomResource {
     /**
@@ -57,182 +47,216 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+     * Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when
+     * a user updates their password value. The current password value does not count towards the history. When you increase
+     * the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values
+     * up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake
+     * stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
      * 
      */
     @Export(name="history", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> history;
 
     /**
-     * @return (Default: `0`) Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when a user updates their password value. The current password value does not count towards the history. When you increase the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
+     * @return Specifies the number of the most recent passwords that Snowflake stores. These stored passwords cannot be repeated when
+     * a user updates their password value. The current password value does not count towards the history. When you increase
+     * the history value, Snowflake saves the previous values. When you decrease the value, Snowflake saves the stored values
+     * up to that value that is set. For example, if the history value is 8 and you change the history value to 3, Snowflake
+     * stores the most recent 3 passwords and deletes the 5 older password values from the history. Default: 0 Max: 24
      * 
      */
     public Output<Optional<Integer>> history() {
         return Codegen.optional(this.history);
     }
     /**
-     * (Default: `false`) Prevent overwriting a previous password policy with the same name.
+     * Prevent overwriting a previous password policy with the same name.
      * 
      */
     @Export(name="ifNotExists", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ifNotExists;
 
     /**
-     * @return (Default: `false`) Prevent overwriting a previous password policy with the same name.
+     * @return Prevent overwriting a previous password policy with the same name.
      * 
      */
     public Output<Optional<Boolean>> ifNotExists() {
         return Codegen.optional(this.ifNotExists);
     }
     /**
-     * (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
+     * Specifies the number of minutes the user account will be locked after exhausting the designated number of password
+     * retries (i.e. PASSWORD_MAX_RETRIES). Supported range: 1 to 999, inclusive. Default: 15
      * 
      */
     @Export(name="lockoutTimeMins", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> lockoutTimeMins;
 
     /**
-     * @return (Default: `15`) Specifies the number of minutes the user account will be locked after exhausting the designated number of password retries (i.e. PASSWORD*MAX*RETRIES). Supported range: 1 to 999, inclusive. Default: 15
+     * @return Specifies the number of minutes the user account will be locked after exhausting the designated number of password
+     * retries (i.e. PASSWORD_MAX_RETRIES). Supported range: 1 to 999, inclusive. Default: 15
      * 
      */
     public Output<Optional<Integer>> lockoutTimeMins() {
         return Codegen.optional(this.lockoutTimeMins);
     }
     /**
-     * (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
+     * Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value
+     * of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this
+     * value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your
+     * internal security guidelines. Default: 90, which means the password must be changed every 90 days.
      * 
      */
     @Export(name="maxAgeDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxAgeDays;
 
     /**
-     * @return (Default: `90`) Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your internal security guidelines. Default: 90, which means the password must be changed every 90 days.
+     * @return Specifies the maximum number of days before the password must be changed. Supported range: 0 to 999, inclusive. A value
+     * of zero (i.e. 0) indicates that the password does not need to be changed. Snowflake does not recommend choosing this
+     * value for a default account-level password policy or for any user-level policy. Instead, choose a value that meets your
+     * internal security guidelines. Default: 90, which means the password must be changed every 90 days.
      * 
      */
     public Output<Optional<Integer>> maxAgeDays() {
         return Codegen.optional(this.maxAgeDays);
     }
     /**
-     * (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
+     * Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the
+     * sum of PASSWORD_MIN_LENGTH, PASSWORD_MIN_UPPER_CASE_CHARS, and PASSWORD_MIN_LOWER_CASE_CHARS. Supported range: 8 to 256,
+     * inclusive. Default: 256
      * 
      */
     @Export(name="maxLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxLength;
 
     /**
-     * @return (Default: `256`) Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the sum of PASSWORD*MIN*LENGTH, PASSWORD*MIN*UPPER*CASE*CHARS, and PASSWORD*MIN*LOWER*CASE*CHARS. Supported range: 8 to 256, inclusive. Default: 256
+     * @return Specifies the maximum number of characters the password must contain. This number must be greater than or equal to the
+     * sum of PASSWORD_MIN_LENGTH, PASSWORD_MIN_UPPER_CASE_CHARS, and PASSWORD_MIN_LOWER_CASE_CHARS. Supported range: 8 to 256,
+     * inclusive. Default: 256
      * 
      */
     public Output<Optional<Integer>> maxLength() {
         return Codegen.optional(this.maxLength);
     }
     /**
-     * (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
+     * Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10,
+     * inclusive. Default: 5
      * 
      */
     @Export(name="maxRetries", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> maxRetries;
 
     /**
-     * @return (Default: `5`) Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10, inclusive. Default: 5
+     * @return Specifies the maximum number of attempts to enter a password before being locked out. Supported range: 1 to 10,
+     * inclusive. Default: 5
      * 
      */
     public Output<Optional<Integer>> maxRetries() {
         return Codegen.optional(this.maxRetries);
     }
     /**
-     * (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+     * Specifies the number of days the user must wait before a recently changed password can be changed again. Supported
+     * range: 0 to 999, inclusive. Default: 0
      * 
      */
     @Export(name="minAgeDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minAgeDays;
 
     /**
-     * @return (Default: `0`) Specifies the number of days the user must wait before a recently changed password can be changed again. Supported range: 0 to 999, inclusive. Default: 0
+     * @return Specifies the number of days the user must wait before a recently changed password can be changed again. Supported
+     * range: 0 to 999, inclusive. Default: 0
      * 
      */
     public Output<Optional<Integer>> minAgeDays() {
         return Codegen.optional(this.minAgeDays);
     }
     /**
-     * (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
+     * Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
      * 
      */
     @Export(name="minLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minLength;
 
     /**
-     * @return (Default: `8`) Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
+     * @return Specifies the minimum number of characters the password must contain. Supported range: 8 to 256, inclusive. Default: 8
      * 
      */
     public Output<Optional<Integer>> minLength() {
         return Codegen.optional(this.minLength);
     }
     /**
-     * (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive.
+     * Default: 1
      * 
      */
     @Export(name="minLowerCaseChars", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minLowerCaseChars;
 
     /**
-     * @return (Default: `1`) Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * @return Specifies the minimum number of lowercase characters the password must contain. Supported range: 0 to 256, inclusive.
+     * Default: 1
      * 
      */
     public Output<Optional<Integer>> minLowerCaseChars() {
         return Codegen.optional(this.minLowerCaseChars);
     }
     /**
-     * (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive.
+     * Default: 1
      * 
      */
     @Export(name="minNumericChars", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minNumericChars;
 
     /**
-     * @return (Default: `1`) Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * @return Specifies the minimum number of numeric characters the password must contain. Supported range: 0 to 256, inclusive.
+     * Default: 1
      * 
      */
     public Output<Optional<Integer>> minNumericChars() {
         return Codegen.optional(this.minNumericChars);
     }
     /**
-     * (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive.
+     * Default: 1
      * 
      */
     @Export(name="minSpecialChars", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minSpecialChars;
 
     /**
-     * @return (Default: `1`) Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * @return Specifies the minimum number of special characters the password must contain. Supported range: 0 to 256, inclusive.
+     * Default: 1
      * 
      */
     public Output<Optional<Integer>> minSpecialChars() {
         return Codegen.optional(this.minSpecialChars);
     }
     /**
-     * (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive.
+     * Default: 1
      * 
      */
     @Export(name="minUpperCaseChars", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minUpperCaseChars;
 
     /**
-     * @return (Default: `1`) Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive. Default: 1
+     * @return Specifies the minimum number of uppercase characters the password must contain. Supported range: 0 to 256, inclusive.
+     * Default: 1
      * 
      */
     public Output<Optional<Integer>> minUpperCaseChars() {
@@ -253,14 +277,14 @@ public class PasswordPolicy extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * (Default: `false`) Whether to override a previous password policy with the same name.
+     * Whether to override a previous password policy with the same name.
      * 
      */
     @Export(name="orReplace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> orReplace;
 
     /**
-     * @return (Default: `false`) Whether to override a previous password policy with the same name.
+     * @return Whether to override a previous password policy with the same name.
      * 
      */
     public Output<Optional<Boolean>> orReplace() {

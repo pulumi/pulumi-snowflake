@@ -46,14 +46,16 @@ public final class GrantApplicationRoleState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
+     * The fully qualified name of the account role on which application role will be granted. For more information about this
+     * resource, see docs.
      * 
      */
     @Import(name="parentAccountRoleName")
     private @Nullable Output<String> parentAccountRoleName;
 
     /**
-     * @return The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
+     * @return The fully qualified name of the account role on which application role will be granted. For more information about this
+     * resource, see docs.
      * 
      */
     public Optional<Output<String>> parentAccountRoleName() {
@@ -129,7 +131,8 @@ public final class GrantApplicationRoleState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param parentAccountRoleName The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
+         * @param parentAccountRoleName The fully qualified name of the account role on which application role will be granted. For more information about this
+         * resource, see docs.
          * 
          * @return builder
          * 
@@ -140,7 +143,8 @@ public final class GrantApplicationRoleState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param parentAccountRoleName The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
+         * @param parentAccountRoleName The fully qualified name of the account role on which application role will be granted. For more information about this
+         * resource, see docs.
          * 
          * @return builder
          * 

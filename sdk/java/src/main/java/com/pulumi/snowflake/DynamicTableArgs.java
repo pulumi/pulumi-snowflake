@@ -49,14 +49,14 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
      * 
      */
     @Import(name="initialize")
     private @Nullable Output<String> initialize;
 
     /**
-     * @return (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+     * @return Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
      * 
      */
     public Optional<Output<String>> initialize() {
@@ -64,14 +64,16 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+     * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+     * created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+     * @return Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+     * created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -79,14 +81,14 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+     * Specifies whether to replace the dynamic table if it already exists.
      * 
      */
     @Import(name="orReplace")
     private @Nullable Output<Boolean> orReplace;
 
     /**
-     * @return (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+     * @return Specifies whether to replace the dynamic table if it already exists.
      * 
      */
     public Optional<Output<Boolean>> orReplace() {
@@ -109,14 +111,16 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+     * decide.
      * 
      */
     @Import(name="refreshMode")
     private @Nullable Output<String> refreshMode;
 
     /**
-     * @return (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+     * @return INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+     * decide.
      * 
      */
     public Optional<Output<String>> refreshMode() {
@@ -244,7 +248,7 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initialize (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+         * @param initialize Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
          * 
          * @return builder
          * 
@@ -255,7 +259,7 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param initialize (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
+         * @param initialize Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
          * 
          * @return builder
          * 
@@ -265,7 +269,8 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+         * @param name Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+         * created.
          * 
          * @return builder
          * 
@@ -276,7 +281,8 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
+         * @param name Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
+         * created.
          * 
          * @return builder
          * 
@@ -286,7 +292,7 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orReplace (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+         * @param orReplace Specifies whether to replace the dynamic table if it already exists.
          * 
          * @return builder
          * 
@@ -297,7 +303,7 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orReplace (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
+         * @param orReplace Specifies whether to replace the dynamic table if it already exists.
          * 
          * @return builder
          * 
@@ -328,7 +334,8 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshMode (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+         * @param refreshMode INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+         * decide.
          * 
          * @return builder
          * 
@@ -339,7 +346,8 @@ public final class DynamicTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param refreshMode (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
+         * @param refreshMode INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
+         * decide.
          * 
          * @return builder
          * 

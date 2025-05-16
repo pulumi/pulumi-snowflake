@@ -47,32 +47,16 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.azureMultiTenantAppName);
     }
 
-    /**
-     * (Default: ``)
-     * 
-     */
     @Import(name="azureTenantId")
     private @Nullable Output<String> azureTenantId;
 
-    /**
-     * @return (Default: ``)
-     * 
-     */
     public Optional<Output<String>> azureTenantId() {
         return Optional.ofNullable(this.azureTenantId);
     }
 
-    /**
-     * (Default: ``)
-     * 
-     */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
-    /**
-     * @return (Default: ``)
-     * 
-     */
     public Optional<Output<String>> comment() {
         return Optional.ofNullable(this.comment);
     }
@@ -92,30 +76,24 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.createdOn);
     }
 
-    /**
-     * (Default: `true`)
-     * 
-     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
-    /**
-     * @return (Default: `true`)
-     * 
-     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -189,17 +167,9 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.storageAwsObjectAcl);
     }
 
-    /**
-     * (Default: ``)
-     * 
-     */
     @Import(name="storageAwsRoleArn")
     private @Nullable Output<String> storageAwsRoleArn;
 
-    /**
-     * @return (Default: ``)
-     * 
-     */
     public Optional<Output<String>> storageAwsRoleArn() {
         return Optional.ofNullable(this.storageAwsRoleArn);
     }
@@ -249,17 +219,9 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.storageProvider);
     }
 
-    /**
-     * (Default: `EXTERNAL_STAGE`)
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return (Default: `EXTERNAL_STAGE`)
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
@@ -346,44 +308,20 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
             return azureMultiTenantAppName(Output.of(azureMultiTenantAppName));
         }
 
-        /**
-         * @param azureTenantId (Default: ``)
-         * 
-         * @return builder
-         * 
-         */
         public Builder azureTenantId(@Nullable Output<String> azureTenantId) {
             $.azureTenantId = azureTenantId;
             return this;
         }
 
-        /**
-         * @param azureTenantId (Default: ``)
-         * 
-         * @return builder
-         * 
-         */
         public Builder azureTenantId(String azureTenantId) {
             return azureTenantId(Output.of(azureTenantId));
         }
 
-        /**
-         * @param comment (Default: ``)
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(@Nullable Output<String> comment) {
             $.comment = comment;
             return this;
         }
 
-        /**
-         * @param comment (Default: ``)
-         * 
-         * @return builder
-         * 
-         */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
         }
@@ -409,29 +347,18 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
             return createdOn(Output.of(createdOn));
         }
 
-        /**
-         * @param enabled (Default: `true`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
-        /**
-         * @param enabled (Default: `true`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -442,7 +369,8 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -554,23 +482,11 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
             return storageAwsObjectAcl(Output.of(storageAwsObjectAcl));
         }
 
-        /**
-         * @param storageAwsRoleArn (Default: ``)
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageAwsRoleArn(@Nullable Output<String> storageAwsRoleArn) {
             $.storageAwsRoleArn = storageAwsRoleArn;
             return this;
         }
 
-        /**
-         * @param storageAwsRoleArn (Default: ``)
-         * 
-         * @return builder
-         * 
-         */
         public Builder storageAwsRoleArn(String storageAwsRoleArn) {
             return storageAwsRoleArn(Output.of(storageAwsRoleArn));
         }
@@ -648,23 +564,11 @@ public final class StorageIntegrationState extends com.pulumi.resources.Resource
             return storageProvider(Output.of(storageProvider));
         }
 
-        /**
-         * @param type (Default: `EXTERNAL_STAGE`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type (Default: `EXTERNAL_STAGE`)
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }

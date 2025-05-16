@@ -15,32 +15,16 @@ public final class GetExternalFunctionsArgs extends com.pulumi.resources.InvokeA
 
     public static final GetExternalFunctionsArgs Empty = new GetExternalFunctionsArgs();
 
-    /**
-     * The database from which to return the schemas from.
-     * 
-     */
     @Import(name="database")
     private @Nullable Output<String> database;
 
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public Optional<Output<String>> database() {
         return Optional.ofNullable(this.database);
     }
 
-    /**
-     * The schema from which to return the external functions from.
-     * 
-     */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
-    /**
-     * @return The schema from which to return the external functions from.
-     * 
-     */
     public Optional<Output<String>> schema() {
         return Optional.ofNullable(this.schema);
     }
@@ -70,44 +54,20 @@ public final class GetExternalFunctionsArgs extends com.pulumi.resources.InvokeA
             $ = new GetExternalFunctionsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param database The database from which to return the schemas from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(@Nullable Output<String> database) {
             $.database = database;
             return this;
         }
 
-        /**
-         * @param database The database from which to return the schemas from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(String database) {
             return database(Output.of(database));
         }
 
-        /**
-         * @param schema The schema from which to return the external functions from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(@Nullable Output<String> schema) {
             $.schema = schema;
             return this;
         }
 
-        /**
-         * @param schema The schema from which to return the external functions from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
         }

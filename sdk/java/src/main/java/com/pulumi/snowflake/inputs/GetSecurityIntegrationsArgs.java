@@ -16,32 +16,16 @@ public final class GetSecurityIntegrationsArgs extends com.pulumi.resources.Invo
 
     public static final GetSecurityIntegrationsArgs Empty = new GetSecurityIntegrationsArgs();
 
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     @Import(name="like")
     private @Nullable Output<String> like;
 
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<Output<String>> like() {
         return Optional.ofNullable(this.like);
     }
 
-    /**
-     * (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     @Import(name="withDescribe")
     private @Nullable Output<Boolean> withDescribe;
 
-    /**
-     * @return (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     public Optional<Output<Boolean>> withDescribe() {
         return Optional.ofNullable(this.withDescribe);
     }
@@ -71,44 +55,20 @@ public final class GetSecurityIntegrationsArgs extends com.pulumi.resources.Invo
             $ = new GetSecurityIntegrationsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(@Nullable Output<String> like) {
             $.like = like;
             return this;
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(String like) {
             return like(Output.of(like));
         }
 
-        /**
-         * @param withDescribe (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withDescribe(@Nullable Output<Boolean> withDescribe) {
             $.withDescribe = withDescribe;
             return this;
         }
 
-        /**
-         * @param withDescribe (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withDescribe(Boolean withDescribe) {
             return withDescribe(Output.of(withDescribe));
         }

@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `rowAccessPolicies`.
 func GetRowAccessPolicies(ctx *pulumi.Context, args *GetRowAccessPoliciesArgs, opts ...pulumi.InvokeOption) (*GetRowAccessPoliciesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRowAccessPoliciesResult
@@ -24,30 +23,21 @@ func GetRowAccessPolicies(ctx *pulumi.Context, args *GetRowAccessPoliciesArgs, o
 
 // A collection of arguments for invoking getRowAccessPolicies.
 type GetRowAccessPoliciesArgs struct {
-	// IN clause to filter the list of row access policies
-	In *GetRowAccessPoliciesIn `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit *GetRowAccessPoliciesLimit `pulumi:"limit"`
-	// (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe *bool `pulumi:"withDescribe"`
+	In           *GetRowAccessPoliciesIn    `pulumi:"in"`
+	Like         *string                    `pulumi:"like"`
+	Limit        *GetRowAccessPoliciesLimit `pulumi:"limit"`
+	WithDescribe *bool                      `pulumi:"withDescribe"`
 }
 
 // A collection of values returned by getRowAccessPolicies.
 type GetRowAccessPoliciesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// IN clause to filter the list of row access policies
-	In *GetRowAccessPoliciesIn `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit *GetRowAccessPoliciesLimit `pulumi:"limit"`
-	// Holds the aggregated output of all views details queries.
+	Id                string                                `pulumi:"id"`
+	In                *GetRowAccessPoliciesIn               `pulumi:"in"`
+	Like              *string                               `pulumi:"like"`
+	Limit             *GetRowAccessPoliciesLimit            `pulumi:"limit"`
 	RowAccessPolicies []GetRowAccessPoliciesRowAccessPolicy `pulumi:"rowAccessPolicies"`
-	// (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe *bool `pulumi:"withDescribe"`
+	WithDescribe      *bool                                 `pulumi:"withDescribe"`
 }
 
 func GetRowAccessPoliciesOutput(ctx *pulumi.Context, args GetRowAccessPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetRowAccessPoliciesResultOutput {
@@ -61,14 +51,10 @@ func GetRowAccessPoliciesOutput(ctx *pulumi.Context, args GetRowAccessPoliciesOu
 
 // A collection of arguments for invoking getRowAccessPolicies.
 type GetRowAccessPoliciesOutputArgs struct {
-	// IN clause to filter the list of row access policies
-	In GetRowAccessPoliciesInPtrInput `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like pulumi.StringPtrInput `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit GetRowAccessPoliciesLimitPtrInput `pulumi:"limit"`
-	// (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
+	In           GetRowAccessPoliciesInPtrInput    `pulumi:"in"`
+	Like         pulumi.StringPtrInput             `pulumi:"like"`
+	Limit        GetRowAccessPoliciesLimitPtrInput `pulumi:"limit"`
+	WithDescribe pulumi.BoolPtrInput               `pulumi:"withDescribe"`
 }
 
 func (GetRowAccessPoliciesOutputArgs) ElementType() reflect.Type {
@@ -95,27 +81,22 @@ func (o GetRowAccessPoliciesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// IN clause to filter the list of row access policies
 func (o GetRowAccessPoliciesResultOutput) In() GetRowAccessPoliciesInPtrOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) *GetRowAccessPoliciesIn { return v.In }).(GetRowAccessPoliciesInPtrOutput)
 }
 
-// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetRowAccessPoliciesResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 func (o GetRowAccessPoliciesResultOutput) Limit() GetRowAccessPoliciesLimitPtrOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) *GetRowAccessPoliciesLimit { return v.Limit }).(GetRowAccessPoliciesLimitPtrOutput)
 }
 
-// Holds the aggregated output of all views details queries.
 func (o GetRowAccessPoliciesResultOutput) RowAccessPolicies() GetRowAccessPoliciesRowAccessPolicyArrayOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) []GetRowAccessPoliciesRowAccessPolicy { return v.RowAccessPolicies }).(GetRowAccessPoliciesRowAccessPolicyArrayOutput)
 }
 
-// (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetRowAccessPoliciesResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetRowAccessPoliciesResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }

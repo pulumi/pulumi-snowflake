@@ -8,15 +8,10 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ```sh
-// $ pulumi import snowflake:index/externalOauthIntegration:ExternalOauthIntegration example '"<integration_name>"'
-// ```
 type ExternalOauthIntegration struct {
 	pulumi.CustomResourceState
 
@@ -26,35 +21,52 @@ type ExternalOauthIntegration struct {
 	DescribeOutputs ExternalOauthIntegrationDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Specifies whether to initiate operation of the integration or suspend it.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
+	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see
+	// docs.
 	ExternalOauthAllowedRolesLists pulumi.StringArrayOutput `pulumi:"externalOauthAllowedRolesLists"`
-	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values
+	// are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
 	ExternalOauthAnyRoleMode pulumi.StringPtrOutput `pulumi:"externalOauthAnyRoleMode"`
-	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+	// Snowflake Account URL
 	ExternalOauthAudienceLists pulumi.StringArrayOutput `pulumi:"externalOauthAudienceLists"`
-	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the
+	// ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT
+	// command to set the EXTERNAL_OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more information
+	// about this resource, see docs.
 	ExternalOauthBlockedRolesLists pulumi.StringArrayOutput `pulumi:"externalOauthBlockedRolesLists"`
 	// Specifies the URL to define the OAuth 2.0 authorization server.
 	ExternalOauthIssuer pulumi.StringOutput `pulumi:"externalOauthIssuer"`
-	// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+	// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+	// OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the
+	// resource is recreated.
 	ExternalOauthJwsKeysUrls pulumi.StringArrayOutput `pulumi:"externalOauthJwsKeysUrls"`
-	// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+	// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
+	// If removed from the config, the resource is recreated.
 	ExternalOauthRsaPublicKey pulumi.StringPtrOutput `pulumi:"externalOauthRsaPublicKey"`
-	// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+	// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+	// key rotation. If removed from the config, the resource is recreated.
 	ExternalOauthRsaPublicKey2 pulumi.StringPtrOutput `pulumi:"externalOauthRsaPublicKey2"`
 	// Specifies the scope delimiter in the authorization token.
 	ExternalOauthScopeDelimiter pulumi.StringPtrOutput `pulumi:"externalOauthScopeDelimiter"`
-	// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+	// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is
+	// recreated.
 	ExternalOauthScopeMappingAttribute pulumi.StringPtrOutput `pulumi:"externalOauthScopeMappingAttribute"`
-	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid
+	// values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
 	ExternalOauthSnowflakeUserMappingAttribute pulumi.StringOutput `pulumi:"externalOauthSnowflakeUserMappingAttribute"`
-	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If
+	// removed from the config, the resource is recreated.
 	ExternalOauthTokenUserMappingClaims pulumi.StringArrayOutput `pulumi:"externalOauthTokenUserMappingClaims"`
-	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+	// OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
 	ExternalOauthType pulumi.StringOutput `pulumi:"externalOauthType"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+	// be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+	// following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Parameters related to this security integration.
 	RelatedParameters ExternalOauthIntegrationRelatedParameterArrayOutput `pulumi:"relatedParameters"`
@@ -113,35 +125,52 @@ type externalOauthIntegrationState struct {
 	DescribeOutputs []ExternalOauthIntegrationDescribeOutput `pulumi:"describeOutputs"`
 	// Specifies whether to initiate operation of the integration or suspend it.
 	Enabled *bool `pulumi:"enabled"`
-	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
+	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see
+	// docs.
 	ExternalOauthAllowedRolesLists []string `pulumi:"externalOauthAllowedRolesLists"`
-	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values
+	// are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
 	ExternalOauthAnyRoleMode *string `pulumi:"externalOauthAnyRoleMode"`
-	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+	// Snowflake Account URL
 	ExternalOauthAudienceLists []string `pulumi:"externalOauthAudienceLists"`
-	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the
+	// ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT
+	// command to set the EXTERNAL_OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more information
+	// about this resource, see docs.
 	ExternalOauthBlockedRolesLists []string `pulumi:"externalOauthBlockedRolesLists"`
 	// Specifies the URL to define the OAuth 2.0 authorization server.
 	ExternalOauthIssuer *string `pulumi:"externalOauthIssuer"`
-	// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+	// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+	// OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the
+	// resource is recreated.
 	ExternalOauthJwsKeysUrls []string `pulumi:"externalOauthJwsKeysUrls"`
-	// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+	// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
+	// If removed from the config, the resource is recreated.
 	ExternalOauthRsaPublicKey *string `pulumi:"externalOauthRsaPublicKey"`
-	// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+	// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+	// key rotation. If removed from the config, the resource is recreated.
 	ExternalOauthRsaPublicKey2 *string `pulumi:"externalOauthRsaPublicKey2"`
 	// Specifies the scope delimiter in the authorization token.
 	ExternalOauthScopeDelimiter *string `pulumi:"externalOauthScopeDelimiter"`
-	// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+	// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is
+	// recreated.
 	ExternalOauthScopeMappingAttribute *string `pulumi:"externalOauthScopeMappingAttribute"`
-	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid
+	// values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
 	ExternalOauthSnowflakeUserMappingAttribute *string `pulumi:"externalOauthSnowflakeUserMappingAttribute"`
-	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If
+	// removed from the config, the resource is recreated.
 	ExternalOauthTokenUserMappingClaims []string `pulumi:"externalOauthTokenUserMappingClaims"`
-	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+	// OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
 	ExternalOauthType *string `pulumi:"externalOauthType"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+	// be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+	// following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Parameters related to this security integration.
 	RelatedParameters []ExternalOauthIntegrationRelatedParameter `pulumi:"relatedParameters"`
@@ -156,35 +185,52 @@ type ExternalOauthIntegrationState struct {
 	DescribeOutputs ExternalOauthIntegrationDescribeOutputArrayInput
 	// Specifies whether to initiate operation of the integration or suspend it.
 	Enabled pulumi.BoolPtrInput
-	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
+	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see
+	// docs.
 	ExternalOauthAllowedRolesLists pulumi.StringArrayInput
-	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values
+	// are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
 	ExternalOauthAnyRoleMode pulumi.StringPtrInput
-	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+	// Snowflake Account URL
 	ExternalOauthAudienceLists pulumi.StringArrayInput
-	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the
+	// ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT
+	// command to set the EXTERNAL_OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more information
+	// about this resource, see docs.
 	ExternalOauthBlockedRolesLists pulumi.StringArrayInput
 	// Specifies the URL to define the OAuth 2.0 authorization server.
 	ExternalOauthIssuer pulumi.StringPtrInput
-	// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+	// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+	// OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the
+	// resource is recreated.
 	ExternalOauthJwsKeysUrls pulumi.StringArrayInput
-	// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+	// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
+	// If removed from the config, the resource is recreated.
 	ExternalOauthRsaPublicKey pulumi.StringPtrInput
-	// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+	// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+	// key rotation. If removed from the config, the resource is recreated.
 	ExternalOauthRsaPublicKey2 pulumi.StringPtrInput
 	// Specifies the scope delimiter in the authorization token.
 	ExternalOauthScopeDelimiter pulumi.StringPtrInput
-	// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+	// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is
+	// recreated.
 	ExternalOauthScopeMappingAttribute pulumi.StringPtrInput
-	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid
+	// values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
 	ExternalOauthSnowflakeUserMappingAttribute pulumi.StringPtrInput
-	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If
+	// removed from the config, the resource is recreated.
 	ExternalOauthTokenUserMappingClaims pulumi.StringArrayInput
-	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+	// OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
 	ExternalOauthType pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+	// be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+	// following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Parameters related to this security integration.
 	RelatedParameters ExternalOauthIntegrationRelatedParameterArrayInput
@@ -201,33 +247,49 @@ type externalOauthIntegrationArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specifies whether to initiate operation of the integration or suspend it.
 	Enabled bool `pulumi:"enabled"`
-	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
+	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see
+	// docs.
 	ExternalOauthAllowedRolesLists []string `pulumi:"externalOauthAllowedRolesLists"`
-	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values
+	// are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
 	ExternalOauthAnyRoleMode *string `pulumi:"externalOauthAnyRoleMode"`
-	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+	// Snowflake Account URL
 	ExternalOauthAudienceLists []string `pulumi:"externalOauthAudienceLists"`
-	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the
+	// ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT
+	// command to set the EXTERNAL_OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more information
+	// about this resource, see docs.
 	ExternalOauthBlockedRolesLists []string `pulumi:"externalOauthBlockedRolesLists"`
 	// Specifies the URL to define the OAuth 2.0 authorization server.
 	ExternalOauthIssuer string `pulumi:"externalOauthIssuer"`
-	// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+	// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+	// OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the
+	// resource is recreated.
 	ExternalOauthJwsKeysUrls []string `pulumi:"externalOauthJwsKeysUrls"`
-	// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+	// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
+	// If removed from the config, the resource is recreated.
 	ExternalOauthRsaPublicKey *string `pulumi:"externalOauthRsaPublicKey"`
-	// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+	// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+	// key rotation. If removed from the config, the resource is recreated.
 	ExternalOauthRsaPublicKey2 *string `pulumi:"externalOauthRsaPublicKey2"`
 	// Specifies the scope delimiter in the authorization token.
 	ExternalOauthScopeDelimiter *string `pulumi:"externalOauthScopeDelimiter"`
-	// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+	// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is
+	// recreated.
 	ExternalOauthScopeMappingAttribute *string `pulumi:"externalOauthScopeMappingAttribute"`
-	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid
+	// values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
 	ExternalOauthSnowflakeUserMappingAttribute string `pulumi:"externalOauthSnowflakeUserMappingAttribute"`
-	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If
+	// removed from the config, the resource is recreated.
 	ExternalOauthTokenUserMappingClaims []string `pulumi:"externalOauthTokenUserMappingClaims"`
-	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+	// OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
 	ExternalOauthType string `pulumi:"externalOauthType"`
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+	// be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+	// following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 }
 
@@ -237,33 +299,49 @@ type ExternalOauthIntegrationArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specifies whether to initiate operation of the integration or suspend it.
 	Enabled pulumi.BoolInput
-	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
+	// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see
+	// docs.
 	ExternalOauthAllowedRolesLists pulumi.StringArrayInput
-	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+	// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values
+	// are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
 	ExternalOauthAnyRoleMode pulumi.StringPtrInput
-	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+	// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+	// Snowflake Account URL
 	ExternalOauthAudienceLists pulumi.StringArrayInput
-	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+	// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the
+	// ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT
+	// command to set the EXTERNAL_OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more information
+	// about this resource, see docs.
 	ExternalOauthBlockedRolesLists pulumi.StringArrayInput
 	// Specifies the URL to define the OAuth 2.0 authorization server.
 	ExternalOauthIssuer pulumi.StringInput
-	// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+	// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+	// OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the
+	// resource is recreated.
 	ExternalOauthJwsKeysUrls pulumi.StringArrayInput
-	// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+	// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
+	// If removed from the config, the resource is recreated.
 	ExternalOauthRsaPublicKey pulumi.StringPtrInput
-	// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+	// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+	// key rotation. If removed from the config, the resource is recreated.
 	ExternalOauthRsaPublicKey2 pulumi.StringPtrInput
 	// Specifies the scope delimiter in the authorization token.
 	ExternalOauthScopeDelimiter pulumi.StringPtrInput
-	// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+	// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is
+	// recreated.
 	ExternalOauthScopeMappingAttribute pulumi.StringPtrInput
-	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+	// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid
+	// values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
 	ExternalOauthSnowflakeUserMappingAttribute pulumi.StringInput
-	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+	// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If
+	// removed from the config, the resource is recreated.
 	ExternalOauthTokenUserMappingClaims pulumi.StringArrayInput
-	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+	// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+	// OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
 	ExternalOauthType pulumi.StringInput
-	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+	// be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+	// following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 }
 
@@ -371,22 +449,28 @@ func (o ExternalOauthIntegrationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
+// Specifies the list of roles that the client can set as the primary role. For more information about this resource, see
+// docs.
 func (o ExternalOauthIntegrationOutput) ExternalOauthAllowedRolesLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringArrayOutput { return v.ExternalOauthAllowedRolesLists }).(pulumi.StringArrayOutput)
 }
 
-// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+// Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values
+// are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
 func (o ExternalOauthIntegrationOutput) ExternalOauthAnyRoleMode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringPtrOutput { return v.ExternalOauthAnyRoleMode }).(pulumi.StringPtrOutput)
 }
 
-// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's Snowflake Account URL
+// Specifies additional values that can be used for the access token's audience validation on top of using the Customer's
+// Snowflake Account URL
 func (o ExternalOauthIntegrationOutput) ExternalOauthAudienceLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringArrayOutput { return v.ExternalOauthAudienceLists }).(pulumi.StringArrayOutput)
 }
 
-// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+// Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the
+// ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT
+// command to set the EXTERNAL_OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more information
+// about this resource, see docs.
 func (o ExternalOauthIntegrationOutput) ExternalOauthBlockedRolesLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringArrayOutput { return v.ExternalOauthBlockedRolesLists }).(pulumi.StringArrayOutput)
 }
@@ -396,17 +480,21 @@ func (o ExternalOauthIntegrationOutput) ExternalOauthIssuer() pulumi.StringOutpu
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringOutput { return v.ExternalOauthIssuer }).(pulumi.StringOutput)
 }
 
-// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
+// Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
+// OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the
+// resource is recreated.
 func (o ExternalOauthIntegrationOutput) ExternalOauthJwsKeysUrls() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringArrayOutput { return v.ExternalOauthJwsKeysUrls }).(pulumi.StringArrayOutput)
 }
 
-// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
+// Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
+// If removed from the config, the resource is recreated.
 func (o ExternalOauthIntegrationOutput) ExternalOauthRsaPublicKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringPtrOutput { return v.ExternalOauthRsaPublicKey }).(pulumi.StringPtrOutput)
 }
 
-// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
+// Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
+// key rotation. If removed from the config, the resource is recreated.
 func (o ExternalOauthIntegrationOutput) ExternalOauthRsaPublicKey2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringPtrOutput { return v.ExternalOauthRsaPublicKey2 }).(pulumi.StringPtrOutput)
 }
@@ -416,36 +504,43 @@ func (o ExternalOauthIntegrationOutput) ExternalOauthScopeDelimiter() pulumi.Str
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringPtrOutput { return v.ExternalOauthScopeDelimiter }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
+// Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is
+// recreated.
 func (o ExternalOauthIntegrationOutput) ExternalOauthScopeMappingAttribute() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringPtrOutput { return v.ExternalOauthScopeMappingAttribute }).(pulumi.StringPtrOutput)
 }
 
-// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+// Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid
+// values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
 func (o ExternalOauthIntegrationOutput) ExternalOauthSnowflakeUserMappingAttribute() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringOutput {
 		return v.ExternalOauthSnowflakeUserMappingAttribute
 	}).(pulumi.StringOutput)
 }
 
-// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
+// Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If
+// removed from the config, the resource is recreated.
 func (o ExternalOauthIntegrationOutput) ExternalOauthTokenUserMappingClaims() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringArrayOutput {
 		return v.ExternalOauthTokenUserMappingClaims
 	}).(pulumi.StringArrayOutput)
 }
 
-// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+// Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
+// OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
 func (o ExternalOauthIntegrationOutput) ExternalOauthType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringOutput { return v.ExternalOauthType }).(pulumi.StringOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o ExternalOauthIntegrationOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
+// be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+// following characters: `|`, `.`, `"`.
 func (o ExternalOauthIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalOauthIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

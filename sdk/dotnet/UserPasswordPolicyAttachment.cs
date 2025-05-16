@@ -9,13 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment example "MY_DATABASE|MY_SCHEMA|PASSWORD_POLICY_NAME|USER_NAME"
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment")]
     public partial class UserPasswordPolicyAttachment : global::Pulumi.CustomResource
     {

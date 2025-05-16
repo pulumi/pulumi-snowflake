@@ -12,32 +12,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetPipesResult {
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The pipes in the schema
-     * 
-     */
     private List<GetPipesPipe> pipes;
-    /**
-     * @return The schema from which to return the pipes from.
-     * 
-     */
     private String schema;
 
     private GetPipesResult() {}
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public String database() {
         return this.database;
     }
@@ -48,17 +32,9 @@ public final class GetPipesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The pipes in the schema
-     * 
-     */
     public List<GetPipesPipe> pipes() {
         return this.pipes;
     }
-    /**
-     * @return The schema from which to return the pipes from.
-     * 
-     */
     public String schema() {
         return this.schema;
     }

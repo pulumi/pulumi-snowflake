@@ -36,14 +36,16 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+     * Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+     * service expects.
      * 
      */
     @Import(name="args")
     private @Nullable Output<List<ExternalFunctionArgArgs>> args;
 
     /**
-     * @return Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+     * @return Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+     * service expects.
      * 
      */
     public Optional<Output<List<ExternalFunctionArgArgs>>> args() {
@@ -51,14 +53,14 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * (Default: `user-defined function`) A description of the external function.
+     * A description of the external function.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return (Default: `user-defined function`) A description of the external function.
+     * @return A description of the external function.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -66,14 +68,16 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+     * If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+     * proxy service to Snowflake.
      * 
      */
     @Import(name="compression")
     private @Nullable Output<String> compression;
 
     /**
-     * @return (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+     * @return If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+     * proxy service to Snowflake.
      * 
      */
     public Optional<Output<String>> compression() {
@@ -126,14 +130,16 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -171,14 +177,16 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
+     * Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+     * well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
+     * @return Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+     * well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
      * 
      */
     public Optional<Output<String>> name() {
@@ -186,14 +194,14 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
+     * Specifies the behavior of the external function when called with null inputs.
      * 
      */
     @Import(name="nullInputBehavior")
     private @Nullable Output<String> nullInputBehavior;
 
     /**
-     * @return (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
+     * @return Specifies the behavior of the external function when called with null inputs.
      * 
      */
     public Optional<Output<String>> nullInputBehavior() {
@@ -246,14 +254,14 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+     * Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      * 
      */
     @Import(name="returnNullAllowed")
     private @Nullable Output<Boolean> returnNullAllowed;
 
     /**
-     * @return (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+     * @return Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
      * 
      */
     public Optional<Output<Boolean>> returnNullAllowed() {
@@ -369,7 +377,8 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param args Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+         * @param args Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+         * service expects.
          * 
          * @return builder
          * 
@@ -380,7 +389,8 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param args Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+         * @param args Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+         * service expects.
          * 
          * @return builder
          * 
@@ -390,7 +400,8 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param args Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+         * @param args Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
+         * service expects.
          * 
          * @return builder
          * 
@@ -400,7 +411,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param comment (Default: `user-defined function`) A description of the external function.
+         * @param comment A description of the external function.
          * 
          * @return builder
          * 
@@ -411,7 +422,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param comment (Default: `user-defined function`) A description of the external function.
+         * @param comment A description of the external function.
          * 
          * @return builder
          * 
@@ -421,7 +432,8 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param compression (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+         * @param compression If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+         * proxy service to Snowflake.
          * 
          * @return builder
          * 
@@ -432,7 +444,8 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param compression (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
+         * @param compression If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
+         * proxy service to Snowflake.
          * 
          * @return builder
          * 
@@ -515,7 +528,8 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -526,7 +540,8 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -588,7 +603,8 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
+         * @param name Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+         * well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
          * 
          * @return builder
          * 
@@ -599,7 +615,8 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
+         * @param name Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
+         * well as the function name. The function&#39;s signature (name and argument data types) must be unique within the schema.
          * 
          * @return builder
          * 
@@ -609,7 +626,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param nullInputBehavior (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
+         * @param nullInputBehavior Specifies the behavior of the external function when called with null inputs.
          * 
          * @return builder
          * 
@@ -620,7 +637,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param nullInputBehavior (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
+         * @param nullInputBehavior Specifies the behavior of the external function when called with null inputs.
          * 
          * @return builder
          * 
@@ -693,7 +710,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param returnNullAllowed (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+         * @param returnNullAllowed Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
          * 
          * @return builder
          * 
@@ -704,7 +721,7 @@ public final class ExternalFunctionState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param returnNullAllowed (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+         * @param returnNullAllowed Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
          * 
          * @return builder
          * 

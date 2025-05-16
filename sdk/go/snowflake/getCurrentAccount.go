@@ -7,46 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			this, err := snowflake.GetCurrentAccount(ctx, map[string]interface{}{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.NewSsmParameter(ctx, "snowflake_account_url", &aws.SsmParameterArgs{
-//				Name:  "/snowflake/account_url",
-//				Type:  "String",
-//				Value: this.Url,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetCurrentAccount(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCurrentAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCurrentAccountResult
@@ -59,14 +23,11 @@ func GetCurrentAccount(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCu
 
 // A collection of values returned by getCurrentAccount.
 type GetCurrentAccountResult struct {
-	// The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
 	Account string `pulumi:"account"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The Snowflake Region; as returned by CURRENT_REGION()
+	Id     string `pulumi:"id"`
 	Region string `pulumi:"region"`
-	// The Snowflake URL.
-	Url string `pulumi:"url"`
+	Url    string `pulumi:"url"`
 }
 
 func GetCurrentAccountOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCurrentAccountResultOutput {
@@ -91,7 +52,6 @@ func (o GetCurrentAccountResultOutput) ToGetCurrentAccountResultOutputWithContex
 	return o
 }
 
-// The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
 func (o GetCurrentAccountResultOutput) Account() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCurrentAccountResult) string { return v.Account }).(pulumi.StringOutput)
 }
@@ -101,12 +61,10 @@ func (o GetCurrentAccountResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCurrentAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Snowflake Region; as returned by CURRENT_REGION()
 func (o GetCurrentAccountResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCurrentAccountResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Snowflake URL.
 func (o GetCurrentAccountResultOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCurrentAccountResult) string { return v.Url }).(pulumi.StringOutput)
 }

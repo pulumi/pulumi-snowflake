@@ -9,13 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/execute:Execute example '&lt;random_uuid&gt;'
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/execute:Execute")]
     public partial class Execute : global::Pulumi.CustomResource
     {
@@ -32,7 +25,8 @@ namespace Pulumi.Snowflake
         public Output<string?> Query { get; private set; } = null!;
 
         /// <summary>
-        /// List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
+        /// List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
+        /// error.
         /// </summary>
         [Output("queryResults")]
         public Output<ImmutableArray<ImmutableDictionary<string, string>>> QueryResults { get; private set; } = null!;
@@ -131,7 +125,8 @@ namespace Pulumi.Snowflake
         private InputList<ImmutableDictionary<string, string>>? _queryResults;
 
         /// <summary>
-        /// List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
+        /// List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
+        /// error.
         /// </summary>
         public InputList<ImmutableDictionary<string, string>> QueryResults
         {

@@ -40,22 +40,36 @@ class WarehouseArgs:
                  warehouse_type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Warehouse resource.
-        :param pulumi.Input[builtins.str] auto_resume: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.int] auto_suspend: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+        :param pulumi.Input[builtins.str] auto_resume: Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available
+               options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there
+               which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the warehouse.
-        :param pulumi.Input[builtins.str] enable_query_acceleration: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] enable_query_acceleration: Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute
+               resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will
+               put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[builtins.int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[builtins.int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[builtins.int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-        :param pulumi.Input[builtins.str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.int] query_acceleration_max_scale_factor: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
-        :param pulumi.Input[builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
-        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        :param pulumi.Input[builtins.str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here),
+               avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a
+               multiplier based on warehouse size.
+        :param pulumi.Input[builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this
+               resource, see docs.
+        :param pulumi.Input[builtins.str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
+               Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
+        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
+               warehouse before it is canceled by the system.
         :param pulumi.Input[builtins.int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
-        :param pulumi.Input[builtins.str] warehouse_size: Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
-        :param pulumi.Input[builtins.str] warehouse_type: Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+        :param pulumi.Input[builtins.str] warehouse_size: Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` |
+               `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` |
+               `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse
+               documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties)
+               for the details. Note: removing the size from config will result in the resource recreation.
+        :param pulumi.Input[builtins.str] warehouse_type: Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be
+               suspended to change its type. Provider will handle automatic suspension and resumption if needed.
         """
         if auto_resume is not None:
             pulumi.set(__self__, "auto_resume", auto_resume)
@@ -94,7 +108,9 @@ class WarehouseArgs:
     @pulumi.getter(name="autoResume")
     def auto_resume(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available
+        options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there
+        which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "auto_resume")
 
@@ -106,7 +122,7 @@ class WarehouseArgs:
     @pulumi.getter(name="autoSuspend")
     def auto_suspend(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+        Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         """
         return pulumi.get(self, "auto_suspend")
 
@@ -130,7 +146,9 @@ class WarehouseArgs:
     @pulumi.getter(name="enableQueryAcceleration")
     def enable_query_acceleration(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute
+        resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will
+        put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "enable_query_acceleration")
 
@@ -190,7 +208,8 @@ class WarehouseArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here),
+        avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -202,7 +221,8 @@ class WarehouseArgs:
     @pulumi.getter(name="queryAccelerationMaxScaleFactor")
     def query_acceleration_max_scale_factor(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+        Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a
+        multiplier based on warehouse size.
         """
         return pulumi.get(self, "query_acceleration_max_scale_factor")
 
@@ -214,7 +234,8 @@ class WarehouseArgs:
     @pulumi.getter(name="resourceMonitor")
     def resource_monitor(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
+        Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this
+        resource, see docs.
         """
         return pulumi.get(self, "resource_monitor")
 
@@ -226,7 +247,8 @@ class WarehouseArgs:
     @pulumi.getter(name="scalingPolicy")
     def scaling_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
+        Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
+        Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
         """
         return pulumi.get(self, "scaling_policy")
 
@@ -238,7 +260,8 @@ class WarehouseArgs:
     @pulumi.getter(name="statementQueuedTimeoutInSeconds")
     def statement_queued_timeout_in_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
+        warehouse before it is canceled by the system.
         """
         return pulumi.get(self, "statement_queued_timeout_in_seconds")
 
@@ -262,7 +285,11 @@ class WarehouseArgs:
     @pulumi.getter(name="warehouseSize")
     def warehouse_size(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
+        Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` |
+        `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` |
+        `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse
+        documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties)
+        for the details. Note: removing the size from config will result in the resource recreation.
         """
         return pulumi.get(self, "warehouse_size")
 
@@ -274,7 +301,8 @@ class WarehouseArgs:
     @pulumi.getter(name="warehouseType")
     def warehouse_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+        Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be
+        suspended to change its type. Provider will handle automatic suspension and resumption if needed.
         """
         return pulumi.get(self, "warehouse_type")
 
@@ -307,25 +335,40 @@ class _WarehouseState:
                  warehouse_type: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Warehouse resources.
-        :param pulumi.Input[builtins.str] auto_resume: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.int] auto_suspend: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+        :param pulumi.Input[builtins.str] auto_resume: Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available
+               options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there
+               which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the warehouse.
-        :param pulumi.Input[builtins.str] enable_query_acceleration: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] enable_query_acceleration: Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute
+               resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will
+               put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[builtins.int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[builtins.int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[builtins.int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-        :param pulumi.Input[builtins.str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here),
+               avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['WarehouseParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
-        :param pulumi.Input[builtins.int] query_acceleration_max_scale_factor: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
-        :param pulumi.Input[builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
+        :param pulumi.Input[builtins.int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a
+               multiplier based on warehouse size.
+        :param pulumi.Input[builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this
+               resource, see docs.
+        :param pulumi.Input[builtins.str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
+               Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
         :param pulumi.Input[Sequence[pulumi.Input['WarehouseShowOutputArgs']]] show_outputs: Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
-        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
+               warehouse before it is canceled by the system.
         :param pulumi.Input[builtins.int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
-        :param pulumi.Input[builtins.str] warehouse_size: Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
-        :param pulumi.Input[builtins.str] warehouse_type: Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+        :param pulumi.Input[builtins.str] warehouse_size: Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` |
+               `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` |
+               `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse
+               documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties)
+               for the details. Note: removing the size from config will result in the resource recreation.
+        :param pulumi.Input[builtins.str] warehouse_type: Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be
+               suspended to change its type. Provider will handle automatic suspension and resumption if needed.
         """
         if auto_resume is not None:
             pulumi.set(__self__, "auto_resume", auto_resume)
@@ -370,7 +413,9 @@ class _WarehouseState:
     @pulumi.getter(name="autoResume")
     def auto_resume(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available
+        options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there
+        which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "auto_resume")
 
@@ -382,7 +427,7 @@ class _WarehouseState:
     @pulumi.getter(name="autoSuspend")
     def auto_suspend(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+        Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         """
         return pulumi.get(self, "auto_suspend")
 
@@ -406,7 +451,9 @@ class _WarehouseState:
     @pulumi.getter(name="enableQueryAcceleration")
     def enable_query_acceleration(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute
+        resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will
+        put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "enable_query_acceleration")
 
@@ -418,7 +465,8 @@ class _WarehouseState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -478,7 +526,8 @@ class _WarehouseState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here),
+        avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -502,7 +551,8 @@ class _WarehouseState:
     @pulumi.getter(name="queryAccelerationMaxScaleFactor")
     def query_acceleration_max_scale_factor(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+        Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a
+        multiplier based on warehouse size.
         """
         return pulumi.get(self, "query_acceleration_max_scale_factor")
 
@@ -514,7 +564,8 @@ class _WarehouseState:
     @pulumi.getter(name="resourceMonitor")
     def resource_monitor(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
+        Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this
+        resource, see docs.
         """
         return pulumi.get(self, "resource_monitor")
 
@@ -526,7 +577,8 @@ class _WarehouseState:
     @pulumi.getter(name="scalingPolicy")
     def scaling_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
+        Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
+        Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
         """
         return pulumi.get(self, "scaling_policy")
 
@@ -550,7 +602,8 @@ class _WarehouseState:
     @pulumi.getter(name="statementQueuedTimeoutInSeconds")
     def statement_queued_timeout_in_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
+        warehouse before it is canceled by the system.
         """
         return pulumi.get(self, "statement_queued_timeout_in_seconds")
 
@@ -574,7 +627,11 @@ class _WarehouseState:
     @pulumi.getter(name="warehouseSize")
     def warehouse_size(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
+        Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` |
+        `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` |
+        `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse
+        documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties)
+        for the details. Note: removing the size from config will result in the resource recreation.
         """
         return pulumi.get(self, "warehouse_size")
 
@@ -586,7 +643,8 @@ class _WarehouseState:
     @pulumi.getter(name="warehouseType")
     def warehouse_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+        Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be
+        suspended to change its type. Provider will handle automatic suspension and resumption if needed.
         """
         return pulumi.get(self, "warehouse_type")
 
@@ -619,30 +677,39 @@ class Warehouse(pulumi.CustomResource):
                  warehouse_type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/warehouse:Warehouse example '"<warehouse_name>"'
-        ```
-
+        Create a Warehouse resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] auto_resume: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.int] auto_suspend: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+        :param pulumi.Input[builtins.str] auto_resume: Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available
+               options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there
+               which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the warehouse.
-        :param pulumi.Input[builtins.str] enable_query_acceleration: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] enable_query_acceleration: Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute
+               resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will
+               put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[builtins.int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[builtins.int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[builtins.int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-        :param pulumi.Input[builtins.str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.int] query_acceleration_max_scale_factor: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
-        :param pulumi.Input[builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
-        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        :param pulumi.Input[builtins.str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here),
+               avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a
+               multiplier based on warehouse size.
+        :param pulumi.Input[builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this
+               resource, see docs.
+        :param pulumi.Input[builtins.str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
+               Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
+        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
+               warehouse before it is canceled by the system.
         :param pulumi.Input[builtins.int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
-        :param pulumi.Input[builtins.str] warehouse_size: Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
-        :param pulumi.Input[builtins.str] warehouse_type: Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+        :param pulumi.Input[builtins.str] warehouse_size: Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` |
+               `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` |
+               `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse
+               documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties)
+               for the details. Note: removing the size from config will result in the resource recreation.
+        :param pulumi.Input[builtins.str] warehouse_type: Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be
+               suspended to change its type. Provider will handle automatic suspension and resumption if needed.
         """
         ...
     @overload
@@ -651,12 +718,7 @@ class Warehouse(pulumi.CustomResource):
                  args: Optional[WarehouseArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/warehouse:Warehouse example '"<warehouse_name>"'
-        ```
-
+        Create a Warehouse resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param WarehouseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -752,25 +814,40 @@ class Warehouse(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] auto_resume: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.int] auto_suspend: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+        :param pulumi.Input[builtins.str] auto_resume: Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available
+               options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there
+               which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.int] auto_suspend: Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the warehouse.
-        :param pulumi.Input[builtins.str] enable_query_acceleration: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] enable_query_acceleration: Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute
+               resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will
+               put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.bool] initially_suspended: Specifies whether the warehouse is created initially in the ‘Suspended’ state.
         :param pulumi.Input[builtins.int] max_cluster_count: Specifies the maximum number of server clusters for the warehouse.
         :param pulumi.Input[builtins.int] max_concurrency_level: Object parameter that specifies the concurrency level for SQL statements (i.e. queries and DML) executed by a warehouse.
         :param pulumi.Input[builtins.int] min_cluster_count: Specifies the minimum number of server clusters for the warehouse (only applies to multi-cluster warehouses).
-        :param pulumi.Input[builtins.str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] name: Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here),
+               avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseParameterArgs', 'WarehouseParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN WAREHOUSE` for the given warehouse.
-        :param pulumi.Input[builtins.int] query_acceleration_max_scale_factor: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
-        :param pulumi.Input[builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
+        :param pulumi.Input[builtins.int] query_acceleration_max_scale_factor: Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a
+               multiplier based on warehouse size.
+        :param pulumi.Input[builtins.str] resource_monitor: Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this
+               resource, see docs.
+        :param pulumi.Input[builtins.str] scaling_policy: Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
+               Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WarehouseShowOutputArgs', 'WarehouseShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW WAREHOUSES` for the given warehouse.
-        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
+               warehouse before it is canceled by the system.
         :param pulumi.Input[builtins.int] statement_timeout_in_seconds: Specifies the time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system
-        :param pulumi.Input[builtins.str] warehouse_size: Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
-        :param pulumi.Input[builtins.str] warehouse_type: Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+        :param pulumi.Input[builtins.str] warehouse_size: Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` |
+               `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` |
+               `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse
+               documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties)
+               for the details. Note: removing the size from config will result in the resource recreation.
+        :param pulumi.Input[builtins.str] warehouse_type: Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be
+               suspended to change its type. Provider will handle automatic suspension and resumption if needed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -801,7 +878,9 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter(name="autoResume")
     def auto_resume(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available
+        options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there
+        which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "auto_resume")
 
@@ -809,7 +888,7 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter(name="autoSuspend")
     def auto_suspend(self) -> pulumi.Output[Optional[builtins.int]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+        Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
         """
         return pulumi.get(self, "auto_suspend")
 
@@ -825,7 +904,9 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter(name="enableQueryAcceleration")
     def enable_query_acceleration(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute
+        resources. Available options are: "true" or "false". When the value is not set in the configuration the provider will
+        put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "enable_query_acceleration")
 
@@ -833,7 +914,8 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -873,7 +955,8 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here),
+        avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -889,7 +972,8 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter(name="queryAccelerationMaxScaleFactor")
     def query_acceleration_max_scale_factor(self) -> pulumi.Output[Optional[builtins.int]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
+        Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a
+        multiplier based on warehouse size.
         """
         return pulumi.get(self, "query_acceleration_max_scale_factor")
 
@@ -897,7 +981,8 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter(name="resourceMonitor")
     def resource_monitor(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
+        Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this
+        resource, see docs.
         """
         return pulumi.get(self, "resource_monitor")
 
@@ -905,7 +990,8 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter(name="scalingPolicy")
     def scaling_policy(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
+        Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
+        Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
         """
         return pulumi.get(self, "scaling_policy")
 
@@ -921,7 +1007,8 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter(name="statementQueuedTimeoutInSeconds")
     def statement_queued_timeout_in_seconds(self) -> pulumi.Output[builtins.int]:
         """
-        Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
+        Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
+        warehouse before it is canceled by the system.
         """
         return pulumi.get(self, "statement_queued_timeout_in_seconds")
 
@@ -937,7 +1024,11 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter(name="warehouseSize")
     def warehouse_size(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
+        Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` |
+        `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` |
+        `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse
+        documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties)
+        for the details. Note: removing the size from config will result in the resource recreation.
         """
         return pulumi.get(self, "warehouse_size")
 
@@ -945,7 +1036,8 @@ class Warehouse(pulumi.CustomResource):
     @pulumi.getter(name="warehouseType")
     def warehouse_type(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+        Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be
+        suspended to change its type. Provider will handle automatic suspension and resumption if needed.
         """
         return pulumi.get(self, "warehouse_type")
 

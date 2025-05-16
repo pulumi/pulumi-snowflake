@@ -6,13 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Import
- *
- * ```sh
- * $ pulumi import snowflake:index/streamlit:Streamlit example '"<database_name>"."<schema_name>"."<streamlit_name>"'
- * ```
- */
 export class Streamlit extends pulumi.CustomResource {
     /**
      * Get an existing Streamlit resource's state with the given name, ID, and optional extra
@@ -46,7 +39,8 @@ export class Streamlit extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -54,7 +48,8 @@ export class Streamlit extends pulumi.CustomResource {
      */
     public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.StreamlitDescribeOutput[]>;
     /**
-     * Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
+     * Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml
+     * file.
      */
     public readonly directoryLocation!: pulumi.Output<string | undefined>;
     /**
@@ -62,23 +57,28 @@ export class Streamlit extends pulumi.CustomResource {
      */
     public readonly externalAccessIntegrations!: pulumi.Output<string[] | undefined>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
+     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of
+     * `directoryLocation`
      */
     public readonly mainFile!: pulumi.Output<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
+     * Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations
+     * warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
      */
     public readonly queryWarehouse!: pulumi.Output<string | undefined>;
     /**
-     * The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -162,7 +162,8 @@ export interface StreamlitState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     database?: pulumi.Input<string>;
     /**
@@ -170,7 +171,8 @@ export interface StreamlitState {
      */
     describeOutputs?: pulumi.Input<pulumi.Input<inputs.StreamlitDescribeOutput>[]>;
     /**
-     * Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
+     * Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml
+     * file.
      */
     directoryLocation?: pulumi.Input<string>;
     /**
@@ -178,23 +180,28 @@ export interface StreamlitState {
      */
     externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
+     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of
+     * `directoryLocation`
      */
     mainFile?: pulumi.Input<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
+     * Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations
+     * warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
      */
     queryWarehouse?: pulumi.Input<string>;
     /**
-     * The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string>;
     /**
@@ -220,11 +227,13 @@ export interface StreamlitArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
+     * Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml
+     * file.
      */
     directoryLocation?: pulumi.Input<string>;
     /**
@@ -232,19 +241,23 @@ export interface StreamlitArgs {
      */
     externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directoryLocation`
+     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of
+     * `directoryLocation`
      */
     mainFile: pulumi.Input<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
+     * Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations
+     * warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
      */
     queryWarehouse?: pulumi.Input<string>;
     /**
-     * The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     schema: pulumi.Input<string>;
     /**

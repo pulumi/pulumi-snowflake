@@ -36,7 +36,6 @@ namespace Pulumi.Snowflake.Outputs
         public readonly int MinsToUnlock;
         public readonly bool MustChangePassword;
         public readonly string Name;
-        public readonly string Password;
         public readonly string PasswordLastSetTime;
         public readonly string RsaPublicKey;
         public readonly string RsaPublicKey2;
@@ -94,8 +93,6 @@ namespace Pulumi.Snowflake.Outputs
 
             string name,
 
-            string password,
-
             string passwordLastSetTime,
 
             string rsaPublicKey,
@@ -135,7 +132,6 @@ namespace Pulumi.Snowflake.Outputs
             MinsToUnlock = minsToUnlock;
             MustChangePassword = mustChangePassword;
             Name = name;
-            Password = password;
             PasswordLastSetTime = passwordLastSetTime;
             RsaPublicKey = rsaPublicKey;
             RsaPublicKey2 = rsaPublicKey2;

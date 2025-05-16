@@ -14,11 +14,11 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class TableColumn
     {
         /// <summary>
-        /// (Default: ``) Column collation, e.g. utf8
+        /// Column collation, e.g. utf8
         /// </summary>
         public readonly string? Collate;
         /// <summary>
-        /// (Default: ``) Column comment
+        /// Column comment
         /// </summary>
         public readonly string? Comment;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly Outputs.TableColumnIdentity? Identity;
         /// <summary>
-        /// (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+        /// Masking policy to apply on column. It has to be a fully qualified name.
         /// </summary>
         public readonly string? MaskingPolicy;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        /// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         /// </summary>
         public readonly bool? Nullable;
         /// <summary>

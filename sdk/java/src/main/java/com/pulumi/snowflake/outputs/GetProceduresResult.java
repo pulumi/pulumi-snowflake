@@ -12,32 +12,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetProceduresResult {
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The procedures in the schema
-     * 
-     */
     private List<GetProceduresProcedure> procedures;
-    /**
-     * @return The schema from which to return the procedures from.
-     * 
-     */
     private String schema;
 
     private GetProceduresResult() {}
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public String database() {
         return this.database;
     }
@@ -48,17 +32,9 @@ public final class GetProceduresResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The procedures in the schema
-     * 
-     */
     public List<GetProceduresProcedure> procedures() {
         return this.procedures;
     }
-    /**
-     * @return The schema from which to return the procedures from.
-     * 
-     */
     public String schema() {
         return this.schema;
     }

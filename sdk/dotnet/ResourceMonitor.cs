@@ -9,18 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/resourceMonitor:ResourceMonitor example '"&lt;resource_monitor_name&gt;"'
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/resourceMonitor:ResourceMonitor")]
     public partial class ResourceMonitor : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
+        /// The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses
+        /// assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be
+        /// at 100% of quota.
         /// </summary>
         [Output("creditQuota")]
         public Output<int?> CreditQuota { get; private set; } = null!;
@@ -32,31 +27,40 @@ namespace Pulumi.Snowflake
         public Output<string?> EndTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        /// The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` |
+        /// `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If
+        /// you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from
+        /// the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to
+        /// Snowflake limitation and the lack of unset functionality for this parameter.
         /// </summary>
         [Output("frequency")]
         public Output<string?> Frequency { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here),
+        /// avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
+        /// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the
+        /// notify_users field will be notified (to receive the notification they should have notifications enabled). Values over
+        /// 100 are supported.
         /// </summary>
         [Output("notifyTriggers")]
         public Output<ImmutableArray<int>> NotifyTriggers { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
+        /// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more
+        /// information about this resource, see docs.
         /// </summary>
         [Output("notifyUsers")]
         public Output<ImmutableArray<string>> NotifyUsers { get; private set; } = null!;
@@ -68,19 +72,27 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.ResourceMonitorShowOutput>> ShowOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a
+        /// `start_timestamp` for a resource monitor, you must also set `frequency`. After removing this field from the config, the
+        /// previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation
+        /// and the lack of unset functionality for this parameter.
         /// </summary>
         [Output("startTimestamp")]
         public Output<string?> StartTimestamp { get; private set; } = null!;
 
         /// <summary>
-        /// Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+        /// Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
+        /// this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this
+        /// action sends a notification to all users who have enabled notifications for themselves.
         /// </summary>
         [Output("suspendImmediateTrigger")]
         public Output<int?> SuspendImmediateTrigger { get; private set; } = null!;
 
         /// <summary>
-        /// Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+        /// Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
+        /// this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new
+        /// queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition,
+        /// this action sends a notification to all users who have enabled notifications for themselves.
         /// </summary>
         [Output("suspendTrigger")]
         public Output<int?> SuspendTrigger { get; private set; } = null!;
@@ -132,7 +144,9 @@ namespace Pulumi.Snowflake
     public sealed class ResourceMonitorArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
+        /// The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses
+        /// assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be
+        /// at 100% of quota.
         /// </summary>
         [Input("creditQuota")]
         public Input<int>? CreditQuota { get; set; }
@@ -144,13 +158,18 @@ namespace Pulumi.Snowflake
         public Input<string>? EndTimestamp { get; set; }
 
         /// <summary>
-        /// The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        /// The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` |
+        /// `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If
+        /// you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from
+        /// the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to
+        /// Snowflake limitation and the lack of unset functionality for this parameter.
         /// </summary>
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }
 
         /// <summary>
-        /// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here),
+        /// avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -159,7 +178,9 @@ namespace Pulumi.Snowflake
         private InputList<int>? _notifyTriggers;
 
         /// <summary>
-        /// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
+        /// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the
+        /// notify_users field will be notified (to receive the notification they should have notifications enabled). Values over
+        /// 100 are supported.
         /// </summary>
         public InputList<int> NotifyTriggers
         {
@@ -171,7 +192,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _notifyUsers;
 
         /// <summary>
-        /// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
+        /// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more
+        /// information about this resource, see docs.
         /// </summary>
         public InputList<string> NotifyUsers
         {
@@ -180,19 +202,27 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a
+        /// `start_timestamp` for a resource monitor, you must also set `frequency`. After removing this field from the config, the
+        /// previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation
+        /// and the lack of unset functionality for this parameter.
         /// </summary>
         [Input("startTimestamp")]
         public Input<string>? StartTimestamp { get; set; }
 
         /// <summary>
-        /// Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+        /// Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
+        /// this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this
+        /// action sends a notification to all users who have enabled notifications for themselves.
         /// </summary>
         [Input("suspendImmediateTrigger")]
         public Input<int>? SuspendImmediateTrigger { get; set; }
 
         /// <summary>
-        /// Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+        /// Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
+        /// this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new
+        /// queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition,
+        /// this action sends a notification to all users who have enabled notifications for themselves.
         /// </summary>
         [Input("suspendTrigger")]
         public Input<int>? SuspendTrigger { get; set; }
@@ -206,7 +236,9 @@ namespace Pulumi.Snowflake
     public sealed class ResourceMonitorState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
+        /// The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses
+        /// assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be
+        /// at 100% of quota.
         /// </summary>
         [Input("creditQuota")]
         public Input<int>? CreditQuota { get; set; }
@@ -218,19 +250,25 @@ namespace Pulumi.Snowflake
         public Input<string>? EndTimestamp { get; set; }
 
         /// <summary>
-        /// The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        /// The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` |
+        /// `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If
+        /// you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from
+        /// the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to
+        /// Snowflake limitation and the lack of unset functionality for this parameter.
         /// </summary>
         [Input("frequency")]
         public Input<string>? Frequency { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here),
+        /// avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -239,7 +277,9 @@ namespace Pulumi.Snowflake
         private InputList<int>? _notifyTriggers;
 
         /// <summary>
-        /// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
+        /// Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the
+        /// notify_users field will be notified (to receive the notification they should have notifications enabled). Values over
+        /// 100 are supported.
         /// </summary>
         public InputList<int> NotifyTriggers
         {
@@ -251,7 +291,8 @@ namespace Pulumi.Snowflake
         private InputList<string>? _notifyUsers;
 
         /// <summary>
-        /// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
+        /// Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more
+        /// information about this resource, see docs.
         /// </summary>
         public InputList<string> NotifyUsers
         {
@@ -272,19 +313,27 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation and the lack of unset functionality for this parameter.
+        /// The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a
+        /// `start_timestamp` for a resource monitor, you must also set `frequency`. After removing this field from the config, the
+        /// previously set value will be preserved on the Snowflake side, not the default value. That's due to Snowflake limitation
+        /// and the lack of unset functionality for this parameter.
         /// </summary>
         [Input("startTimestamp")]
         public Input<string>? StartTimestamp { get; set; }
 
         /// <summary>
-        /// Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+        /// Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
+        /// this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this
+        /// action sends a notification to all users who have enabled notifications for themselves.
         /// </summary>
         [Input("suspendImmediateTrigger")]
         public Input<int>? SuspendImmediateTrigger { get; set; }
 
         /// <summary>
-        /// Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
+        /// Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
+        /// this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new
+        /// queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition,
+        /// this action sends a notification to all users who have enabled notifications for themselves.
         /// </summary>
         [Input("suspendTrigger")]
         public Input<int>? SuspendTrigger { get; set; }

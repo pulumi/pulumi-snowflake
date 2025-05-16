@@ -6,15 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Import
- *
- * format is database name | schema name | table name
- *
- * ```sh
- * $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'
- * ```
- */
 export class Table extends pulumi.CustomResource {
     /**
      * Get an existing Table resource's state with the given name, ID, and optional extra
@@ -44,7 +35,7 @@ export class Table extends pulumi.CustomResource {
     }
 
     /**
-     * (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
+     * Specifies whether to enable change tracking on the table. Default false.
      */
     public readonly changeTracking!: pulumi.Output<boolean | undefined>;
     /**
@@ -60,7 +51,10 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+     * historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
+     * argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
+     * Snowflake default - in this case the schema value
      */
     public readonly dataRetentionTimeInDays!: pulumi.Output<number | undefined>;
     /**
@@ -68,7 +62,8 @@ export class Table extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
@@ -155,7 +150,7 @@ export class Table extends pulumi.CustomResource {
  */
 export interface TableState {
     /**
-     * (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
+     * Specifies whether to enable change tracking on the table. Default false.
      */
     changeTracking?: pulumi.Input<boolean>;
     /**
@@ -171,7 +166,10 @@ export interface TableState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+     * historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
+     * argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
+     * Snowflake default - in this case the schema value
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**
@@ -179,7 +177,8 @@ export interface TableState {
      */
     database?: pulumi.Input<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
@@ -213,7 +212,7 @@ export interface TableState {
  */
 export interface TableArgs {
     /**
-     * (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
+     * Specifies whether to enable change tracking on the table. Default false.
      */
     changeTracking?: pulumi.Input<boolean>;
     /**
@@ -229,7 +228,10 @@ export interface TableArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+     * historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
+     * argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
+     * Snowflake default - in this case the schema value
      */
     dataRetentionTimeInDays?: pulumi.Input<number>;
     /**

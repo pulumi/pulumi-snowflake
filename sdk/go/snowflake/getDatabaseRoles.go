@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source used to get details of filtered database roles. Filtering is aligned with the current possibilities for [SHOW DATABASE ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-database-roles) query (`like` and `limit` are supported). The results of SHOW is encapsulated in showOutput collection.
 func GetDatabaseRoles(ctx *pulumi.Context, args *GetDatabaseRolesArgs, opts ...pulumi.InvokeOption) (*GetDatabaseRolesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDatabaseRolesResult
@@ -24,26 +23,19 @@ func GetDatabaseRoles(ctx *pulumi.Context, args *GetDatabaseRolesArgs, opts ...p
 
 // A collection of arguments for invoking getDatabaseRoles.
 type GetDatabaseRolesArgs struct {
-	// The database from which to return the database roles from.
-	InDatabase string `pulumi:"inDatabase"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit *GetDatabaseRolesLimit `pulumi:"limit"`
+	InDatabase string                 `pulumi:"inDatabase"`
+	Like       *string                `pulumi:"like"`
+	Limit      *GetDatabaseRolesLimit `pulumi:"limit"`
 }
 
 // A collection of values returned by getDatabaseRoles.
 type GetDatabaseRolesResult struct {
-	// Holds the aggregated output of all database role details queries.
 	DatabaseRoles []GetDatabaseRolesDatabaseRole `pulumi:"databaseRoles"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The database from which to return the database roles from.
-	InDatabase string `pulumi:"inDatabase"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit *GetDatabaseRolesLimit `pulumi:"limit"`
+	Id         string                 `pulumi:"id"`
+	InDatabase string                 `pulumi:"inDatabase"`
+	Like       *string                `pulumi:"like"`
+	Limit      *GetDatabaseRolesLimit `pulumi:"limit"`
 }
 
 func GetDatabaseRolesOutput(ctx *pulumi.Context, args GetDatabaseRolesOutputArgs, opts ...pulumi.InvokeOption) GetDatabaseRolesResultOutput {
@@ -57,12 +49,9 @@ func GetDatabaseRolesOutput(ctx *pulumi.Context, args GetDatabaseRolesOutputArgs
 
 // A collection of arguments for invoking getDatabaseRoles.
 type GetDatabaseRolesOutputArgs struct {
-	// The database from which to return the database roles from.
-	InDatabase pulumi.StringInput `pulumi:"inDatabase"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like pulumi.StringPtrInput `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit GetDatabaseRolesLimitPtrInput `pulumi:"limit"`
+	InDatabase pulumi.StringInput            `pulumi:"inDatabase"`
+	Like       pulumi.StringPtrInput         `pulumi:"like"`
+	Limit      GetDatabaseRolesLimitPtrInput `pulumi:"limit"`
 }
 
 func (GetDatabaseRolesOutputArgs) ElementType() reflect.Type {
@@ -84,7 +73,6 @@ func (o GetDatabaseRolesResultOutput) ToGetDatabaseRolesResultOutputWithContext(
 	return o
 }
 
-// Holds the aggregated output of all database role details queries.
 func (o GetDatabaseRolesResultOutput) DatabaseRoles() GetDatabaseRolesDatabaseRoleArrayOutput {
 	return o.ApplyT(func(v GetDatabaseRolesResult) []GetDatabaseRolesDatabaseRole { return v.DatabaseRoles }).(GetDatabaseRolesDatabaseRoleArrayOutput)
 }
@@ -94,17 +82,14 @@ func (o GetDatabaseRolesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDatabaseRolesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The database from which to return the database roles from.
 func (o GetDatabaseRolesResultOutput) InDatabase() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDatabaseRolesResult) string { return v.InDatabase }).(pulumi.StringOutput)
 }
 
-// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetDatabaseRolesResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetDatabaseRolesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 func (o GetDatabaseRolesResultOutput) Limit() GetDatabaseRolesLimitPtrOutput {
 	return o.ApplyT(func(v GetDatabaseRolesResult) *GetDatabaseRolesLimit { return v.Limit }).(GetDatabaseRolesLimitPtrOutput)
 }

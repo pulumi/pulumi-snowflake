@@ -30,14 +30,14 @@ public final class GetGrantsFutureGrantsIn extends com.pulumi.resources.InvokeAr
     }
 
     /**
-     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;schema*name&amp;gt;&#34;).
+     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db_name&amp;gt;&#34;.&#34;&amp;lt;schema_name&amp;gt;&#34;).
      * 
      */
     @Import(name="schema")
     private @Nullable String schema;
 
     /**
-     * @return Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;schema*name&amp;gt;&#34;).
+     * @return Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db_name&amp;gt;&#34;.&#34;&amp;lt;schema_name&amp;gt;&#34;).
      * 
      */
     public Optional<String> schema() {
@@ -81,7 +81,7 @@ public final class GetGrantsFutureGrantsIn extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param schema Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;schema*name&amp;gt;&#34;).
+         * @param schema Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name (&#34;&amp;lt;db_name&amp;gt;&#34;.&#34;&amp;lt;schema_name&amp;gt;&#34;).
          * 
          * @return builder
          * 

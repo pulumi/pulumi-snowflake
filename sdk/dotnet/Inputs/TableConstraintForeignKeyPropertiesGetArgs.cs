@@ -13,19 +13,19 @@ namespace Pulumi.Snowflake.Inputs
     public sealed class TableConstraintForeignKeyPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+        /// The match type for the foreign key. Not applicable for primary/unique keys
         /// </summary>
         [Input("match")]
         public Input<string>? Match { get; set; }
 
         /// <summary>
-        /// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        /// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
         /// </summary>
         [Input("onDelete")]
         public Input<string>? OnDelete { get; set; }
 
         /// <summary>
-        /// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        /// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
         /// </summary>
         [Input("onUpdate")]
         public Input<string>? OnUpdate { get; set; }

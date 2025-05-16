@@ -92,7 +92,8 @@ class _EmailNotificationIntegrationState:
         Input properties used for looking up and filtering EmailNotificationIntegration resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_recipients: List of email addresses that should receive notifications.
         :param pulumi.Input[builtins.str] comment: A comment for the email integration.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         if allowed_recipients is not None:
             pulumi.set(__self__, "allowed_recipients", allowed_recipients)
@@ -142,7 +143,8 @@ class _EmailNotificationIntegrationState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -172,12 +174,7 @@ class EmailNotificationIntegration(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/emailNotificationIntegration:EmailNotificationIntegration example name
-        ```
-
+        Create a EmailNotificationIntegration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_recipients: List of email addresses that should receive notifications.
@@ -190,12 +187,7 @@ class EmailNotificationIntegration(pulumi.CustomResource):
                  args: EmailNotificationIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/emailNotificationIntegration:EmailNotificationIntegration example name
-        ```
-
+        Create a EmailNotificationIntegration resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param EmailNotificationIntegrationArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -255,7 +247,8 @@ class EmailNotificationIntegration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] allowed_recipients: List of email addresses that should receive notifications.
         :param pulumi.Input[builtins.str] comment: A comment for the email integration.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -293,7 +286,8 @@ class EmailNotificationIntegration(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 

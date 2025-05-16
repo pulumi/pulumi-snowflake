@@ -40,16 +40,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? DisplayName { get; set; }
 
         [Input("email")]
-        private Input<string>? _email;
-        public Input<string>? Email
-        {
-            get => _email;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _email = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        public Input<string>? Email { get; set; }
 
         [Input("expiresAtTime")]
         public Input<string>? ExpiresAtTime { get; set; }
@@ -61,16 +52,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? ExtAuthnUid { get; set; }
 
         [Input("firstName")]
-        private Input<string>? _firstName;
-        public Input<string>? FirstName
-        {
-            get => _firstName;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _firstName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        public Input<string>? FirstName { get; set; }
 
         [Input("hasMfa")]
         public Input<bool>? HasMfa { get; set; }
@@ -82,16 +64,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<bool>? HasRsaPublicKey { get; set; }
 
         [Input("lastName")]
-        private Input<string>? _lastName;
-        public Input<string>? LastName
-        {
-            get => _lastName;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _lastName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        public Input<string>? LastName { get; set; }
 
         [Input("lastSuccessLogin")]
         public Input<string>? LastSuccessLogin { get; set; }
@@ -100,16 +73,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? LockedUntilTime { get; set; }
 
         [Input("loginName")]
-        private Input<string>? _loginName;
-        public Input<string>? LoginName
-        {
-            get => _loginName;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _loginName = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
+        public Input<string>? LoginName { get; set; }
 
         [Input("minsToBypassMfa")]
         public Input<string>? MinsToBypassMfa { get; set; }

@@ -8,21 +8,14 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// format is database name | schema name | pipe name
-//
-// ```sh
-// $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
-// ```
 type Pipe struct {
 	pulumi.CustomResourceState
 
-	// (Default: `false`) Specifies a autoIngest param for the pipe.
+	// Specifies a autoIngest param for the pipe.
 	AutoIngest pulumi.BoolPtrOutput `pulumi:"autoIngest"`
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn pulumi.StringPtrOutput `pulumi:"awsSnsTopicArn"`
@@ -34,7 +27,8 @@ type Pipe struct {
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration pulumi.StringPtrOutput `pulumi:"errorIntegration"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies an integration for the pipe.
 	Integration pulumi.StringPtrOutput `pulumi:"integration"`
@@ -87,7 +81,7 @@ func GetPipe(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipe resources.
 type pipeState struct {
-	// (Default: `false`) Specifies a autoIngest param for the pipe.
+	// Specifies a autoIngest param for the pipe.
 	AutoIngest *bool `pulumi:"autoIngest"`
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn *string `pulumi:"awsSnsTopicArn"`
@@ -99,7 +93,8 @@ type pipeState struct {
 	Database *string `pulumi:"database"`
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration *string `pulumi:"errorIntegration"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies an integration for the pipe.
 	Integration *string `pulumi:"integration"`
@@ -114,7 +109,7 @@ type pipeState struct {
 }
 
 type PipeState struct {
-	// (Default: `false`) Specifies a autoIngest param for the pipe.
+	// Specifies a autoIngest param for the pipe.
 	AutoIngest pulumi.BoolPtrInput
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn pulumi.StringPtrInput
@@ -126,7 +121,8 @@ type PipeState struct {
 	Database pulumi.StringPtrInput
 	// Specifies the name of the notification integration used for error notifications.
 	ErrorIntegration pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies an integration for the pipe.
 	Integration pulumi.StringPtrInput
@@ -145,7 +141,7 @@ func (PipeState) ElementType() reflect.Type {
 }
 
 type pipeArgs struct {
-	// (Default: `false`) Specifies a autoIngest param for the pipe.
+	// Specifies a autoIngest param for the pipe.
 	AutoIngest *bool `pulumi:"autoIngest"`
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn *string `pulumi:"awsSnsTopicArn"`
@@ -167,7 +163,7 @@ type pipeArgs struct {
 
 // The set of arguments for constructing a Pipe resource.
 type PipeArgs struct {
-	// (Default: `false`) Specifies a autoIngest param for the pipe.
+	// Specifies a autoIngest param for the pipe.
 	AutoIngest pulumi.BoolPtrInput
 	// Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
 	AwsSnsTopicArn pulumi.StringPtrInput
@@ -274,7 +270,7 @@ func (o PipeOutput) ToPipeOutputWithContext(ctx context.Context) PipeOutput {
 	return o
 }
 
-// (Default: `false`) Specifies a autoIngest param for the pipe.
+// Specifies a autoIngest param for the pipe.
 func (o PipeOutput) AutoIngest() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.BoolPtrOutput { return v.AutoIngest }).(pulumi.BoolPtrOutput)
 }
@@ -304,7 +300,8 @@ func (o PipeOutput) ErrorIntegration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringPtrOutput { return v.ErrorIntegration }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o PipeOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipe) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }

@@ -12,39 +12,19 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionsResult {
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     private String database;
-    /**
-     * @return The functions in the schema
-     * 
-     */
     private List<GetFunctionsFunction> functions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The schema from which to return the functions from.
-     * 
-     */
     private String schema;
 
     private GetFunctionsResult() {}
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public String database() {
         return this.database;
     }
-    /**
-     * @return The functions in the schema
-     * 
-     */
     public List<GetFunctionsFunction> functions() {
         return this.functions;
     }
@@ -55,10 +35,6 @@ public final class GetFunctionsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The schema from which to return the functions from.
-     * 
-     */
     public String schema() {
         return this.schema;
     }

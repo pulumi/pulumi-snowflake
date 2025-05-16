@@ -15,25 +15,19 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/share:Share example name
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/share:Share")
 public class Share extends com.pulumi.resources.CustomResource {
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+     * &#39;organization_name.account_name
      * 
      */
     @Export(name="accounts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> accounts;
 
     /**
-     * @return A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
+     * @return A list of accounts to be added to the share. Values should not be the account locator, but in the form of
+     * &#39;organization_name.account_name
      * 
      */
     public Output<Optional<List<String>>> accounts() {
@@ -54,14 +48,16 @@ public class Share extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {

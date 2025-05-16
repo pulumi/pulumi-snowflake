@@ -7,40 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetSequences(ctx, &snowflake.GetSequencesArgs{
-//				Database: "MYDB",
-//				Schema:   "MYSCHEMA",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetSequences(ctx *pulumi.Context, args *GetSequencesArgs, opts ...pulumi.InvokeOption) (*GetSequencesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSequencesResult
@@ -53,21 +23,16 @@ func GetSequences(ctx *pulumi.Context, args *GetSequencesArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getSequences.
 type GetSequencesArgs struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	// The schema from which to return the sequences from.
-	Schema string `pulumi:"schema"`
+	Schema   string `pulumi:"schema"`
 }
 
 // A collection of values returned by getSequences.
 type GetSequencesResult struct {
-	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// The schema from which to return the sequences from.
-	Schema string `pulumi:"schema"`
-	// The sequences in the schema
+	Id        string                 `pulumi:"id"`
+	Schema    string                 `pulumi:"schema"`
 	Sequences []GetSequencesSequence `pulumi:"sequences"`
 }
 
@@ -82,10 +47,8 @@ func GetSequencesOutput(ctx *pulumi.Context, args GetSequencesOutputArgs, opts .
 
 // A collection of arguments for invoking getSequences.
 type GetSequencesOutputArgs struct {
-	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the sequences from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	Schema   pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetSequencesOutputArgs) ElementType() reflect.Type {
@@ -107,7 +70,6 @@ func (o GetSequencesResultOutput) ToGetSequencesResultOutputWithContext(ctx cont
 	return o
 }
 
-// The database from which to return the schemas from.
 func (o GetSequencesResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesResult) string { return v.Database }).(pulumi.StringOutput)
 }
@@ -117,12 +79,10 @@ func (o GetSequencesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the sequences from.
 func (o GetSequencesResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSequencesResult) string { return v.Schema }).(pulumi.StringOutput)
 }
 
-// The sequences in the schema
 func (o GetSequencesResultOutput) Sequences() GetSequencesSequenceArrayOutput {
 	return o.ApplyT(func(v GetSequencesResult) []GetSequencesSequence { return v.Sequences }).(GetSequencesSequenceArrayOutput)
 }

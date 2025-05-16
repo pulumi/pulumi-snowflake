@@ -20,25 +20,9 @@ public final class GetWarehousesResult {
      * 
      */
     private String id;
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     private @Nullable String like;
-    /**
-     * @return Holds the aggregated output of all warehouse details queries.
-     * 
-     */
     private List<GetWarehousesWarehouse> warehouses;
-    /**
-     * @return (Default: `true`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     private @Nullable Boolean withDescribe;
-    /**
-     * @return (Default: `true`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
-     * 
-     */
     private @Nullable Boolean withParameters;
 
     private GetWarehousesResult() {}
@@ -49,31 +33,15 @@ public final class GetWarehousesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
-    /**
-     * @return Holds the aggregated output of all warehouse details queries.
-     * 
-     */
     public List<GetWarehousesWarehouse> warehouses() {
         return this.warehouses;
     }
-    /**
-     * @return (Default: `true`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     public Optional<Boolean> withDescribe() {
         return Optional.ofNullable(this.withDescribe);
     }
-    /**
-     * @return (Default: `true`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
-     * 
-     */
     public Optional<Boolean> withParameters() {
         return Optional.ofNullable(this.withParameters);
     }

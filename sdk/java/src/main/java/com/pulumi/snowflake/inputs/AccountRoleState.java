@@ -25,14 +25,16 @@ public final class AccountRoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -40,14 +42,16 @@ public final class AccountRoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -106,7 +110,8 @@ public final class AccountRoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -117,7 +122,8 @@ public final class AccountRoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -127,7 +133,8 @@ public final class AccountRoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
+         * following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -138,7 +145,8 @@ public final class AccountRoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
+         * following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

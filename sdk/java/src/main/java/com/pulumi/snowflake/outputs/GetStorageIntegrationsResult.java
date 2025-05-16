@@ -17,10 +17,6 @@ public final class GetStorageIntegrationsResult {
      * 
      */
     private String id;
-    /**
-     * @return The storage integrations in the database
-     * 
-     */
     private List<GetStorageIntegrationsStorageIntegration> storageIntegrations;
 
     private GetStorageIntegrationsResult() {}
@@ -31,10 +27,6 @@ public final class GetStorageIntegrationsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The storage integrations in the database
-     * 
-     */
     public List<GetStorageIntegrationsStorageIntegration> storageIntegrations() {
         return this.storageIntegrations;
     }

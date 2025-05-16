@@ -33,14 +33,16 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -48,14 +50,16 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
+     * Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml
+     * file.
      * 
      */
     @Import(name="directoryLocation")
     private @Nullable Output<String> directoryLocation;
 
     /**
-     * @return Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
+     * @return Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml
+     * file.
      * 
      */
     public Optional<Output<String>> directoryLocation() {
@@ -78,14 +82,16 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+     * Specifies the filename of the Streamlit Python application. This filename is relative to the value of
+     * `directory_location`
      * 
      */
     @Import(name="mainFile", required=true)
     private Output<String> mainFile;
 
     /**
-     * @return Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+     * @return Specifies the filename of the Streamlit Python application. This filename is relative to the value of
+     * `directory_location`
      * 
      */
     public Output<String> mainFile() {
@@ -93,14 +99,16 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,14 +116,16 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
+     * Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations
+     * warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
      * 
      */
     @Import(name="queryWarehouse")
     private @Nullable Output<String> queryWarehouse;
 
     /**
-     * @return Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
+     * @return Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations
+     * warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> queryWarehouse() {
@@ -123,14 +133,16 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -222,7 +234,8 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -233,7 +246,8 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the streamlit Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -243,7 +257,8 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryLocation Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
+         * @param directoryLocation Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml
+         * file.
          * 
          * @return builder
          * 
@@ -254,7 +269,8 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param directoryLocation Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml file.
+         * @param directoryLocation Specifies the full path to the named stage containing the Streamlit Python files, media files, and the environment.yml
+         * file.
          * 
          * @return builder
          * 
@@ -295,7 +311,8 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mainFile Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+         * @param mainFile Specifies the filename of the Streamlit Python application. This filename is relative to the value of
+         * `directory_location`
          * 
          * @return builder
          * 
@@ -306,7 +323,8 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mainFile Specifies the filename of the Streamlit Python application. This filename is relative to the value of `directory_location`
+         * @param mainFile Specifies the filename of the Streamlit Python application. This filename is relative to the value of
+         * `directory_location`
          * 
          * @return builder
          * 
@@ -316,7 +334,8 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical
+         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -327,7 +346,8 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the streamlit; must be unique in your account. Due to technical
+         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -337,7 +357,8 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queryWarehouse Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
+         * @param queryWarehouse Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations
+         * warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -348,7 +369,8 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queryWarehouse Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
+         * @param queryWarehouse Specifies the warehouse where SQL queries issued by the Streamlit application are run. Due to Snowflake limitations
+         * warehouse identifier can consist of only upper-cased letters. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -358,7 +380,8 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -369,7 +392,8 @@ public final class StreamlitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the streamlit. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

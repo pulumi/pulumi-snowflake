@@ -20,7 +20,6 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope> OauthAllowedScopes;
         public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint> OauthAuthorizationEndpoints;
         public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod> OauthClientAuthMethods;
-        public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId> OauthClientIds;
         public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant> OauthGrants;
         public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity> OauthRefreshTokenValidities;
         public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint> OauthTokenEndpoints;
@@ -42,8 +41,6 @@ namespace Pulumi.Snowflake.Outputs
 
             ImmutableArray<Outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod> oauthClientAuthMethods,
 
-            ImmutableArray<Outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId> oauthClientIds,
-
             ImmutableArray<Outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant> oauthGrants,
 
             ImmutableArray<Outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity> oauthRefreshTokenValidities,
@@ -59,7 +56,6 @@ namespace Pulumi.Snowflake.Outputs
             OauthAllowedScopes = oauthAllowedScopes;
             OauthAuthorizationEndpoints = oauthAuthorizationEndpoints;
             OauthClientAuthMethods = oauthClientAuthMethods;
-            OauthClientIds = oauthClientIds;
             OauthGrants = oauthGrants;
             OauthRefreshTokenValidities = oauthRefreshTokenValidities;
             OauthTokenEndpoints = oauthTokenEndpoints;

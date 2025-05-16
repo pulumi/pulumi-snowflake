@@ -12,32 +12,16 @@ import java.util.Objects;
 
 @CustomType
 public final class GetMaterializedViewsResult {
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The views in the schema
-     * 
-     */
     private List<GetMaterializedViewsMaterializedView> materializedViews;
-    /**
-     * @return The schema from which to return the views from.
-     * 
-     */
     private String schema;
 
     private GetMaterializedViewsResult() {}
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public String database() {
         return this.database;
     }
@@ -48,17 +32,9 @@ public final class GetMaterializedViewsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The views in the schema
-     * 
-     */
     public List<GetMaterializedViewsMaterializedView> materializedViews() {
         return this.materializedViews;
     }
-    /**
-     * @return The schema from which to return the views from.
-     * 
-     */
     public String schema() {
         return this.schema;
     }

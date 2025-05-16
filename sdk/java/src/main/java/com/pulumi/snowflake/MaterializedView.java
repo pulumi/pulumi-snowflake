@@ -17,16 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * format is database name | schema name | view name
- * 
- * ```sh
- * $ pulumi import snowflake:index/materializedView:MaterializedView example &#39;dbName|schemaName|viewName&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/materializedView:MaterializedView")
 public class MaterializedView extends com.pulumi.resources.CustomResource {
     /**
@@ -58,28 +48,30 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * (Default: `false`) Specifies that the view is secure.
+     * Specifies that the view is secure.
      * 
      */
     @Export(name="isSecure", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> isSecure;
 
     /**
-     * @return (Default: `false`) Specifies that the view is secure.
+     * @return Specifies that the view is secure.
      * 
      */
     public Output<Optional<Boolean>> isSecure() {
@@ -100,14 +92,14 @@ public class MaterializedView extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * (Default: `false`) Overwrites the View if it exists.
+     * Overwrites the View if it exists.
      * 
      */
     @Export(name="orReplace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> orReplace;
 
     /**
-     * @return (Default: `false`) Overwrites the View if it exists.
+     * @return Overwrites the View if it exists.
      * 
      */
     public Output<Optional<Boolean>> orReplace() {

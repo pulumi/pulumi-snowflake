@@ -76,14 +76,6 @@ namespace Pulumi.Snowflake.Inputs
             set => _oauthAuthorizationEndpoints = value;
         }
 
-        [Input("oauthClientIds")]
-        private InputList<Inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientIdGetArgs>? _oauthClientIds;
-        public InputList<Inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientIdGetArgs> OauthClientIds
-        {
-            get => _oauthClientIds ?? (_oauthClientIds = new InputList<Inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientIdGetArgs>());
-            set => _oauthClientIds = value;
-        }
-
         [Input("oauthClientRsaPublicKey2Fps")]
         private InputList<Inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpGetArgs>? _oauthClientRsaPublicKey2Fps;
         public InputList<Inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpGetArgs> OauthClientRsaPublicKey2Fps
@@ -122,14 +114,6 @@ namespace Pulumi.Snowflake.Inputs
         {
             get => _oauthIssueRefreshTokens ?? (_oauthIssueRefreshTokens = new InputList<Inputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenGetArgs>());
             set => _oauthIssueRefreshTokens = value;
-        }
-
-        [Input("oauthRedirectUris")]
-        private InputList<Inputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriGetArgs>? _oauthRedirectUris;
-        public InputList<Inputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriGetArgs> OauthRedirectUris
-        {
-            get => _oauthRedirectUris ?? (_oauthRedirectUris = new InputList<Inputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriGetArgs>());
-            set => _oauthRedirectUris = value;
         }
 
         [Input("oauthRefreshTokenValidities")]

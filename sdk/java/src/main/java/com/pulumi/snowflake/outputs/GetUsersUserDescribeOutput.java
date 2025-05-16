@@ -36,7 +36,6 @@ public final class GetUsersUserDescribeOutput {
     private Integer minsToUnlock;
     private Boolean mustChangePassword;
     private String name;
-    private String password;
     private String passwordLastSetTime;
     private String rsaPublicKey;
     private String rsaPublicKey2;
@@ -116,9 +115,6 @@ public final class GetUsersUserDescribeOutput {
     public String name() {
         return this.name;
     }
-    public String password() {
-        return this.password;
-    }
     public String passwordLastSetTime() {
         return this.passwordLastSetTime;
     }
@@ -176,7 +172,6 @@ public final class GetUsersUserDescribeOutput {
         private Integer minsToUnlock;
         private Boolean mustChangePassword;
         private String name;
-        private String password;
         private String passwordLastSetTime;
         private String rsaPublicKey;
         private String rsaPublicKey2;
@@ -211,7 +206,6 @@ public final class GetUsersUserDescribeOutput {
     	      this.minsToUnlock = defaults.minsToUnlock;
     	      this.mustChangePassword = defaults.mustChangePassword;
     	      this.name = defaults.name;
-    	      this.password = defaults.password;
     	      this.passwordLastSetTime = defaults.passwordLastSetTime;
     	      this.rsaPublicKey = defaults.rsaPublicKey;
     	      this.rsaPublicKey2 = defaults.rsaPublicKey2;
@@ -407,14 +401,6 @@ public final class GetUsersUserDescribeOutput {
             return this;
         }
         @CustomType.Setter
-        public Builder password(String password) {
-            if (password == null) {
-              throw new MissingRequiredPropertyException("GetUsersUserDescribeOutput", "password");
-            }
-            this.password = password;
-            return this;
-        }
-        @CustomType.Setter
         public Builder passwordLastSetTime(String passwordLastSetTime) {
             if (passwordLastSetTime == null) {
               throw new MissingRequiredPropertyException("GetUsersUserDescribeOutput", "passwordLastSetTime");
@@ -503,7 +489,6 @@ public final class GetUsersUserDescribeOutput {
             _resultValue.minsToUnlock = minsToUnlock;
             _resultValue.mustChangePassword = mustChangePassword;
             _resultValue.name = name;
-            _resultValue.password = password;
             _resultValue.passwordLastSetTime = passwordLastSetTime;
             _resultValue.rsaPublicKey = rsaPublicKey;
             _resultValue.rsaPublicKey2 = rsaPublicKey2;

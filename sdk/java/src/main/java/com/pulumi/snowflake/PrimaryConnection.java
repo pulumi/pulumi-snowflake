@@ -17,14 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/primaryConnection:PrimaryConnection example &#39;&#34;&lt;primary_connection_name&gt;&#34;&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/primaryConnection:PrimaryConnection")
 public class PrimaryConnection extends com.pulumi.resources.CustomResource {
     /**
@@ -42,28 +34,34 @@ public class PrimaryConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
+     * Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a
+     * secondary connection for this primary connection can be promoted to serve as the primary connection. Include your
+     * organization name for each account in the list. For more information about this resource, see docs.
      * 
      */
     @Export(name="enableFailoverToAccounts", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> enableFailoverToAccounts;
 
     /**
-     * @return Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a secondary connection for this primary connection can be promoted to serve as the primary connection. Include your organization name for each account in the list. For more information about this resource, see docs.
+     * @return Enables failover for given connection to provided accounts. Specifies a list of accounts in your organization where a
+     * secondary connection for this primary connection can be promoted to serve as the primary connection. Include your
+     * organization name for each account in the list. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<List<String>>> enableFailoverToAccounts() {
         return Codegen.optional(this.enableFailoverToAccounts);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
@@ -76,14 +74,20 @@ public class PrimaryConnection extends com.pulumi.resources.CustomResource {
         return this.isPrimary;
     }
     /**
-     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+     * only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique
+     * across connection names and account names in the organization. Due to technical limitations (read more here), avoid
+     * using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a primary connection, the name must be unique across connection names and account names in the organization.  Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
+     * only contain letters, decimal digits (0-9), and underscores (_). For a primary connection, the name must be unique
+     * across connection names and account names in the organization. Due to technical limitations (read more here), avoid
+     * using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {

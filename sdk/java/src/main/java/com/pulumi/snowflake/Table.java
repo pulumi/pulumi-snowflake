@@ -20,27 +20,17 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * format is database name | schema name | table name
- * 
- * ```sh
- * $ pulumi import snowflake:index/table:Table example &#39;databaseName|schemaName|tableName&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/table:Table")
 public class Table extends com.pulumi.resources.CustomResource {
     /**
-     * (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
+     * Specifies whether to enable change tracking on the table. Default false.
      * 
      */
     @Export(name="changeTracking", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> changeTracking;
 
     /**
-     * @return (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
+     * @return Specifies whether to enable change tracking on the table. Default false.
      * 
      */
     public Output<Optional<Boolean>> changeTracking() {
@@ -89,14 +79,20 @@ public class Table extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+     * Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+     * historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
+     * argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
+     * Snowflake default - in this case the schema value
      * 
      */
     @Export(name="dataRetentionTimeInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> dataRetentionTimeInDays;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
+     * @return Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
+     * historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
+     * argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
+     * Snowflake default - in this case the schema value
      * 
      */
     public Output<Optional<Integer>> dataRetentionTimeInDays() {
@@ -117,14 +113,16 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {

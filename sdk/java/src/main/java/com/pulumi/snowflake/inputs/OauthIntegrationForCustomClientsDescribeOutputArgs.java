@@ -13,13 +13,11 @@ import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutpu
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpointArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpointArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpointArgs;
-import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFpArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientTypeArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkceArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgs;
-import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpointArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRoleArgs;
@@ -90,13 +88,6 @@ public final class OauthIntegrationForCustomClientsDescribeOutputArgs extends co
         return Optional.ofNullable(this.oauthAuthorizationEndpoints);
     }
 
-    @Import(name="oauthClientIds")
-    private @Nullable Output<List<OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs>> oauthClientIds;
-
-    public Optional<Output<List<OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs>>> oauthClientIds() {
-        return Optional.ofNullable(this.oauthClientIds);
-    }
-
     @Import(name="oauthClientRsaPublicKey2Fps")
     private @Nullable Output<List<OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgs>> oauthClientRsaPublicKey2Fps;
 
@@ -130,13 +121,6 @@ public final class OauthIntegrationForCustomClientsDescribeOutputArgs extends co
 
     public Optional<Output<List<OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgs>>> oauthIssueRefreshTokens() {
         return Optional.ofNullable(this.oauthIssueRefreshTokens);
-    }
-
-    @Import(name="oauthRedirectUris")
-    private @Nullable Output<List<OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs>> oauthRedirectUris;
-
-    public Optional<Output<List<OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs>>> oauthRedirectUris() {
-        return Optional.ofNullable(this.oauthRedirectUris);
     }
 
     @Import(name="oauthRefreshTokenValidities")
@@ -178,13 +162,11 @@ public final class OauthIntegrationForCustomClientsDescribeOutputArgs extends co
         this.oauthAllowedAuthorizationEndpoints = $.oauthAllowedAuthorizationEndpoints;
         this.oauthAllowedTokenEndpoints = $.oauthAllowedTokenEndpoints;
         this.oauthAuthorizationEndpoints = $.oauthAuthorizationEndpoints;
-        this.oauthClientIds = $.oauthClientIds;
         this.oauthClientRsaPublicKey2Fps = $.oauthClientRsaPublicKey2Fps;
         this.oauthClientRsaPublicKeyFps = $.oauthClientRsaPublicKeyFps;
         this.oauthClientTypes = $.oauthClientTypes;
         this.oauthEnforcePkces = $.oauthEnforcePkces;
         this.oauthIssueRefreshTokens = $.oauthIssueRefreshTokens;
-        this.oauthRedirectUris = $.oauthRedirectUris;
         this.oauthRefreshTokenValidities = $.oauthRefreshTokenValidities;
         this.oauthTokenEndpoints = $.oauthTokenEndpoints;
         this.oauthUseSecondaryRoles = $.oauthUseSecondaryRoles;
@@ -313,19 +295,6 @@ public final class OauthIntegrationForCustomClientsDescribeOutputArgs extends co
             return oauthAuthorizationEndpoints(List.of(oauthAuthorizationEndpoints));
         }
 
-        public Builder oauthClientIds(@Nullable Output<List<OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs>> oauthClientIds) {
-            $.oauthClientIds = oauthClientIds;
-            return this;
-        }
-
-        public Builder oauthClientIds(List<OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs> oauthClientIds) {
-            return oauthClientIds(Output.of(oauthClientIds));
-        }
-
-        public Builder oauthClientIds(OauthIntegrationForCustomClientsDescribeOutputOauthClientIdArgs... oauthClientIds) {
-            return oauthClientIds(List.of(oauthClientIds));
-        }
-
         public Builder oauthClientRsaPublicKey2Fps(@Nullable Output<List<OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2FpArgs>> oauthClientRsaPublicKey2Fps) {
             $.oauthClientRsaPublicKey2Fps = oauthClientRsaPublicKey2Fps;
             return this;
@@ -389,19 +358,6 @@ public final class OauthIntegrationForCustomClientsDescribeOutputArgs extends co
 
         public Builder oauthIssueRefreshTokens(OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshTokenArgs... oauthIssueRefreshTokens) {
             return oauthIssueRefreshTokens(List.of(oauthIssueRefreshTokens));
-        }
-
-        public Builder oauthRedirectUris(@Nullable Output<List<OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs>> oauthRedirectUris) {
-            $.oauthRedirectUris = oauthRedirectUris;
-            return this;
-        }
-
-        public Builder oauthRedirectUris(List<OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs> oauthRedirectUris) {
-            return oauthRedirectUris(Output.of(oauthRedirectUris));
-        }
-
-        public Builder oauthRedirectUris(OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUriArgs... oauthRedirectUris) {
-            return oauthRedirectUris(List.of(oauthRedirectUris));
         }
 
         public Builder oauthRefreshTokenValidities(@Nullable Output<List<OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidityArgs>> oauthRefreshTokenValidities) {

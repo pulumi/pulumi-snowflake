@@ -14,17 +14,9 @@ public final class GetConnectionsPlainArgs extends com.pulumi.resources.InvokeAr
 
     public static final GetConnectionsPlainArgs Empty = new GetConnectionsPlainArgs();
 
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     @Import(name="like")
     private @Nullable String like;
 
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
@@ -53,12 +45,6 @@ public final class GetConnectionsPlainArgs extends com.pulumi.resources.InvokeAr
             $ = new GetConnectionsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(@Nullable String like) {
             $.like = like;
             return this;

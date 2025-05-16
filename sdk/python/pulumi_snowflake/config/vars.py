@@ -295,10 +295,10 @@ class _ExportableConfig(types.ModuleType):
     @property
     def skip_toml_file_permission_verification(self) -> Optional[bool]:
         """
-        True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-        the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
-        - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
-        variable.
+        False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+        the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
+        the proper privileges - see the section below. Can also be sourced from the
+        `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
         """
         return __config__.get_bool('skipTomlFilePermissionVerification')
 
@@ -325,7 +325,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def use_legacy_toml_file(self) -> Optional[bool]:
         """
-        True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+        False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
         format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
         variable.
         """

@@ -18,62 +18,30 @@ public final class GetStreamlitsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetStreamlitsArgs Empty = new GetStreamlitsArgs();
 
-    /**
-     * IN clause to filter the list of streamlits
-     * 
-     */
     @Import(name="in")
     private @Nullable Output<GetStreamlitsInArgs> in;
 
-    /**
-     * @return IN clause to filter the list of streamlits
-     * 
-     */
     public Optional<Output<GetStreamlitsInArgs>> in() {
         return Optional.ofNullable(this.in);
     }
 
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     @Import(name="like")
     private @Nullable Output<String> like;
 
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<Output<String>> like() {
         return Optional.ofNullable(this.like);
     }
 
-    /**
-     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-     * 
-     */
     @Import(name="limit")
     private @Nullable Output<GetStreamlitsLimitArgs> limit;
 
-    /**
-     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-     * 
-     */
     public Optional<Output<GetStreamlitsLimitArgs>> limit() {
         return Optional.ofNullable(this.limit);
     }
 
-    /**
-     * (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     @Import(name="withDescribe")
     private @Nullable Output<Boolean> withDescribe;
 
-    /**
-     * @return (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     public Optional<Output<Boolean>> withDescribe() {
         return Optional.ofNullable(this.withDescribe);
     }
@@ -105,86 +73,38 @@ public final class GetStreamlitsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetStreamlitsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param in IN clause to filter the list of streamlits
-         * 
-         * @return builder
-         * 
-         */
         public Builder in(@Nullable Output<GetStreamlitsInArgs> in) {
             $.in = in;
             return this;
         }
 
-        /**
-         * @param in IN clause to filter the list of streamlits
-         * 
-         * @return builder
-         * 
-         */
         public Builder in(GetStreamlitsInArgs in) {
             return in(Output.of(in));
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(@Nullable Output<String> like) {
             $.like = like;
             return this;
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(String like) {
             return like(Output.of(like));
         }
 
-        /**
-         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limit(@Nullable Output<GetStreamlitsLimitArgs> limit) {
             $.limit = limit;
             return this;
         }
 
-        /**
-         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limit(GetStreamlitsLimitArgs limit) {
             return limit(Output.of(limit));
         }
 
-        /**
-         * @param withDescribe (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withDescribe(@Nullable Output<Boolean> withDescribe) {
             $.withDescribe = withDescribe;
             return this;
         }
 
-        /**
-         * @param withDescribe (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withDescribe(Boolean withDescribe) {
             return withDescribe(Output.of(withDescribe));
         }

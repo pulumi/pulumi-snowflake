@@ -63,49 +63,31 @@ class GetStreamsResult:
     @property
     @pulumi.getter(name="in")
     def in_(self) -> Optional['outputs.GetStreamsInResult']:
-        """
-        IN clause to filter the list of objects
-        """
         return pulumi.get(self, "in_")
 
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
-        """
-        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter
     def limit(self) -> Optional['outputs.GetStreamsLimitResult']:
-        """
-        Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-        """
         return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter(name="startsWith")
     def starts_with(self) -> Optional[builtins.str]:
-        """
-        Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-        """
         return pulumi.get(self, "starts_with")
 
     @property
     @pulumi.getter
     def streams(self) -> Sequence['outputs.GetStreamsStreamResult']:
-        """
-        Holds the aggregated output of all streams details queries.
-        """
         return pulumi.get(self, "streams")
 
     @property
     @pulumi.getter(name="withDescribe")
     def with_describe(self) -> Optional[builtins.bool]:
-        """
-        (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
-        """
         return pulumi.get(self, "with_describe")
 
 
@@ -131,14 +113,7 @@ def get_streams(in_: Optional[Union['GetStreamsInArgs', 'GetStreamsInArgsDict']]
                 with_describe: Optional[builtins.bool] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetStreamsResult:
     """
-    Data source used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
-
-
-    :param Union['GetStreamsInArgs', 'GetStreamsInArgsDict'] in_: IN clause to filter the list of objects
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetStreamsLimitArgs', 'GetStreamsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-    :param builtins.bool with_describe: (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['in'] = in_
@@ -164,14 +139,7 @@ def get_streams_output(in_: Optional[pulumi.Input[Optional[Union['GetStreamsInAr
                        with_describe: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStreamsResult]:
     """
-    Data source used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
-
-
-    :param Union['GetStreamsInArgs', 'GetStreamsInArgsDict'] in_: IN clause to filter the list of objects
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetStreamsLimitArgs', 'GetStreamsLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-    :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-    :param builtins.bool with_describe: (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['in'] = in_

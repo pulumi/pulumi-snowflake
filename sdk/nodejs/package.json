@@ -1,6 +1,6 @@
 {
     "name": "@pulumi/snowflake",
-    "version": "1.0.0-alpha.0+dev",
+    "version": "2.0.0-alpha.0+dev",
     "description": "A Pulumi package for creating and managing snowflake cloud resources.",
     "keywords": [
         "pulumi",
@@ -23,6 +23,6 @@
     "pulumi": {
         "resource": true,
         "name": "snowflake",
-        "version": "1.0.0-alpha.0+dev"
+        "version": "2.0.0-alpha.0+dev"
     }
 }

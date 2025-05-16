@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -18,7 +18,8 @@ type UserPublicKeys struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey pulumi.StringPtrOutput `pulumi:"rsaPublicKey"`
-	// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrOutput `pulumi:"rsaPublicKey2"`
 }
 
@@ -56,7 +57,8 @@ type userPublicKeysState struct {
 	Name *string `pulumi:"name"`
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey *string `pulumi:"rsaPublicKey"`
-	// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 *string `pulumi:"rsaPublicKey2"`
 }
 
@@ -65,7 +67,8 @@ type UserPublicKeysState struct {
 	Name pulumi.StringPtrInput
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey pulumi.StringPtrInput
-	// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrInput
 }
 
@@ -78,7 +81,8 @@ type userPublicKeysArgs struct {
 	Name *string `pulumi:"name"`
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey *string `pulumi:"rsaPublicKey"`
-	// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 *string `pulumi:"rsaPublicKey2"`
 }
 
@@ -88,7 +92,8 @@ type UserPublicKeysArgs struct {
 	Name pulumi.StringPtrInput
 	// Specifies the user’s RSA public key; used for key-pair authentication. Must be on 1 line without header and trailer.
 	RsaPublicKey pulumi.StringPtrInput
-	// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+	// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+	// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 	RsaPublicKey2 pulumi.StringPtrInput
 }
 
@@ -189,7 +194,8 @@ func (o UserPublicKeysOutput) RsaPublicKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPublicKeys) pulumi.StringPtrOutput { return v.RsaPublicKey }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
+// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
 func (o UserPublicKeysOutput) RsaPublicKey2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPublicKeys) pulumi.StringPtrOutput { return v.RsaPublicKey2 }).(pulumi.StringPtrOutput)
 }

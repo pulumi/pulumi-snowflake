@@ -93,14 +93,14 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+     * Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+     * @return Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -108,14 +108,16 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -306,7 +308,7 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+         * @param enabled Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
          * 
          * @return builder
          * 
@@ -317,7 +319,7 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+         * @param enabled Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
          * 
          * @return builder
          * 
@@ -327,7 +329,8 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -338,7 +341,8 @@ public final class AlertState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 

@@ -45,9 +45,6 @@ class GetPipesResult:
     @property
     @pulumi.getter
     def database(self) -> builtins.str:
-        """
-        The database from which to return the schemas from.
-        """
         return pulumi.get(self, "database")
 
     @property
@@ -61,17 +58,11 @@ class GetPipesResult:
     @property
     @pulumi.getter
     def pipes(self) -> Sequence['outputs.GetPipesPipeResult']:
-        """
-        The pipes in the schema
-        """
         return pulumi.get(self, "pipes")
 
     @property
     @pulumi.getter
     def schema(self) -> builtins.str:
-        """
-        The schema from which to return the pipes from.
-        """
         return pulumi.get(self, "schema")
 
 
@@ -91,23 +82,7 @@ def get_pipes(database: Optional[builtins.str] = None,
               schema: Optional[builtins.str] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPipesResult:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_pipes(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
-
-
-    :param builtins.str database: The database from which to return the schemas from.
-    :param builtins.str schema: The schema from which to return the pipes from.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -124,23 +99,7 @@ def get_pipes_output(database: Optional[pulumi.Input[builtins.str]] = None,
                      schema: Optional[pulumi.Input[builtins.str]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetPipesResult]:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_pipes(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
-
-
-    :param builtins.str database: The database from which to return the schemas from.
-    :param builtins.str schema: The schema from which to return the pipes from.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['database'] = database

@@ -10,44 +10,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetDatabaseRoleResult {
-    /**
-     * @return The comment on the role
-     * 
-     */
     private String comment;
-    /**
-     * @return The database from which to return the database role from.
-     * 
-     */
     private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return Database role name.
-     * 
-     */
     private String name;
-    /**
-     * @return The owner of the role
-     * 
-     */
     private String owner;
 
     private GetDatabaseRoleResult() {}
-    /**
-     * @return The comment on the role
-     * 
-     */
     public String comment() {
         return this.comment;
     }
-    /**
-     * @return The database from which to return the database role from.
-     * 
-     */
     public String database() {
         return this.database;
     }
@@ -58,17 +34,9 @@ public final class GetDatabaseRoleResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Database role name.
-     * 
-     */
     public String name() {
         return this.name;
     }
-    /**
-     * @return The owner of the role
-     * 
-     */
     public String owner() {
         return this.owner;
     }

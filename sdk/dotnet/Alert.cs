@@ -9,15 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// format is database name | schema name | alert name
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/alert:Alert")]
     public partial class Alert : global::Pulumi.CustomResource
     {
@@ -52,13 +43,14 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        /// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
@@ -158,7 +150,7 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        /// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
@@ -220,13 +212,14 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+        /// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }

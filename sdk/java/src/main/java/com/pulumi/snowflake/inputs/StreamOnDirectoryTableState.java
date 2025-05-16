@@ -42,14 +42,16 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> database() {
@@ -72,14 +74,16 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -87,14 +91,16 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -102,14 +108,16 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -132,14 +140,20 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage&#39;s database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read
+     * the stage&#39;s database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified
+     * name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid
+     * using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     @Import(name="stage")
     private @Nullable Output<String> stage;
 
     /**
-     * @return Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage&#39;s database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * @return Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read
+     * the stage&#39;s database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified
+     * name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid
+     * using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> stage() {
@@ -154,14 +168,16 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+     * needed.
      * 
      */
     @Import(name="streamType")
     private @Nullable Output<String> streamType;
 
     /**
-     * @return Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     * @return Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+     * needed.
      * 
      */
     public Optional<Output<String>> streamType() {
@@ -233,7 +249,8 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -244,7 +261,8 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -285,7 +303,8 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -296,7 +315,8 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -306,7 +326,8 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+         * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -317,7 +338,8 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+         * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -327,7 +349,8 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -338,7 +361,8 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -379,7 +403,10 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param stage Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage&#39;s database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+         * @param stage Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read
+         * the stage&#39;s database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified
+         * name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid
+         * using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -390,7 +417,10 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param stage Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage&#39;s database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+         * @param stage Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read
+         * the stage&#39;s database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified
+         * name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid
+         * using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -409,7 +439,8 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+         * needed.
          * 
          * @return builder
          * 
@@ -420,7 +451,8 @@ public final class StreamOnDirectoryTableState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+         * needed.
          * 
          * @return builder
          * 

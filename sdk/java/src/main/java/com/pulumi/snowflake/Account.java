@@ -17,14 +17,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/account:Account example &#39;&#34;&lt;organization_name&gt;&#34;.&#34;&lt;account_name&gt;&#34;&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/account:Account")
 public class Account extends com.pulumi.resources.CustomResource {
     @Export(name="adminName", refs={String.class}, tree="[0]")
@@ -66,14 +58,18 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
+     * Snowflake Edition of the account. See more about Snowflake Editions in the [official
+     * documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` |
+     * `BUSINESS_CRITICAL`
      * 
      */
     @Export(name="edition", refs={String.class}, tree="[0]")
     private Output<String> edition;
 
     /**
-     * @return Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
+     * @return Snowflake Edition of the account. See more about Snowflake Editions in the [official
+     * documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` |
+     * `BUSINESS_CRITICAL`
      * 
      */
     public Output<String> edition() {
@@ -92,42 +88,48 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.firstName);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+     * Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the
+     * maximum is 90 days.
      * 
      */
     @Export(name="gracePeriodInDays", refs={Integer.class}, tree="[0]")
     private Output<Integer> gracePeriodInDays;
 
     /**
-     * @return Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+     * @return Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the
+     * maximum is 90 days.
      * 
      */
     public Output<Integer> gracePeriodInDays() {
         return this.gracePeriodInDays;
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+     * Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization
+     * administrator (i.e. user with the ORGADMIN role) can set the property.
      * 
      */
     @Export(name="isOrgAdmin", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> isOrgAdmin;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+     * @return Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization
+     * administrator (i.e. user with the ORGADMIN role) can set the property.
      * 
      */
     public Output<Optional<String>> isOrgAdmin() {
@@ -146,42 +148,60 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.mustChangePassword);
     }
     /**
-     * Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+     * Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which
+     * Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special
+     * characters except for underscores (_). Note that if the account name includes underscores, features that do not accept
+     * account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes
+     * hyphens (-) for the underscores.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+     * @return Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which
+     * Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special
+     * characters except for underscores (_). Note that if the account name includes underscores, features that do not accept
+     * account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes
+     * hyphens (-) for the underscores.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+     * [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids)
+     * of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake
+     * Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
      * 
      */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> region;
 
     /**
-     * @return [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+     * @return [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids)
+     * of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake
+     * Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
      * 
      */
     public Output<Optional<String>> region() {
         return Codegen.optional(this.region);
     }
     /**
-     * ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
+     * ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your
+     * organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For
+     * information about when you might need to specify region group, see [Region
+     * groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
      * 
      */
     @Export(name="regionGroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> regionGroup;
 
     /**
-     * @return ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
+     * @return ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your
+     * organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For
+     * information about when you might need to specify region group, see [Region
+     * groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
      * 
      */
     public Output<Optional<String>> regionGroup() {

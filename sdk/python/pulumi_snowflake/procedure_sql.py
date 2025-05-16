@@ -38,20 +38,50 @@ class ProcedureSqlArgs:
                  trace_level: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ProcedureSql resource.
-        :param pulumi.Input[builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] procedure_definition: Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
-        :param pulumi.Input[builtins.str] return_type: Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL data type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input['ProcedureSqlArgumentArgs']]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
-        :param pulumi.Input[builtins.str] comment: (Default: `user-defined procedure`) Specifies a comment for the procedure.
-        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
-        :param pulumi.Input[builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
-        :param pulumi.Input[builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
-        :param pulumi.Input[builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
-        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] procedure_definition: Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
+               added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For
+               more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To
+               mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives
+               in cases where a change in case or run of whitespace is semantically significant.
+        :param pulumi.Input[builtins.str] return_type: Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type
+               that corresponds to the type of the language that you are using (see [SQL data
+               type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ]
+               ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types.
+               Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e.
+               `TABLE ()`).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input['ProcedureSqlArgumentArgs']]] arguments: List of the arguments for the procedure. Consult the
+               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+        :param pulumi.Input[builtins.str] comment: Specifies a comment for the procedure.
+        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
+               more information, check [ENABLE_CONSOLE_OUTPUT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
+               procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
+               statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
+               procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
+               procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
+               procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
+               (case-insensitive): `CALLER` | `OWNER`.
+        :param pulumi.Input[builtins.str] is_secure: Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
+               Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
+               Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default"
+               there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] log_level: LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.str] metric_level: METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
+               because stored procedures are [identified and resolved by the combination of the name and argument
+               types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
+               Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+               NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "procedure_definition", procedure_definition)
@@ -82,7 +112,8 @@ class ProcedureSqlArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[builtins.str]:
         """
-        The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -94,7 +125,11 @@ class ProcedureSqlArgs:
     @pulumi.getter(name="procedureDefinition")
     def procedure_definition(self) -> pulumi.Input[builtins.str]:
         """
-        Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
+        added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For
+        more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To
+        mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives
+        in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "procedure_definition")
 
@@ -106,7 +141,12 @@ class ProcedureSqlArgs:
     @pulumi.getter(name="returnType")
     def return_type(self) -> pulumi.Input[builtins.str]:
         """
-        Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL data type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
+        Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type
+        that corresponds to the type of the language that you are using (see [SQL data
+        type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ]
+        ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types.
+        Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e.
+        `TABLE ()`).
         """
         return pulumi.get(self, "return_type")
 
@@ -118,7 +158,8 @@ class ProcedureSqlArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[builtins.str]:
         """
-        The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -130,7 +171,8 @@ class ProcedureSqlArgs:
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureSqlArgumentArgs']]]]:
         """
-        List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+        List of the arguments for the procedure. Consult the
+        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
         """
         return pulumi.get(self, "arguments")
 
@@ -142,7 +184,7 @@ class ProcedureSqlArgs:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: `user-defined procedure`) Specifies a comment for the procedure.
+        Specifies a comment for the procedure.
         """
         return pulumi.get(self, "comment")
 
@@ -154,7 +196,9 @@ class ProcedureSqlArgs:
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
+        more information, check [ENABLE_CONSOLE_OUTPUT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
@@ -166,7 +210,13 @@ class ProcedureSqlArgs:
     @pulumi.getter(name="executeAs")
     def execute_as(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
+        Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
+        procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
+        statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
+        procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
+        procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
+        procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
+        (case-insensitive): `CALLER` | `OWNER`.
         """
         return pulumi.get(self, "execute_as")
 
@@ -178,7 +228,10 @@ class ProcedureSqlArgs:
     @pulumi.getter(name="isSecure")
     def is_secure(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
+        Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
+        Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default"
+        there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "is_secure")
 
@@ -190,7 +243,8 @@ class ProcedureSqlArgs:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -202,7 +256,8 @@ class ProcedureSqlArgs:
     @pulumi.getter(name="metricLevel")
     def metric_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
@@ -214,7 +269,10 @@ class ProcedureSqlArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
+        because stored procedures are [identified and resolved by the combination of the name and argument
+        types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
+        Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -226,7 +284,8 @@ class ProcedureSqlArgs:
     @pulumi.getter(name="nullInputBehavior")
     def null_input_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+        NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         """
         return pulumi.get(self, "null_input_behavior")
 
@@ -238,7 +297,8 @@ class ProcedureSqlArgs:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -270,24 +330,55 @@ class _ProcedureSqlState:
                  trace_level: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering ProcedureSql resources.
-        :param pulumi.Input[Sequence[pulumi.Input['ProcedureSqlArgumentArgs']]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
-        :param pulumi.Input[builtins.str] comment: (Default: `user-defined procedure`) Specifies a comment for the procedure.
-        :param pulumi.Input[builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
-        :param pulumi.Input[builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
-        :param pulumi.Input[builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        :param pulumi.Input[Sequence[pulumi.Input['ProcedureSqlArgumentArgs']]] arguments: List of the arguments for the procedure. Consult the
+               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+        :param pulumi.Input[builtins.str] comment: Specifies a comment for the procedure.
+        :param pulumi.Input[builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
+               more information, check [ENABLE_CONSOLE_OUTPUT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
+               procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
+               statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
+               procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
+               procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
+               procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
+               (case-insensitive): `CALLER` | `OWNER`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] is_secure: Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
+               Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
+               Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default"
+               there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] log_level: LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.str] metric_level: METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
+               because stored procedures are [identified and resolved by the combination of the name and argument
+               types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
+               Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+               NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureSqlParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN PROCEDURE` for the given procedure.
-        :param pulumi.Input[builtins.str] procedure_definition: Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        :param pulumi.Input[builtins.str] procedure_definition: Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
+               added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For
+               more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To
+               mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives
+               in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[builtins.str] procedure_language: Specifies language for the procedure. Used to detect external changes.
-        :param pulumi.Input[builtins.str] return_type: Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL data type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] return_type: Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type
+               that corresponds to the type of the language that you are using (see [SQL data
+               type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ]
+               ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types.
+               Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e.
+               `TABLE ()`).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['ProcedureSqlShowOutputArgs']]] show_outputs: Outputs the result of `SHOW PROCEDURE` for the given procedure.
-        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
@@ -330,7 +421,8 @@ class _ProcedureSqlState:
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProcedureSqlArgumentArgs']]]]:
         """
-        List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+        List of the arguments for the procedure. Consult the
+        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
         """
         return pulumi.get(self, "arguments")
 
@@ -342,7 +434,7 @@ class _ProcedureSqlState:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: `user-defined procedure`) Specifies a comment for the procedure.
+        Specifies a comment for the procedure.
         """
         return pulumi.get(self, "comment")
 
@@ -354,7 +446,8 @@ class _ProcedureSqlState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -366,7 +459,9 @@ class _ProcedureSqlState:
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
+        more information, check [ENABLE_CONSOLE_OUTPUT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
@@ -378,7 +473,13 @@ class _ProcedureSqlState:
     @pulumi.getter(name="executeAs")
     def execute_as(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
+        Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
+        procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
+        statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
+        procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
+        procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
+        procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
+        (case-insensitive): `CALLER` | `OWNER`.
         """
         return pulumi.get(self, "execute_as")
 
@@ -390,7 +491,8 @@ class _ProcedureSqlState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -402,7 +504,10 @@ class _ProcedureSqlState:
     @pulumi.getter(name="isSecure")
     def is_secure(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
+        Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
+        Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default"
+        there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "is_secure")
 
@@ -414,7 +519,8 @@ class _ProcedureSqlState:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -426,7 +532,8 @@ class _ProcedureSqlState:
     @pulumi.getter(name="metricLevel")
     def metric_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
@@ -438,7 +545,10 @@ class _ProcedureSqlState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
+        because stored procedures are [identified and resolved by the combination of the name and argument
+        types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
+        Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -450,7 +560,8 @@ class _ProcedureSqlState:
     @pulumi.getter(name="nullInputBehavior")
     def null_input_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+        NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         """
         return pulumi.get(self, "null_input_behavior")
 
@@ -474,7 +585,11 @@ class _ProcedureSqlState:
     @pulumi.getter(name="procedureDefinition")
     def procedure_definition(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
+        added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For
+        more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To
+        mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives
+        in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "procedure_definition")
 
@@ -498,7 +613,12 @@ class _ProcedureSqlState:
     @pulumi.getter(name="returnType")
     def return_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL data type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
+        Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type
+        that corresponds to the type of the language that you are using (see [SQL data
+        type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ]
+        ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types.
+        Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e.
+        `TABLE ()`).
         """
         return pulumi.get(self, "return_type")
 
@@ -510,7 +630,8 @@ class _ProcedureSqlState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -534,7 +655,8 @@ class _ProcedureSqlState:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -565,32 +687,53 @@ class ProcedureSql(pulumi.CustomResource):
                  trace_level: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/procedureSql:ProcedureSql example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
-        ```
-
-        Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
-
-        Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
-
+        Create a ProcedureSql resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureSqlArgumentArgs', 'ProcedureSqlArgumentArgsDict']]]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
-        :param pulumi.Input[builtins.str] comment: (Default: `user-defined procedure`) Specifies a comment for the procedure.
-        :param pulumi.Input[builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
-        :param pulumi.Input[builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
-        :param pulumi.Input[builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
-        :param pulumi.Input[builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
-        :param pulumi.Input[builtins.str] procedure_definition: Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
-        :param pulumi.Input[builtins.str] return_type: Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL data type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureSqlArgumentArgs', 'ProcedureSqlArgumentArgsDict']]]] arguments: List of the arguments for the procedure. Consult the
+               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+        :param pulumi.Input[builtins.str] comment: Specifies a comment for the procedure.
+        :param pulumi.Input[builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
+               more information, check [ENABLE_CONSOLE_OUTPUT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
+               procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
+               statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
+               procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
+               procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
+               procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
+               (case-insensitive): `CALLER` | `OWNER`.
+        :param pulumi.Input[builtins.str] is_secure: Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
+               Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
+               Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default"
+               there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] log_level: LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.str] metric_level: METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
+               because stored procedures are [identified and resolved by the combination of the name and argument
+               types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
+               Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+               NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        :param pulumi.Input[builtins.str] procedure_definition: Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
+               added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For
+               more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To
+               mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives
+               in cases where a change in case or run of whitespace is semantically significant.
+        :param pulumi.Input[builtins.str] return_type: Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type
+               that corresponds to the type of the language that you are using (see [SQL data
+               type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ]
+               ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types.
+               Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e.
+               `TABLE ()`).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         ...
     @overload
@@ -599,16 +742,7 @@ class ProcedureSql(pulumi.CustomResource):
                  args: ProcedureSqlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/procedureSql:ProcedureSql example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
-        ```
-
-        Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
-
-        Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
-
+        Create a ProcedureSql resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param ProcedureSqlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -708,24 +842,55 @@ class ProcedureSql(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureSqlArgumentArgs', 'ProcedureSqlArgumentArgsDict']]]] arguments: List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
-        :param pulumi.Input[builtins.str] comment: (Default: `user-defined procedure`) Specifies a comment for the procedure.
-        :param pulumi.Input[builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
-        :param pulumi.Input[builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] is_secure: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
-        :param pulumi.Input[builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureSqlArgumentArgs', 'ProcedureSqlArgumentArgsDict']]]] arguments: List of the arguments for the procedure. Consult the
+               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+        :param pulumi.Input[builtins.str] comment: Specifies a comment for the procedure.
+        :param pulumi.Input[builtins.str] database: The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
+               more information, check [ENABLE_CONSOLE_OUTPUT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[builtins.str] execute_as: Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
+               procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
+               statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
+               procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
+               procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
+               procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
+               (case-insensitive): `CALLER` | `OWNER`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] is_secure: Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
+               Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
+               Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default"
+               there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] log_level: LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.str] metric_level: METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[builtins.str] name: The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
+               because stored procedures are [identified and resolved by the combination of the name and argument
+               types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
+               Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+               NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureSqlParameterArgs', 'ProcedureSqlParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN PROCEDURE` for the given procedure.
-        :param pulumi.Input[builtins.str] procedure_definition: Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        :param pulumi.Input[builtins.str] procedure_definition: Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
+               added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For
+               more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To
+               mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives
+               in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[builtins.str] procedure_language: Specifies language for the procedure. Used to detect external changes.
-        :param pulumi.Input[builtins.str] return_type: Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL data type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] return_type: Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type
+               that corresponds to the type of the language that you are using (see [SQL data
+               type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ]
+               ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types.
+               Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e.
+               `TABLE ()`).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ProcedureSqlShowOutputArgs', 'ProcedureSqlShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW PROCEDURE` for the given procedure.
-        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -755,7 +920,8 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter
     def arguments(self) -> pulumi.Output[Optional[Sequence['outputs.ProcedureSqlArgument']]]:
         """
-        List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+        List of the arguments for the procedure. Consult the
+        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
         """
         return pulumi.get(self, "arguments")
 
@@ -763,7 +929,7 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        (Default: `user-defined procedure`) Specifies a comment for the procedure.
+        Specifies a comment for the procedure.
         """
         return pulumi.get(self, "comment")
 
@@ -771,7 +937,8 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[builtins.str]:
         """
-        The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -779,7 +946,9 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> pulumi.Output[builtins.bool]:
         """
-        Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
+        more information, check [ENABLE_CONSOLE_OUTPUT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
@@ -787,7 +956,13 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter(name="executeAs")
     def execute_as(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
+        Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
+        procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
+        statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
+        procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
+        procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
+        procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
+        (case-insensitive): `CALLER` | `OWNER`.
         """
         return pulumi.get(self, "execute_as")
 
@@ -795,7 +970,8 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -803,7 +979,10 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter(name="isSecure")
     def is_secure(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
+        Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
+        Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default"
+        there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "is_secure")
 
@@ -811,7 +990,8 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Output[builtins.str]:
         """
-        LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -819,7 +999,8 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter(name="metricLevel")
     def metric_level(self) -> pulumi.Output[builtins.str]:
         """
-        METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
@@ -827,7 +1008,10 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
+        because stored procedures are [identified and resolved by the combination of the name and argument
+        types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
+        Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -835,7 +1019,8 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter(name="nullInputBehavior")
     def null_input_behavior(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
+        NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         """
         return pulumi.get(self, "null_input_behavior")
 
@@ -851,7 +1036,11 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter(name="procedureDefinition")
     def procedure_definition(self) -> pulumi.Output[builtins.str]:
         """
-        Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
+        added by the provider automatically; do not include them. The `procedure_definition` value must be SQL source code. For
+        more information, see [Snowflake Scripting](https://docs.snowflake.com/en/developer-guide/snowflake-scripting/index). To
+        mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives
+        in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "procedure_definition")
 
@@ -867,7 +1056,12 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter(name="returnType")
     def return_type(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL data type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
+        Specifies the type of the result returned by the stored procedure. For `<result_data_type>`, use the Snowflake data type
+        that corresponds to the type of the language that you are using (see [SQL data
+        type](https://docs.snowflake.com/en/sql-reference-data-types)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ]
+        ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types.
+        Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e.
+        `TABLE ()`).
         """
         return pulumi.get(self, "return_type")
 
@@ -875,7 +1069,8 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[builtins.str]:
         """
-        The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -891,7 +1086,8 @@ class ProcedureSql(pulumi.CustomResource):
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> pulumi.Output[builtins.str]:
         """
-        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 

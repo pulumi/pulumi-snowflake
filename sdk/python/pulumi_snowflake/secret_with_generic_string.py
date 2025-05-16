@@ -29,10 +29,13 @@ class SecretWithGenericStringArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a SecretWithGenericString resource.
-        :param pulumi.Input[builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the secret.
-        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+               limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
@@ -46,7 +49,8 @@ class SecretWithGenericStringArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[builtins.str]:
         """
-        The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -58,7 +62,8 @@ class SecretWithGenericStringArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[builtins.str]:
         """
-        The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -91,7 +96,8 @@ class SecretWithGenericStringArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+        limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -115,12 +121,17 @@ class _SecretWithGenericStringState:
         """
         Input properties used for looking up and filtering SecretWithGenericString resources.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the secret.
-        :param pulumi.Input[builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['SecretWithGenericStringDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECRET` for the given secret.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] secret_type: Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+               limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] secret_type: Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+               needed.
         :param pulumi.Input[Sequence[pulumi.Input['SecretWithGenericStringShowOutputArgs']]] show_outputs: Outputs the result of `SHOW SECRETS` for the given secret.
         """
         if comment is not None:
@@ -158,7 +169,8 @@ class _SecretWithGenericStringState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -182,7 +194,8 @@ class _SecretWithGenericStringState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -194,7 +207,8 @@ class _SecretWithGenericStringState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+        limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -206,7 +220,8 @@ class _SecretWithGenericStringState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -227,7 +242,8 @@ class _SecretWithGenericStringState:
     @pulumi.getter(name="secretType")
     def secret_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+        Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+        needed.
         """
         return pulumi.get(self, "secret_type")
 
@@ -261,18 +277,16 @@ class SecretWithGenericString(pulumi.CustomResource):
                  secret_string: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/secretWithGenericString:SecretWithGenericString example '"<database_name>"."<schema_name>"."<secret_name>"'
-        ```
-
+        Create a SecretWithGenericString resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the secret.
-        :param pulumi.Input[builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+               limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
         """
         ...
     @overload
@@ -281,12 +295,7 @@ class SecretWithGenericString(pulumi.CustomResource):
                  args: SecretWithGenericStringArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/secretWithGenericString:SecretWithGenericString example '"<database_name>"."<schema_name>"."<secret_name>"'
-        ```
-
+        Create a SecretWithGenericString resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SecretWithGenericStringArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -360,12 +369,17 @@ class SecretWithGenericString(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the secret.
-        :param pulumi.Input[builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithGenericStringDescribeOutputArgs', 'SecretWithGenericStringDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECRET` for the given secret.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] secret_type: Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+               limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] secret_type: Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+               needed.
         :param pulumi.Input[Sequence[pulumi.Input[Union['SecretWithGenericStringShowOutputArgs', 'SecretWithGenericStringShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECRETS` for the given secret.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -395,7 +409,8 @@ class SecretWithGenericString(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[builtins.str]:
         """
-        The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -411,7 +426,8 @@ class SecretWithGenericString(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -419,7 +435,8 @@ class SecretWithGenericString(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+        limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -427,7 +444,8 @@ class SecretWithGenericString(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[builtins.str]:
         """
-        The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -440,7 +458,8 @@ class SecretWithGenericString(pulumi.CustomResource):
     @pulumi.getter(name="secretType")
     def secret_type(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+        Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+        needed.
         """
         return pulumi.get(self, "secret_type")
 

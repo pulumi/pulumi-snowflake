@@ -23,14 +23,6 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/view:View example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;view_name&gt;&#34;&#39;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/view:View")
 public class View extends com.pulumi.resources.CustomResource {
     /**
@@ -48,28 +40,36 @@ public class View extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.aggregationPolicy);
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is
+     * not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this
+     * value.
      * 
      */
     @Export(name="changeTracking", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> changeTracking;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is
+     * not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this
+     * value.
      * 
      */
     public Output<Optional<String>> changeTracking() {
         return Codegen.optional(this.changeTracking);
     }
     /**
-     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
+     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that
+     * specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the
+     * columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      * 
      */
     @Export(name="columns", refs={List.class,ViewColumn.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ViewColumn>> columns;
 
     /**
-     * @return If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
+     * @return If you want to change the name of a column or add a comment to a column in the new view, include a column list that
+     * specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the
+     * columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      * 
      */
     public Output<Optional<List<ViewColumn>>> columns() {
@@ -124,14 +124,16 @@ public class View extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dataMetricSchedule);
     }
     /**
-     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the view. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -152,28 +154,34 @@ public class View extends com.pulumi.resources.CustomResource {
         return this.describeOutputs;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table
+     * expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
+     * put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Export(name="isRecursive", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> isRecursive;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table
+     * expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
+     * put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Output<Optional<String>> isRecursive() {
@@ -192,14 +200,16 @@ public class View extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.isTemporary);
     }
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
@@ -220,14 +230,16 @@ public class View extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rowAccessPolicy);
     }
     /**
-     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the view. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -248,14 +260,18 @@ public class View extends com.pulumi.resources.CustomResource {
         return this.showOutputs;
     }
     /**
-     * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters
+     * with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically
+     * significant.
      * 
      */
     @Export(name="statement", refs={String.class}, tree="[0]")
     private Output<String> statement;
 
     /**
-     * @return Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * @return Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters
+     * with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically
+     * significant.
      * 
      */
     public Output<String> statement() {

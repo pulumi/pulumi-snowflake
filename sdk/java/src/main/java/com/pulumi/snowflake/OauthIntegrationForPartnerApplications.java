@@ -19,25 +19,23 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications example &#34;name&#34;
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications")
 public class OauthIntegrationForPartnerApplications extends com.pulumi.resources.CustomResource {
     /**
-     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
+     * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
+     * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
+     * information about this resource, see docs.
      * 
      */
     @Export(name="blockedRolesLists", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> blockedRolesLists;
 
     /**
-     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
+     * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
+     * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
+     * information about this resource, see docs.
      * 
      */
     public Output<Optional<List<String>>> blockedRolesLists() {
@@ -72,112 +70,132 @@ public class OauthIntegrationForPartnerApplications extends com.pulumi.resources
         return this.describeOutputs;
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the
+     * value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for
+     * this value.
      * 
      */
     @Export(name="enabled", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> enabled;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the
+     * value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for
+     * this value.
      * 
      */
     public Output<Optional<String>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+     * unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+     * unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
+     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
+     * | `TABLEAU_SERVER`.
      * 
      */
     @Export(name="oauthClient", refs={String.class}, tree="[0]")
     private Output<String> oauthClient;
 
     /**
-     * @return Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
+     * @return Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
+     * | `TABLEAU_SERVER`.
      * 
      */
     public Output<String> oauthClient() {
         return this.oauthClient;
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+     * expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
+     * &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Export(name="oauthIssueRefreshTokens", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthIssueRefreshTokens;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+     * expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
+     * &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Output<Optional<String>> oauthIssueRefreshTokens() {
         return Codegen.optional(this.oauthIssueRefreshTokens);
     }
     /**
-     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
+     * only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
      * 
      */
     @Export(name="oauthRedirectUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthRedirectUri;
 
     /**
-     * @return Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+     * @return Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
+     * only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
      * 
      */
     public Output<Optional<String>> oauthRedirectUri() {
         return Codegen.optional(this.oauthRedirectUri);
     }
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+     * Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
      * 
      */
     @Export(name="oauthRefreshTokenValidity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> oauthRefreshTokenValidity;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+     * @return Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
      * 
      */
     public Output<Optional<Integer>> oauthRefreshTokenValidity() {
         return Codegen.optional(this.oauthRefreshTokenValidity);
     }
     /**
-     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+     * Specifies whether default secondary roles set in the user properties are activated by default in the session being
+     * opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     @Export(name="oauthUseSecondaryRoles", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthUseSecondaryRoles;
 
     /**
-     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being
+     * opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     public Output<Optional<String>> oauthUseSecondaryRoles() {
@@ -251,6 +269,9 @@ public class OauthIntegrationForPartnerApplications extends com.pulumi.resources
     private static com.pulumi.resources.CustomResourceOptions makeResourceOptions(@Nullable com.pulumi.resources.CustomResourceOptions options, @Nullable Output<java.lang.String> id) {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
+            .additionalSecretOutputs(List.of(
+                "oauthRedirectUri"
+            ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);
     }

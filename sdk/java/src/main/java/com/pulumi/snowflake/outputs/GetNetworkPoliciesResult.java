@@ -20,20 +20,8 @@ public final class GetNetworkPoliciesResult {
      * 
      */
     private String id;
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     private @Nullable String like;
-    /**
-     * @return Holds the aggregated output of all network policies details queries.
-     * 
-     */
     private List<GetNetworkPoliciesNetworkPolicy> networkPolicies;
-    /**
-     * @return (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     private @Nullable Boolean withDescribe;
 
     private GetNetworkPoliciesResult() {}
@@ -44,24 +32,12 @@ public final class GetNetworkPoliciesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
-    /**
-     * @return Holds the aggregated output of all network policies details queries.
-     * 
-     */
     public List<GetNetworkPoliciesNetworkPolicy> networkPolicies() {
         return this.networkPolicies;
     }
-    /**
-     * @return (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     public Optional<Boolean> withDescribe() {
         return Optional.ofNullable(this.withDescribe);
     }

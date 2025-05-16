@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source used to get details of filtered tags. Filtering is aligned with the current possibilities for [SHOW TAGS](https://docs.snowflake.com/en/sql-reference/sql/show-tags) query. The results of SHOW are encapsulated in one output collection `tags`.
 func GetTags(ctx *pulumi.Context, args *GetTagsArgs, opts ...pulumi.InvokeOption) (*GetTagsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTagsResult
@@ -24,21 +23,16 @@ func GetTags(ctx *pulumi.Context, args *GetTagsArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getTags.
 type GetTagsArgs struct {
-	// IN clause to filter the list of objects
-	In *GetTagsIn `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
+	In   *GetTagsIn `pulumi:"in"`
+	Like *string    `pulumi:"like"`
 }
 
 // A collection of values returned by getTags.
 type GetTagsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// IN clause to filter the list of objects
-	In *GetTagsIn `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
-	// Holds the aggregated output of all tags details queries.
+	Id   string       `pulumi:"id"`
+	In   *GetTagsIn   `pulumi:"in"`
+	Like *string      `pulumi:"like"`
 	Tags []GetTagsTag `pulumi:"tags"`
 }
 
@@ -53,9 +47,7 @@ func GetTagsOutput(ctx *pulumi.Context, args GetTagsOutputArgs, opts ...pulumi.I
 
 // A collection of arguments for invoking getTags.
 type GetTagsOutputArgs struct {
-	// IN clause to filter the list of objects
-	In GetTagsInPtrInput `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	In   GetTagsInPtrInput     `pulumi:"in"`
 	Like pulumi.StringPtrInput `pulumi:"like"`
 }
 
@@ -83,17 +75,14 @@ func (o GetTagsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTagsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// IN clause to filter the list of objects
 func (o GetTagsResultOutput) In() GetTagsInPtrOutput {
 	return o.ApplyT(func(v GetTagsResult) *GetTagsIn { return v.In }).(GetTagsInPtrOutput)
 }
 
-// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetTagsResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTagsResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// Holds the aggregated output of all tags details queries.
 func (o GetTagsResultOutput) Tags() GetTagsTagArrayOutput {
 	return o.ApplyT(func(v GetTagsResult) []GetTagsTag { return v.Tags }).(GetTagsTagArrayOutput)
 }

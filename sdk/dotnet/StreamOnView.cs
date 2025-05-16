@@ -9,18 +9,12 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/streamOnView:StreamOnView example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;stream_name&gt;"'
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/streamOnView:StreamOnView")]
     public partial class StreamOnView : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
+        /// the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("appendOnly")]
         public Output<string?> AppendOnly { get; private set; } = null!;
@@ -41,7 +35,8 @@ namespace Pulumi.Snowflake
         public Output<bool?> CopyGrants { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -53,19 +48,22 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.StreamOnViewDescribeOutput>> DescribeOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+        /// to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
@@ -83,13 +81,15 @@ namespace Pulumi.Snowflake
         public Output<bool> Stale { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+        /// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+        /// needed.
         /// </summary>
         [Output("streamType")]
         public Output<string> StreamType { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        /// Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
+        /// the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         /// </summary>
         [Output("view")]
         public Output<string> View { get; private set; } = null!;
@@ -141,7 +141,8 @@ namespace Pulumi.Snowflake
     public sealed class StreamOnViewArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
+        /// the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("appendOnly")]
         public Input<string>? AppendOnly { get; set; }
@@ -162,19 +163,22 @@ namespace Pulumi.Snowflake
         public Input<bool>? CopyGrants { get; set; }
 
         /// <summary>
-        /// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+        /// to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
@@ -183,7 +187,8 @@ namespace Pulumi.Snowflake
         public Input<string>? ShowInitialRows { get; set; }
 
         /// <summary>
-        /// Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        /// Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
+        /// the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         /// </summary>
         [Input("view", required: true)]
         public Input<string> View { get; set; } = null!;
@@ -197,7 +202,8 @@ namespace Pulumi.Snowflake
     public sealed class StreamOnViewState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
+        /// the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("appendOnly")]
         public Input<string>? AppendOnly { get; set; }
@@ -218,7 +224,8 @@ namespace Pulumi.Snowflake
         public Input<bool>? CopyGrants { get; set; }
 
         /// <summary>
-        /// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -236,19 +243,22 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+        /// to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
@@ -272,13 +282,15 @@ namespace Pulumi.Snowflake
         public Input<bool>? Stale { get; set; }
 
         /// <summary>
-        /// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+        /// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+        /// needed.
         /// </summary>
         [Input("streamType")]
         public Input<string>? StreamType { get; set; }
 
         /// <summary>
-        /// Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        /// Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
+        /// the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         /// </summary>
         [Input("view")]
         public Input<string>? View { get; set; }

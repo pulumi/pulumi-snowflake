@@ -13,13 +13,11 @@ import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescrib
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpointArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpointArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpointArgs;
-import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFpArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientTypeArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkceArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgs;
-import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpointArgs;
 import com.pulumi.snowflake.inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRoleArgs;
@@ -90,13 +88,6 @@ public final class OauthIntegrationForPartnerApplicationsDescribeOutputArgs exte
         return Optional.ofNullable(this.oauthAuthorizationEndpoints);
     }
 
-    @Import(name="oauthClientIds")
-    private @Nullable Output<List<OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs>> oauthClientIds;
-
-    public Optional<Output<List<OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs>>> oauthClientIds() {
-        return Optional.ofNullable(this.oauthClientIds);
-    }
-
     @Import(name="oauthClientRsaPublicKey2Fps")
     private @Nullable Output<List<OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgs>> oauthClientRsaPublicKey2Fps;
 
@@ -130,13 +121,6 @@ public final class OauthIntegrationForPartnerApplicationsDescribeOutputArgs exte
 
     public Optional<Output<List<OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgs>>> oauthIssueRefreshTokens() {
         return Optional.ofNullable(this.oauthIssueRefreshTokens);
-    }
-
-    @Import(name="oauthRedirectUris")
-    private @Nullable Output<List<OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs>> oauthRedirectUris;
-
-    public Optional<Output<List<OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs>>> oauthRedirectUris() {
-        return Optional.ofNullable(this.oauthRedirectUris);
     }
 
     @Import(name="oauthRefreshTokenValidities")
@@ -178,13 +162,11 @@ public final class OauthIntegrationForPartnerApplicationsDescribeOutputArgs exte
         this.oauthAllowedAuthorizationEndpoints = $.oauthAllowedAuthorizationEndpoints;
         this.oauthAllowedTokenEndpoints = $.oauthAllowedTokenEndpoints;
         this.oauthAuthorizationEndpoints = $.oauthAuthorizationEndpoints;
-        this.oauthClientIds = $.oauthClientIds;
         this.oauthClientRsaPublicKey2Fps = $.oauthClientRsaPublicKey2Fps;
         this.oauthClientRsaPublicKeyFps = $.oauthClientRsaPublicKeyFps;
         this.oauthClientTypes = $.oauthClientTypes;
         this.oauthEnforcePkces = $.oauthEnforcePkces;
         this.oauthIssueRefreshTokens = $.oauthIssueRefreshTokens;
-        this.oauthRedirectUris = $.oauthRedirectUris;
         this.oauthRefreshTokenValidities = $.oauthRefreshTokenValidities;
         this.oauthTokenEndpoints = $.oauthTokenEndpoints;
         this.oauthUseSecondaryRoles = $.oauthUseSecondaryRoles;
@@ -313,19 +295,6 @@ public final class OauthIntegrationForPartnerApplicationsDescribeOutputArgs exte
             return oauthAuthorizationEndpoints(List.of(oauthAuthorizationEndpoints));
         }
 
-        public Builder oauthClientIds(@Nullable Output<List<OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs>> oauthClientIds) {
-            $.oauthClientIds = oauthClientIds;
-            return this;
-        }
-
-        public Builder oauthClientIds(List<OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs> oauthClientIds) {
-            return oauthClientIds(Output.of(oauthClientIds));
-        }
-
-        public Builder oauthClientIds(OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientIdArgs... oauthClientIds) {
-            return oauthClientIds(List.of(oauthClientIds));
-        }
-
         public Builder oauthClientRsaPublicKey2Fps(@Nullable Output<List<OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2FpArgs>> oauthClientRsaPublicKey2Fps) {
             $.oauthClientRsaPublicKey2Fps = oauthClientRsaPublicKey2Fps;
             return this;
@@ -389,19 +358,6 @@ public final class OauthIntegrationForPartnerApplicationsDescribeOutputArgs exte
 
         public Builder oauthIssueRefreshTokens(OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshTokenArgs... oauthIssueRefreshTokens) {
             return oauthIssueRefreshTokens(List.of(oauthIssueRefreshTokens));
-        }
-
-        public Builder oauthRedirectUris(@Nullable Output<List<OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs>> oauthRedirectUris) {
-            $.oauthRedirectUris = oauthRedirectUris;
-            return this;
-        }
-
-        public Builder oauthRedirectUris(List<OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs> oauthRedirectUris) {
-            return oauthRedirectUris(Output.of(oauthRedirectUris));
-        }
-
-        public Builder oauthRedirectUris(OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUriArgs... oauthRedirectUris) {
-            return oauthRedirectUris(List.of(oauthRedirectUris));
         }
 
         public Builder oauthRefreshTokenValidities(@Nullable Output<List<OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidityArgs>> oauthRefreshTokenValidities) {

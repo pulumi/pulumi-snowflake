@@ -16,32 +16,16 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetTagsArgs Empty = new GetTagsArgs();
 
-    /**
-     * IN clause to filter the list of objects
-     * 
-     */
     @Import(name="in")
     private @Nullable Output<GetTagsInArgs> in;
 
-    /**
-     * @return IN clause to filter the list of objects
-     * 
-     */
     public Optional<Output<GetTagsInArgs>> in() {
         return Optional.ofNullable(this.in);
     }
 
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     @Import(name="like")
     private @Nullable Output<String> like;
 
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<Output<String>> like() {
         return Optional.ofNullable(this.like);
     }
@@ -71,44 +55,20 @@ public final class GetTagsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetTagsArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param in IN clause to filter the list of objects
-         * 
-         * @return builder
-         * 
-         */
         public Builder in(@Nullable Output<GetTagsInArgs> in) {
             $.in = in;
             return this;
         }
 
-        /**
-         * @param in IN clause to filter the list of objects
-         * 
-         * @return builder
-         * 
-         */
         public Builder in(GetTagsInArgs in) {
             return in(Output.of(in));
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(@Nullable Output<String> like) {
             $.like = like;
             return this;
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(String like) {
             return like(Output.of(like));
         }

@@ -208,6 +208,7 @@ namespace Pulumi.Snowflake
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "passcode",
                     "password",
                     "privateKey",
                     "privateKeyPassphrase",
@@ -398,12 +399,22 @@ namespace Pulumi.Snowflake
             set => _params = value;
         }
 
+        [Input("passcode")]
+        private Input<string>? _passcode;
+
         /// <summary>
         /// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
         /// the `SNOWFLAKE_PASSCODE` environment variable.
         /// </summary>
-        [Input("passcode")]
-        public Input<string>? Passcode { get; set; }
+        public Input<string>? Passcode
+        {
+            get => _passcode;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passcode = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
@@ -507,10 +518,10 @@ namespace Pulumi.Snowflake
         public Input<string>? Role { get; set; }
 
         /// <summary>
-        /// True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-        /// the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
-        /// - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
-        /// variable.
+        /// False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+        /// the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
+        /// the proper privileges - see the section below. Can also be sourced from the
+        /// `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
         /// </summary>
         [Input("skipTomlFilePermissionVerification", json: true)]
         public Input<bool>? SkipTomlFilePermissionVerification { get; set; }
@@ -543,7 +554,7 @@ namespace Pulumi.Snowflake
         public Input<Inputs.ProviderTokenAccessorArgs>? TokenAccessor { get; set; }
 
         /// <summary>
-        /// True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+        /// False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
         /// format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
         /// variable.
         /// </summary>

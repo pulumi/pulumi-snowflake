@@ -19,14 +19,18 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
     public static final RowAccessPolicyArgs Empty = new RowAccessPolicyArgs();
 
     /**
-     * List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+     * List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to
+     * determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be
+     * protected by the row access policy. If any argument name or type is changed, the resource is recreated.
      * 
      */
     @Import(name="arguments", required=true)
     private Output<List<RowAccessPolicyArgumentArgs>> arguments;
 
     /**
-     * @return List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+     * @return List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to
+     * determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be
+     * protected by the row access policy. If any argument name or type is changed, the resource is recreated.
      * 
      */
     public Output<List<RowAccessPolicyArgumentArgs>> arguments() {
@@ -34,14 +38,18 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this
+     * field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
+     * case or run of whitespace is semantically significant.
      * 
      */
     @Import(name="body", required=true)
     private Output<String> body;
 
     /**
-     * @return Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+     * @return Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this
+     * field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
+     * case or run of whitespace is semantically significant.
      * 
      */
     public Output<String> body() {
@@ -64,14 +72,16 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -79,14 +89,16 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+     * policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+     * policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -94,14 +106,16 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the
+     * following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -138,7 +152,9 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arguments List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+         * @param arguments List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to
+         * determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be
+         * protected by the row access policy. If any argument name or type is changed, the resource is recreated.
          * 
          * @return builder
          * 
@@ -149,7 +165,9 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arguments List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+         * @param arguments List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to
+         * determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be
+         * protected by the row access policy. If any argument name or type is changed, the resource is recreated.
          * 
          * @return builder
          * 
@@ -159,7 +177,9 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arguments List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+         * @param arguments List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to
+         * determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be
+         * protected by the row access policy. If any argument name or type is changed, the resource is recreated.
          * 
          * @return builder
          * 
@@ -169,7 +189,9 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param body Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+         * @param body Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this
+         * field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
+         * case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 
@@ -180,7 +202,9 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param body Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+         * @param body Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this
+         * field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
+         * case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 
@@ -211,7 +235,8 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param database The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the
+         * following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -222,7 +247,8 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param database The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the
+         * following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -232,7 +258,8 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+         * policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -243,7 +270,8 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
+         * policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -253,7 +281,8 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param schema The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the
+         * following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -264,7 +293,8 @@ public final class RowAccessPolicyArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param schema The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the
+         * following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

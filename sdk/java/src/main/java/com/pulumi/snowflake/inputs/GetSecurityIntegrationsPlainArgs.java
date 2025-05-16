@@ -15,32 +15,16 @@ public final class GetSecurityIntegrationsPlainArgs extends com.pulumi.resources
 
     public static final GetSecurityIntegrationsPlainArgs Empty = new GetSecurityIntegrationsPlainArgs();
 
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     @Import(name="like")
     private @Nullable String like;
 
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
 
-    /**
-     * (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     @Import(name="withDescribe")
     private @Nullable Boolean withDescribe;
 
-    /**
-     * @return (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     public Optional<Boolean> withDescribe() {
         return Optional.ofNullable(this.withDescribe);
     }
@@ -70,23 +54,11 @@ public final class GetSecurityIntegrationsPlainArgs extends com.pulumi.resources
             $ = new GetSecurityIntegrationsPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(@Nullable String like) {
             $.like = like;
             return this;
         }
 
-        /**
-         * @param withDescribe (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withDescribe(@Nullable Boolean withDescribe) {
             $.withDescribe = withDescribe;
             return this;

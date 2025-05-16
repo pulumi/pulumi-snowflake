@@ -96,78 +96,250 @@ class TaskArgs:
                  when: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Task resource.
-        :param pulumi.Input[builtins.str] database: The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the task. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
         :param pulumi.Input[builtins.str] sql_statement: Any single SQL statement, or a call to a stored procedure, executed when the task runs.
         :param pulumi.Input[builtins.bool] started: Specifies if the task should be started or suspended.
-        :param pulumi.Input[builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] afters: Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] allow_overlapping_execution: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
-        :param pulumi.Input[builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
-        :param pulumi.Input[builtins.str] binary_output_format: The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
-        :param pulumi.Input[builtins.int] client_memory_limit: Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
-        :param pulumi.Input[builtins.bool] client_metadata_request_use_connection_ctx: For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
-        :param pulumi.Input[builtins.int] client_prefetch_threads: Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
-        :param pulumi.Input[builtins.int] client_result_chunk_size: Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
-        :param pulumi.Input[builtins.bool] client_result_column_case_insensitive: Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
-        :param pulumi.Input[builtins.bool] client_session_keep_alive: Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
-        :param pulumi.Input[builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
-        :param pulumi.Input[builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        :param pulumi.Input[builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+               of a session (e.g. network outage, browser termination, service interruption). For more information, check
+               [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] afters: Specifies one or more predecessor tasks for the current task. Use this option to [create a
+               DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
+               DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
+               technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] allow_overlapping_execution: By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
+               parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set
+               in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+               without an active transaction, is automatically committed after the statement successfully completes. For more
+               information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+               [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+        :param pulumi.Input[builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+               [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+               [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        :param pulumi.Input[builtins.str] binary_output_format: The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+               [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+               [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        :param pulumi.Input[builtins.int] client_memory_limit: Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+               queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+        :param pulumi.Input[builtins.bool] client_metadata_request_use_connection_ctx: For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+               databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+               quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+        :param pulumi.Input[builtins.int] client_prefetch_threads: Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+               attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+               resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+        :param pulumi.Input[builtins.int] client_result_chunk_size: Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+               downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+        :param pulumi.Input[builtins.bool] client_result_column_case_insensitive: Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+               information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+        :param pulumi.Input[builtins.bool] client_session_keep_alive: Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+               information, check [CLIENT_SESSION_KEEP_ALIVE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+        :param pulumi.Input[builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check
+               [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+        :param pulumi.Input[builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_*
+               variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+               use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+               information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the task.
-        :param pulumi.Input[builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
-        :param pulumi.Input[builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
-        :param pulumi.Input[builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
-        :param pulumi.Input[builtins.bool] enable_unload_physical_type_optimization: Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
-        :param pulumi.Input[builtins.str] error_integration: Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.bool] error_on_nondeterministic_merge: Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
-        :param pulumi.Input[builtins.bool] error_on_nondeterministic_update: Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
-        :param pulumi.Input[builtins.str] finalize: Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] geography_output_format: Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
-        :param pulumi.Input[builtins.str] geometry_output_format: Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
-        :param pulumi.Input[builtins.bool] jdbc_treat_timestamp_ntz_as_utc: Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
-        :param pulumi.Input[builtins.bool] jdbc_use_session_timezone: Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
-        :param pulumi.Input[builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
-        :param pulumi.Input[builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
-        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
-        :param pulumi.Input[builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
-        :param pulumi.Input[builtins.str] query_tag: Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
-        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
-        :param pulumi.Input[builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
-        :param pulumi.Input[builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
-        :param pulumi.Input['TaskScheduleArgs'] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
-        :param pulumi.Input[builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
-        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
-        :param pulumi.Input[builtins.int] statement_timeout_in_seconds: Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
-        :param pulumi.Input[builtins.bool] strict_json_output: This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
-        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
-        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
-        :param pulumi.Input[builtins.str] time_input_format: Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
-        :param pulumi.Input[builtins.str] time_output_format: Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
-        :param pulumi.Input[builtins.bool] timestamp_day_is_always24h: Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
-        :param pulumi.Input[builtins.str] timestamp_input_format: Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
-        :param pulumi.Input[builtins.str] timestamp_ltz_output_format: Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
-        :param pulumi.Input[builtins.str] timestamp_ntz_output_format: Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
-        :param pulumi.Input[builtins.str] timestamp_output_format: Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
-        :param pulumi.Input[builtins.str] timestamp_type_mapping: Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
-        :param pulumi.Input[builtins.str] timestamp_tz_output_format: Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
-        :param pulumi.Input[builtins.str] timezone: Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
-        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
-        :param pulumi.Input[builtins.bool] transaction_abort_on_error: Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
-        :param pulumi.Input[builtins.str] transaction_default_isolation_level: Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
-        :param pulumi.Input[builtins.int] two_digit_century_start: Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
-        :param pulumi.Input[builtins.str] unsupported_ddl_action: Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
-        :param pulumi.Input[builtins.bool] use_cached_result: Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
-        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
-        :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
-        :param pulumi.Input[builtins.int] user_task_timeout_ms: Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
-        :param pulumi.Input[builtins.str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
-        :param pulumi.Input[builtins.int] week_of_year_policy: Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
-        :param pulumi.Input[builtins.int] week_start: Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
-        :param pulumi.Input[builtins.str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
+        :param pulumi.Input[builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
+               JSON format.
+        :param pulumi.Input[builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+        :param pulumi.Input[builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        :param pulumi.Input[builtins.bool] enable_unload_physical_type_optimization: Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+               the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+               support the values in the output columns of the unload SQL statement or source table). For more information, check
+               [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+        :param pulumi.Input[builtins.str] error_integration: Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
+               here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.bool] error_on_nondeterministic_merge: Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+               used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+               perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+        :param pulumi.Input[builtins.bool] error_on_nondeterministic_update: Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+               is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+               the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+        :param pulumi.Input[builtins.str] finalize: Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
+               in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
+               and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
+               graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
+               (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] geography_output_format: Display format for [GEOGRAPHY
+               values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+               information, check [GEOGRAPHY_OUTPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        :param pulumi.Input[builtins.str] geometry_output_format: Display format for [GEOMETRY
+               values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+               information, check [GEOMETRY_OUTPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        :param pulumi.Input[builtins.bool] jdbc_treat_timestamp_ntz_as_utc: Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        :param pulumi.Input[builtins.bool] jdbc_use_session_timezone: Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+               [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+               getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+        :param pulumi.Input[builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+               insert newline characters after each element. For more information, check [JSON_INDENT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+        :param pulumi.Input[builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+               information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+               at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+               level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+               [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check
+               [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
+               technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+               column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+               auto-incremented column in [increasing or decreasing
+               order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+               more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+        :param pulumi.Input[builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+               [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+        :param pulumi.Input[builtins.str] query_tag: Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+               displayed in the output of the [QUERY_HISTORY,
+               QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+               information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+               Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+               [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+               You can use this parameter in situations in which [third-party applications always use double quotes around
+               identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+               more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        :param pulumi.Input[builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+               check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+        :param pulumi.Input[builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+               PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+               use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+               endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+               For more information, check [S3_STAGE_VPCE_DNS_NAME
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+        :param pulumi.Input['TaskScheduleArgs'] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
+               after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+        :param pulumi.Input[builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+               in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+               Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+               information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+               by the system. This parameter can be used in conjunction with the
+               [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+               ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+        :param pulumi.Input[builtins.int] statement_timeout_in_seconds: Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+               more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+        :param pulumi.Input[builtins.bool] strict_json_output: This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+               [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+               these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+               languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+               check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
+               default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
+               can automatically retry the task graphs from the last task in the graph that failed. For more information, check
+               [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        :param pulumi.Input[builtins.str] time_input_format: Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+               (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+               session). For more information, check [TIME_INPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+        :param pulumi.Input[builtins.str] time_output_format: Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+        :param pulumi.Input[builtins.bool] timestamp_day_is_always24h: Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+               aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+               check [TIMESTAMP_DAY_IS_ALWAYS_24H
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+        :param pulumi.Input[builtins.str] timestamp_input_format: Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+               AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+               during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+        :param pulumi.Input[builtins.str] timestamp_ltz_output_format: Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+               [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+               more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+        :param pulumi.Input[builtins.str] timestamp_ntz_output_format: Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+        :param pulumi.Input[builtins.str] timestamp_output_format: Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+               output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+        :param pulumi.Input[builtins.str] timestamp_type_mapping: Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+               [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        :param pulumi.Input[builtins.str] timestamp_tz_output_format: Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+               [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+               more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+        :param pulumi.Input[builtins.str] timezone: Specifies the time zone for the session. You can specify a [time zone
+               name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+               name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+               Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+               information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+               level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+               [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[builtins.bool] transaction_abort_on_error: Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+               more information, check [TRANSACTION_ABORT_ON_ERROR
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+        :param pulumi.Input[builtins.str] transaction_default_isolation_level: Specifies the isolation level for transactions in the user session. For more information, check
+               [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        :param pulumi.Input[builtins.int] two_digit_century_start: Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+               parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+               represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+        :param pulumi.Input[builtins.str] unsupported_ddl_action: Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+               information, check [UNSUPPORTED_DDL_ACTION
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        :param pulumi.Input[builtins.bool] use_cached_result: Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+               information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+               available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+               this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
+               warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds For more information, check
+               [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+        :param pulumi.Input[builtins.int] user_task_timeout_ms: Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
+               [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        :param pulumi.Input[builtins.str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+               Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
+               user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
+        :param pulumi.Input[builtins.int] week_of_year_policy: Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+               which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+               first week of the year and December 31 is included in the last week of the year. For more information, check
+               [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+        :param pulumi.Input[builtins.int] week_start: Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+               ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+               day of the week. For more information, check [WEEK_START
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+        :param pulumi.Input[builtins.str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
+               (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
+               If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
+               as a predecessor also don’t run.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
@@ -314,7 +486,8 @@ class TaskArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[builtins.str]:
         """
-        The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The database in which to create the task. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -326,7 +499,8 @@ class TaskArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[builtins.str]:
         """
-        The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -362,7 +536,9 @@ class TaskArgs:
     @pulumi.getter(name="abortDetachedQuery")
     def abort_detached_query(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+        Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+        of a session (e.g. network outage, browser termination, service interruption). For more information, check
+        [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
         """
         return pulumi.get(self, "abort_detached_query")
 
@@ -374,7 +550,10 @@ class TaskArgs:
     @pulumi.getter
     def afters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies one or more predecessor tasks for the current task. Use this option to [create a
+        DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
+        DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
+        technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "afters")
 
@@ -386,7 +565,9 @@ class TaskArgs:
     @pulumi.getter(name="allowOverlappingExecution")
     def allow_overlapping_execution(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
+        parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set
+        in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "allow_overlapping_execution")
 
@@ -398,7 +579,10 @@ class TaskArgs:
     @pulumi.getter
     def autocommit(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+        Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+        without an active transaction, is automatically committed after the statement successfully completes. For more
+        information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+        [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
         """
         return pulumi.get(self, "autocommit")
 
@@ -410,7 +594,9 @@ class TaskArgs:
     @pulumi.getter(name="binaryInputFormat")
     def binary_input_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+        [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+        [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
         """
         return pulumi.get(self, "binary_input_format")
 
@@ -422,7 +608,9 @@ class TaskArgs:
     @pulumi.getter(name="binaryOutputFormat")
     def binary_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+        [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+        [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
         """
         return pulumi.get(self, "binary_output_format")
 
@@ -434,7 +622,9 @@ class TaskArgs:
     @pulumi.getter(name="clientMemoryLimit")
     def client_memory_limit(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+        Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+        queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
         """
         return pulumi.get(self, "client_memory_limit")
 
@@ -446,7 +636,10 @@ class TaskArgs:
     @pulumi.getter(name="clientMetadataRequestUseConnectionCtx")
     def client_metadata_request_use_connection_ctx(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+        For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+        databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+        quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
         """
         return pulumi.get(self, "client_metadata_request_use_connection_ctx")
 
@@ -458,7 +651,10 @@ class TaskArgs:
     @pulumi.getter(name="clientPrefetchThreads")
     def client_prefetch_threads(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+        Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+        attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+        resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
         """
         return pulumi.get(self, "client_prefetch_threads")
 
@@ -470,7 +666,9 @@ class TaskArgs:
     @pulumi.getter(name="clientResultChunkSize")
     def client_result_chunk_size(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+        Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+        downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
         """
         return pulumi.get(self, "client_result_chunk_size")
 
@@ -482,7 +680,9 @@ class TaskArgs:
     @pulumi.getter(name="clientResultColumnCaseInsensitive")
     def client_result_column_case_insensitive(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+        Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+        information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
         """
         return pulumi.get(self, "client_result_column_case_insensitive")
 
@@ -494,7 +694,9 @@ class TaskArgs:
     @pulumi.getter(name="clientSessionKeepAlive")
     def client_session_keep_alive(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+        Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+        information, check [CLIENT_SESSION_KEEP_ALIVE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
         """
         return pulumi.get(self, "client_session_keep_alive")
 
@@ -506,7 +708,9 @@ class TaskArgs:
     @pulumi.getter(name="clientSessionKeepAliveHeartbeatFrequency")
     def client_session_keep_alive_heartbeat_frequency(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+        Number of seconds in-between client attempts to update the token for the session. For more information, check
+        [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         """
         return pulumi.get(self, "client_session_keep_alive_heartbeat_frequency")
 
@@ -518,7 +722,11 @@ class TaskArgs:
     @pulumi.getter(name="clientTimestampTypeMapping")
     def client_timestamp_type_mapping(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        Specifies the [TIMESTAMP_*
+        variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+        use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+        information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         """
         return pulumi.get(self, "client_timestamp_type_mapping")
 
@@ -542,7 +750,8 @@ class TaskArgs:
     @pulumi.getter
     def config(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
+        JSON format.
         """
         return pulumi.get(self, "config")
 
@@ -554,7 +763,9 @@ class TaskArgs:
     @pulumi.getter(name="dateInputFormat")
     def date_input_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+        Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         """
         return pulumi.get(self, "date_input_format")
 
@@ -566,7 +777,9 @@ class TaskArgs:
     @pulumi.getter(name="dateOutputFormat")
     def date_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
         """
         return pulumi.get(self, "date_output_format")
 
@@ -578,7 +791,11 @@ class TaskArgs:
     @pulumi.getter(name="enableUnloadPhysicalTypeOptimization")
     def enable_unload_physical_type_optimization(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+        Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+        the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+        support the values in the output columns of the unload SQL statement or source table). For more information, check
+        [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
         """
         return pulumi.get(self, "enable_unload_physical_type_optimization")
 
@@ -590,7 +807,8 @@ class TaskArgs:
     @pulumi.getter(name="errorIntegration")
     def error_integration(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
+        here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "error_integration")
 
@@ -602,7 +820,10 @@ class TaskArgs:
     @pulumi.getter(name="errorOnNondeterministicMerge")
     def error_on_nondeterministic_merge(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+        Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+        used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+        perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
         """
         return pulumi.get(self, "error_on_nondeterministic_merge")
 
@@ -614,7 +835,10 @@ class TaskArgs:
     @pulumi.getter(name="errorOnNondeterministicUpdate")
     def error_on_nondeterministic_update(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+        Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+        is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+        the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
         """
         return pulumi.get(self, "error_on_nondeterministic_update")
 
@@ -626,7 +850,11 @@ class TaskArgs:
     @pulumi.getter
     def finalize(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
+        in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
+        and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
+        graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
+        (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "finalize")
 
@@ -638,7 +866,10 @@ class TaskArgs:
     @pulumi.getter(name="geographyOutputFormat")
     def geography_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        Display format for [GEOGRAPHY
+        values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+        information, check [GEOGRAPHY_OUTPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         """
         return pulumi.get(self, "geography_output_format")
 
@@ -650,7 +881,10 @@ class TaskArgs:
     @pulumi.getter(name="geometryOutputFormat")
     def geometry_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        Display format for [GEOMETRY
+        values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+        information, check [GEOMETRY_OUTPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         """
         return pulumi.get(self, "geometry_output_format")
 
@@ -662,7 +896,8 @@ class TaskArgs:
     @pulumi.getter(name="jdbcTreatTimestampNtzAsUtc")
     def jdbc_treat_timestamp_ntz_as_utc(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
         """
         return pulumi.get(self, "jdbc_treat_timestamp_ntz_as_utc")
 
@@ -674,7 +909,10 @@ class TaskArgs:
     @pulumi.getter(name="jdbcUseSessionTimezone")
     def jdbc_use_session_timezone(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+        Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+        [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+        getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
         """
         return pulumi.get(self, "jdbc_use_session_timezone")
 
@@ -686,7 +924,9 @@ class TaskArgs:
     @pulumi.getter(name="jsonIndent")
     def json_indent(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+        Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+        insert newline characters after each element. For more information, check [JSON_INDENT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         """
         return pulumi.get(self, "json_indent")
 
@@ -698,7 +938,8 @@ class TaskArgs:
     @pulumi.getter(name="lockTimeout")
     def lock_timeout(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+        information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
         """
         return pulumi.get(self, "lock_timeout")
 
@@ -710,7 +951,10 @@ class TaskArgs:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+        at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+        level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+        [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -722,7 +966,8 @@ class TaskArgs:
     @pulumi.getter(name="multiStatementCount")
     def multi_statement_count(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        Number of statements to execute when using the multi-statement capability. For more information, check
+        [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         """
         return pulumi.get(self, "multi_statement_count")
 
@@ -734,7 +979,8 @@ class TaskArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
+        technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -746,7 +992,12 @@ class TaskArgs:
     @pulumi.getter(name="noorderSequenceAsDefault")
     def noorder_sequence_as_default(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+        Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+        column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+        auto-incremented column in [increasing or decreasing
+        order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+        more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         """
         return pulumi.get(self, "noorder_sequence_as_default")
 
@@ -758,7 +1009,8 @@ class TaskArgs:
     @pulumi.getter(name="odbcTreatDecimalAsInt")
     def odbc_treat_decimal_as_int(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+        Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+        [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
         """
         return pulumi.get(self, "odbc_treat_decimal_as_int")
 
@@ -770,7 +1022,10 @@ class TaskArgs:
     @pulumi.getter(name="queryTag")
     def query_tag(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+        Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+        displayed in the output of the [QUERY_HISTORY,
+        QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+        information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
         """
         return pulumi.get(self, "query_tag")
 
@@ -782,7 +1037,13 @@ class TaskArgs:
     @pulumi.getter(name="quotedIdentifiersIgnoreCase")
     def quoted_identifiers_ignore_case(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+        Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+        [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+        You can use this parameter in situations in which [third-party applications always use double quotes around
+        identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+        more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         """
         return pulumi.get(self, "quoted_identifiers_ignore_case")
 
@@ -794,7 +1055,8 @@ class TaskArgs:
     @pulumi.getter(name="rowsPerResultset")
     def rows_per_resultset(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+        Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+        check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         """
         return pulumi.get(self, "rows_per_resultset")
 
@@ -806,7 +1068,12 @@ class TaskArgs:
     @pulumi.getter(name="s3StageVpceDnsName")
     def s3_stage_vpce_dns_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+        Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+        PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+        use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+        endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+        For more information, check [S3_STAGE_VPCE_DNS_NAME
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
         """
         return pulumi.get(self, "s3_stage_vpce_dns_name")
 
@@ -818,7 +1085,8 @@ class TaskArgs:
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['TaskScheduleArgs']]:
         """
-        The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+        The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
+        after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
         """
         return pulumi.get(self, "schedule")
 
@@ -830,7 +1098,10 @@ class TaskArgs:
     @pulumi.getter(name="searchPath")
     def search_path(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+        in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+        Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+        information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         """
         return pulumi.get(self, "search_path")
 
@@ -842,7 +1113,11 @@ class TaskArgs:
     @pulumi.getter(name="statementQueuedTimeoutInSeconds")
     def statement_queued_timeout_in_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+        Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+        by the system. This parameter can be used in conjunction with the
+        [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+        ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
         """
         return pulumi.get(self, "statement_queued_timeout_in_seconds")
 
@@ -854,7 +1129,9 @@ class TaskArgs:
     @pulumi.getter(name="statementTimeoutInSeconds")
     def statement_timeout_in_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+        Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+        more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
         """
         return pulumi.get(self, "statement_timeout_in_seconds")
 
@@ -866,7 +1143,11 @@ class TaskArgs:
     @pulumi.getter(name="strictJsonOutput")
     def strict_json_output(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+        This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+        [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+        these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+        languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+        check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
         """
         return pulumi.get(self, "strict_json_output")
 
@@ -878,7 +1159,9 @@ class TaskArgs:
     @pulumi.getter(name="suspendTaskAfterNumFailures")
     def suspend_task_after_num_failures(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
+        default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         """
         return pulumi.get(self, "suspend_task_after_num_failures")
 
@@ -890,7 +1173,9 @@ class TaskArgs:
     @pulumi.getter(name="taskAutoRetryAttempts")
     def task_auto_retry_attempts(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
+        can automatically retry the task graphs from the last task in the graph that failed. For more information, check
+        [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         """
         return pulumi.get(self, "task_auto_retry_attempts")
 
@@ -902,7 +1187,11 @@ class TaskArgs:
     @pulumi.getter(name="timeInputFormat")
     def time_input_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+        Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+        (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+        session). For more information, check [TIME_INPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
         """
         return pulumi.get(self, "time_input_format")
 
@@ -914,7 +1203,9 @@ class TaskArgs:
     @pulumi.getter(name="timeOutputFormat")
     def time_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+        Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
         """
         return pulumi.get(self, "time_output_format")
 
@@ -926,7 +1217,10 @@ class TaskArgs:
     @pulumi.getter(name="timestampDayIsAlways24h")
     def timestamp_day_is_always24h(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+        Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+        aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+        check [TIMESTAMP_DAY_IS_ALWAYS_24H
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
         """
         return pulumi.get(self, "timestamp_day_is_always24h")
 
@@ -938,7 +1232,11 @@ class TaskArgs:
     @pulumi.getter(name="timestampInputFormat")
     def timestamp_input_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+        Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+        AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+        during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
         """
         return pulumi.get(self, "timestamp_input_format")
 
@@ -950,7 +1248,11 @@ class TaskArgs:
     @pulumi.getter(name="timestampLtzOutputFormat")
     def timestamp_ltz_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+        Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+        [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+        more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
         """
         return pulumi.get(self, "timestamp_ltz_output_format")
 
@@ -962,7 +1264,8 @@ class TaskArgs:
     @pulumi.getter(name="timestampNtzOutputFormat")
     def timestamp_ntz_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+        Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
         """
         return pulumi.get(self, "timestamp_ntz_output_format")
 
@@ -974,7 +1277,9 @@ class TaskArgs:
     @pulumi.getter(name="timestampOutputFormat")
     def timestamp_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+        Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+        output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
         """
         return pulumi.get(self, "timestamp_output_format")
 
@@ -986,7 +1291,8 @@ class TaskArgs:
     @pulumi.getter(name="timestampTypeMapping")
     def timestamp_type_mapping(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+        [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
         """
         return pulumi.get(self, "timestamp_type_mapping")
 
@@ -998,7 +1304,11 @@ class TaskArgs:
     @pulumi.getter(name="timestampTzOutputFormat")
     def timestamp_tz_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+        Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+        [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+        more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
         """
         return pulumi.get(self, "timestamp_tz_output_format")
 
@@ -1010,7 +1320,11 @@ class TaskArgs:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+        Specifies the time zone for the session. You can specify a [time zone
+        name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+        name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+        Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+        information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
         """
         return pulumi.get(self, "timezone")
 
@@ -1022,7 +1336,9 @@ class TaskArgs:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+        level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+        [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -1034,7 +1350,9 @@ class TaskArgs:
     @pulumi.getter(name="transactionAbortOnError")
     def transaction_abort_on_error(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+        Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+        more information, check [TRANSACTION_ABORT_ON_ERROR
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
         """
         return pulumi.get(self, "transaction_abort_on_error")
 
@@ -1046,7 +1364,9 @@ class TaskArgs:
     @pulumi.getter(name="transactionDefaultIsolationLevel")
     def transaction_default_isolation_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        Specifies the isolation level for transactions in the user session. For more information, check
+        [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
         """
         return pulumi.get(self, "transaction_default_isolation_level")
 
@@ -1058,7 +1378,10 @@ class TaskArgs:
     @pulumi.getter(name="twoDigitCenturyStart")
     def two_digit_century_start(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+        Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+        parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+        represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
         """
         return pulumi.get(self, "two_digit_century_start")
 
@@ -1070,7 +1393,9 @@ class TaskArgs:
     @pulumi.getter(name="unsupportedDdlAction")
     def unsupported_ddl_action(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+        information, check [UNSUPPORTED_DDL_ACTION
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
         """
         return pulumi.get(self, "unsupported_ddl_action")
 
@@ -1082,7 +1407,8 @@ class TaskArgs:
     @pulumi.getter(name="useCachedResult")
     def use_cached_result(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+        Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+        information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
         """
         return pulumi.get(self, "use_cached_result")
 
@@ -1094,7 +1420,11 @@ class TaskArgs:
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
     def user_task_managed_initial_warehouse_size(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+        available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+        this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
+        warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
@@ -1106,7 +1436,9 @@ class TaskArgs:
     @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
     def user_task_minimum_trigger_interval_in_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+        Minimum amount of time between Triggered Task executions in seconds For more information, check
+        [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
         """
         return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
 
@@ -1118,7 +1450,8 @@ class TaskArgs:
     @pulumi.getter(name="userTaskTimeoutMs")
     def user_task_timeout_ms(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
+        [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         return pulumi.get(self, "user_task_timeout_ms")
 
@@ -1130,7 +1463,9 @@ class TaskArgs:
     @pulumi.getter
     def warehouse(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
+        The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+        Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
+        user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
         """
         return pulumi.get(self, "warehouse")
 
@@ -1142,7 +1477,10 @@ class TaskArgs:
     @pulumi.getter(name="weekOfYearPolicy")
     def week_of_year_policy(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+        Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+        which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+        first week of the year and December 31 is included in the last week of the year. For more information, check
+        [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
         """
         return pulumi.get(self, "week_of_year_policy")
 
@@ -1154,7 +1492,10 @@ class TaskArgs:
     @pulumi.getter(name="weekStart")
     def week_start(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+        Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+        ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+        day of the week. For more information, check [WEEK_START
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
         """
         return pulumi.get(self, "week_start")
 
@@ -1166,7 +1507,10 @@ class TaskArgs:
     @pulumi.getter
     def when(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
+        Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
+        (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
+        If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
+        as a predecessor also don’t run.
         """
         return pulumi.get(self, "when")
 
@@ -1255,81 +1599,254 @@ class _TaskState:
                  when: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Task resources.
-        :param pulumi.Input[builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] afters: Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] allow_overlapping_execution: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
-        :param pulumi.Input[builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
-        :param pulumi.Input[builtins.str] binary_output_format: The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
-        :param pulumi.Input[builtins.int] client_memory_limit: Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
-        :param pulumi.Input[builtins.bool] client_metadata_request_use_connection_ctx: For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
-        :param pulumi.Input[builtins.int] client_prefetch_threads: Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
-        :param pulumi.Input[builtins.int] client_result_chunk_size: Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
-        :param pulumi.Input[builtins.bool] client_result_column_case_insensitive: Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
-        :param pulumi.Input[builtins.bool] client_session_keep_alive: Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
-        :param pulumi.Input[builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
-        :param pulumi.Input[builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        :param pulumi.Input[builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+               of a session (e.g. network outage, browser termination, service interruption). For more information, check
+               [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] afters: Specifies one or more predecessor tasks for the current task. Use this option to [create a
+               DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
+               DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
+               technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] allow_overlapping_execution: By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
+               parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set
+               in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+               without an active transaction, is automatically committed after the statement successfully completes. For more
+               information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+               [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+        :param pulumi.Input[builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+               [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+               [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        :param pulumi.Input[builtins.str] binary_output_format: The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+               [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+               [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        :param pulumi.Input[builtins.int] client_memory_limit: Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+               queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+        :param pulumi.Input[builtins.bool] client_metadata_request_use_connection_ctx: For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+               databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+               quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+        :param pulumi.Input[builtins.int] client_prefetch_threads: Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+               attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+               resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+        :param pulumi.Input[builtins.int] client_result_chunk_size: Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+               downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+        :param pulumi.Input[builtins.bool] client_result_column_case_insensitive: Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+               information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+        :param pulumi.Input[builtins.bool] client_session_keep_alive: Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+               information, check [CLIENT_SESSION_KEEP_ALIVE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+        :param pulumi.Input[builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check
+               [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+        :param pulumi.Input[builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_*
+               variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+               use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+               information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the task.
-        :param pulumi.Input[builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
-        :param pulumi.Input[builtins.str] database: The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
-        :param pulumi.Input[builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
-        :param pulumi.Input[builtins.bool] enable_unload_physical_type_optimization: Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
-        :param pulumi.Input[builtins.str] error_integration: Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.bool] error_on_nondeterministic_merge: Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
-        :param pulumi.Input[builtins.bool] error_on_nondeterministic_update: Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
-        :param pulumi.Input[builtins.str] finalize: Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] geography_output_format: Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
-        :param pulumi.Input[builtins.str] geometry_output_format: Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
-        :param pulumi.Input[builtins.bool] jdbc_treat_timestamp_ntz_as_utc: Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
-        :param pulumi.Input[builtins.bool] jdbc_use_session_timezone: Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
-        :param pulumi.Input[builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
-        :param pulumi.Input[builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
-        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
-        :param pulumi.Input[builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+        :param pulumi.Input[builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
+               JSON format.
+        :param pulumi.Input[builtins.str] database: The database in which to create the task. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+        :param pulumi.Input[builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        :param pulumi.Input[builtins.bool] enable_unload_physical_type_optimization: Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+               the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+               support the values in the output columns of the unload SQL statement or source table). For more information, check
+               [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+        :param pulumi.Input[builtins.str] error_integration: Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
+               here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.bool] error_on_nondeterministic_merge: Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+               used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+               perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+        :param pulumi.Input[builtins.bool] error_on_nondeterministic_update: Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+               is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+               the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+        :param pulumi.Input[builtins.str] finalize: Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
+               in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
+               and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
+               graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
+               (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] geography_output_format: Display format for [GEOGRAPHY
+               values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+               information, check [GEOGRAPHY_OUTPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        :param pulumi.Input[builtins.str] geometry_output_format: Display format for [GEOMETRY
+               values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+               information, check [GEOMETRY_OUTPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        :param pulumi.Input[builtins.bool] jdbc_treat_timestamp_ntz_as_utc: Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        :param pulumi.Input[builtins.bool] jdbc_use_session_timezone: Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+               [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+               getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+        :param pulumi.Input[builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+               insert newline characters after each element. For more information, check [JSON_INDENT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+        :param pulumi.Input[builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+               information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+               at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+               level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+               [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check
+               [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
+               technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+               column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+               auto-incremented column in [increasing or decreasing
+               order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+               more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+        :param pulumi.Input[builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+               [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
         :param pulumi.Input[Sequence[pulumi.Input['TaskParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN TASK` for the given task.
-        :param pulumi.Input[builtins.str] query_tag: Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
-        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
-        :param pulumi.Input[builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
-        :param pulumi.Input[builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
-        :param pulumi.Input['TaskScheduleArgs'] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        :param pulumi.Input[builtins.str] query_tag: Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+               displayed in the output of the [QUERY_HISTORY,
+               QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+               information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+               Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+               [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+               You can use this parameter in situations in which [third-party applications always use double quotes around
+               identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+               more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        :param pulumi.Input[builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+               check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+        :param pulumi.Input[builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+               PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+               use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+               endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+               For more information, check [S3_STAGE_VPCE_DNS_NAME
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+        :param pulumi.Input['TaskScheduleArgs'] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
+               after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+               in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+               Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+               information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         :param pulumi.Input[Sequence[pulumi.Input['TaskShowOutputArgs']]] show_outputs: Outputs the result of `SHOW TASKS` for the given task.
         :param pulumi.Input[builtins.str] sql_statement: Any single SQL statement, or a call to a stored procedure, executed when the task runs.
         :param pulumi.Input[builtins.bool] started: Specifies if the task should be started or suspended.
-        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
-        :param pulumi.Input[builtins.int] statement_timeout_in_seconds: Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
-        :param pulumi.Input[builtins.bool] strict_json_output: This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
-        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
-        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
-        :param pulumi.Input[builtins.str] time_input_format: Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
-        :param pulumi.Input[builtins.str] time_output_format: Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
-        :param pulumi.Input[builtins.bool] timestamp_day_is_always24h: Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
-        :param pulumi.Input[builtins.str] timestamp_input_format: Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
-        :param pulumi.Input[builtins.str] timestamp_ltz_output_format: Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
-        :param pulumi.Input[builtins.str] timestamp_ntz_output_format: Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
-        :param pulumi.Input[builtins.str] timestamp_output_format: Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
-        :param pulumi.Input[builtins.str] timestamp_type_mapping: Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
-        :param pulumi.Input[builtins.str] timestamp_tz_output_format: Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
-        :param pulumi.Input[builtins.str] timezone: Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
-        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
-        :param pulumi.Input[builtins.bool] transaction_abort_on_error: Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
-        :param pulumi.Input[builtins.str] transaction_default_isolation_level: Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
-        :param pulumi.Input[builtins.int] two_digit_century_start: Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
-        :param pulumi.Input[builtins.str] unsupported_ddl_action: Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
-        :param pulumi.Input[builtins.bool] use_cached_result: Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
-        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
-        :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
-        :param pulumi.Input[builtins.int] user_task_timeout_ms: Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
-        :param pulumi.Input[builtins.str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
-        :param pulumi.Input[builtins.int] week_of_year_policy: Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
-        :param pulumi.Input[builtins.int] week_start: Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
-        :param pulumi.Input[builtins.str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
+        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+               by the system. This parameter can be used in conjunction with the
+               [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+               ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+        :param pulumi.Input[builtins.int] statement_timeout_in_seconds: Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+               more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+        :param pulumi.Input[builtins.bool] strict_json_output: This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+               [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+               these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+               languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+               check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
+               default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
+               can automatically retry the task graphs from the last task in the graph that failed. For more information, check
+               [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        :param pulumi.Input[builtins.str] time_input_format: Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+               (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+               session). For more information, check [TIME_INPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+        :param pulumi.Input[builtins.str] time_output_format: Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+        :param pulumi.Input[builtins.bool] timestamp_day_is_always24h: Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+               aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+               check [TIMESTAMP_DAY_IS_ALWAYS_24H
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+        :param pulumi.Input[builtins.str] timestamp_input_format: Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+               AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+               during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+        :param pulumi.Input[builtins.str] timestamp_ltz_output_format: Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+               [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+               more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+        :param pulumi.Input[builtins.str] timestamp_ntz_output_format: Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+        :param pulumi.Input[builtins.str] timestamp_output_format: Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+               output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+        :param pulumi.Input[builtins.str] timestamp_type_mapping: Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+               [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        :param pulumi.Input[builtins.str] timestamp_tz_output_format: Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+               [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+               more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+        :param pulumi.Input[builtins.str] timezone: Specifies the time zone for the session. You can specify a [time zone
+               name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+               name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+               Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+               information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+               level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+               [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[builtins.bool] transaction_abort_on_error: Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+               more information, check [TRANSACTION_ABORT_ON_ERROR
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+        :param pulumi.Input[builtins.str] transaction_default_isolation_level: Specifies the isolation level for transactions in the user session. For more information, check
+               [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        :param pulumi.Input[builtins.int] two_digit_century_start: Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+               parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+               represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+        :param pulumi.Input[builtins.str] unsupported_ddl_action: Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+               information, check [UNSUPPORTED_DDL_ACTION
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        :param pulumi.Input[builtins.bool] use_cached_result: Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+               information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+               available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+               this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
+               warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds For more information, check
+               [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+        :param pulumi.Input[builtins.int] user_task_timeout_ms: Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
+               [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        :param pulumi.Input[builtins.str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+               Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
+               user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
+        :param pulumi.Input[builtins.int] week_of_year_policy: Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+               which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+               first week of the year and December 31 is included in the last week of the year. For more information, check
+               [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+        :param pulumi.Input[builtins.int] week_start: Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+               ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+               day of the week. For more information, check [WEEK_START
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+        :param pulumi.Input[builtins.str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
+               (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
+               If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
+               as a predecessor also don’t run.
         """
         if abort_detached_query is not None:
             pulumi.set(__self__, "abort_detached_query", abort_detached_query)
@@ -1486,7 +2003,9 @@ class _TaskState:
     @pulumi.getter(name="abortDetachedQuery")
     def abort_detached_query(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+        Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+        of a session (e.g. network outage, browser termination, service interruption). For more information, check
+        [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
         """
         return pulumi.get(self, "abort_detached_query")
 
@@ -1498,7 +2017,10 @@ class _TaskState:
     @pulumi.getter
     def afters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies one or more predecessor tasks for the current task. Use this option to [create a
+        DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
+        DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
+        technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "afters")
 
@@ -1510,7 +2032,9 @@ class _TaskState:
     @pulumi.getter(name="allowOverlappingExecution")
     def allow_overlapping_execution(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
+        parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set
+        in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "allow_overlapping_execution")
 
@@ -1522,7 +2046,10 @@ class _TaskState:
     @pulumi.getter
     def autocommit(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+        Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+        without an active transaction, is automatically committed after the statement successfully completes. For more
+        information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+        [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
         """
         return pulumi.get(self, "autocommit")
 
@@ -1534,7 +2061,9 @@ class _TaskState:
     @pulumi.getter(name="binaryInputFormat")
     def binary_input_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+        [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+        [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
         """
         return pulumi.get(self, "binary_input_format")
 
@@ -1546,7 +2075,9 @@ class _TaskState:
     @pulumi.getter(name="binaryOutputFormat")
     def binary_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+        [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+        [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
         """
         return pulumi.get(self, "binary_output_format")
 
@@ -1558,7 +2089,9 @@ class _TaskState:
     @pulumi.getter(name="clientMemoryLimit")
     def client_memory_limit(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+        Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+        queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
         """
         return pulumi.get(self, "client_memory_limit")
 
@@ -1570,7 +2103,10 @@ class _TaskState:
     @pulumi.getter(name="clientMetadataRequestUseConnectionCtx")
     def client_metadata_request_use_connection_ctx(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+        For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+        databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+        quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
         """
         return pulumi.get(self, "client_metadata_request_use_connection_ctx")
 
@@ -1582,7 +2118,10 @@ class _TaskState:
     @pulumi.getter(name="clientPrefetchThreads")
     def client_prefetch_threads(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+        Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+        attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+        resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
         """
         return pulumi.get(self, "client_prefetch_threads")
 
@@ -1594,7 +2133,9 @@ class _TaskState:
     @pulumi.getter(name="clientResultChunkSize")
     def client_result_chunk_size(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+        Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+        downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
         """
         return pulumi.get(self, "client_result_chunk_size")
 
@@ -1606,7 +2147,9 @@ class _TaskState:
     @pulumi.getter(name="clientResultColumnCaseInsensitive")
     def client_result_column_case_insensitive(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+        Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+        information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
         """
         return pulumi.get(self, "client_result_column_case_insensitive")
 
@@ -1618,7 +2161,9 @@ class _TaskState:
     @pulumi.getter(name="clientSessionKeepAlive")
     def client_session_keep_alive(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+        Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+        information, check [CLIENT_SESSION_KEEP_ALIVE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
         """
         return pulumi.get(self, "client_session_keep_alive")
 
@@ -1630,7 +2175,9 @@ class _TaskState:
     @pulumi.getter(name="clientSessionKeepAliveHeartbeatFrequency")
     def client_session_keep_alive_heartbeat_frequency(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+        Number of seconds in-between client attempts to update the token for the session. For more information, check
+        [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         """
         return pulumi.get(self, "client_session_keep_alive_heartbeat_frequency")
 
@@ -1642,7 +2189,11 @@ class _TaskState:
     @pulumi.getter(name="clientTimestampTypeMapping")
     def client_timestamp_type_mapping(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        Specifies the [TIMESTAMP_*
+        variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+        use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+        information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         """
         return pulumi.get(self, "client_timestamp_type_mapping")
 
@@ -1666,7 +2217,8 @@ class _TaskState:
     @pulumi.getter
     def config(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
+        JSON format.
         """
         return pulumi.get(self, "config")
 
@@ -1678,7 +2230,8 @@ class _TaskState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The database in which to create the task. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -1690,7 +2243,9 @@ class _TaskState:
     @pulumi.getter(name="dateInputFormat")
     def date_input_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+        Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         """
         return pulumi.get(self, "date_input_format")
 
@@ -1702,7 +2257,9 @@ class _TaskState:
     @pulumi.getter(name="dateOutputFormat")
     def date_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
         """
         return pulumi.get(self, "date_output_format")
 
@@ -1714,7 +2271,11 @@ class _TaskState:
     @pulumi.getter(name="enableUnloadPhysicalTypeOptimization")
     def enable_unload_physical_type_optimization(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+        Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+        the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+        support the values in the output columns of the unload SQL statement or source table). For more information, check
+        [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
         """
         return pulumi.get(self, "enable_unload_physical_type_optimization")
 
@@ -1726,7 +2287,8 @@ class _TaskState:
     @pulumi.getter(name="errorIntegration")
     def error_integration(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
+        here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "error_integration")
 
@@ -1738,7 +2300,10 @@ class _TaskState:
     @pulumi.getter(name="errorOnNondeterministicMerge")
     def error_on_nondeterministic_merge(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+        Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+        used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+        perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
         """
         return pulumi.get(self, "error_on_nondeterministic_merge")
 
@@ -1750,7 +2315,10 @@ class _TaskState:
     @pulumi.getter(name="errorOnNondeterministicUpdate")
     def error_on_nondeterministic_update(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+        Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+        is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+        the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
         """
         return pulumi.get(self, "error_on_nondeterministic_update")
 
@@ -1762,7 +2330,11 @@ class _TaskState:
     @pulumi.getter
     def finalize(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
+        in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
+        and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
+        graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
+        (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "finalize")
 
@@ -1774,7 +2346,8 @@ class _TaskState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -1786,7 +2359,10 @@ class _TaskState:
     @pulumi.getter(name="geographyOutputFormat")
     def geography_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        Display format for [GEOGRAPHY
+        values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+        information, check [GEOGRAPHY_OUTPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         """
         return pulumi.get(self, "geography_output_format")
 
@@ -1798,7 +2374,10 @@ class _TaskState:
     @pulumi.getter(name="geometryOutputFormat")
     def geometry_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        Display format for [GEOMETRY
+        values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+        information, check [GEOMETRY_OUTPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         """
         return pulumi.get(self, "geometry_output_format")
 
@@ -1810,7 +2389,8 @@ class _TaskState:
     @pulumi.getter(name="jdbcTreatTimestampNtzAsUtc")
     def jdbc_treat_timestamp_ntz_as_utc(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
         """
         return pulumi.get(self, "jdbc_treat_timestamp_ntz_as_utc")
 
@@ -1822,7 +2402,10 @@ class _TaskState:
     @pulumi.getter(name="jdbcUseSessionTimezone")
     def jdbc_use_session_timezone(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+        Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+        [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+        getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
         """
         return pulumi.get(self, "jdbc_use_session_timezone")
 
@@ -1834,7 +2417,9 @@ class _TaskState:
     @pulumi.getter(name="jsonIndent")
     def json_indent(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+        Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+        insert newline characters after each element. For more information, check [JSON_INDENT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         """
         return pulumi.get(self, "json_indent")
 
@@ -1846,7 +2431,8 @@ class _TaskState:
     @pulumi.getter(name="lockTimeout")
     def lock_timeout(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+        information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
         """
         return pulumi.get(self, "lock_timeout")
 
@@ -1858,7 +2444,10 @@ class _TaskState:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+        at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+        level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+        [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -1870,7 +2459,8 @@ class _TaskState:
     @pulumi.getter(name="multiStatementCount")
     def multi_statement_count(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        Number of statements to execute when using the multi-statement capability. For more information, check
+        [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         """
         return pulumi.get(self, "multi_statement_count")
 
@@ -1882,7 +2472,8 @@ class _TaskState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
+        technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -1894,7 +2485,12 @@ class _TaskState:
     @pulumi.getter(name="noorderSequenceAsDefault")
     def noorder_sequence_as_default(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+        Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+        column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+        auto-incremented column in [increasing or decreasing
+        order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+        more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         """
         return pulumi.get(self, "noorder_sequence_as_default")
 
@@ -1906,7 +2502,8 @@ class _TaskState:
     @pulumi.getter(name="odbcTreatDecimalAsInt")
     def odbc_treat_decimal_as_int(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+        Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+        [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
         """
         return pulumi.get(self, "odbc_treat_decimal_as_int")
 
@@ -1930,7 +2527,10 @@ class _TaskState:
     @pulumi.getter(name="queryTag")
     def query_tag(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+        Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+        displayed in the output of the [QUERY_HISTORY,
+        QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+        information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
         """
         return pulumi.get(self, "query_tag")
 
@@ -1942,7 +2542,13 @@ class _TaskState:
     @pulumi.getter(name="quotedIdentifiersIgnoreCase")
     def quoted_identifiers_ignore_case(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+        Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+        [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+        You can use this parameter in situations in which [third-party applications always use double quotes around
+        identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+        more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         """
         return pulumi.get(self, "quoted_identifiers_ignore_case")
 
@@ -1954,7 +2560,8 @@ class _TaskState:
     @pulumi.getter(name="rowsPerResultset")
     def rows_per_resultset(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+        Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+        check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         """
         return pulumi.get(self, "rows_per_resultset")
 
@@ -1966,7 +2573,12 @@ class _TaskState:
     @pulumi.getter(name="s3StageVpceDnsName")
     def s3_stage_vpce_dns_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+        Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+        PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+        use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+        endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+        For more information, check [S3_STAGE_VPCE_DNS_NAME
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
         """
         return pulumi.get(self, "s3_stage_vpce_dns_name")
 
@@ -1978,7 +2590,8 @@ class _TaskState:
     @pulumi.getter
     def schedule(self) -> Optional[pulumi.Input['TaskScheduleArgs']]:
         """
-        The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+        The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
+        after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
         """
         return pulumi.get(self, "schedule")
 
@@ -1990,7 +2603,8 @@ class _TaskState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -2002,7 +2616,10 @@ class _TaskState:
     @pulumi.getter(name="searchPath")
     def search_path(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+        in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+        Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+        information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         """
         return pulumi.get(self, "search_path")
 
@@ -2050,7 +2667,11 @@ class _TaskState:
     @pulumi.getter(name="statementQueuedTimeoutInSeconds")
     def statement_queued_timeout_in_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+        Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+        by the system. This parameter can be used in conjunction with the
+        [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+        ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
         """
         return pulumi.get(self, "statement_queued_timeout_in_seconds")
 
@@ -2062,7 +2683,9 @@ class _TaskState:
     @pulumi.getter(name="statementTimeoutInSeconds")
     def statement_timeout_in_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+        Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+        more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
         """
         return pulumi.get(self, "statement_timeout_in_seconds")
 
@@ -2074,7 +2697,11 @@ class _TaskState:
     @pulumi.getter(name="strictJsonOutput")
     def strict_json_output(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+        This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+        [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+        these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+        languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+        check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
         """
         return pulumi.get(self, "strict_json_output")
 
@@ -2086,7 +2713,9 @@ class _TaskState:
     @pulumi.getter(name="suspendTaskAfterNumFailures")
     def suspend_task_after_num_failures(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
+        default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         """
         return pulumi.get(self, "suspend_task_after_num_failures")
 
@@ -2098,7 +2727,9 @@ class _TaskState:
     @pulumi.getter(name="taskAutoRetryAttempts")
     def task_auto_retry_attempts(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
+        can automatically retry the task graphs from the last task in the graph that failed. For more information, check
+        [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         """
         return pulumi.get(self, "task_auto_retry_attempts")
 
@@ -2110,7 +2741,11 @@ class _TaskState:
     @pulumi.getter(name="timeInputFormat")
     def time_input_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+        Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+        (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+        session). For more information, check [TIME_INPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
         """
         return pulumi.get(self, "time_input_format")
 
@@ -2122,7 +2757,9 @@ class _TaskState:
     @pulumi.getter(name="timeOutputFormat")
     def time_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+        Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
         """
         return pulumi.get(self, "time_output_format")
 
@@ -2134,7 +2771,10 @@ class _TaskState:
     @pulumi.getter(name="timestampDayIsAlways24h")
     def timestamp_day_is_always24h(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+        Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+        aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+        check [TIMESTAMP_DAY_IS_ALWAYS_24H
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
         """
         return pulumi.get(self, "timestamp_day_is_always24h")
 
@@ -2146,7 +2786,11 @@ class _TaskState:
     @pulumi.getter(name="timestampInputFormat")
     def timestamp_input_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+        Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+        AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+        during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
         """
         return pulumi.get(self, "timestamp_input_format")
 
@@ -2158,7 +2802,11 @@ class _TaskState:
     @pulumi.getter(name="timestampLtzOutputFormat")
     def timestamp_ltz_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+        Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+        [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+        more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
         """
         return pulumi.get(self, "timestamp_ltz_output_format")
 
@@ -2170,7 +2818,8 @@ class _TaskState:
     @pulumi.getter(name="timestampNtzOutputFormat")
     def timestamp_ntz_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+        Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
         """
         return pulumi.get(self, "timestamp_ntz_output_format")
 
@@ -2182,7 +2831,9 @@ class _TaskState:
     @pulumi.getter(name="timestampOutputFormat")
     def timestamp_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+        Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+        output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
         """
         return pulumi.get(self, "timestamp_output_format")
 
@@ -2194,7 +2845,8 @@ class _TaskState:
     @pulumi.getter(name="timestampTypeMapping")
     def timestamp_type_mapping(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+        [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
         """
         return pulumi.get(self, "timestamp_type_mapping")
 
@@ -2206,7 +2858,11 @@ class _TaskState:
     @pulumi.getter(name="timestampTzOutputFormat")
     def timestamp_tz_output_format(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+        Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+        [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+        more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
         """
         return pulumi.get(self, "timestamp_tz_output_format")
 
@@ -2218,7 +2874,11 @@ class _TaskState:
     @pulumi.getter
     def timezone(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+        Specifies the time zone for the session. You can specify a [time zone
+        name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+        name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+        Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+        information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
         """
         return pulumi.get(self, "timezone")
 
@@ -2230,7 +2890,9 @@ class _TaskState:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+        level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+        [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -2242,7 +2904,9 @@ class _TaskState:
     @pulumi.getter(name="transactionAbortOnError")
     def transaction_abort_on_error(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+        Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+        more information, check [TRANSACTION_ABORT_ON_ERROR
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
         """
         return pulumi.get(self, "transaction_abort_on_error")
 
@@ -2254,7 +2918,9 @@ class _TaskState:
     @pulumi.getter(name="transactionDefaultIsolationLevel")
     def transaction_default_isolation_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        Specifies the isolation level for transactions in the user session. For more information, check
+        [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
         """
         return pulumi.get(self, "transaction_default_isolation_level")
 
@@ -2266,7 +2932,10 @@ class _TaskState:
     @pulumi.getter(name="twoDigitCenturyStart")
     def two_digit_century_start(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+        Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+        parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+        represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
         """
         return pulumi.get(self, "two_digit_century_start")
 
@@ -2278,7 +2947,9 @@ class _TaskState:
     @pulumi.getter(name="unsupportedDdlAction")
     def unsupported_ddl_action(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+        information, check [UNSUPPORTED_DDL_ACTION
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
         """
         return pulumi.get(self, "unsupported_ddl_action")
 
@@ -2290,7 +2961,8 @@ class _TaskState:
     @pulumi.getter(name="useCachedResult")
     def use_cached_result(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+        Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+        information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
         """
         return pulumi.get(self, "use_cached_result")
 
@@ -2302,7 +2974,11 @@ class _TaskState:
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
     def user_task_managed_initial_warehouse_size(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+        available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+        this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
+        warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
@@ -2314,7 +2990,9 @@ class _TaskState:
     @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
     def user_task_minimum_trigger_interval_in_seconds(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+        Minimum amount of time between Triggered Task executions in seconds For more information, check
+        [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
         """
         return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
 
@@ -2326,7 +3004,8 @@ class _TaskState:
     @pulumi.getter(name="userTaskTimeoutMs")
     def user_task_timeout_ms(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
+        [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         return pulumi.get(self, "user_task_timeout_ms")
 
@@ -2338,7 +3017,9 @@ class _TaskState:
     @pulumi.getter
     def warehouse(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
+        The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+        Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
+        user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
         """
         return pulumi.get(self, "warehouse")
 
@@ -2350,7 +3031,10 @@ class _TaskState:
     @pulumi.getter(name="weekOfYearPolicy")
     def week_of_year_policy(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+        Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+        which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+        first week of the year and December 31 is included in the last week of the year. For more information, check
+        [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
         """
         return pulumi.get(self, "week_of_year_policy")
 
@@ -2362,7 +3046,10 @@ class _TaskState:
     @pulumi.getter(name="weekStart")
     def week_start(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+        Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+        ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+        day of the week. For more information, check [WEEK_START
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
         """
         return pulumi.get(self, "week_start")
 
@@ -2374,7 +3061,10 @@ class _TaskState:
     @pulumi.getter
     def when(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
+        Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
+        (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
+        If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
+        as a predecessor also don’t run.
         """
         return pulumi.get(self, "when")
 
@@ -2463,86 +3153,253 @@ class Task(pulumi.CustomResource):
                  when: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/task:Task example '"<database_name>"."<schema_name>"."<task_name>"'
-        ```
-
+        Create a Task resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] afters: Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] allow_overlapping_execution: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
-        :param pulumi.Input[builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
-        :param pulumi.Input[builtins.str] binary_output_format: The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
-        :param pulumi.Input[builtins.int] client_memory_limit: Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
-        :param pulumi.Input[builtins.bool] client_metadata_request_use_connection_ctx: For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
-        :param pulumi.Input[builtins.int] client_prefetch_threads: Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
-        :param pulumi.Input[builtins.int] client_result_chunk_size: Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
-        :param pulumi.Input[builtins.bool] client_result_column_case_insensitive: Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
-        :param pulumi.Input[builtins.bool] client_session_keep_alive: Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
-        :param pulumi.Input[builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
-        :param pulumi.Input[builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        :param pulumi.Input[builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+               of a session (e.g. network outage, browser termination, service interruption). For more information, check
+               [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] afters: Specifies one or more predecessor tasks for the current task. Use this option to [create a
+               DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
+               DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
+               technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] allow_overlapping_execution: By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
+               parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set
+               in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+               without an active transaction, is automatically committed after the statement successfully completes. For more
+               information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+               [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+        :param pulumi.Input[builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+               [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+               [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        :param pulumi.Input[builtins.str] binary_output_format: The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+               [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+               [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        :param pulumi.Input[builtins.int] client_memory_limit: Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+               queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+        :param pulumi.Input[builtins.bool] client_metadata_request_use_connection_ctx: For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+               databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+               quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+        :param pulumi.Input[builtins.int] client_prefetch_threads: Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+               attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+               resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+        :param pulumi.Input[builtins.int] client_result_chunk_size: Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+               downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+        :param pulumi.Input[builtins.bool] client_result_column_case_insensitive: Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+               information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+        :param pulumi.Input[builtins.bool] client_session_keep_alive: Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+               information, check [CLIENT_SESSION_KEEP_ALIVE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+        :param pulumi.Input[builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check
+               [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+        :param pulumi.Input[builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_*
+               variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+               use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+               information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the task.
-        :param pulumi.Input[builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
-        :param pulumi.Input[builtins.str] database: The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
-        :param pulumi.Input[builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
-        :param pulumi.Input[builtins.bool] enable_unload_physical_type_optimization: Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
-        :param pulumi.Input[builtins.str] error_integration: Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.bool] error_on_nondeterministic_merge: Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
-        :param pulumi.Input[builtins.bool] error_on_nondeterministic_update: Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
-        :param pulumi.Input[builtins.str] finalize: Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] geography_output_format: Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
-        :param pulumi.Input[builtins.str] geometry_output_format: Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
-        :param pulumi.Input[builtins.bool] jdbc_treat_timestamp_ntz_as_utc: Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
-        :param pulumi.Input[builtins.bool] jdbc_use_session_timezone: Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
-        :param pulumi.Input[builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
-        :param pulumi.Input[builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
-        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
-        :param pulumi.Input[builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
-        :param pulumi.Input[builtins.str] query_tag: Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
-        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
-        :param pulumi.Input[builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
-        :param pulumi.Input[builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
-        :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        :param pulumi.Input[builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
+               JSON format.
+        :param pulumi.Input[builtins.str] database: The database in which to create the task. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+        :param pulumi.Input[builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        :param pulumi.Input[builtins.bool] enable_unload_physical_type_optimization: Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+               the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+               support the values in the output columns of the unload SQL statement or source table). For more information, check
+               [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+        :param pulumi.Input[builtins.str] error_integration: Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
+               here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.bool] error_on_nondeterministic_merge: Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+               used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+               perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+        :param pulumi.Input[builtins.bool] error_on_nondeterministic_update: Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+               is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+               the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+        :param pulumi.Input[builtins.str] finalize: Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
+               in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
+               and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
+               graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
+               (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] geography_output_format: Display format for [GEOGRAPHY
+               values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+               information, check [GEOGRAPHY_OUTPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        :param pulumi.Input[builtins.str] geometry_output_format: Display format for [GEOMETRY
+               values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+               information, check [GEOMETRY_OUTPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        :param pulumi.Input[builtins.bool] jdbc_treat_timestamp_ntz_as_utc: Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        :param pulumi.Input[builtins.bool] jdbc_use_session_timezone: Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+               [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+               getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+        :param pulumi.Input[builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+               insert newline characters after each element. For more information, check [JSON_INDENT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+        :param pulumi.Input[builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+               information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+               at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+               level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+               [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check
+               [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
+               technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+               column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+               auto-incremented column in [increasing or decreasing
+               order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+               more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+        :param pulumi.Input[builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+               [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+        :param pulumi.Input[builtins.str] query_tag: Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+               displayed in the output of the [QUERY_HISTORY,
+               QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+               information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+               Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+               [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+               You can use this parameter in situations in which [third-party applications always use double quotes around
+               identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+               more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        :param pulumi.Input[builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+               check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+        :param pulumi.Input[builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+               PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+               use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+               endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+               For more information, check [S3_STAGE_VPCE_DNS_NAME
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+        :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
+               after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+               in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+               Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+               information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         :param pulumi.Input[builtins.str] sql_statement: Any single SQL statement, or a call to a stored procedure, executed when the task runs.
         :param pulumi.Input[builtins.bool] started: Specifies if the task should be started or suspended.
-        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
-        :param pulumi.Input[builtins.int] statement_timeout_in_seconds: Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
-        :param pulumi.Input[builtins.bool] strict_json_output: This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
-        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
-        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
-        :param pulumi.Input[builtins.str] time_input_format: Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
-        :param pulumi.Input[builtins.str] time_output_format: Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
-        :param pulumi.Input[builtins.bool] timestamp_day_is_always24h: Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
-        :param pulumi.Input[builtins.str] timestamp_input_format: Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
-        :param pulumi.Input[builtins.str] timestamp_ltz_output_format: Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
-        :param pulumi.Input[builtins.str] timestamp_ntz_output_format: Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
-        :param pulumi.Input[builtins.str] timestamp_output_format: Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
-        :param pulumi.Input[builtins.str] timestamp_type_mapping: Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
-        :param pulumi.Input[builtins.str] timestamp_tz_output_format: Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
-        :param pulumi.Input[builtins.str] timezone: Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
-        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
-        :param pulumi.Input[builtins.bool] transaction_abort_on_error: Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
-        :param pulumi.Input[builtins.str] transaction_default_isolation_level: Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
-        :param pulumi.Input[builtins.int] two_digit_century_start: Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
-        :param pulumi.Input[builtins.str] unsupported_ddl_action: Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
-        :param pulumi.Input[builtins.bool] use_cached_result: Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
-        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
-        :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
-        :param pulumi.Input[builtins.int] user_task_timeout_ms: Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
-        :param pulumi.Input[builtins.str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
-        :param pulumi.Input[builtins.int] week_of_year_policy: Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
-        :param pulumi.Input[builtins.int] week_start: Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
-        :param pulumi.Input[builtins.str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
+        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+               by the system. This parameter can be used in conjunction with the
+               [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+               ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+        :param pulumi.Input[builtins.int] statement_timeout_in_seconds: Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+               more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+        :param pulumi.Input[builtins.bool] strict_json_output: This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+               [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+               these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+               languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+               check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
+               default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
+               can automatically retry the task graphs from the last task in the graph that failed. For more information, check
+               [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        :param pulumi.Input[builtins.str] time_input_format: Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+               (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+               session). For more information, check [TIME_INPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+        :param pulumi.Input[builtins.str] time_output_format: Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+        :param pulumi.Input[builtins.bool] timestamp_day_is_always24h: Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+               aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+               check [TIMESTAMP_DAY_IS_ALWAYS_24H
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+        :param pulumi.Input[builtins.str] timestamp_input_format: Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+               AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+               during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+        :param pulumi.Input[builtins.str] timestamp_ltz_output_format: Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+               [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+               more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+        :param pulumi.Input[builtins.str] timestamp_ntz_output_format: Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+        :param pulumi.Input[builtins.str] timestamp_output_format: Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+               output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+        :param pulumi.Input[builtins.str] timestamp_type_mapping: Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+               [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        :param pulumi.Input[builtins.str] timestamp_tz_output_format: Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+               [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+               more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+        :param pulumi.Input[builtins.str] timezone: Specifies the time zone for the session. You can specify a [time zone
+               name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+               name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+               Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+               information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+               level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+               [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[builtins.bool] transaction_abort_on_error: Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+               more information, check [TRANSACTION_ABORT_ON_ERROR
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+        :param pulumi.Input[builtins.str] transaction_default_isolation_level: Specifies the isolation level for transactions in the user session. For more information, check
+               [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        :param pulumi.Input[builtins.int] two_digit_century_start: Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+               parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+               represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+        :param pulumi.Input[builtins.str] unsupported_ddl_action: Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+               information, check [UNSUPPORTED_DDL_ACTION
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        :param pulumi.Input[builtins.bool] use_cached_result: Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+               information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+               available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+               this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
+               warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds For more information, check
+               [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+        :param pulumi.Input[builtins.int] user_task_timeout_ms: Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
+               [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        :param pulumi.Input[builtins.str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+               Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
+               user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
+        :param pulumi.Input[builtins.int] week_of_year_policy: Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+               which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+               first week of the year and December 31 is included in the last week of the year. For more information, check
+               [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+        :param pulumi.Input[builtins.int] week_start: Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+               ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+               day of the week. For more information, check [WEEK_START
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+        :param pulumi.Input[builtins.str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
+               (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
+               If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
+               as a predecessor also don’t run.
         """
         ...
     @overload
@@ -2551,12 +3408,7 @@ class Task(pulumi.CustomResource):
                  args: TaskArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/task:Task example '"<database_name>"."<schema_name>"."<task_name>"'
-        ```
-
+        Create a Task resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param TaskArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2828,81 +3680,254 @@ class Task(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] afters: Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] allow_overlapping_execution: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
-        :param pulumi.Input[builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
-        :param pulumi.Input[builtins.str] binary_output_format: The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
-        :param pulumi.Input[builtins.int] client_memory_limit: Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
-        :param pulumi.Input[builtins.bool] client_metadata_request_use_connection_ctx: For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
-        :param pulumi.Input[builtins.int] client_prefetch_threads: Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
-        :param pulumi.Input[builtins.int] client_result_chunk_size: Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
-        :param pulumi.Input[builtins.bool] client_result_column_case_insensitive: Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
-        :param pulumi.Input[builtins.bool] client_session_keep_alive: Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
-        :param pulumi.Input[builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
-        :param pulumi.Input[builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        :param pulumi.Input[builtins.bool] abort_detached_query: Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+               of a session (e.g. network outage, browser termination, service interruption). For more information, check
+               [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] afters: Specifies one or more predecessor tasks for the current task. Use this option to [create a
+               DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
+               DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
+               technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] allow_overlapping_execution: By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
+               parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set
+               in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.bool] autocommit: Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+               without an active transaction, is automatically committed after the statement successfully completes. For more
+               information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+               [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+        :param pulumi.Input[builtins.str] binary_input_format: The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+               [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+               [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        :param pulumi.Input[builtins.str] binary_output_format: The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+               [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+               [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        :param pulumi.Input[builtins.int] client_memory_limit: Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+               queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+        :param pulumi.Input[builtins.bool] client_metadata_request_use_connection_ctx: For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+               databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+               quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+        :param pulumi.Input[builtins.int] client_prefetch_threads: Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+               attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+               resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+        :param pulumi.Input[builtins.int] client_result_chunk_size: Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+               downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+        :param pulumi.Input[builtins.bool] client_result_column_case_insensitive: Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+               information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+        :param pulumi.Input[builtins.bool] client_session_keep_alive: Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+               information, check [CLIENT_SESSION_KEEP_ALIVE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+        :param pulumi.Input[builtins.int] client_session_keep_alive_heartbeat_frequency: Number of seconds in-between client attempts to update the token for the session. For more information, check
+               [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+        :param pulumi.Input[builtins.str] client_timestamp_type_mapping: Specifies the [TIMESTAMP_*
+               variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+               use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+               information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the task.
-        :param pulumi.Input[builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
-        :param pulumi.Input[builtins.str] database: The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
-        :param pulumi.Input[builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
-        :param pulumi.Input[builtins.bool] enable_unload_physical_type_optimization: Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
-        :param pulumi.Input[builtins.str] error_integration: Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.bool] error_on_nondeterministic_merge: Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
-        :param pulumi.Input[builtins.bool] error_on_nondeterministic_update: Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
-        :param pulumi.Input[builtins.str] finalize: Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] geography_output_format: Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
-        :param pulumi.Input[builtins.str] geometry_output_format: Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
-        :param pulumi.Input[builtins.bool] jdbc_treat_timestamp_ntz_as_utc: Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
-        :param pulumi.Input[builtins.bool] jdbc_use_session_timezone: Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
-        :param pulumi.Input[builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
-        :param pulumi.Input[builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
-        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
-        :param pulumi.Input[builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+        :param pulumi.Input[builtins.str] config: Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
+               JSON format.
+        :param pulumi.Input[builtins.str] database: The database in which to create the task. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] date_input_format: Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+        :param pulumi.Input[builtins.str] date_output_format: Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        :param pulumi.Input[builtins.bool] enable_unload_physical_type_optimization: Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+               the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+               support the values in the output columns of the unload SQL statement or source table). For more information, check
+               [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+        :param pulumi.Input[builtins.str] error_integration: Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
+               here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.bool] error_on_nondeterministic_merge: Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+               used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+               perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+        :param pulumi.Input[builtins.bool] error_on_nondeterministic_update: Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+               is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+               the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+        :param pulumi.Input[builtins.str] finalize: Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
+               in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
+               and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
+               graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
+               (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] geography_output_format: Display format for [GEOGRAPHY
+               values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+               information, check [GEOGRAPHY_OUTPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        :param pulumi.Input[builtins.str] geometry_output_format: Display format for [GEOMETRY
+               values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+               information, check [GEOMETRY_OUTPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        :param pulumi.Input[builtins.bool] jdbc_treat_timestamp_ntz_as_utc: Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        :param pulumi.Input[builtins.bool] jdbc_use_session_timezone: Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+               [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+               getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+        :param pulumi.Input[builtins.int] json_indent: Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+               insert newline characters after each element. For more information, check [JSON_INDENT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+        :param pulumi.Input[builtins.int] lock_timeout: Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+               information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+               at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+               level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+               [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.int] multi_statement_count: Number of statements to execute when using the multi-statement capability. For more information, check
+               [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
+               technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] noorder_sequence_as_default: Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+               column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+               auto-incremented column in [increasing or decreasing
+               order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+               more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+        :param pulumi.Input[builtins.bool] odbc_treat_decimal_as_int: Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+               [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskParameterArgs', 'TaskParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN TASK` for the given task.
-        :param pulumi.Input[builtins.str] query_tag: Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
-        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
-        :param pulumi.Input[builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
-        :param pulumi.Input[builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
-        :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        :param pulumi.Input[builtins.str] query_tag: Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+               displayed in the output of the [QUERY_HISTORY,
+               QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+               information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+               Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+               [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+               You can use this parameter in situations in which [third-party applications always use double quotes around
+               identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+               more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        :param pulumi.Input[builtins.int] rows_per_resultset: Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+               check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+        :param pulumi.Input[builtins.str] s3_stage_vpce_dns_name: Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+               PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+               use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+               endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+               For more information, check [S3_STAGE_VPCE_DNS_NAME
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+        :param pulumi.Input[Union['TaskScheduleArgs', 'TaskScheduleArgsDict']] schedule: The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
+               after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
+               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] search_path: Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+               in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+               Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+               information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         :param pulumi.Input[Sequence[pulumi.Input[Union['TaskShowOutputArgs', 'TaskShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW TASKS` for the given task.
         :param pulumi.Input[builtins.str] sql_statement: Any single SQL statement, or a call to a stored procedure, executed when the task runs.
         :param pulumi.Input[builtins.bool] started: Specifies if the task should be started or suspended.
-        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
-        :param pulumi.Input[builtins.int] statement_timeout_in_seconds: Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
-        :param pulumi.Input[builtins.bool] strict_json_output: This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
-        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
-        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
-        :param pulumi.Input[builtins.str] time_input_format: Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
-        :param pulumi.Input[builtins.str] time_output_format: Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
-        :param pulumi.Input[builtins.bool] timestamp_day_is_always24h: Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
-        :param pulumi.Input[builtins.str] timestamp_input_format: Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
-        :param pulumi.Input[builtins.str] timestamp_ltz_output_format: Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
-        :param pulumi.Input[builtins.str] timestamp_ntz_output_format: Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
-        :param pulumi.Input[builtins.str] timestamp_output_format: Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
-        :param pulumi.Input[builtins.str] timestamp_type_mapping: Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
-        :param pulumi.Input[builtins.str] timestamp_tz_output_format: Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
-        :param pulumi.Input[builtins.str] timezone: Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
-        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
-        :param pulumi.Input[builtins.bool] transaction_abort_on_error: Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
-        :param pulumi.Input[builtins.str] transaction_default_isolation_level: Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
-        :param pulumi.Input[builtins.int] two_digit_century_start: Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
-        :param pulumi.Input[builtins.str] unsupported_ddl_action: Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
-        :param pulumi.Input[builtins.bool] use_cached_result: Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
-        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
-        :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
-        :param pulumi.Input[builtins.int] user_task_timeout_ms: Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
-        :param pulumi.Input[builtins.str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
-        :param pulumi.Input[builtins.int] week_of_year_policy: Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
-        :param pulumi.Input[builtins.int] week_start: Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
-        :param pulumi.Input[builtins.str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
+        :param pulumi.Input[builtins.int] statement_queued_timeout_in_seconds: Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+               by the system. This parameter can be used in conjunction with the
+               [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+               ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+        :param pulumi.Input[builtins.int] statement_timeout_in_seconds: Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+               more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+        :param pulumi.Input[builtins.bool] strict_json_output: This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+               [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+               these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+               languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+               check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
+               default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
+               can automatically retry the task graphs from the last task in the graph that failed. For more information, check
+               [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        :param pulumi.Input[builtins.str] time_input_format: Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+               (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+               session). For more information, check [TIME_INPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+        :param pulumi.Input[builtins.str] time_output_format: Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+        :param pulumi.Input[builtins.bool] timestamp_day_is_always24h: Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+               aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+               check [TIMESTAMP_DAY_IS_ALWAYS_24H
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+        :param pulumi.Input[builtins.str] timestamp_input_format: Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+               AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+               during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+        :param pulumi.Input[builtins.str] timestamp_ltz_output_format: Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+               [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+               more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+        :param pulumi.Input[builtins.str] timestamp_ntz_output_format: Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+        :param pulumi.Input[builtins.str] timestamp_output_format: Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+               output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+        :param pulumi.Input[builtins.str] timestamp_type_mapping: Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+               [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        :param pulumi.Input[builtins.str] timestamp_tz_output_format: Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+               [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+               more information, see [Date and time input and output
+               formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+               [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+        :param pulumi.Input[builtins.str] timezone: Specifies the time zone for the session. You can specify a [time zone
+               name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+               name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+               Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+               information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+               level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+               [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[builtins.bool] transaction_abort_on_error: Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+               more information, check [TRANSACTION_ABORT_ON_ERROR
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+        :param pulumi.Input[builtins.str] transaction_default_isolation_level: Specifies the isolation level for transactions in the user session. For more information, check
+               [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        :param pulumi.Input[builtins.int] two_digit_century_start: Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+               parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+               represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+        :param pulumi.Input[builtins.str] unsupported_ddl_action: Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+               information, check [UNSUPPORTED_DDL_ACTION
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        :param pulumi.Input[builtins.bool] use_cached_result: Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+               information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+               available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+               this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
+               warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds For more information, check
+               [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+        :param pulumi.Input[builtins.int] user_task_timeout_ms: Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
+               [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        :param pulumi.Input[builtins.str] warehouse: The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+               Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
+               user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
+        :param pulumi.Input[builtins.int] week_of_year_policy: Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+               which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+               first week of the year and December 31 is included in the last week of the year. For more information, check
+               [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+        :param pulumi.Input[builtins.int] week_start: Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+               ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+               day of the week. For more information, check [WEEK_START
+               docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+        :param pulumi.Input[builtins.str] when: Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
+               (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
+               If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
+               as a predecessor also don’t run.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -2989,7 +4014,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="abortDetachedQuery")
     def abort_detached_query(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+        Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+        of a session (e.g. network outage, browser termination, service interruption). For more information, check
+        [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
         """
         return pulumi.get(self, "abort_detached_query")
 
@@ -2997,7 +4024,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def afters(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies one or more predecessor tasks for the current task. Use this option to [create a
+        DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
+        DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
+        technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "afters")
 
@@ -3005,7 +4035,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="allowOverlappingExecution")
     def allow_overlapping_execution(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
+        parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set
+        in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "allow_overlapping_execution")
 
@@ -3013,7 +4045,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def autocommit(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+        Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+        without an active transaction, is automatically committed after the statement successfully completes. For more
+        information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+        [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
         """
         return pulumi.get(self, "autocommit")
 
@@ -3021,7 +4056,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="binaryInputFormat")
     def binary_input_format(self) -> pulumi.Output[builtins.str]:
         """
-        The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+        [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+        [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
         """
         return pulumi.get(self, "binary_input_format")
 
@@ -3029,7 +4066,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="binaryOutputFormat")
     def binary_output_format(self) -> pulumi.Output[builtins.str]:
         """
-        The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+        [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+        [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
         """
         return pulumi.get(self, "binary_output_format")
 
@@ -3037,7 +4076,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="clientMemoryLimit")
     def client_memory_limit(self) -> pulumi.Output[builtins.int]:
         """
-        Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+        Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+        queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
         """
         return pulumi.get(self, "client_memory_limit")
 
@@ -3045,7 +4086,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="clientMetadataRequestUseConnectionCtx")
     def client_metadata_request_use_connection_ctx(self) -> pulumi.Output[builtins.bool]:
         """
-        For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+        For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+        databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+        quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
         """
         return pulumi.get(self, "client_metadata_request_use_connection_ctx")
 
@@ -3053,7 +4097,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="clientPrefetchThreads")
     def client_prefetch_threads(self) -> pulumi.Output[builtins.int]:
         """
-        Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+        Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+        attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+        resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
         """
         return pulumi.get(self, "client_prefetch_threads")
 
@@ -3061,7 +4108,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="clientResultChunkSize")
     def client_result_chunk_size(self) -> pulumi.Output[builtins.int]:
         """
-        Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+        Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+        downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
         """
         return pulumi.get(self, "client_result_chunk_size")
 
@@ -3069,7 +4118,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="clientResultColumnCaseInsensitive")
     def client_result_column_case_insensitive(self) -> pulumi.Output[builtins.bool]:
         """
-        Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+        Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+        information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
         """
         return pulumi.get(self, "client_result_column_case_insensitive")
 
@@ -3077,7 +4128,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="clientSessionKeepAlive")
     def client_session_keep_alive(self) -> pulumi.Output[builtins.bool]:
         """
-        Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+        Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+        information, check [CLIENT_SESSION_KEEP_ALIVE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
         """
         return pulumi.get(self, "client_session_keep_alive")
 
@@ -3085,7 +4138,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="clientSessionKeepAliveHeartbeatFrequency")
     def client_session_keep_alive_heartbeat_frequency(self) -> pulumi.Output[builtins.int]:
         """
-        Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+        Number of seconds in-between client attempts to update the token for the session. For more information, check
+        [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         """
         return pulumi.get(self, "client_session_keep_alive_heartbeat_frequency")
 
@@ -3093,7 +4148,11 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="clientTimestampTypeMapping")
     def client_timestamp_type_mapping(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        Specifies the [TIMESTAMP_*
+        variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+        use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+        information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         """
         return pulumi.get(self, "client_timestamp_type_mapping")
 
@@ -3109,7 +4168,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def config(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
+        JSON format.
         """
         return pulumi.get(self, "config")
 
@@ -3117,7 +4177,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[builtins.str]:
         """
-        The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The database in which to create the task. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -3125,7 +4186,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="dateInputFormat")
     def date_input_format(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+        Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         """
         return pulumi.get(self, "date_input_format")
 
@@ -3133,7 +4196,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="dateOutputFormat")
     def date_output_format(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
         """
         return pulumi.get(self, "date_output_format")
 
@@ -3141,7 +4206,11 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="enableUnloadPhysicalTypeOptimization")
     def enable_unload_physical_type_optimization(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+        Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+        the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+        support the values in the output columns of the unload SQL statement or source table). For more information, check
+        [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
         """
         return pulumi.get(self, "enable_unload_physical_type_optimization")
 
@@ -3149,7 +4218,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="errorIntegration")
     def error_integration(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
+        here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "error_integration")
 
@@ -3157,7 +4227,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="errorOnNondeterministicMerge")
     def error_on_nondeterministic_merge(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+        Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+        used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+        perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
         """
         return pulumi.get(self, "error_on_nondeterministic_merge")
 
@@ -3165,7 +4238,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="errorOnNondeterministicUpdate")
     def error_on_nondeterministic_update(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+        Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+        is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+        the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
         """
         return pulumi.get(self, "error_on_nondeterministic_update")
 
@@ -3173,7 +4249,11 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def finalize(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
+        in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
+        and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
+        graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
+        (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "finalize")
 
@@ -3181,7 +4261,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -3189,7 +4270,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="geographyOutputFormat")
     def geography_output_format(self) -> pulumi.Output[builtins.str]:
         """
-        Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        Display format for [GEOGRAPHY
+        values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+        information, check [GEOGRAPHY_OUTPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         """
         return pulumi.get(self, "geography_output_format")
 
@@ -3197,7 +4281,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="geometryOutputFormat")
     def geometry_output_format(self) -> pulumi.Output[builtins.str]:
         """
-        Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        Display format for [GEOMETRY
+        values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+        information, check [GEOMETRY_OUTPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         """
         return pulumi.get(self, "geometry_output_format")
 
@@ -3205,7 +4292,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="jdbcTreatTimestampNtzAsUtc")
     def jdbc_treat_timestamp_ntz_as_utc(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
         """
         return pulumi.get(self, "jdbc_treat_timestamp_ntz_as_utc")
 
@@ -3213,7 +4301,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="jdbcUseSessionTimezone")
     def jdbc_use_session_timezone(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+        Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+        [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+        getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
         """
         return pulumi.get(self, "jdbc_use_session_timezone")
 
@@ -3221,7 +4312,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="jsonIndent")
     def json_indent(self) -> pulumi.Output[builtins.int]:
         """
-        Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+        Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+        insert newline characters after each element. For more information, check [JSON_INDENT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         """
         return pulumi.get(self, "json_indent")
 
@@ -3229,7 +4322,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="lockTimeout")
     def lock_timeout(self) -> pulumi.Output[builtins.int]:
         """
-        Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+        information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
         """
         return pulumi.get(self, "lock_timeout")
 
@@ -3237,7 +4331,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+        at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+        level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+        [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -3245,7 +4342,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="multiStatementCount")
     def multi_statement_count(self) -> pulumi.Output[builtins.int]:
         """
-        Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        Number of statements to execute when using the multi-statement capability. For more information, check
+        [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         """
         return pulumi.get(self, "multi_statement_count")
 
@@ -3253,7 +4351,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
+        technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -3261,7 +4360,12 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="noorderSequenceAsDefault")
     def noorder_sequence_as_default(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+        Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+        column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+        auto-incremented column in [increasing or decreasing
+        order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+        more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         """
         return pulumi.get(self, "noorder_sequence_as_default")
 
@@ -3269,7 +4373,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="odbcTreatDecimalAsInt")
     def odbc_treat_decimal_as_int(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+        Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+        [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
         """
         return pulumi.get(self, "odbc_treat_decimal_as_int")
 
@@ -3285,7 +4390,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="queryTag")
     def query_tag(self) -> pulumi.Output[builtins.str]:
         """
-        Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+        Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+        displayed in the output of the [QUERY_HISTORY,
+        QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+        information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
         """
         return pulumi.get(self, "query_tag")
 
@@ -3293,7 +4401,13 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="quotedIdentifiersIgnoreCase")
     def quoted_identifiers_ignore_case(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+        Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+        [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+        You can use this parameter in situations in which [third-party applications always use double quotes around
+        identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+        more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         """
         return pulumi.get(self, "quoted_identifiers_ignore_case")
 
@@ -3301,7 +4415,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="rowsPerResultset")
     def rows_per_resultset(self) -> pulumi.Output[builtins.int]:
         """
-        Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+        Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+        check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         """
         return pulumi.get(self, "rows_per_resultset")
 
@@ -3309,7 +4424,12 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="s3StageVpceDnsName")
     def s3_stage_vpce_dns_name(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+        Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+        PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+        use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+        endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+        For more information, check [S3_STAGE_VPCE_DNS_NAME
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
         """
         return pulumi.get(self, "s3_stage_vpce_dns_name")
 
@@ -3317,7 +4437,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def schedule(self) -> pulumi.Output[Optional['outputs.TaskSchedule']]:
         """
-        The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+        The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
+        after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
         """
         return pulumi.get(self, "schedule")
 
@@ -3325,7 +4446,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[builtins.str]:
         """
-        The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
+        characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -3333,7 +4455,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="searchPath")
     def search_path(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+        in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+        Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+        information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         """
         return pulumi.get(self, "search_path")
 
@@ -3365,7 +4490,11 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="statementQueuedTimeoutInSeconds")
     def statement_queued_timeout_in_seconds(self) -> pulumi.Output[builtins.int]:
         """
-        Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+        Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+        by the system. This parameter can be used in conjunction with the
+        [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+        ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
         """
         return pulumi.get(self, "statement_queued_timeout_in_seconds")
 
@@ -3373,7 +4502,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="statementTimeoutInSeconds")
     def statement_timeout_in_seconds(self) -> pulumi.Output[builtins.int]:
         """
-        Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+        Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+        more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
         """
         return pulumi.get(self, "statement_timeout_in_seconds")
 
@@ -3381,7 +4512,11 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="strictJsonOutput")
     def strict_json_output(self) -> pulumi.Output[builtins.bool]:
         """
-        This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+        This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+        [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+        these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+        languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+        check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
         """
         return pulumi.get(self, "strict_json_output")
 
@@ -3389,7 +4524,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="suspendTaskAfterNumFailures")
     def suspend_task_after_num_failures(self) -> pulumi.Output[builtins.int]:
         """
-        Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
+        default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         """
         return pulumi.get(self, "suspend_task_after_num_failures")
 
@@ -3397,7 +4534,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="taskAutoRetryAttempts")
     def task_auto_retry_attempts(self) -> pulumi.Output[builtins.int]:
         """
-        Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
+        can automatically retry the task graphs from the last task in the graph that failed. For more information, check
+        [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         """
         return pulumi.get(self, "task_auto_retry_attempts")
 
@@ -3405,7 +4544,11 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="timeInputFormat")
     def time_input_format(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+        Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+        (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+        session). For more information, check [TIME_INPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
         """
         return pulumi.get(self, "time_input_format")
 
@@ -3413,7 +4556,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="timeOutputFormat")
     def time_output_format(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+        Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
         """
         return pulumi.get(self, "time_output_format")
 
@@ -3421,7 +4566,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="timestampDayIsAlways24h")
     def timestamp_day_is_always24h(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+        Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+        aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+        check [TIMESTAMP_DAY_IS_ALWAYS_24H
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
         """
         return pulumi.get(self, "timestamp_day_is_always24h")
 
@@ -3429,7 +4577,11 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="timestampInputFormat")
     def timestamp_input_format(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+        Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+        AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+        during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
         """
         return pulumi.get(self, "timestamp_input_format")
 
@@ -3437,7 +4589,11 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="timestampLtzOutputFormat")
     def timestamp_ltz_output_format(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+        Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+        [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+        more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
         """
         return pulumi.get(self, "timestamp_ltz_output_format")
 
@@ -3445,7 +4601,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="timestampNtzOutputFormat")
     def timestamp_ntz_output_format(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+        Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
         """
         return pulumi.get(self, "timestamp_ntz_output_format")
 
@@ -3453,7 +4610,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="timestampOutputFormat")
     def timestamp_output_format(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+        Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+        output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
         """
         return pulumi.get(self, "timestamp_output_format")
 
@@ -3461,7 +4620,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="timestampTypeMapping")
     def timestamp_type_mapping(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+        [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
         """
         return pulumi.get(self, "timestamp_type_mapping")
 
@@ -3469,7 +4629,11 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="timestampTzOutputFormat")
     def timestamp_tz_output_format(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+        Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+        [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+        more information, see [Date and time input and output
+        formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
         """
         return pulumi.get(self, "timestamp_tz_output_format")
 
@@ -3477,7 +4641,11 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def timezone(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+        Specifies the time zone for the session. You can specify a [time zone
+        name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+        name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+        Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+        information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
         """
         return pulumi.get(self, "timezone")
 
@@ -3485,7 +4653,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> pulumi.Output[builtins.str]:
         """
-        Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+        level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+        [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -3493,7 +4663,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="transactionAbortOnError")
     def transaction_abort_on_error(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+        Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+        more information, check [TRANSACTION_ABORT_ON_ERROR
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
         """
         return pulumi.get(self, "transaction_abort_on_error")
 
@@ -3501,7 +4673,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="transactionDefaultIsolationLevel")
     def transaction_default_isolation_level(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        Specifies the isolation level for transactions in the user session. For more information, check
+        [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
         """
         return pulumi.get(self, "transaction_default_isolation_level")
 
@@ -3509,7 +4683,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="twoDigitCenturyStart")
     def two_digit_century_start(self) -> pulumi.Output[builtins.int]:
         """
-        Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+        Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+        parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+        represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
         """
         return pulumi.get(self, "two_digit_century_start")
 
@@ -3517,7 +4694,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="unsupportedDdlAction")
     def unsupported_ddl_action(self) -> pulumi.Output[builtins.str]:
         """
-        Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+        information, check [UNSUPPORTED_DDL_ACTION
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
         """
         return pulumi.get(self, "unsupported_ddl_action")
 
@@ -3525,7 +4704,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="useCachedResult")
     def use_cached_result(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+        Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+        information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
         """
         return pulumi.get(self, "use_cached_result")
 
@@ -3533,7 +4713,11 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
     def user_task_managed_initial_warehouse_size(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+        available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+        this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
+        warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
@@ -3541,7 +4725,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="userTaskMinimumTriggerIntervalInSeconds")
     def user_task_minimum_trigger_interval_in_seconds(self) -> pulumi.Output[builtins.int]:
         """
-        Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+        Minimum amount of time between Triggered Task executions in seconds For more information, check
+        [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
         """
         return pulumi.get(self, "user_task_minimum_trigger_interval_in_seconds")
 
@@ -3549,7 +4735,8 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="userTaskTimeoutMs")
     def user_task_timeout_ms(self) -> pulumi.Output[builtins.int]:
         """
-        Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
+        [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         return pulumi.get(self, "user_task_timeout_ms")
 
@@ -3557,7 +4744,9 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def warehouse(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
+        The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+        Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
+        user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
         """
         return pulumi.get(self, "warehouse")
 
@@ -3565,7 +4754,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="weekOfYearPolicy")
     def week_of_year_policy(self) -> pulumi.Output[builtins.int]:
         """
-        Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+        Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+        which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+        first week of the year and December 31 is included in the last week of the year. For more information, check
+        [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
         """
         return pulumi.get(self, "week_of_year_policy")
 
@@ -3573,7 +4765,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter(name="weekStart")
     def week_start(self) -> pulumi.Output[builtins.int]:
         """
-        Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+        Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+        ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+        day of the week. For more information, check [WEEK_START
+        docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
         """
         return pulumi.get(self, "week_start")
 
@@ -3581,7 +4776,10 @@ class Task(pulumi.CustomResource):
     @pulumi.getter
     def when(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
+        Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
+        (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
+        If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
+        as a predecessor also don’t run.
         """
         return pulumi.get(self, "when")
 

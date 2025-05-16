@@ -38,14 +38,12 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpointResult> OauthAllowedTokenEndpoints;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpointResult> OauthAuthorizationEndpoints;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethodResult> OauthClientAuthMethods;
-        public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientIdResult> OauthClientIds;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2FpResult> OauthClientRsaPublicKey2Fps;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFpResult> OauthClientRsaPublicKeyFps;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientTypeResult> OauthClientTypes;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkceResult> OauthEnforcePkces;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrantResult> OauthGrants;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshTokenResult> OauthIssueRefreshTokens;
-        public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUriResult> OauthRedirectUris;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidityResult> OauthRefreshTokenValidities;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpointResult> OauthTokenEndpoints;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRoleResult> OauthUseSecondaryRoles;
@@ -64,10 +62,8 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrlResult> Saml2SnowflakeAcsUrls;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrlResult> Saml2SnowflakeIssuerUrls;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadataResult> Saml2SnowflakeMetadatas;
-        public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509CertResult> Saml2SnowflakeX509Certs;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelResult> Saml2SpInitiatedLoginPageLabels;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrlResult> Saml2SsoUrls;
-        public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509CertResult> Saml2X509Certs;
         public readonly ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPasswordResult> SyncPasswords;
 
         [OutputConstructor]
@@ -122,8 +118,6 @@ namespace Pulumi.Snowflake.Outputs
 
             ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethodResult> oauthClientAuthMethods,
 
-            ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientIdResult> oauthClientIds,
-
             ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2FpResult> oauthClientRsaPublicKey2Fps,
 
             ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFpResult> oauthClientRsaPublicKeyFps,
@@ -135,8 +129,6 @@ namespace Pulumi.Snowflake.Outputs
             ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrantResult> oauthGrants,
 
             ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshTokenResult> oauthIssueRefreshTokens,
-
-            ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUriResult> oauthRedirectUris,
 
             ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidityResult> oauthRefreshTokenValidities,
 
@@ -174,13 +166,9 @@ namespace Pulumi.Snowflake.Outputs
 
             ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadataResult> saml2SnowflakeMetadatas,
 
-            ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509CertResult> saml2SnowflakeX509Certs,
-
             ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelResult> saml2SpInitiatedLoginPageLabels,
 
             ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrlResult> saml2SsoUrls,
-
-            ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509CertResult> saml2X509Certs,
 
             ImmutableArray<Outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPasswordResult> syncPasswords)
         {
@@ -209,14 +197,12 @@ namespace Pulumi.Snowflake.Outputs
             OauthAllowedTokenEndpoints = oauthAllowedTokenEndpoints;
             OauthAuthorizationEndpoints = oauthAuthorizationEndpoints;
             OauthClientAuthMethods = oauthClientAuthMethods;
-            OauthClientIds = oauthClientIds;
             OauthClientRsaPublicKey2Fps = oauthClientRsaPublicKey2Fps;
             OauthClientRsaPublicKeyFps = oauthClientRsaPublicKeyFps;
             OauthClientTypes = oauthClientTypes;
             OauthEnforcePkces = oauthEnforcePkces;
             OauthGrants = oauthGrants;
             OauthIssueRefreshTokens = oauthIssueRefreshTokens;
-            OauthRedirectUris = oauthRedirectUris;
             OauthRefreshTokenValidities = oauthRefreshTokenValidities;
             OauthTokenEndpoints = oauthTokenEndpoints;
             OauthUseSecondaryRoles = oauthUseSecondaryRoles;
@@ -235,10 +221,8 @@ namespace Pulumi.Snowflake.Outputs
             Saml2SnowflakeAcsUrls = saml2SnowflakeAcsUrls;
             Saml2SnowflakeIssuerUrls = saml2SnowflakeIssuerUrls;
             Saml2SnowflakeMetadatas = saml2SnowflakeMetadatas;
-            Saml2SnowflakeX509Certs = saml2SnowflakeX509Certs;
             Saml2SpInitiatedLoginPageLabels = saml2SpInitiatedLoginPageLabels;
             Saml2SsoUrls = saml2SsoUrls;
-            Saml2X509Certs = saml2X509Certs;
             SyncPasswords = syncPasswords;
         }
     }

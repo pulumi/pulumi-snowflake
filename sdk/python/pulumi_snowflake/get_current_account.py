@@ -44,9 +44,6 @@ class GetCurrentAccountResult:
     @property
     @pulumi.getter
     def account(self) -> builtins.str:
-        """
-        The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
-        """
         return pulumi.get(self, "account")
 
     @property
@@ -60,17 +57,11 @@ class GetCurrentAccountResult:
     @property
     @pulumi.getter
     def region(self) -> builtins.str:
-        """
-        The Snowflake Region; as returned by CURRENT_REGION()
-        """
         return pulumi.get(self, "region")
 
     @property
     @pulumi.getter
     def url(self) -> builtins.str:
-        """
-        The Snowflake URL.
-        """
         return pulumi.get(self, "url")
 
 
@@ -88,23 +79,7 @@ class AwaitableGetCurrentAccountResult(GetCurrentAccountResult):
 
 def get_current_account(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCurrentAccountResult:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_snowflake as snowflake
-
-    this = snowflake.get_current_account()
-    snowflake_account_url = aws.index.SsmParameter("snowflake_account_url",
-        name=/snowflake/account_url,
-        type=String,
-        value=this.url)
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -117,23 +92,7 @@ def get_current_account(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitabl
         url=pulumi.get(__ret__, 'url'))
 def get_current_account_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCurrentAccountResult]:
     """
-    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-    import pulumi_snowflake as snowflake
-
-    this = snowflake.get_current_account()
-    snowflake_account_url = aws.index.SsmParameter("snowflake_account_url",
-        name=/snowflake/account_url,
-        type=String,
-        value=this.url)
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

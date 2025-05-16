@@ -22,14 +22,16 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
     public static final StreamOnViewState Empty = new StreamOnViewState();
 
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
+     * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="appendOnly")
     private @Nullable Output<String> appendOnly;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
+     * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> appendOnly() {
@@ -73,14 +75,16 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> database() {
@@ -103,14 +107,16 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -118,14 +124,16 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -133,14 +141,16 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -177,14 +187,16 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+     * needed.
      * 
      */
     @Import(name="streamType")
     private @Nullable Output<String> streamType;
 
     /**
-     * @return Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+     * @return Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+     * needed.
      * 
      */
     public Optional<Output<String>> streamType() {
@@ -192,14 +204,16 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
+     * the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     @Import(name="view")
     private @Nullable Output<String> view;
 
     /**
-     * @return Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * @return Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
+     * the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> view() {
@@ -245,7 +259,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appendOnly (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param appendOnly Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
+         * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -256,7 +271,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appendOnly (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param appendOnly Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
+         * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -314,7 +330,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -325,7 +342,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -366,7 +384,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -377,7 +396,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -387,7 +407,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+         * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -398,7 +419,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
+         * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -408,7 +430,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -419,7 +442,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -478,7 +502,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+         * needed.
          * 
          * @return builder
          * 
@@ -489,7 +514,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
+         * needed.
          * 
          * @return builder
          * 
@@ -499,7 +525,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param view Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+         * @param view Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
+         * the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -510,7 +537,8 @@ public final class StreamOnViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param view Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+         * @param view Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
+         * the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 

@@ -9,96 +9,123 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/task:Task example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;task_name&gt;"'
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/task:Task")]
     public partial class Task : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+        /// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+        /// of a session (e.g. network outage, browser termination, service interruption). For more information, check
+        /// [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
         /// </summary>
         [Output("abortDetachedQuery")]
         public Output<bool> AbortDetachedQuery { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies one or more predecessor tasks for the current task. Use this option to [create a
+        /// DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
+        /// DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
+        /// technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("afters")]
         public Output<ImmutableArray<string>> Afters { get; private set; } = null!;
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
+        /// parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set
+        /// in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("allowOverlappingExecution")]
         public Output<string?> AllowOverlappingExecution { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+        /// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+        /// without an active transaction, is automatically committed after the statement successfully completes. For more
+        /// information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+        /// [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
         /// </summary>
         [Output("autocommit")]
         public Output<bool> Autocommit { get; private set; } = null!;
 
         /// <summary>
-        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+        /// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+        /// [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
         /// </summary>
         [Output("binaryInputFormat")]
         public Output<string> BinaryInputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+        /// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+        /// [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
         /// </summary>
         [Output("binaryOutputFormat")]
         public Output<string> BinaryOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+        /// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+        /// queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
         /// </summary>
         [Output("clientMemoryLimit")]
         public Output<int> ClientMemoryLimit { get; private set; } = null!;
 
         /// <summary>
-        /// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+        /// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+        /// databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+        /// quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
         /// </summary>
         [Output("clientMetadataRequestUseConnectionCtx")]
         public Output<bool> ClientMetadataRequestUseConnectionCtx { get; private set; } = null!;
 
         /// <summary>
-        /// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+        /// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+        /// attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+        /// resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
         /// </summary>
         [Output("clientPrefetchThreads")]
         public Output<int> ClientPrefetchThreads { get; private set; } = null!;
 
         /// <summary>
-        /// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+        /// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+        /// downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
         /// </summary>
         [Output("clientResultChunkSize")]
         public Output<int> ClientResultChunkSize { get; private set; } = null!;
 
         /// <summary>
-        /// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+        /// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+        /// information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
         /// </summary>
         [Output("clientResultColumnCaseInsensitive")]
         public Output<bool> ClientResultColumnCaseInsensitive { get; private set; } = null!;
 
         /// <summary>
-        /// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+        /// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+        /// information, check [CLIENT_SESSION_KEEP_ALIVE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
         /// </summary>
         [Output("clientSessionKeepAlive")]
         public Output<bool> ClientSessionKeepAlive { get; private set; } = null!;
 
         /// <summary>
-        /// Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+        /// Number of seconds in-between client attempts to update the token for the session. For more information, check
+        /// [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         /// </summary>
         [Output("clientSessionKeepAliveHeartbeatFrequency")]
         public Output<int> ClientSessionKeepAliveHeartbeatFrequency { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        /// Specifies the [TIMESTAMP_*
+        /// variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+        /// use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+        /// information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         /// </summary>
         [Output("clientTimestampTypeMapping")]
         public Output<string> ClientTimestampTypeMapping { get; private set; } = null!;
@@ -110,127 +137,173 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        /// Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
+        /// JSON format.
         /// </summary>
         [Output("config")]
         public Output<string?> Config { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The database in which to create the task. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+        /// Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         /// </summary>
         [Output("dateInputFormat")]
         public Output<string> DateInputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        /// Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
         /// </summary>
         [Output("dateOutputFormat")]
         public Output<string> DateOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+        /// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+        /// the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+        /// support the values in the output columns of the unload SQL statement or source table). For more information, check
+        /// [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
         /// </summary>
         [Output("enableUnloadPhysicalTypeOptimization")]
         public Output<bool> EnableUnloadPhysicalTypeOptimization { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        /// Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
+        /// here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         /// </summary>
         [Output("errorIntegration")]
         public Output<string?> ErrorIntegration { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+        /// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+        /// used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+        /// perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
         /// </summary>
         [Output("errorOnNondeterministicMerge")]
         public Output<bool> ErrorOnNondeterministicMerge { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+        /// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+        /// is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+        /// the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
         /// </summary>
         [Output("errorOnNondeterministicUpdate")]
         public Output<bool> ErrorOnNondeterministicUpdate { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
+        /// in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
+        /// and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
+        /// graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
+        /// (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("finalize")]
         public Output<string?> Finalize { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        /// Display format for [GEOGRAPHY
+        /// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+        /// information, check [GEOGRAPHY_OUTPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         /// </summary>
         [Output("geographyOutputFormat")]
         public Output<string> GeographyOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        /// Display format for [GEOMETRY
+        /// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+        /// information, check [GEOMETRY_OUTPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         /// </summary>
         [Output("geometryOutputFormat")]
         public Output<string> GeometryOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        /// Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
         /// </summary>
         [Output("jdbcTreatTimestampNtzAsUtc")]
         public Output<bool> JdbcTreatTimestampNtzAsUtc { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+        /// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+        /// [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+        /// getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
         /// </summary>
         [Output("jdbcUseSessionTimezone")]
         public Output<bool> JdbcUseSessionTimezone { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+        /// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+        /// insert newline characters after each element. For more information, check [JSON_INDENT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         /// </summary>
         [Output("jsonIndent")]
         public Output<int> JsonIndent { get; private set; } = null!;
 
         /// <summary>
-        /// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        /// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+        /// information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
         /// </summary>
         [Output("lockTimeout")]
         public Output<int> LockTimeout { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+        /// at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+        /// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+        /// [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         /// </summary>
         [Output("logLevel")]
         public Output<string> LogLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        /// Number of statements to execute when using the multi-statement capability. For more information, check
+        /// [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         /// </summary>
         [Output("multiStatementCount")]
         public Output<int> MultiStatementCount { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
+        /// technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+        /// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+        /// column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+        /// auto-incremented column in [increasing or decreasing
+        /// order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+        /// more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         /// </summary>
         [Output("noorderSequenceAsDefault")]
         public Output<bool> NoorderSequenceAsDefault { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+        /// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+        /// [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
         /// </summary>
         [Output("odbcTreatDecimalAsInt")]
         public Output<bool> OdbcTreatDecimalAsInt { get; private set; } = null!;
@@ -242,43 +315,63 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.TaskParameter>> Parameters { get; private set; } = null!;
 
         /// <summary>
-        /// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+        /// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+        /// displayed in the output of the [QUERY_HISTORY,
+        /// QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+        /// information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
         /// </summary>
         [Output("queryTag")]
         public Output<string> QueryTag { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        /// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+        /// Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+        /// [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+        /// You can use this parameter in situations in which [third-party applications always use double quotes around
+        /// identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+        /// more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         /// </summary>
         [Output("quotedIdentifiersIgnoreCase")]
         public Output<bool> QuotedIdentifiersIgnoreCase { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+        /// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+        /// check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         /// </summary>
         [Output("rowsPerResultset")]
         public Output<int> RowsPerResultset { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+        /// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+        /// PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+        /// use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+        /// endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+        /// For more information, check [S3_STAGE_VPCE_DNS_NAME
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
         /// </summary>
         [Output("s3StageVpceDnsName")]
         public Output<string> S3StageVpceDnsName { get; private set; } = null!;
 
         /// <summary>
-        /// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+        /// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
+        /// after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
         /// </summary>
         [Output("schedule")]
         public Output<Outputs.TaskSchedule?> Schedule { get; private set; } = null!;
 
         /// <summary>
-        /// The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        /// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+        /// in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+        /// Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+        /// information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         /// </summary>
         [Output("searchPath")]
         public Output<string> SearchPath { get; private set; } = null!;
@@ -302,169 +395,242 @@ namespace Pulumi.Snowflake
         public Output<bool> Started { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+        /// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+        /// by the system. This parameter can be used in conjunction with the
+        /// [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+        /// ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
         /// </summary>
         [Output("statementQueuedTimeoutInSeconds")]
         public Output<int> StatementQueuedTimeoutInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+        /// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+        /// more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
         /// </summary>
         [Output("statementTimeoutInSeconds")]
         public Output<int> StatementTimeoutInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+        /// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+        /// [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+        /// these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+        /// languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+        /// check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
         /// </summary>
         [Output("strictJsonOutput")]
         public Output<bool> StrictJsonOutput { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        /// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
+        /// default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         /// </summary>
         [Output("suspendTaskAfterNumFailures")]
         public Output<int> SuspendTaskAfterNumFailures { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        /// Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
+        /// can automatically retry the task graphs from the last task in the graph that failed. For more information, check
+        /// [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         /// </summary>
         [Output("taskAutoRetryAttempts")]
         public Output<int> TaskAutoRetryAttempts { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+        /// Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+        /// (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+        /// session). For more information, check [TIME_INPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
         /// </summary>
         [Output("timeInputFormat")]
         public Output<string> TimeInputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+        /// Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
         /// </summary>
         [Output("timeOutputFormat")]
         public Output<string> TimeOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+        /// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+        /// aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+        /// check [TIMESTAMP_DAY_IS_ALWAYS_24H
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
         /// </summary>
         [Output("timestampDayIsAlways24h")]
         public Output<bool> TimestampDayIsAlways24h { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+        /// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+        /// AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+        /// during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
         /// </summary>
         [Output("timestampInputFormat")]
         public Output<string> TimestampInputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+        /// Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+        /// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+        /// more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
         /// </summary>
         [Output("timestampLtzOutputFormat")]
         public Output<string> TimestampLtzOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+        /// Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
         /// </summary>
         [Output("timestampNtzOutputFormat")]
         public Output<string> TimestampNtzOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+        /// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+        /// output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
         /// </summary>
         [Output("timestampOutputFormat")]
         public Output<string> TimestampOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        /// Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+        /// [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
         /// </summary>
         [Output("timestampTypeMapping")]
         public Output<string> TimestampTypeMapping { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+        /// Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+        /// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+        /// more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
         /// </summary>
         [Output("timestampTzOutputFormat")]
         public Output<string> TimestampTzOutputFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+        /// Specifies the time zone for the session. You can specify a [time zone
+        /// name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+        /// name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+        /// Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+        /// information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
         /// </summary>
         [Output("timezone")]
         public Output<string> Timezone { get; private set; } = null!;
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        /// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+        /// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+        /// [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         /// </summary>
         [Output("traceLevel")]
         public Output<string> TraceLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+        /// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+        /// more information, check [TRANSACTION_ABORT_ON_ERROR
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
         /// </summary>
         [Output("transactionAbortOnError")]
         public Output<bool> TransactionAbortOnError { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        /// Specifies the isolation level for transactions in the user session. For more information, check
+        /// [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
         /// </summary>
         [Output("transactionDefaultIsolationLevel")]
         public Output<string> TransactionDefaultIsolationLevel { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+        /// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+        /// parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+        /// represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
         /// </summary>
         [Output("twoDigitCenturyStart")]
         public Output<int> TwoDigitCenturyStart { get; private set; } = null!;
 
         /// <summary>
-        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+        /// information, check [UNSUPPORTED_DDL_ACTION
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
         /// </summary>
         [Output("unsupportedDdlAction")]
         public Output<string> UnsupportedDdlAction { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+        /// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+        /// information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
         /// </summary>
         [Output("useCachedResult")]
         public Output<bool> UseCachedResult { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+        /// available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+        /// this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
+        /// warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         /// </summary>
         [Output("userTaskManagedInitialWarehouseSize")]
         public Output<string> UserTaskManagedInitialWarehouseSize { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+        /// Minimum amount of time between Triggered Task executions in seconds For more information, check
+        /// [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
         /// </summary>
         [Output("userTaskMinimumTriggerIntervalInSeconds")]
         public Output<int> UserTaskMinimumTriggerIntervalInSeconds { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        /// Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
+        /// [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         /// </summary>
         [Output("userTaskTimeoutMs")]
         public Output<int> UserTaskTimeoutMs { get; private set; } = null!;
 
         /// <summary>
-        /// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
+        /// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+        /// Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
+        /// user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
         /// </summary>
         [Output("warehouse")]
         public Output<string?> Warehouse { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+        /// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+        /// which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+        /// first week of the year and December 31 is included in the last week of the year. For more information, check
+        /// [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
         /// </summary>
         [Output("weekOfYearPolicy")]
         public Output<int> WeekOfYearPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+        /// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+        /// ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+        /// day of the week. For more information, check [WEEK_START
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
         /// </summary>
         [Output("weekStart")]
         public Output<int> WeekStart { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
+        /// Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
+        /// (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
+        /// If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
+        /// as a predecessor also don’t run.
         /// </summary>
         [Output("when")]
         public Output<string?> When { get; private set; } = null!;
@@ -516,7 +682,9 @@ namespace Pulumi.Snowflake
     public sealed class TaskArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+        /// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+        /// of a session (e.g. network outage, browser termination, service interruption). For more information, check
+        /// [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
         /// </summary>
         [Input("abortDetachedQuery")]
         public Input<bool>? AbortDetachedQuery { get; set; }
@@ -525,7 +693,10 @@ namespace Pulumi.Snowflake
         private InputList<string>? _afters;
 
         /// <summary>
-        /// Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies one or more predecessor tasks for the current task. Use this option to [create a
+        /// DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
+        /// DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
+        /// technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         public InputList<string> Afters
         {
@@ -534,73 +705,102 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
+        /// parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set
+        /// in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("allowOverlappingExecution")]
         public Input<string>? AllowOverlappingExecution { get; set; }
 
         /// <summary>
-        /// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+        /// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+        /// without an active transaction, is automatically committed after the statement successfully completes. For more
+        /// information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+        /// [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
         /// </summary>
         [Input("autocommit")]
         public Input<bool>? Autocommit { get; set; }
 
         /// <summary>
-        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+        /// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+        /// [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
         /// </summary>
         [Input("binaryInputFormat")]
         public Input<string>? BinaryInputFormat { get; set; }
 
         /// <summary>
-        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+        /// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+        /// [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
         /// </summary>
         [Input("binaryOutputFormat")]
         public Input<string>? BinaryOutputFormat { get; set; }
 
         /// <summary>
-        /// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+        /// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+        /// queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
         /// </summary>
         [Input("clientMemoryLimit")]
         public Input<int>? ClientMemoryLimit { get; set; }
 
         /// <summary>
-        /// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+        /// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+        /// databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+        /// quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
         /// </summary>
         [Input("clientMetadataRequestUseConnectionCtx")]
         public Input<bool>? ClientMetadataRequestUseConnectionCtx { get; set; }
 
         /// <summary>
-        /// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+        /// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+        /// attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+        /// resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
         /// </summary>
         [Input("clientPrefetchThreads")]
         public Input<int>? ClientPrefetchThreads { get; set; }
 
         /// <summary>
-        /// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+        /// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+        /// downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
         /// </summary>
         [Input("clientResultChunkSize")]
         public Input<int>? ClientResultChunkSize { get; set; }
 
         /// <summary>
-        /// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+        /// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+        /// information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
         /// </summary>
         [Input("clientResultColumnCaseInsensitive")]
         public Input<bool>? ClientResultColumnCaseInsensitive { get; set; }
 
         /// <summary>
-        /// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+        /// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+        /// information, check [CLIENT_SESSION_KEEP_ALIVE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
         /// </summary>
         [Input("clientSessionKeepAlive")]
         public Input<bool>? ClientSessionKeepAlive { get; set; }
 
         /// <summary>
-        /// Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+        /// Number of seconds in-between client attempts to update the token for the session. For more information, check
+        /// [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         /// </summary>
         [Input("clientSessionKeepAliveHeartbeatFrequency")]
         public Input<int>? ClientSessionKeepAliveHeartbeatFrequency { get; set; }
 
         /// <summary>
-        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        /// Specifies the [TIMESTAMP_*
+        /// variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+        /// use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+        /// information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         /// </summary>
         [Input("clientTimestampTypeMapping")]
         public Input<string>? ClientTimestampTypeMapping { get; set; }
@@ -612,163 +812,228 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        /// Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
+        /// JSON format.
         /// </summary>
         [Input("config")]
         public Input<string>? Config { get; set; }
 
         /// <summary>
-        /// The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The database in which to create the task. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+        /// Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         /// </summary>
         [Input("dateInputFormat")]
         public Input<string>? DateInputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        /// Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
         /// </summary>
         [Input("dateOutputFormat")]
         public Input<string>? DateOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+        /// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+        /// the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+        /// support the values in the output columns of the unload SQL statement or source table). For more information, check
+        /// [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
         /// </summary>
         [Input("enableUnloadPhysicalTypeOptimization")]
         public Input<bool>? EnableUnloadPhysicalTypeOptimization { get; set; }
 
         /// <summary>
-        /// Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        /// Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
+        /// here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         /// </summary>
         [Input("errorIntegration")]
         public Input<string>? ErrorIntegration { get; set; }
 
         /// <summary>
-        /// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+        /// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+        /// used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+        /// perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
         /// </summary>
         [Input("errorOnNondeterministicMerge")]
         public Input<bool>? ErrorOnNondeterministicMerge { get; set; }
 
         /// <summary>
-        /// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+        /// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+        /// is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+        /// the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
         /// </summary>
         [Input("errorOnNondeterministicUpdate")]
         public Input<bool>? ErrorOnNondeterministicUpdate { get; set; }
 
         /// <summary>
-        /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
+        /// in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
+        /// and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
+        /// graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
+        /// (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("finalize")]
         public Input<string>? Finalize { get; set; }
 
         /// <summary>
-        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        /// Display format for [GEOGRAPHY
+        /// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+        /// information, check [GEOGRAPHY_OUTPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         /// </summary>
         [Input("geographyOutputFormat")]
         public Input<string>? GeographyOutputFormat { get; set; }
 
         /// <summary>
-        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        /// Display format for [GEOMETRY
+        /// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+        /// information, check [GEOMETRY_OUTPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         /// </summary>
         [Input("geometryOutputFormat")]
         public Input<string>? GeometryOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        /// Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
         /// </summary>
         [Input("jdbcTreatTimestampNtzAsUtc")]
         public Input<bool>? JdbcTreatTimestampNtzAsUtc { get; set; }
 
         /// <summary>
-        /// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+        /// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+        /// [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+        /// getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
         /// </summary>
         [Input("jdbcUseSessionTimezone")]
         public Input<bool>? JdbcUseSessionTimezone { get; set; }
 
         /// <summary>
-        /// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+        /// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+        /// insert newline characters after each element. For more information, check [JSON_INDENT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         /// </summary>
         [Input("jsonIndent")]
         public Input<int>? JsonIndent { get; set; }
 
         /// <summary>
-        /// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        /// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+        /// information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
         /// </summary>
         [Input("lockTimeout")]
         public Input<int>? LockTimeout { get; set; }
 
         /// <summary>
-        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+        /// at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+        /// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+        /// [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
 
         /// <summary>
-        /// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        /// Number of statements to execute when using the multi-statement capability. For more information, check
+        /// [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         /// </summary>
         [Input("multiStatementCount")]
         public Input<int>? MultiStatementCount { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
+        /// technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+        /// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+        /// column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+        /// auto-incremented column in [increasing or decreasing
+        /// order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+        /// more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         /// </summary>
         [Input("noorderSequenceAsDefault")]
         public Input<bool>? NoorderSequenceAsDefault { get; set; }
 
         /// <summary>
-        /// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+        /// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+        /// [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
         /// </summary>
         [Input("odbcTreatDecimalAsInt")]
         public Input<bool>? OdbcTreatDecimalAsInt { get; set; }
 
         /// <summary>
-        /// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+        /// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+        /// displayed in the output of the [QUERY_HISTORY,
+        /// QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+        /// information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
         /// </summary>
         [Input("queryTag")]
         public Input<string>? QueryTag { get; set; }
 
         /// <summary>
-        /// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        /// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+        /// Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+        /// [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+        /// You can use this parameter in situations in which [third-party applications always use double quotes around
+        /// identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+        /// more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         /// </summary>
         [Input("quotedIdentifiersIgnoreCase")]
         public Input<bool>? QuotedIdentifiersIgnoreCase { get; set; }
 
         /// <summary>
-        /// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+        /// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+        /// check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         /// </summary>
         [Input("rowsPerResultset")]
         public Input<int>? RowsPerResultset { get; set; }
 
         /// <summary>
-        /// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+        /// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+        /// PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+        /// use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+        /// endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+        /// For more information, check [S3_STAGE_VPCE_DNS_NAME
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
         /// </summary>
         [Input("s3StageVpceDnsName")]
         public Input<string>? S3StageVpceDnsName { get; set; }
 
         /// <summary>
-        /// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+        /// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
+        /// after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.TaskScheduleArgs>? Schedule { get; set; }
 
         /// <summary>
-        /// The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        /// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+        /// in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+        /// Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+        /// information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         /// </summary>
         [Input("searchPath")]
         public Input<string>? SearchPath { get; set; }
@@ -786,169 +1051,242 @@ namespace Pulumi.Snowflake
         public Input<bool> Started { get; set; } = null!;
 
         /// <summary>
-        /// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+        /// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+        /// by the system. This parameter can be used in conjunction with the
+        /// [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+        /// ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
         /// </summary>
         [Input("statementQueuedTimeoutInSeconds")]
         public Input<int>? StatementQueuedTimeoutInSeconds { get; set; }
 
         /// <summary>
-        /// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+        /// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+        /// more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
         /// </summary>
         [Input("statementTimeoutInSeconds")]
         public Input<int>? StatementTimeoutInSeconds { get; set; }
 
         /// <summary>
-        /// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+        /// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+        /// [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+        /// these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+        /// languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+        /// check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
         /// </summary>
         [Input("strictJsonOutput")]
         public Input<bool>? StrictJsonOutput { get; set; }
 
         /// <summary>
-        /// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        /// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
+        /// default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         /// </summary>
         [Input("suspendTaskAfterNumFailures")]
         public Input<int>? SuspendTaskAfterNumFailures { get; set; }
 
         /// <summary>
-        /// Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        /// Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
+        /// can automatically retry the task graphs from the last task in the graph that failed. For more information, check
+        /// [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         /// </summary>
         [Input("taskAutoRetryAttempts")]
         public Input<int>? TaskAutoRetryAttempts { get; set; }
 
         /// <summary>
-        /// Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+        /// Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+        /// (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+        /// session). For more information, check [TIME_INPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
         /// </summary>
         [Input("timeInputFormat")]
         public Input<string>? TimeInputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+        /// Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
         /// </summary>
         [Input("timeOutputFormat")]
         public Input<string>? TimeOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+        /// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+        /// aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+        /// check [TIMESTAMP_DAY_IS_ALWAYS_24H
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
         /// </summary>
         [Input("timestampDayIsAlways24h")]
         public Input<bool>? TimestampDayIsAlways24h { get; set; }
 
         /// <summary>
-        /// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+        /// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+        /// AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+        /// during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
         /// </summary>
         [Input("timestampInputFormat")]
         public Input<string>? TimestampInputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+        /// Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+        /// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+        /// more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
         /// </summary>
         [Input("timestampLtzOutputFormat")]
         public Input<string>? TimestampLtzOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+        /// Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
         /// </summary>
         [Input("timestampNtzOutputFormat")]
         public Input<string>? TimestampNtzOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+        /// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+        /// output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
         /// </summary>
         [Input("timestampOutputFormat")]
         public Input<string>? TimestampOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        /// Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+        /// [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
         /// </summary>
         [Input("timestampTypeMapping")]
         public Input<string>? TimestampTypeMapping { get; set; }
 
         /// <summary>
-        /// Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+        /// Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+        /// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+        /// more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
         /// </summary>
         [Input("timestampTzOutputFormat")]
         public Input<string>? TimestampTzOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+        /// Specifies the time zone for the session. You can specify a [time zone
+        /// name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+        /// name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+        /// Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+        /// information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        /// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+        /// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+        /// [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         /// </summary>
         [Input("traceLevel")]
         public Input<string>? TraceLevel { get; set; }
 
         /// <summary>
-        /// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+        /// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+        /// more information, check [TRANSACTION_ABORT_ON_ERROR
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
         /// </summary>
         [Input("transactionAbortOnError")]
         public Input<bool>? TransactionAbortOnError { get; set; }
 
         /// <summary>
-        /// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        /// Specifies the isolation level for transactions in the user session. For more information, check
+        /// [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
         /// </summary>
         [Input("transactionDefaultIsolationLevel")]
         public Input<string>? TransactionDefaultIsolationLevel { get; set; }
 
         /// <summary>
-        /// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+        /// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+        /// parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+        /// represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
         /// </summary>
         [Input("twoDigitCenturyStart")]
         public Input<int>? TwoDigitCenturyStart { get; set; }
 
         /// <summary>
-        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+        /// information, check [UNSUPPORTED_DDL_ACTION
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
         /// </summary>
         [Input("unsupportedDdlAction")]
         public Input<string>? UnsupportedDdlAction { get; set; }
 
         /// <summary>
-        /// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+        /// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+        /// information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
         /// </summary>
         [Input("useCachedResult")]
         public Input<bool>? UseCachedResult { get; set; }
 
         /// <summary>
-        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+        /// available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+        /// this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
+        /// warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         /// </summary>
         [Input("userTaskManagedInitialWarehouseSize")]
         public Input<string>? UserTaskManagedInitialWarehouseSize { get; set; }
 
         /// <summary>
-        /// Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+        /// Minimum amount of time between Triggered Task executions in seconds For more information, check
+        /// [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
         /// </summary>
         [Input("userTaskMinimumTriggerIntervalInSeconds")]
         public Input<int>? UserTaskMinimumTriggerIntervalInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        /// Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
+        /// [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         /// </summary>
         [Input("userTaskTimeoutMs")]
         public Input<int>? UserTaskTimeoutMs { get; set; }
 
         /// <summary>
-        /// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
+        /// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+        /// Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
+        /// user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
         /// </summary>
         [Input("warehouse")]
         public Input<string>? Warehouse { get; set; }
 
         /// <summary>
-        /// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+        /// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+        /// which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+        /// first week of the year and December 31 is included in the last week of the year. For more information, check
+        /// [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
         /// </summary>
         [Input("weekOfYearPolicy")]
         public Input<int>? WeekOfYearPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+        /// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+        /// ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+        /// day of the week. For more information, check [WEEK_START
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
         /// </summary>
         [Input("weekStart")]
         public Input<int>? WeekStart { get; set; }
 
         /// <summary>
-        /// Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
+        /// Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
+        /// (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
+        /// If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
+        /// as a predecessor also don’t run.
         /// </summary>
         [Input("when")]
         public Input<string>? When { get; set; }
@@ -962,7 +1300,9 @@ namespace Pulumi.Snowflake
     public sealed class TaskState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+        /// Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
+        /// of a session (e.g. network outage, browser termination, service interruption). For more information, check
+        /// [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
         /// </summary>
         [Input("abortDetachedQuery")]
         public Input<bool>? AbortDetachedQuery { get; set; }
@@ -971,7 +1311,10 @@ namespace Pulumi.Snowflake
         private InputList<string>? _afters;
 
         /// <summary>
-        /// Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies one or more predecessor tasks for the current task. Use this option to [create a
+        /// DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
+        /// DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
+        /// technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         public InputList<string> Afters
         {
@@ -980,73 +1323,102 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        /// By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
+        /// parameter value to TRUE permits DAG runs to overlap. Available options are: "true" or "false". When the value is not set
+        /// in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("allowOverlappingExecution")]
         public Input<string>? AllowOverlappingExecution { get; set; }
 
         /// <summary>
-        /// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+        /// Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
+        /// without an active transaction, is automatically committed after the statement successfully completes. For more
+        /// information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
+        /// [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
         /// </summary>
         [Input("autocommit")]
         public Input<bool>? Autocommit { get; set; }
 
         /// <summary>
-        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+        /// The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
+        /// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+        /// [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
         /// </summary>
         [Input("binaryInputFormat")]
         public Input<string>? BinaryInputFormat { get; set; }
 
         /// <summary>
-        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+        /// The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
+        /// [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
+        /// [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
         /// </summary>
         [Input("binaryOutputFormat")]
         public Input<string>? BinaryOutputFormat { get; set; }
 
         /// <summary>
-        /// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+        /// Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
+        /// queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
         /// </summary>
         [Input("clientMemoryLimit")]
         public Input<int>? ClientMemoryLimit { get; set; }
 
         /// <summary>
-        /// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+        /// For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
+        /// databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
+        /// quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
         /// </summary>
         [Input("clientMetadataRequestUseConnectionCtx")]
         public Input<bool>? ClientMetadataRequestUseConnectionCtx { get; set; }
 
         /// <summary>
-        /// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+        /// Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
+        /// attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
+        /// resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
         /// </summary>
         [Input("clientPrefetchThreads")]
         public Input<int>? ClientPrefetchThreads { get; set; }
 
         /// <summary>
-        /// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+        /// Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
+        /// downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
         /// </summary>
         [Input("clientResultChunkSize")]
         public Input<int>? ClientResultChunkSize { get; set; }
 
         /// <summary>
-        /// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+        /// Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
+        /// information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
         /// </summary>
         [Input("clientResultColumnCaseInsensitive")]
         public Input<bool>? ClientResultColumnCaseInsensitive { get; set; }
 
         /// <summary>
-        /// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+        /// Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
+        /// information, check [CLIENT_SESSION_KEEP_ALIVE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
         /// </summary>
         [Input("clientSessionKeepAlive")]
         public Input<bool>? ClientSessionKeepAlive { get; set; }
 
         /// <summary>
-        /// Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+        /// Number of seconds in-between client attempts to update the token for the session. For more information, check
+        /// [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
         /// </summary>
         [Input("clientSessionKeepAliveHeartbeatFrequency")]
         public Input<int>? ClientSessionKeepAliveHeartbeatFrequency { get; set; }
 
         /// <summary>
-        /// Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+        /// Specifies the [TIMESTAMP_*
+        /// variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
+        /// use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
+        /// information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
         /// </summary>
         [Input("clientTimestampTypeMapping")]
         public Input<string>? ClientTimestampTypeMapping { get; set; }
@@ -1058,127 +1430,173 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
+        /// Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
+        /// JSON format.
         /// </summary>
         [Input("config")]
         public Input<string>? Config { get; set; }
 
         /// <summary>
-        /// The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The database in which to create the task. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+        /// Specifies the input format for the DATE data type. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
         /// </summary>
         [Input("dateInputFormat")]
         public Input<string>? DateInputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+        /// Specifies the display format for the DATE data type. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
         /// </summary>
         [Input("dateOutputFormat")]
         public Input<string>? DateOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+        /// Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
+        /// the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
+        /// support the values in the output columns of the unload SQL statement or source table). For more information, check
+        /// [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
         /// </summary>
         [Input("enableUnloadPhysicalTypeOptimization")]
         public Input<bool>? EnableUnloadPhysicalTypeOptimization { get; set; }
 
         /// <summary>
-        /// Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        /// Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
+        /// here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         /// </summary>
         [Input("errorIntegration")]
         public Input<string>? ErrorIntegration { get; set; }
 
         /// <summary>
-        /// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+        /// Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
+        /// used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
+        /// perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
         /// </summary>
         [Input("errorOnNondeterministicMerge")]
         public Input<bool>? ErrorOnNondeterministicMerge { get; set; }
 
         /// <summary>
-        /// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+        /// Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
+        /// is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
+        /// the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
         /// </summary>
         [Input("errorOnNondeterministicUpdate")]
         public Input<bool>? ErrorOnNondeterministicUpdate { get; set; }
 
         /// <summary>
-        /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
+        /// in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
+        /// and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
+        /// graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
+        /// (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("finalize")]
         public Input<string>? Finalize { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+        /// Display format for [GEOGRAPHY
+        /// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
+        /// information, check [GEOGRAPHY_OUTPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
         /// </summary>
         [Input("geographyOutputFormat")]
         public Input<string>? GeographyOutputFormat { get; set; }
 
         /// <summary>
-        /// Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+        /// Display format for [GEOMETRY
+        /// values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
+        /// information, check [GEOMETRY_OUTPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
         /// </summary>
         [Input("geometryOutputFormat")]
         public Input<string>? GeometryOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check [JDBC*TREAT*TIMESTAMP*NTZ*AS*UTC docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+        /// Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
         /// </summary>
         [Input("jdbcTreatTimestampNtzAsUtc")]
         public Input<bool>? JdbcTreatTimestampNtzAsUtc { get; set; }
 
         /// <summary>
-        /// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+        /// Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
+        /// [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
+        /// getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
         /// </summary>
         [Input("jdbcUseSessionTimezone")]
         public Input<bool>? JdbcUseSessionTimezone { get; set; }
 
         /// <summary>
-        /// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+        /// Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
+        /// insert newline characters after each element. For more information, check [JSON_INDENT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
         /// </summary>
         [Input("jsonIndent")]
         public Input<int>? JsonIndent { get; set; }
 
         /// <summary>
-        /// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+        /// Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
+        /// information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
         /// </summary>
         [Input("lockTimeout")]
         public Input<int>? LockTimeout { get; set; }
 
         /// <summary>
-        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        /// Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
+        /// at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
+        /// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
+        /// [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         /// </summary>
         [Input("logLevel")]
         public Input<string>? LogLevel { get; set; }
 
         /// <summary>
-        /// Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+        /// Number of statements to execute when using the multi-statement capability. For more information, check
+        /// [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
         /// </summary>
         [Input("multiStatementCount")]
         public Input<int>? MultiStatementCount { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
+        /// technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+        /// Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
+        /// column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
+        /// auto-incremented column in [increasing or decreasing
+        /// order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
+        /// more information, check [NOORDER_SEQUENCE_AS_DEFAULT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
         /// </summary>
         [Input("noorderSequenceAsDefault")]
         public Input<bool>? NoorderSequenceAsDefault { get; set; }
 
         /// <summary>
-        /// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+        /// Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
+        /// [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
         /// </summary>
         [Input("odbcTreatDecimalAsInt")]
         public Input<bool>? OdbcTreatDecimalAsInt { get; set; }
@@ -1196,43 +1614,63 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+        /// Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
+        /// displayed in the output of the [QUERY_HISTORY,
+        /// QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
+        /// information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
         /// </summary>
         [Input("queryTag")]
         public Input<string>? QueryTag { get; set; }
 
         /// <summary>
-        /// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        /// Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
+        /// Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
+        /// [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
+        /// You can use this parameter in situations in which [third-party applications always use double quotes around
+        /// identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
+        /// more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         /// </summary>
         [Input("quotedIdentifiersIgnoreCase")]
         public Input<bool>? QuotedIdentifiersIgnoreCase { get; set; }
 
         /// <summary>
-        /// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+        /// Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
+        /// check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
         /// </summary>
         [Input("rowsPerResultset")]
         public Input<int>? RowsPerResultset { get; set; }
 
         /// <summary>
-        /// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+        /// Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
+        /// PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
+        /// use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
+        /// endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
+        /// For more information, check [S3_STAGE_VPCE_DNS_NAME
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
         /// </summary>
         [Input("s3StageVpceDnsName")]
         public Input<string>? S3StageVpceDnsName { get; set; }
 
         /// <summary>
-        /// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+        /// The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
+        /// after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
         /// </summary>
         [Input("schedule")]
         public Input<Inputs.TaskScheduleGetArgs>? Schedule { get; set; }
 
         /// <summary>
-        /// The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
+        /// characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 
         /// <summary>
-        /// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+        /// Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
+        /// in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
+        /// Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
+        /// information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
         /// </summary>
         [Input("searchPath")]
         public Input<string>? SearchPath { get; set; }
@@ -1262,169 +1700,242 @@ namespace Pulumi.Snowflake
         public Input<bool>? Started { get; set; }
 
         /// <summary>
-        /// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+        /// Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
+        /// by the system. This parameter can be used in conjunction with the
+        /// [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
+        /// ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
         /// </summary>
         [Input("statementQueuedTimeoutInSeconds")]
         public Input<int>? StatementQueuedTimeoutInSeconds { get; set; }
 
         /// <summary>
-        /// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+        /// Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
+        /// more information, check [STATEMENT_TIMEOUT_IN_SECONDS
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
         /// </summary>
         [Input("statementTimeoutInSeconds")]
         public Input<int>? StatementTimeoutInSeconds { get; set; }
 
         /// <summary>
-        /// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+        /// This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
+        /// [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
+        /// these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
+        /// languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
+        /// check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
         /// </summary>
         [Input("strictJsonOutput")]
         public Input<bool>? StrictJsonOutput { get; set; }
 
         /// <summary>
-        /// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        /// Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
+        /// default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         /// </summary>
         [Input("suspendTaskAfterNumFailures")]
         public Input<int>? SuspendTaskAfterNumFailures { get; set; }
 
         /// <summary>
-        /// Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        /// Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
+        /// can automatically retry the task graphs from the last task in the graph that failed. For more information, check
+        /// [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         /// </summary>
         [Input("taskAutoRetryAttempts")]
         public Input<int>? TaskAutoRetryAttempts { get; set; }
 
         /// <summary>
-        /// Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+        /// Specifies the input format for the TIME data type. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
+        /// (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
+        /// session). For more information, check [TIME_INPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
         /// </summary>
         [Input("timeInputFormat")]
         public Input<string>? TimeInputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+        /// Specifies the display format for the TIME data type. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
         /// </summary>
         [Input("timeOutputFormat")]
         public Input<string>? TimeOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+        /// Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
+        /// aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
+        /// check [TIMESTAMP_DAY_IS_ALWAYS_24H
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
         /// </summary>
         [Input("timestampDayIsAlways24h")]
         public Input<bool>? TimestampDayIsAlways24h { get; set; }
 
         /// <summary>
-        /// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+        /// Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
+        /// AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
+        /// during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
         /// </summary>
         [Input("timestampInputFormat")]
         public Input<string>? TimestampInputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+        /// Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
+        /// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+        /// more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
         /// </summary>
         [Input("timestampLtzOutputFormat")]
         public Input<string>? TimestampLtzOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check [TIMESTAMP*NTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+        /// Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
         /// </summary>
         [Input("timestampNtzOutputFormat")]
         public Input<string>? TimestampNtzOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+        /// Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
+        /// output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
         /// </summary>
         [Input("timestampOutputFormat")]
         public Input<string>? TimestampOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+        /// Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
+        /// [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
         /// </summary>
         [Input("timestampTypeMapping")]
         public Input<string>? TimestampTypeMapping { get; set; }
 
         /// <summary>
-        /// Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to [TIMESTAMP*OUTPUT*FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+        /// Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
+        /// [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
+        /// more information, see [Date and time input and output
+        /// formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
+        /// [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
         /// </summary>
         [Input("timestampTzOutputFormat")]
         public Input<string>? TimestampTzOutputFormat { get; set; }
 
         /// <summary>
-        /// Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+        /// Specifies the time zone for the session. You can specify a [time zone
+        /// name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
+        /// name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
+        /// Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
+        /// information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
         /// </summary>
         [Input("timezone")]
         public Input<string>? Timezone { get; set; }
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        /// Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
+        /// level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
+        /// [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         /// </summary>
         [Input("traceLevel")]
         public Input<string>? TraceLevel { get; set; }
 
         /// <summary>
-        /// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+        /// Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
+        /// more information, check [TRANSACTION_ABORT_ON_ERROR
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
         /// </summary>
         [Input("transactionAbortOnError")]
         public Input<bool>? TransactionAbortOnError { get; set; }
 
         /// <summary>
-        /// Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+        /// Specifies the isolation level for transactions in the user session. For more information, check
+        /// [TRANSACTION_DEFAULT_ISOLATION_LEVEL
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
         /// </summary>
         [Input("transactionDefaultIsolationLevel")]
         public Input<string>? TransactionDefaultIsolationLevel { get; set; }
 
         /// <summary>
-        /// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+        /// Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
+        /// parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
+        /// represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
         /// </summary>
         [Input("twoDigitCenturyStart")]
         public Input<int>? TwoDigitCenturyStart { get; set; }
 
         /// <summary>
-        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+        /// Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
+        /// information, check [UNSUPPORTED_DDL_ACTION
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
         /// </summary>
         [Input("unsupportedDdlAction")]
         public Input<string>? UnsupportedDdlAction { get; set; }
 
         /// <summary>
-        /// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+        /// Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
+        /// information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
         /// </summary>
         [Input("useCachedResult")]
         public Input<bool>? UseCachedResult { get; set; }
 
         /// <summary>
-        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        /// Specifies the size of the compute resources to provision for the first run of the task, before a task history is
+        /// available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
+        /// this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
+        /// warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         /// </summary>
         [Input("userTaskManagedInitialWarehouseSize")]
         public Input<string>? UserTaskManagedInitialWarehouseSize { get; set; }
 
         /// <summary>
-        /// Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+        /// Minimum amount of time between Triggered Task executions in seconds For more information, check
+        /// [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
         /// </summary>
         [Input("userTaskMinimumTriggerIntervalInSeconds")]
         public Input<int>? UserTaskMinimumTriggerIntervalInSeconds { get; set; }
 
         /// <summary>
-        /// Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        /// Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
+        /// [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         /// </summary>
         [Input("userTaskTimeoutMs")]
         public Input<int>? UserTaskTimeoutMs { get; set; }
 
         /// <summary>
-        /// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
+        /// The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
+        /// Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
+        /// user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
         /// </summary>
         [Input("warehouse")]
         public Input<string>? Warehouse { get; set; }
 
         /// <summary>
-        /// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+        /// Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
+        /// which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
+        /// first week of the year and December 31 is included in the last week of the year. For more information, check
+        /// [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
         /// </summary>
         [Input("weekOfYearPolicy")]
         public Input<int>? WeekOfYearPolicy { get; set; }
 
         /// <summary>
-        /// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+        /// Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
+        /// ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
+        /// day of the week. For more information, check [WEEK_START
+        /// docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
         /// </summary>
         [Input("weekStart")]
         public Input<int>? WeekStart { get; set; }
 
         /// <summary>
-        /// Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
+        /// Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
+        /// (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
+        /// If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
+        /// as a predecessor also don’t run.
         /// </summary>
         [Input("when")]
         public Input<string>? When { get; set; }

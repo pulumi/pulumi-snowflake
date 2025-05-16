@@ -39,23 +39,45 @@ class SharedDatabaseArgs:
                  user_task_timeout_ms: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a SharedDatabase resource.
-        :param pulumi.Input[builtins.str] from_share: A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        :param pulumi.Input[builtins.str] from_share: A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of
+               `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+               [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the database.
-        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+               schema or table level. For more information, see [collation
+               specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         :param pulumi.Input[builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
-        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
-        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
-        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
-        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
-        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
-        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
-        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
-        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+               [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+               options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+               ingested. For more information, see
+               [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more
+               here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see
+               [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+               an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+               see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+               OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+               third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+               table performance within Snowflake. For more information, see
+               [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+               information, see
+               [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see
+               [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+               about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+               [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds.
-        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see
+               [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         pulumi.set(__self__, "from_share", from_share)
         if catalog is not None:
@@ -95,7 +117,8 @@ class SharedDatabaseArgs:
     @pulumi.getter(name="fromShare")
     def from_share(self) -> pulumi.Input[builtins.str]:
         """
-        A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
+        A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of
+        `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "from_share")
 
@@ -107,7 +130,8 @@ class SharedDatabaseArgs:
     @pulumi.getter
     def catalog(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+        [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         """
         return pulumi.get(self, "catalog")
 
@@ -131,7 +155,9 @@ class SharedDatabaseArgs:
     @pulumi.getter(name="defaultDdlCollation")
     def default_ddl_collation(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+        schema or table level. For more information, see [collation
+        specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         """
         return pulumi.get(self, "default_ddl_collation")
 
@@ -155,7 +181,8 @@ class SharedDatabaseArgs:
     @pulumi.getter(name="externalVolume")
     def external_volume(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+        [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         """
         return pulumi.get(self, "external_volume")
 
@@ -167,7 +194,10 @@ class SharedDatabaseArgs:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+        options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+        ingested. For more information, see
+        [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -179,7 +209,8 @@ class SharedDatabaseArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more
+        here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -191,7 +222,8 @@ class SharedDatabaseArgs:
     @pulumi.getter(name="quotedIdentifiersIgnoreCase")
     def quoted_identifiers_ignore_case(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        If true, the case of quoted identifiers is ignored. For more information, see
+        [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         """
         return pulumi.get(self, "quoted_identifiers_ignore_case")
 
@@ -203,7 +235,9 @@ class SharedDatabaseArgs:
     @pulumi.getter(name="replaceInvalidCharacters")
     def replace_invalid_characters(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+        an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+        see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         """
         return pulumi.get(self, "replace_invalid_characters")
 
@@ -215,7 +249,11 @@ class SharedDatabaseArgs:
     @pulumi.getter(name="storageSerializationPolicy")
     def storage_serialization_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+        OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+        third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+        table performance within Snowflake. For more information, see
+        [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         """
         return pulumi.get(self, "storage_serialization_policy")
 
@@ -227,7 +265,9 @@ class SharedDatabaseArgs:
     @pulumi.getter(name="suspendTaskAfterNumFailures")
     def suspend_task_after_num_failures(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+        information, see
+        [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         """
         return pulumi.get(self, "suspend_task_after_num_failures")
 
@@ -239,7 +279,8 @@ class SharedDatabaseArgs:
     @pulumi.getter(name="taskAutoRetryAttempts")
     def task_auto_retry_attempts(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        Maximum automatic retries allowed for a user task. For more information, see
+        [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         """
         return pulumi.get(self, "task_auto_retry_attempts")
 
@@ -251,7 +292,8 @@ class SharedDatabaseArgs:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+        about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -263,7 +305,8 @@ class SharedDatabaseArgs:
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
     def user_task_managed_initial_warehouse_size(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+        [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
@@ -287,7 +330,8 @@ class SharedDatabaseArgs:
     @pulumi.getter(name="userTaskTimeoutMs")
     def user_task_timeout_ms(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        User task execution timeout in milliseconds. For more information, see
+        [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         return pulumi.get(self, "user_task_timeout_ms")
 
@@ -319,24 +363,47 @@ class _SharedDatabaseState:
                  user_task_timeout_ms: Optional[pulumi.Input[builtins.int]] = None):
         """
         Input properties used for looking up and filtering SharedDatabase resources.
-        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+               [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the database.
-        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+               schema or table level. For more information, see [collation
+               specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         :param pulumi.Input[builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
-        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
-        :param pulumi.Input[builtins.str] from_share: A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
-        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
-        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
-        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
-        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
-        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
-        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+               [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        :param pulumi.Input[builtins.str] from_share: A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of
+               `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+               options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+               ingested. For more information, see
+               [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more
+               here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see
+               [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+               an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+               see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+               OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+               third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+               table performance within Snowflake. For more information, see
+               [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+               information, see
+               [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see
+               [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+               about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+               [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds.
-        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see
+               [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         if catalog is not None:
             pulumi.set(__self__, "catalog", catalog)
@@ -379,7 +446,8 @@ class _SharedDatabaseState:
     @pulumi.getter
     def catalog(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+        [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         """
         return pulumi.get(self, "catalog")
 
@@ -403,7 +471,9 @@ class _SharedDatabaseState:
     @pulumi.getter(name="defaultDdlCollation")
     def default_ddl_collation(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+        schema or table level. For more information, see [collation
+        specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         """
         return pulumi.get(self, "default_ddl_collation")
 
@@ -427,7 +497,8 @@ class _SharedDatabaseState:
     @pulumi.getter(name="externalVolume")
     def external_volume(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+        [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         """
         return pulumi.get(self, "external_volume")
 
@@ -439,7 +510,8 @@ class _SharedDatabaseState:
     @pulumi.getter(name="fromShare")
     def from_share(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
+        A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of
+        `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "from_share")
 
@@ -451,7 +523,8 @@ class _SharedDatabaseState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -463,7 +536,10 @@ class _SharedDatabaseState:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+        options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+        ingested. For more information, see
+        [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -475,7 +551,8 @@ class _SharedDatabaseState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more
+        here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -487,7 +564,8 @@ class _SharedDatabaseState:
     @pulumi.getter(name="quotedIdentifiersIgnoreCase")
     def quoted_identifiers_ignore_case(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        If true, the case of quoted identifiers is ignored. For more information, see
+        [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         """
         return pulumi.get(self, "quoted_identifiers_ignore_case")
 
@@ -499,7 +577,9 @@ class _SharedDatabaseState:
     @pulumi.getter(name="replaceInvalidCharacters")
     def replace_invalid_characters(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+        an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+        see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         """
         return pulumi.get(self, "replace_invalid_characters")
 
@@ -511,7 +591,11 @@ class _SharedDatabaseState:
     @pulumi.getter(name="storageSerializationPolicy")
     def storage_serialization_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+        OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+        third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+        table performance within Snowflake. For more information, see
+        [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         """
         return pulumi.get(self, "storage_serialization_policy")
 
@@ -523,7 +607,9 @@ class _SharedDatabaseState:
     @pulumi.getter(name="suspendTaskAfterNumFailures")
     def suspend_task_after_num_failures(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+        information, see
+        [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         """
         return pulumi.get(self, "suspend_task_after_num_failures")
 
@@ -535,7 +621,8 @@ class _SharedDatabaseState:
     @pulumi.getter(name="taskAutoRetryAttempts")
     def task_auto_retry_attempts(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        Maximum automatic retries allowed for a user task. For more information, see
+        [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         """
         return pulumi.get(self, "task_auto_retry_attempts")
 
@@ -547,7 +634,8 @@ class _SharedDatabaseState:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+        about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -559,7 +647,8 @@ class _SharedDatabaseState:
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
     def user_task_managed_initial_warehouse_size(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+        [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
@@ -583,7 +672,8 @@ class _SharedDatabaseState:
     @pulumi.getter(name="userTaskTimeoutMs")
     def user_task_timeout_ms(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        User task execution timeout in milliseconds. For more information, see
+        [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         return pulumi.get(self, "user_task_timeout_ms")
 
@@ -617,31 +707,48 @@ class SharedDatabase(pulumi.CustomResource):
                  user_task_timeout_ms: Optional[pulumi.Input[builtins.int]] = None,
                  __props__=None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/sharedDatabase:SharedDatabase example '"<shared_database_name>"'
-        ```
-
+        Create a SharedDatabase resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+               [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the database.
-        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+               schema or table level. For more information, see [collation
+               specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         :param pulumi.Input[builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
-        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
-        :param pulumi.Input[builtins.str] from_share: A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
-        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
-        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
-        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
-        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
-        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
-        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+               [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        :param pulumi.Input[builtins.str] from_share: A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of
+               `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+               options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+               ingested. For more information, see
+               [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more
+               here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see
+               [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+               an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+               see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+               OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+               third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+               table performance within Snowflake. For more information, see
+               [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+               information, see
+               [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see
+               [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+               about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+               [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds.
-        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see
+               [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         ...
     @overload
@@ -650,12 +757,7 @@ class SharedDatabase(pulumi.CustomResource):
                  args: SharedDatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Import
-
-        ```sh
-        $ pulumi import snowflake:index/sharedDatabase:SharedDatabase example '"<shared_database_name>"'
-        ```
-
+        Create a SharedDatabase resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param SharedDatabaseArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -752,24 +854,47 @@ class SharedDatabase(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        :param pulumi.Input[builtins.str] catalog: The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+               [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the database.
-        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        :param pulumi.Input[builtins.str] default_ddl_collation: Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+               schema or table level. For more information, see [collation
+               specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         :param pulumi.Input[builtins.bool] enable_console_output: If true, enables stdout/stderr fast path logging for anonymous stored procedures.
-        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
-        :param pulumi.Input[builtins.str] from_share: A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
-        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
-        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
-        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
-        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
-        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
-        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        :param pulumi.Input[builtins.str] external_volume: The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+               [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        :param pulumi.Input[builtins.str] from_share: A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of
+               `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
+               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] log_level: Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+               options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+               ingested. For more information, see
+               [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more
+               here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] quoted_identifiers_ignore_case: If true, the case of quoted identifiers is ignored. For more information, see
+               [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        :param pulumi.Input[builtins.bool] replace_invalid_characters: Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+               an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+               see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        :param pulumi.Input[builtins.str] storage_serialization_policy: The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+               OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+               third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+               table performance within Snowflake. For more information, see
+               [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        :param pulumi.Input[builtins.int] suspend_task_after_num_failures: How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+               information, see
+               [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        :param pulumi.Input[builtins.int] task_auto_retry_attempts: Maximum automatic retries allowed for a user task. For more information, see
+               [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        :param pulumi.Input[builtins.str] trace_level: Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+               about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        :param pulumi.Input[builtins.str] user_task_managed_initial_warehouse_size: The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+               [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         :param pulumi.Input[builtins.int] user_task_minimum_trigger_interval_in_seconds: Minimum amount of time between Triggered Task executions in seconds.
-        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        :param pulumi.Input[builtins.int] user_task_timeout_ms: User task execution timeout in milliseconds. For more information, see
+               [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -799,7 +924,8 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter
     def catalog(self) -> pulumi.Output[builtins.str]:
         """
-        The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+        The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
+        [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
         """
         return pulumi.get(self, "catalog")
 
@@ -815,7 +941,9 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="defaultDdlCollation")
     def default_ddl_collation(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+        Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
+        schema or table level. For more information, see [collation
+        specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
         """
         return pulumi.get(self, "default_ddl_collation")
 
@@ -831,7 +959,8 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="externalVolume")
     def external_volume(self) -> pulumi.Output[builtins.str]:
         """
-        The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+        The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
+        [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
         """
         return pulumi.get(self, "external_volume")
 
@@ -839,7 +968,8 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="fromShare")
     def from_share(self) -> pulumi.Output[builtins.str]:
         """
-        A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
+        A fully qualified path to a share from which the database will be created. A fully qualified path follows the format of
+        `"<organization_name>"."<account_name>"."<share_name>"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "from_share")
 
@@ -847,7 +977,8 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name
+        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -855,7 +986,10 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+        Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
+        options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
+        ingested. For more information, see
+        [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -863,7 +997,8 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the database; must be unique for your account. Due to technical limitations (read more
+        here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -871,7 +1006,8 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="quotedIdentifiersIgnoreCase")
     def quoted_identifiers_ignore_case(self) -> pulumi.Output[builtins.bool]:
         """
-        If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+        If true, the case of quoted identifiers is ignored. For more information, see
+        [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
         """
         return pulumi.get(self, "quoted_identifiers_ignore_case")
 
@@ -879,7 +1015,9 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="replaceInvalidCharacters")
     def replace_invalid_characters(self) -> pulumi.Output[builtins.bool]:
         """
-        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+        Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
+        an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
+        see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
         """
         return pulumi.get(self, "replace_invalid_characters")
 
@@ -887,7 +1025,11 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="storageSerializationPolicy")
     def storage_serialization_policy(self) -> pulumi.Output[builtins.str]:
         """
-        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+        The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
+        OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
+        third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
+        table performance within Snowflake. For more information, see
+        [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
         """
         return pulumi.get(self, "storage_serialization_policy")
 
@@ -895,7 +1037,9 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="suspendTaskAfterNumFailures")
     def suspend_task_after_num_failures(self) -> pulumi.Output[builtins.int]:
         """
-        How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+        How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
+        information, see
+        [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
         """
         return pulumi.get(self, "suspend_task_after_num_failures")
 
@@ -903,7 +1047,8 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="taskAutoRetryAttempts")
     def task_auto_retry_attempts(self) -> pulumi.Output[builtins.int]:
         """
-        Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+        Maximum automatic retries allowed for a user task. For more information, see
+        [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
         """
         return pulumi.get(self, "task_auto_retry_attempts")
 
@@ -911,7 +1056,8 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> pulumi.Output[builtins.str]:
         """
-        Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
+        about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -919,7 +1065,8 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="userTaskManagedInitialWarehouseSize")
     def user_task_managed_initial_warehouse_size(self) -> pulumi.Output[builtins.str]:
         """
-        The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+        The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
+        [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
         """
         return pulumi.get(self, "user_task_managed_initial_warehouse_size")
 
@@ -935,7 +1082,8 @@ class SharedDatabase(pulumi.CustomResource):
     @pulumi.getter(name="userTaskTimeoutMs")
     def user_task_timeout_ms(self) -> pulumi.Output[builtins.int]:
         """
-        User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+        User task execution timeout in milliseconds. For more information, see
+        [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
         """
         return pulumi.get(self, "user_task_timeout_ms")
 

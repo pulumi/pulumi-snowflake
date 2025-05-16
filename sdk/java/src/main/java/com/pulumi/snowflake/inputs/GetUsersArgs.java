@@ -17,77 +17,37 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetUsersArgs Empty = new GetUsersArgs();
 
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     @Import(name="like")
     private @Nullable Output<String> like;
 
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<Output<String>> like() {
         return Optional.ofNullable(this.like);
     }
 
-    /**
-     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-     * 
-     */
     @Import(name="limit")
     private @Nullable Output<GetUsersLimitArgs> limit;
 
-    /**
-     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-     * 
-     */
     public Optional<Output<GetUsersLimitArgs>> limit() {
         return Optional.ofNullable(this.limit);
     }
 
-    /**
-     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-     * 
-     */
     @Import(name="startsWith")
     private @Nullable Output<String> startsWith;
 
-    /**
-     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-     * 
-     */
     public Optional<Output<String>> startsWith() {
         return Optional.ofNullable(this.startsWith);
     }
 
-    /**
-     * (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     @Import(name="withDescribe")
     private @Nullable Output<Boolean> withDescribe;
 
-    /**
-     * @return (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     public Optional<Output<Boolean>> withDescribe() {
         return Optional.ofNullable(this.withDescribe);
     }
 
-    /**
-     * (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
-     * 
-     */
     @Import(name="withParameters")
     private @Nullable Output<Boolean> withParameters;
 
-    /**
-     * @return (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
-     * 
-     */
     public Optional<Output<Boolean>> withParameters() {
         return Optional.ofNullable(this.withParameters);
     }
@@ -120,107 +80,47 @@ public final class GetUsersArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetUsersArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(@Nullable Output<String> like) {
             $.like = like;
             return this;
         }
 
-        /**
-         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-         * 
-         * @return builder
-         * 
-         */
         public Builder like(String like) {
             return like(Output.of(like));
         }
 
-        /**
-         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limit(@Nullable Output<GetUsersLimitArgs> limit) {
             $.limit = limit;
             return this;
         }
 
-        /**
-         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder limit(GetUsersLimitArgs limit) {
             return limit(Output.of(limit));
         }
 
-        /**
-         * @param startsWith Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startsWith(@Nullable Output<String> startsWith) {
             $.startsWith = startsWith;
             return this;
         }
 
-        /**
-         * @param startsWith Filters the output with **case-sensitive** characters indicating the beginning of the object name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder startsWith(String startsWith) {
             return startsWith(Output.of(startsWith));
         }
 
-        /**
-         * @param withDescribe (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withDescribe(@Nullable Output<Boolean> withDescribe) {
             $.withDescribe = withDescribe;
             return this;
         }
 
-        /**
-         * @param withDescribe (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withDescribe(Boolean withDescribe) {
             return withDescribe(Output.of(withDescribe));
         }
 
-        /**
-         * @param withParameters (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withParameters(@Nullable Output<Boolean> withParameters) {
             $.withParameters = withParameters;
             return this;
         }
 
-        /**
-         * @param withParameters (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
-         * 
-         * @return builder
-         * 
-         */
         public Builder withParameters(Boolean withParameters) {
             return withParameters(Output.of(withParameters));
         }

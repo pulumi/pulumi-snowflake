@@ -8,39 +8,47 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// ```sh
-// $ pulumi import snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications example "name"
-// ```
 type OauthIntegrationForPartnerApplications struct {
 	pulumi.CustomResourceState
 
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
+	// includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
+	// ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
+	// information about this resource, see docs.
 	BlockedRolesLists pulumi.StringArrayOutput `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
 	DescribeOutputs OauthIntegrationForPartnerApplicationsDescribeOutputArrayOutput `pulumi:"describeOutputs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the
+	// value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for
+	// this value.
 	Enabled pulumi.StringPtrOutput `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+	// unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+	// following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
+	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
+	// | `TABLEAU_SERVER`.
 	OauthClient pulumi.StringOutput `pulumi:"oauthClient"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+	// expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+	// "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens pulumi.StringPtrOutput `pulumi:"oauthIssueRefreshTokens"`
-	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
+	// only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
 	OauthRedirectUri pulumi.StringPtrOutput `pulumi:"oauthRedirectUri"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+	// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrOutput `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being
+	// opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrOutput `pulumi:"oauthUseSecondaryRoles"`
 	// Parameters related to this security integration.
 	RelatedParameters OauthIntegrationForPartnerApplicationsRelatedParameterArrayOutput `pulumi:"relatedParameters"`
@@ -58,6 +66,13 @@ func NewOauthIntegrationForPartnerApplications(ctx *pulumi.Context,
 	if args.OauthClient == nil {
 		return nil, errors.New("invalid value for required argument 'OauthClient'")
 	}
+	if args.OauthRedirectUri != nil {
+		args.OauthRedirectUri = pulumi.ToSecret(args.OauthRedirectUri).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"oauthRedirectUri",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OauthIntegrationForPartnerApplications
 	err := ctx.RegisterResource("snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications", name, args, &resource, opts...)
@@ -81,27 +96,40 @@ func GetOauthIntegrationForPartnerApplications(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OauthIntegrationForPartnerApplications resources.
 type oauthIntegrationForPartnerApplicationsState struct {
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
+	// includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
+	// ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
+	// information about this resource, see docs.
 	BlockedRolesLists []string `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
 	Comment *string `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
 	DescribeOutputs []OauthIntegrationForPartnerApplicationsDescribeOutput `pulumi:"describeOutputs"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the
+	// value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for
+	// this value.
 	Enabled *string `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+	// unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+	// following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
+	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
+	// | `TABLEAU_SERVER`.
 	OauthClient *string `pulumi:"oauthClient"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+	// expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+	// "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens *string `pulumi:"oauthIssueRefreshTokens"`
-	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
+	// only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
 	OauthRedirectUri *string `pulumi:"oauthRedirectUri"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+	// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being
+	// opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles *string `pulumi:"oauthUseSecondaryRoles"`
 	// Parameters related to this security integration.
 	RelatedParameters []OauthIntegrationForPartnerApplicationsRelatedParameter `pulumi:"relatedParameters"`
@@ -110,27 +138,40 @@ type oauthIntegrationForPartnerApplicationsState struct {
 }
 
 type OauthIntegrationForPartnerApplicationsState struct {
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
+	// includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
+	// ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
+	// information about this resource, see docs.
 	BlockedRolesLists pulumi.StringArrayInput
 	// Specifies a comment for the OAuth integration.
 	Comment pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE SECURITY INTEGRATION` for the given integration.
 	DescribeOutputs OauthIntegrationForPartnerApplicationsDescribeOutputArrayInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the
+	// value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for
+	// this value.
 	Enabled pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+	// unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+	// following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
+	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
+	// | `TABLEAU_SERVER`.
 	OauthClient pulumi.StringPtrInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+	// expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+	// "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens pulumi.StringPtrInput
-	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
+	// only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
 	OauthRedirectUri pulumi.StringPtrInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+	// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being
+	// opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrInput
 	// Parameters related to this security integration.
 	RelatedParameters OauthIntegrationForPartnerApplicationsRelatedParameterArrayInput
@@ -143,45 +184,69 @@ func (OauthIntegrationForPartnerApplicationsState) ElementType() reflect.Type {
 }
 
 type oauthIntegrationForPartnerApplicationsArgs struct {
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
+	// includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
+	// ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
+	// information about this resource, see docs.
 	BlockedRolesLists []string `pulumi:"blockedRolesLists"`
 	// Specifies a comment for the OAuth integration.
 	Comment *string `pulumi:"comment"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the
+	// value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for
+	// this value.
 	Enabled *string `pulumi:"enabled"`
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+	// unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+	// following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
+	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
+	// | `TABLEAU_SERVER`.
 	OauthClient string `pulumi:"oauthClient"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+	// expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+	// "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens *string `pulumi:"oauthIssueRefreshTokens"`
-	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
+	// only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
 	OauthRedirectUri *string `pulumi:"oauthRedirectUri"`
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+	// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity *int `pulumi:"oauthRefreshTokenValidity"`
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being
+	// opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles *string `pulumi:"oauthUseSecondaryRoles"`
 }
 
 // The set of arguments for constructing a OauthIntegrationForPartnerApplications resource.
 type OauthIntegrationForPartnerApplicationsArgs struct {
-	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+	// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
+	// includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
+	// ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
+	// information about this resource, see docs.
 	BlockedRolesLists pulumi.StringArrayInput
 	// Specifies a comment for the OAuth integration.
 	Comment pulumi.StringPtrInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the
+	// value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for
+	// this value.
 	Enabled pulumi.StringPtrInput
-	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+	// unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+	// following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
+	// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
+	// | `TABLEAU_SERVER`.
 	OauthClient pulumi.StringInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+	// expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+	// "default" there which means to use the Snowflake default for this value.
 	OauthIssueRefreshTokens pulumi.StringPtrInput
-	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+	// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
+	// only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
 	OauthRedirectUri pulumi.StringPtrInput
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+	// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
 	OauthRefreshTokenValidity pulumi.IntPtrInput
-	// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+	// Specifies whether default secondary roles set in the user properties are activated by default in the session being
+	// opened. Valid options are: `IMPLICIT` | `NONE`.
 	OauthUseSecondaryRoles pulumi.StringPtrInput
 }
 
@@ -272,7 +337,10 @@ func (o OauthIntegrationForPartnerApplicationsOutput) ToOauthIntegrationForPartn
 	return o
 }
 
-// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
+// A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
+// includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
+// ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
+// information about this resource, see docs.
 func (o OauthIntegrationForPartnerApplicationsOutput) BlockedRolesLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringArrayOutput { return v.BlockedRolesLists }).(pulumi.StringArrayOutput)
 }
@@ -289,46 +357,56 @@ func (o OauthIntegrationForPartnerApplicationsOutput) DescribeOutputs() OauthInt
 	}).(OauthIntegrationForPartnerApplicationsDescribeOutputArrayOutput)
 }
 
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+// Specifies whether this OAuth integration is enabled or disabled. Available options are: "true" or "false". When the
+// value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for
+// this value.
 func (o OauthIntegrationForPartnerApplicationsOutput) Enabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringPtrOutput { return v.Enabled }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o OauthIntegrationForPartnerApplicationsOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
+// unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
+// following characters: `|`, `.`, `"`.
 func (o OauthIntegrationForPartnerApplicationsOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
+// Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
+// | `TABLEAU_SERVER`.
 func (o OauthIntegrationForPartnerApplicationsOutput) OauthClient() pulumi.StringOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringOutput { return v.OauthClient }).(pulumi.StringOutput)
 }
 
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+// Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
+// expired. Available options are: "true" or "false". When the value is not set in the configuration the provider will put
+// "default" there which means to use the Snowflake default for this value.
 func (o OauthIntegrationForPartnerApplicationsOutput) OauthIssueRefreshTokens() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringPtrOutput {
 		return v.OauthIssueRefreshTokens
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
+// only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
 func (o OauthIntegrationForPartnerApplicationsOutput) OauthRedirectUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringPtrOutput { return v.OauthRedirectUri }).(pulumi.StringPtrOutput)
 }
 
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
+// Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
 func (o OauthIntegrationForPartnerApplicationsOutput) OauthRefreshTokenValidity() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.IntPtrOutput {
 		return v.OauthRefreshTokenValidity
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
+// Specifies whether default secondary roles set in the user properties are activated by default in the session being
+// opened. Valid options are: `IMPLICIT` | `NONE`.
 func (o OauthIntegrationForPartnerApplicationsOutput) OauthUseSecondaryRoles() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *OauthIntegrationForPartnerApplications) pulumi.StringPtrOutput {
 		return v.OauthUseSecondaryRoles

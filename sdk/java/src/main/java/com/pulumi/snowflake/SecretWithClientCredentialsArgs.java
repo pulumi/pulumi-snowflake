@@ -18,14 +18,16 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
     public static final SecretWithClientCredentialsArgs Empty = new SecretWithClientCredentialsArgs();
 
     /**
-     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+     * information about this resource, see docs.
      * 
      */
     @Import(name="apiAuthentication", required=true)
     private Output<String> apiAuthentication;
 
     /**
-     * @return Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+     * @return Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+     * information about this resource, see docs.
      * 
      */
     public Output<String> apiAuthentication() {
@@ -48,14 +50,16 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
     }
 
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -63,14 +67,16 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
     }
 
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -78,14 +84,16 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
     }
 
     /**
-     * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+     * Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration
+     * during the OAuth client credentials flow.
      * 
      */
     @Import(name="oauthScopes", required=true)
     private Output<List<String>> oauthScopes;
 
     /**
-     * @return Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+     * @return Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration
+     * during the OAuth client credentials flow.
      * 
      */
     public Output<List<String>> oauthScopes() {
@@ -93,14 +101,16 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
     }
 
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -137,7 +147,8 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param apiAuthentication Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+         * @param apiAuthentication Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+         * information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -148,7 +159,8 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param apiAuthentication Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+         * @param apiAuthentication Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+         * information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -179,7 +191,8 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -190,7 +203,8 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -200,7 +214,8 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -211,7 +226,8 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -221,7 +237,8 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param oauthScopes Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+         * @param oauthScopes Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration
+         * during the OAuth client credentials flow.
          * 
          * @return builder
          * 
@@ -232,7 +249,8 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param oauthScopes Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+         * @param oauthScopes Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration
+         * during the OAuth client credentials flow.
          * 
          * @return builder
          * 
@@ -242,7 +260,8 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param oauthScopes Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration during the OAuth client credentials flow.
+         * @param oauthScopes Specifies a list of scopes to use when making a request from the OAuth server by a role with USAGE on the integration
+         * during the OAuth client credentials flow.
          * 
          * @return builder
          * 
@@ -252,7 +271,8 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -263,7 +283,8 @@ public final class SecretWithClientCredentialsArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+         * characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

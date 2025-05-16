@@ -9,20 +9,11 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// format is database name | schema name | pipe name
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/pipe:Pipe")]
     public partial class Pipe : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Default: `false`) Specifies a auto_ingest param for the pipe.
+        /// Specifies a auto_ingest param for the pipe.
         /// </summary>
         [Output("autoIngest")]
         public Output<bool?> AutoIngest { get; private set; } = null!;
@@ -58,7 +49,8 @@ namespace Pulumi.Snowflake
         public Output<string?> ErrorIntegration { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
@@ -140,7 +132,7 @@ namespace Pulumi.Snowflake
     public sealed class PipeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: `false`) Specifies a auto_ingest param for the pipe.
+        /// Specifies a auto_ingest param for the pipe.
         /// </summary>
         [Input("autoIngest")]
         public Input<bool>? AutoIngest { get; set; }
@@ -202,7 +194,7 @@ namespace Pulumi.Snowflake
     public sealed class PipeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Default: `false`) Specifies a auto_ingest param for the pipe.
+        /// Specifies a auto_ingest param for the pipe.
         /// </summary>
         [Input("autoIngest")]
         public Input<bool>? AutoIngest { get; set; }
@@ -238,7 +230,8 @@ namespace Pulumi.Snowflake
         public Input<string>? ErrorIntegration { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name
+        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }

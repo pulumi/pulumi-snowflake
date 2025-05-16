@@ -20,7 +20,6 @@ namespace Pulumi.Snowflake.Outputs
         public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope> OauthAllowedScopes;
         public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint> OauthAuthorizationEndpoints;
         public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod> OauthClientAuthMethods;
-        public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId> OauthClientIds;
         public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant> OauthGrants;
         public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity> OauthRefreshTokenValidities;
         public readonly ImmutableArray<Outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint> OauthTokenEndpoints;
@@ -42,8 +41,6 @@ namespace Pulumi.Snowflake.Outputs
 
             ImmutableArray<Outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod> oauthClientAuthMethods,
 
-            ImmutableArray<Outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId> oauthClientIds,
-
             ImmutableArray<Outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant> oauthGrants,
 
             ImmutableArray<Outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity> oauthRefreshTokenValidities,
@@ -59,7 +56,6 @@ namespace Pulumi.Snowflake.Outputs
             OauthAllowedScopes = oauthAllowedScopes;
             OauthAuthorizationEndpoints = oauthAuthorizationEndpoints;
             OauthClientAuthMethods = oauthClientAuthMethods;
-            OauthClientIds = oauthClientIds;
             OauthGrants = oauthGrants;
             OauthRefreshTokenValidities = oauthRefreshTokenValidities;
             OauthTokenEndpoints = oauthTokenEndpoints;

@@ -8,33 +8,27 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// format is database name | schema name | sequence name
-//
-// ```sh
-// $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
-// ```
 type Sequence struct {
 	pulumi.CustomResourceState
 
-	// (Default: ``) Specifies a comment for the sequence.
+	// Specifies a comment for the sequence.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// The database in which to create the sequence. Don't use the | character.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// (Default: `1`) The amount the sequence will increase by each time it is used
+	// The amount the sequence will increase by each time it is used
 	Increment pulumi.IntPtrOutput `pulumi:"increment"`
 	// Specifies the name for the sequence.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The increment sequence interval.
 	NextValue pulumi.IntOutput `pulumi:"nextValue"`
-	// (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+	// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
 	Ordering pulumi.StringPtrOutput `pulumi:"ordering"`
 	// The schema in which to create the sequence. Don't use the | character.
 	Schema pulumi.StringOutput `pulumi:"schema"`
@@ -76,38 +70,40 @@ func GetSequence(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Sequence resources.
 type sequenceState struct {
-	// (Default: ``) Specifies a comment for the sequence.
+	// Specifies a comment for the sequence.
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the sequence. Don't use the | character.
 	Database *string `pulumi:"database"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// (Default: `1`) The amount the sequence will increase by each time it is used
+	// The amount the sequence will increase by each time it is used
 	Increment *int `pulumi:"increment"`
 	// Specifies the name for the sequence.
 	Name *string `pulumi:"name"`
 	// The increment sequence interval.
 	NextValue *int `pulumi:"nextValue"`
-	// (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+	// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
 	Ordering *string `pulumi:"ordering"`
 	// The schema in which to create the sequence. Don't use the | character.
 	Schema *string `pulumi:"schema"`
 }
 
 type SequenceState struct {
-	// (Default: ``) Specifies a comment for the sequence.
+	// Specifies a comment for the sequence.
 	Comment pulumi.StringPtrInput
 	// The database in which to create the sequence. Don't use the | character.
 	Database pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// (Default: `1`) The amount the sequence will increase by each time it is used
+	// The amount the sequence will increase by each time it is used
 	Increment pulumi.IntPtrInput
 	// Specifies the name for the sequence.
 	Name pulumi.StringPtrInput
 	// The increment sequence interval.
 	NextValue pulumi.IntPtrInput
-	// (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+	// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
 	Ordering pulumi.StringPtrInput
 	// The schema in which to create the sequence. Don't use the | character.
 	Schema pulumi.StringPtrInput
@@ -118,15 +114,15 @@ func (SequenceState) ElementType() reflect.Type {
 }
 
 type sequenceArgs struct {
-	// (Default: ``) Specifies a comment for the sequence.
+	// Specifies a comment for the sequence.
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the sequence. Don't use the | character.
 	Database string `pulumi:"database"`
-	// (Default: `1`) The amount the sequence will increase by each time it is used
+	// The amount the sequence will increase by each time it is used
 	Increment *int `pulumi:"increment"`
 	// Specifies the name for the sequence.
 	Name *string `pulumi:"name"`
-	// (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+	// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
 	Ordering *string `pulumi:"ordering"`
 	// The schema in which to create the sequence. Don't use the | character.
 	Schema string `pulumi:"schema"`
@@ -134,15 +130,15 @@ type sequenceArgs struct {
 
 // The set of arguments for constructing a Sequence resource.
 type SequenceArgs struct {
-	// (Default: ``) Specifies a comment for the sequence.
+	// Specifies a comment for the sequence.
 	Comment pulumi.StringPtrInput
 	// The database in which to create the sequence. Don't use the | character.
 	Database pulumi.StringInput
-	// (Default: `1`) The amount the sequence will increase by each time it is used
+	// The amount the sequence will increase by each time it is used
 	Increment pulumi.IntPtrInput
 	// Specifies the name for the sequence.
 	Name pulumi.StringPtrInput
-	// (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+	// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
 	Ordering pulumi.StringPtrInput
 	// The schema in which to create the sequence. Don't use the | character.
 	Schema pulumi.StringInput
@@ -235,7 +231,7 @@ func (o SequenceOutput) ToSequenceOutputWithContext(ctx context.Context) Sequenc
 	return o
 }
 
-// (Default: “) Specifies a comment for the sequence.
+// Specifies a comment for the sequence.
 func (o SequenceOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sequence) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -245,12 +241,13 @@ func (o SequenceOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sequence) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o SequenceOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Sequence) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// (Default: `1`) The amount the sequence will increase by each time it is used
+// The amount the sequence will increase by each time it is used
 func (o SequenceOutput) Increment() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Sequence) pulumi.IntPtrOutput { return v.Increment }).(pulumi.IntPtrOutput)
 }
@@ -265,7 +262,7 @@ func (o SequenceOutput) NextValue() pulumi.IntOutput {
 	return o.ApplyT(func(v *Sequence) pulumi.IntOutput { return v.NextValue }).(pulumi.IntOutput)
 }
 
-// (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+// The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
 func (o SequenceOutput) Ordering() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sequence) pulumi.StringPtrOutput { return v.Ordering }).(pulumi.StringPtrOutput)
 }

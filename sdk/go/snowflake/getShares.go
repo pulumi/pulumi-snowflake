@@ -7,43 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetShares(ctx, &snowflake.GetSharesArgs{}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = snowflake.GetShares(ctx, &snowflake.GetSharesArgs{
-//				Pattern: pulumi.StringRef("usage"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetShares(ctx *pulumi.Context, args *GetSharesArgs, opts ...pulumi.InvokeOption) (*GetSharesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSharesResult
@@ -56,18 +23,15 @@ func GetShares(ctx *pulumi.Context, args *GetSharesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getShares.
 type GetSharesArgs struct {
-	// Filters the command output by object name.
 	Pattern *string `pulumi:"pattern"`
 }
 
 // A collection of values returned by getShares.
 type GetSharesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// Filters the command output by object name.
-	Pattern *string `pulumi:"pattern"`
-	// List of all the shares available in the system.
-	Shares []GetSharesShare `pulumi:"shares"`
+	Id      string           `pulumi:"id"`
+	Pattern *string          `pulumi:"pattern"`
+	Shares  []GetSharesShare `pulumi:"shares"`
 }
 
 func GetSharesOutput(ctx *pulumi.Context, args GetSharesOutputArgs, opts ...pulumi.InvokeOption) GetSharesResultOutput {
@@ -81,7 +45,6 @@ func GetSharesOutput(ctx *pulumi.Context, args GetSharesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getShares.
 type GetSharesOutputArgs struct {
-	// Filters the command output by object name.
 	Pattern pulumi.StringPtrInput `pulumi:"pattern"`
 }
 
@@ -109,12 +72,10 @@ func (o GetSharesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSharesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Filters the command output by object name.
 func (o GetSharesResultOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSharesResult) *string { return v.Pattern }).(pulumi.StringPtrOutput)
 }
 
-// List of all the shares available in the system.
 func (o GetSharesResultOutput) Shares() GetSharesShareArrayOutput {
 	return o.ApplyT(func(v GetSharesResult) []GetSharesShare { return v.Shares }).(GetSharesShareArrayOutput)
 }

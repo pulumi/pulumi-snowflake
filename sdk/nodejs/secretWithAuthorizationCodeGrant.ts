@@ -6,13 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * ## Import
- *
- * ```sh
- * $ pulumi import snowflake:index/secretWithAuthorizationCodeGrant:SecretWithAuthorizationCodeGrant example '"<database_name>"."<schema_name>"."<secret_name>"'
- * ```
- */
 export class SecretWithAuthorizationCodeGrant extends pulumi.CustomResource {
     /**
      * Get an existing SecretWithAuthorizationCodeGrant resource's state with the given name, ID, and optional extra
@@ -42,7 +35,8 @@ export class SecretWithAuthorizationCodeGrant extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+     * information about this resource, see docs.
      */
     public readonly apiAuthentication!: pulumi.Output<string>;
     /**
@@ -50,7 +44,8 @@ export class SecretWithAuthorizationCodeGrant extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -58,24 +53,29 @@ export class SecretWithAuthorizationCodeGrant extends pulumi.CustomResource {
      */
     public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.SecretWithAuthorizationCodeGrantDescribeOutput[]>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     public readonly oauthRefreshToken!: pulumi.Output<string>;
     /**
-     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
+     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD,
+     * YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI <timezone>
      */
     public readonly oauthRefreshTokenExpiryTime!: pulumi.Output<string>;
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
-     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+     * needed.
      */
     public /*out*/ readonly secretType!: pulumi.Output<string>;
     /**
@@ -148,7 +148,8 @@ export class SecretWithAuthorizationCodeGrant extends pulumi.CustomResource {
  */
 export interface SecretWithAuthorizationCodeGrantState {
     /**
-     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+     * information about this resource, see docs.
      */
     apiAuthentication?: pulumi.Input<string>;
     /**
@@ -156,7 +157,8 @@ export interface SecretWithAuthorizationCodeGrantState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     database?: pulumi.Input<string>;
     /**
@@ -164,24 +166,29 @@ export interface SecretWithAuthorizationCodeGrantState {
      */
     describeOutputs?: pulumi.Input<pulumi.Input<inputs.SecretWithAuthorizationCodeGrantDescribeOutput>[]>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     oauthRefreshToken?: pulumi.Input<string>;
     /**
-     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
+     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD,
+     * YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI <timezone>
      */
     oauthRefreshTokenExpiryTime?: pulumi.Input<string>;
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string>;
     /**
-     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
+     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
+     * needed.
      */
     secretType?: pulumi.Input<string>;
     /**
@@ -195,7 +202,8 @@ export interface SecretWithAuthorizationCodeGrantState {
  */
 export interface SecretWithAuthorizationCodeGrantArgs {
     /**
-     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
+     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
+     * information about this resource, see docs.
      */
     apiAuthentication: pulumi.Input<string>;
     /**
@@ -203,20 +211,24 @@ export interface SecretWithAuthorizationCodeGrantArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     database: pulumi.Input<string>;
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
+     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     oauthRefreshToken: pulumi.Input<string>;
     /**
-     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
+     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD,
+     * YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI <timezone>
      */
     oauthRefreshTokenExpiryTime: pulumi.Input<string>;
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
+     * characters: `|`, `.`, `"`.
      */
     schema: pulumi.Input<string>;
 }

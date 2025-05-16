@@ -6,9 +6,6 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
-/**
- * Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
- */
 export function getConnections(args?: GetConnectionsArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -21,9 +18,6 @@ export function getConnections(args?: GetConnectionsArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getConnections.
  */
 export interface GetConnectionsArgs {
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     */
     like?: string;
 }
 
@@ -31,22 +25,13 @@ export interface GetConnectionsArgs {
  * A collection of values returned by getConnections.
  */
 export interface GetConnectionsResult {
-    /**
-     * Holds the aggregated output of all connections details queries.
-     */
     readonly connections: outputs.GetConnectionsConnection[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     */
     readonly like?: string;
 }
-/**
- * Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
- */
 export function getConnectionsOutput(args?: GetConnectionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConnectionsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -59,8 +44,5 @@ export function getConnectionsOutput(args?: GetConnectionsOutputArgs, opts?: pul
  * A collection of arguments for invoking getConnections.
  */
 export interface GetConnectionsOutputArgs {
-    /**
-     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     */
     like?: pulumi.Input<string>;
 }

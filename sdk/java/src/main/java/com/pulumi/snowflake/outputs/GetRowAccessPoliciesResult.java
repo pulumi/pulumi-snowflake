@@ -22,30 +22,10 @@ public final class GetRowAccessPoliciesResult {
      * 
      */
     private String id;
-    /**
-     * @return IN clause to filter the list of row access policies
-     * 
-     */
     private @Nullable GetRowAccessPoliciesIn in;
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     private @Nullable String like;
-    /**
-     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-     * 
-     */
     private @Nullable GetRowAccessPoliciesLimit limit;
-    /**
-     * @return Holds the aggregated output of all views details queries.
-     * 
-     */
     private List<GetRowAccessPoliciesRowAccessPolicy> rowAccessPolicies;
-    /**
-     * @return (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     private @Nullable Boolean withDescribe;
 
     private GetRowAccessPoliciesResult() {}
@@ -56,38 +36,18 @@ public final class GetRowAccessPoliciesResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return IN clause to filter the list of row access policies
-     * 
-     */
     public Optional<GetRowAccessPoliciesIn> in() {
         return Optional.ofNullable(this.in);
     }
-    /**
-     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-     * 
-     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
-    /**
-     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
-     * 
-     */
     public Optional<GetRowAccessPoliciesLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
-    /**
-     * @return Holds the aggregated output of all views details queries.
-     * 
-     */
     public List<GetRowAccessPoliciesRowAccessPolicy> rowAccessPolicies() {
         return this.rowAccessPolicies;
     }
-    /**
-     * @return (Default: `true`) Runs DESC ROW ACCESS POLICY for each row access policy returned by SHOW ROW ACCESS POLICIES. The output of describe is saved to the description field. By default this value is set to true.
-     * 
-     */
     public Optional<Boolean> withDescribe() {
         return Optional.ofNullable(this.withDescribe);
     }

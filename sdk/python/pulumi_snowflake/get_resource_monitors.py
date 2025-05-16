@@ -50,17 +50,11 @@ class GetResourceMonitorsResult:
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
-        """
-        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter(name="resourceMonitors")
     def resource_monitors(self) -> Sequence['outputs.GetResourceMonitorsResourceMonitorResult']:
-        """
-        Holds the aggregated output of all resource monitor details queries.
-        """
         return pulumi.get(self, "resource_monitors")
 
 
@@ -78,10 +72,7 @@ class AwaitableGetResourceMonitorsResult(GetResourceMonitorsResult):
 def get_resource_monitors(like: Optional[builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetResourceMonitorsResult:
     """
-    Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in show_output collection.
-
-
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['like'] = like
@@ -95,10 +86,7 @@ def get_resource_monitors(like: Optional[builtins.str] = None,
 def get_resource_monitors_output(like: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetResourceMonitorsResult]:
     """
-    Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in show_output collection.
-
-
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['like'] = like

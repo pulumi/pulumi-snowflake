@@ -8,31 +8,34 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
-//
-// Resource used to manage external volume objects. For more information, check [external volume documentation](https://docs.snowflake.com/en/sql-reference/commands-data-loading#external-volume).
-//
-// > **Note** If a field has a default value, it is shown next to the type in the schema.
 type ExternalVolume struct {
 	pulumi.CustomResourceState
 
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
+	// Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the
+	// provider will put "default" there which means to use the Snowflake default for this value.
 	AllowWrites pulumi.StringPtrOutput `pulumi:"allowWrites"`
 	// Specifies a comment for the external volume.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
 	DescribeOutputs ExternalVolumeDescribeOutputArrayOutput `pulumi:"describeOutputs"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
+	// avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW EXTERNAL VOLUMES` for the given external volume.
 	ShowOutputs ExternalVolumeShowOutputArrayOutput `pulumi:"showOutputs"`
-	// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
+	// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
+	// order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
+	// Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
+	// docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
+	// for more details on this.
 	StorageLocations ExternalVolumeStorageLocationArrayOutput `pulumi:"storageLocations"`
 }
 
@@ -69,36 +72,52 @@ func GetExternalVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExternalVolume resources.
 type externalVolumeState struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
+	// Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the
+	// provider will put "default" there which means to use the Snowflake default for this value.
 	AllowWrites *string `pulumi:"allowWrites"`
 	// Specifies a comment for the external volume.
 	Comment *string `pulumi:"comment"`
 	// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
 	DescribeOutputs []ExternalVolumeDescribeOutput `pulumi:"describeOutputs"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
+	// avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW EXTERNAL VOLUMES` for the given external volume.
 	ShowOutputs []ExternalVolumeShowOutput `pulumi:"showOutputs"`
-	// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
+	// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
+	// order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
+	// Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
+	// docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
+	// for more details on this.
 	StorageLocations []ExternalVolumeStorageLocation `pulumi:"storageLocations"`
 }
 
 type ExternalVolumeState struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
+	// Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the
+	// provider will put "default" there which means to use the Snowflake default for this value.
 	AllowWrites pulumi.StringPtrInput
 	// Specifies a comment for the external volume.
 	Comment pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
 	DescribeOutputs ExternalVolumeDescribeOutputArrayInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
+	// avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW EXTERNAL VOLUMES` for the given external volume.
 	ShowOutputs ExternalVolumeShowOutputArrayInput
-	// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
+	// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
+	// order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
+	// Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
+	// docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
+	// for more details on this.
 	StorageLocations ExternalVolumeStorageLocationArrayInput
 }
 
@@ -107,25 +126,39 @@ func (ExternalVolumeState) ElementType() reflect.Type {
 }
 
 type externalVolumeArgs struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
+	// Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the
+	// provider will put "default" there which means to use the Snowflake default for this value.
 	AllowWrites *string `pulumi:"allowWrites"`
 	// Specifies a comment for the external volume.
 	Comment *string `pulumi:"comment"`
-	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
+	// avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
+	// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
+	// order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
+	// Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
+	// docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
+	// for more details on this.
 	StorageLocations []ExternalVolumeStorageLocation `pulumi:"storageLocations"`
 }
 
 // The set of arguments for constructing a ExternalVolume resource.
 type ExternalVolumeArgs struct {
-	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
+	// Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the
+	// provider will put "default" there which means to use the Snowflake default for this value.
 	AllowWrites pulumi.StringPtrInput
 	// Specifies a comment for the external volume.
 	Comment pulumi.StringPtrInput
-	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
+	// avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
+	// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
+	// order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
+	// Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
+	// docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
+	// for more details on this.
 	StorageLocations ExternalVolumeStorageLocationArrayInput
 }
 
@@ -216,7 +249,9 @@ func (o ExternalVolumeOutput) ToExternalVolumeOutputWithContext(ctx context.Cont
 	return o
 }
 
-// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+// Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
+// Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the
+// provider will put "default" there which means to use the Snowflake default for this value.
 func (o ExternalVolumeOutput) AllowWrites() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalVolume) pulumi.StringPtrOutput { return v.AllowWrites }).(pulumi.StringPtrOutput)
 }
@@ -231,12 +266,14 @@ func (o ExternalVolumeOutput) DescribeOutputs() ExternalVolumeDescribeOutputArra
 	return o.ApplyT(func(v *ExternalVolume) ExternalVolumeDescribeOutputArrayOutput { return v.DescribeOutputs }).(ExternalVolumeDescribeOutputArrayOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o ExternalVolumeOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalVolume) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
+// avoid using the following characters: `|`, `.`, `"`.
 func (o ExternalVolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalVolume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -246,7 +283,11 @@ func (o ExternalVolumeOutput) ShowOutputs() ExternalVolumeShowOutputArrayOutput 
 	return o.ApplyT(func(v *ExternalVolume) ExternalVolumeShowOutputArrayOutput { return v.ShowOutputs }).(ExternalVolumeShowOutputArrayOutput)
 }
 
-// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
+// List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
+// order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
+// Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
+// docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
+// for more details on this.
 func (o ExternalVolumeOutput) StorageLocations() ExternalVolumeStorageLocationArrayOutput {
 	return o.ApplyT(func(v *ExternalVolume) ExternalVolumeStorageLocationArrayOutput { return v.StorageLocations }).(ExternalVolumeStorageLocationArrayOutput)
 }

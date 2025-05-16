@@ -18,14 +18,14 @@ public final class SequenceArgs extends com.pulumi.resources.ResourceArgs {
     public static final SequenceArgs Empty = new SequenceArgs();
 
     /**
-     * (Default: ``) Specifies a comment for the sequence.
+     * Specifies a comment for the sequence.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return (Default: ``) Specifies a comment for the sequence.
+     * @return Specifies a comment for the sequence.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -48,14 +48,14 @@ public final class SequenceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: `1`) The amount the sequence will increase by each time it is used
+     * The amount the sequence will increase by each time it is used
      * 
      */
     @Import(name="increment")
     private @Nullable Output<Integer> increment;
 
     /**
-     * @return (Default: `1`) The amount the sequence will increase by each time it is used
+     * @return The amount the sequence will increase by each time it is used
      * 
      */
     public Optional<Output<Integer>> increment() {
@@ -78,14 +78,14 @@ public final class SequenceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      * 
      */
     @Import(name="ordering")
     private @Nullable Output<String> ordering;
 
     /**
-     * @return (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * @return The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      * 
      */
     public Optional<Output<String>> ordering() {
@@ -137,7 +137,7 @@ public final class SequenceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment (Default: ``) Specifies a comment for the sequence.
+         * @param comment Specifies a comment for the sequence.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class SequenceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment (Default: ``) Specifies a comment for the sequence.
+         * @param comment Specifies a comment for the sequence.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class SequenceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param increment (Default: `1`) The amount the sequence will increase by each time it is used
+         * @param increment The amount the sequence will increase by each time it is used
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class SequenceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param increment (Default: `1`) The amount the sequence will increase by each time it is used
+         * @param increment The amount the sequence will increase by each time it is used
          * 
          * @return builder
          * 
@@ -221,7 +221,7 @@ public final class SequenceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ordering (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+         * @param ordering The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class SequenceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ordering (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+         * @param ordering The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
          * 
          * @return builder
          * 

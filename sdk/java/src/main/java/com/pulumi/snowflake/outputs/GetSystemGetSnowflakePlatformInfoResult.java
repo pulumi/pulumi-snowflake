@@ -11,15 +11,7 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSystemGetSnowflakePlatformInfoResult {
-    /**
-     * @return Snowflake AWS Virtual Private Cloud IDs
-     * 
-     */
     private List<String> awsVpcIds;
-    /**
-     * @return Snowflake Azure Virtual Network Subnet IDs
-     * 
-     */
     private List<String> azureVnetSubnetIds;
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -28,17 +20,9 @@ public final class GetSystemGetSnowflakePlatformInfoResult {
     private String id;
 
     private GetSystemGetSnowflakePlatformInfoResult() {}
-    /**
-     * @return Snowflake AWS Virtual Private Cloud IDs
-     * 
-     */
     public List<String> awsVpcIds() {
         return this.awsVpcIds;
     }
-    /**
-     * @return Snowflake Azure Virtual Network Subnet IDs
-     * 
-     */
     public List<String> azureVnetSubnetIds() {
         return this.azureVnetSubnetIds;
     }

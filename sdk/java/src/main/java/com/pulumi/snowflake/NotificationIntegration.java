@@ -15,14 +15,6 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-/**
- * ## Import
- * 
- * ```sh
- * $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
- * ```
- * 
- */
 @ResourceType(type="snowflake:index/notificationIntegration:NotificationIntegration")
 public class NotificationIntegration extends com.pulumi.resources.CustomResource {
     /**
@@ -154,28 +146,30 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
         return Codegen.optional(this.awsSqsRoleArn);
     }
     /**
-     * The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
+     * The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
+     * provider
      * 
      */
     @Export(name="azureStorageQueuePrimaryUri", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureStorageQueuePrimaryUri;
 
     /**
-     * @return The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
+     * @return The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
+     * provider
      * 
      */
     public Output<Optional<String>> azureStorageQueuePrimaryUri() {
         return Codegen.optional(this.azureStorageQueuePrimaryUri);
     }
     /**
-     * The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
+     * The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
      * 
      */
     @Export(name="azureTenantId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azureTenantId;
 
     /**
-     * @return The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
+     * @return The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
      * 
      */
     public Output<Optional<String>> azureTenantId() {
@@ -227,29 +221,23 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     public Output<Optional<String>> direction() {
         return Codegen.optional(this.direction);
     }
-    /**
-     * (Default: `true`)
-     * 
-     */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
-    /**
-     * @return (Default: `true`)
-     * 
-     */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
@@ -304,21 +292,23 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
         return this.name;
     }
     /**
-     * The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
+     * The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
+     * deprecated and will be removed in the future provider versions)
      * 
      */
     @Export(name="notificationProvider", refs={String.class}, tree="[0]")
     private Output<String> notificationProvider;
 
     /**
-     * @return The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
+     * @return The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
+     * deprecated and will be removed in the future provider versions)
      * 
      */
     public Output<String> notificationProvider() {
         return this.notificationProvider;
     }
     /**
-     * (Default: `QUEUE`) A type of integration
+     * A type of integration
      * 
      * @deprecated
      * Will be removed - it is added automatically on the SDK level.
@@ -329,7 +319,7 @@ public class NotificationIntegration extends com.pulumi.resources.CustomResource
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return (Default: `QUEUE`) A type of integration
+     * @return A type of integration
      * 
      */
     public Output<Optional<String>> type() {

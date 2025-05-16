@@ -49,14 +49,16 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -64,14 +66,14 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * (Default: `false`) Specifies that the view is secure.
+     * Specifies that the view is secure.
      * 
      */
     @Import(name="isSecure")
     private @Nullable Output<Boolean> isSecure;
 
     /**
-     * @return (Default: `false`) Specifies that the view is secure.
+     * @return Specifies that the view is secure.
      * 
      */
     public Optional<Output<Boolean>> isSecure() {
@@ -94,14 +96,14 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * (Default: `false`) Overwrites the View if it exists.
+     * Overwrites the View if it exists.
      * 
      */
     @Import(name="orReplace")
     private @Nullable Output<Boolean> orReplace;
 
     /**
-     * @return (Default: `false`) Overwrites the View if it exists.
+     * @return Overwrites the View if it exists.
      * 
      */
     public Optional<Output<Boolean>> orReplace() {
@@ -252,7 +254,8 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -263,7 +266,8 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -273,7 +277,7 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param isSecure (Default: `false`) Specifies that the view is secure.
+         * @param isSecure Specifies that the view is secure.
          * 
          * @return builder
          * 
@@ -284,7 +288,7 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param isSecure (Default: `false`) Specifies that the view is secure.
+         * @param isSecure Specifies that the view is secure.
          * 
          * @return builder
          * 
@@ -315,7 +319,7 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param orReplace (Default: `false`) Overwrites the View if it exists.
+         * @param orReplace Overwrites the View if it exists.
          * 
          * @return builder
          * 
@@ -326,7 +330,7 @@ public final class MaterializedViewState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param orReplace (Default: `false`) Overwrites the View if it exists.
+         * @param orReplace Overwrites the View if it exists.
          * 
          * @return builder
          * 

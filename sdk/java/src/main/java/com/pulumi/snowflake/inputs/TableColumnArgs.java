@@ -20,14 +20,14 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
     public static final TableColumnArgs Empty = new TableColumnArgs();
 
     /**
-     * (Default: ``) Column collation, e.g. utf8
+     * Column collation, e.g. utf8
      * 
      */
     @Import(name="collate")
     private @Nullable Output<String> collate;
 
     /**
-     * @return (Default: ``) Column collation, e.g. utf8
+     * @return Column collation, e.g. utf8
      * 
      */
     public Optional<Output<String>> collate() {
@@ -35,14 +35,14 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: ``) Column comment
+     * Column comment
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return (Default: ``) Column comment
+     * @return Column comment
      * 
      */
     public Optional<Output<String>> comment() {
@@ -80,14 +80,14 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+     * Masking policy to apply on column. It has to be a fully qualified name.
      * 
      */
     @Import(name="maskingPolicy")
     private @Nullable Output<String> maskingPolicy;
 
     /**
-     * @return (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+     * @return Masking policy to apply on column. It has to be a fully qualified name.
      * 
      */
     public Optional<Output<String>> maskingPolicy() {
@@ -110,14 +110,14 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+     * Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
      * 
      */
     @Import(name="nullable")
     private @Nullable Output<Boolean> nullable;
 
     /**
-     * @return (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+     * @return Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
      * 
      */
     public Optional<Output<Boolean>> nullable() {
@@ -187,7 +187,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param collate (Default: ``) Column collation, e.g. utf8
+         * @param collate Column collation, e.g. utf8
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param collate (Default: ``) Column collation, e.g. utf8
+         * @param collate Column collation, e.g. utf8
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment (Default: ``) Column comment
+         * @param comment Column comment
          * 
          * @return builder
          * 
@@ -219,7 +219,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment (Default: ``) Column comment
+         * @param comment Column comment
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maskingPolicy (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+         * @param maskingPolicy Masking policy to apply on column. It has to be a fully qualified name.
          * 
          * @return builder
          * 
@@ -282,7 +282,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maskingPolicy (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+         * @param maskingPolicy Masking policy to apply on column. It has to be a fully qualified name.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nullable (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+         * @param nullable Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class TableColumnArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param nullable (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+         * @param nullable Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
          * 
          * @return builder
          * 

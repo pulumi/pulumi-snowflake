@@ -7,11 +7,10 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source used to get details of filtered streamlits. Filtering is aligned with the current possibilities for [SHOW STREAMLITS](https://docs.snowflake.com/en/sql-reference/sql/show-streamlits) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `streamlits`.
 func GetStreamlits(ctx *pulumi.Context, args *GetStreamlitsArgs, opts ...pulumi.InvokeOption) (*GetStreamlitsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStreamlitsResult
@@ -24,30 +23,21 @@ func GetStreamlits(ctx *pulumi.Context, args *GetStreamlitsArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getStreamlits.
 type GetStreamlitsArgs struct {
-	// IN clause to filter the list of streamlits
-	In *GetStreamlitsIn `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit *GetStreamlitsLimit `pulumi:"limit"`
-	// (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe *bool `pulumi:"withDescribe"`
+	In           *GetStreamlitsIn    `pulumi:"in"`
+	Like         *string             `pulumi:"like"`
+	Limit        *GetStreamlitsLimit `pulumi:"limit"`
+	WithDescribe *bool               `pulumi:"withDescribe"`
 }
 
 // A collection of values returned by getStreamlits.
 type GetStreamlitsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id string `pulumi:"id"`
-	// IN clause to filter the list of streamlits
-	In *GetStreamlitsIn `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit *GetStreamlitsLimit `pulumi:"limit"`
-	// Holds the aggregated output of all streamlits details queries.
-	Streamlits []GetStreamlitsStreamlit `pulumi:"streamlits"`
-	// (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe *bool `pulumi:"withDescribe"`
+	Id           string                   `pulumi:"id"`
+	In           *GetStreamlitsIn         `pulumi:"in"`
+	Like         *string                  `pulumi:"like"`
+	Limit        *GetStreamlitsLimit      `pulumi:"limit"`
+	Streamlits   []GetStreamlitsStreamlit `pulumi:"streamlits"`
+	WithDescribe *bool                    `pulumi:"withDescribe"`
 }
 
 func GetStreamlitsOutput(ctx *pulumi.Context, args GetStreamlitsOutputArgs, opts ...pulumi.InvokeOption) GetStreamlitsResultOutput {
@@ -61,14 +51,10 @@ func GetStreamlitsOutput(ctx *pulumi.Context, args GetStreamlitsOutputArgs, opts
 
 // A collection of arguments for invoking getStreamlits.
 type GetStreamlitsOutputArgs struct {
-	// IN clause to filter the list of streamlits
-	In GetStreamlitsInPtrInput `pulumi:"in"`
-	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-	Like pulumi.StringPtrInput `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
-	Limit GetStreamlitsLimitPtrInput `pulumi:"limit"`
-	// (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
-	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
+	In           GetStreamlitsInPtrInput    `pulumi:"in"`
+	Like         pulumi.StringPtrInput      `pulumi:"like"`
+	Limit        GetStreamlitsLimitPtrInput `pulumi:"limit"`
+	WithDescribe pulumi.BoolPtrInput        `pulumi:"withDescribe"`
 }
 
 func (GetStreamlitsOutputArgs) ElementType() reflect.Type {
@@ -95,27 +81,22 @@ func (o GetStreamlitsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStreamlitsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// IN clause to filter the list of streamlits
 func (o GetStreamlitsResultOutput) In() GetStreamlitsInPtrOutput {
 	return o.ApplyT(func(v GetStreamlitsResult) *GetStreamlitsIn { return v.In }).(GetStreamlitsInPtrOutput)
 }
 
-// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetStreamlitsResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetStreamlitsResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 func (o GetStreamlitsResultOutput) Limit() GetStreamlitsLimitPtrOutput {
 	return o.ApplyT(func(v GetStreamlitsResult) *GetStreamlitsLimit { return v.Limit }).(GetStreamlitsLimitPtrOutput)
 }
 
-// Holds the aggregated output of all streamlits details queries.
 func (o GetStreamlitsResultOutput) Streamlits() GetStreamlitsStreamlitArrayOutput {
 	return o.ApplyT(func(v GetStreamlitsResult) []GetStreamlitsStreamlit { return v.Streamlits }).(GetStreamlitsStreamlitArrayOutput)
 }
 
-// (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetStreamlitsResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetStreamlitsResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }

@@ -13,32 +13,16 @@ public final class GetDatabaseRolePlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetDatabaseRolePlainArgs Empty = new GetDatabaseRolePlainArgs();
 
-    /**
-     * The database from which to return the database role from.
-     * 
-     */
     @Import(name="database", required=true)
     private String database;
 
-    /**
-     * @return The database from which to return the database role from.
-     * 
-     */
     public String database() {
         return this.database;
     }
 
-    /**
-     * Database role name.
-     * 
-     */
     @Import(name="name", required=true)
     private String name;
 
-    /**
-     * @return Database role name.
-     * 
-     */
     public String name() {
         return this.name;
     }
@@ -68,23 +52,11 @@ public final class GetDatabaseRolePlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetDatabaseRolePlainArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param database The database from which to return the database role from.
-         * 
-         * @return builder
-         * 
-         */
         public Builder database(String database) {
             $.database = database;
             return this;
         }
 
-        /**
-         * @param name Database role name.
-         * 
-         * @return builder
-         * 
-         */
         public Builder name(String name) {
             $.name = name;
             return this;

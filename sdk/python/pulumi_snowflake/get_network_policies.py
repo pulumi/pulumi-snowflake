@@ -53,25 +53,16 @@ class GetNetworkPoliciesResult:
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
-        """
-        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter(name="networkPolicies")
     def network_policies(self) -> Sequence['outputs.GetNetworkPoliciesNetworkPolicyResult']:
-        """
-        Holds the aggregated output of all network policies details queries.
-        """
         return pulumi.get(self, "network_policies")
 
     @property
     @pulumi.getter(name="withDescribe")
     def with_describe(self) -> Optional[builtins.bool]:
-        """
-        (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
-        """
         return pulumi.get(self, "with_describe")
 
 
@@ -91,11 +82,7 @@ def get_network_policies(like: Optional[builtins.str] = None,
                          with_describe: Optional[builtins.bool] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkPoliciesResult:
     """
-    Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
-
-
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param builtins.bool with_describe: (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['like'] = like
@@ -112,11 +99,7 @@ def get_network_policies_output(like: Optional[pulumi.Input[Optional[builtins.st
                                 with_describe: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkPoliciesResult]:
     """
-    Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
-
-
-    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param builtins.bool with_describe: (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+    Use this data source to access information about an existing resource.
     """
     __args__ = dict()
     __args__['like'] = like

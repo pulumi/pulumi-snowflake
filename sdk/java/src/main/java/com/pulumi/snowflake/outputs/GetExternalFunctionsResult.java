@@ -14,39 +14,19 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetExternalFunctionsResult {
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     private @Nullable String database;
-    /**
-     * @return The external functions in the schema
-     * 
-     */
     private List<GetExternalFunctionsExternalFunction> externalFunctions;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
-    /**
-     * @return The schema from which to return the external functions from.
-     * 
-     */
     private @Nullable String schema;
 
     private GetExternalFunctionsResult() {}
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
     public Optional<String> database() {
         return Optional.ofNullable(this.database);
     }
-    /**
-     * @return The external functions in the schema
-     * 
-     */
     public List<GetExternalFunctionsExternalFunction> externalFunctions() {
         return this.externalFunctions;
     }
@@ -57,10 +37,6 @@ public final class GetExternalFunctionsResult {
     public String id() {
         return this.id;
     }
-    /**
-     * @return The schema from which to return the external functions from.
-     * 
-     */
     public Optional<String> schema() {
         return Optional.ofNullable(this.schema);
     }

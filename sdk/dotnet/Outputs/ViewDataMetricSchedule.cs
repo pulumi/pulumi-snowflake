@@ -13,9 +13,6 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class ViewDataMetricSchedule
     {
-        /// <summary>
-        /// Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `using_cron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `using_cron` field, or replace*triggered*by metadata argument.
-        /// </summary>
         public readonly int? Minutes;
         /// <summary>
         /// Specifies a cron expression and time zone for periodically running the data metric function. Supports a subset of standard cron utility syntax. Conflicts with `minutes`.

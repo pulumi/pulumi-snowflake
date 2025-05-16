@@ -8,21 +8,15 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// ## Import
-//
-// format is database name | schema name | stage name
-//
-// ```sh
-// $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
-// ```
 type Stage struct {
 	pulumi.CustomResourceState
 
-	// A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
+	// A unique ID assigned to the specific stage. The ID has the following format:
+	// &lt;snowflakeAccount&gt;_SFCRole=&lt;snowflakeRoleId&gt;_&lt;randomId&gt;
 	AwsExternalId pulumi.StringOutput `pulumi:"awsExternalId"`
 	// Specifies a comment for the stage.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -36,17 +30,19 @@ type Stage struct {
 	Directory pulumi.StringPtrOutput `pulumi:"directory"`
 	// Specifies the encryption settings for the stage.
 	Encryption pulumi.StringPtrOutput `pulumi:"encryption"`
-	// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \n\n2. from dynamic value:\n\n `fileFormat = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \n\n3. from expression:\n\n `fileFormat = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
 	FileFormat pulumi.StringPtrOutput `pulumi:"fileFormat"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The schema in which to create the stage.
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
+	// account.
 	SnowflakeIamUser pulumi.StringOutput `pulumi:"snowflakeIamUser"`
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+	// to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrOutput `pulumi:"storageIntegration"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -99,7 +95,8 @@ func GetStage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Stage resources.
 type stageState struct {
-	// A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
+	// A unique ID assigned to the specific stage. The ID has the following format:
+	// &lt;snowflakeAccount&gt;_SFCRole=&lt;snowflakeRoleId&gt;_&lt;randomId&gt;
 	AwsExternalId *string `pulumi:"awsExternalId"`
 	// Specifies a comment for the stage.
 	Comment *string `pulumi:"comment"`
@@ -113,17 +110,19 @@ type stageState struct {
 	Directory *string `pulumi:"directory"`
 	// Specifies the encryption settings for the stage.
 	Encryption *string `pulumi:"encryption"`
-	// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \n\n2. from dynamic value:\n\n `fileFormat = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \n\n3. from expression:\n\n `fileFormat = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
 	FileFormat *string `pulumi:"fileFormat"`
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name *string `pulumi:"name"`
 	// The schema in which to create the stage.
 	Schema *string `pulumi:"schema"`
-	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
+	// account.
 	SnowflakeIamUser *string `pulumi:"snowflakeIamUser"`
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+	// to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration *string `pulumi:"storageIntegration"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -134,7 +133,8 @@ type stageState struct {
 }
 
 type StageState struct {
-	// A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
+	// A unique ID assigned to the specific stage. The ID has the following format:
+	// &lt;snowflakeAccount&gt;_SFCRole=&lt;snowflakeRoleId&gt;_&lt;randomId&gt;
 	AwsExternalId pulumi.StringPtrInput
 	// Specifies a comment for the stage.
 	Comment pulumi.StringPtrInput
@@ -148,17 +148,19 @@ type StageState struct {
 	Directory pulumi.StringPtrInput
 	// Specifies the encryption settings for the stage.
 	Encryption pulumi.StringPtrInput
-	// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \n\n2. from dynamic value:\n\n `fileFormat = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \n\n3. from expression:\n\n `fileFormat = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
 	FileFormat pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name
+	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name pulumi.StringPtrInput
 	// The schema in which to create the stage.
 	Schema pulumi.StringPtrInput
-	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
+	// account.
 	SnowflakeIamUser pulumi.StringPtrInput
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+	// to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	//
@@ -173,7 +175,8 @@ func (StageState) ElementType() reflect.Type {
 }
 
 type stageArgs struct {
-	// A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
+	// A unique ID assigned to the specific stage. The ID has the following format:
+	// &lt;snowflakeAccount&gt;_SFCRole=&lt;snowflakeRoleId&gt;_&lt;randomId&gt;
 	AwsExternalId *string `pulumi:"awsExternalId"`
 	// Specifies a comment for the stage.
 	Comment *string `pulumi:"comment"`
@@ -187,15 +190,16 @@ type stageArgs struct {
 	Directory *string `pulumi:"directory"`
 	// Specifies the encryption settings for the stage.
 	Encryption *string `pulumi:"encryption"`
-	// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \n\n2. from dynamic value:\n\n `fileFormat = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \n\n3. from expression:\n\n `fileFormat = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
 	FileFormat *string `pulumi:"fileFormat"`
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name *string `pulumi:"name"`
 	// The schema in which to create the stage.
 	Schema string `pulumi:"schema"`
-	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
+	// account.
 	SnowflakeIamUser *string `pulumi:"snowflakeIamUser"`
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+	// to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration *string `pulumi:"storageIntegration"`
 	// Definitions of a tag to associate with the resource.
 	//
@@ -207,7 +211,8 @@ type stageArgs struct {
 
 // The set of arguments for constructing a Stage resource.
 type StageArgs struct {
-	// A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
+	// A unique ID assigned to the specific stage. The ID has the following format:
+	// &lt;snowflakeAccount&gt;_SFCRole=&lt;snowflakeRoleId&gt;_&lt;randomId&gt;
 	AwsExternalId pulumi.StringPtrInput
 	// Specifies a comment for the stage.
 	Comment pulumi.StringPtrInput
@@ -221,15 +226,16 @@ type StageArgs struct {
 	Directory pulumi.StringPtrInput
 	// Specifies the encryption settings for the stage.
 	Encryption pulumi.StringPtrInput
-	// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \n\n2. from dynamic value:\n\n `fileFormat = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \n\n3. from expression:\n\n `fileFormat = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
 	FileFormat pulumi.StringPtrInput
 	// Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
 	Name pulumi.StringPtrInput
 	// The schema in which to create the stage.
 	Schema pulumi.StringInput
-	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+	// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
+	// account.
 	SnowflakeIamUser pulumi.StringPtrInput
-	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+	// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+	// to a Snowflake identity and access management (IAM) entity.
 	StorageIntegration pulumi.StringPtrInput
 	// Definitions of a tag to associate with the resource.
 	//
@@ -326,7 +332,8 @@ func (o StageOutput) ToStageOutputWithContext(ctx context.Context) StageOutput {
 	return o
 }
 
-// A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
+// A unique ID assigned to the specific stage. The ID has the following format:
+// &lt;snowflakeAccount&gt;_SFCRole=&lt;snowflakeRoleId&gt;_&lt;randomId&gt;
 func (o StageOutput) AwsExternalId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.AwsExternalId }).(pulumi.StringOutput)
 }
@@ -361,12 +368,12 @@ func (o StageOutput) Encryption() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.Encryption }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \n\n2. from dynamic value:\n\n `fileFormat = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \n\n3. from expression:\n\n `fileFormat = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
 func (o StageOutput) FileFormat() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.FileFormat }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name
+// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o StageOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
@@ -381,12 +388,14 @@ func (o StageOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
+// account.
 func (o StageOutput) SnowflakeIamUser() pulumi.StringOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringOutput { return v.SnowflakeIamUser }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+// to a Snowflake identity and access management (IAM) entity.
 func (o StageOutput) StorageIntegration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Stage) pulumi.StringPtrOutput { return v.StorageIntegration }).(pulumi.StringPtrOutput)
 }

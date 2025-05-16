@@ -30,14 +30,12 @@ import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDe
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpoint;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpoint;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethod;
-import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientId;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2Fp;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFp;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientType;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkce;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrant;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshToken;
-import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUri;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidity;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpoint;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRole;
@@ -56,10 +54,8 @@ import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDe
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrl;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrl;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadata;
-import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509Cert;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrl;
-import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509Cert;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPassword;
 import java.util.List;
 import java.util.Objects;
@@ -91,14 +87,12 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpoint> oauthAllowedTokenEndpoints;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpoint> oauthAuthorizationEndpoints;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethod> oauthClientAuthMethods;
-    private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientId> oauthClientIds;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2Fp> oauthClientRsaPublicKey2Fps;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFp> oauthClientRsaPublicKeyFps;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientType> oauthClientTypes;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkce> oauthEnforcePkces;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrant> oauthGrants;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshToken> oauthIssueRefreshTokens;
-    private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUri> oauthRedirectUris;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidity> oauthRefreshTokenValidities;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpoint> oauthTokenEndpoints;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRole> oauthUseSecondaryRoles;
@@ -117,10 +111,8 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrl> saml2SnowflakeAcsUrls;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrl> saml2SnowflakeIssuerUrls;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadata> saml2SnowflakeMetadatas;
-    private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509Cert> saml2SnowflakeX509Certs;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel> saml2SpInitiatedLoginPageLabels;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrl> saml2SsoUrls;
-    private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509Cert> saml2X509Certs;
     private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPassword> syncPasswords;
 
     private GetSecurityIntegrationsSecurityIntegrationDescribeOutput() {}
@@ -199,9 +191,6 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethod> oauthClientAuthMethods() {
         return this.oauthClientAuthMethods;
     }
-    public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientId> oauthClientIds() {
-        return this.oauthClientIds;
-    }
     public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2Fp> oauthClientRsaPublicKey2Fps() {
         return this.oauthClientRsaPublicKey2Fps;
     }
@@ -219,9 +208,6 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     }
     public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshToken> oauthIssueRefreshTokens() {
         return this.oauthIssueRefreshTokens;
-    }
-    public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUri> oauthRedirectUris() {
-        return this.oauthRedirectUris;
     }
     public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidity> oauthRefreshTokenValidities() {
         return this.oauthRefreshTokenValidities;
@@ -277,17 +263,11 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadata> saml2SnowflakeMetadatas() {
         return this.saml2SnowflakeMetadatas;
     }
-    public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509Cert> saml2SnowflakeX509Certs() {
-        return this.saml2SnowflakeX509Certs;
-    }
     public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel> saml2SpInitiatedLoginPageLabels() {
         return this.saml2SpInitiatedLoginPageLabels;
     }
     public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrl> saml2SsoUrls() {
         return this.saml2SsoUrls;
-    }
-    public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509Cert> saml2X509Certs() {
-        return this.saml2X509Certs;
     }
     public List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPassword> syncPasswords() {
         return this.syncPasswords;
@@ -327,14 +307,12 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpoint> oauthAllowedTokenEndpoints;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpoint> oauthAuthorizationEndpoints;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethod> oauthClientAuthMethods;
-        private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientId> oauthClientIds;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2Fp> oauthClientRsaPublicKey2Fps;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFp> oauthClientRsaPublicKeyFps;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientType> oauthClientTypes;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkce> oauthEnforcePkces;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrant> oauthGrants;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshToken> oauthIssueRefreshTokens;
-        private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUri> oauthRedirectUris;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidity> oauthRefreshTokenValidities;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpoint> oauthTokenEndpoints;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRole> oauthUseSecondaryRoles;
@@ -353,10 +331,8 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrl> saml2SnowflakeAcsUrls;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrl> saml2SnowflakeIssuerUrls;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadata> saml2SnowflakeMetadatas;
-        private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509Cert> saml2SnowflakeX509Certs;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel> saml2SpInitiatedLoginPageLabels;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrl> saml2SsoUrls;
-        private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509Cert> saml2X509Certs;
         private List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPassword> syncPasswords;
         public Builder() {}
         public Builder(GetSecurityIntegrationsSecurityIntegrationDescribeOutput defaults) {
@@ -386,14 +362,12 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     	      this.oauthAllowedTokenEndpoints = defaults.oauthAllowedTokenEndpoints;
     	      this.oauthAuthorizationEndpoints = defaults.oauthAuthorizationEndpoints;
     	      this.oauthClientAuthMethods = defaults.oauthClientAuthMethods;
-    	      this.oauthClientIds = defaults.oauthClientIds;
     	      this.oauthClientRsaPublicKey2Fps = defaults.oauthClientRsaPublicKey2Fps;
     	      this.oauthClientRsaPublicKeyFps = defaults.oauthClientRsaPublicKeyFps;
     	      this.oauthClientTypes = defaults.oauthClientTypes;
     	      this.oauthEnforcePkces = defaults.oauthEnforcePkces;
     	      this.oauthGrants = defaults.oauthGrants;
     	      this.oauthIssueRefreshTokens = defaults.oauthIssueRefreshTokens;
-    	      this.oauthRedirectUris = defaults.oauthRedirectUris;
     	      this.oauthRefreshTokenValidities = defaults.oauthRefreshTokenValidities;
     	      this.oauthTokenEndpoints = defaults.oauthTokenEndpoints;
     	      this.oauthUseSecondaryRoles = defaults.oauthUseSecondaryRoles;
@@ -412,10 +386,8 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     	      this.saml2SnowflakeAcsUrls = defaults.saml2SnowflakeAcsUrls;
     	      this.saml2SnowflakeIssuerUrls = defaults.saml2SnowflakeIssuerUrls;
     	      this.saml2SnowflakeMetadatas = defaults.saml2SnowflakeMetadatas;
-    	      this.saml2SnowflakeX509Certs = defaults.saml2SnowflakeX509Certs;
     	      this.saml2SpInitiatedLoginPageLabels = defaults.saml2SpInitiatedLoginPageLabels;
     	      this.saml2SsoUrls = defaults.saml2SsoUrls;
-    	      this.saml2X509Certs = defaults.saml2X509Certs;
     	      this.syncPasswords = defaults.syncPasswords;
         }
 
@@ -695,17 +667,6 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
             return oauthClientAuthMethods(List.of(oauthClientAuthMethods));
         }
         @CustomType.Setter
-        public Builder oauthClientIds(List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientId> oauthClientIds) {
-            if (oauthClientIds == null) {
-              throw new MissingRequiredPropertyException("GetSecurityIntegrationsSecurityIntegrationDescribeOutput", "oauthClientIds");
-            }
-            this.oauthClientIds = oauthClientIds;
-            return this;
-        }
-        public Builder oauthClientIds(GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientId... oauthClientIds) {
-            return oauthClientIds(List.of(oauthClientIds));
-        }
-        @CustomType.Setter
         public Builder oauthClientRsaPublicKey2Fps(List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2Fp> oauthClientRsaPublicKey2Fps) {
             if (oauthClientRsaPublicKey2Fps == null) {
               throw new MissingRequiredPropertyException("GetSecurityIntegrationsSecurityIntegrationDescribeOutput", "oauthClientRsaPublicKey2Fps");
@@ -770,17 +731,6 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
         }
         public Builder oauthIssueRefreshTokens(GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshToken... oauthIssueRefreshTokens) {
             return oauthIssueRefreshTokens(List.of(oauthIssueRefreshTokens));
-        }
-        @CustomType.Setter
-        public Builder oauthRedirectUris(List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUri> oauthRedirectUris) {
-            if (oauthRedirectUris == null) {
-              throw new MissingRequiredPropertyException("GetSecurityIntegrationsSecurityIntegrationDescribeOutput", "oauthRedirectUris");
-            }
-            this.oauthRedirectUris = oauthRedirectUris;
-            return this;
-        }
-        public Builder oauthRedirectUris(GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUri... oauthRedirectUris) {
-            return oauthRedirectUris(List.of(oauthRedirectUris));
         }
         @CustomType.Setter
         public Builder oauthRefreshTokenValidities(List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidity> oauthRefreshTokenValidities) {
@@ -981,17 +931,6 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
             return saml2SnowflakeMetadatas(List.of(saml2SnowflakeMetadatas));
         }
         @CustomType.Setter
-        public Builder saml2SnowflakeX509Certs(List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509Cert> saml2SnowflakeX509Certs) {
-            if (saml2SnowflakeX509Certs == null) {
-              throw new MissingRequiredPropertyException("GetSecurityIntegrationsSecurityIntegrationDescribeOutput", "saml2SnowflakeX509Certs");
-            }
-            this.saml2SnowflakeX509Certs = saml2SnowflakeX509Certs;
-            return this;
-        }
-        public Builder saml2SnowflakeX509Certs(GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509Cert... saml2SnowflakeX509Certs) {
-            return saml2SnowflakeX509Certs(List.of(saml2SnowflakeX509Certs));
-        }
-        @CustomType.Setter
         public Builder saml2SpInitiatedLoginPageLabels(List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel> saml2SpInitiatedLoginPageLabels) {
             if (saml2SpInitiatedLoginPageLabels == null) {
               throw new MissingRequiredPropertyException("GetSecurityIntegrationsSecurityIntegrationDescribeOutput", "saml2SpInitiatedLoginPageLabels");
@@ -1012,17 +951,6 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
         }
         public Builder saml2SsoUrls(GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrl... saml2SsoUrls) {
             return saml2SsoUrls(List.of(saml2SsoUrls));
-        }
-        @CustomType.Setter
-        public Builder saml2X509Certs(List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509Cert> saml2X509Certs) {
-            if (saml2X509Certs == null) {
-              throw new MissingRequiredPropertyException("GetSecurityIntegrationsSecurityIntegrationDescribeOutput", "saml2X509Certs");
-            }
-            this.saml2X509Certs = saml2X509Certs;
-            return this;
-        }
-        public Builder saml2X509Certs(GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509Cert... saml2X509Certs) {
-            return saml2X509Certs(List.of(saml2X509Certs));
         }
         @CustomType.Setter
         public Builder syncPasswords(List<GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPassword> syncPasswords) {
@@ -1062,14 +990,12 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
             _resultValue.oauthAllowedTokenEndpoints = oauthAllowedTokenEndpoints;
             _resultValue.oauthAuthorizationEndpoints = oauthAuthorizationEndpoints;
             _resultValue.oauthClientAuthMethods = oauthClientAuthMethods;
-            _resultValue.oauthClientIds = oauthClientIds;
             _resultValue.oauthClientRsaPublicKey2Fps = oauthClientRsaPublicKey2Fps;
             _resultValue.oauthClientRsaPublicKeyFps = oauthClientRsaPublicKeyFps;
             _resultValue.oauthClientTypes = oauthClientTypes;
             _resultValue.oauthEnforcePkces = oauthEnforcePkces;
             _resultValue.oauthGrants = oauthGrants;
             _resultValue.oauthIssueRefreshTokens = oauthIssueRefreshTokens;
-            _resultValue.oauthRedirectUris = oauthRedirectUris;
             _resultValue.oauthRefreshTokenValidities = oauthRefreshTokenValidities;
             _resultValue.oauthTokenEndpoints = oauthTokenEndpoints;
             _resultValue.oauthUseSecondaryRoles = oauthUseSecondaryRoles;
@@ -1088,10 +1014,8 @@ public final class GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
             _resultValue.saml2SnowflakeAcsUrls = saml2SnowflakeAcsUrls;
             _resultValue.saml2SnowflakeIssuerUrls = saml2SnowflakeIssuerUrls;
             _resultValue.saml2SnowflakeMetadatas = saml2SnowflakeMetadatas;
-            _resultValue.saml2SnowflakeX509Certs = saml2SnowflakeX509Certs;
             _resultValue.saml2SpInitiatedLoginPageLabels = saml2SpInitiatedLoginPageLabels;
             _resultValue.saml2SsoUrls = saml2SsoUrls;
-            _resultValue.saml2X509Certs = saml2X509Certs;
             _resultValue.syncPasswords = syncPasswords;
             return _resultValue;
         }

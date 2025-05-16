@@ -62,14 +62,18 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
+     * Snowflake Edition of the account. See more about Snowflake Editions in the [official
+     * documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` |
+     * `BUSINESS_CRITICAL`
      * 
      */
     @Import(name="edition")
     private @Nullable Output<String> edition;
 
     /**
-     * @return Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
+     * @return Snowflake Edition of the account. See more about Snowflake Editions in the [official
+     * documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` |
+     * `BUSINESS_CRITICAL`
      * 
      */
     public Optional<Output<String>> edition() {
@@ -91,14 +95,16 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name
+     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -106,14 +112,16 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+     * Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the
+     * maximum is 90 days.
      * 
      */
     @Import(name="gracePeriodInDays")
     private @Nullable Output<Integer> gracePeriodInDays;
 
     /**
-     * @return Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+     * @return Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the
+     * maximum is 90 days.
      * 
      */
     public Optional<Output<Integer>> gracePeriodInDays() {
@@ -121,14 +129,16 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+     * Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization
+     * administrator (i.e. user with the ORGADMIN role) can set the property.
      * 
      */
     @Import(name="isOrgAdmin")
     private @Nullable Output<String> isOrgAdmin;
 
     /**
-     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+     * @return Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization
+     * administrator (i.e. user with the ORGADMIN role) can set the property.
      * 
      */
     public Optional<Output<String>> isOrgAdmin() {
@@ -150,14 +160,22 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+     * Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which
+     * Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special
+     * characters except for underscores (_). Note that if the account name includes underscores, features that do not accept
+     * account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes
+     * hyphens (-) for the underscores.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+     * @return Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which
+     * Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special
+     * characters except for underscores (_). Note that if the account name includes underscores, features that do not accept
+     * account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes
+     * hyphens (-) for the underscores.
      * 
      */
     public Optional<Output<String>> name() {
@@ -165,14 +183,18 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+     * [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids)
+     * of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake
+     * Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+     * @return [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids)
+     * of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake
+     * Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
      * 
      */
     public Optional<Output<String>> region() {
@@ -180,14 +202,20 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
+     * ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your
+     * organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For
+     * information about when you might need to specify region group, see [Region
+     * groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
      * 
      */
     @Import(name="regionGroup")
     private @Nullable Output<String> regionGroup;
 
     /**
-     * @return ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
+     * @return ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your
+     * organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For
+     * information about when you might need to specify region group, see [Region
+     * groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
      * 
      */
     public Optional<Output<String>> regionGroup() {
@@ -307,7 +335,9 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param edition Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
+         * @param edition Snowflake Edition of the account. See more about Snowflake Editions in the [official
+         * documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` |
+         * `BUSINESS_CRITICAL`
          * 
          * @return builder
          * 
@@ -318,7 +348,9 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param edition Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
+         * @param edition Snowflake Edition of the account. See more about Snowflake Editions in the [official
+         * documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` |
+         * `BUSINESS_CRITICAL`
          * 
          * @return builder
          * 
@@ -346,7 +378,8 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -357,7 +390,8 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
+         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -367,7 +401,8 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gracePeriodInDays Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+         * @param gracePeriodInDays Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the
+         * maximum is 90 days.
          * 
          * @return builder
          * 
@@ -378,7 +413,8 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gracePeriodInDays Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
+         * @param gracePeriodInDays Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the
+         * maximum is 90 days.
          * 
          * @return builder
          * 
@@ -388,7 +424,8 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isOrgAdmin (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+         * @param isOrgAdmin Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization
+         * administrator (i.e. user with the ORGADMIN role) can set the property.
          * 
          * @return builder
          * 
@@ -399,7 +436,8 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isOrgAdmin (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
+         * @param isOrgAdmin Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization
+         * administrator (i.e. user with the ORGADMIN role) can set the property.
          * 
          * @return builder
          * 
@@ -427,7 +465,11 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+         * @param name Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which
+         * Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special
+         * characters except for underscores (_). Note that if the account name includes underscores, features that do not accept
+         * account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes
+         * hyphens (-) for the underscores.
          * 
          * @return builder
          * 
@@ -438,7 +480,11 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
+         * @param name Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which
+         * Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special
+         * characters except for underscores (_). Note that if the account name includes underscores, features that do not accept
+         * account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes
+         * hyphens (-) for the underscores.
          * 
          * @return builder
          * 
@@ -448,7 +494,9 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+         * @param region [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids)
+         * of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake
+         * Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
          * 
          * @return builder
          * 
@@ -459,7 +507,9 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param region [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
+         * @param region [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids)
+         * of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake
+         * Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
          * 
          * @return builder
          * 
@@ -469,7 +519,10 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param regionGroup ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
+         * @param regionGroup ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your
+         * organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For
+         * information about when you might need to specify region group, see [Region
+         * groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
          * 
          * @return builder
          * 
@@ -480,7 +533,10 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param regionGroup ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For information about when you might need to specify region group, see [Region groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
+         * @param regionGroup ID of the region group where the account is created. To retrieve the region group ID for existing accounts in your
+         * organization, execute the [SHOW REGIONS](https://docs.snowflake.com/en/sql-reference/sql/show-regions) command. For
+         * information about when you might need to specify region group, see [Region
+         * groups](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-region-groups).
          * 
          * @return builder
          * 

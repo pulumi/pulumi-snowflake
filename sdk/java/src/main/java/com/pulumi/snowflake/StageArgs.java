@@ -19,14 +19,16 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     public static final StageArgs Empty = new StageArgs();
 
     /**
-     * A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+     * A unique ID assigned to the specific stage. The ID has the following format:
+     * &amp;lt;snowflakeAccount&amp;gt;_SFCRole=&amp;lt;snowflakeRoleId&amp;gt;_&amp;lt;randomId&amp;gt;
      * 
      */
     @Import(name="awsExternalId")
     private @Nullable Output<String> awsExternalId;
 
     /**
-     * @return A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+     * @return A unique ID assigned to the specific stage. The ID has the following format:
+     * &amp;lt;snowflakeAccount&amp;gt;_SFCRole=&amp;lt;snowflakeRoleId&amp;gt;_&amp;lt;randomId&amp;gt;
      * 
      */
     public Optional<Output<String>> awsExternalId() {
@@ -123,17 +125,9 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.encryption);
     }
 
-    /**
-     * Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` \n\n2. from dynamic value:\n\n `file_format = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` \n\n3. from expression:\n\n `file_format = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
-     * 
-     */
     @Import(name="fileFormat")
     private @Nullable Output<String> fileFormat;
 
-    /**
-     * @return Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` \n\n2. from dynamic value:\n\n `file_format = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` \n\n3. from expression:\n\n `file_format = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
-     * 
-     */
     public Optional<Output<String>> fileFormat() {
         return Optional.ofNullable(this.fileFormat);
     }
@@ -169,14 +163,16 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     * An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
+     * account.
      * 
      */
     @Import(name="snowflakeIamUser")
     private @Nullable Output<String> snowflakeIamUser;
 
     /**
-     * @return An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+     * @return An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
+     * account.
      * 
      */
     public Optional<Output<String>> snowflakeIamUser() {
@@ -184,14 +180,16 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+     * Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+     * to a Snowflake identity and access management (IAM) entity.
      * 
      */
     @Import(name="storageIntegration")
     private @Nullable Output<String> storageIntegration;
 
     /**
-     * @return Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+     * @return Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+     * to a Snowflake identity and access management (IAM) entity.
      * 
      */
     public Optional<Output<String>> storageIntegration() {
@@ -274,7 +272,8 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsExternalId A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+         * @param awsExternalId A unique ID assigned to the specific stage. The ID has the following format:
+         * &amp;lt;snowflakeAccount&amp;gt;_SFCRole=&amp;lt;snowflakeRoleId&amp;gt;_&amp;lt;randomId&amp;gt;
          * 
          * @return builder
          * 
@@ -285,7 +284,8 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param awsExternalId A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
+         * @param awsExternalId A unique ID assigned to the specific stage. The ID has the following format:
+         * &amp;lt;snowflakeAccount&amp;gt;_SFCRole=&amp;lt;snowflakeRoleId&amp;gt;_&amp;lt;randomId&amp;gt;
          * 
          * @return builder
          * 
@@ -420,23 +420,11 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
             return encryption(Output.of(encryption));
         }
 
-        /**
-         * @param fileFormat Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` \n\n2. from dynamic value:\n\n `file_format = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` \n\n3. from expression:\n\n `file_format = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileFormat(@Nullable Output<String> fileFormat) {
             $.fileFormat = fileFormat;
             return this;
         }
 
-        /**
-         * @param fileFormat Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format=&#34;FORMAT_NAME = DB.SCHEMA.FORMATNAME&#34;` \n\n2. from dynamic value:\n\n `file_format = &#34;FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}&#34;` \n\n3. from expression:\n\n `file_format = format(&#34;FORMAT_NAME =%s.%s.MYFILEFORMAT&#34;, var.db_name, each.value.schema_name)`. Reference: #265
-         * 
-         * @return builder
-         * 
-         */
         public Builder fileFormat(String fileFormat) {
             return fileFormat(Output.of(fileFormat));
         }
@@ -484,7 +472,8 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snowflakeIamUser An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+         * @param snowflakeIamUser An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
+         * account.
          * 
          * @return builder
          * 
@@ -495,7 +484,8 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snowflakeIamUser An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+         * @param snowflakeIamUser An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
+         * account.
          * 
          * @return builder
          * 
@@ -505,7 +495,8 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageIntegration Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+         * @param storageIntegration Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+         * to a Snowflake identity and access management (IAM) entity.
          * 
          * @return builder
          * 
@@ -516,7 +507,8 @@ public final class StageArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageIntegration Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
+         * @param storageIntegration Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
+         * to a Snowflake identity and access management (IAM) entity.
          * 
          * @return builder
          * 

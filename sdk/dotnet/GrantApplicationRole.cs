@@ -9,15 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
-    /// <summary>
-    /// ## Import
-    /// 
-    /// format is application_role_name (string) | object_type (ACCOUNT_ROLE|APPLICATION) | grantee_name (string)
-    /// 
-    /// ```sh
-    /// $ pulumi import snowflake:index/grantApplicationRole:GrantApplicationRole example '"my_application"."app_role_1"|ACCOUNT_ROLE|"my_role"'
-    /// ```
-    /// </summary>
     [SnowflakeResourceType("snowflake:index/grantApplicationRole:GrantApplicationRole")]
     public partial class GrantApplicationRole : global::Pulumi.CustomResource
     {
@@ -34,7 +25,8 @@ namespace Pulumi.Snowflake
         public Output<string> ApplicationRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the account role on which application role will be granted. For more information about this
+        /// resource, see docs.
         /// </summary>
         [Output("parentAccountRoleName")]
         public Output<string?> ParentAccountRoleName { get; private set; } = null!;
@@ -98,7 +90,8 @@ namespace Pulumi.Snowflake
         public Input<string> ApplicationRoleName { get; set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the account role on which application role will be granted. For more information about this
+        /// resource, see docs.
         /// </summary>
         [Input("parentAccountRoleName")]
         public Input<string>? ParentAccountRoleName { get; set; }
@@ -124,7 +117,8 @@ namespace Pulumi.Snowflake
         public Input<string>? ApplicationRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
+        /// The fully qualified name of the account role on which application role will be granted. For more information about this
+        /// resource, see docs.
         /// </summary>
         [Input("parentAccountRoleName")]
         public Input<string>? ParentAccountRoleName { get; set; }
