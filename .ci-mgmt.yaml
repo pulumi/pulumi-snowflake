@@ -1,5 +1,5 @@
 provider: snowflake
-major-version: 1
+major-version: 2
 env:
   SNOWFLAKE_USER: ${{ secrets.SNOWFLAKE_USER }}
   SNOWFLAKE_PASSWORD: ${{ secrets.SNOWFLAKE_PASSWORD }}
