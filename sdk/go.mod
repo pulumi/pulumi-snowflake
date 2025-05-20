@@ -1,4 +1,4 @@
-module github.com/pulumi/pulumi-snowflake/sdk
+module github.com/pulumi/pulumi-snowflake/sdk/v2
 
 go 1.22
 
