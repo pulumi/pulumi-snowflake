@@ -19,7 +19,6 @@ import (
 	"fmt"
 	"os"
 	"path"
-	"regexp"
 
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
@@ -49,16 +48,17 @@ func Provider() info.Provider {
 
 	// Create a Pulumi provider mapping
 	prov := info.Provider{
-		P:           p,
-		Name:        "snowflake",
-		Description: "A Pulumi package for creating and managing snowflake cloud resources.",
-		Keywords:    []string{"pulumi", "snowflake"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		GitHubOrg:   "snowflakedb",
-		Repository:  "https://github.com/pulumi/pulumi-snowflake",
-		Version:     version.Version,
-		DocRules:    &info.DocRule{EditRules: docEditRules},
+		P:                p,
+		Name:             "snowflake",
+		Description:      "A Pulumi package for creating and managing snowflake cloud resources.",
+		Keywords:         []string{"pulumi", "snowflake"},
+		License:          "Apache-2.0",
+		Homepage:         "https://pulumi.io",
+		GitHubOrg:        "Snowflake-Labs",
+		UpstreamRepoPath: "./upstream",
+		Repository:       "https://github.com/pulumi/pulumi-snowflake",
+		Version:          version.Version,
+		DocRules:         &info.DocRule{EditRules: docEditRules},
 		Config: map[string]*info.Schema{
 			// Fix pluralization.
 			//
@@ -138,7 +138,6 @@ func docEditRules(defaults []info.DocsEdit) []info.DocsEdit {
 		removeLiteralFromIndex(migration),
 		fixExample,
 		removeMainTf,
-		removePreviewFeatures(),
 	}
 	return append(
 		edits,
@@ -156,34 +155,6 @@ func removeLiteralFromIndex(s string) info.DocsEdit {
 				return nil, fmt.Errorf("could not find %q to remove", s)
 			}
 			return dst, nil
-		},
-	}
-}
-
-func removePreviewFeatures() info.DocsEdit {
-	const disclaimerPrefix = "~> **Disclaimer** The project is in v1 version, but some features are in preview."
-	disclaimer := regexp.MustCompile("(?m)" + regexp.QuoteMeta(disclaimerPrefix) + ".*?\n")
-
-	const featureFlagPrefix = "- `preview_features_enabled` (Set of String) A list of preview features"
-	featureFlag := regexp.MustCompile("(?m)" + regexp.QuoteMeta(featureFlagPrefix) + ".*?\n")
-
-	remove := func(src []byte, regexp ...*regexp.Regexp) ([]byte, error) {
-		for _, r := range regexp {
-			dst := r.ReplaceAllLiteral(src, nil)
-			if len(src) == len(dst) {
-				return nil, fmt.Errorf("did not find regexp %s in %s", r, string(src))
-			}
-			src = dst
-		}
-		return src, nil
-	}
-	return info.DocsEdit{
-		Path:  "index.md",
-		Phase: info.PostCodeTranslation,
-		Edit: func(_ string, content []byte) ([]byte, error) {
-			return remove(content,
-				disclaimer, featureFlag,
-			)
 		},
 	}
 }
