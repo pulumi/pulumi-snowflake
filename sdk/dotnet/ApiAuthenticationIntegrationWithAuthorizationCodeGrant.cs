@@ -123,6 +123,11 @@ namespace Pulumi.Snowflake
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "oauthClientId",
+                    "oauthClientSecret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -194,14 +199,33 @@ namespace Pulumi.Snowflake
         [Input("oauthClientAuthMethod")]
         public Input<string>? OauthClientAuthMethod { get; set; }
 
+        [Input("oauthClientId", required: true)]
+        private Input<string>? _oauthClientId;
+
         /// <summary>
         /// Specifies the client ID for the OAuth application in the external service.
         /// </summary>
-        [Input("oauthClientId", required: true)]
-        public Input<string> OauthClientId { get; set; } = null!;
+        public Input<string>? OauthClientId
+        {
+            get => _oauthClientId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthClientId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("oauthClientSecret", required: true)]
-        public Input<string> OauthClientSecret { get; set; } = null!;
+        private Input<string>? _oauthClientSecret;
+        public Input<string>? OauthClientSecret
+        {
+            get => _oauthClientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthClientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
@@ -289,14 +313,33 @@ namespace Pulumi.Snowflake
         [Input("oauthClientAuthMethod")]
         public Input<string>? OauthClientAuthMethod { get; set; }
 
+        [Input("oauthClientId")]
+        private Input<string>? _oauthClientId;
+
         /// <summary>
         /// Specifies the client ID for the OAuth application in the external service.
         /// </summary>
-        [Input("oauthClientId")]
-        public Input<string>? OauthClientId { get; set; }
+        public Input<string>? OauthClientId
+        {
+            get => _oauthClientId;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthClientId = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("oauthClientSecret")]
-        public Input<string>? OauthClientSecret { get; set; }
+        private Input<string>? _oauthClientSecret;
+        public Input<string>? OauthClientSecret
+        {
+            get => _oauthClientSecret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthClientSecret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Specifies the value to determine the validity of the refresh token obtained from the OAuth server.

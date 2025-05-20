@@ -141,6 +141,10 @@ namespace Pulumi.Snowflake
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "azureConsentUrl",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -241,11 +245,21 @@ namespace Pulumi.Snowflake
 
     public sealed class StorageIntegrationState : global::Pulumi.ResourceArgs
     {
+        [Input("azureConsentUrl")]
+        private Input<string>? _azureConsentUrl;
+
         /// <summary>
         /// The consent URL that is used to create an Azure Snowflake service principle inside your tenant.
         /// </summary>
-        [Input("azureConsentUrl")]
-        public Input<string>? AzureConsentUrl { get; set; }
+        public Input<string>? AzureConsentUrl
+        {
+            get => _azureConsentUrl;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _azureConsentUrl = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// This is the name of the Snowflake client application created for your account.

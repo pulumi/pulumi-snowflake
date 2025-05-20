@@ -12,19 +12,19 @@ namespace Pulumi.Snowflake
     public static class GetUsers
     {
         /// <summary>
-        /// Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don't have permissions to, the querying options are limited. You won't get almost any field in `show_output` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `with_describe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `with_parameters = false`.
+        /// ## Example Usage
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("snowflake:index/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don't have permissions to, the querying options are limited. You won't get almost any field in `show_output` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `with_describe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `with_parameters = false`.
+        /// ## Example Usage
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("snowflake:index/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don't have permissions to, the querying options are limited. You won't get almost any field in `show_output` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `with_describe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `with_parameters = false`.
+        /// ## Example Usage
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("snowflake:index/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());

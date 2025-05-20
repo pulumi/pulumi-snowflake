@@ -162,6 +162,8 @@ export class StorageIntegration extends pulumi.CustomResource {
             resourceInputs["storageGcpServiceAccount"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["azureConsentUrl"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(StorageIntegration.__pulumiType, name, resourceInputs, opts);
     }
 }

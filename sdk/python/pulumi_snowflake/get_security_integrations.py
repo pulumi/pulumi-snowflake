@@ -91,7 +91,7 @@ def get_security_integrations(like: Optional[builtins.str] = None,
                               with_describe: Optional[builtins.bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityIntegrationsResult:
     """
-    Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
+    ## Example Usage
 
 
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
@@ -112,7 +112,7 @@ def get_security_integrations_output(like: Optional[pulumi.Input[Optional[builti
                                      with_describe: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityIntegrationsResult]:
     """
-    Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
+    ## Example Usage
 
 
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).

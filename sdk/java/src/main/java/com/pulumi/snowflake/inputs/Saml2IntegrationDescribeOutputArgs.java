@@ -20,10 +20,8 @@ import com.pulumi.snowflake.inputs.Saml2IntegrationDescribeOutputSaml2SignatureM
 import com.pulumi.snowflake.inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrlArgs;
 import com.pulumi.snowflake.inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrlArgs;
 import com.pulumi.snowflake.inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadataArgs;
-import com.pulumi.snowflake.inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs;
 import com.pulumi.snowflake.inputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs;
 import com.pulumi.snowflake.inputs.Saml2IntegrationDescribeOutputSaml2SsoUrlArgs;
-import com.pulumi.snowflake.inputs.Saml2IntegrationDescribeOutputSaml2X509CertArgs;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -139,13 +137,6 @@ public final class Saml2IntegrationDescribeOutputArgs extends com.pulumi.resourc
         return Optional.ofNullable(this.saml2SnowflakeMetadatas);
     }
 
-    @Import(name="saml2SnowflakeX509Certs")
-    private @Nullable Output<List<Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs>> saml2SnowflakeX509Certs;
-
-    public Optional<Output<List<Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs>>> saml2SnowflakeX509Certs() {
-        return Optional.ofNullable(this.saml2SnowflakeX509Certs);
-    }
-
     @Import(name="saml2SpInitiatedLoginPageLabels")
     private @Nullable Output<List<Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs>> saml2SpInitiatedLoginPageLabels;
 
@@ -158,13 +149,6 @@ public final class Saml2IntegrationDescribeOutputArgs extends com.pulumi.resourc
 
     public Optional<Output<List<Saml2IntegrationDescribeOutputSaml2SsoUrlArgs>>> saml2SsoUrls() {
         return Optional.ofNullable(this.saml2SsoUrls);
-    }
-
-    @Import(name="saml2X509Certs")
-    private @Nullable Output<List<Saml2IntegrationDescribeOutputSaml2X509CertArgs>> saml2X509Certs;
-
-    public Optional<Output<List<Saml2IntegrationDescribeOutputSaml2X509CertArgs>>> saml2X509Certs() {
-        return Optional.ofNullable(this.saml2X509Certs);
     }
 
     private Saml2IntegrationDescribeOutputArgs() {}
@@ -185,10 +169,8 @@ public final class Saml2IntegrationDescribeOutputArgs extends com.pulumi.resourc
         this.saml2SnowflakeAcsUrls = $.saml2SnowflakeAcsUrls;
         this.saml2SnowflakeIssuerUrls = $.saml2SnowflakeIssuerUrls;
         this.saml2SnowflakeMetadatas = $.saml2SnowflakeMetadatas;
-        this.saml2SnowflakeX509Certs = $.saml2SnowflakeX509Certs;
         this.saml2SpInitiatedLoginPageLabels = $.saml2SpInitiatedLoginPageLabels;
         this.saml2SsoUrls = $.saml2SsoUrls;
-        this.saml2X509Certs = $.saml2X509Certs;
     }
 
     public static Builder builder() {
@@ -404,19 +386,6 @@ public final class Saml2IntegrationDescribeOutputArgs extends com.pulumi.resourc
             return saml2SnowflakeMetadatas(List.of(saml2SnowflakeMetadatas));
         }
 
-        public Builder saml2SnowflakeX509Certs(@Nullable Output<List<Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs>> saml2SnowflakeX509Certs) {
-            $.saml2SnowflakeX509Certs = saml2SnowflakeX509Certs;
-            return this;
-        }
-
-        public Builder saml2SnowflakeX509Certs(List<Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs> saml2SnowflakeX509Certs) {
-            return saml2SnowflakeX509Certs(Output.of(saml2SnowflakeX509Certs));
-        }
-
-        public Builder saml2SnowflakeX509Certs(Saml2IntegrationDescribeOutputSaml2SnowflakeX509CertArgs... saml2SnowflakeX509Certs) {
-            return saml2SnowflakeX509Certs(List.of(saml2SnowflakeX509Certs));
-        }
-
         public Builder saml2SpInitiatedLoginPageLabels(@Nullable Output<List<Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelArgs>> saml2SpInitiatedLoginPageLabels) {
             $.saml2SpInitiatedLoginPageLabels = saml2SpInitiatedLoginPageLabels;
             return this;
@@ -441,19 +410,6 @@ public final class Saml2IntegrationDescribeOutputArgs extends com.pulumi.resourc
 
         public Builder saml2SsoUrls(Saml2IntegrationDescribeOutputSaml2SsoUrlArgs... saml2SsoUrls) {
             return saml2SsoUrls(List.of(saml2SsoUrls));
-        }
-
-        public Builder saml2X509Certs(@Nullable Output<List<Saml2IntegrationDescribeOutputSaml2X509CertArgs>> saml2X509Certs) {
-            $.saml2X509Certs = saml2X509Certs;
-            return this;
-        }
-
-        public Builder saml2X509Certs(List<Saml2IntegrationDescribeOutputSaml2X509CertArgs> saml2X509Certs) {
-            return saml2X509Certs(Output.of(saml2X509Certs));
-        }
-
-        public Builder saml2X509Certs(Saml2IntegrationDescribeOutputSaml2X509CertArgs... saml2X509Certs) {
-            return saml2X509Certs(List.of(saml2X509Certs));
         }
 
         public Saml2IntegrationDescribeOutputArgs build() {

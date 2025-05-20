@@ -19,10 +19,8 @@ import com.pulumi.snowflake.outputs.Saml2IntegrationDescribeOutputSaml2Signature
 import com.pulumi.snowflake.outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl;
 import com.pulumi.snowflake.outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl;
 import com.pulumi.snowflake.outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata;
-import com.pulumi.snowflake.outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert;
 import com.pulumi.snowflake.outputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel;
 import com.pulumi.snowflake.outputs.Saml2IntegrationDescribeOutputSaml2SsoUrl;
-import com.pulumi.snowflake.outputs.Saml2IntegrationDescribeOutputSaml2X509Cert;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -44,10 +42,8 @@ public final class Saml2IntegrationDescribeOutput {
     private @Nullable List<Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl> saml2SnowflakeAcsUrls;
     private @Nullable List<Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl> saml2SnowflakeIssuerUrls;
     private @Nullable List<Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata> saml2SnowflakeMetadatas;
-    private @Nullable List<Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert> saml2SnowflakeX509Certs;
     private @Nullable List<Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel> saml2SpInitiatedLoginPageLabels;
     private @Nullable List<Saml2IntegrationDescribeOutputSaml2SsoUrl> saml2SsoUrls;
-    private @Nullable List<Saml2IntegrationDescribeOutputSaml2X509Cert> saml2X509Certs;
 
     private Saml2IntegrationDescribeOutput() {}
     public List<Saml2IntegrationDescribeOutputAllowedEmailPattern> allowedEmailPatterns() {
@@ -95,17 +91,11 @@ public final class Saml2IntegrationDescribeOutput {
     public List<Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata> saml2SnowflakeMetadatas() {
         return this.saml2SnowflakeMetadatas == null ? List.of() : this.saml2SnowflakeMetadatas;
     }
-    public List<Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert> saml2SnowflakeX509Certs() {
-        return this.saml2SnowflakeX509Certs == null ? List.of() : this.saml2SnowflakeX509Certs;
-    }
     public List<Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel> saml2SpInitiatedLoginPageLabels() {
         return this.saml2SpInitiatedLoginPageLabels == null ? List.of() : this.saml2SpInitiatedLoginPageLabels;
     }
     public List<Saml2IntegrationDescribeOutputSaml2SsoUrl> saml2SsoUrls() {
         return this.saml2SsoUrls == null ? List.of() : this.saml2SsoUrls;
-    }
-    public List<Saml2IntegrationDescribeOutputSaml2X509Cert> saml2X509Certs() {
-        return this.saml2X509Certs == null ? List.of() : this.saml2X509Certs;
     }
 
     public static Builder builder() {
@@ -132,10 +122,8 @@ public final class Saml2IntegrationDescribeOutput {
         private @Nullable List<Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl> saml2SnowflakeAcsUrls;
         private @Nullable List<Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl> saml2SnowflakeIssuerUrls;
         private @Nullable List<Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata> saml2SnowflakeMetadatas;
-        private @Nullable List<Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert> saml2SnowflakeX509Certs;
         private @Nullable List<Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel> saml2SpInitiatedLoginPageLabels;
         private @Nullable List<Saml2IntegrationDescribeOutputSaml2SsoUrl> saml2SsoUrls;
-        private @Nullable List<Saml2IntegrationDescribeOutputSaml2X509Cert> saml2X509Certs;
         public Builder() {}
         public Builder(Saml2IntegrationDescribeOutput defaults) {
     	      Objects.requireNonNull(defaults);
@@ -154,10 +142,8 @@ public final class Saml2IntegrationDescribeOutput {
     	      this.saml2SnowflakeAcsUrls = defaults.saml2SnowflakeAcsUrls;
     	      this.saml2SnowflakeIssuerUrls = defaults.saml2SnowflakeIssuerUrls;
     	      this.saml2SnowflakeMetadatas = defaults.saml2SnowflakeMetadatas;
-    	      this.saml2SnowflakeX509Certs = defaults.saml2SnowflakeX509Certs;
     	      this.saml2SpInitiatedLoginPageLabels = defaults.saml2SpInitiatedLoginPageLabels;
     	      this.saml2SsoUrls = defaults.saml2SsoUrls;
-    	      this.saml2X509Certs = defaults.saml2X509Certs;
         }
 
         @CustomType.Setter
@@ -296,15 +282,6 @@ public final class Saml2IntegrationDescribeOutput {
             return saml2SnowflakeMetadatas(List.of(saml2SnowflakeMetadatas));
         }
         @CustomType.Setter
-        public Builder saml2SnowflakeX509Certs(@Nullable List<Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert> saml2SnowflakeX509Certs) {
-
-            this.saml2SnowflakeX509Certs = saml2SnowflakeX509Certs;
-            return this;
-        }
-        public Builder saml2SnowflakeX509Certs(Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert... saml2SnowflakeX509Certs) {
-            return saml2SnowflakeX509Certs(List.of(saml2SnowflakeX509Certs));
-        }
-        @CustomType.Setter
         public Builder saml2SpInitiatedLoginPageLabels(@Nullable List<Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel> saml2SpInitiatedLoginPageLabels) {
 
             this.saml2SpInitiatedLoginPageLabels = saml2SpInitiatedLoginPageLabels;
@@ -321,15 +298,6 @@ public final class Saml2IntegrationDescribeOutput {
         }
         public Builder saml2SsoUrls(Saml2IntegrationDescribeOutputSaml2SsoUrl... saml2SsoUrls) {
             return saml2SsoUrls(List.of(saml2SsoUrls));
-        }
-        @CustomType.Setter
-        public Builder saml2X509Certs(@Nullable List<Saml2IntegrationDescribeOutputSaml2X509Cert> saml2X509Certs) {
-
-            this.saml2X509Certs = saml2X509Certs;
-            return this;
-        }
-        public Builder saml2X509Certs(Saml2IntegrationDescribeOutputSaml2X509Cert... saml2X509Certs) {
-            return saml2X509Certs(List.of(saml2X509Certs));
         }
         public Saml2IntegrationDescribeOutput build() {
             final var _resultValue = new Saml2IntegrationDescribeOutput();
@@ -348,10 +316,8 @@ public final class Saml2IntegrationDescribeOutput {
             _resultValue.saml2SnowflakeAcsUrls = saml2SnowflakeAcsUrls;
             _resultValue.saml2SnowflakeIssuerUrls = saml2SnowflakeIssuerUrls;
             _resultValue.saml2SnowflakeMetadatas = saml2SnowflakeMetadatas;
-            _resultValue.saml2SnowflakeX509Certs = saml2SnowflakeX509Certs;
             _resultValue.saml2SpInitiatedLoginPageLabels = saml2SpInitiatedLoginPageLabels;
             _resultValue.saml2SsoUrls = saml2SsoUrls;
-            _resultValue.saml2X509Certs = saml2X509Certs;
             return _resultValue;
         }
     }

@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,6 +58,13 @@ func NewOauthIntegrationForPartnerApplications(ctx *pulumi.Context,
 	if args.OauthClient == nil {
 		return nil, errors.New("invalid value for required argument 'OauthClient'")
 	}
+	if args.OauthRedirectUri != nil {
+		args.OauthRedirectUri = pulumi.ToSecret(args.OauthRedirectUri).(pulumi.StringPtrInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"oauthRedirectUri",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource OauthIntegrationForPartnerApplications
 	err := ctx.RegisterResource("snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications", name, args, &resource, opts...)

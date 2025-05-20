@@ -131,6 +131,8 @@ def get_views(in_: Optional[Union['GetViewsInArgs', 'GetViewsInArgsDict']] = Non
               with_describe: Optional[builtins.bool] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetViewsResult:
     """
+    !> **Sensitive values** This resource's `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
     Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
 
 
@@ -164,6 +166,8 @@ def get_views_output(in_: Optional[pulumi.Input[Optional[Union['GetViewsInArgs',
                      with_describe: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetViewsResult]:
     """
+    !> **Sensitive values** This resource's `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
     Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
 
 

@@ -80,7 +80,6 @@ export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeO
     oauthAllowedScopes: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope[];
     oauthAuthorizationEndpoints: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint[];
     oauthClientAuthMethods: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod[];
-    oauthClientIds: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId[];
     oauthGrants: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant[];
     oauthRefreshTokenValidities: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity[];
     oauthTokenEndpoints: outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint[];
@@ -136,13 +135,6 @@ export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeO
     value: string;
 }
 
-export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant {
     default: string;
     name: string;
@@ -188,7 +180,6 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput
     oauthAllowedScopes: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope[];
     oauthAuthorizationEndpoints: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint[];
     oauthClientAuthMethods: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod[];
-    oauthClientIds: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId[];
     oauthGrants: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant[];
     oauthRefreshTokenValidities: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity[];
     oauthTokenEndpoints: outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint[];
@@ -244,13 +235,6 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput
     value: string;
 }
 
-export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant {
     default: string;
     name: string;
@@ -296,7 +280,6 @@ export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutput {
     oauthAllowedScopes: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope[];
     oauthAuthorizationEndpoints: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint[];
     oauthClientAuthMethods: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod[];
-    oauthClientIds: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId[];
     oauthGrants: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant[];
     oauthRefreshTokenValidities: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity[];
     oauthTokenEndpoints: outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint[];
@@ -346,13 +329,6 @@ export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAut
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
-export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId {
     default: string;
     name: string;
     type: string;
@@ -2465,14 +2441,12 @@ export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     oauthAllowedTokenEndpoints: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpoint[];
     oauthAuthorizationEndpoints: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpoint[];
     oauthClientAuthMethods: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethod[];
-    oauthClientIds: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientId[];
     oauthClientRsaPublicKey2Fps: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2Fp[];
     oauthClientRsaPublicKeyFps: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFp[];
     oauthClientTypes: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientType[];
     oauthEnforcePkces: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkce[];
     oauthGrants: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrant[];
     oauthIssueRefreshTokens: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshToken[];
-    oauthRedirectUris: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUri[];
     oauthRefreshTokenValidities: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidity[];
     oauthTokenEndpoints: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpoint[];
     oauthUseSecondaryRoles: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRole[];
@@ -2491,10 +2465,8 @@ export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutput {
     saml2SnowflakeAcsUrls: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrl[];
     saml2SnowflakeIssuerUrls: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrl[];
     saml2SnowflakeMetadatas: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadata[];
-    saml2SnowflakeX509Certs: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509Cert[];
     saml2SpInitiatedLoginPageLabels: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel[];
     saml2SsoUrls: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrl[];
-    saml2X509Certs: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509Cert[];
     syncPasswords: outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPassword[];
 }
 
@@ -2673,13 +2645,6 @@ export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthCl
     value: string;
 }
 
-export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientId {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2Fp {
     default: string;
     name: string;
@@ -2716,13 +2681,6 @@ export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGr
 }
 
 export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshToken {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
-export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUri {
     default: string;
     name: string;
     type: string;
@@ -2855,13 +2813,6 @@ export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2Sn
     value: string;
 }
 
-export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509Cert {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
     default: string;
     name: string;
@@ -2870,13 +2821,6 @@ export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2Sp
 }
 
 export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrl {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
-export interface GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509Cert {
     default: string;
     name: string;
     type: string;
@@ -3788,7 +3732,6 @@ export interface GetUsersUserDescribeOutput {
     minsToUnlock: number;
     mustChangePassword: boolean;
     name: string;
-    password: string;
     passwordLastSetTime: string;
     rsaPublicKey: string;
     rsaPublicKey2: string;
@@ -5316,13 +5259,11 @@ export interface OauthIntegrationForCustomClientsDescribeOutput {
     oauthAllowedAuthorizationEndpoints: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint[];
     oauthAllowedTokenEndpoints: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint[];
     oauthAuthorizationEndpoints: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint[];
-    oauthClientIds: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientId[];
     oauthClientRsaPublicKey2Fps: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp[];
     oauthClientRsaPublicKeyFps: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp[];
     oauthClientTypes: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientType[];
     oauthEnforcePkces: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce[];
     oauthIssueRefreshTokens: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken[];
-    oauthRedirectUris: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri[];
     oauthRefreshTokenValidities: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity[];
     oauthTokenEndpoints: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint[];
     oauthUseSecondaryRoles: outputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole[];
@@ -5385,13 +5326,6 @@ export interface OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizatio
     value: string;
 }
 
-export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientId {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp {
     default: string;
     name: string;
@@ -5421,13 +5355,6 @@ export interface OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce 
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
-export interface OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri {
     default: string;
     name: string;
     type: string;
@@ -5492,13 +5419,11 @@ export interface OauthIntegrationForPartnerApplicationsDescribeOutput {
     oauthAllowedAuthorizationEndpoints: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint[];
     oauthAllowedTokenEndpoints: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint[];
     oauthAuthorizationEndpoints: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint[];
-    oauthClientIds: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId[];
     oauthClientRsaPublicKey2Fps: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp[];
     oauthClientRsaPublicKeyFps: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp[];
     oauthClientTypes: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType[];
     oauthEnforcePkces: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce[];
     oauthIssueRefreshTokens: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken[];
-    oauthRedirectUris: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri[];
     oauthRefreshTokenValidities: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity[];
     oauthTokenEndpoints: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint[];
     oauthUseSecondaryRoles: outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole[];
@@ -5561,13 +5486,6 @@ export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthor
     value: string;
 }
 
-export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp {
     default: string;
     name: string;
@@ -5597,13 +5515,6 @@ export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforc
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
-export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri {
     default: string;
     name: string;
     type: string;
@@ -6179,10 +6090,8 @@ export interface Saml2IntegrationDescribeOutput {
     saml2SnowflakeAcsUrls: outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl[];
     saml2SnowflakeIssuerUrls: outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl[];
     saml2SnowflakeMetadatas: outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata[];
-    saml2SnowflakeX509Certs: outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert[];
     saml2SpInitiatedLoginPageLabels: outputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel[];
     saml2SsoUrls: outputs.Saml2IntegrationDescribeOutputSaml2SsoUrl[];
-    saml2X509Certs: outputs.Saml2IntegrationDescribeOutputSaml2X509Cert[];
 }
 
 export interface Saml2IntegrationDescribeOutputAllowedEmailPattern {
@@ -6290,13 +6199,6 @@ export interface Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata {
     value: string;
 }
 
-export interface Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
 export interface Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
     default: string;
     name: string;
@@ -6305,13 +6207,6 @@ export interface Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2SsoUrl {
-    default: string;
-    name: string;
-    type: string;
-    value: string;
-}
-
-export interface Saml2IntegrationDescribeOutputSaml2X509Cert {
     default: string;
     name: string;
     type: string;

@@ -29,7 +29,6 @@ __all__ = [
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod',
-    'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity',
     'ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint',
@@ -43,7 +42,6 @@ __all__ = [
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod',
-    'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity',
     'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint',
@@ -57,7 +55,6 @@ __all__ = [
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod',
-    'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity',
     'ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint',
@@ -227,13 +224,11 @@ __all__ = [
     'OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint',
     'OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint',
     'OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint',
-    'OauthIntegrationForCustomClientsDescribeOutputOauthClientId',
     'OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp',
     'OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp',
     'OauthIntegrationForCustomClientsDescribeOutputOauthClientType',
     'OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce',
     'OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken',
-    'OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri',
     'OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity',
     'OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint',
     'OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole',
@@ -250,13 +245,11 @@ __all__ = [
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint',
-    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken',
-    'OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint',
     'OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole',
@@ -330,10 +323,8 @@ __all__ = [
     'Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl',
     'Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl',
     'Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata',
-    'Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert',
     'Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel',
     'Saml2IntegrationDescribeOutputSaml2SsoUrl',
-    'Saml2IntegrationDescribeOutputSaml2X509Cert',
     'Saml2IntegrationShowOutput',
     'SchemaDescribeOutput',
     'SchemaParameter',
@@ -717,14 +708,12 @@ __all__ = [
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpointResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpointResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethodResult',
-    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientIdResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2FpResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFpResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientTypeResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkceResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrantResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshTokenResult',
-    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUriResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidityResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpointResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRoleResult',
@@ -743,10 +732,8 @@ __all__ = [
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrlResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrlResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadataResult',
-    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509CertResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrlResult',
-    'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509CertResult',
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPasswordResult',
     'GetSecurityIntegrationsSecurityIntegrationShowOutputResult',
     'GetSequencesSequenceResult',
@@ -1420,8 +1407,6 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput(dict)
             suggest = "oauth_authorization_endpoints"
         elif key == "oauthClientAuthMethods":
             suggest = "oauth_client_auth_methods"
-        elif key == "oauthClientIds":
-            suggest = "oauth_client_ids"
         elif key == "oauthGrants":
             suggest = "oauth_grants"
         elif key == "oauthRefreshTokenValidities":
@@ -1450,7 +1435,6 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput(dict)
                  oauth_allowed_scopes: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope']] = None,
                  oauth_authorization_endpoints: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint']] = None,
                  oauth_client_auth_methods: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod']] = None,
-                 oauth_client_ids: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId']] = None,
                  oauth_grants: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant']] = None,
                  oauth_refresh_token_validities: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity']] = None,
                  oauth_token_endpoints: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint']] = None,
@@ -1469,8 +1453,6 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput(dict)
             pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
         if oauth_client_auth_methods is not None:
             pulumi.set(__self__, "oauth_client_auth_methods", oauth_client_auth_methods)
-        if oauth_client_ids is not None:
-            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
         if oauth_grants is not None:
             pulumi.set(__self__, "oauth_grants", oauth_grants)
         if oauth_refresh_token_validities is not None:
@@ -1514,11 +1496,6 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutput(dict)
     @pulumi.getter(name="oauthClientAuthMethods")
     def oauth_client_auth_methods(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod']]:
         return pulumi.get(self, "oauth_client_auth_methods")
-
-    @property
-    @pulumi.getter(name="oauthClientIds")
-    def oauth_client_ids(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId']]:
-        return pulumi.get(self, "oauth_client_ids")
 
     @property
     @pulumi.getter(name="oauthGrants")
@@ -1801,43 +1778,6 @@ class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthC
 
 
 @pulumi.output_type
-class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId(dict):
-    def __init__(__self__, *,
-                 default: Optional[builtins.str] = None,
-                 name: Optional[builtins.str] = None,
-                 type: Optional[builtins.str] = None,
-                 value: Optional[builtins.str] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant(dict):
     def __init__(__self__, *,
                  default: Optional[builtins.str] = None,
@@ -2072,8 +2012,6 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput(dict):
             suggest = "oauth_authorization_endpoints"
         elif key == "oauthClientAuthMethods":
             suggest = "oauth_client_auth_methods"
-        elif key == "oauthClientIds":
-            suggest = "oauth_client_ids"
         elif key == "oauthGrants":
             suggest = "oauth_grants"
         elif key == "oauthRefreshTokenValidities":
@@ -2102,7 +2040,6 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput(dict):
                  oauth_allowed_scopes: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope']] = None,
                  oauth_authorization_endpoints: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint']] = None,
                  oauth_client_auth_methods: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod']] = None,
-                 oauth_client_ids: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId']] = None,
                  oauth_grants: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant']] = None,
                  oauth_refresh_token_validities: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity']] = None,
                  oauth_token_endpoints: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint']] = None,
@@ -2121,8 +2058,6 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput(dict):
             pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
         if oauth_client_auth_methods is not None:
             pulumi.set(__self__, "oauth_client_auth_methods", oauth_client_auth_methods)
-        if oauth_client_ids is not None:
-            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
         if oauth_grants is not None:
             pulumi.set(__self__, "oauth_grants", oauth_grants)
         if oauth_refresh_token_validities is not None:
@@ -2166,11 +2101,6 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput(dict):
     @pulumi.getter(name="oauthClientAuthMethods")
     def oauth_client_auth_methods(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod']]:
         return pulumi.get(self, "oauth_client_auth_methods")
-
-    @property
-    @pulumi.getter(name="oauthClientIds")
-    def oauth_client_ids(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId']]:
-        return pulumi.get(self, "oauth_client_ids")
 
     @property
     @pulumi.getter(name="oauthGrants")
@@ -2453,43 +2383,6 @@ class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClient
 
 
 @pulumi.output_type
-class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId(dict):
-    def __init__(__self__, *,
-                 default: Optional[builtins.str] = None,
-                 name: Optional[builtins.str] = None,
-                 type: Optional[builtins.str] = None,
-                 value: Optional[builtins.str] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant(dict):
     def __init__(__self__, *,
                  default: Optional[builtins.str] = None,
@@ -2724,8 +2617,6 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutput(dict):
             suggest = "oauth_authorization_endpoints"
         elif key == "oauthClientAuthMethods":
             suggest = "oauth_client_auth_methods"
-        elif key == "oauthClientIds":
-            suggest = "oauth_client_ids"
         elif key == "oauthGrants":
             suggest = "oauth_grants"
         elif key == "oauthRefreshTokenValidities":
@@ -2754,7 +2645,6 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutput(dict):
                  oauth_allowed_scopes: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope']] = None,
                  oauth_authorization_endpoints: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint']] = None,
                  oauth_client_auth_methods: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod']] = None,
-                 oauth_client_ids: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId']] = None,
                  oauth_grants: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant']] = None,
                  oauth_refresh_token_validities: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity']] = None,
                  oauth_token_endpoints: Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint']] = None,
@@ -2773,8 +2663,6 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutput(dict):
             pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
         if oauth_client_auth_methods is not None:
             pulumi.set(__self__, "oauth_client_auth_methods", oauth_client_auth_methods)
-        if oauth_client_ids is not None:
-            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
         if oauth_grants is not None:
             pulumi.set(__self__, "oauth_grants", oauth_grants)
         if oauth_refresh_token_validities is not None:
@@ -2818,11 +2706,6 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutput(dict):
     @pulumi.getter(name="oauthClientAuthMethods")
     def oauth_client_auth_methods(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod']]:
         return pulumi.get(self, "oauth_client_auth_methods")
-
-    @property
-    @pulumi.getter(name="oauthClientIds")
-    def oauth_client_ids(self) -> Optional[Sequence['outputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId']]:
-        return pulumi.get(self, "oauth_client_ids")
 
     @property
     @pulumi.getter(name="oauthGrants")
@@ -3069,43 +2952,6 @@ class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationE
 
 @pulumi.output_type
 class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod(dict):
-    def __init__(__self__, *,
-                 default: Optional[builtins.str] = None,
-                 name: Optional[builtins.str] = None,
-                 type: Optional[builtins.str] = None,
-                 value: Optional[builtins.str] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId(dict):
     def __init__(__self__, *,
                  default: Optional[builtins.str] = None,
                  name: Optional[builtins.str] = None,
@@ -12713,8 +12559,6 @@ class OauthIntegrationForCustomClientsDescribeOutput(dict):
             suggest = "oauth_allowed_token_endpoints"
         elif key == "oauthAuthorizationEndpoints":
             suggest = "oauth_authorization_endpoints"
-        elif key == "oauthClientIds":
-            suggest = "oauth_client_ids"
         elif key == "oauthClientRsaPublicKey2Fps":
             suggest = "oauth_client_rsa_public_key2_fps"
         elif key == "oauthClientRsaPublicKeyFps":
@@ -12725,8 +12569,6 @@ class OauthIntegrationForCustomClientsDescribeOutput(dict):
             suggest = "oauth_enforce_pkces"
         elif key == "oauthIssueRefreshTokens":
             suggest = "oauth_issue_refresh_tokens"
-        elif key == "oauthRedirectUris":
-            suggest = "oauth_redirect_uris"
         elif key == "oauthRefreshTokenValidities":
             suggest = "oauth_refresh_token_validities"
         elif key == "oauthTokenEndpoints":
@@ -12756,13 +12598,11 @@ class OauthIntegrationForCustomClientsDescribeOutput(dict):
                  oauth_allowed_authorization_endpoints: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint']] = None,
                  oauth_allowed_token_endpoints: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint']] = None,
                  oauth_authorization_endpoints: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint']] = None,
-                 oauth_client_ids: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientId']] = None,
                  oauth_client_rsa_public_key2_fps: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp']] = None,
                  oauth_client_rsa_public_key_fps: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp']] = None,
                  oauth_client_types: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientType']] = None,
                  oauth_enforce_pkces: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce']] = None,
                  oauth_issue_refresh_tokens: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken']] = None,
-                 oauth_redirect_uris: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri']] = None,
                  oauth_refresh_token_validities: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity']] = None,
                  oauth_token_endpoints: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint']] = None,
                  oauth_use_secondary_roles: Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole']] = None,
@@ -12783,8 +12623,6 @@ class OauthIntegrationForCustomClientsDescribeOutput(dict):
             pulumi.set(__self__, "oauth_allowed_token_endpoints", oauth_allowed_token_endpoints)
         if oauth_authorization_endpoints is not None:
             pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
-        if oauth_client_ids is not None:
-            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
         if oauth_client_rsa_public_key2_fps is not None:
             pulumi.set(__self__, "oauth_client_rsa_public_key2_fps", oauth_client_rsa_public_key2_fps)
         if oauth_client_rsa_public_key_fps is not None:
@@ -12795,8 +12633,6 @@ class OauthIntegrationForCustomClientsDescribeOutput(dict):
             pulumi.set(__self__, "oauth_enforce_pkces", oauth_enforce_pkces)
         if oauth_issue_refresh_tokens is not None:
             pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
-        if oauth_redirect_uris is not None:
-            pulumi.set(__self__, "oauth_redirect_uris", oauth_redirect_uris)
         if oauth_refresh_token_validities is not None:
             pulumi.set(__self__, "oauth_refresh_token_validities", oauth_refresh_token_validities)
         if oauth_token_endpoints is not None:
@@ -12847,11 +12683,6 @@ class OauthIntegrationForCustomClientsDescribeOutput(dict):
         return pulumi.get(self, "oauth_authorization_endpoints")
 
     @property
-    @pulumi.getter(name="oauthClientIds")
-    def oauth_client_ids(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientId']]:
-        return pulumi.get(self, "oauth_client_ids")
-
-    @property
     @pulumi.getter(name="oauthClientRsaPublicKey2Fps")
     def oauth_client_rsa_public_key2_fps(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp']]:
         return pulumi.get(self, "oauth_client_rsa_public_key2_fps")
@@ -12875,11 +12706,6 @@ class OauthIntegrationForCustomClientsDescribeOutput(dict):
     @pulumi.getter(name="oauthIssueRefreshTokens")
     def oauth_issue_refresh_tokens(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken']]:
         return pulumi.get(self, "oauth_issue_refresh_tokens")
-
-    @property
-    @pulumi.getter(name="oauthRedirectUris")
-    def oauth_redirect_uris(self) -> Optional[Sequence['outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri']]:
-        return pulumi.get(self, "oauth_redirect_uris")
 
     @property
     @pulumi.getter(name="oauthRefreshTokenValidities")
@@ -13199,43 +13025,6 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint(d
 
 
 @pulumi.output_type
-class OauthIntegrationForCustomClientsDescribeOutputOauthClientId(dict):
-    def __init__(__self__, *,
-                 default: Optional[builtins.str] = None,
-                 name: Optional[builtins.str] = None,
-                 type: Optional[builtins.str] = None,
-                 value: Optional[builtins.str] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp(dict):
     def __init__(__self__, *,
                  default: Optional[builtins.str] = None,
@@ -13385,43 +13174,6 @@ class OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce(dict):
 
 @pulumi.output_type
 class OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken(dict):
-    def __init__(__self__, *,
-                 default: Optional[builtins.str] = None,
-                 name: Optional[builtins.str] = None,
-                 type: Optional[builtins.str] = None,
-                 value: Optional[builtins.str] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri(dict):
     def __init__(__self__, *,
                  default: Optional[builtins.str] = None,
                  name: Optional[builtins.str] = None,
@@ -13769,8 +13521,6 @@ class OauthIntegrationForPartnerApplicationsDescribeOutput(dict):
             suggest = "oauth_allowed_token_endpoints"
         elif key == "oauthAuthorizationEndpoints":
             suggest = "oauth_authorization_endpoints"
-        elif key == "oauthClientIds":
-            suggest = "oauth_client_ids"
         elif key == "oauthClientRsaPublicKey2Fps":
             suggest = "oauth_client_rsa_public_key2_fps"
         elif key == "oauthClientRsaPublicKeyFps":
@@ -13781,8 +13531,6 @@ class OauthIntegrationForPartnerApplicationsDescribeOutput(dict):
             suggest = "oauth_enforce_pkces"
         elif key == "oauthIssueRefreshTokens":
             suggest = "oauth_issue_refresh_tokens"
-        elif key == "oauthRedirectUris":
-            suggest = "oauth_redirect_uris"
         elif key == "oauthRefreshTokenValidities":
             suggest = "oauth_refresh_token_validities"
         elif key == "oauthTokenEndpoints":
@@ -13812,13 +13560,11 @@ class OauthIntegrationForPartnerApplicationsDescribeOutput(dict):
                  oauth_allowed_authorization_endpoints: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint']] = None,
                  oauth_allowed_token_endpoints: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint']] = None,
                  oauth_authorization_endpoints: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint']] = None,
-                 oauth_client_ids: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId']] = None,
                  oauth_client_rsa_public_key2_fps: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp']] = None,
                  oauth_client_rsa_public_key_fps: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp']] = None,
                  oauth_client_types: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType']] = None,
                  oauth_enforce_pkces: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce']] = None,
                  oauth_issue_refresh_tokens: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken']] = None,
-                 oauth_redirect_uris: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri']] = None,
                  oauth_refresh_token_validities: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity']] = None,
                  oauth_token_endpoints: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint']] = None,
                  oauth_use_secondary_roles: Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole']] = None,
@@ -13839,8 +13585,6 @@ class OauthIntegrationForPartnerApplicationsDescribeOutput(dict):
             pulumi.set(__self__, "oauth_allowed_token_endpoints", oauth_allowed_token_endpoints)
         if oauth_authorization_endpoints is not None:
             pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
-        if oauth_client_ids is not None:
-            pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
         if oauth_client_rsa_public_key2_fps is not None:
             pulumi.set(__self__, "oauth_client_rsa_public_key2_fps", oauth_client_rsa_public_key2_fps)
         if oauth_client_rsa_public_key_fps is not None:
@@ -13851,8 +13595,6 @@ class OauthIntegrationForPartnerApplicationsDescribeOutput(dict):
             pulumi.set(__self__, "oauth_enforce_pkces", oauth_enforce_pkces)
         if oauth_issue_refresh_tokens is not None:
             pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
-        if oauth_redirect_uris is not None:
-            pulumi.set(__self__, "oauth_redirect_uris", oauth_redirect_uris)
         if oauth_refresh_token_validities is not None:
             pulumi.set(__self__, "oauth_refresh_token_validities", oauth_refresh_token_validities)
         if oauth_token_endpoints is not None:
@@ -13903,11 +13645,6 @@ class OauthIntegrationForPartnerApplicationsDescribeOutput(dict):
         return pulumi.get(self, "oauth_authorization_endpoints")
 
     @property
-    @pulumi.getter(name="oauthClientIds")
-    def oauth_client_ids(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId']]:
-        return pulumi.get(self, "oauth_client_ids")
-
-    @property
     @pulumi.getter(name="oauthClientRsaPublicKey2Fps")
     def oauth_client_rsa_public_key2_fps(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp']]:
         return pulumi.get(self, "oauth_client_rsa_public_key2_fps")
@@ -13931,11 +13668,6 @@ class OauthIntegrationForPartnerApplicationsDescribeOutput(dict):
     @pulumi.getter(name="oauthIssueRefreshTokens")
     def oauth_issue_refresh_tokens(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken']]:
         return pulumi.get(self, "oauth_issue_refresh_tokens")
-
-    @property
-    @pulumi.getter(name="oauthRedirectUris")
-    def oauth_redirect_uris(self) -> Optional[Sequence['outputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri']]:
-        return pulumi.get(self, "oauth_redirect_uris")
 
     @property
     @pulumi.getter(name="oauthRefreshTokenValidities")
@@ -14255,43 +13987,6 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndp
 
 
 @pulumi.output_type
-class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId(dict):
-    def __init__(__self__, *,
-                 default: Optional[builtins.str] = None,
-                 name: Optional[builtins.str] = None,
-                 type: Optional[builtins.str] = None,
-                 value: Optional[builtins.str] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp(dict):
     def __init__(__self__, *,
                  default: Optional[builtins.str] = None,
@@ -14441,43 +14136,6 @@ class OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce(dict)
 
 @pulumi.output_type
 class OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken(dict):
-    def __init__(__self__, *,
-                 default: Optional[builtins.str] = None,
-                 name: Optional[builtins.str] = None,
-                 type: Optional[builtins.str] = None,
-                 value: Optional[builtins.str] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri(dict):
     def __init__(__self__, *,
                  default: Optional[builtins.str] = None,
                  name: Optional[builtins.str] = None,
@@ -18085,14 +17743,10 @@ class Saml2IntegrationDescribeOutput(dict):
             suggest = "saml2_snowflake_issuer_urls"
         elif key == "saml2SnowflakeMetadatas":
             suggest = "saml2_snowflake_metadatas"
-        elif key == "saml2SnowflakeX509Certs":
-            suggest = "saml2_snowflake_x509_certs"
         elif key == "saml2SpInitiatedLoginPageLabels":
             suggest = "saml2_sp_initiated_login_page_labels"
         elif key == "saml2SsoUrls":
             suggest = "saml2_sso_urls"
-        elif key == "saml2X509Certs":
-            suggest = "saml2_x509_certs"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in Saml2IntegrationDescribeOutput. Access the value via the '{suggest}' property getter instead.")
@@ -18121,10 +17775,8 @@ class Saml2IntegrationDescribeOutput(dict):
                  saml2_snowflake_acs_urls: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl']] = None,
                  saml2_snowflake_issuer_urls: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl']] = None,
                  saml2_snowflake_metadatas: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata']] = None,
-                 saml2_snowflake_x509_certs: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert']] = None,
                  saml2_sp_initiated_login_page_labels: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel']] = None,
-                 saml2_sso_urls: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SsoUrl']] = None,
-                 saml2_x509_certs: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2X509Cert']] = None):
+                 saml2_sso_urls: Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SsoUrl']] = None):
         if allowed_email_patterns is not None:
             pulumi.set(__self__, "allowed_email_patterns", allowed_email_patterns)
         if allowed_user_domains is not None:
@@ -18155,14 +17807,10 @@ class Saml2IntegrationDescribeOutput(dict):
             pulumi.set(__self__, "saml2_snowflake_issuer_urls", saml2_snowflake_issuer_urls)
         if saml2_snowflake_metadatas is not None:
             pulumi.set(__self__, "saml2_snowflake_metadatas", saml2_snowflake_metadatas)
-        if saml2_snowflake_x509_certs is not None:
-            pulumi.set(__self__, "saml2_snowflake_x509_certs", saml2_snowflake_x509_certs)
         if saml2_sp_initiated_login_page_labels is not None:
             pulumi.set(__self__, "saml2_sp_initiated_login_page_labels", saml2_sp_initiated_login_page_labels)
         if saml2_sso_urls is not None:
             pulumi.set(__self__, "saml2_sso_urls", saml2_sso_urls)
-        if saml2_x509_certs is not None:
-            pulumi.set(__self__, "saml2_x509_certs", saml2_x509_certs)
 
     @property
     @pulumi.getter(name="allowedEmailPatterns")
@@ -18240,11 +17888,6 @@ class Saml2IntegrationDescribeOutput(dict):
         return pulumi.get(self, "saml2_snowflake_metadatas")
 
     @property
-    @pulumi.getter(name="saml2SnowflakeX509Certs")
-    def saml2_snowflake_x509_certs(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert']]:
-        return pulumi.get(self, "saml2_snowflake_x509_certs")
-
-    @property
     @pulumi.getter(name="saml2SpInitiatedLoginPageLabels")
     def saml2_sp_initiated_login_page_labels(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel']]:
         return pulumi.get(self, "saml2_sp_initiated_login_page_labels")
@@ -18253,11 +17896,6 @@ class Saml2IntegrationDescribeOutput(dict):
     @pulumi.getter(name="saml2SsoUrls")
     def saml2_sso_urls(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2SsoUrl']]:
         return pulumi.get(self, "saml2_sso_urls")
-
-    @property
-    @pulumi.getter(name="saml2X509Certs")
-    def saml2_x509_certs(self) -> Optional[Sequence['outputs.Saml2IntegrationDescribeOutputSaml2X509Cert']]:
-        return pulumi.get(self, "saml2_x509_certs")
 
 
 @pulumi.output_type
@@ -18816,43 +18454,6 @@ class Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata(dict):
 
 
 @pulumi.output_type
-class Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert(dict):
-    def __init__(__self__, *,
-                 default: Optional[builtins.str] = None,
-                 name: Optional[builtins.str] = None,
-                 type: Optional[builtins.str] = None,
-                 value: Optional[builtins.str] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel(dict):
     def __init__(__self__, *,
                  default: Optional[builtins.str] = None,
@@ -18891,43 +18492,6 @@ class Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel(dict):
 
 @pulumi.output_type
 class Saml2IntegrationDescribeOutputSaml2SsoUrl(dict):
-    def __init__(__self__, *,
-                 default: Optional[builtins.str] = None,
-                 name: Optional[builtins.str] = None,
-                 type: Optional[builtins.str] = None,
-                 value: Optional[builtins.str] = None):
-        if default is not None:
-            pulumi.set(__self__, "default", default)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-        if type is not None:
-            pulumi.set(__self__, "type", type)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[builtins.str]:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class Saml2IntegrationDescribeOutputSaml2X509Cert(dict):
     def __init__(__self__, *,
                  default: Optional[builtins.str] = None,
                  name: Optional[builtins.str] = None,
@@ -40547,14 +40111,12 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(dict):
                  oauth_allowed_token_endpoints: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAllowedTokenEndpointResult'],
                  oauth_authorization_endpoints: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthAuthorizationEndpointResult'],
                  oauth_client_auth_methods: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMethodResult'],
-                 oauth_client_ids: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientIdResult'],
                  oauth_client_rsa_public_key2_fps: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2FpResult'],
                  oauth_client_rsa_public_key_fps: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKeyFpResult'],
                  oauth_client_types: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientTypeResult'],
                  oauth_enforce_pkces: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthEnforcePkceResult'],
                  oauth_grants: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrantResult'],
                  oauth_issue_refresh_tokens: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshTokenResult'],
-                 oauth_redirect_uris: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUriResult'],
                  oauth_refresh_token_validities: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRefreshTokenValidityResult'],
                  oauth_token_endpoints: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthTokenEndpointResult'],
                  oauth_use_secondary_roles: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthUseSecondaryRoleResult'],
@@ -40573,10 +40135,8 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(dict):
                  saml2_snowflake_acs_urls: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeAcsUrlResult'],
                  saml2_snowflake_issuer_urls: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeIssuerUrlResult'],
                  saml2_snowflake_metadatas: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMetadataResult'],
-                 saml2_snowflake_x509_certs: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509CertResult'],
                  saml2_sp_initiated_login_page_labels: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelResult'],
                  saml2_sso_urls: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrlResult'],
-                 saml2_x509_certs: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509CertResult'],
                  sync_passwords: Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPasswordResult']):
         pulumi.set(__self__, "allowed_email_patterns", allowed_email_patterns)
         pulumi.set(__self__, "allowed_user_domains", allowed_user_domains)
@@ -40603,14 +40163,12 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(dict):
         pulumi.set(__self__, "oauth_allowed_token_endpoints", oauth_allowed_token_endpoints)
         pulumi.set(__self__, "oauth_authorization_endpoints", oauth_authorization_endpoints)
         pulumi.set(__self__, "oauth_client_auth_methods", oauth_client_auth_methods)
-        pulumi.set(__self__, "oauth_client_ids", oauth_client_ids)
         pulumi.set(__self__, "oauth_client_rsa_public_key2_fps", oauth_client_rsa_public_key2_fps)
         pulumi.set(__self__, "oauth_client_rsa_public_key_fps", oauth_client_rsa_public_key_fps)
         pulumi.set(__self__, "oauth_client_types", oauth_client_types)
         pulumi.set(__self__, "oauth_enforce_pkces", oauth_enforce_pkces)
         pulumi.set(__self__, "oauth_grants", oauth_grants)
         pulumi.set(__self__, "oauth_issue_refresh_tokens", oauth_issue_refresh_tokens)
-        pulumi.set(__self__, "oauth_redirect_uris", oauth_redirect_uris)
         pulumi.set(__self__, "oauth_refresh_token_validities", oauth_refresh_token_validities)
         pulumi.set(__self__, "oauth_token_endpoints", oauth_token_endpoints)
         pulumi.set(__self__, "oauth_use_secondary_roles", oauth_use_secondary_roles)
@@ -40629,10 +40187,8 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(dict):
         pulumi.set(__self__, "saml2_snowflake_acs_urls", saml2_snowflake_acs_urls)
         pulumi.set(__self__, "saml2_snowflake_issuer_urls", saml2_snowflake_issuer_urls)
         pulumi.set(__self__, "saml2_snowflake_metadatas", saml2_snowflake_metadatas)
-        pulumi.set(__self__, "saml2_snowflake_x509_certs", saml2_snowflake_x509_certs)
         pulumi.set(__self__, "saml2_sp_initiated_login_page_labels", saml2_sp_initiated_login_page_labels)
         pulumi.set(__self__, "saml2_sso_urls", saml2_sso_urls)
-        pulumi.set(__self__, "saml2_x509_certs", saml2_x509_certs)
         pulumi.set(__self__, "sync_passwords", sync_passwords)
 
     @property
@@ -40761,11 +40317,6 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(dict):
         return pulumi.get(self, "oauth_client_auth_methods")
 
     @property
-    @pulumi.getter(name="oauthClientIds")
-    def oauth_client_ids(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientIdResult']:
-        return pulumi.get(self, "oauth_client_ids")
-
-    @property
     @pulumi.getter(name="oauthClientRsaPublicKey2Fps")
     def oauth_client_rsa_public_key2_fps(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2FpResult']:
         return pulumi.get(self, "oauth_client_rsa_public_key2_fps")
@@ -40794,11 +40345,6 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(dict):
     @pulumi.getter(name="oauthIssueRefreshTokens")
     def oauth_issue_refresh_tokens(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshTokenResult']:
         return pulumi.get(self, "oauth_issue_refresh_tokens")
-
-    @property
-    @pulumi.getter(name="oauthRedirectUris")
-    def oauth_redirect_uris(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUriResult']:
-        return pulumi.get(self, "oauth_redirect_uris")
 
     @property
     @pulumi.getter(name="oauthRefreshTokenValidities")
@@ -40891,11 +40437,6 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(dict):
         return pulumi.get(self, "saml2_snowflake_metadatas")
 
     @property
-    @pulumi.getter(name="saml2SnowflakeX509Certs")
-    def saml2_snowflake_x509_certs(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509CertResult']:
-        return pulumi.get(self, "saml2_snowflake_x509_certs")
-
-    @property
     @pulumi.getter(name="saml2SpInitiatedLoginPageLabels")
     def saml2_sp_initiated_login_page_labels(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelResult']:
         return pulumi.get(self, "saml2_sp_initiated_login_page_labels")
@@ -40904,11 +40445,6 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputResult(dict):
     @pulumi.getter(name="saml2SsoUrls")
     def saml2_sso_urls(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrlResult']:
         return pulumi.get(self, "saml2_sso_urls")
-
-    @property
-    @pulumi.getter(name="saml2X509Certs")
-    def saml2_x509_certs(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509CertResult']:
-        return pulumi.get(self, "saml2_x509_certs")
 
     @property
     @pulumi.getter(name="syncPasswords")
@@ -41742,39 +41278,6 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientAuthMet
 
 
 @pulumi.output_type
-class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientIdResult(dict):
-    def __init__(__self__, *,
-                 default: builtins.str,
-                 name: builtins.str,
-                 type: builtins.str,
-                 value: builtins.str):
-        pulumi.set(__self__, "default", default)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> builtins.str:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> builtins.str:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> builtins.str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthClientRsaPublicKey2FpResult(dict):
     def __init__(__self__, *,
                  default: builtins.str,
@@ -41941,39 +41444,6 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthGrantResult(d
 
 @pulumi.output_type
 class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthIssueRefreshTokenResult(dict):
-    def __init__(__self__, *,
-                 default: builtins.str,
-                 name: builtins.str,
-                 type: builtins.str,
-                 value: builtins.str):
-        pulumi.set(__self__, "default", default)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> builtins.str:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> builtins.str:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> builtins.str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class GetSecurityIntegrationsSecurityIntegrationDescribeOutputOauthRedirectUriResult(dict):
     def __init__(__self__, *,
                  default: builtins.str,
                  name: builtins.str,
@@ -42600,39 +42070,6 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeMeta
 
 
 @pulumi.output_type
-class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SnowflakeX509CertResult(dict):
-    def __init__(__self__, *,
-                 default: builtins.str,
-                 name: builtins.str,
-                 type: builtins.str,
-                 value: builtins.str):
-        pulumi.set(__self__, "default", default)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> builtins.str:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> builtins.str:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> builtins.str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
 class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLoginPageLabelResult(dict):
     def __init__(__self__, *,
                  default: builtins.str,
@@ -42667,39 +42104,6 @@ class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SpInitiatedLo
 
 @pulumi.output_type
 class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2SsoUrlResult(dict):
-    def __init__(__self__, *,
-                 default: builtins.str,
-                 name: builtins.str,
-                 type: builtins.str,
-                 value: builtins.str):
-        pulumi.set(__self__, "default", default)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "type", type)
-        pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def default(self) -> builtins.str:
-        return pulumi.get(self, "default")
-
-    @property
-    @pulumi.getter
-    def name(self) -> builtins.str:
-        return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def type(self) -> builtins.str:
-        return pulumi.get(self, "type")
-
-    @property
-    @pulumi.getter
-    def value(self) -> builtins.str:
-        return pulumi.get(self, "value")
-
-
-@pulumi.output_type
-class GetSecurityIntegrationsSecurityIntegrationDescribeOutputSaml2X509CertResult(dict):
     def __init__(__self__, *,
                  default: builtins.str,
                  name: builtins.str,
@@ -46901,7 +46305,6 @@ class GetUsersUserDescribeOutputResult(dict):
                  mins_to_unlock: builtins.int,
                  must_change_password: builtins.bool,
                  name: builtins.str,
-                 password: builtins.str,
                  password_last_set_time: builtins.str,
                  rsa_public_key: builtins.str,
                  rsa_public_key2: builtins.str,
@@ -46933,7 +46336,6 @@ class GetUsersUserDescribeOutputResult(dict):
         pulumi.set(__self__, "mins_to_unlock", mins_to_unlock)
         pulumi.set(__self__, "must_change_password", must_change_password)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "password_last_set_time", password_last_set_time)
         pulumi.set(__self__, "rsa_public_key", rsa_public_key)
         pulumi.set(__self__, "rsa_public_key2", rsa_public_key2)
@@ -47057,11 +46459,6 @@ class GetUsersUserDescribeOutputResult(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter
-    def password(self) -> builtins.str:
-        return pulumi.get(self, "password")
 
     @property
     @pulumi.getter(name="passwordLastSetTime")

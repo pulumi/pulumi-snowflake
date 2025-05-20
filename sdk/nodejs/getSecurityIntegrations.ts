@@ -7,7 +7,7 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
- * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `securityIntegrations`.
+ * ## Example Usage
  */
 export function getSecurityIntegrations(args?: GetSecurityIntegrationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityIntegrationsResult> {
     args = args || {};
@@ -54,7 +54,7 @@ export interface GetSecurityIntegrationsResult {
     readonly withDescribe?: boolean;
 }
 /**
- * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `securityIntegrations`.
+ * ## Example Usage
  */
 export function getSecurityIntegrationsOutput(args?: GetSecurityIntegrationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityIntegrationsResult> {
     args = args || {};

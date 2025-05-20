@@ -140,8 +140,8 @@ export class ApiAuthenticationIntegrationWithJwtBearer extends pulumi.CustomReso
             resourceInputs["oauthAssertionIssuer"] = args ? args.oauthAssertionIssuer : undefined;
             resourceInputs["oauthAuthorizationEndpoint"] = args ? args.oauthAuthorizationEndpoint : undefined;
             resourceInputs["oauthClientAuthMethod"] = args ? args.oauthClientAuthMethod : undefined;
-            resourceInputs["oauthClientId"] = args ? args.oauthClientId : undefined;
-            resourceInputs["oauthClientSecret"] = args ? args.oauthClientSecret : undefined;
+            resourceInputs["oauthClientId"] = args?.oauthClientId ? pulumi.secret(args.oauthClientId) : undefined;
+            resourceInputs["oauthClientSecret"] = args?.oauthClientSecret ? pulumi.secret(args.oauthClientSecret) : undefined;
             resourceInputs["oauthRefreshTokenValidity"] = args ? args.oauthRefreshTokenValidity : undefined;
             resourceInputs["oauthTokenEndpoint"] = args ? args.oauthTokenEndpoint : undefined;
             resourceInputs["describeOutputs"] = undefined /*out*/;
@@ -149,6 +149,8 @@ export class ApiAuthenticationIntegrationWithJwtBearer extends pulumi.CustomReso
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["oauthClientId", "oauthClientSecret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ApiAuthenticationIntegrationWithJwtBearer.__pulumiType, name, resourceInputs, opts);
     }
 }

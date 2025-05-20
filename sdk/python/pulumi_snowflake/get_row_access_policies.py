@@ -118,6 +118,8 @@ def get_row_access_policies(in_: Optional[Union['GetRowAccessPoliciesInArgs', 'G
                             with_describe: Optional[builtins.bool] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRowAccessPoliciesResult:
     """
+    !> **Sensitive values** This data source's `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
     Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
 
 
@@ -147,6 +149,8 @@ def get_row_access_policies_output(in_: Optional[pulumi.Input[Optional[Union['Ge
                                    with_describe: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                    opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRowAccessPoliciesResult]:
     """
+    !> **Sensitive values** This data source's `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
     Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
 
 

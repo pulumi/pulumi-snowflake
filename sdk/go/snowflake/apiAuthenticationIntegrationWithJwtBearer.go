@@ -8,7 +8,7 @@ import (
 	"reflect"
 
 	"errors"
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -67,6 +67,17 @@ func NewApiAuthenticationIntegrationWithJwtBearer(ctx *pulumi.Context,
 	if args.OauthClientSecret == nil {
 		return nil, errors.New("invalid value for required argument 'OauthClientSecret'")
 	}
+	if args.OauthClientId != nil {
+		args.OauthClientId = pulumi.ToSecret(args.OauthClientId).(pulumi.StringInput)
+	}
+	if args.OauthClientSecret != nil {
+		args.OauthClientSecret = pulumi.ToSecret(args.OauthClientSecret).(pulumi.StringInput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"oauthClientId",
+		"oauthClientSecret",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ApiAuthenticationIntegrationWithJwtBearer
 	err := ctx.RegisterResource("snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer", name, args, &resource, opts...)

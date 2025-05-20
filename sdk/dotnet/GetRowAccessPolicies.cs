@@ -12,18 +12,24 @@ namespace Pulumi.Snowflake
     public static class GetRowAccessPolicies
     {
         /// <summary>
+        /// !&gt; **Sensitive values** This data source's `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        /// 
         /// Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
         /// </summary>
         public static Task<GetRowAccessPoliciesResult> InvokeAsync(GetRowAccessPoliciesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRowAccessPoliciesResult>("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", args ?? new GetRowAccessPoliciesArgs(), options.WithDefaults());
 
         /// <summary>
+        /// !&gt; **Sensitive values** This data source's `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        /// 
         /// Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
         /// </summary>
         public static Output<GetRowAccessPoliciesResult> Invoke(GetRowAccessPoliciesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRowAccessPoliciesResult>("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", args ?? new GetRowAccessPoliciesInvokeArgs(), options.WithDefaults());
 
         /// <summary>
+        /// !&gt; **Sensitive values** This data source's `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        /// 
         /// Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
         /// </summary>
         public static Output<GetRowAccessPoliciesResult> Invoke(GetRowAccessPoliciesInvokeArgs args, InvokeOutputOptions options)

@@ -4367,6 +4367,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getGrants:getGrants", TypeShape.of(GetGrantsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `masking_policies`.
      * 
      */
@@ -4374,6 +4376,8 @@ public final class SnowflakeFunctions {
         return getMaskingPolicies(GetMaskingPoliciesArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `masking_policies`.
      * 
      */
@@ -4381,6 +4385,8 @@ public final class SnowflakeFunctions {
         return getMaskingPoliciesPlain(GetMaskingPoliciesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `masking_policies`.
      * 
      */
@@ -4388,6 +4394,8 @@ public final class SnowflakeFunctions {
         return getMaskingPolicies(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `masking_policies`.
      * 
      */
@@ -4395,6 +4403,8 @@ public final class SnowflakeFunctions {
         return getMaskingPoliciesPlain(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `masking_policies`.
      * 
      */
@@ -4402,6 +4412,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getMaskingPolicies:getMaskingPolicies", TypeShape.of(GetMaskingPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `masking_policies`.
      * 
      */
@@ -4409,6 +4421,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getMaskingPolicies:getMaskingPolicies", TypeShape.of(GetMaskingPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `masking_policies`.
      * 
      */
@@ -5651,6 +5665,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getResourceMonitors:getResourceMonitors", TypeShape.of(GetResourceMonitorsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
      * 
      */
@@ -5658,6 +5674,8 @@ public final class SnowflakeFunctions {
         return getRowAccessPolicies(GetRowAccessPoliciesArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
      * 
      */
@@ -5665,6 +5683,8 @@ public final class SnowflakeFunctions {
         return getRowAccessPoliciesPlain(GetRowAccessPoliciesPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
      * 
      */
@@ -5672,6 +5692,8 @@ public final class SnowflakeFunctions {
         return getRowAccessPolicies(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
      * 
      */
@@ -5679,6 +5701,8 @@ public final class SnowflakeFunctions {
         return getRowAccessPoliciesPlain(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
      * 
      */
@@ -5686,6 +5710,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", TypeShape.of(GetRowAccessPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
      * 
      */
@@ -5693,6 +5719,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getRowAccessPolicies:getRowAccessPolicies", TypeShape.of(GetRowAccessPoliciesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `row_access_policies`.
      * 
      */
@@ -6274,49 +6302,49 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
+     * ## Example Usage
      * 
      */
     public static Output<GetSecurityIntegrationsResult> getSecurityIntegrations() {
         return getSecurityIntegrations(GetSecurityIntegrationsArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSecurityIntegrationsResult> getSecurityIntegrationsPlain() {
         return getSecurityIntegrationsPlain(GetSecurityIntegrationsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
+     * ## Example Usage
      * 
      */
     public static Output<GetSecurityIntegrationsResult> getSecurityIntegrations(GetSecurityIntegrationsArgs args) {
         return getSecurityIntegrations(args, InvokeOptions.Empty);
     }
     /**
-     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSecurityIntegrationsResult> getSecurityIntegrationsPlain(GetSecurityIntegrationsPlainArgs args) {
         return getSecurityIntegrationsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
+     * ## Example Usage
      * 
      */
     public static Output<GetSecurityIntegrationsResult> getSecurityIntegrations(GetSecurityIntegrationsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", TypeShape.of(GetSecurityIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
+     * ## Example Usage
      * 
      */
     public static Output<GetSecurityIntegrationsResult> getSecurityIntegrations(GetSecurityIntegrationsArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getSecurityIntegrations:getSecurityIntegrations", TypeShape.of(GetSecurityIntegrationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `security_integrations`.
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSecurityIntegrationsResult> getSecurityIntegrationsPlain(GetSecurityIntegrationsPlainArgs args, InvokeOptions options) {
@@ -8926,6 +8954,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getTags:getTags", TypeShape.of(GetTagsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
      */
@@ -8933,6 +8963,8 @@ public final class SnowflakeFunctions {
         return getTasks(GetTasksArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
      */
@@ -8940,6 +8972,8 @@ public final class SnowflakeFunctions {
         return getTasksPlain(GetTasksPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
      */
@@ -8947,6 +8981,8 @@ public final class SnowflakeFunctions {
         return getTasks(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
      */
@@ -8954,6 +8990,8 @@ public final class SnowflakeFunctions {
         return getTasksPlain(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
      */
@@ -8961,6 +8999,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getTasks:getTasks", TypeShape.of(GetTasksResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
      */
@@ -8968,6 +9008,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getTasks:getTasks", TypeShape.of(GetTasksResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Sensitive values** This data source&#39;s `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
      * 
      */
@@ -8975,55 +9017,57 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getTasks:getTasks", TypeShape.of(GetTasksResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `show_output` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `with_describe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `with_parameters = false`.
+     * ## Example Usage
      * 
      */
     public static Output<GetUsersResult> getUsers() {
         return getUsers(GetUsersArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `show_output` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `with_describe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `with_parameters = false`.
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain() {
         return getUsersPlain(GetUsersPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `show_output` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `with_describe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `with_parameters = false`.
+     * ## Example Usage
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
         return getUsers(args, InvokeOptions.Empty);
     }
     /**
-     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `show_output` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `with_describe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `with_parameters = false`.
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
         return getUsersPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `show_output` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `with_describe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `with_parameters = false`.
+     * ## Example Usage
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `show_output` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `with_describe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `with_parameters = false`.
+     * ## Example Usage
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("snowflake:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source used to get details of filtered users. Filtering is aligned with the current possibilities for [SHOW USERS](https://docs.snowflake.com/en/sql-reference/sql/show-users) query. The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection. Important note is that when querying users you don&#39;t have permissions to, the querying options are limited. You won&#39;t get almost any field in `show_output` (only empty or default values), the DESCRIBE command will return error when called, so you have to set `with_describe = false`; the SHOW PARAMETERS command will return error when called too, so you have to set `with_parameters = false`.
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getUsers:getUsers", TypeShape.of(GetUsersResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
      */
@@ -9031,6 +9075,8 @@ public final class SnowflakeFunctions {
         return getViews(GetViewsArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
      */
@@ -9038,6 +9084,8 @@ public final class SnowflakeFunctions {
         return getViewsPlain(GetViewsPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
      */
@@ -9045,6 +9093,8 @@ public final class SnowflakeFunctions {
         return getViews(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
      */
@@ -9052,6 +9102,8 @@ public final class SnowflakeFunctions {
         return getViewsPlain(args, InvokeOptions.Empty);
     }
     /**
+     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
      */
@@ -9059,6 +9111,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getViews:getViews", TypeShape.of(GetViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
      */
@@ -9066,6 +9120,8 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invoke("snowflake:index/getViews:getViews", TypeShape.of(GetViewsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Sensitive values** This resource&#39;s `show_output.text` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+     * 
      * Data source used to get details of filtered views. Filtering is aligned with the current possibilities for [SHOW VIEWS](https://docs.snowflake.com/en/sql-reference/sql/show-views) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `views`.
      * 
      */

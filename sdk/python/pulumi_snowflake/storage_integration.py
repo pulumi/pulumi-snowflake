@@ -559,6 +559,8 @@ class StorageIntegration(pulumi.CustomResource):
             __props__.__dict__["storage_aws_external_id"] = None
             __props__.__dict__["storage_aws_iam_user_arn"] = None
             __props__.__dict__["storage_gcp_service_account"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["azureConsentUrl"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(StorageIntegration, __self__).__init__(
             'snowflake:index/storageIntegration:StorageIntegration',
             resource_name,

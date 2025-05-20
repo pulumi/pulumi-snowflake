@@ -513,15 +513,17 @@ class ApiAuthenticationIntegrationWithJwtBearer(pulumi.CustomResource):
             __props__.__dict__["oauth_client_auth_method"] = oauth_client_auth_method
             if oauth_client_id is None and not opts.urn:
                 raise TypeError("Missing required property 'oauth_client_id'")
-            __props__.__dict__["oauth_client_id"] = oauth_client_id
+            __props__.__dict__["oauth_client_id"] = None if oauth_client_id is None else pulumi.Output.secret(oauth_client_id)
             if oauth_client_secret is None and not opts.urn:
                 raise TypeError("Missing required property 'oauth_client_secret'")
-            __props__.__dict__["oauth_client_secret"] = oauth_client_secret
+            __props__.__dict__["oauth_client_secret"] = None if oauth_client_secret is None else pulumi.Output.secret(oauth_client_secret)
             __props__.__dict__["oauth_refresh_token_validity"] = oauth_refresh_token_validity
             __props__.__dict__["oauth_token_endpoint"] = oauth_token_endpoint
             __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["show_outputs"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["oauthClientId", "oauthClientSecret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ApiAuthenticationIntegrationWithJwtBearer, __self__).__init__(
             'snowflake:index/apiAuthenticationIntegrationWithJwtBearer:ApiAuthenticationIntegrationWithJwtBearer',
             resource_name,

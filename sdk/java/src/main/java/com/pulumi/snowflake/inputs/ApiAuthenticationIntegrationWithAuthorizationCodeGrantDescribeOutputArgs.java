@@ -12,7 +12,6 @@ import com.pulumi.snowflake.inputs.ApiAuthenticationIntegrationWithAuthorization
 import com.pulumi.snowflake.inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScopeArgs;
 import com.pulumi.snowflake.inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpointArgs;
 import com.pulumi.snowflake.inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgs;
-import com.pulumi.snowflake.inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs;
 import com.pulumi.snowflake.inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgs;
 import com.pulumi.snowflake.inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidityArgs;
 import com.pulumi.snowflake.inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpointArgs;
@@ -76,13 +75,6 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescrib
         return Optional.ofNullable(this.oauthClientAuthMethods);
     }
 
-    @Import(name="oauthClientIds")
-    private @Nullable Output<List<ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs>> oauthClientIds;
-
-    public Optional<Output<List<ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs>>> oauthClientIds() {
-        return Optional.ofNullable(this.oauthClientIds);
-    }
-
     @Import(name="oauthGrants")
     private @Nullable Output<List<ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgs>> oauthGrants;
 
@@ -121,7 +113,6 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescrib
         this.oauthAllowedScopes = $.oauthAllowedScopes;
         this.oauthAuthorizationEndpoints = $.oauthAuthorizationEndpoints;
         this.oauthClientAuthMethods = $.oauthClientAuthMethods;
-        this.oauthClientIds = $.oauthClientIds;
         this.oauthGrants = $.oauthGrants;
         this.oauthRefreshTokenValidities = $.oauthRefreshTokenValidities;
         this.oauthTokenEndpoints = $.oauthTokenEndpoints;
@@ -235,19 +226,6 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescrib
 
         public Builder oauthClientAuthMethods(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethodArgs... oauthClientAuthMethods) {
             return oauthClientAuthMethods(List.of(oauthClientAuthMethods));
-        }
-
-        public Builder oauthClientIds(@Nullable Output<List<ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs>> oauthClientIds) {
-            $.oauthClientIds = oauthClientIds;
-            return this;
-        }
-
-        public Builder oauthClientIds(List<ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs> oauthClientIds) {
-            return oauthClientIds(Output.of(oauthClientIds));
-        }
-
-        public Builder oauthClientIds(ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientIdArgs... oauthClientIds) {
-            return oauthClientIds(List.of(oauthClientIds));
         }
 
         public Builder oauthGrants(@Nullable Output<List<ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrantArgs>> oauthGrants) {

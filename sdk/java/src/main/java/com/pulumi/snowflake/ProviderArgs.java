@@ -594,20 +594,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-     * the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
-     * - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
-     *   variable.
+     * False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+     * the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
+     * the proper privileges - see the section below. Can also be sourced from the
+     * `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
      * 
      */
     @Import(name="skipTomlFilePermissionVerification", json=true)
     private @Nullable Output<Boolean> skipTomlFilePermissionVerification;
 
     /**
-     * @return True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-     * the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
-     * - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
-     *   variable.
+     * @return False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+     * the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
+     * the proper privileges - see the section below. Can also be sourced from the
+     * `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
      * 
      */
     public Optional<Output<Boolean>> skipTomlFilePermissionVerification() {
@@ -656,7 +656,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+     * False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
      * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
      * variable.
      * 
@@ -665,7 +665,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<Boolean> useLegacyTomlFile;
 
     /**
-     * @return True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+     * @return False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
      * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
      * variable.
      * 
@@ -1565,10 +1565,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipTomlFilePermissionVerification True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-         * the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
-         * - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
-         *   variable.
+         * @param skipTomlFilePermissionVerification False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+         * the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
+         * the proper privileges - see the section below. Can also be sourced from the
+         * `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
          * 
          * @return builder
          * 
@@ -1579,10 +1579,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param skipTomlFilePermissionVerification True by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
-         * the permissions are not checked on this platform. We recommend setting this to `false` and setting the proper privileges
-         * - see the section below. Can also be sourced from the `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment
-         *   variable.
+         * @param skipTomlFilePermissionVerification False by default. Skips TOML configuration file permission verification. This flag has no effect on Windows systems, as
+         * the permissions are not checked on this platform. Instead of skipping the permissions verification, we recommend setting
+         * the proper privileges - see the section below. Can also be sourced from the
+         * `SNOWFLAKE_SKIP_TOML_FILE_PERMISSION_VERIFICATION` environment variable.
          * 
          * @return builder
          * 
@@ -1647,7 +1647,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useLegacyTomlFile True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+         * @param useLegacyTomlFile False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
          * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
          * variable.
          * 
@@ -1660,7 +1660,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useLegacyTomlFile True by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
+         * @param useLegacyTomlFile False by default. When this is set to true, the provider expects the legacy TOML format. Otherwise, it expects the new
          * format. See more in the section below Can also be sourced from the `SNOWFLAKE_USE_LEGACY_TOML_FILE` environment
          * variable.
          * 

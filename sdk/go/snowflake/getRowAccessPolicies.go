@@ -7,10 +7,12 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Sensitive values** This data source's `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+//
 // Data source used to get details of filtered row access policies. Filtering is aligned with the current possibilities for [SHOW ROW ACCESS POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-row-access-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `rowAccessPolicies`.
 func GetRowAccessPolicies(ctx *pulumi.Context, args *GetRowAccessPoliciesArgs, opts ...pulumi.InvokeOption) (*GetRowAccessPoliciesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

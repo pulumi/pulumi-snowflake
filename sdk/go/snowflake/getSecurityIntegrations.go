@@ -7,11 +7,11 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source used to get details of filtered security integrations. Filtering is aligned with the current possibilities for [SHOW SECURITY INTEGRATIONS](https://docs.snowflake.com/en/sql-reference/sql/show-integrations) query (only `like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection `securityIntegrations`.
+// ## Example Usage
 func GetSecurityIntegrations(ctx *pulumi.Context, args *GetSecurityIntegrationsArgs, opts ...pulumi.InvokeOption) (*GetSecurityIntegrationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSecurityIntegrationsResult

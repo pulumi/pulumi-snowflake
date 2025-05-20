@@ -185,12 +185,14 @@ export class Saml2Integration extends pulumi.CustomResource {
             resourceInputs["saml2SnowflakeIssuerUrl"] = args ? args.saml2SnowflakeIssuerUrl : undefined;
             resourceInputs["saml2SpInitiatedLoginPageLabel"] = args ? args.saml2SpInitiatedLoginPageLabel : undefined;
             resourceInputs["saml2SsoUrl"] = args ? args.saml2SsoUrl : undefined;
-            resourceInputs["saml2X509Cert"] = args ? args.saml2X509Cert : undefined;
+            resourceInputs["saml2X509Cert"] = args?.saml2X509Cert ? pulumi.secret(args.saml2X509Cert) : undefined;
             resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["saml2X509Cert"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Saml2Integration.__pulumiType, name, resourceInputs, opts);
     }
 }

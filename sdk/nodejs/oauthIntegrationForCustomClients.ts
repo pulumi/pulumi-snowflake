@@ -163,7 +163,7 @@ export class OauthIntegrationForCustomClients extends pulumi.CustomResource {
             resourceInputs["oauthClientType"] = args ? args.oauthClientType : undefined;
             resourceInputs["oauthEnforcePkce"] = args ? args.oauthEnforcePkce : undefined;
             resourceInputs["oauthIssueRefreshTokens"] = args ? args.oauthIssueRefreshTokens : undefined;
-            resourceInputs["oauthRedirectUri"] = args ? args.oauthRedirectUri : undefined;
+            resourceInputs["oauthRedirectUri"] = args?.oauthRedirectUri ? pulumi.secret(args.oauthRedirectUri) : undefined;
             resourceInputs["oauthRefreshTokenValidity"] = args ? args.oauthRefreshTokenValidity : undefined;
             resourceInputs["oauthUseSecondaryRoles"] = args ? args.oauthUseSecondaryRoles : undefined;
             resourceInputs["preAuthorizedRolesLists"] = args ? args.preAuthorizedRolesLists : undefined;
@@ -173,6 +173,8 @@ export class OauthIntegrationForCustomClients extends pulumi.CustomResource {
             resourceInputs["showOutputs"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["oauthRedirectUri"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(OauthIntegrationForCustomClients.__pulumiType, name, resourceInputs, opts);
     }
 }

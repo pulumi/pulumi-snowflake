@@ -120,6 +120,10 @@ namespace Pulumi.Snowflake
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "oauthRedirectUri",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -185,11 +189,21 @@ namespace Pulumi.Snowflake
         [Input("oauthIssueRefreshTokens")]
         public Input<string>? OauthIssueRefreshTokens { get; set; }
 
+        [Input("oauthRedirectUri")]
+        private Input<string>? _oauthRedirectUri;
+
         /// <summary>
         /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
         /// </summary>
-        [Input("oauthRedirectUri")]
-        public Input<string>? OauthRedirectUri { get; set; }
+        public Input<string>? OauthRedirectUri
+        {
+            get => _oauthRedirectUri;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthRedirectUri = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
@@ -271,11 +285,21 @@ namespace Pulumi.Snowflake
         [Input("oauthIssueRefreshTokens")]
         public Input<string>? OauthIssueRefreshTokens { get; set; }
 
+        [Input("oauthRedirectUri")]
+        private Input<string>? _oauthRedirectUri;
+
         /// <summary>
         /// Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
         /// </summary>
-        [Input("oauthRedirectUri")]
-        public Input<string>? OauthRedirectUri { get; set; }
+        public Input<string>? OauthRedirectUri
+        {
+            get => _oauthRedirectUri;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _oauthRedirectUri = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.

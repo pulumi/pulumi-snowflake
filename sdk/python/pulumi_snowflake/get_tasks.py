@@ -144,6 +144,8 @@ def get_tasks(in_: Optional[Union['GetTasksInArgs', 'GetTasksInArgsDict']] = Non
               with_parameters: Optional[builtins.bool] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTasksResult:
     """
+    !> **Sensitive values** This data source's `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
     Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
 
 
@@ -181,6 +183,8 @@ def get_tasks_output(in_: Optional[pulumi.Input[Optional[Union['GetTasksInArgs',
                      with_parameters: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTasksResult]:
     """
+    !> **Sensitive values** This data source's `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
     Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
 
 

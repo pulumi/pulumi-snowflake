@@ -752,10 +752,12 @@ class Saml2Integration(pulumi.CustomResource):
             __props__.__dict__["saml2_sso_url"] = saml2_sso_url
             if saml2_x509_cert is None and not opts.urn:
                 raise TypeError("Missing required property 'saml2_x509_cert'")
-            __props__.__dict__["saml2_x509_cert"] = saml2_x509_cert
+            __props__.__dict__["saml2_x509_cert"] = None if saml2_x509_cert is None else pulumi.Output.secret(saml2_x509_cert)
             __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["show_outputs"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["saml2X509Cert"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Saml2Integration, __self__).__init__(
             'snowflake:index/saml2Integration:Saml2Integration',
             resource_name,

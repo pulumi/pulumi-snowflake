@@ -475,13 +475,15 @@ class OauthIntegrationForPartnerApplications(pulumi.CustomResource):
                 raise TypeError("Missing required property 'oauth_client'")
             __props__.__dict__["oauth_client"] = oauth_client
             __props__.__dict__["oauth_issue_refresh_tokens"] = oauth_issue_refresh_tokens
-            __props__.__dict__["oauth_redirect_uri"] = oauth_redirect_uri
+            __props__.__dict__["oauth_redirect_uri"] = None if oauth_redirect_uri is None else pulumi.Output.secret(oauth_redirect_uri)
             __props__.__dict__["oauth_refresh_token_validity"] = oauth_refresh_token_validity
             __props__.__dict__["oauth_use_secondary_roles"] = oauth_use_secondary_roles
             __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
             __props__.__dict__["related_parameters"] = None
             __props__.__dict__["show_outputs"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["oauthRedirectUri"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(OauthIntegrationForPartnerApplications, __self__).__init__(
             'snowflake:index/oauthIntegrationForPartnerApplications:OauthIntegrationForPartnerApplications',
             resource_name,

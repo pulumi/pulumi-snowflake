@@ -7,6 +7,8 @@ import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
+ * !> **Sensitive values** This data source's `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ *
  * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
  */
 export function getTasks(args?: GetTasksArgs, opts?: pulumi.InvokeOptions): Promise<GetTasksResult> {
@@ -90,6 +92,8 @@ export interface GetTasksResult {
     readonly withParameters?: boolean;
 }
 /**
+ * !> **Sensitive values** This data source's `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+ *
  * Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
  */
 export function getTasksOutput(args?: GetTasksOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTasksResult> {

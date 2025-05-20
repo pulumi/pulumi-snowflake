@@ -80,7 +80,6 @@ export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeO
     oauthAllowedScopes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAllowedScope>[]>;
     oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthAuthorizationEndpoint>[]>;
     oauthClientAuthMethods?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientAuthMethod>[]>;
-    oauthClientIds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId>[]>;
     oauthGrants?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant>[]>;
     oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthRefreshTokenValidity>[]>;
     oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthTokenEndpoint>[]>;
@@ -136,13 +135,6 @@ export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeO
     value?: pulumi.Input<string>;
 }
 
-export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthClientId {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
-}
-
 export interface ApiAuthenticationIntegrationWithAuthorizationCodeGrantDescribeOutputOauthGrant {
     default?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
@@ -188,7 +180,6 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput
     oauthAllowedScopes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAllowedScope>[]>;
     oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthAuthorizationEndpoint>[]>;
     oauthClientAuthMethods?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientAuthMethod>[]>;
-    oauthClientIds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId>[]>;
     oauthGrants?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant>[]>;
     oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthRefreshTokenValidity>[]>;
     oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthTokenEndpoint>[]>;
@@ -244,13 +235,6 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutput
     value?: pulumi.Input<string>;
 }
 
-export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthClientId {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
-}
-
 export interface ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputOauthGrant {
     default?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
@@ -296,7 +280,6 @@ export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutput {
     oauthAllowedScopes?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAllowedScope>[]>;
     oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAuthorizationEndpoint>[]>;
     oauthClientAuthMethods?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod>[]>;
-    oauthClientIds?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId>[]>;
     oauthGrants?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthGrant>[]>;
     oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthRefreshTokenValidity>[]>;
     oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthTokenEndpoint>[]>;
@@ -346,13 +329,6 @@ export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthAut
 }
 
 export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientAuthMethod {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
-}
-
-export interface ApiAuthenticationIntegrationWithJwtBearerDescribeOutputOauthClientId {
     default?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
@@ -2880,13 +2856,11 @@ export interface OauthIntegrationForCustomClientsDescribeOutput {
     oauthAllowedAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint>[]>;
     oauthAllowedTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint>[]>;
     oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint>[]>;
-    oauthClientIds?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientId>[]>;
     oauthClientRsaPublicKey2Fps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp>[]>;
     oauthClientRsaPublicKeyFps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp>[]>;
     oauthClientTypes?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientType>[]>;
     oauthEnforcePkces?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce>[]>;
     oauthIssueRefreshTokens?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken>[]>;
-    oauthRedirectUris?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri>[]>;
     oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity>[]>;
     oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint>[]>;
     oauthUseSecondaryRoles?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole>[]>;
@@ -2949,13 +2923,6 @@ export interface OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizatio
     value?: pulumi.Input<string>;
 }
 
-export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientId {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
-}
-
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp {
     default?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
@@ -2985,13 +2952,6 @@ export interface OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce 
 }
 
 export interface OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
-}
-
-export interface OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri {
     default?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
@@ -3056,13 +3016,11 @@ export interface OauthIntegrationForPartnerApplicationsDescribeOutput {
     oauthAllowedAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedAuthorizationEndpoint>[]>;
     oauthAllowedTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAllowedTokenEndpoint>[]>;
     oauthAuthorizationEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthorizationEndpoint>[]>;
-    oauthClientIds?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId>[]>;
     oauthClientRsaPublicKey2Fps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp>[]>;
     oauthClientRsaPublicKeyFps?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKeyFp>[]>;
     oauthClientTypes?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientType>[]>;
     oauthEnforcePkces?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforcePkce>[]>;
     oauthIssueRefreshTokens?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken>[]>;
-    oauthRedirectUris?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri>[]>;
     oauthRefreshTokenValidities?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthRefreshTokenValidity>[]>;
     oauthTokenEndpoints?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthTokenEndpoint>[]>;
     oauthUseSecondaryRoles?: pulumi.Input<pulumi.Input<inputs.OauthIntegrationForPartnerApplicationsDescribeOutputOauthUseSecondaryRole>[]>;
@@ -3125,13 +3083,6 @@ export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthAuthor
     value?: pulumi.Input<string>;
 }
 
-export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientId {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
-}
-
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthClientRsaPublicKey2Fp {
     default?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
@@ -3161,13 +3112,6 @@ export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthEnforc
 }
 
 export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthIssueRefreshToken {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
-}
-
-export interface OauthIntegrationForPartnerApplicationsDescribeOutputOauthRedirectUri {
     default?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
@@ -3766,10 +3710,8 @@ export interface Saml2IntegrationDescribeOutput {
     saml2SnowflakeAcsUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeAcsUrl>[]>;
     saml2SnowflakeIssuerUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeIssuerUrl>[]>;
     saml2SnowflakeMetadatas?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata>[]>;
-    saml2SnowflakeX509Certs?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert>[]>;
     saml2SpInitiatedLoginPageLabels?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel>[]>;
     saml2SsoUrls?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2SsoUrl>[]>;
-    saml2X509Certs?: pulumi.Input<pulumi.Input<inputs.Saml2IntegrationDescribeOutputSaml2X509Cert>[]>;
 }
 
 export interface Saml2IntegrationDescribeOutputAllowedEmailPattern {
@@ -3877,13 +3819,6 @@ export interface Saml2IntegrationDescribeOutputSaml2SnowflakeMetadata {
     value?: pulumi.Input<string>;
 }
 
-export interface Saml2IntegrationDescribeOutputSaml2SnowflakeX509Cert {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
-}
-
 export interface Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
     default?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
@@ -3892,13 +3827,6 @@ export interface Saml2IntegrationDescribeOutputSaml2SpInitiatedLoginPageLabel {
 }
 
 export interface Saml2IntegrationDescribeOutputSaml2SsoUrl {
-    default?: pulumi.Input<string>;
-    name?: pulumi.Input<string>;
-    type?: pulumi.Input<string>;
-    value?: pulumi.Input<string>;
-}
-
-export interface Saml2IntegrationDescribeOutputSaml2X509Cert {
     default?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     type?: pulumi.Input<string>;

@@ -12,13 +12,11 @@ import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutp
 import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint;
 import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint;
 import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint;
-import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientId;
 import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp;
 import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp;
 import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutputOauthClientType;
 import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce;
 import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken;
-import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri;
 import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity;
 import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint;
 import com.pulumi.snowflake.outputs.OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole;
@@ -37,13 +35,11 @@ public final class OauthIntegrationForCustomClientsDescribeOutput {
     private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint> oauthAllowedAuthorizationEndpoints;
     private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint> oauthAllowedTokenEndpoints;
     private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint> oauthAuthorizationEndpoints;
-    private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthClientId> oauthClientIds;
     private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp> oauthClientRsaPublicKey2Fps;
     private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp> oauthClientRsaPublicKeyFps;
     private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthClientType> oauthClientTypes;
     private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce> oauthEnforcePkces;
     private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken> oauthIssueRefreshTokens;
-    private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri> oauthRedirectUris;
     private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity> oauthRefreshTokenValidities;
     private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint> oauthTokenEndpoints;
     private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole> oauthUseSecondaryRoles;
@@ -74,9 +70,6 @@ public final class OauthIntegrationForCustomClientsDescribeOutput {
     public List<OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint> oauthAuthorizationEndpoints() {
         return this.oauthAuthorizationEndpoints == null ? List.of() : this.oauthAuthorizationEndpoints;
     }
-    public List<OauthIntegrationForCustomClientsDescribeOutputOauthClientId> oauthClientIds() {
-        return this.oauthClientIds == null ? List.of() : this.oauthClientIds;
-    }
     public List<OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp> oauthClientRsaPublicKey2Fps() {
         return this.oauthClientRsaPublicKey2Fps == null ? List.of() : this.oauthClientRsaPublicKey2Fps;
     }
@@ -91,9 +84,6 @@ public final class OauthIntegrationForCustomClientsDescribeOutput {
     }
     public List<OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken> oauthIssueRefreshTokens() {
         return this.oauthIssueRefreshTokens == null ? List.of() : this.oauthIssueRefreshTokens;
-    }
-    public List<OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri> oauthRedirectUris() {
-        return this.oauthRedirectUris == null ? List.of() : this.oauthRedirectUris;
     }
     public List<OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity> oauthRefreshTokenValidities() {
         return this.oauthRefreshTokenValidities == null ? List.of() : this.oauthRefreshTokenValidities;
@@ -125,13 +115,11 @@ public final class OauthIntegrationForCustomClientsDescribeOutput {
         private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthAllowedAuthorizationEndpoint> oauthAllowedAuthorizationEndpoints;
         private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthAllowedTokenEndpoint> oauthAllowedTokenEndpoints;
         private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthAuthorizationEndpoint> oauthAuthorizationEndpoints;
-        private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthClientId> oauthClientIds;
         private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp> oauthClientRsaPublicKey2Fps;
         private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKeyFp> oauthClientRsaPublicKeyFps;
         private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthClientType> oauthClientTypes;
         private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthEnforcePkce> oauthEnforcePkces;
         private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken> oauthIssueRefreshTokens;
-        private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri> oauthRedirectUris;
         private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity> oauthRefreshTokenValidities;
         private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthTokenEndpoint> oauthTokenEndpoints;
         private @Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthUseSecondaryRole> oauthUseSecondaryRoles;
@@ -147,13 +135,11 @@ public final class OauthIntegrationForCustomClientsDescribeOutput {
     	      this.oauthAllowedAuthorizationEndpoints = defaults.oauthAllowedAuthorizationEndpoints;
     	      this.oauthAllowedTokenEndpoints = defaults.oauthAllowedTokenEndpoints;
     	      this.oauthAuthorizationEndpoints = defaults.oauthAuthorizationEndpoints;
-    	      this.oauthClientIds = defaults.oauthClientIds;
     	      this.oauthClientRsaPublicKey2Fps = defaults.oauthClientRsaPublicKey2Fps;
     	      this.oauthClientRsaPublicKeyFps = defaults.oauthClientRsaPublicKeyFps;
     	      this.oauthClientTypes = defaults.oauthClientTypes;
     	      this.oauthEnforcePkces = defaults.oauthEnforcePkces;
     	      this.oauthIssueRefreshTokens = defaults.oauthIssueRefreshTokens;
-    	      this.oauthRedirectUris = defaults.oauthRedirectUris;
     	      this.oauthRefreshTokenValidities = defaults.oauthRefreshTokenValidities;
     	      this.oauthTokenEndpoints = defaults.oauthTokenEndpoints;
     	      this.oauthUseSecondaryRoles = defaults.oauthUseSecondaryRoles;
@@ -233,15 +219,6 @@ public final class OauthIntegrationForCustomClientsDescribeOutput {
             return oauthAuthorizationEndpoints(List.of(oauthAuthorizationEndpoints));
         }
         @CustomType.Setter
-        public Builder oauthClientIds(@Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthClientId> oauthClientIds) {
-
-            this.oauthClientIds = oauthClientIds;
-            return this;
-        }
-        public Builder oauthClientIds(OauthIntegrationForCustomClientsDescribeOutputOauthClientId... oauthClientIds) {
-            return oauthClientIds(List.of(oauthClientIds));
-        }
-        @CustomType.Setter
         public Builder oauthClientRsaPublicKey2Fps(@Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthClientRsaPublicKey2Fp> oauthClientRsaPublicKey2Fps) {
 
             this.oauthClientRsaPublicKey2Fps = oauthClientRsaPublicKey2Fps;
@@ -285,15 +262,6 @@ public final class OauthIntegrationForCustomClientsDescribeOutput {
         }
         public Builder oauthIssueRefreshTokens(OauthIntegrationForCustomClientsDescribeOutputOauthIssueRefreshToken... oauthIssueRefreshTokens) {
             return oauthIssueRefreshTokens(List.of(oauthIssueRefreshTokens));
-        }
-        @CustomType.Setter
-        public Builder oauthRedirectUris(@Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri> oauthRedirectUris) {
-
-            this.oauthRedirectUris = oauthRedirectUris;
-            return this;
-        }
-        public Builder oauthRedirectUris(OauthIntegrationForCustomClientsDescribeOutputOauthRedirectUri... oauthRedirectUris) {
-            return oauthRedirectUris(List.of(oauthRedirectUris));
         }
         @CustomType.Setter
         public Builder oauthRefreshTokenValidities(@Nullable List<OauthIntegrationForCustomClientsDescribeOutputOauthRefreshTokenValidity> oauthRefreshTokenValidities) {
@@ -341,13 +309,11 @@ public final class OauthIntegrationForCustomClientsDescribeOutput {
             _resultValue.oauthAllowedAuthorizationEndpoints = oauthAllowedAuthorizationEndpoints;
             _resultValue.oauthAllowedTokenEndpoints = oauthAllowedTokenEndpoints;
             _resultValue.oauthAuthorizationEndpoints = oauthAuthorizationEndpoints;
-            _resultValue.oauthClientIds = oauthClientIds;
             _resultValue.oauthClientRsaPublicKey2Fps = oauthClientRsaPublicKey2Fps;
             _resultValue.oauthClientRsaPublicKeyFps = oauthClientRsaPublicKeyFps;
             _resultValue.oauthClientTypes = oauthClientTypes;
             _resultValue.oauthEnforcePkces = oauthEnforcePkces;
             _resultValue.oauthIssueRefreshTokens = oauthIssueRefreshTokens;
-            _resultValue.oauthRedirectUris = oauthRedirectUris;
             _resultValue.oauthRefreshTokenValidities = oauthRefreshTokenValidities;
             _resultValue.oauthTokenEndpoints = oauthTokenEndpoints;
             _resultValue.oauthUseSecondaryRoles = oauthUseSecondaryRoles;

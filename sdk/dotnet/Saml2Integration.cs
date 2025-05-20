@@ -162,6 +162,10 @@ namespace Pulumi.Snowflake
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "saml2X509Cert",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -293,11 +297,21 @@ namespace Pulumi.Snowflake
         [Input("saml2SsoUrl", required: true)]
         public Input<string> Saml2SsoUrl { get; set; } = null!;
 
+        [Input("saml2X509Cert", required: true)]
+        private Input<string>? _saml2X509Cert;
+
         /// <summary>
         /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
         /// </summary>
-        [Input("saml2X509Cert", required: true)]
-        public Input<string> Saml2X509Cert { get; set; } = null!;
+        public Input<string>? Saml2X509Cert
+        {
+            get => _saml2X509Cert;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _saml2X509Cert = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public Saml2IntegrationArgs()
         {
@@ -433,11 +447,21 @@ namespace Pulumi.Snowflake
         [Input("saml2SsoUrl")]
         public Input<string>? Saml2SsoUrl { get; set; }
 
+        [Input("saml2X509Cert")]
+        private Input<string>? _saml2X509Cert;
+
         /// <summary>
         /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
         /// </summary>
-        [Input("saml2X509Cert")]
-        public Input<string>? Saml2X509Cert { get; set; }
+        public Input<string>? Saml2X509Cert
+        {
+            get => _saml2X509Cert;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _saml2X509Cert = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("showOutputs")]
         private InputList<Inputs.Saml2IntegrationShowOutputGetArgs>? _showOutputs;

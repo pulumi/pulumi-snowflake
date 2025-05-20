@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake/internal"
+	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +21,7 @@ import (
 // import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v4/go/aws"
-//	"github.com/pulumi/pulumi-snowflake/sdk/go/snowflake"
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
