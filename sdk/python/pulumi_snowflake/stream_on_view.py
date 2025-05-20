@@ -34,17 +34,12 @@ class StreamOnViewArgs:
                  show_initial_rows: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a StreamOnView resource.
-        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] view: Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
-               the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] append_only: Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-               the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] view: Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] append_only: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the stream.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-               to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
@@ -68,8 +63,7 @@ class StreamOnViewArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[builtins.str]:
         """
-        The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -81,8 +75,7 @@ class StreamOnViewArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[builtins.str]:
         """
-        The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -94,8 +87,7 @@ class StreamOnViewArgs:
     @pulumi.getter
     def view(self) -> pulumi.Input[builtins.str]:
         """
-        Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
-        the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "view")
 
@@ -107,8 +99,7 @@ class StreamOnViewArgs:
     @pulumi.getter(name="appendOnly")
     def append_only(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-        the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "append_only")
 
@@ -159,8 +150,7 @@ class StreamOnViewArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-        to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -198,23 +188,16 @@ class _StreamOnViewState:
                  view: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering StreamOnView resources.
-        :param pulumi.Input[builtins.str] append_only: Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-               the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] append_only: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the stream.
-        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['StreamOnViewDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE STREAM` for the given stream.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-               to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['StreamOnViewShowOutputArgs']]] show_outputs: Outputs the result of `SHOW STREAMS` for the given stream.
-        :param pulumi.Input[builtins.str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-               needed.
-        :param pulumi.Input[builtins.str] view: Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
-               the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+        :param pulumi.Input[builtins.str] view: Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         if append_only is not None:
             pulumi.set(__self__, "append_only", append_only)
@@ -251,8 +234,7 @@ class _StreamOnViewState:
     @pulumi.getter(name="appendOnly")
     def append_only(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-        the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "append_only")
 
@@ -303,8 +285,7 @@ class _StreamOnViewState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -328,8 +309,7 @@ class _StreamOnViewState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -341,8 +321,7 @@ class _StreamOnViewState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-        to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -354,8 +333,7 @@ class _StreamOnViewState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -397,8 +375,7 @@ class _StreamOnViewState:
     @pulumi.getter(name="streamType")
     def stream_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-        needed.
+        Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
         """
         return pulumi.get(self, "stream_type")
 
@@ -410,8 +387,7 @@ class _StreamOnViewState:
     @pulumi.getter
     def view(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
-        the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "view")
 
@@ -438,20 +414,20 @@ class StreamOnView(pulumi.CustomResource):
                  view: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a StreamOnView resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/streamOnView:StreamOnView example '"<database_name>"."<schema_name>"."<stream_name>"'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] append_only: Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-               the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] append_only: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the stream.
-        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-               to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] view: Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
-               the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] view: Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         ...
     @overload
@@ -460,7 +436,12 @@ class StreamOnView(pulumi.CustomResource):
                  args: StreamOnViewArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a StreamOnView resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/streamOnView:StreamOnView example '"<database_name>"."<schema_name>"."<stream_name>"'
+        ```
+
         :param str resource_name: The name of the resource.
         :param StreamOnViewArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -548,23 +529,16 @@ class StreamOnView(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] append_only: Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-               the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] append_only: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the stream.
-        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnViewDescribeOutputArgs', 'StreamOnViewDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STREAM` for the given stream.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-               to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnViewShowOutputArgs', 'StreamOnViewShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STREAMS` for the given stream.
-        :param pulumi.Input[builtins.str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-               needed.
-        :param pulumi.Input[builtins.str] view: Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
-               the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
+        :param pulumi.Input[builtins.str] view: Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -591,8 +565,7 @@ class StreamOnView(pulumi.CustomResource):
     @pulumi.getter(name="appendOnly")
     def append_only(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-        the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "append_only")
 
@@ -623,8 +596,7 @@ class StreamOnView(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[builtins.str]:
         """
-        The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -640,8 +612,7 @@ class StreamOnView(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -649,8 +620,7 @@ class StreamOnView(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-        to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -658,8 +628,7 @@ class StreamOnView(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[builtins.str]:
         """
-        The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -685,8 +654,7 @@ class StreamOnView(pulumi.CustomResource):
     @pulumi.getter(name="streamType")
     def stream_type(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-        needed.
+        Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
         """
         return pulumi.get(self, "stream_type")
 
@@ -694,8 +662,7 @@ class StreamOnView(pulumi.CustomResource):
     @pulumi.getter
     def view(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
-        the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "view")
 

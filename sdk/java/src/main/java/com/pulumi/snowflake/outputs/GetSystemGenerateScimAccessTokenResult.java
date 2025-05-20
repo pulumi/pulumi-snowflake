@@ -10,15 +10,27 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSystemGenerateScimAccessTokenResult {
+    /**
+     * @return SCIM Access Token
+     * 
+     */
     private String accessToken;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return SCIM Integration Name
+     * 
+     */
     private String integrationName;
 
     private GetSystemGenerateScimAccessTokenResult() {}
+    /**
+     * @return SCIM Access Token
+     * 
+     */
     public String accessToken() {
         return this.accessToken;
     }
@@ -29,6 +41,10 @@ public final class GetSystemGenerateScimAccessTokenResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return SCIM Integration Name
+     * 
+     */
     public String integrationName() {
         return this.integrationName;
     }

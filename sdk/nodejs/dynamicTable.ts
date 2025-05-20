@@ -6,6 +6,13 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
+ * ```
+ */
 export class DynamicTable extends pulumi.CustomResource {
     /**
      * Get an existing DynamicTable resource's state with the given name, ID, and optional extra
@@ -63,12 +70,11 @@ export class DynamicTable extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
+     * (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
      */
     public readonly initialize!: pulumi.Output<string | undefined>;
     /**
@@ -84,12 +90,11 @@ export class DynamicTable extends pulumi.CustomResource {
      */
     public /*out*/ readonly lastSuspendedOn!: pulumi.Output<string>;
     /**
-     * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
-     * created.
+     * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies whether to replace the dynamic table if it already exists.
+     * (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
      */
     public readonly orReplace!: pulumi.Output<boolean | undefined>;
     /**
@@ -101,8 +106,7 @@ export class DynamicTable extends pulumi.CustomResource {
      */
     public readonly query!: pulumi.Output<string>;
     /**
-     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
-     * decide.
+     * (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      */
     public readonly refreshMode!: pulumi.Output<string | undefined>;
     /**
@@ -245,12 +249,11 @@ export interface DynamicTableState {
      */
     database?: pulumi.Input<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
+     * (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
      */
     initialize?: pulumi.Input<string>;
     /**
@@ -266,12 +269,11 @@ export interface DynamicTableState {
      */
     lastSuspendedOn?: pulumi.Input<string>;
     /**
-     * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
-     * created.
+     * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies whether to replace the dynamic table if it already exists.
+     * (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
      */
     orReplace?: pulumi.Input<boolean>;
     /**
@@ -283,8 +285,7 @@ export interface DynamicTableState {
      */
     query?: pulumi.Input<string>;
     /**
-     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
-     * decide.
+     * (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      */
     refreshMode?: pulumi.Input<string>;
     /**
@@ -326,16 +327,15 @@ export interface DynamicTableArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
+     * (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
      */
     initialize?: pulumi.Input<string>;
     /**
-     * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
-     * created.
+     * Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies whether to replace the dynamic table if it already exists.
+     * (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
      */
     orReplace?: pulumi.Input<boolean>;
     /**
@@ -343,8 +343,7 @@ export interface DynamicTableArgs {
      */
     query: pulumi.Input<string>;
     /**
-     * INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
-     * decide.
+     * (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
      */
     refreshMode?: pulumi.Input<string>;
     /**

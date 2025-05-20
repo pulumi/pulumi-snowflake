@@ -12,85 +12,55 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/secondaryDatabase:SecondaryDatabase example '"<secondary_database_name>"'
+// ```
 type SecondaryDatabase struct {
 	pulumi.CustomResourceState
 
-	// A fully qualified path to a database to create a replica from. A fully qualified path follows the format of
-	// `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
+	// A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
 	AsReplicaOf pulumi.StringOutput `pulumi:"asReplicaOf"`
-	// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
-	// [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+	// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog pulumi.StringOutput `pulumi:"catalog"`
 	// Specifies a comment for the database.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
-	// as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
-	// [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays pulumi.IntOutput `pulumi:"dataRetentionTimeInDays"`
-	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
-	// schema or table level. For more information, see [collation
-	// specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringOutput `pulumi:"defaultDdlCollation"`
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
 	EnableConsoleOutput pulumi.BoolOutput `pulumi:"enableConsoleOutput"`
-	// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
-	// [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+	// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume pulumi.StringOutput `pulumi:"externalVolume"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional
-	// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
-	// a data loss.
+	// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 	IsTransient pulumi.BoolPtrOutput `pulumi:"isTransient"`
-	// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
-	// options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
-	// ingested. For more information, see
-	// [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
 	LogLevel pulumi.StringOutput `pulumi:"logLevel"`
-	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
-	// tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
-	// parameter, see
-	// [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays pulumi.IntOutput `pulumi:"maxDataExtensionTimeInDays"`
-	// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication
-	// and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary
-	// database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e.
-	// '<db>.<schema>.<object>') by other objects in the same database, such as querying a fully-qualified table name in a
-	// view. If a secondary database has a different name from the primary database, then these object references would break
-	// in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`,
-	// `.`, `"`.
+	// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// If true, the case of quoted identifiers is ignored. For more information, see
-	// [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+	// If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
 	QuotedIdentifiersIgnoreCase pulumi.BoolOutput `pulumi:"quotedIdentifiersIgnoreCase"`
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
-	// an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
-	// see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters pulumi.BoolOutput `pulumi:"replaceInvalidCharacters"`
-	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
-	// OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
-	// third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
-	// table performance within Snowflake. For more information, see
-	// [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
 	StorageSerializationPolicy pulumi.StringOutput `pulumi:"storageSerializationPolicy"`
-	// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
-	// information, see
-	// [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+	// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
 	SuspendTaskAfterNumFailures pulumi.IntOutput `pulumi:"suspendTaskAfterNumFailures"`
-	// Maximum automatic retries allowed for a user task. For more information, see
-	// [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+	// Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
 	TaskAutoRetryAttempts pulumi.IntOutput `pulumi:"taskAutoRetryAttempts"`
-	// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
-	// about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+	// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
 	TraceLevel pulumi.StringOutput `pulumi:"traceLevel"`
-	// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
-	// [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+	// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
 	UserTaskManagedInitialWarehouseSize pulumi.StringOutput `pulumi:"userTaskManagedInitialWarehouseSize"`
 	// Minimum amount of time between Triggered Task executions in seconds.
 	UserTaskMinimumTriggerIntervalInSeconds pulumi.IntOutput `pulumi:"userTaskMinimumTriggerIntervalInSeconds"`
-	// User task execution timeout in milliseconds. For more information, see
-	// [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+	// User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
 	UserTaskTimeoutMs pulumi.IntOutput `pulumi:"userTaskTimeoutMs"`
 }
 
@@ -127,162 +97,92 @@ func GetSecondaryDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecondaryDatabase resources.
 type secondaryDatabaseState struct {
-	// A fully qualified path to a database to create a replica from. A fully qualified path follows the format of
-	// `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
+	// A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
 	AsReplicaOf *string `pulumi:"asReplicaOf"`
-	// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
-	// [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+	// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog *string `pulumi:"catalog"`
 	// Specifies a comment for the database.
 	Comment *string `pulumi:"comment"`
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
-	// as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
-	// [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
-	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
-	// schema or table level. For more information, see [collation
-	// specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation *string `pulumi:"defaultDdlCollation"`
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
 	EnableConsoleOutput *bool `pulumi:"enableConsoleOutput"`
-	// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
-	// [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+	// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume *string `pulumi:"externalVolume"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional
-	// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
-	// a data loss.
+	// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 	IsTransient *bool `pulumi:"isTransient"`
-	// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
-	// options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
-	// ingested. For more information, see
-	// [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
 	LogLevel *string `pulumi:"logLevel"`
-	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
-	// tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
-	// parameter, see
-	// [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays *int `pulumi:"maxDataExtensionTimeInDays"`
-	// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication
-	// and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary
-	// database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e.
-	// '<db>.<schema>.<object>') by other objects in the same database, such as querying a fully-qualified table name in a
-	// view. If a secondary database has a different name from the primary database, then these object references would break
-	// in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`,
-	// `.`, `"`.
+	// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// If true, the case of quoted identifiers is ignored. For more information, see
-	// [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+	// If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
 	QuotedIdentifiersIgnoreCase *bool `pulumi:"quotedIdentifiersIgnoreCase"`
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
-	// an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
-	// see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters *bool `pulumi:"replaceInvalidCharacters"`
-	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
-	// OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
-	// third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
-	// table performance within Snowflake. For more information, see
-	// [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
 	StorageSerializationPolicy *string `pulumi:"storageSerializationPolicy"`
-	// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
-	// information, see
-	// [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+	// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
 	SuspendTaskAfterNumFailures *int `pulumi:"suspendTaskAfterNumFailures"`
-	// Maximum automatic retries allowed for a user task. For more information, see
-	// [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+	// Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
 	TaskAutoRetryAttempts *int `pulumi:"taskAutoRetryAttempts"`
-	// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
-	// about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+	// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
 	TraceLevel *string `pulumi:"traceLevel"`
-	// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
-	// [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+	// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
 	UserTaskManagedInitialWarehouseSize *string `pulumi:"userTaskManagedInitialWarehouseSize"`
 	// Minimum amount of time between Triggered Task executions in seconds.
 	UserTaskMinimumTriggerIntervalInSeconds *int `pulumi:"userTaskMinimumTriggerIntervalInSeconds"`
-	// User task execution timeout in milliseconds. For more information, see
-	// [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+	// User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
 	UserTaskTimeoutMs *int `pulumi:"userTaskTimeoutMs"`
 }
 
 type SecondaryDatabaseState struct {
-	// A fully qualified path to a database to create a replica from. A fully qualified path follows the format of
-	// `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
+	// A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
 	AsReplicaOf pulumi.StringPtrInput
-	// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
-	// [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+	// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog pulumi.StringPtrInput
 	// Specifies a comment for the database.
 	Comment pulumi.StringPtrInput
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
-	// as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
-	// [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays pulumi.IntPtrInput
-	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
-	// schema or table level. For more information, see [collation
-	// specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringPtrInput
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
 	EnableConsoleOutput pulumi.BoolPtrInput
-	// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
-	// [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+	// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional
-	// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
-	// a data loss.
+	// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 	IsTransient pulumi.BoolPtrInput
-	// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
-	// options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
-	// ingested. For more information, see
-	// [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
 	LogLevel pulumi.StringPtrInput
-	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
-	// tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
-	// parameter, see
-	// [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays pulumi.IntPtrInput
-	// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication
-	// and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary
-	// database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e.
-	// '<db>.<schema>.<object>') by other objects in the same database, such as querying a fully-qualified table name in a
-	// view. If a secondary database has a different name from the primary database, then these object references would break
-	// in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`,
-	// `.`, `"`.
+	// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// If true, the case of quoted identifiers is ignored. For more information, see
-	// [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+	// If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
 	QuotedIdentifiersIgnoreCase pulumi.BoolPtrInput
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
-	// an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
-	// see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters pulumi.BoolPtrInput
-	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
-	// OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
-	// third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
-	// table performance within Snowflake. For more information, see
-	// [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
 	StorageSerializationPolicy pulumi.StringPtrInput
-	// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
-	// information, see
-	// [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+	// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
 	SuspendTaskAfterNumFailures pulumi.IntPtrInput
-	// Maximum automatic retries allowed for a user task. For more information, see
-	// [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+	// Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
 	TaskAutoRetryAttempts pulumi.IntPtrInput
-	// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
-	// about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+	// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
 	TraceLevel pulumi.StringPtrInput
-	// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
-	// [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+	// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
 	UserTaskManagedInitialWarehouseSize pulumi.StringPtrInput
 	// Minimum amount of time between Triggered Task executions in seconds.
 	UserTaskMinimumTriggerIntervalInSeconds pulumi.IntPtrInput
-	// User task execution timeout in milliseconds. For more information, see
-	// [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+	// User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
 	UserTaskTimeoutMs pulumi.IntPtrInput
 }
 
@@ -291,157 +191,89 @@ func (SecondaryDatabaseState) ElementType() reflect.Type {
 }
 
 type secondaryDatabaseArgs struct {
-	// A fully qualified path to a database to create a replica from. A fully qualified path follows the format of
-	// `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
+	// A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
 	AsReplicaOf string `pulumi:"asReplicaOf"`
-	// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
-	// [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+	// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog *string `pulumi:"catalog"`
 	// Specifies a comment for the database.
 	Comment *string `pulumi:"comment"`
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
-	// as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
-	// [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays *int `pulumi:"dataRetentionTimeInDays"`
-	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
-	// schema or table level. For more information, see [collation
-	// specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation *string `pulumi:"defaultDdlCollation"`
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
 	EnableConsoleOutput *bool `pulumi:"enableConsoleOutput"`
-	// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
-	// [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+	// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume *string `pulumi:"externalVolume"`
-	// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional
-	// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
-	// a data loss.
+	// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 	IsTransient *bool `pulumi:"isTransient"`
-	// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
-	// options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
-	// ingested. For more information, see
-	// [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
 	LogLevel *string `pulumi:"logLevel"`
-	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
-	// tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
-	// parameter, see
-	// [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays *int `pulumi:"maxDataExtensionTimeInDays"`
-	// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication
-	// and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary
-	// database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e.
-	// '<db>.<schema>.<object>') by other objects in the same database, such as querying a fully-qualified table name in a
-	// view. If a secondary database has a different name from the primary database, then these object references would break
-	// in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`,
-	// `.`, `"`.
+	// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// If true, the case of quoted identifiers is ignored. For more information, see
-	// [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+	// If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
 	QuotedIdentifiersIgnoreCase *bool `pulumi:"quotedIdentifiersIgnoreCase"`
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
-	// an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
-	// see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters *bool `pulumi:"replaceInvalidCharacters"`
-	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
-	// OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
-	// third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
-	// table performance within Snowflake. For more information, see
-	// [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
 	StorageSerializationPolicy *string `pulumi:"storageSerializationPolicy"`
-	// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
-	// information, see
-	// [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+	// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
 	SuspendTaskAfterNumFailures *int `pulumi:"suspendTaskAfterNumFailures"`
-	// Maximum automatic retries allowed for a user task. For more information, see
-	// [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+	// Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
 	TaskAutoRetryAttempts *int `pulumi:"taskAutoRetryAttempts"`
-	// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
-	// about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+	// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
 	TraceLevel *string `pulumi:"traceLevel"`
-	// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
-	// [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+	// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
 	UserTaskManagedInitialWarehouseSize *string `pulumi:"userTaskManagedInitialWarehouseSize"`
 	// Minimum amount of time between Triggered Task executions in seconds.
 	UserTaskMinimumTriggerIntervalInSeconds *int `pulumi:"userTaskMinimumTriggerIntervalInSeconds"`
-	// User task execution timeout in milliseconds. For more information, see
-	// [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+	// User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
 	UserTaskTimeoutMs *int `pulumi:"userTaskTimeoutMs"`
 }
 
 // The set of arguments for constructing a SecondaryDatabase resource.
 type SecondaryDatabaseArgs struct {
-	// A fully qualified path to a database to create a replica from. A fully qualified path follows the format of
-	// `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
+	// A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
 	AsReplicaOf pulumi.StringInput
-	// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
-	// [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+	// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 	Catalog pulumi.StringPtrInput
 	// Specifies a comment for the database.
 	Comment pulumi.StringPtrInput
-	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
-	// as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
-	// [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+	// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 	DataRetentionTimeInDays pulumi.IntPtrInput
-	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
-	// schema or table level. For more information, see [collation
-	// specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+	// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 	DefaultDdlCollation pulumi.StringPtrInput
 	// If true, enables stdout/stderr fast path logging for anonymous stored procedures.
 	EnableConsoleOutput pulumi.BoolPtrInput
-	// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
-	// [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+	// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 	ExternalVolume pulumi.StringPtrInput
-	// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional
-	// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
-	// a data loss.
+	// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 	IsTransient pulumi.BoolPtrInput
-	// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
-	// options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
-	// ingested. For more information, see
-	// [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+	// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
 	LogLevel pulumi.StringPtrInput
-	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
-	// tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
-	// parameter, see
-	// [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+	// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 	MaxDataExtensionTimeInDays pulumi.IntPtrInput
-	// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication
-	// and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary
-	// database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e.
-	// '<db>.<schema>.<object>') by other objects in the same database, such as querying a fully-qualified table name in a
-	// view. If a secondary database has a different name from the primary database, then these object references would break
-	// in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`,
-	// `.`, `"`.
+	// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// If true, the case of quoted identifiers is ignored. For more information, see
-	// [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+	// If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
 	QuotedIdentifiersIgnoreCase pulumi.BoolPtrInput
-	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
-	// an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
-	// see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+	// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 	ReplaceInvalidCharacters pulumi.BoolPtrInput
-	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
-	// OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
-	// third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
-	// table performance within Snowflake. For more information, see
-	// [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+	// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
 	StorageSerializationPolicy pulumi.StringPtrInput
-	// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
-	// information, see
-	// [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+	// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
 	SuspendTaskAfterNumFailures pulumi.IntPtrInput
-	// Maximum automatic retries allowed for a user task. For more information, see
-	// [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+	// Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
 	TaskAutoRetryAttempts pulumi.IntPtrInput
-	// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
-	// about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+	// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
 	TraceLevel pulumi.StringPtrInput
-	// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
-	// [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+	// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
 	UserTaskManagedInitialWarehouseSize pulumi.StringPtrInput
 	// Minimum amount of time between Triggered Task executions in seconds.
 	UserTaskMinimumTriggerIntervalInSeconds pulumi.IntPtrInput
-	// User task execution timeout in milliseconds. For more information, see
-	// [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+	// User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
 	UserTaskTimeoutMs pulumi.IntPtrInput
 }
 
@@ -532,14 +364,12 @@ func (o SecondaryDatabaseOutput) ToSecondaryDatabaseOutputWithContext(ctx contex
 	return o
 }
 
-// A fully qualified path to a database to create a replica from. A fully qualified path follows the format of
-// `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
+// A fully qualified path to a database to create a replica from. A fully qualified path follows the format of `"<organization_name>"."<account_name>"."<database_name>"`. For more information about this resource, see docs.
 func (o SecondaryDatabaseOutput) AsReplicaOf() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.StringOutput { return v.AsReplicaOf }).(pulumi.StringOutput)
 }
 
-// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
-// [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+// The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
 func (o SecondaryDatabaseOutput) Catalog() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.StringOutput { return v.Catalog }).(pulumi.StringOutput)
 }
@@ -549,16 +379,12 @@ func (o SecondaryDatabaseOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
-// as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
-// [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+// Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding & Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
 func (o SecondaryDatabaseOutput) DataRetentionTimeInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.IntOutput { return v.DataRetentionTimeInDays }).(pulumi.IntOutput)
 }
 
-// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
-// schema or table level. For more information, see [collation
-// specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+// Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
 func (o SecondaryDatabaseOutput) DefaultDdlCollation() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.StringOutput { return v.DefaultDdlCollation }).(pulumi.StringOutput)
 }
@@ -568,95 +394,67 @@ func (o SecondaryDatabaseOutput) EnableConsoleOutput() pulumi.BoolOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.BoolOutput { return v.EnableConsoleOutput }).(pulumi.BoolOutput)
 }
 
-// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
-// [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+// The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
 func (o SecondaryDatabaseOutput) ExternalVolume() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.StringOutput { return v.ExternalVolume }).(pulumi.StringOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name
-// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o SecondaryDatabaseOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional
-// storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
-// a data loss.
+// Specifies the database as transient. Transient databases do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss.
 func (o SecondaryDatabaseOutput) IsTransient() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.BoolPtrOutput { return v.IsTransient }).(pulumi.BoolPtrOutput)
 }
 
-// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
-// options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
-// ingested. For more information, see
-// [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+// Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
 func (o SecondaryDatabaseOutput) LogLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.StringOutput { return v.LogLevel }).(pulumi.StringOutput)
 }
 
-// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
-// tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
-// parameter, see
-// [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+// Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
 func (o SecondaryDatabaseOutput) MaxDataExtensionTimeInDays() pulumi.IntOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.IntOutput { return v.MaxDataExtensionTimeInDays }).(pulumi.IntOutput)
 }
 
-// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication
-// and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary
-// database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e.
-// '<db>.<schema>.<object>') by other objects in the same database, such as querying a fully-qualified table name in a
-// view. If a secondary database has a different name from the primary database, then these object references would break
-// in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`,
-// `.`, `"`.
+// Specifies the identifier for the database; must be unique for your account. As a best practice for [Database Replication and Failover](https://docs.snowflake.com/en/user-guide/db-replication-intro), it is recommended to give each secondary database the same name as its primary database. This practice supports referencing fully-qualified objects (i.e. '\n\n.\n\n.\n\n') by other objects in the same database, such as querying a fully-qualified table name in a view. If a secondary database has a different name from the primary database, then these object references would break in the secondary database. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o SecondaryDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// If true, the case of quoted identifiers is ignored. For more information, see
-// [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+// If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
 func (o SecondaryDatabaseOutput) QuotedIdentifiersIgnoreCase() pulumi.BoolOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.BoolOutput { return v.QuotedIdentifiersIgnoreCase }).(pulumi.BoolOutput)
 }
 
-// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
-// an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
-// see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+// Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
 func (o SecondaryDatabaseOutput) ReplaceInvalidCharacters() pulumi.BoolOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.BoolOutput { return v.ReplaceInvalidCharacters }).(pulumi.BoolOutput)
 }
 
-// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
-// OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
-// third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
-// table performance within Snowflake. For more information, see
-// [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+// The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
 func (o SecondaryDatabaseOutput) StorageSerializationPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.StringOutput { return v.StorageSerializationPolicy }).(pulumi.StringOutput)
 }
 
-// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
-// information, see
-// [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+// How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
 func (o SecondaryDatabaseOutput) SuspendTaskAfterNumFailures() pulumi.IntOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.IntOutput { return v.SuspendTaskAfterNumFailures }).(pulumi.IntOutput)
 }
 
-// Maximum automatic retries allowed for a user task. For more information, see
-// [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+// Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
 func (o SecondaryDatabaseOutput) TaskAutoRetryAttempts() pulumi.IntOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.IntOutput { return v.TaskAutoRetryAttempts }).(pulumi.IntOutput)
 }
 
-// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
-// about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
 func (o SecondaryDatabaseOutput) TraceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.StringOutput { return v.TraceLevel }).(pulumi.StringOutput)
 }
 
-// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
-// [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+// The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
 func (o SecondaryDatabaseOutput) UserTaskManagedInitialWarehouseSize() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.StringOutput { return v.UserTaskManagedInitialWarehouseSize }).(pulumi.StringOutput)
 }
@@ -666,8 +464,7 @@ func (o SecondaryDatabaseOutput) UserTaskMinimumTriggerIntervalInSeconds() pulum
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.IntOutput { return v.UserTaskMinimumTriggerIntervalInSeconds }).(pulumi.IntOutput)
 }
 
-// User task execution timeout in milliseconds. For more information, see
-// [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+// User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
 func (o SecondaryDatabaseOutput) UserTaskTimeoutMs() pulumi.IntOutput {
 	return o.ApplyT(func(v *SecondaryDatabase) pulumi.IntOutput { return v.UserTaskTimeoutMs }).(pulumi.IntOutput)
 }

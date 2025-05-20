@@ -17,19 +17,25 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/secretWithAuthorizationCodeGrant:SecretWithAuthorizationCodeGrant example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;secret_name&gt;&#34;&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/secretWithAuthorizationCodeGrant:SecretWithAuthorizationCodeGrant")
 public class SecretWithAuthorizationCodeGrant extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
-     * information about this resource, see docs.
+     * Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
      * 
      */
     @Export(name="apiAuthentication", refs={String.class}, tree="[0]")
     private Output<String> apiAuthentication;
 
     /**
-     * @return Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more
-     * information about this resource, see docs.
+     * @return Specifies the name value of the Snowflake security integration that connects Snowflake to an external service. For more information about this resource, see docs.
      * 
      */
     public Output<String> apiAuthentication() {
@@ -50,16 +56,14 @@ public class SecretWithAuthorizationCodeGrant extends com.pulumi.resources.Custo
         return Codegen.optional(this.comment);
     }
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the secret Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -80,32 +84,28 @@ public class SecretWithAuthorizationCodeGrant extends com.pulumi.resources.Custo
         return this.describeOutputs;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
@@ -118,48 +118,42 @@ public class SecretWithAuthorizationCodeGrant extends com.pulumi.resources.Custo
         return this.oauthRefreshToken;
     }
     /**
-     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD,
-     * YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI &lt;timezone&gt;
+     * Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
      * 
      */
     @Export(name="oauthRefreshTokenExpiryTime", refs={String.class}, tree="[0]")
     private Output<String> oauthRefreshTokenExpiryTime;
 
     /**
-     * @return Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD,
-     * YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI &lt;timezone&gt;
+     * @return Specifies the timestamp as a string when the OAuth refresh token expires. Accepted string formats: YYYY-MM-DD, YYYY-MM-DD HH:MI, YYYY-MM-DD HH:MI:SS, YYYY-MM-DD HH:MI \n\n
      * 
      */
     public Output<String> oauthRefreshTokenExpiryTime() {
         return this.oauthRefreshTokenExpiryTime;
     }
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
         return this.schema;
     }
     /**
-     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
-     * needed.
+     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
      * 
      */
     @Export(name="secretType", refs={String.class}, tree="[0]")
     private Output<String> secretType;
 
     /**
-     * @return Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
-     * needed.
+     * @return Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
      * 
      */
     public Output<String> secretType() {

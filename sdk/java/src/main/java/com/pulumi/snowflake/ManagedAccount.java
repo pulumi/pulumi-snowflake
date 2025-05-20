@@ -15,35 +15,39 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/managedAccount:ManagedAccount example name
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/managedAccount:ManagedAccount")
 public class ManagedAccount extends com.pulumi.resources.CustomResource {
     /**
-     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-     * administrator for the account.
+     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
      * 
      */
     @Export(name="adminName", refs={String.class}, tree="[0]")
     private Output<String> adminName;
 
     /**
-     * @return Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-     * administrator for the account.
+     * @return Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
      * 
      */
     public Output<String> adminName() {
         return this.adminName;
     }
     /**
-     * Password for the initial user in the managed account. Check [Snowflake-provided password
-     * policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+     * Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      * 
      */
     @Export(name="adminPassword", refs={String.class}, tree="[0]")
     private Output<String> adminPassword;
 
     /**
-     * @return Password for the initial user in the managed account. Check [Snowflake-provided password
-     * policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+     * @return Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      * 
      */
     public Output<String> adminPassword() {
@@ -92,16 +96,14 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
         return this.createdOn;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
@@ -150,14 +152,14 @@ public class ManagedAccount extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies the type of managed account.
+     * (Default: `READER`) Specifies the type of managed account.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**
-     * @return Specifies the type of managed account.
+     * @return (Default: `READER`) Specifies the type of managed account.
      * 
      */
     public Output<Optional<String>> type() {

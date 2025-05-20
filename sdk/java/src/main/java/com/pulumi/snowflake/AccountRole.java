@@ -16,6 +16,14 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/accountRole:AccountRole example &#39;&#34;&lt;account_role_name&gt;&#34;&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/accountRole:AccountRole")
 public class AccountRole extends com.pulumi.resources.CustomResource {
     @Export(name="comment", refs={String.class}, tree="[0]")
@@ -25,32 +33,28 @@ public class AccountRole extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * @return Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {

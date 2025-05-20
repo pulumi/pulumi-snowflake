@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUsersResult
@@ -23,23 +24,34 @@ func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOpti
 
 // A collection of arguments for invoking getUsers.
 type GetUsersArgs struct {
-	Like           *string        `pulumi:"like"`
-	Limit          *GetUsersLimit `pulumi:"limit"`
-	StartsWith     *string        `pulumi:"startsWith"`
-	WithDescribe   *bool          `pulumi:"withDescribe"`
-	WithParameters *bool          `pulumi:"withParameters"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetUsersLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
+	// (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+	WithParameters *bool `pulumi:"withParameters"`
 }
 
 // A collection of values returned by getUsers.
 type GetUsersResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id             string         `pulumi:"id"`
-	Like           *string        `pulumi:"like"`
-	Limit          *GetUsersLimit `pulumi:"limit"`
-	StartsWith     *string        `pulumi:"startsWith"`
-	Users          []GetUsersUser `pulumi:"users"`
-	WithDescribe   *bool          `pulumi:"withDescribe"`
-	WithParameters *bool          `pulumi:"withParameters"`
+	Id string `pulumi:"id"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetUsersLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// Holds the aggregated output of all user details queries.
+	Users []GetUsersUser `pulumi:"users"`
+	// (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
+	// (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+	WithParameters *bool `pulumi:"withParameters"`
 }
 
 func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi.InvokeOption) GetUsersResultOutput {
@@ -53,11 +65,16 @@ func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi
 
 // A collection of arguments for invoking getUsers.
 type GetUsersOutputArgs struct {
-	Like           pulumi.StringPtrInput `pulumi:"like"`
-	Limit          GetUsersLimitPtrInput `pulumi:"limit"`
-	StartsWith     pulumi.StringPtrInput `pulumi:"startsWith"`
-	WithDescribe   pulumi.BoolPtrInput   `pulumi:"withDescribe"`
-	WithParameters pulumi.BoolPtrInput   `pulumi:"withParameters"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit GetUsersLimitPtrInput `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
+	// (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
+	// (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+	WithParameters pulumi.BoolPtrInput `pulumi:"withParameters"`
 }
 
 func (GetUsersOutputArgs) ElementType() reflect.Type {
@@ -84,26 +101,32 @@ func (o GetUsersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetUsersResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
+// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 func (o GetUsersResultOutput) Limit() GetUsersLimitPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *GetUsersLimit { return v.Limit }).(GetUsersLimitPtrOutput)
 }
 
+// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 func (o GetUsersResultOutput) StartsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
 }
 
+// Holds the aggregated output of all user details queries.
 func (o GetUsersResultOutput) Users() GetUsersUserArrayOutput {
 	return o.ApplyT(func(v GetUsersResult) []GetUsersUser { return v.Users }).(GetUsersUserArrayOutput)
 }
 
+// (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetUsersResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }
 
+// (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
 func (o GetUsersResultOutput) WithParameters() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetUsersResult) *bool { return v.WithParameters }).(pulumi.BoolPtrOutput)
 }

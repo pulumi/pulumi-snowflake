@@ -17,6 +17,14 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/tableConstraint:TableConstraint example &#39;myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/tableConstraint:TableConstraint")
 public class TableConstraint extends com.pulumi.resources.CustomResource {
     /**
@@ -52,42 +60,42 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Whether the constraint is deferrable
+     * (Default: `true`) Whether the constraint is deferrable
      * 
      */
     @Export(name="deferrable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> deferrable;
 
     /**
-     * @return Whether the constraint is deferrable
+     * @return (Default: `true`) Whether the constraint is deferrable
      * 
      */
     public Output<Optional<Boolean>> deferrable() {
         return Codegen.optional(this.deferrable);
     }
     /**
-     * Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+     * (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
      * 
      */
     @Export(name="enable", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enable;
 
     /**
-     * @return Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+     * @return (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
      * 
      */
     public Output<Optional<Boolean>> enable() {
         return Codegen.optional(this.enable);
     }
     /**
-     * Whether the constraint is enforced
+     * (Default: `false`) Whether the constraint is enforced
      * 
      */
     @Export(name="enforced", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enforced;
 
     /**
-     * @return Whether the constraint is enforced
+     * @return (Default: `false`) Whether the constraint is enforced
      * 
      */
     public Output<Optional<Boolean>> enforced() {
@@ -108,14 +116,14 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.foreignKeyProperties);
     }
     /**
-     * Whether the constraint is initially deferred or immediate
+     * (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
      * 
      */
     @Export(name="initially", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> initially;
 
     /**
-     * @return Whether the constraint is initially deferred or immediate
+     * @return (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
      * 
      */
     public Output<Optional<String>> initially() {
@@ -136,32 +144,28 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+     * (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
      * 
      */
     @Export(name="rely", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> rely;
 
     /**
-     * @return Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+     * @return (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
      * 
      */
     public Output<Optional<Boolean>> rely() {
         return Codegen.optional(this.rely);
     }
     /**
-     * Identifier for table to create constraint on. Format must follow:
-     * &#34;\&#34;&amp;lt;db_name&amp;gt;\&#34;.\&#34;&amp;lt;schema_name&amp;gt;\&#34;.\&#34;&amp;lt;table_name&amp;gt;\&#34;&#34; or
-     * &#34;&amp;lt;db_name&amp;gt;.&amp;lt;schema_name&amp;gt;.&amp;lt;table_name&amp;gt;&#34; (snowflake_table.my_table.id)
+     * Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
      * 
      */
     @Export(name="tableId", refs={String.class}, tree="[0]")
     private Output<String> tableId;
 
     /**
-     * @return Identifier for table to create constraint on. Format must follow:
-     * &#34;\&#34;&amp;lt;db_name&amp;gt;\&#34;.\&#34;&amp;lt;schema_name&amp;gt;\&#34;.\&#34;&amp;lt;table_name&amp;gt;\&#34;&#34; or
-     * &#34;&amp;lt;db_name&amp;gt;.&amp;lt;schema_name&amp;gt;.&amp;lt;table_name&amp;gt;&#34; (snowflake_table.my_table.id)
+     * @return Identifier for table to create constraint on. Format must follow: &#34;\&#34;&amp;lt;db*name&amp;gt;\&#34;.\&#34;&amp;lt;schema*name&amp;gt;\&#34;.\&#34;&amp;lt;table*name&amp;gt;\&#34;&#34; or &#34;&amp;lt;db*name&amp;gt;.&amp;lt;schema*name&amp;gt;.&amp;lt;table*name&amp;gt;&#34; (snowflake*table.my*table.id)
      * 
      */
     public Output<String> tableId() {
@@ -182,16 +186,14 @@ public class TableConstraint extends com.pulumi.resources.CustomResource {
         return this.type;
     }
     /**
-     * Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the
-     * ENABLE property.
+     * (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
      * 
      */
     @Export(name="validate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> validate;
 
     /**
-     * @return Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the
-     * ENABLE property.
+     * @return (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
      * 
      */
     public Output<Optional<Boolean>> validate() {

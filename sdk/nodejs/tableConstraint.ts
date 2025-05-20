@@ -6,6 +6,13 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/tableConstraint:TableConstraint example 'myconstraintfk❄️FOREIGN KEY❄️databaseName|schemaName|tableName'
+ * ```
+ */
 export class TableConstraint extends pulumi.CustomResource {
     /**
      * Get an existing TableConstraint resource's state with the given name, ID, and optional extra
@@ -45,15 +52,15 @@ export class TableConstraint extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Whether the constraint is deferrable
+     * (Default: `true`) Whether the constraint is deferrable
      */
     public readonly deferrable!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+     * (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
      */
     public readonly enable!: pulumi.Output<boolean | undefined>;
     /**
-     * Whether the constraint is enforced
+     * (Default: `false`) Whether the constraint is enforced
      */
     public readonly enforced!: pulumi.Output<boolean | undefined>;
     /**
@@ -61,7 +68,7 @@ export class TableConstraint extends pulumi.CustomResource {
      */
     public readonly foreignKeyProperties!: pulumi.Output<outputs.TableConstraintForeignKeyProperties | undefined>;
     /**
-     * Whether the constraint is initially deferred or immediate
+     * (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
      */
     public readonly initially!: pulumi.Output<string | undefined>;
     /**
@@ -69,13 +76,11 @@ export class TableConstraint extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+     * (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
      */
     public readonly rely!: pulumi.Output<boolean | undefined>;
     /**
-     * Identifier for table to create constraint on. Format must follow:
-     * "\"&lt;db_name&gt;\".\"&lt;schema_name&gt;\".\"&lt;table_name&gt;\"" or
-     * "&lt;db_name&gt;.&lt;schema_name&gt;.&lt;table_name&gt;" (snowflake_table.my_table.id)
+     * Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
      */
     public readonly tableId!: pulumi.Output<string>;
     /**
@@ -83,8 +88,7 @@ export class TableConstraint extends pulumi.CustomResource {
      */
     public readonly type!: pulumi.Output<string>;
     /**
-     * Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the
-     * ENABLE property.
+     * (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
      */
     public readonly validate!: pulumi.Output<boolean | undefined>;
 
@@ -157,15 +161,15 @@ export interface TableConstraintState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Whether the constraint is deferrable
+     * (Default: `true`) Whether the constraint is deferrable
      */
     deferrable?: pulumi.Input<boolean>;
     /**
-     * Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+     * (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
      */
     enable?: pulumi.Input<boolean>;
     /**
-     * Whether the constraint is enforced
+     * (Default: `false`) Whether the constraint is enforced
      */
     enforced?: pulumi.Input<boolean>;
     /**
@@ -173,7 +177,7 @@ export interface TableConstraintState {
      */
     foreignKeyProperties?: pulumi.Input<inputs.TableConstraintForeignKeyProperties>;
     /**
-     * Whether the constraint is initially deferred or immediate
+     * (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
      */
     initially?: pulumi.Input<string>;
     /**
@@ -181,13 +185,11 @@ export interface TableConstraintState {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+     * (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
      */
     rely?: pulumi.Input<boolean>;
     /**
-     * Identifier for table to create constraint on. Format must follow:
-     * "\"&lt;db_name&gt;\".\"&lt;schema_name&gt;\".\"&lt;table_name&gt;\"" or
-     * "&lt;db_name&gt;.&lt;schema_name&gt;.&lt;table_name&gt;" (snowflake_table.my_table.id)
+     * Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
      */
     tableId?: pulumi.Input<string>;
     /**
@@ -195,8 +197,7 @@ export interface TableConstraintState {
      */
     type?: pulumi.Input<string>;
     /**
-     * Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the
-     * ENABLE property.
+     * (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
      */
     validate?: pulumi.Input<boolean>;
 }
@@ -216,15 +217,15 @@ export interface TableConstraintArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Whether the constraint is deferrable
+     * (Default: `true`) Whether the constraint is deferrable
      */
     deferrable?: pulumi.Input<boolean>;
     /**
-     * Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
+     * (Default: `true`) Specifies whether the constraint is enabled or disabled. These properties are provided for compatibility with Oracle.
      */
     enable?: pulumi.Input<boolean>;
     /**
-     * Whether the constraint is enforced
+     * (Default: `false`) Whether the constraint is enforced
      */
     enforced?: pulumi.Input<boolean>;
     /**
@@ -232,7 +233,7 @@ export interface TableConstraintArgs {
      */
     foreignKeyProperties?: pulumi.Input<inputs.TableConstraintForeignKeyProperties>;
     /**
-     * Whether the constraint is initially deferred or immediate
+     * (Default: `DEFERRED`) Whether the constraint is initially deferred or immediate
      */
     initially?: pulumi.Input<string>;
     /**
@@ -240,13 +241,11 @@ export interface TableConstraintArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
+     * (Default: `true`) Specifies whether a constraint in NOVALIDATE mode is taken into account during query rewrite.
      */
     rely?: pulumi.Input<boolean>;
     /**
-     * Identifier for table to create constraint on. Format must follow:
-     * "\"&lt;db_name&gt;\".\"&lt;schema_name&gt;\".\"&lt;table_name&gt;\"" or
-     * "&lt;db_name&gt;.&lt;schema_name&gt;.&lt;table_name&gt;" (snowflake_table.my_table.id)
+     * Identifier for table to create constraint on. Format must follow: "\"&lt;db*name&gt;\".\"&lt;schema*name&gt;\".\"&lt;table*name&gt;\"" or "&lt;db*name&gt;.&lt;schema*name&gt;.&lt;table*name&gt;" (snowflake*table.my*table.id)
      */
     tableId: pulumi.Input<string>;
     /**
@@ -254,8 +253,7 @@ export interface TableConstraintArgs {
      */
     type: pulumi.Input<string>;
     /**
-     * Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the
-     * ENABLE property.
+     * (Default: `false`) Specifies whether to validate existing data on the table when a constraint is created. Only used in conjunction with the ENABLE property.
      */
     validate?: pulumi.Input<boolean>;
 }

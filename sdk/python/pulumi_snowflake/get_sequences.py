@@ -45,6 +45,9 @@ class GetSequencesResult:
     @property
     @pulumi.getter
     def database(self) -> builtins.str:
+        """
+        The database from which to return the schemas from.
+        """
         return pulumi.get(self, "database")
 
     @property
@@ -58,11 +61,17 @@ class GetSequencesResult:
     @property
     @pulumi.getter
     def schema(self) -> builtins.str:
+        """
+        The schema from which to return the sequences from.
+        """
         return pulumi.get(self, "schema")
 
     @property
     @pulumi.getter
     def sequences(self) -> Sequence['outputs.GetSequencesSequenceResult']:
+        """
+        The sequences in the schema
+        """
         return pulumi.get(self, "sequences")
 
 
@@ -82,7 +91,23 @@ def get_sequences(database: Optional[builtins.str] = None,
                   schema: Optional[builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSequencesResult:
     """
-    Use this data source to access information about an existing resource.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_sequences(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param builtins.str database: The database from which to return the schemas from.
+    :param builtins.str schema: The schema from which to return the sequences from.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -99,7 +124,23 @@ def get_sequences_output(database: Optional[pulumi.Input[builtins.str]] = None,
                          schema: Optional[pulumi.Input[builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSequencesResult]:
     """
-    Use this data source to access information about an existing resource.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    current = snowflake.get_sequences(database="MYDB",
+        schema="MYSCHEMA")
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param builtins.str database: The database from which to return the schemas from.
+    :param builtins.str schema: The schema from which to return the sequences from.
     """
     __args__ = dict()
     __args__['database'] = database

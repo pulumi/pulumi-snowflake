@@ -770,7 +770,7 @@ export interface FunctionJavaParameterTraceLevel {
 
 export interface FunctionJavaSecret {
     /**
-     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
      */
     secretId: pulumi.Input<string>;
     /**
@@ -945,7 +945,7 @@ export interface FunctionPythonParameterTraceLevel {
 
 export interface FunctionPythonSecret {
     /**
-     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
      */
     secretId: pulumi.Input<string>;
     /**
@@ -1038,7 +1038,7 @@ export interface FunctionScalaParameterTraceLevel {
 
 export interface FunctionScalaSecret {
     /**
-     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
      */
     secretId: pulumi.Input<string>;
     /**
@@ -1320,7 +1320,7 @@ export interface GetGrantsFutureGrantsIn {
      */
     database?: string;
     /**
-     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db_name&gt;"."&lt;schema_name&gt;").
+     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
      */
     schema?: string;
 }
@@ -1331,7 +1331,7 @@ export interface GetGrantsFutureGrantsInArgs {
      */
     database?: pulumi.Input<string>;
     /**
-     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db_name&gt;"."&lt;schema_name&gt;").
+     * Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
      */
     schema?: pulumi.Input<string>;
 }
@@ -1342,7 +1342,7 @@ export interface GetGrantsFutureGrantsTo {
      */
     accountRole?: string;
     /**
-     * Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+     * Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
      */
     databaseRole?: string;
 }
@@ -1353,7 +1353,7 @@ export interface GetGrantsFutureGrantsToArgs {
      */
     accountRole?: pulumi.Input<string>;
     /**
-     * Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+     * Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
      */
     databaseRole?: pulumi.Input<string>;
 }
@@ -1364,11 +1364,11 @@ export interface GetGrantsGrantsOf {
      */
     accountRole?: string;
     /**
-     * Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+     * Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
      */
     applicationRole?: string;
     /**
-     * Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+     * Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
      */
     databaseRole?: string;
     /**
@@ -1383,11 +1383,11 @@ export interface GetGrantsGrantsOfArgs {
      */
     accountRole?: pulumi.Input<string>;
     /**
-     * Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+     * Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
      */
     applicationRole?: pulumi.Input<string>;
     /**
-     * Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+     * Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
      */
     databaseRole?: pulumi.Input<string>;
     /**
@@ -1436,11 +1436,11 @@ export interface GetGrantsGrantsTo {
      */
     application?: string;
     /**
-     * Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app_name&gt;"."&lt;app_role_name&gt;").
+     * Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
      */
     applicationRole?: string;
     /**
-     * Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+     * Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
      */
     databaseRole?: string;
     /**
@@ -1463,11 +1463,11 @@ export interface GetGrantsGrantsToArgs {
      */
     application?: pulumi.Input<string>;
     /**
-     * Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app_name&gt;"."&lt;app_role_name&gt;").
+     * Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
      */
     applicationRole?: pulumi.Input<string>;
     /**
-     * Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+     * Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
      */
     databaseRole?: pulumi.Input<string>;
     /**
@@ -3258,7 +3258,7 @@ export interface ProcedureJavaParameterTraceLevel {
 
 export interface ProcedureJavaSecret {
     /**
-     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
      */
     secretId: pulumi.Input<string>;
     /**
@@ -3425,7 +3425,7 @@ export interface ProcedurePythonParameterTraceLevel {
 
 export interface ProcedurePythonSecret {
     /**
-     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
      */
     secretId: pulumi.Input<string>;
     /**
@@ -3514,7 +3514,7 @@ export interface ProcedureScalaParameterTraceLevel {
 
 export interface ProcedureScalaSecret {
     /**
-     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+     * Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
      */
     secretId: pulumi.Input<string>;
     /**
@@ -4818,7 +4818,7 @@ export interface StreamOnExternalTableAt {
      */
     stream?: pulumi.Input<string>;
     /**
-     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      */
     timestamp?: pulumi.Input<string>;
 }
@@ -4837,7 +4837,7 @@ export interface StreamOnExternalTableBefore {
      */
     stream?: pulumi.Input<string>;
     /**
-     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      */
     timestamp?: pulumi.Input<string>;
 }
@@ -4892,7 +4892,7 @@ export interface StreamOnTableAt {
      */
     stream?: pulumi.Input<string>;
     /**
-     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      */
     timestamp?: pulumi.Input<string>;
 }
@@ -4911,7 +4911,7 @@ export interface StreamOnTableBefore {
      */
     stream?: pulumi.Input<string>;
     /**
-     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      */
     timestamp?: pulumi.Input<string>;
 }
@@ -4966,7 +4966,7 @@ export interface StreamOnViewAt {
      */
     stream?: pulumi.Input<string>;
     /**
-     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      */
     timestamp?: pulumi.Input<string>;
 }
@@ -4985,7 +4985,7 @@ export interface StreamOnViewBefore {
      */
     stream?: pulumi.Input<string>;
     /**
-     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      */
     timestamp?: pulumi.Input<string>;
 }
@@ -5055,11 +5055,11 @@ export interface StreamlitShowOutput {
 
 export interface TableColumn {
     /**
-     * Column collation, e.g. utf8
+     * (Default: ``) Column collation, e.g. utf8
      */
     collate?: pulumi.Input<string>;
     /**
-     * Column comment
+     * (Default: ``) Column comment
      */
     comment?: pulumi.Input<string>;
     /**
@@ -5071,7 +5071,7 @@ export interface TableColumn {
      */
     identity?: pulumi.Input<inputs.TableColumnIdentity>;
     /**
-     * Masking policy to apply on column. It has to be a fully qualified name.
+     * (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
      */
     maskingPolicy?: pulumi.Input<string>;
     /**
@@ -5079,7 +5079,7 @@ export interface TableColumn {
      */
     name: pulumi.Input<string>;
     /**
-     * Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+     * (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
      */
     nullable?: pulumi.Input<boolean>;
     /**
@@ -5109,26 +5109,26 @@ export interface TableColumnDefault {
 
 export interface TableColumnIdentity {
     /**
-     * The number to start incrementing at.
+     * (Default: `1`) The number to start incrementing at.
      */
     startNum?: pulumi.Input<number>;
     /**
-     * Step size to increment by.
+     * (Default: `1`) Step size to increment by.
      */
     stepNum?: pulumi.Input<number>;
 }
 
 export interface TableConstraintForeignKeyProperties {
     /**
-     * The match type for the foreign key. Not applicable for primary/unique keys
+     * (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
      */
     match?: pulumi.Input<string>;
     /**
-     * Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+     * (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
      */
     onDelete?: pulumi.Input<string>;
     /**
-     * Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+     * (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
      */
     onUpdate?: pulumi.Input<string>;
     /**
@@ -6370,6 +6370,9 @@ export interface ViewDataMetricFunction {
 }
 
 export interface ViewDataMetricSchedule {
+    /**
+     * Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `usingCron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `usingCron` field, or replace*triggered*by metadata argument.
+     */
     minutes?: pulumi.Input<number>;
     /**
      * Specifies a cron expression and time zone for periodically running the data metric function. Supports a subset of standard cron utility syntax. Conflicts with `minutes`.

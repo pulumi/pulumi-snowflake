@@ -9,6 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment example attachment_policyname
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/networkPolicyAttachment:NetworkPolicyAttachment")]
     public partial class NetworkPolicyAttachment : global::Pulumi.CustomResource
     {
@@ -18,6 +25,9 @@ namespace Pulumi.Snowflake
         [Output("networkPolicyName")]
         public Output<string> NetworkPolicyName { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
+        /// </summary>
         [Output("setForAccount")]
         public Output<bool?> SetForAccount { get; private set; } = null!;
 
@@ -79,6 +89,9 @@ namespace Pulumi.Snowflake
         [Input("networkPolicyName", required: true)]
         public Input<string> NetworkPolicyName { get; set; } = null!;
 
+        /// <summary>
+        /// (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
+        /// </summary>
         [Input("setForAccount")]
         public Input<bool>? SetForAccount { get; set; }
 
@@ -108,6 +121,9 @@ namespace Pulumi.Snowflake
         [Input("networkPolicyName")]
         public Input<string>? NetworkPolicyName { get; set; }
 
+        /// <summary>
+        /// (Default: `false`) Specifies whether the network policy should be applied globally to your Snowflake account\n\n\n\n**Note:** The Snowflake user running `pulumi up` must be on an IP address allowed by the network policy to set that policy globally on the Snowflake account.\n\n\n\nAdditionally, a Snowflake account can only have one network policy set globally at any given time. This resource does not enforce one-policy-per-account, it is the user's responsibility to enforce this. If multiple network policy resources have `set_for_account: true`, the final policy set on the account will be non-deterministic.
+        /// </summary>
         [Input("setForAccount")]
         public Input<bool>? SetForAccount { get; set; }
 

@@ -12,45 +12,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/authenticationPolicy:AuthenticationPolicy example '"<database_name>"."<schema_name>"."<authentication_policy_name>"'
+// ```
 type AuthenticationPolicy struct {
 	pulumi.CustomResourceState
 
-	// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following
-	// values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+	// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
 	AuthenticationMethods pulumi.StringArrayOutput `pulumi:"authenticationMethods"`
-	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the
-	// valid CLIENT_TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The
-	// CLIENT_TYPES property of an authentication policy is a best effort method to block user logins based on specific
-	// clients. It should not be used as the sole control to establish a security boundary.
+	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
 	ClientTypes pulumi.StringArrayOutput `pulumi:"clientTypes"`
 	// Specifies a comment for the authentication policy.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using
-	// the following characters: `|`, `.`, `"`.
+	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
 	DescribeOutputs AuthenticationPolicyDescribeOutputArrayOutput `pulumi:"describeOutputs"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not
-	// listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
 	MfaAuthenticationMethods pulumi.StringArrayOutput `pulumi:"mfaAuthenticationMethods"`
-	// Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When
-	// REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT_TYPES parameter must
-	// include SNOWFLAKE_UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+	// (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
 	MfaEnrollment pulumi.StringPtrOutput `pulumi:"mfaEnrollment"`
-	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or
-	// OAUTH are not in the AUTHENTICATION_METHODS list. All values in the SECURITY_INTEGRATIONS list must be compatible with
-	// the values in the AUTHENTICATION_METHODS list. For example, if SECURITY_INTEGRATIONS contains a SAML security
-	// integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all
-	// security integrations use ALL as parameter.
+	// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
 	SecurityIntegrations pulumi.StringArrayOutput `pulumi:"securityIntegrations"`
 	// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
 	ShowOutputs AuthenticationPolicyShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -92,84 +82,54 @@ func GetAuthenticationPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AuthenticationPolicy resources.
 type authenticationPolicyState struct {
-	// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following
-	// values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+	// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
 	AuthenticationMethods []string `pulumi:"authenticationMethods"`
-	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the
-	// valid CLIENT_TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The
-	// CLIENT_TYPES property of an authentication policy is a best effort method to block user logins based on specific
-	// clients. It should not be used as the sole control to establish a security boundary.
+	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
 	ClientTypes []string `pulumi:"clientTypes"`
 	// Specifies a comment for the authentication policy.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using
-	// the following characters: `|`, `.`, `"`.
+	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
 	DescribeOutputs []AuthenticationPolicyDescribeOutput `pulumi:"describeOutputs"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not
-	// listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
 	MfaAuthenticationMethods []string `pulumi:"mfaAuthenticationMethods"`
-	// Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When
-	// REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT_TYPES parameter must
-	// include SNOWFLAKE_UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+	// (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
 	MfaEnrollment *string `pulumi:"mfaEnrollment"`
-	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
-	// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or
-	// OAUTH are not in the AUTHENTICATION_METHODS list. All values in the SECURITY_INTEGRATIONS list must be compatible with
-	// the values in the AUTHENTICATION_METHODS list. For example, if SECURITY_INTEGRATIONS contains a SAML security
-	// integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all
-	// security integrations use ALL as parameter.
+	// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
 	SecurityIntegrations []string `pulumi:"securityIntegrations"`
 	// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
 	ShowOutputs []AuthenticationPolicyShowOutput `pulumi:"showOutputs"`
 }
 
 type AuthenticationPolicyState struct {
-	// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following
-	// values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+	// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
 	AuthenticationMethods pulumi.StringArrayInput
-	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the
-	// valid CLIENT_TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The
-	// CLIENT_TYPES property of an authentication policy is a best effort method to block user logins based on specific
-	// clients. It should not be used as the sole control to establish a security boundary.
+	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
 	ClientTypes pulumi.StringArrayInput
 	// Specifies a comment for the authentication policy.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using
-	// the following characters: `|`, `.`, `"`.
+	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE AUTHENTICATION POLICY` for the given policy.
 	DescribeOutputs AuthenticationPolicyDescribeOutputArrayInput
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not
-	// listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
 	MfaAuthenticationMethods pulumi.StringArrayInput
-	// Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When
-	// REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT_TYPES parameter must
-	// include SNOWFLAKE_UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+	// (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
 	MfaEnrollment pulumi.StringPtrInput
-	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
-	// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or
-	// OAUTH are not in the AUTHENTICATION_METHODS list. All values in the SECURITY_INTEGRATIONS list must be compatible with
-	// the values in the AUTHENTICATION_METHODS list. For example, if SECURITY_INTEGRATIONS contains a SAML security
-	// integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all
-	// security integrations use ALL as parameter.
+	// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
 	SecurityIntegrations pulumi.StringArrayInput
 	// Outputs the result of `SHOW AUTHENTICATION POLICIES` for the given policy.
 	ShowOutputs AuthenticationPolicyShowOutputArrayInput
@@ -180,73 +140,45 @@ func (AuthenticationPolicyState) ElementType() reflect.Type {
 }
 
 type authenticationPolicyArgs struct {
-	// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following
-	// values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+	// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
 	AuthenticationMethods []string `pulumi:"authenticationMethods"`
-	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the
-	// valid CLIENT_TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The
-	// CLIENT_TYPES property of an authentication policy is a best effort method to block user logins based on specific
-	// clients. It should not be used as the sole control to establish a security boundary.
+	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
 	ClientTypes []string `pulumi:"clientTypes"`
 	// Specifies a comment for the authentication policy.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using
-	// the following characters: `|`, `.`, `"`.
+	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not
-	// listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
 	MfaAuthenticationMethods []string `pulumi:"mfaAuthenticationMethods"`
-	// Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When
-	// REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT_TYPES parameter must
-	// include SNOWFLAKE_UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+	// (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
 	MfaEnrollment *string `pulumi:"mfaEnrollment"`
-	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
-	// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or
-	// OAUTH are not in the AUTHENTICATION_METHODS list. All values in the SECURITY_INTEGRATIONS list must be compatible with
-	// the values in the AUTHENTICATION_METHODS list. For example, if SECURITY_INTEGRATIONS contains a SAML security
-	// integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all
-	// security integrations use ALL as parameter.
+	// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
 	SecurityIntegrations []string `pulumi:"securityIntegrations"`
 }
 
 // The set of arguments for constructing a AuthenticationPolicy resource.
 type AuthenticationPolicyArgs struct {
-	// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following
-	// values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+	// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
 	AuthenticationMethods pulumi.StringArrayInput
-	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the
-	// valid CLIENT_TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The
-	// CLIENT_TYPES property of an authentication policy is a best effort method to block user logins based on specific
-	// clients. It should not be used as the sole control to establish a security boundary.
+	// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
 	ClientTypes pulumi.StringArrayInput
 	// Specifies a comment for the authentication policy.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using
-	// the following characters: `|`, `.`, `"`.
+	// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not
-	// listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+	// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
 	MfaAuthenticationMethods pulumi.StringArrayInput
-	// Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When
-	// REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT_TYPES parameter must
-	// include SNOWFLAKE_UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+	// (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
 	MfaEnrollment pulumi.StringPtrInput
-	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
-	// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or
-	// OAUTH are not in the AUTHENTICATION_METHODS list. All values in the SECURITY_INTEGRATIONS list must be compatible with
-	// the values in the AUTHENTICATION_METHODS list. For example, if SECURITY_INTEGRATIONS contains a SAML security
-	// integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all
-	// security integrations use ALL as parameter.
+	// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
 	SecurityIntegrations pulumi.StringArrayInput
 }
 
@@ -337,16 +269,12 @@ func (o AuthenticationPolicyOutput) ToAuthenticationPolicyOutputWithContext(ctx 
 	return o
 }
 
-// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following
-// values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+// A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
 func (o AuthenticationPolicyOutput) AuthenticationMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringArrayOutput { return v.AuthenticationMethods }).(pulumi.StringArrayOutput)
 }
 
-// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the
-// valid CLIENT_TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The
-// CLIENT_TYPES property of an authentication policy is a best effort method to block user logins based on specific
-// clients. It should not be used as the sole control to establish a security boundary.
+// A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
 func (o AuthenticationPolicyOutput) ClientTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringArrayOutput { return v.ClientTypes }).(pulumi.StringArrayOutput)
 }
@@ -356,8 +284,7 @@ func (o AuthenticationPolicyOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using
-// the following characters: `|`, `.`, `"`.
+// The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o AuthenticationPolicyOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -367,42 +294,32 @@ func (o AuthenticationPolicyOutput) DescribeOutputs() AuthenticationPolicyDescri
 	return o.ApplyT(func(v *AuthenticationPolicy) AuthenticationPolicyDescribeOutputArrayOutput { return v.DescribeOutputs }).(AuthenticationPolicyDescribeOutputArrayOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name
-// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o AuthenticationPolicyOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not
-// listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+// A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
 func (o AuthenticationPolicyOutput) MfaAuthenticationMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringArrayOutput { return v.MfaAuthenticationMethods }).(pulumi.StringArrayOutput)
 }
 
-// Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When
-// REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT_TYPES parameter must
-// include SNOWFLAKE_UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+// (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
 func (o AuthenticationPolicyOutput) MfaEnrollment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringPtrOutput { return v.MfaEnrollment }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the
-// following characters: `|`, `.`, `"`.
+// Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o AuthenticationPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the
-// following characters: `|`, `.`, `"`.
+// The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o AuthenticationPolicyOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or
-// OAUTH are not in the AUTHENTICATION_METHODS list. All values in the SECURITY_INTEGRATIONS list must be compatible with
-// the values in the AUTHENTICATION_METHODS list. For example, if SECURITY_INTEGRATIONS contains a SAML security
-// integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all
-// security integrations use ALL as parameter.
+// A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
 func (o AuthenticationPolicyOutput) SecurityIntegrations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AuthenticationPolicy) pulumi.StringArrayOutput { return v.SecurityIntegrations }).(pulumi.StringArrayOutput)
 }

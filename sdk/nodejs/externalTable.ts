@@ -6,6 +6,15 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * format is database name | schema name | external table name
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
+ * ```
+ */
 export class ExternalTable extends pulumi.CustomResource {
     /**
      * Get an existing ExternalTable resource's state with the given name, ID, and optional extra
@@ -35,8 +44,7 @@ export class ExternalTable extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-     * created.
+     * (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      */
     public readonly autoRefresh!: pulumi.Output<boolean | undefined>;
     /**
@@ -52,8 +60,7 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-     * OR REPLACE TABLE variant
+     * (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      */
     public readonly copyGrants!: pulumi.Output<boolean | undefined>;
     /**
@@ -65,18 +72,15 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public readonly fileFormat!: pulumi.Output<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or
-     * populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
+     * Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-     * is created.
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -92,7 +96,7 @@ export class ExternalTable extends pulumi.CustomResource {
      */
     public readonly pattern!: pulumi.Output<string | undefined>;
     /**
-     * Specifies weather to refresh when an external table is created.
+     * (Default: `true`) Specifies weather to refresh when an external table is created.
      */
     public readonly refreshOnCreate!: pulumi.Output<boolean | undefined>;
     /**
@@ -185,8 +189,7 @@ export class ExternalTable extends pulumi.CustomResource {
  */
 export interface ExternalTableState {
     /**
-     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-     * created.
+     * (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      */
     autoRefresh?: pulumi.Input<boolean>;
     /**
@@ -202,8 +205,7 @@ export interface ExternalTableState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-     * OR REPLACE TABLE variant
+     * (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      */
     copyGrants?: pulumi.Input<boolean>;
     /**
@@ -215,18 +217,15 @@ export interface ExternalTableState {
      */
     fileFormat?: pulumi.Input<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or
-     * populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
+     * Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
      */
     location?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-     * is created.
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -242,7 +241,7 @@ export interface ExternalTableState {
      */
     pattern?: pulumi.Input<string>;
     /**
-     * Specifies weather to refresh when an external table is created.
+     * (Default: `true`) Specifies weather to refresh when an external table is created.
      */
     refreshOnCreate?: pulumi.Input<boolean>;
     /**
@@ -266,8 +265,7 @@ export interface ExternalTableState {
  */
 export interface ExternalTableArgs {
     /**
-     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-     * created.
+     * (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      */
     autoRefresh?: pulumi.Input<boolean>;
     /**
@@ -283,8 +281,7 @@ export interface ExternalTableArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-     * OR REPLACE TABLE variant
+     * (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      */
     copyGrants?: pulumi.Input<boolean>;
     /**
@@ -296,13 +293,11 @@ export interface ExternalTableArgs {
      */
     fileFormat: pulumi.Input<string>;
     /**
-     * Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or
-     * populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
+     * Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
      */
     location: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-     * is created.
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -314,7 +309,7 @@ export interface ExternalTableArgs {
      */
     pattern?: pulumi.Input<string>;
     /**
-     * Specifies weather to refresh when an external table is created.
+     * (Default: `true`) Specifies weather to refresh when an external table is created.
      */
     refreshOnCreate?: pulumi.Input<boolean>;
     /**

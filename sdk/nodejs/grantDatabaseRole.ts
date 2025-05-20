@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole example '"ABC"."test_db_role"|ROLE|"test_parent_role"'
+ * ```
+ */
 export class GrantDatabaseRole extends pulumi.CustomResource {
     /**
      * Get an existing GrantDatabaseRole resource's state with the given name, ID, and optional extra
@@ -33,23 +42,19 @@ export class GrantDatabaseRole extends pulumi.CustomResource {
     }
 
     /**
-     * The fully qualified name of the database role which will be granted to share or parent role. For more information about
-     * this resource, see docs.
+     * The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
      */
     public readonly databaseRoleName!: pulumi.Output<string>;
     /**
-     * The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-     * For more information about this resource, see docs.
+     * The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
     public readonly parentDatabaseRoleName!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-     * more information about this resource, see docs.
+     * The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
     public readonly parentRoleName!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-     * docs.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      */
     public readonly shareName!: pulumi.Output<string | undefined>;
 
@@ -90,23 +95,19 @@ export class GrantDatabaseRole extends pulumi.CustomResource {
  */
 export interface GrantDatabaseRoleState {
     /**
-     * The fully qualified name of the database role which will be granted to share or parent role. For more information about
-     * this resource, see docs.
+     * The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
      */
     databaseRoleName?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-     * For more information about this resource, see docs.
+     * The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
     parentDatabaseRoleName?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-     * more information about this resource, see docs.
+     * The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
     parentRoleName?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-     * docs.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      */
     shareName?: pulumi.Input<string>;
 }
@@ -116,23 +117,19 @@ export interface GrantDatabaseRoleState {
  */
 export interface GrantDatabaseRoleArgs {
     /**
-     * The fully qualified name of the database role which will be granted to share or parent role. For more information about
-     * this resource, see docs.
+     * The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
      */
     databaseRoleName: pulumi.Input<string>;
     /**
-     * The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-     * For more information about this resource, see docs.
+     * The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
     parentDatabaseRoleName?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-     * more information about this resource, see docs.
+     * The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
     parentRoleName?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-     * docs.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      */
     shareName?: pulumi.Input<string>;
 }

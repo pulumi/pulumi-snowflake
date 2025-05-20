@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
 func GetNetworkPolicies(ctx *pulumi.Context, args *GetNetworkPoliciesArgs, opts ...pulumi.InvokeOption) (*GetNetworkPoliciesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkPoliciesResult
@@ -23,17 +24,22 @@ func GetNetworkPolicies(ctx *pulumi.Context, args *GetNetworkPoliciesArgs, opts 
 
 // A collection of arguments for invoking getNetworkPolicies.
 type GetNetworkPoliciesArgs struct {
-	Like         *string `pulumi:"like"`
-	WithDescribe *bool   `pulumi:"withDescribe"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 // A collection of values returned by getNetworkPolicies.
 type GetNetworkPoliciesResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id              string                            `pulumi:"id"`
-	Like            *string                           `pulumi:"like"`
+	Id string `pulumi:"id"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Holds the aggregated output of all network policies details queries.
 	NetworkPolicies []GetNetworkPoliciesNetworkPolicy `pulumi:"networkPolicies"`
-	WithDescribe    *bool                             `pulumi:"withDescribe"`
+	// (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 func GetNetworkPoliciesOutput(ctx *pulumi.Context, args GetNetworkPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetNetworkPoliciesResultOutput {
@@ -47,8 +53,10 @@ func GetNetworkPoliciesOutput(ctx *pulumi.Context, args GetNetworkPoliciesOutput
 
 // A collection of arguments for invoking getNetworkPolicies.
 type GetNetworkPoliciesOutputArgs struct {
-	Like         pulumi.StringPtrInput `pulumi:"like"`
-	WithDescribe pulumi.BoolPtrInput   `pulumi:"withDescribe"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
 func (GetNetworkPoliciesOutputArgs) ElementType() reflect.Type {
@@ -75,14 +83,17 @@ func (o GetNetworkPoliciesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkPoliciesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetNetworkPoliciesResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetNetworkPoliciesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
+// Holds the aggregated output of all network policies details queries.
 func (o GetNetworkPoliciesResultOutput) NetworkPolicies() GetNetworkPoliciesNetworkPolicyArrayOutput {
 	return o.ApplyT(func(v GetNetworkPoliciesResult) []GetNetworkPoliciesNetworkPolicy { return v.NetworkPolicies }).(GetNetworkPoliciesNetworkPolicyArrayOutput)
 }
 
+// (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
 func (o GetNetworkPoliciesResultOutput) WithDescribe() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetNetworkPoliciesResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }

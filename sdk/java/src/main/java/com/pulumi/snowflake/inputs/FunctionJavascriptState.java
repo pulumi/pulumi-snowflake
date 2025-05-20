@@ -21,16 +21,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     public static final FunctionJavascriptState Empty = new FunctionJavascriptState();
 
     /**
-     * List of the arguments for the function. Consult the
-     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+     * List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
      * 
      */
     @Import(name="arguments")
     private @Nullable Output<List<FunctionJavascriptArgumentArgs>> arguments;
 
     /**
-     * @return List of the arguments for the function. Consult the
-     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+     * @return List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
      * 
      */
     public Optional<Output<List<FunctionJavascriptArgumentArgs>>> arguments() {
@@ -38,14 +36,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies a comment for the function.
+     * (Default: `user-defined function`) Specifies a comment for the function.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return Specifies a comment for the function.
+     * @return (Default: `user-defined function`) Specifies a comment for the function.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -53,16 +51,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> database() {
@@ -70,18 +66,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-     * For more information, check [ENABLE_CONSOLE_OUTPUT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     @Import(name="enableConsoleOutput")
     private @Nullable Output<Boolean> enableConsoleOutput;
 
     /**
-     * @return Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-     * For more information, check [ENABLE_CONSOLE_OUTPUT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * @return Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     public Optional<Output<Boolean>> enableConsoleOutput() {
@@ -89,16 +81,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -106,24 +96,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-     * do not include them. The `function_definition` value must be JavaScript source code. For more information, see
-     * [Introduction to JavaScript
-     * UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff
-     * on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-     * change in case or run of whitespace is semantically significant.
+     * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be JavaScript source code. For more information, see [Introduction to JavaScript UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     @Import(name="functionDefinition")
     private @Nullable Output<String> functionDefinition;
 
     /**
-     * @return Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-     * do not include them. The `function_definition` value must be JavaScript source code. For more information, see
-     * [Introduction to JavaScript
-     * UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff
-     * on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-     * change in case or run of whitespace is semantically significant.
+     * @return Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be JavaScript source code. For more information, see [Introduction to JavaScript UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     public Optional<Output<String>> functionDefinition() {
@@ -153,16 +133,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     @Import(name="logLevel")
     private @Nullable Output<String> logLevel;
 
     /**
-     * @return LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * @return LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     public Optional<Output<String>> logLevel() {
@@ -170,16 +148,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+     * METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      * 
      */
     @Import(name="metricLevel")
     private @Nullable Output<String> metricLevel;
 
     /**
-     * @return METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+     * @return METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      * 
      */
     public Optional<Output<String>> metricLevel() {
@@ -187,20 +163,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The name of the function; the identifier does not need to be unique for the schema in which the function is created
-     * because UDFs are identified and resolved by the combination of the name and argument types. Check the
-     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-     * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the function; the identifier does not need to be unique for the schema in which the function is created
-     * because UDFs are identified and resolved by the combination of the name and argument types. Check the
-     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-     * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -208,16 +178,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-     * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+     * Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      * 
      */
     @Import(name="nullInputBehavior")
     private @Nullable Output<String> nullInputBehavior;
 
     /**
-     * @return Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-     * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+     * @return Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      * 
      */
     public Optional<Output<String>> nullInputBehavior() {
@@ -240,16 +208,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-     * `IMMUTABLE`.
+     * Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
      * 
      */
     @Import(name="returnResultsBehavior")
     private @Nullable Output<String> returnResultsBehavior;
 
     /**
-     * @return Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-     * `IMMUTABLE`.
+     * @return Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
      * 
      */
     public Optional<Output<String>> returnResultsBehavior() {
@@ -257,20 +223,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar
-     * UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-     * table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-     * the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+     * Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
      * 
      */
     @Import(name="returnType")
     private @Nullable Output<String> returnType;
 
     /**
-     * @return Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar
-     * UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-     * table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-     * the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+     * @return Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
      * 
      */
     public Optional<Output<String>> returnType() {
@@ -278,16 +238,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -310,16 +268,14 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     @Import(name="traceLevel")
     private @Nullable Output<String> traceLevel;
 
     /**
-     * @return Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * @return Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     public Optional<Output<String>> traceLevel() {
@@ -368,8 +324,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arguments List of the arguments for the function. Consult the
-         * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+         * @param arguments List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
          * 
          * @return builder
          * 
@@ -380,8 +335,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arguments List of the arguments for the function. Consult the
-         * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+         * @param arguments List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
          * 
          * @return builder
          * 
@@ -391,8 +345,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arguments List of the arguments for the function. Consult the
-         * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+         * @param arguments List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
          * 
          * @return builder
          * 
@@ -402,7 +355,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param comment Specifies a comment for the function.
+         * @param comment (Default: `user-defined function`) Specifies a comment for the function.
          * 
          * @return builder
          * 
@@ -413,7 +366,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param comment Specifies a comment for the function.
+         * @param comment (Default: `user-defined function`) Specifies a comment for the function.
          * 
          * @return builder
          * 
@@ -423,8 +376,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param database The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -435,8 +387,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param database The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -446,9 +397,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-         * For more information, check [ENABLE_CONSOLE_OUTPUT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
          * 
          * @return builder
          * 
@@ -459,9 +408,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-         * For more information, check [ENABLE_CONSOLE_OUTPUT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
          * 
          * @return builder
          * 
@@ -471,8 +418,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -483,8 +429,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -494,12 +439,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param functionDefinition Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-         * do not include them. The `function_definition` value must be JavaScript source code. For more information, see
-         * [Introduction to JavaScript
-         * UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff
-         * on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-         * change in case or run of whitespace is semantically significant.
+         * @param functionDefinition Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be JavaScript source code. For more information, see [Introduction to JavaScript UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 
@@ -510,12 +450,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param functionDefinition Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-         * do not include them. The `function_definition` value must be JavaScript source code. For more information, see
-         * [Introduction to JavaScript
-         * UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff
-         * on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-         * change in case or run of whitespace is semantically significant.
+         * @param functionDefinition Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be JavaScript source code. For more information, see [Introduction to JavaScript UDFs](https://docs.snowflake.com/en/developer-guide/udf/javascript/udf-javascript-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 
@@ -555,8 +490,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param logLevel LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+         * @param logLevel LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
          * 
          * @return builder
          * 
@@ -567,8 +501,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param logLevel LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+         * @param logLevel LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
          * 
          * @return builder
          * 
@@ -578,8 +511,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param metricLevel METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+         * @param metricLevel METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
          * 
          * @return builder
          * 
@@ -590,8 +522,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param metricLevel METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+         * @param metricLevel METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
          * 
          * @return builder
          * 
@@ -601,10 +532,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the function; the identifier does not need to be unique for the schema in which the function is created
-         * because UDFs are identified and resolved by the combination of the name and argument types. Check the
-         * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-         * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -615,10 +543,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param name The name of the function; the identifier does not need to be unique for the schema in which the function is created
-         * because UDFs are identified and resolved by the combination of the name and argument types. Check the
-         * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-         * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -628,8 +553,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param nullInputBehavior Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-         * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+         * @param nullInputBehavior Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
          * 
          * @return builder
          * 
@@ -640,8 +564,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param nullInputBehavior Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-         * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+         * @param nullInputBehavior Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
          * 
          * @return builder
          * 
@@ -682,8 +605,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param returnResultsBehavior Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-         * `IMMUTABLE`.
+         * @param returnResultsBehavior Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
          * 
          * @return builder
          * 
@@ -694,8 +616,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param returnResultsBehavior Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-         * `IMMUTABLE`.
+         * @param returnResultsBehavior Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
          * 
          * @return builder
          * 
@@ -705,10 +626,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param returnType Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar
-         * UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-         * table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-         * the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+         * @param returnType Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
          * 
          * @return builder
          * 
@@ -719,10 +637,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param returnType Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar
-         * UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-         * table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-         * the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+         * @param returnType Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
          * 
          * @return builder
          * 
@@ -732,8 +647,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param schema The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -744,8 +658,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param schema The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -786,8 +699,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
          * 
          * @return builder
          * 
@@ -798,8 +710,7 @@ public final class FunctionJavascriptState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
          * 
          * @return builder
          * 

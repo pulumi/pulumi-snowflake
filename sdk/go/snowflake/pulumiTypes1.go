@@ -7088,6 +7088,7 @@ func (o ViewDataMetricFunctionArrayOutput) Index(i pulumi.IntInput) ViewDataMetr
 }
 
 type ViewDataMetricSchedule struct {
+	// Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `usingCron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `usingCron` field, or replace*triggered*by metadata argument.
 	Minutes *int `pulumi:"minutes"`
 	// Specifies a cron expression and time zone for periodically running the data metric function. Supports a subset of standard cron utility syntax. Conflicts with `minutes`.
 	UsingCron *string `pulumi:"usingCron"`
@@ -7105,6 +7106,7 @@ type ViewDataMetricScheduleInput interface {
 }
 
 type ViewDataMetricScheduleArgs struct {
+	// Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `usingCron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `usingCron` field, or replace*triggered*by metadata argument.
 	Minutes pulumi.IntPtrInput `pulumi:"minutes"`
 	// Specifies a cron expression and time zone for periodically running the data metric function. Supports a subset of standard cron utility syntax. Conflicts with `minutes`.
 	UsingCron pulumi.StringPtrInput `pulumi:"usingCron"`
@@ -7187,6 +7189,7 @@ func (o ViewDataMetricScheduleOutput) ToViewDataMetricSchedulePtrOutputWithConte
 	}).(ViewDataMetricSchedulePtrOutput)
 }
 
+// Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `usingCron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `usingCron` field, or replace*triggered*by metadata argument.
 func (o ViewDataMetricScheduleOutput) Minutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ViewDataMetricSchedule) *int { return v.Minutes }).(pulumi.IntPtrOutput)
 }
@@ -7220,6 +7223,7 @@ func (o ViewDataMetricSchedulePtrOutput) Elem() ViewDataMetricScheduleOutput {
 	}).(ViewDataMetricScheduleOutput)
 }
 
+// Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `usingCron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `usingCron` field, or replace*triggered*by metadata argument.
 func (o ViewDataMetricSchedulePtrOutput) Minutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ViewDataMetricSchedule) *int {
 		if v == nil {
@@ -14425,7 +14429,7 @@ func (o GetFunctionsFunctionArrayOutput) Index(i pulumi.IntInput) GetFunctionsFu
 type GetGrantsFutureGrantsIn struct {
 	// Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
 	Database *string `pulumi:"database"`
-	// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db_name&gt;"."&lt;schema_name&gt;").
+	// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
 	Schema *string `pulumi:"schema"`
 }
 
@@ -14443,7 +14447,7 @@ type GetGrantsFutureGrantsInInput interface {
 type GetGrantsFutureGrantsInArgs struct {
 	// Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db_name&gt;"."&lt;schema_name&gt;").
+	// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
 	Schema pulumi.StringPtrInput `pulumi:"schema"`
 }
 
@@ -14529,7 +14533,7 @@ func (o GetGrantsFutureGrantsInOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsFutureGrantsIn) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
-// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db_name&gt;"."&lt;schema_name&gt;").
+// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
 func (o GetGrantsFutureGrantsInOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsFutureGrantsIn) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }
@@ -14568,7 +14572,7 @@ func (o GetGrantsFutureGrantsInPtrOutput) Database() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db_name&gt;"."&lt;schema_name&gt;").
+// Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
 func (o GetGrantsFutureGrantsInPtrOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsFutureGrantsIn) *string {
 		if v == nil {
@@ -14581,7 +14585,7 @@ func (o GetGrantsFutureGrantsInPtrOutput) Schema() pulumi.StringPtrOutput {
 type GetGrantsFutureGrantsTo struct {
 	// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
 	AccountRole *string `pulumi:"accountRole"`
-	// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+	// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 	DatabaseRole *string `pulumi:"databaseRole"`
 }
 
@@ -14599,7 +14603,7 @@ type GetGrantsFutureGrantsToInput interface {
 type GetGrantsFutureGrantsToArgs struct {
 	// Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
 	AccountRole pulumi.StringPtrInput `pulumi:"accountRole"`
-	// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+	// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 	DatabaseRole pulumi.StringPtrInput `pulumi:"databaseRole"`
 }
 
@@ -14685,7 +14689,7 @@ func (o GetGrantsFutureGrantsToOutput) AccountRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsFutureGrantsTo) *string { return v.AccountRole }).(pulumi.StringPtrOutput)
 }
 
-// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 func (o GetGrantsFutureGrantsToOutput) DatabaseRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsFutureGrantsTo) *string { return v.DatabaseRole }).(pulumi.StringPtrOutput)
 }
@@ -14724,7 +14728,7 @@ func (o GetGrantsFutureGrantsToPtrOutput) AccountRole() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 func (o GetGrantsFutureGrantsToPtrOutput) DatabaseRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsFutureGrantsTo) *string {
 		if v == nil {
@@ -14897,9 +14901,9 @@ func (o GetGrantsGrantArrayOutput) Index(i pulumi.IntInput) GetGrantsGrantOutput
 type GetGrantsGrantsOf struct {
 	// Lists all users and roles to which the account role has been granted.
 	AccountRole *string `pulumi:"accountRole"`
-	// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+	// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 	ApplicationRole *string `pulumi:"applicationRole"`
-	// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+	// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 	DatabaseRole *string `pulumi:"databaseRole"`
 	// Lists all the accounts for the share and indicates the accounts that are using the share.
 	Share *string `pulumi:"share"`
@@ -14919,9 +14923,9 @@ type GetGrantsGrantsOfInput interface {
 type GetGrantsGrantsOfArgs struct {
 	// Lists all users and roles to which the account role has been granted.
 	AccountRole pulumi.StringPtrInput `pulumi:"accountRole"`
-	// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+	// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 	ApplicationRole pulumi.StringPtrInput `pulumi:"applicationRole"`
-	// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+	// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 	DatabaseRole pulumi.StringPtrInput `pulumi:"databaseRole"`
 	// Lists all the accounts for the share and indicates the accounts that are using the share.
 	Share pulumi.StringPtrInput `pulumi:"share"`
@@ -15009,12 +15013,12 @@ func (o GetGrantsGrantsOfOutput) AccountRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsGrantsOf) *string { return v.AccountRole }).(pulumi.StringPtrOutput)
 }
 
-// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 func (o GetGrantsGrantsOfOutput) ApplicationRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsGrantsOf) *string { return v.ApplicationRole }).(pulumi.StringPtrOutput)
 }
 
-// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 func (o GetGrantsGrantsOfOutput) DatabaseRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsGrantsOf) *string { return v.DatabaseRole }).(pulumi.StringPtrOutput)
 }
@@ -15058,7 +15062,7 @@ func (o GetGrantsGrantsOfPtrOutput) AccountRole() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+// Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 func (o GetGrantsGrantsOfPtrOutput) ApplicationRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsGrantsOf) *string {
 		if v == nil {
@@ -15068,7 +15072,7 @@ func (o GetGrantsGrantsOfPtrOutput) ApplicationRole() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+// Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 func (o GetGrantsGrantsOfPtrOutput) DatabaseRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsGrantsOf) *string {
 		if v == nil {
@@ -15268,9 +15272,9 @@ type GetGrantsGrantsTo struct {
 	AccountRole *string `pulumi:"accountRole"`
 	// Lists all the privileges and roles granted to the application.
 	Application *string `pulumi:"application"`
-	// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app_name&gt;"."&lt;app_role_name&gt;").
+	// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
 	ApplicationRole *string `pulumi:"applicationRole"`
-	// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+	// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 	DatabaseRole *string `pulumi:"databaseRole"`
 	// Lists all the privileges granted to the share.
 	Share *GetGrantsGrantsToShare `pulumi:"share"`
@@ -15294,9 +15298,9 @@ type GetGrantsGrantsToArgs struct {
 	AccountRole pulumi.StringPtrInput `pulumi:"accountRole"`
 	// Lists all the privileges and roles granted to the application.
 	Application pulumi.StringPtrInput `pulumi:"application"`
-	// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app_name&gt;"."&lt;app_role_name&gt;").
+	// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
 	ApplicationRole pulumi.StringPtrInput `pulumi:"applicationRole"`
-	// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+	// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 	DatabaseRole pulumi.StringPtrInput `pulumi:"databaseRole"`
 	// Lists all the privileges granted to the share.
 	Share GetGrantsGrantsToSharePtrInput `pulumi:"share"`
@@ -15391,12 +15395,12 @@ func (o GetGrantsGrantsToOutput) Application() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsGrantsTo) *string { return v.Application }).(pulumi.StringPtrOutput)
 }
 
-// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app_name&gt;"."&lt;app_role_name&gt;").
+// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
 func (o GetGrantsGrantsToOutput) ApplicationRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsGrantsTo) *string { return v.ApplicationRole }).(pulumi.StringPtrOutput)
 }
 
-// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 func (o GetGrantsGrantsToOutput) DatabaseRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetGrantsGrantsTo) *string { return v.DatabaseRole }).(pulumi.StringPtrOutput)
 }
@@ -15455,7 +15459,7 @@ func (o GetGrantsGrantsToPtrOutput) Application() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app_name&gt;"."&lt;app_role_name&gt;").
+// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
 func (o GetGrantsGrantsToPtrOutput) ApplicationRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsGrantsTo) *string {
 		if v == nil {
@@ -15465,7 +15469,7 @@ func (o GetGrantsGrantsToPtrOutput) ApplicationRole() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
 func (o GetGrantsGrantsToPtrOutput) DatabaseRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetGrantsGrantsTo) *string {
 		if v == nil {

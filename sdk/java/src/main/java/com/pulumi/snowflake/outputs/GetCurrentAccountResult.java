@@ -10,16 +10,32 @@ import java.util.Objects;
 
 @CustomType
 public final class GetCurrentAccountResult {
+    /**
+     * @return The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
+     * 
+     */
     private String account;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The Snowflake Region; as returned by CURRENT_REGION()
+     * 
+     */
     private String region;
+    /**
+     * @return The Snowflake URL.
+     * 
+     */
     private String url;
 
     private GetCurrentAccountResult() {}
+    /**
+     * @return The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
+     * 
+     */
     public String account() {
         return this.account;
     }
@@ -30,9 +46,17 @@ public final class GetCurrentAccountResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The Snowflake Region; as returned by CURRENT_REGION()
+     * 
+     */
     public String region() {
         return this.region;
     }
+    /**
+     * @return The Snowflake URL.
+     * 
+     */
     public String url() {
         return this.url;
     }

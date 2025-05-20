@@ -18,17 +18,47 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ### Import examples
+ * 
+ * #### Grant all privileges OnDatabase
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example &#39;&#34;test_db&#34;.&#34;test_db_role&#34;|false|false|ALL|OnDatabase|&#34;test_db&#34;&#39;`
+ * ```
+ * 
+ * #### Grant list of privileges OnAllSchemasInDatabase
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example &#39;&#34;test_db&#34;.&#34;test_db_role&#34;|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|&#34;test_db&#34;&#39;`
+ * ```
+ * 
+ * #### Grant list of privileges on table
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example &#39;&#34;test_db&#34;.&#34;test_db_role&#34;|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|&#34;test_db&#34;.&#34;test_schema&#34;.&#34;test_table&#34;&#39;`
+ * ```
+ * 
+ * #### Grant list of privileges OnAll tables in schema
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example &#39;&#34;test_db&#34;.&#34;test_db_role&#34;|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|&#34;test_db&#34;.&#34;test_schema&#34;&#39;`
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole")
 public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomResource {
     /**
-     * Grant all privileges on the database role.
+     * (Default: `false`) Grant all privileges on the database role.
      * 
      */
     @Export(name="allPrivileges", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allPrivileges;
 
     /**
-     * @return Grant all privileges on the database role.
+     * @return (Default: `false`) Grant all privileges on the database role.
      * 
      */
     public Output<Optional<Boolean>> allPrivileges() {
@@ -41,48 +71,42 @@ public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.alwaysApply);
     }
     /**
-     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-     * always_apply field.
+     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     @Export(name="alwaysApplyTrigger", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alwaysApplyTrigger;
 
     /**
-     * @return This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-     * always_apply field.
+     * @return (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     public Output<Optional<String>> alwaysApplyTrigger() {
         return Codegen.optional(this.alwaysApplyTrigger);
     }
     /**
-     * The fully qualified name of the database role to which privileges will be granted. For more information about this
-     * resource, see docs.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="databaseRoleName", refs={String.class}, tree="[0]")
     private Output<String> databaseRoleName;
 
     /**
-     * @return The fully qualified name of the database role to which privileges will be granted. For more information about this
-     * resource, see docs.
+     * @return The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<String> databaseRoleName() {
         return this.databaseRoleName;
     }
     /**
-     * The fully qualified name of the database on which privileges will be granted. For more information about this resource,
-     * see docs.
+     * The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="onDatabase", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> onDatabase;
 
     /**
-     * @return The fully qualified name of the database on which privileges will be granted. For more information about this resource,
-     * see docs.
+     * @return The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> onDatabase() {
@@ -131,14 +155,14 @@ public class GrantPrivilegesToDatabaseRole extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.privileges);
     }
     /**
-     * If specified, allows the recipient role to grant the privileges to other roles.
+     * (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
      * 
      */
     @Export(name="withGrantOption", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> withGrantOption;
 
     /**
-     * @return If specified, allows the recipient role to grant the privileges to other roles.
+     * @return (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
      * 
      */
     public Output<Optional<Boolean>> withGrantOption() {

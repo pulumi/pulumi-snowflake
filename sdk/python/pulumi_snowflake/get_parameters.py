@@ -62,31 +62,49 @@ class GetParametersResult:
     @property
     @pulumi.getter(name="objectName")
     def object_name(self) -> Optional[builtins.str]:
+        """
+        If parameter*type is set to "OBJECT" then object*name is the name of the object to display object parameters for.
+        """
         return pulumi.get(self, "object_name")
 
     @property
     @pulumi.getter(name="objectType")
     def object_type(self) -> Optional[builtins.str]:
+        """
+        If parameter*type is set to "OBJECT" then object*type is the type of object to display object parameters for. Valid values are any object supported by the IN clause of the [SHOW PARAMETERS](https://docs.snowflake.com/en/sql-reference/sql/show-parameters.html#parameters) statement, including: WAREHOUSE | DATABASE | SCHEMA | TASK | TABLE
+        """
         return pulumi.get(self, "object_type")
 
     @property
     @pulumi.getter(name="parameterType")
     def parameter_type(self) -> Optional[builtins.str]:
+        """
+        (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
+        """
         return pulumi.get(self, "parameter_type")
 
     @property
     @pulumi.getter
     def parameters(self) -> Sequence['outputs.GetParametersParameterResult']:
+        """
+        The pipes in the schema
+        """
         return pulumi.get(self, "parameters")
 
     @property
     @pulumi.getter
     def pattern(self) -> Optional[builtins.str]:
+        """
+        Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
+        """
         return pulumi.get(self, "pattern")
 
     @property
     @pulumi.getter
     def user(self) -> Optional[builtins.str]:
+        """
+        If parameter_type is set to "SESSION" then user is the name of the user to display session parameters for.
+        """
         return pulumi.get(self, "user")
 
 
@@ -112,7 +130,36 @@ def get_parameters(object_name: Optional[builtins.str] = None,
                    user: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParametersResult:
     """
-    Use this data source to access information about an existing resource.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    d = snowflake.Database("d", name="TEST_DB")
+    # read all object parameters in database TEST_DB
+    p = snowflake.get_parameters_output(parameter_type="OBJECT",
+        object_type="DATABASE",
+        object_name=d.name)
+    # read all account parameters with the pattern '%TIMESTAMP%'
+    p2 = snowflake.get_parameters(parameter_type="ACCOUNT",
+        pattern="%TIMESTAMP%")
+    # read the exact session parameter ROWS_PER_RESULTSET
+    p3 = snowflake.get_parameters(parameter_type="SESSION",
+        pattern="ROWS_PER_RESULTSET",
+        user="TEST_USER")
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param builtins.str object_name: If parameter*type is set to "OBJECT" then object*name is the name of the object to display object parameters for.
+    :param builtins.str object_type: If parameter*type is set to "OBJECT" then object*type is the type of object to display object parameters for. Valid values are any object supported by the IN clause of the [SHOW PARAMETERS](https://docs.snowflake.com/en/sql-reference/sql/show-parameters.html#parameters) statement, including: WAREHOUSE | DATABASE | SCHEMA | TASK | TABLE
+    :param builtins.str parameter_type: (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
+    :param builtins.str pattern: Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
+    :param builtins.str user: If parameter_type is set to "SESSION" then user is the name of the user to display session parameters for.
     """
     __args__ = dict()
     __args__['objectName'] = object_name
@@ -138,7 +185,36 @@ def get_parameters_output(object_name: Optional[pulumi.Input[Optional[builtins.s
                           user: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParametersResult]:
     """
-    Use this data source to access information about an existing resource.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    d = snowflake.Database("d", name="TEST_DB")
+    # read all object parameters in database TEST_DB
+    p = snowflake.get_parameters_output(parameter_type="OBJECT",
+        object_type="DATABASE",
+        object_name=d.name)
+    # read all account parameters with the pattern '%TIMESTAMP%'
+    p2 = snowflake.get_parameters(parameter_type="ACCOUNT",
+        pattern="%TIMESTAMP%")
+    # read the exact session parameter ROWS_PER_RESULTSET
+    p3 = snowflake.get_parameters(parameter_type="SESSION",
+        pattern="ROWS_PER_RESULTSET",
+        user="TEST_USER")
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param builtins.str object_name: If parameter*type is set to "OBJECT" then object*name is the name of the object to display object parameters for.
+    :param builtins.str object_type: If parameter*type is set to "OBJECT" then object*type is the type of object to display object parameters for. Valid values are any object supported by the IN clause of the [SHOW PARAMETERS](https://docs.snowflake.com/en/sql-reference/sql/show-parameters.html#parameters) statement, including: WAREHOUSE | DATABASE | SCHEMA | TASK | TABLE
+    :param builtins.str parameter_type: (Default: `ACCOUNT`) The type of parameter to filter by. Valid values are: "ACCOUNT", "SESSION", "OBJECT".
+    :param builtins.str pattern: Allows limiting the list of parameters by name using LIKE clause. Refer to [Limiting the List of Parameters by Name](https://docs.snowflake.com/en/sql-reference/parameters.html#limiting-the-list-of-parameters-by-name)
+    :param builtins.str user: If parameter_type is set to "SESSION" then user is the name of the user to display session parameters for.
     """
     __args__ = dict()
     __args__['objectName'] = object_name

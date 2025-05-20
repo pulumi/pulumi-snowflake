@@ -20,8 +20,20 @@ public final class GetTagsResult {
      * 
      */
     private String id;
+    /**
+     * @return IN clause to filter the list of objects
+     * 
+     */
     private @Nullable GetTagsIn in;
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     private @Nullable String like;
+    /**
+     * @return Holds the aggregated output of all tags details queries.
+     * 
+     */
     private List<GetTagsTag> tags;
 
     private GetTagsResult() {}
@@ -32,12 +44,24 @@ public final class GetTagsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return IN clause to filter the list of objects
+     * 
+     */
     public Optional<GetTagsIn> in() {
         return Optional.ofNullable(this.in);
     }
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
+    /**
+     * @return Holds the aggregated output of all tags details queries.
+     * 
+     */
     public List<GetTagsTag> tags() {
         return this.tags;
     }

@@ -21,9 +21,25 @@ public final class GetSecretsResult {
      * 
      */
     private String id;
+    /**
+     * @return IN clause to filter the list of secrets
+     * 
+     */
     private @Nullable GetSecretsIn in;
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     private @Nullable String like;
+    /**
+     * @return Holds the aggregated output of all secrets details queries.
+     * 
+     */
     private List<GetSecretsSecret> secrets;
+    /**
+     * @return (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
     private @Nullable Boolean withDescribe;
 
     private GetSecretsResult() {}
@@ -34,15 +50,31 @@ public final class GetSecretsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return IN clause to filter the list of secrets
+     * 
+     */
     public Optional<GetSecretsIn> in() {
         return Optional.ofNullable(this.in);
     }
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
+    /**
+     * @return Holds the aggregated output of all secrets details queries.
+     * 
+     */
     public List<GetSecretsSecret> secrets() {
         return this.secrets;
     }
+    /**
+     * @return (Default: `true`) Runs DESC SECRET for each secret returned by SHOW SECRETS. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
     public Optional<Boolean> withDescribe() {
         return Optional.ofNullable(this.withDescribe);
     }

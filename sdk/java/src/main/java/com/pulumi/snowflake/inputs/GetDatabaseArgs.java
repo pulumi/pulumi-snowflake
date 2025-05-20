@@ -14,9 +14,17 @@ public final class GetDatabaseArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDatabaseArgs Empty = new GetDatabaseArgs();
 
+    /**
+     * The database from which to return its metadata.
+     * 
+     */
     @Import(name="name", required=true)
     private Output<String> name;
 
+    /**
+     * @return The database from which to return its metadata.
+     * 
+     */
     public Output<String> name() {
         return this.name;
     }
@@ -45,11 +53,23 @@ public final class GetDatabaseArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDatabaseArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param name The database from which to return its metadata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name The database from which to return its metadata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }

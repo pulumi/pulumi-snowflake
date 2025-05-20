@@ -11,6 +11,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetFunctions(ctx, &snowflake.GetFunctionsArgs{
+//				Database: "MYDB",
+//				Schema:   "MYSCHEMA",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetFunctions(ctx *pulumi.Context, args *GetFunctionsArgs, opts ...pulumi.InvokeOption) (*GetFunctionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFunctionsResult
@@ -23,16 +53,21 @@ func GetFunctions(ctx *pulumi.Context, args *GetFunctionsArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getFunctions.
 type GetFunctionsArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the functions from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getFunctions.
 type GetFunctionsResult struct {
-	Database  string                 `pulumi:"database"`
+	// The database from which to return the schemas from.
+	Database string `pulumi:"database"`
+	// The functions in the schema
 	Functions []GetFunctionsFunction `pulumi:"functions"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The schema from which to return the functions from.
 	Schema string `pulumi:"schema"`
 }
 
@@ -47,8 +82,10 @@ func GetFunctionsOutput(ctx *pulumi.Context, args GetFunctionsOutputArgs, opts .
 
 // A collection of arguments for invoking getFunctions.
 type GetFunctionsOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the functions from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetFunctionsOutputArgs) ElementType() reflect.Type {
@@ -70,10 +107,12 @@ func (o GetFunctionsResultOutput) ToGetFunctionsResultOutputWithContext(ctx cont
 	return o
 }
 
+// The database from which to return the schemas from.
 func (o GetFunctionsResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsResult) string { return v.Database }).(pulumi.StringOutput)
 }
 
+// The functions in the schema
 func (o GetFunctionsResultOutput) Functions() GetFunctionsFunctionArrayOutput {
 	return o.ApplyT(func(v GetFunctionsResult) []GetFunctionsFunction { return v.Functions }).(GetFunctionsFunctionArrayOutput)
 }
@@ -83,6 +122,7 @@ func (o GetFunctionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the functions from.
 func (o GetFunctionsResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionsResult) string { return v.Schema }).(pulumi.StringOutput)
 }

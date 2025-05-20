@@ -12,20 +12,44 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ### Import examples
+//
+// #### Grant all privileges OnAccountObject (Database)
+//
+// ```sh
+// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|ALL|OnAccountObject|DATABASE|"test_db"'`
+// ```
+//
+// #### Grant list of privileges OnAllSchemasInDatabase
+//
+// ```sh
+// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|"test_db"'`
+// ```
+//
+// #### Grant list of privileges on table
+//
+// ```sh
+// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|"test_db"."test_schema"."test_table"'`
+// ```
+//
+// #### Grant list of privileges OnAll tables in schema
+//
+// ```sh
+// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|"test_db"."test_schema"'`
+// ```
 type GrantPrivilegesToAccountRole struct {
 	pulumi.CustomResourceState
 
-	// The fully qualified name of the account role to which privileges will be granted. For more information about this
-	// resource, see docs.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName pulumi.StringOutput `pulumi:"accountRoleName"`
-	// Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-	// is aligned with the Snowsight behavior.
+	// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
 	AllPrivileges pulumi.BoolPtrOutput `pulumi:"allPrivileges"`
 	AlwaysApply   pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
-	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-	// alwaysApply field.
+	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrOutput `pulumi:"alwaysApplyTrigger"`
-	// If true, the privileges will be granted on the account.
+	// (Default: `false`) If true, the privileges will be granted on the account.
 	OnAccount pulumi.BoolPtrOutput `pulumi:"onAccount"`
 	// Specifies the account object on which privileges will be granted
 	OnAccountObject GrantPrivilegesToAccountRoleOnAccountObjectPtrOutput `pulumi:"onAccountObject"`
@@ -35,7 +59,7 @@ type GrantPrivilegesToAccountRole struct {
 	OnSchemaObject GrantPrivilegesToAccountRoleOnSchemaObjectPtrOutput `pulumi:"onSchemaObject"`
 	// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
 	Privileges pulumi.StringArrayOutput `pulumi:"privileges"`
-	// Specifies whether the grantee can grant the privileges to other users.
+	// (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
 }
 
@@ -72,17 +96,14 @@ func GetGrantPrivilegesToAccountRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GrantPrivilegesToAccountRole resources.
 type grantPrivilegesToAccountRoleState struct {
-	// The fully qualified name of the account role to which privileges will be granted. For more information about this
-	// resource, see docs.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName *string `pulumi:"accountRoleName"`
-	// Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-	// is aligned with the Snowsight behavior.
+	// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
 	AllPrivileges *bool `pulumi:"allPrivileges"`
 	AlwaysApply   *bool `pulumi:"alwaysApply"`
-	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-	// alwaysApply field.
+	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
-	// If true, the privileges will be granted on the account.
+	// (Default: `false`) If true, the privileges will be granted on the account.
 	OnAccount *bool `pulumi:"onAccount"`
 	// Specifies the account object on which privileges will be granted
 	OnAccountObject *GrantPrivilegesToAccountRoleOnAccountObject `pulumi:"onAccountObject"`
@@ -92,22 +113,19 @@ type grantPrivilegesToAccountRoleState struct {
 	OnSchemaObject *GrantPrivilegesToAccountRoleOnSchemaObject `pulumi:"onSchemaObject"`
 	// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
 	Privileges []string `pulumi:"privileges"`
-	// Specifies whether the grantee can grant the privileges to other users.
+	// (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
 }
 
 type GrantPrivilegesToAccountRoleState struct {
-	// The fully qualified name of the account role to which privileges will be granted. For more information about this
-	// resource, see docs.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName pulumi.StringPtrInput
-	// Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-	// is aligned with the Snowsight behavior.
+	// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
 	AllPrivileges pulumi.BoolPtrInput
 	AlwaysApply   pulumi.BoolPtrInput
-	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-	// alwaysApply field.
+	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
-	// If true, the privileges will be granted on the account.
+	// (Default: `false`) If true, the privileges will be granted on the account.
 	OnAccount pulumi.BoolPtrInput
 	// Specifies the account object on which privileges will be granted
 	OnAccountObject GrantPrivilegesToAccountRoleOnAccountObjectPtrInput
@@ -117,7 +135,7 @@ type GrantPrivilegesToAccountRoleState struct {
 	OnSchemaObject GrantPrivilegesToAccountRoleOnSchemaObjectPtrInput
 	// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
 	Privileges pulumi.StringArrayInput
-	// Specifies whether the grantee can grant the privileges to other users.
+	// (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
 	WithGrantOption pulumi.BoolPtrInput
 }
 
@@ -126,17 +144,14 @@ func (GrantPrivilegesToAccountRoleState) ElementType() reflect.Type {
 }
 
 type grantPrivilegesToAccountRoleArgs struct {
-	// The fully qualified name of the account role to which privileges will be granted. For more information about this
-	// resource, see docs.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName string `pulumi:"accountRoleName"`
-	// Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-	// is aligned with the Snowsight behavior.
+	// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
 	AllPrivileges *bool `pulumi:"allPrivileges"`
 	AlwaysApply   *bool `pulumi:"alwaysApply"`
-	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-	// alwaysApply field.
+	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
-	// If true, the privileges will be granted on the account.
+	// (Default: `false`) If true, the privileges will be granted on the account.
 	OnAccount *bool `pulumi:"onAccount"`
 	// Specifies the account object on which privileges will be granted
 	OnAccountObject *GrantPrivilegesToAccountRoleOnAccountObject `pulumi:"onAccountObject"`
@@ -146,23 +161,20 @@ type grantPrivilegesToAccountRoleArgs struct {
 	OnSchemaObject *GrantPrivilegesToAccountRoleOnSchemaObject `pulumi:"onSchemaObject"`
 	// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
 	Privileges []string `pulumi:"privileges"`
-	// Specifies whether the grantee can grant the privileges to other users.
+	// (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
 }
 
 // The set of arguments for constructing a GrantPrivilegesToAccountRole resource.
 type GrantPrivilegesToAccountRoleArgs struct {
-	// The fully qualified name of the account role to which privileges will be granted. For more information about this
-	// resource, see docs.
+	// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 	AccountRoleName pulumi.StringInput
-	// Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-	// is aligned with the Snowsight behavior.
+	// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
 	AllPrivileges pulumi.BoolPtrInput
 	AlwaysApply   pulumi.BoolPtrInput
-	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-	// alwaysApply field.
+	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
-	// If true, the privileges will be granted on the account.
+	// (Default: `false`) If true, the privileges will be granted on the account.
 	OnAccount pulumi.BoolPtrInput
 	// Specifies the account object on which privileges will be granted
 	OnAccountObject GrantPrivilegesToAccountRoleOnAccountObjectPtrInput
@@ -172,7 +184,7 @@ type GrantPrivilegesToAccountRoleArgs struct {
 	OnSchemaObject GrantPrivilegesToAccountRoleOnSchemaObjectPtrInput
 	// The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
 	Privileges pulumi.StringArrayInput
-	// Specifies whether the grantee can grant the privileges to other users.
+	// (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
 	WithGrantOption pulumi.BoolPtrInput
 }
 
@@ -263,14 +275,12 @@ func (o GrantPrivilegesToAccountRoleOutput) ToGrantPrivilegesToAccountRoleOutput
 	return o
 }
 
-// The fully qualified name of the account role to which privileges will be granted. For more information about this
-// resource, see docs.
+// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
 func (o GrantPrivilegesToAccountRoleOutput) AccountRoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRole) pulumi.StringOutput { return v.AccountRoleName }).(pulumi.StringOutput)
 }
 
-// Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-// is aligned with the Snowsight behavior.
+// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
 func (o GrantPrivilegesToAccountRoleOutput) AllPrivileges() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRole) pulumi.BoolPtrOutput { return v.AllPrivileges }).(pulumi.BoolPtrOutput)
 }
@@ -279,13 +289,12 @@ func (o GrantPrivilegesToAccountRoleOutput) AlwaysApply() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRole) pulumi.BoolPtrOutput { return v.AlwaysApply }).(pulumi.BoolPtrOutput)
 }
 
-// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-// alwaysApply field.
+// (Default: “) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 func (o GrantPrivilegesToAccountRoleOutput) AlwaysApplyTrigger() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRole) pulumi.StringPtrOutput { return v.AlwaysApplyTrigger }).(pulumi.StringPtrOutput)
 }
 
-// If true, the privileges will be granted on the account.
+// (Default: `false`) If true, the privileges will be granted on the account.
 func (o GrantPrivilegesToAccountRoleOutput) OnAccount() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRole) pulumi.BoolPtrOutput { return v.OnAccount }).(pulumi.BoolPtrOutput)
 }
@@ -314,7 +323,7 @@ func (o GrantPrivilegesToAccountRoleOutput) Privileges() pulumi.StringArrayOutpu
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRole) pulumi.StringArrayOutput { return v.Privileges }).(pulumi.StringArrayOutput)
 }
 
-// Specifies whether the grantee can grant the privileges to other users.
+// (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
 func (o GrantPrivilegesToAccountRoleOutput) WithGrantOption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRole) pulumi.BoolPtrOutput { return v.WithGrantOption }).(pulumi.BoolPtrOutput)
 }

@@ -39,18 +39,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is
-     * not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this
-     * value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="changeTracking")
     private @Nullable Output<String> changeTracking;
 
     /**
-     * @return Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is
-     * not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this
-     * value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> changeTracking() {
@@ -58,18 +54,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that
-     * specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the
-     * columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
+     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      * 
      */
     @Import(name="columns")
     private @Nullable Output<List<ViewColumnArgs>> columns;
 
     /**
-     * @return If you want to change the name of a column or add a comment to a column in the new view, include a column list that
-     * specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the
-     * columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
+     * @return If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      * 
      */
     public Optional<Output<List<ViewColumnArgs>>> columns() {
@@ -129,16 +121,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the view. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -146,18 +136,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table
-     * expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-     * put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="isRecursive")
     private @Nullable Output<String> isRecursive;
 
     /**
-     * @return Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table
-     * expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-     * put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> isRecursive() {
@@ -179,16 +165,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -211,16 +195,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the view. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -228,18 +210,14 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters
-     * with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically
-     * significant.
+     * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     @Import(name="statement", required=true)
     private Output<String> statement;
 
     /**
-     * @return Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters
-     * with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically
-     * significant.
+     * @return Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     public Output<String> statement() {
@@ -306,9 +284,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param changeTracking Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is
-         * not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this
-         * value.
+         * @param changeTracking (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -319,9 +295,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param changeTracking Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is
-         * not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this
-         * value.
+         * @param changeTracking (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -331,9 +305,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that
-         * specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the
-         * columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
+         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
          * 
          * @return builder
          * 
@@ -344,9 +316,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that
-         * specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the
-         * columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
+         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
          * 
          * @return builder
          * 
@@ -356,9 +326,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that
-         * specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the
-         * columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
+         * @param columns If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
          * 
          * @return builder
          * 
@@ -450,8 +418,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the view. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -462,8 +429,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the view. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -473,9 +439,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isRecursive Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table
-         * expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-         * put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param isRecursive (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -486,9 +450,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isRecursive Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table
-         * expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-         * put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param isRecursive (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -516,8 +478,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical
-         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -528,8 +489,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical
-         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -560,8 +520,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the view. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -572,8 +531,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the view. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -583,9 +541,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters
-         * with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically
-         * significant.
+         * @param statement Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 
@@ -596,9 +552,7 @@ public final class ViewArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statement Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters
-         * with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically
-         * significant.
+         * @param statement Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 

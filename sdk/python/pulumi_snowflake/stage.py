@@ -40,18 +40,16 @@ class StageArgs:
         The set of arguments for constructing a Stage resource.
         :param pulumi.Input[builtins.str] database: The database in which to create the stage.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the stage.
-        :param pulumi.Input[builtins.str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format:
-               &lt;snowflakeAccount&gt;_SFCRole=&lt;snowflakeRoleId&gt;_&lt;randomId&gt;
+        :param pulumi.Input[builtins.str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the stage.
         :param pulumi.Input[builtins.str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[builtins.str] credentials: Specifies the credentials for the stage.
         :param pulumi.Input[builtins.str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[builtins.str] encryption: Specifies the encryption settings for the stage.
+        :param pulumi.Input[builtins.str] file_format: Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
-        :param pulumi.Input[builtins.str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
-               account.
-        :param pulumi.Input[builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-               to a Snowflake identity and access management (IAM) entity.
+        :param pulumi.Input[builtins.str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+        :param pulumi.Input[builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[builtins.str] url: Specifies the URL for the stage.
         """
@@ -113,8 +111,7 @@ class StageArgs:
     @pulumi.getter(name="awsExternalId")
     def aws_external_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A unique ID assigned to the specific stage. The ID has the following format:
-        &lt;snowflakeAccount&gt;_SFCRole=&lt;snowflakeRoleId&gt;_&lt;randomId&gt;
+        A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         """
         return pulumi.get(self, "aws_external_id")
 
@@ -185,6 +182,9 @@ class StageArgs:
     @property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
+        """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
@@ -207,8 +207,7 @@ class StageArgs:
     @pulumi.getter(name="snowflakeIamUser")
     def snowflake_iam_user(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
-        account.
+        An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         """
         return pulumi.get(self, "snowflake_iam_user")
 
@@ -220,8 +219,7 @@ class StageArgs:
     @pulumi.getter(name="storageIntegration")
     def storage_integration(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-        to a Snowflake identity and access management (IAM) entity.
+        Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         """
         return pulumi.get(self, "storage_integration")
 
@@ -275,22 +273,19 @@ class _StageState:
                  url: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Stage resources.
-        :param pulumi.Input[builtins.str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format:
-               &lt;snowflakeAccount&gt;_SFCRole=&lt;snowflakeRoleId&gt;_&lt;randomId&gt;
+        :param pulumi.Input[builtins.str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the stage.
         :param pulumi.Input[builtins.str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[builtins.str] credentials: Specifies the credentials for the stage.
         :param pulumi.Input[builtins.str] database: The database in which to create the stage.
         :param pulumi.Input[builtins.str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[builtins.str] encryption: Specifies the encryption settings for the stage.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] file_format: Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the stage.
-        :param pulumi.Input[builtins.str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
-               account.
-        :param pulumi.Input[builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-               to a Snowflake identity and access management (IAM) entity.
+        :param pulumi.Input[builtins.str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+        :param pulumi.Input[builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input['StageTagArgs']]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[builtins.str] url: Specifies the URL for the stage.
         """
@@ -332,8 +327,7 @@ class _StageState:
     @pulumi.getter(name="awsExternalId")
     def aws_external_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A unique ID assigned to the specific stage. The ID has the following format:
-        &lt;snowflakeAccount&gt;_SFCRole=&lt;snowflakeRoleId&gt;_&lt;randomId&gt;
+        A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         """
         return pulumi.get(self, "aws_external_id")
 
@@ -416,6 +410,9 @@ class _StageState:
     @property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
+        """
         return pulumi.get(self, "file_format")
 
     @file_format.setter
@@ -426,8 +423,7 @@ class _StageState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -463,8 +459,7 @@ class _StageState:
     @pulumi.getter(name="snowflakeIamUser")
     def snowflake_iam_user(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
-        account.
+        An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         """
         return pulumi.get(self, "snowflake_iam_user")
 
@@ -476,8 +471,7 @@ class _StageState:
     @pulumi.getter(name="storageIntegration")
     def storage_integration(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-        to a Snowflake identity and access management (IAM) entity.
+        Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         """
         return pulumi.get(self, "storage_integration")
 
@@ -533,23 +527,28 @@ class Stage(pulumi.CustomResource):
                  url: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a Stage resource with the given unique name, props, and options.
+        ## Import
+
+        format is database name | schema name | stage name
+
+        ```sh
+        $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format:
-               &lt;snowflakeAccount&gt;_SFCRole=&lt;snowflakeRoleId&gt;_&lt;randomId&gt;
+        :param pulumi.Input[builtins.str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the stage.
         :param pulumi.Input[builtins.str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[builtins.str] credentials: Specifies the credentials for the stage.
         :param pulumi.Input[builtins.str] database: The database in which to create the stage.
         :param pulumi.Input[builtins.str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[builtins.str] encryption: Specifies the encryption settings for the stage.
+        :param pulumi.Input[builtins.str] file_format: Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the stage.
-        :param pulumi.Input[builtins.str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
-               account.
-        :param pulumi.Input[builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-               to a Snowflake identity and access management (IAM) entity.
+        :param pulumi.Input[builtins.str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+        :param pulumi.Input[builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[builtins.str] url: Specifies the URL for the stage.
         """
@@ -560,7 +559,14 @@ class Stage(pulumi.CustomResource):
                  args: StageArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Stage resource with the given unique name, props, and options.
+        ## Import
+
+        format is database name | schema name | stage name
+
+        ```sh
+        $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
+        ```
+
         :param str resource_name: The name of the resource.
         :param StageArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -652,22 +658,19 @@ class Stage(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format:
-               &lt;snowflakeAccount&gt;_SFCRole=&lt;snowflakeRoleId&gt;_&lt;randomId&gt;
+        :param pulumi.Input[builtins.str] aws_external_id: A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the stage.
         :param pulumi.Input[builtins.str] copy_options: Specifies the copy options for the stage.
         :param pulumi.Input[builtins.str] credentials: Specifies the credentials for the stage.
         :param pulumi.Input[builtins.str] database: The database in which to create the stage.
         :param pulumi.Input[builtins.str] directory: Specifies the directory settings for the stage.
         :param pulumi.Input[builtins.str] encryption: Specifies the encryption settings for the stage.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] file_format: Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the stage; must be unique for the database and schema in which the stage is created.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the stage.
-        :param pulumi.Input[builtins.str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
-               account.
-        :param pulumi.Input[builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-               to a Snowflake identity and access management (IAM) entity.
+        :param pulumi.Input[builtins.str] snowflake_iam_user: An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
+        :param pulumi.Input[builtins.str] storage_integration: Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StageTagArgs', 'StageTagArgsDict']]]] tags: Definitions of a tag to associate with the resource.
         :param pulumi.Input[builtins.str] url: Specifies the URL for the stage.
         """
@@ -696,8 +699,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="awsExternalId")
     def aws_external_id(self) -> pulumi.Output[builtins.str]:
         """
-        A unique ID assigned to the specific stage. The ID has the following format:
-        &lt;snowflakeAccount&gt;_SFCRole=&lt;snowflakeRoleId&gt;_&lt;randomId&gt;
+        A unique ID assigned to the specific stage. The ID has the following format: &lt;snowflakeAccount&gt;*SFCRole=&lt;snowflakeRoleId&gt;*&lt;randomId&gt;
         """
         return pulumi.get(self, "aws_external_id")
 
@@ -752,14 +754,16 @@ class Stage(pulumi.CustomResource):
     @property
     @pulumi.getter(name="fileFormat")
     def file_format(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \\n\\n1. with hardcoding value:\\n\\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \\n\\n2. from dynamic value:\\n\\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \\n\\n3. from expression:\\n\\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
+        """
         return pulumi.get(self, "file_format")
 
     @property
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -783,8 +787,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="snowflakeIamUser")
     def snowflake_iam_user(self) -> pulumi.Output[builtins.str]:
         """
-        An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
-        account.
+        An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         """
         return pulumi.get(self, "snowflake_iam_user")
 
@@ -792,8 +795,7 @@ class Stage(pulumi.CustomResource):
     @pulumi.getter(name="storageIntegration")
     def storage_integration(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-        to a Snowflake identity and access management (IAM) entity.
+        Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         """
         return pulumi.get(self, "storage_integration")
 

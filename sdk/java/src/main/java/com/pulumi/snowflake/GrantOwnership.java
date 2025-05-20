@@ -15,35 +15,79 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ### Import examples
+ * 
+ * #### OnObject on Schema ToAccountRole
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToAccountRole|&#34;account_role&#34;|COPY|OnObject|SCHEMA|&#34;database_name&#34;.&#34;schema_name&#34;&#39;`
+ * ```
+ * 
+ * #### OnObject on Schema ToDatabaseRole
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToDatabaseRole|&#34;database_name&#34;.&#34;database_role_name&#34;|COPY|OnObject|SCHEMA|&#34;database_name&#34;.&#34;schema_name&#34;&#39;`
+ * ```
+ * 
+ * #### OnObject on Table
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToAccountRole|&#34;account_role&#34;|COPY|OnObject|TABLE|&#34;database_name&#34;.&#34;schema_name&#34;.&#34;table_name&#34;&#39;`
+ * ```
+ * 
+ * #### OnAll InDatabase
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToAccountRole|&#34;account_role&#34;|REVOKE|OnAll|TABLES|InDatabase|&#34;database_name&#34;&#39;`
+ * ```
+ * 
+ * #### OnAll InSchema
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToAccountRole|&#34;account_role&#34;||OnAll|TABLES|InSchema|&#34;database_name&#34;.&#34;schema_name&#34;&#39;`
+ * ```
+ * 
+ * #### OnFuture InDatabase
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToAccountRole|&#34;account_role&#34;||OnFuture|TABLES|InDatabase|&#34;database_name&#34;&#39;`
+ * ```
+ * 
+ * #### OnFuture InSchema
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantOwnership:GrantOwnership example &#39;ToAccountRole|&#34;account_role&#34;|COPY|OnFuture|TABLES|InSchema|&#34;database_name&#34;.&#34;schema_name&#34;&#39;`
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/grantOwnership:GrantOwnership")
 public class GrantOwnership extends com.pulumi.resources.CustomResource {
     /**
-     * The fully qualified name of the account role to which privileges will be granted. For more information about this
-     * resource, see docs.
+     * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="accountRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountRoleName;
 
     /**
-     * @return The fully qualified name of the account role to which privileges will be granted. For more information about this
-     * resource, see docs.
+     * @return The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> accountRoleName() {
         return Codegen.optional(this.accountRoleName);
     }
     /**
-     * The fully qualified name of the database role to which privileges will be granted. For more information about this
-     * resource, see docs.
+     * The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="databaseRoleName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> databaseRoleName;
 
     /**
-     * @return The fully qualified name of the database role to which privileges will be granted. For more information about this
-     * resource, see docs.
+     * @return The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> databaseRoleName() {
@@ -64,20 +108,14 @@ public class GrantOwnership extends com.pulumi.resources.CustomResource {
         return this.on;
     }
     /**
-     * Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
-     * a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
-     * more information head over to [Snowflake
-     * documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+     * Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
      * 
      */
     @Export(name="outboundPrivileges", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outboundPrivileges;
 
     /**
-     * @return Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to
-     * a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For
-     * more information head over to [Snowflake
-     * documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
+     * @return Specifies whether to remove or transfer all existing outbound privileges on the object when ownership is transferred to a new role. Available options are: REVOKE for removing existing privileges and COPY to transfer them with ownership. For more information head over to [Snowflake documentation](https://docs.snowflake.com/en/sql-reference/sql/grant-ownership#optional-parameters).
      * 
      */
     public Output<Optional<String>> outboundPrivileges() {

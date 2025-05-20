@@ -6,6 +6,13 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example '"<database_name>"."<schema_name>"."<masking_policy_name>"'
+ * ```
+ */
 export class MaskingPolicy extends pulumi.CustomResource {
     /**
      * Get an existing MaskingPolicy resource's state with the given name, ID, and optional extra
@@ -35,15 +42,11 @@ export class MaskingPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * List of the arguments for the masking policy. The first column and its data type always indicate the column data type
-     * values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
-     * first column argument in a conditional masking policy.
+     * List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
      */
     public readonly arguments!: pulumi.Output<outputs.MaskingPolicyArgument[]>;
     /**
-     * Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
-     * characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
-     * semantically significant.
+     * Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
     public readonly body!: pulumi.Output<string>;
     /**
@@ -51,8 +54,7 @@ export class MaskingPolicy extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `"`.
+     * The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -60,31 +62,23 @@ export class MaskingPolicy extends pulumi.CustomResource {
      */
     public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.MaskingPolicyDescribeOutput[]>;
     /**
-     * Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
-     * by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
-     * are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-     * to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly exemptOtherPolicies!: pulumi.Output<string | undefined>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-     * is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The return data type must match the input data type of the first column that is specified as an input column. For more
-     * information about data types, check [Snowflake
-     * docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+     * The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      */
     public readonly returnDataType!: pulumi.Output<string>;
     /**
-     * The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `"`.
+     * The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -155,15 +149,11 @@ export class MaskingPolicy extends pulumi.CustomResource {
  */
 export interface MaskingPolicyState {
     /**
-     * List of the arguments for the masking policy. The first column and its data type always indicate the column data type
-     * values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
-     * first column argument in a conditional masking policy.
+     * List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
      */
     arguments?: pulumi.Input<pulumi.Input<inputs.MaskingPolicyArgument>[]>;
     /**
-     * Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
-     * characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
-     * semantically significant.
+     * Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
     body?: pulumi.Input<string>;
     /**
@@ -171,8 +161,7 @@ export interface MaskingPolicyState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `"`.
+     * The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database?: pulumi.Input<string>;
     /**
@@ -180,31 +169,23 @@ export interface MaskingPolicyState {
      */
     describeOutputs?: pulumi.Input<pulumi.Input<inputs.MaskingPolicyDescribeOutput>[]>;
     /**
-     * Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
-     * by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
-     * are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-     * to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     exemptOtherPolicies?: pulumi.Input<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-     * is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The return data type must match the input data type of the first column that is specified as an input column. For more
-     * information about data types, check [Snowflake
-     * docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+     * The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      */
     returnDataType?: pulumi.Input<string>;
     /**
-     * The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `"`.
+     * The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string>;
     /**
@@ -218,15 +199,11 @@ export interface MaskingPolicyState {
  */
 export interface MaskingPolicyArgs {
     /**
-     * List of the arguments for the masking policy. The first column and its data type always indicate the column data type
-     * values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
-     * first column argument in a conditional masking policy.
+     * List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
      */
     arguments: pulumi.Input<pulumi.Input<inputs.MaskingPolicyArgument>[]>;
     /**
-     * Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
-     * characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
-     * semantically significant.
+     * Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
     body: pulumi.Input<string>;
     /**
@@ -234,31 +211,23 @@ export interface MaskingPolicyArgs {
      */
     comment?: pulumi.Input<string>;
     /**
-     * The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `"`.
+     * The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
-     * by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
-     * are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-     * to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     exemptOtherPolicies?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-     * is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The return data type must match the input data type of the first column that is specified as an input column. For more
-     * information about data types, check [Snowflake
-     * docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+     * The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      */
     returnDataType: pulumi.Input<string>;
     /**
-     * The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `"`.
+     * The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema: pulumi.Input<string>;
 }

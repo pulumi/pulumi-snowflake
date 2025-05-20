@@ -169,16 +169,14 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
     }
 
     /**
-     * The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
-     * provider
+     * The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
      * 
      */
     @Import(name="azureStorageQueuePrimaryUri")
     private @Nullable Output<String> azureStorageQueuePrimaryUri;
 
     /**
-     * @return The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
-     * provider
+     * @return The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
      * 
      */
     public Optional<Output<String>> azureStorageQueuePrimaryUri() {
@@ -186,14 +184,14 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
     }
 
     /**
-     * The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
+     * The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
      * 
      */
     @Import(name="azureTenantId")
     private @Nullable Output<String> azureTenantId;
 
     /**
-     * @return The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
+     * @return The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
      * 
      */
     public Optional<Output<String>> azureTenantId() {
@@ -253,24 +251,30 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
         return Optional.ofNullable(this.direction);
     }
 
+    /**
+     * (Default: `true`)
+     * 
+     */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
+    /**
+     * @return (Default: `true`)
+     * 
+     */
     public Optional<Output<Boolean>> enabled() {
         return Optional.ofNullable(this.enabled);
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -330,16 +334,14 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
     }
 
     /**
-     * The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
-     * deprecated and will be removed in the future provider versions)
+     * The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
      * 
      */
     @Import(name="notificationProvider")
     private @Nullable Output<String> notificationProvider;
 
     /**
-     * @return The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
-     * deprecated and will be removed in the future provider versions)
+     * @return The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
      * 
      */
     public Optional<Output<String>> notificationProvider() {
@@ -347,7 +349,7 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
     }
 
     /**
-     * A type of integration
+     * (Default: `QUEUE`) A type of integration
      * 
      * @deprecated
      * Will be removed - it is added automatically on the SDK level.
@@ -358,7 +360,7 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
     private @Nullable Output<String> type;
 
     /**
-     * @return A type of integration
+     * @return (Default: `QUEUE`) A type of integration
      * 
      * @deprecated
      * Will be removed - it is added automatically on the SDK level.
@@ -614,8 +616,7 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param azureStorageQueuePrimaryUri The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
-         * provider
+         * @param azureStorageQueuePrimaryUri The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
          * 
          * @return builder
          * 
@@ -626,8 +627,7 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param azureStorageQueuePrimaryUri The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
-         * provider
+         * @param azureStorageQueuePrimaryUri The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
          * 
          * @return builder
          * 
@@ -637,7 +637,7 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param azureTenantId The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
+         * @param azureTenantId The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
          * 
          * @return builder
          * 
@@ -648,7 +648,7 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param azureTenantId The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
+         * @param azureTenantId The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
          * 
          * @return builder
          * 
@@ -728,18 +728,29 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
             return direction(Output.of(direction));
         }
 
+        /**
+         * @param enabled (Default: `true`)
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(@Nullable Output<Boolean> enabled) {
             $.enabled = enabled;
             return this;
         }
 
+        /**
+         * @param enabled (Default: `true`)
+         * 
+         * @return builder
+         * 
+         */
         public Builder enabled(Boolean enabled) {
             return enabled(Output.of(enabled));
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -750,8 +761,7 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -833,8 +843,7 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param notificationProvider The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
-         * deprecated and will be removed in the future provider versions)
+         * @param notificationProvider The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
          * 
          * @return builder
          * 
@@ -845,8 +854,7 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param notificationProvider The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
-         * deprecated and will be removed in the future provider versions)
+         * @param notificationProvider The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
          * 
          * @return builder
          * 
@@ -856,7 +864,7 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type A type of integration
+         * @param type (Default: `QUEUE`) A type of integration
          * 
          * @return builder
          * 
@@ -871,7 +879,7 @@ public final class NotificationIntegrationState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param type A type of integration
+         * @param type (Default: `QUEUE`) A type of integration
          * 
          * @return builder
          * 

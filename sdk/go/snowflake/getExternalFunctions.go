@@ -11,6 +11,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetExternalFunctions(ctx, &snowflake.GetExternalFunctionsArgs{
+//				Database: pulumi.StringRef("MYDB"),
+//				Schema:   pulumi.StringRef("MYSCHEMA"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetExternalFunctions(ctx *pulumi.Context, args *GetExternalFunctionsArgs, opts ...pulumi.InvokeOption) (*GetExternalFunctionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetExternalFunctionsResult
@@ -23,16 +53,21 @@ func GetExternalFunctions(ctx *pulumi.Context, args *GetExternalFunctionsArgs, o
 
 // A collection of arguments for invoking getExternalFunctions.
 type GetExternalFunctionsArgs struct {
+	// The database from which to return the schemas from.
 	Database *string `pulumi:"database"`
-	Schema   *string `pulumi:"schema"`
+	// The schema from which to return the external functions from.
+	Schema *string `pulumi:"schema"`
 }
 
 // A collection of values returned by getExternalFunctions.
 type GetExternalFunctionsResult struct {
-	Database          *string                                `pulumi:"database"`
+	// The database from which to return the schemas from.
+	Database *string `pulumi:"database"`
+	// The external functions in the schema
 	ExternalFunctions []GetExternalFunctionsExternalFunction `pulumi:"externalFunctions"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string  `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The schema from which to return the external functions from.
 	Schema *string `pulumi:"schema"`
 }
 
@@ -47,8 +82,10 @@ func GetExternalFunctionsOutput(ctx *pulumi.Context, args GetExternalFunctionsOu
 
 // A collection of arguments for invoking getExternalFunctions.
 type GetExternalFunctionsOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringPtrInput `pulumi:"database"`
-	Schema   pulumi.StringPtrInput `pulumi:"schema"`
+	// The schema from which to return the external functions from.
+	Schema pulumi.StringPtrInput `pulumi:"schema"`
 }
 
 func (GetExternalFunctionsOutputArgs) ElementType() reflect.Type {
@@ -70,10 +107,12 @@ func (o GetExternalFunctionsResultOutput) ToGetExternalFunctionsResultOutputWith
 	return o
 }
 
+// The database from which to return the schemas from.
 func (o GetExternalFunctionsResultOutput) Database() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetExternalFunctionsResult) *string { return v.Database }).(pulumi.StringPtrOutput)
 }
 
+// The external functions in the schema
 func (o GetExternalFunctionsResultOutput) ExternalFunctions() GetExternalFunctionsExternalFunctionArrayOutput {
 	return o.ApplyT(func(v GetExternalFunctionsResult) []GetExternalFunctionsExternalFunction { return v.ExternalFunctions }).(GetExternalFunctionsExternalFunctionArrayOutput)
 }
@@ -83,6 +122,7 @@ func (o GetExternalFunctionsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetExternalFunctionsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the external functions from.
 func (o GetExternalFunctionsResultOutput) Schema() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetExternalFunctionsResult) *string { return v.Schema }).(pulumi.StringPtrOutput)
 }

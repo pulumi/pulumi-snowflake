@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * format is database name | schema name | pipe name
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
+ * ```
+ */
 export class Pipe extends pulumi.CustomResource {
     /**
      * Get an existing Pipe resource's state with the given name, ID, and optional extra
@@ -33,7 +42,7 @@ export class Pipe extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies a autoIngest param for the pipe.
+     * (Default: `false`) Specifies a autoIngest param for the pipe.
      */
     public readonly autoIngest!: pulumi.Output<boolean | undefined>;
     /**
@@ -57,8 +66,7 @@ export class Pipe extends pulumi.CustomResource {
      */
     public readonly errorIntegration!: pulumi.Output<string | undefined>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
@@ -141,7 +149,7 @@ export class Pipe extends pulumi.CustomResource {
  */
 export interface PipeState {
     /**
-     * Specifies a autoIngest param for the pipe.
+     * (Default: `false`) Specifies a autoIngest param for the pipe.
      */
     autoIngest?: pulumi.Input<boolean>;
     /**
@@ -165,8 +173,7 @@ export interface PipeState {
      */
     errorIntegration?: pulumi.Input<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
@@ -196,7 +203,7 @@ export interface PipeState {
  */
 export interface PipeArgs {
     /**
-     * Specifies a autoIngest param for the pipe.
+     * (Default: `false`) Specifies a autoIngest param for the pipe.
      */
     autoIngest?: pulumi.Input<boolean>;
     /**

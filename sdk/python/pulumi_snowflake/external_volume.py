@@ -28,17 +28,10 @@ class ExternalVolumeArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ExternalVolume resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]] storage_locations: List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
-               order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
-               Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
-               docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
-               for more details on this.
-        :param pulumi.Input[builtins.str] allow_writes: Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
-               Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the
-               provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]] storage_locations: List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
+        :param pulumi.Input[builtins.str] allow_writes: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the external volume.
-        :param pulumi.Input[builtins.str] name: Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
-               avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] name: Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         pulumi.set(__self__, "storage_locations", storage_locations)
         if allow_writes is not None:
@@ -52,11 +45,7 @@ class ExternalVolumeArgs:
     @pulumi.getter(name="storageLocations")
     def storage_locations(self) -> pulumi.Input[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]]:
         """
-        List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
-        order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
-        Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
-        docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
-        for more details on this.
+        List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
         """
         return pulumi.get(self, "storage_locations")
 
@@ -68,9 +57,7 @@ class ExternalVolumeArgs:
     @pulumi.getter(name="allowWrites")
     def allow_writes(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
-        Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the
-        provider will put "default" there which means to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "allow_writes")
 
@@ -94,8 +81,7 @@ class ExternalVolumeArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
-        avoid using the following characters: `|`, `.`, `"`.
+        Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -116,21 +102,13 @@ class _ExternalVolumeState:
                  storage_locations: Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]]] = None):
         """
         Input properties used for looking up and filtering ExternalVolume resources.
-        :param pulumi.Input[builtins.str] allow_writes: Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
-               Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the
-               provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] allow_writes: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the external volume.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalVolumeDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
-               avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalVolumeShowOutputArgs']]] show_outputs: Outputs the result of `SHOW EXTERNAL VOLUMES` for the given external volume.
-        :param pulumi.Input[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]] storage_locations: List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
-               order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
-               Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
-               docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
-               for more details on this.
+        :param pulumi.Input[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]] storage_locations: List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
         """
         if allow_writes is not None:
             pulumi.set(__self__, "allow_writes", allow_writes)
@@ -151,9 +129,7 @@ class _ExternalVolumeState:
     @pulumi.getter(name="allowWrites")
     def allow_writes(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
-        Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the
-        provider will put "default" there which means to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "allow_writes")
 
@@ -189,8 +165,7 @@ class _ExternalVolumeState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -202,8 +177,7 @@ class _ExternalVolumeState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
-        avoid using the following characters: `|`, `.`, `"`.
+        Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -227,11 +201,7 @@ class _ExternalVolumeState:
     @pulumi.getter(name="storageLocations")
     def storage_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalVolumeStorageLocationArgs']]]]:
         """
-        List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
-        order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
-        Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
-        docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
-        for more details on this.
+        List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
         """
         return pulumi.get(self, "storage_locations")
 
@@ -252,20 +222,18 @@ class ExternalVolume(pulumi.CustomResource):
                  storage_locations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeStorageLocationArgs', 'ExternalVolumeStorageLocationArgsDict']]]]] = None,
                  __props__=None):
         """
-        Create a ExternalVolume resource with the given unique name, props, and options.
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        Resource used to manage external volume objects. For more information, check [external volume documentation](https://docs.snowflake.com/en/sql-reference/commands-data-loading#external-volume).
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] allow_writes: Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
-               Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the
-               provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] allow_writes: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the external volume.
-        :param pulumi.Input[builtins.str] name: Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
-               avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeStorageLocationArgs', 'ExternalVolumeStorageLocationArgsDict']]]] storage_locations: List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
-               order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
-               Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
-               docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
-               for more details on this.
+        :param pulumi.Input[builtins.str] name: Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeStorageLocationArgs', 'ExternalVolumeStorageLocationArgsDict']]]] storage_locations: List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
         """
         ...
     @overload
@@ -274,7 +242,12 @@ class ExternalVolume(pulumi.CustomResource):
                  args: ExternalVolumeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ExternalVolume resource with the given unique name, props, and options.
+        !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+        Resource used to manage external volume objects. For more information, check [external volume documentation](https://docs.snowflake.com/en/sql-reference/commands-data-loading#external-volume).
+
+        > **Note** If a field has a default value, it is shown next to the type in the schema.
+
         :param str resource_name: The name of the resource.
         :param ExternalVolumeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -336,21 +309,13 @@ class ExternalVolume(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] allow_writes: Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
-               Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the
-               provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] allow_writes: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the external volume.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeDescribeOutputArgs', 'ExternalVolumeDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE EXTERNAL VOLUME` for the given external volume.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
-               avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeShowOutputArgs', 'ExternalVolumeShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW EXTERNAL VOLUMES` for the given external volume.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeStorageLocationArgs', 'ExternalVolumeStorageLocationArgsDict']]]] storage_locations: List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
-               order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
-               Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
-               docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
-               for more details on this.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalVolumeStorageLocationArgs', 'ExternalVolumeStorageLocationArgsDict']]]] storage_locations: List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -369,9 +334,7 @@ class ExternalVolume(pulumi.CustomResource):
     @pulumi.getter(name="allowWrites")
     def allow_writes(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
-        Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the
-        provider will put "default" there which means to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "allow_writes")
 
@@ -395,8 +358,7 @@ class ExternalVolume(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -404,8 +366,7 @@ class ExternalVolume(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
-        avoid using the following characters: `|`, `.`, `"`.
+        Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -421,11 +382,7 @@ class ExternalVolume(pulumi.CustomResource):
     @pulumi.getter(name="storageLocations")
     def storage_locations(self) -> pulumi.Output[Sequence['outputs.ExternalVolumeStorageLocation']]:
         """
-        List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
-        order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
-        Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
-        docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
-        for more details on this.
+        List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
         """
         return pulumi.get(self, "storage_locations")
 

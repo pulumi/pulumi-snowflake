@@ -21,18 +21,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     public static final WarehouseState Empty = new WarehouseState();
 
     /**
-     * Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available
-     * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
-     * which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="autoResume")
     private @Nullable Output<String> autoResume;
 
     /**
-     * @return Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available
-     * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
-     * which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> autoResume() {
@@ -40,14 +36,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      * 
      */
     @Import(name="autoSuspend")
     private @Nullable Output<Integer> autoSuspend;
 
     /**
-     * @return Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
      * 
      */
     public Optional<Output<Integer>> autoSuspend() {
@@ -70,18 +66,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute
-     * resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-     * put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="enableQueryAcceleration")
     private @Nullable Output<String> enableQueryAcceleration;
 
     /**
-     * @return Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute
-     * resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-     * put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> enableQueryAcceleration() {
@@ -89,16 +81,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -166,16 +156,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here),
-     * avoid using the following characters: `|`, `.`, `&#34;`.
+     * Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here),
-     * avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -198,16 +186,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a
-     * multiplier based on warehouse size.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      * 
      */
     @Import(name="queryAccelerationMaxScaleFactor")
     private @Nullable Output<Integer> queryAccelerationMaxScaleFactor;
 
     /**
-     * @return Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a
-     * multiplier based on warehouse size.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
      * 
      */
     public Optional<Output<Integer>> queryAccelerationMaxScaleFactor() {
@@ -215,16 +201,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this
-     * resource, see docs.
+     * Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      * 
      */
     @Import(name="resourceMonitor")
     private @Nullable Output<String> resourceMonitor;
 
     /**
-     * @return Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this
-     * resource, see docs.
+     * @return Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> resourceMonitor() {
@@ -232,16 +216,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
-     * Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
+     * Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
      * 
      */
     @Import(name="scalingPolicy")
     private @Nullable Output<String> scalingPolicy;
 
     /**
-     * @return Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
-     * Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
+     * @return Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
      * 
      */
     public Optional<Output<String>> scalingPolicy() {
@@ -264,16 +246,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
-     * warehouse before it is canceled by the system.
+     * Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      * 
      */
     @Import(name="statementQueuedTimeoutInSeconds")
     private @Nullable Output<Integer> statementQueuedTimeoutInSeconds;
 
     /**
-     * @return Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
-     * warehouse before it is canceled by the system.
+     * @return Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
      * 
      */
     public Optional<Output<Integer>> statementQueuedTimeoutInSeconds() {
@@ -296,22 +276,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` |
-     * `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` |
-     * `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse
-     * documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties)
-     * for the details. Note: removing the size from config will result in the resource recreation.
+     * Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
      * 
      */
     @Import(name="warehouseSize")
     private @Nullable Output<String> warehouseSize;
 
     /**
-     * @return Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` |
-     * `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` |
-     * `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse
-     * documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties)
-     * for the details. Note: removing the size from config will result in the resource recreation.
+     * @return Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
      * 
      */
     public Optional<Output<String>> warehouseSize() {
@@ -319,16 +291,14 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be
-     * suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+     * Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
      * 
      */
     @Import(name="warehouseType")
     private @Nullable Output<String> warehouseType;
 
     /**
-     * @return Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be
-     * suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+     * @return Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
      * 
      */
     public Optional<Output<String>> warehouseType() {
@@ -378,9 +348,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoResume Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available
-         * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
-         * which means to use the Snowflake default for this value.
+         * @param autoResume (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -391,9 +359,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoResume Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available
-         * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
-         * which means to use the Snowflake default for this value.
+         * @param autoResume (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to automatically resume a warehouse when a SQL statement (e.g. query) is submitted to it. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -403,7 +369,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSuspend Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+         * @param autoSuspend (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
          * 
          * @return builder
          * 
@@ -414,7 +380,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autoSuspend Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
+         * @param autoSuspend (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the number of seconds of inactivity after which a warehouse is automatically suspended.
          * 
          * @return builder
          * 
@@ -445,9 +411,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableQueryAcceleration Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute
-         * resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-         * put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param enableQueryAcceleration (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -458,9 +422,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableQueryAcceleration Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute
-         * resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-         * put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param enableQueryAcceleration (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable the query acceleration service for queries that rely on this warehouse for compute resources. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -470,8 +432,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -482,8 +443,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -577,8 +537,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here),
-         * avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -589,8 +548,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here),
-         * avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Identifier for the virtual warehouse; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -631,8 +589,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queryAccelerationMaxScaleFactor Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a
-         * multiplier based on warehouse size.
+         * @param queryAccelerationMaxScaleFactor (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
          * 
          * @return builder
          * 
@@ -643,8 +600,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queryAccelerationMaxScaleFactor Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a
-         * multiplier based on warehouse size.
+         * @param queryAccelerationMaxScaleFactor (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the maximum scale factor for leasing compute resources for query acceleration. The scale factor is used as a multiplier based on warehouse size.
          * 
          * @return builder
          * 
@@ -654,8 +610,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceMonitor Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this
-         * resource, see docs.
+         * @param resourceMonitor Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -666,8 +621,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceMonitor Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this
-         * resource, see docs.
+         * @param resourceMonitor Specifies the name of a resource monitor that is explicitly assigned to the warehouse. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -677,8 +631,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingPolicy Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
-         * Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
+         * @param scalingPolicy Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
          * 
          * @return builder
          * 
@@ -689,8 +642,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scalingPolicy Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in
-         * Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
+         * @param scalingPolicy Specifies the policy for automatically starting and shutting down clusters in a multi-cluster warehouse running in Auto-scale mode. Valid values are (case-insensitive): `STANDARD` | `ECONOMY`.
          * 
          * @return builder
          * 
@@ -731,8 +683,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementQueuedTimeoutInSeconds Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
-         * warehouse before it is canceled by the system.
+         * @param statementQueuedTimeoutInSeconds Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
          * 
          * @return builder
          * 
@@ -743,8 +694,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementQueuedTimeoutInSeconds Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a
-         * warehouse before it is canceled by the system.
+         * @param statementQueuedTimeoutInSeconds Object parameter that specifies the time, in seconds, a SQL statement (query, DDL, DML, etc.) can be queued on a warehouse before it is canceled by the system.
          * 
          * @return builder
          * 
@@ -775,11 +725,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouseSize Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` |
-         * `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` |
-         * `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse
-         * documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties)
-         * for the details. Note: removing the size from config will result in the resource recreation.
+         * @param warehouseSize Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
          * 
          * @return builder
          * 
@@ -790,11 +736,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouseSize Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` |
-         * `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` |
-         * `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse
-         * documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties)
-         * for the details. Note: removing the size from config will result in the resource recreation.
+         * @param warehouseSize Specifies the size of the virtual warehouse. Valid values are (case-insensitive): `XSMALL` | `X-SMALL` | `SMALL` | `MEDIUM` | `LARGE` | `XLARGE` | `X-LARGE` | `XXLARGE` | `X2LARGE` | `2X-LARGE` | `XXXLARGE` | `X3LARGE` | `3X-LARGE` | `X4LARGE` | `4X-LARGE` | `X5LARGE` | `5X-LARGE` | `X6LARGE` | `6X-LARGE`. Consult [warehouse documentation](https://docs.snowflake.com/en/sql-reference/sql/create-warehouse#optional-properties-objectproperties) for the details. Note: removing the size from config will result in the resource recreation.
          * 
          * @return builder
          * 
@@ -804,8 +746,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouseType Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be
-         * suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+         * @param warehouseType Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
          * 
          * @return builder
          * 
@@ -816,8 +757,7 @@ public final class WarehouseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouseType Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be
-         * suspended to change its type. Provider will handle automatic suspension and resumption if needed.
+         * @param warehouseType Specifies warehouse type. Valid values are (case-insensitive): `STANDARD` | `SNOWPARK-OPTIMIZED`. Warehouse needs to be suspended to change its type. Provider will handle automatic suspension and resumption if needed.
          * 
          * @return builder
          * 

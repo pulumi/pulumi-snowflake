@@ -26,14 +26,10 @@ class GrantDatabaseRoleArgs:
                  share_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a GrantDatabaseRole resource.
-        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role which will be granted to share or parent role. For more information about
-               this resource, see docs.
-        :param pulumi.Input[builtins.str] parent_database_role_name: The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-               For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-               more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] share_name: The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-               docs.
+        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] parent_database_role_name: The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] share_name: The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         pulumi.set(__self__, "database_role_name", database_role_name)
         if parent_database_role_name is not None:
@@ -47,8 +43,7 @@ class GrantDatabaseRoleArgs:
     @pulumi.getter(name="databaseRoleName")
     def database_role_name(self) -> pulumi.Input[builtins.str]:
         """
-        The fully qualified name of the database role which will be granted to share or parent role. For more information about
-        this resource, see docs.
+        The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
         """
         return pulumi.get(self, "database_role_name")
 
@@ -60,8 +55,7 @@ class GrantDatabaseRoleArgs:
     @pulumi.getter(name="parentDatabaseRoleName")
     def parent_database_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-        For more information about this resource, see docs.
+        The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_database_role_name")
 
@@ -73,8 +67,7 @@ class GrantDatabaseRoleArgs:
     @pulumi.getter(name="parentRoleName")
     def parent_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-        more information about this resource, see docs.
+        The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_role_name")
 
@@ -86,8 +79,7 @@ class GrantDatabaseRoleArgs:
     @pulumi.getter(name="shareName")
     def share_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-        docs.
+        The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "share_name")
 
@@ -105,14 +97,10 @@ class _GrantDatabaseRoleState:
                  share_name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering GrantDatabaseRole resources.
-        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role which will be granted to share or parent role. For more information about
-               this resource, see docs.
-        :param pulumi.Input[builtins.str] parent_database_role_name: The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-               For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-               more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] share_name: The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-               docs.
+        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] parent_database_role_name: The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] share_name: The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         if database_role_name is not None:
             pulumi.set(__self__, "database_role_name", database_role_name)
@@ -127,8 +115,7 @@ class _GrantDatabaseRoleState:
     @pulumi.getter(name="databaseRoleName")
     def database_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the database role which will be granted to share or parent role. For more information about
-        this resource, see docs.
+        The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
         """
         return pulumi.get(self, "database_role_name")
 
@@ -140,8 +127,7 @@ class _GrantDatabaseRoleState:
     @pulumi.getter(name="parentDatabaseRoleName")
     def parent_database_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-        For more information about this resource, see docs.
+        The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_database_role_name")
 
@@ -153,8 +139,7 @@ class _GrantDatabaseRoleState:
     @pulumi.getter(name="parentRoleName")
     def parent_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-        more information about this resource, see docs.
+        The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_role_name")
 
@@ -166,8 +151,7 @@ class _GrantDatabaseRoleState:
     @pulumi.getter(name="shareName")
     def share_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-        docs.
+        The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "share_name")
 
@@ -188,17 +172,20 @@ class GrantDatabaseRole(pulumi.CustomResource):
                  share_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a GrantDatabaseRole resource with the given unique name, props, and options.
+        ## Import
+
+        format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)
+
+        ```sh
+        $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole example '"ABC"."test_db_role"|ROLE|"test_parent_role"'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role which will be granted to share or parent role. For more information about
-               this resource, see docs.
-        :param pulumi.Input[builtins.str] parent_database_role_name: The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-               For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-               more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] share_name: The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-               docs.
+        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] parent_database_role_name: The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] share_name: The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         ...
     @overload
@@ -207,7 +194,14 @@ class GrantDatabaseRole(pulumi.CustomResource):
                  args: GrantDatabaseRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a GrantDatabaseRole resource with the given unique name, props, and options.
+        ## Import
+
+        format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)
+
+        ```sh
+        $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole example '"ABC"."test_db_role"|ROLE|"test_parent_role"'
+        ```
+
         :param str resource_name: The name of the resource.
         :param GrantDatabaseRoleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -263,14 +257,10 @@ class GrantDatabaseRole(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role which will be granted to share or parent role. For more information about
-               this resource, see docs.
-        :param pulumi.Input[builtins.str] parent_database_role_name: The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-               For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-               more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] share_name: The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-               docs.
+        :param pulumi.Input[builtins.str] database_role_name: The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] parent_database_role_name: The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] parent_role_name: The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] share_name: The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -286,8 +276,7 @@ class GrantDatabaseRole(pulumi.CustomResource):
     @pulumi.getter(name="databaseRoleName")
     def database_role_name(self) -> pulumi.Output[builtins.str]:
         """
-        The fully qualified name of the database role which will be granted to share or parent role. For more information about
-        this resource, see docs.
+        The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
         """
         return pulumi.get(self, "database_role_name")
 
@@ -295,8 +284,7 @@ class GrantDatabaseRole(pulumi.CustomResource):
     @pulumi.getter(name="parentDatabaseRoleName")
     def parent_database_role_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-        For more information about this resource, see docs.
+        The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_database_role_name")
 
@@ -304,8 +292,7 @@ class GrantDatabaseRole(pulumi.CustomResource):
     @pulumi.getter(name="parentRoleName")
     def parent_role_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-        more information about this resource, see docs.
+        The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         """
         return pulumi.get(self, "parent_role_name")
 
@@ -313,8 +300,7 @@ class GrantDatabaseRole(pulumi.CustomResource):
     @pulumi.getter(name="shareName")
     def share_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-        docs.
+        The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "share_name")
 

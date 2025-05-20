@@ -105,7 +105,12 @@ class UserPasswordPolicyAttachment(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a UserPasswordPolicyAttachment resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment example "MY_DATABASE|MY_SCHEMA|PASSWORD_POLICY_NAME|USER_NAME"
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] password_policy_name: Fully qualified name of the password policy
@@ -118,7 +123,12 @@ class UserPasswordPolicyAttachment(pulumi.CustomResource):
                  args: UserPasswordPolicyAttachmentArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a UserPasswordPolicyAttachment resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment example "MY_DATABASE|MY_SCHEMA|PASSWORD_POLICY_NAME|USER_NAME"
+        ```
+
         :param str resource_name: The name of the resource.
         :param UserPasswordPolicyAttachmentArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.

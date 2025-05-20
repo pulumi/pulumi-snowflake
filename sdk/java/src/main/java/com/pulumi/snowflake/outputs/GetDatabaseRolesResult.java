@@ -15,17 +15,37 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetDatabaseRolesResult {
+    /**
+     * @return Holds the aggregated output of all database role details queries.
+     * 
+     */
     private List<GetDatabaseRolesDatabaseRole> databaseRoles;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The database from which to return the database roles from.
+     * 
+     */
     private String inDatabase;
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     private @Nullable String like;
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
     private @Nullable GetDatabaseRolesLimit limit;
 
     private GetDatabaseRolesResult() {}
+    /**
+     * @return Holds the aggregated output of all database role details queries.
+     * 
+     */
     public List<GetDatabaseRolesDatabaseRole> databaseRoles() {
         return this.databaseRoles;
     }
@@ -36,12 +56,24 @@ public final class GetDatabaseRolesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The database from which to return the database roles from.
+     * 
+     */
     public String inDatabase() {
         return this.inDatabase;
     }
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
     public Optional<GetDatabaseRolesLimit> limit() {
         return Optional.ofNullable(this.limit);
     }

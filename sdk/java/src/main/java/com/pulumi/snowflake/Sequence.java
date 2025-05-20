@@ -15,17 +15,27 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * format is database name | schema name | sequence name
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/sequence:Sequence example &#39;dbName|schemaName|sequenceName&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/sequence:Sequence")
 public class Sequence extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies a comment for the sequence.
+     * (Default: ``) Specifies a comment for the sequence.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return Specifies a comment for the sequence.
+     * @return (Default: ``) Specifies a comment for the sequence.
      * 
      */
     public Output<Optional<String>> comment() {
@@ -46,30 +56,28 @@ public class Sequence extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * The amount the sequence will increase by each time it is used
+     * (Default: `1`) The amount the sequence will increase by each time it is used
      * 
      */
     @Export(name="increment", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> increment;
 
     /**
-     * @return The amount the sequence will increase by each time it is used
+     * @return (Default: `1`) The amount the sequence will increase by each time it is used
      * 
      */
     public Output<Optional<Integer>> increment() {
@@ -104,14 +112,14 @@ public class Sequence extends com.pulumi.resources.CustomResource {
         return this.nextValue;
     }
     /**
-     * The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      * 
      */
     @Export(name="ordering", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ordering;
 
     /**
-     * @return The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * @return (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      * 
      */
     public Output<Optional<String>> ordering() {

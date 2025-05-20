@@ -11,6 +11,35 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.LookupDatabase(ctx, &snowflake.LookupDatabaseArgs{
+//				Name: "DEMO_DB",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDatabaseResult
@@ -23,6 +52,7 @@ func LookupDatabase(ctx *pulumi.Context, args *LookupDatabaseArgs, opts ...pulum
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseArgs struct {
+	// The database from which to return its metadata.
 	Name string `pulumi:"name"`
 }
 
@@ -31,9 +61,10 @@ type LookupDatabaseResult struct {
 	Comment   string `pulumi:"comment"`
 	CreatedOn string `pulumi:"createdOn"`
 	// The provider-assigned unique ID for this managed resource.
-	Id            string `pulumi:"id"`
-	IsCurrent     bool   `pulumi:"isCurrent"`
-	IsDefault     bool   `pulumi:"isDefault"`
+	Id        string `pulumi:"id"`
+	IsCurrent bool   `pulumi:"isCurrent"`
+	IsDefault bool   `pulumi:"isDefault"`
+	// The database from which to return its metadata.
 	Name          string `pulumi:"name"`
 	Options       string `pulumi:"options"`
 	Origin        string `pulumi:"origin"`
@@ -52,6 +83,7 @@ func LookupDatabaseOutput(ctx *pulumi.Context, args LookupDatabaseOutputArgs, op
 
 // A collection of arguments for invoking getDatabase.
 type LookupDatabaseOutputArgs struct {
+	// The database from which to return its metadata.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -95,6 +127,7 @@ func (o LookupDatabaseResultOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) bool { return v.IsDefault }).(pulumi.BoolOutput)
 }
 
+// The database from which to return its metadata.
 func (o LookupDatabaseResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.Name }).(pulumi.StringOutput)
 }

@@ -19,229 +19,181 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/legacyServiceUser:LegacyServiceUser example &#39;&#34;&lt;user_name&gt;&#34;&#39;
+ * ```
+ * 
+ * Note: pulumi preview+apply may be needed after successful import to fill out all the missing fields (like `password`) in state.
+ * 
+ */
 @ResourceType(type="snowflake:index/legacyServiceUser:LegacyServiceUser")
 public class LegacyServiceUser extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
-     * of a session (e.g. network outage, browser termination, service interruption). For more information, check
-     * [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+     * Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
      * 
      */
     @Export(name="abortDetachedQuery", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> abortDetachedQuery;
 
     /**
-     * @return Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
-     * of a session (e.g. network outage, browser termination, service interruption). For more information, check
-     * [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+     * @return Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
      * 
      */
     public Output<Boolean> abortDetachedQuery() {
         return this.abortDetachedQuery;
     }
     /**
-     * Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
-     * without an active transaction, is automatically committed after the statement successfully completes. For more
-     * information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
-     * [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+     * Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
      * 
      */
     @Export(name="autocommit", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> autocommit;
 
     /**
-     * @return Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
-     * without an active transaction, is automatically committed after the statement successfully completes. For more
-     * information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
-     * [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+     * @return Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
      * 
      */
     public Output<Boolean> autocommit() {
         return this.autocommit;
     }
     /**
-     * The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
-     * [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
-     * [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+     * The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
      * 
      */
     @Export(name="binaryInputFormat", refs={String.class}, tree="[0]")
     private Output<String> binaryInputFormat;
 
     /**
-     * @return The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
-     * [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
-     * [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+     * @return The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
      * 
      */
     public Output<String> binaryInputFormat() {
         return this.binaryInputFormat;
     }
     /**
-     * The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
-     * [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
-     * [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+     * The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
      * 
      */
     @Export(name="binaryOutputFormat", refs={String.class}, tree="[0]")
     private Output<String> binaryOutputFormat;
 
     /**
-     * @return The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
-     * [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
-     * [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+     * @return The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
      * 
      */
     public Output<String> binaryOutputFormat() {
         return this.binaryOutputFormat;
     }
     /**
-     * Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
-     * queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+     * Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
      * 
      */
     @Export(name="clientMemoryLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> clientMemoryLimit;
 
     /**
-     * @return Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
-     * queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+     * @return Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
      * 
      */
     public Output<Integer> clientMemoryLimit() {
         return this.clientMemoryLimit;
     }
     /**
-     * For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
-     * databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
-     * quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+     * For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
      * 
      */
     @Export(name="clientMetadataRequestUseConnectionCtx", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> clientMetadataRequestUseConnectionCtx;
 
     /**
-     * @return For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
-     * databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
-     * quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+     * @return For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
      * 
      */
     public Output<Boolean> clientMetadataRequestUseConnectionCtx() {
         return this.clientMetadataRequestUseConnectionCtx;
     }
     /**
-     * Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
-     * attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
-     * resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+     * Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
      * 
      */
     @Export(name="clientPrefetchThreads", refs={Integer.class}, tree="[0]")
     private Output<Integer> clientPrefetchThreads;
 
     /**
-     * @return Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
-     * attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
-     * resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+     * @return Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
      * 
      */
     public Output<Integer> clientPrefetchThreads() {
         return this.clientPrefetchThreads;
     }
     /**
-     * Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
-     * downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+     * Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
      * 
      */
     @Export(name="clientResultChunkSize", refs={Integer.class}, tree="[0]")
     private Output<Integer> clientResultChunkSize;
 
     /**
-     * @return Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
-     * downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+     * @return Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
      * 
      */
     public Output<Integer> clientResultChunkSize() {
         return this.clientResultChunkSize;
     }
     /**
-     * Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
-     * information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+     * Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
      * 
      */
     @Export(name="clientResultColumnCaseInsensitive", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> clientResultColumnCaseInsensitive;
 
     /**
-     * @return Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
-     * information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+     * @return Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
      * 
      */
     public Output<Boolean> clientResultColumnCaseInsensitive() {
         return this.clientResultColumnCaseInsensitive;
     }
     /**
-     * Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
-     * information, check [CLIENT_SESSION_KEEP_ALIVE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+     * Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
      * 
      */
     @Export(name="clientSessionKeepAlive", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> clientSessionKeepAlive;
 
     /**
-     * @return Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
-     * information, check [CLIENT_SESSION_KEEP_ALIVE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+     * @return Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
      * 
      */
     public Output<Boolean> clientSessionKeepAlive() {
         return this.clientSessionKeepAlive;
     }
     /**
-     * Number of seconds in-between client attempts to update the token for the session. For more information, check
-     * [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+     * Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
      * 
      */
     @Export(name="clientSessionKeepAliveHeartbeatFrequency", refs={Integer.class}, tree="[0]")
     private Output<Integer> clientSessionKeepAliveHeartbeatFrequency;
 
     /**
-     * @return Number of seconds in-between client attempts to update the token for the session. For more information, check
-     * [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+     * @return Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
      * 
      */
     public Output<Integer> clientSessionKeepAliveHeartbeatFrequency() {
         return this.clientSessionKeepAliveHeartbeatFrequency;
     }
     /**
-     * Specifies the [TIMESTAMP_*
-     * variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
-     * use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
-     * information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+     * Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
      * 
      */
     @Export(name="clientTimestampTypeMapping", refs={String.class}, tree="[0]")
     private Output<String> clientTimestampTypeMapping;
 
     /**
-     * @return Specifies the [TIMESTAMP_*
-     * variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
-     * use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
-     * information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+     * @return Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
      * 
      */
     public Output<String> clientTimestampTypeMapping() {
@@ -262,36 +214,28 @@ public class LegacyServiceUser extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Specifies the input format for the DATE data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+     * Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
      * 
      */
     @Export(name="dateInputFormat", refs={String.class}, tree="[0]")
     private Output<String> dateInputFormat;
 
     /**
-     * @return Specifies the input format for the DATE data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+     * @return Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
      * 
      */
     public Output<String> dateInputFormat() {
         return this.dateInputFormat;
     }
     /**
-     * Specifies the display format for the DATE data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+     * Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
      * 
      */
     @Export(name="dateOutputFormat", refs={String.class}, tree="[0]")
     private Output<String> dateOutputFormat;
 
     /**
-     * @return Specifies the display format for the DATE data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+     * @return Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
      * 
      */
     public Output<String> dateOutputFormat() {
@@ -304,88 +248,70 @@ public class LegacyServiceUser extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.daysToExpiry);
     }
     /**
-     * Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
-     * login. Note that the CREATE USER operation does not verify that the namespace exists.
+     * Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
      * 
      */
     @Export(name="defaultNamespace", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultNamespace;
 
     /**
-     * @return Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon
-     * login. Note that the CREATE USER operation does not verify that the namespace exists.
+     * @return Specifies the namespace (database only or database and schema) that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the namespace exists.
      * 
      */
     public Output<Optional<String>> defaultNamespace() {
         return Codegen.optional(this.defaultNamespace);
     }
     /**
-     * Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role
-     * for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT
-     * ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does
-     * not verify that the role exists. For more information about this resource, see docs.
+     * Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
      * 
      */
     @Export(name="defaultRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultRole;
 
     /**
-     * @return Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role
-     * for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT
-     * ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does
-     * not verify that the role exists. For more information about this resource, see docs.
+     * @return Specifies the role that is active by default for the user’s session upon login. Note that specifying a default role for a user does **not** grant the role to the user. The role must be granted explicitly to the user using the [GRANT ROLE](https://docs.snowflake.com/en/sql-reference/sql/grant-role) command. In addition, the CREATE USER operation does not verify that the role exists. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> defaultRole() {
         return Codegen.optional(this.defaultRole);
     }
     /**
-     * Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive):
-     * `DEFAULT` | `NONE` | `ALL`. More information can be found in
-     * [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+     * (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
      * 
      */
     @Export(name="defaultSecondaryRolesOption", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultSecondaryRolesOption;
 
     /**
-     * @return Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive):
-     * `DEFAULT` | `NONE` | `ALL`. More information can be found in
-     * [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
+     * @return (Default: `DEFAULT`) Specifies the secondary roles that are active for the user’s session upon login. Valid values are (case-insensitive): `DEFAULT` | `NONE` | `ALL`. More information can be found in [doc](https://docs.snowflake.com/en/sql-reference/sql/create-user#optional-object-properties-objectproperties).
      * 
      */
     public Output<Optional<String>> defaultSecondaryRolesOption() {
         return Codegen.optional(this.defaultSecondaryRolesOption);
     }
     /**
-     * Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER
-     * operation does not verify that the warehouse exists. For more information about this resource, see docs.
+     * Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
      * 
      */
     @Export(name="defaultWarehouse", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultWarehouse;
 
     /**
-     * @return Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER
-     * operation does not verify that the warehouse exists. For more information about this resource, see docs.
+     * @return Specifies the virtual warehouse that is active by default for the user’s session upon login. Note that the CREATE USER operation does not verify that the warehouse exists. For more information about this resource, see docs.
      * 
      */
     public Output<Optional<String>> defaultWarehouse() {
         return Codegen.optional(this.defaultWarehouse);
     }
     /**
-     * Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the
-     * user. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
-     * &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Export(name="disabled", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> disabled;
 
     /**
-     * @return Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the
-     * user. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
-     * &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is disabled, which prevents logging in and aborts all the currently-running queries for the user. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Output<Optional<String>> disabled() {
@@ -420,250 +346,182 @@ public class LegacyServiceUser extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.email);
     }
     /**
-     * Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
-     * the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
-     * support the values in the output columns of the unload SQL statement or source table). For more information, check
-     * [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+     * Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
      * 
      */
     @Export(name="enableUnloadPhysicalTypeOptimization", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableUnloadPhysicalTypeOptimization;
 
     /**
-     * @return Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
-     * the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
-     * support the values in the output columns of the unload SQL statement or source table). For more information, check
-     * [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+     * @return Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
      * 
      */
     public Output<Boolean> enableUnloadPhysicalTypeOptimization() {
         return this.enableUnloadPhysicalTypeOptimization;
     }
     /**
-     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content
-     * of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role
-     * that is granted or inherits the AUDIT privilege can set the ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR parameter. When using
-     * the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the
-     * query text, not the user who executed the query (if those are different users). For more information, check
-     * [ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+     * Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
      * 
      */
     @Export(name="enableUnredactedQuerySyntaxError", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableUnredactedQuerySyntaxError;
 
     /**
-     * @return Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content
-     * of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role
-     * that is granted or inherits the AUDIT privilege can set the ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR parameter. When using
-     * the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the
-     * query text, not the user who executed the query (if those are different users). For more information, check
-     * [ENABLE_UNREDACTED_QUERY_SYNTAX_ERROR
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
+     * @return Controls whether query text is redacted if a SQL query fails due to a syntax or parsing error. If `FALSE`, the content of a failed query is redacted in the views, pages, and functions that provide a query history. Only users with a role that is granted or inherits the AUDIT privilege can set the ENABLE*UNREDACTED*QUERY*SYNTAX*ERROR parameter. When using the ALTER USER command to set the parameter to `TRUE` for a particular user, modify the user that you want to see the query text, not the user who executed the query (if those are different users). For more information, check *UNREDACTED*QUERY*SYNTAX*ERROR docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-unredacted-query-syntax-error).
      * 
      */
     public Output<Boolean> enableUnredactedQuerySyntaxError() {
         return this.enableUnredactedQuerySyntaxError;
     }
     /**
-     * Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
-     * used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
-     * perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+     * Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
      * 
      */
     @Export(name="errorOnNondeterministicMerge", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> errorOnNondeterministicMerge;
 
     /**
-     * @return Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
-     * used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
-     * perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+     * @return Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
      * 
      */
     public Output<Boolean> errorOnNondeterministicMerge() {
         return this.errorOnNondeterministicMerge;
     }
     /**
-     * Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
-     * is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
-     * the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+     * Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
      * 
      */
     @Export(name="errorOnNondeterministicUpdate", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> errorOnNondeterministicUpdate;
 
     /**
-     * @return Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
-     * is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
-     * the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+     * @return Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
      * 
      */
     public Output<Boolean> errorOnNondeterministicUpdate() {
         return this.errorOnNondeterministicUpdate;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Display format for [GEOGRAPHY
-     * values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
-     * information, check [GEOGRAPHY_OUTPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+     * Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
      * 
      */
     @Export(name="geographyOutputFormat", refs={String.class}, tree="[0]")
     private Output<String> geographyOutputFormat;
 
     /**
-     * @return Display format for [GEOGRAPHY
-     * values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
-     * information, check [GEOGRAPHY_OUTPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+     * @return Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
      * 
      */
     public Output<String> geographyOutputFormat() {
         return this.geographyOutputFormat;
     }
     /**
-     * Display format for [GEOMETRY
-     * values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
-     * information, check [GEOMETRY_OUTPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+     * Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
      * 
      */
     @Export(name="geometryOutputFormat", refs={String.class}, tree="[0]")
     private Output<String> geometryOutputFormat;
 
     /**
-     * @return Display format for [GEOMETRY
-     * values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
-     * information, check [GEOMETRY_OUTPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+     * @return Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
      * 
      */
     public Output<String> geometryOutputFormat() {
         return this.geometryOutputFormat;
     }
     /**
-     * Specifies how JDBC processes columns that have a scale of zero (0). For more information, check
-     * [JDBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
+     * Specifies how JDBC processes columns that have a scale of zero (0). For more information, check [JDBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
      * 
      */
     @Export(name="jdbcTreatDecimalAsInt", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> jdbcTreatDecimalAsInt;
 
     /**
-     * @return Specifies how JDBC processes columns that have a scale of zero (0). For more information, check
-     * [JDBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
+     * @return Specifies how JDBC processes columns that have a scale of zero (0). For more information, check [JDBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-decimal-as-int).
      * 
      */
     public Output<Boolean> jdbcTreatDecimalAsInt() {
         return this.jdbcTreatDecimalAsInt;
     }
     /**
-     * Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      * 
      */
     @Export(name="jdbcTreatTimestampNtzAsUtc", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> jdbcTreatTimestampNtzAsUtc;
 
     /**
-     * @return Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+     * @return Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      * 
      */
     public Output<Boolean> jdbcTreatTimestampNtzAsUtc() {
         return this.jdbcTreatTimestampNtzAsUtc;
     }
     /**
-     * Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
-     * [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
-     * getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+     * Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
      * 
      */
     @Export(name="jdbcUseSessionTimezone", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> jdbcUseSessionTimezone;
 
     /**
-     * @return Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
-     * [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
-     * getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+     * @return Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
      * 
      */
     public Output<Boolean> jdbcUseSessionTimezone() {
         return this.jdbcUseSessionTimezone;
     }
     /**
-     * Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
-     * insert newline characters after each element. For more information, check [JSON_INDENT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+     * Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
      * 
      */
     @Export(name="jsonIndent", refs={Integer.class}, tree="[0]")
     private Output<Integer> jsonIndent;
 
     /**
-     * @return Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
-     * insert newline characters after each element. For more information, check [JSON_INDENT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+     * @return Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
      * 
      */
     public Output<Integer> jsonIndent() {
         return this.jsonIndent;
     }
     /**
-     * Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
-     * information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+     * Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
      * 
      */
     @Export(name="lockTimeout", refs={Integer.class}, tree="[0]")
     private Output<Integer> lockTimeout;
 
     /**
-     * @return Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
-     * information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+     * @return Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
      * 
      */
     public Output<Integer> lockTimeout() {
         return this.lockTimeout;
     }
     /**
-     * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
-     * at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
-     * level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
-     * [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     @Export(name="logLevel", refs={String.class}, tree="[0]")
     private Output<String> logLevel;
 
     /**
-     * @return Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
-     * at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
-     * level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
-     * [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * @return Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     public Output<String> logLevel() {
@@ -690,114 +548,84 @@ public class LegacyServiceUser extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.minsToUnlock);
     }
     /**
-     * Number of statements to execute when using the multi-statement capability. For more information, check
-     * [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+     * Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
      * 
      */
     @Export(name="multiStatementCount", refs={Integer.class}, tree="[0]")
     private Output<Integer> multiStatementCount;
 
     /**
-     * @return Number of statements to execute when using the multi-statement capability. For more information, check
-     * [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+     * @return Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
      * 
      */
     public Output<Integer> multiStatementCount() {
         return this.multiStatementCount;
     }
     /**
-     * Specifies whether the user is forced to change their password on next login (including their first/initial login) into
-     * the system. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-     * put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Export(name="mustChangePassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mustChangePassword;
 
     /**
-     * @return Specifies whether the user is forced to change their password on next login (including their first/initial login) into
-     * the system. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-     * put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the user is forced to change their password on next login (including their first/initial login) into the system. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Output<Optional<String>> mustChangePassword() {
         return Codegen.optional(this.mustChangePassword);
     }
     /**
-     * Name of the user. Note that if you do not supply login_name this will be used as login_name. Check the
-     * [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the user. Note that if you do not supply login_name this will be used as login_name. Check the
-     * [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Name of the user. Note that if you do not supply login*name this will be used as login*name. Check the [docs](https://docs.snowflake.net/manuals/sql-reference/sql/create-user.html#required-parameters). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the network policy to enforce for your account. Network policies enable restricting access to your account
-     * based on users’ IP address. For more details, see [Controlling network traffic with network
-     * policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE
-     * NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check
-     * [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
+     * Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
      * 
      */
     @Export(name="networkPolicy", refs={String.class}, tree="[0]")
     private Output<String> networkPolicy;
 
     /**
-     * @return Specifies the network policy to enforce for your account. Network policies enable restricting access to your account
-     * based on users’ IP address. For more details, see [Controlling network traffic with network
-     * policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE
-     * NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check
-     * [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
+     * @return Specifies the network policy to enforce for your account. Network policies enable restricting access to your account based on users’ IP address. For more details, see [Controlling network traffic with network policies](https://docs.snowflake.com/en/user-guide/network-policies). Any existing network policy (created using [CREATE NETWORK POLICY](https://docs.snowflake.com/en/sql-reference/sql/create-network-policy)). For more information, check [NETWORK_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#network-policy).
      * 
      */
     public Output<String> networkPolicy() {
         return this.networkPolicy;
     }
     /**
-     * Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
-     * column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
-     * auto-incremented column in [increasing or decreasing
-     * order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
-     * more information, check [NOORDER_SEQUENCE_AS_DEFAULT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+     * Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
      * 
      */
     @Export(name="noorderSequenceAsDefault", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> noorderSequenceAsDefault;
 
     /**
-     * @return Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
-     * column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
-     * auto-incremented column in [increasing or decreasing
-     * order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
-     * more information, check [NOORDER_SEQUENCE_AS_DEFAULT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+     * @return Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
      * 
      */
     public Output<Boolean> noorderSequenceAsDefault() {
         return this.noorderSequenceAsDefault;
     }
     /**
-     * Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
-     * [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+     * Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
      * 
      */
     @Export(name="odbcTreatDecimalAsInt", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> odbcTreatDecimalAsInt;
 
     /**
-     * @return Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
-     * [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+     * @return Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
      * 
      */
     public Output<Boolean> odbcTreatDecimalAsInt() {
@@ -824,82 +652,56 @@ public class LegacyServiceUser extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.password);
     }
     /**
-     * Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO
-     * &lt;location&gt;](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check
-     * [PREVENT_UNLOAD_TO_INTERNAL_STAGES
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
+     * Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
      * 
      */
     @Export(name="preventUnloadToInternalStages", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> preventUnloadToInternalStages;
 
     /**
-     * @return Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO
-     * &lt;location&gt;](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check
-     * [PREVENT_UNLOAD_TO_INTERNAL_STAGES
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
+     * @return Specifies whether to prevent data unload operations to internal (Snowflake) stages using [COPY INTO \n\n](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location) statements. For more information, check [PREVENT*UNLOAD*TO*INTERNAL*STAGES docs](https://docs.snowflake.com/en/sql-reference/parameters#prevent-unload-to-internal-stages).
      * 
      */
     public Output<Boolean> preventUnloadToInternalStages() {
         return this.preventUnloadToInternalStages;
     }
     /**
-     * Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
-     * displayed in the output of the [QUERY_HISTORY,
-     * QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
-     * information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+     * Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
      * 
      */
     @Export(name="queryTag", refs={String.class}, tree="[0]")
     private Output<String> queryTag;
 
     /**
-     * @return Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
-     * displayed in the output of the [QUERY_HISTORY,
-     * QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
-     * information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+     * @return Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
      * 
      */
     public Output<String> queryTag() {
         return this.queryTag;
     }
     /**
-     * Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
-     * Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
-     * [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
-     * You can use this parameter in situations in which [third-party applications always use double quotes around
-     * identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
-     * more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+     * Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      * 
      */
     @Export(name="quotedIdentifiersIgnoreCase", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> quotedIdentifiersIgnoreCase;
 
     /**
-     * @return Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
-     * Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
-     * [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
-     * You can use this parameter in situations in which [third-party applications always use double quotes around
-     * identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
-     * more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+     * @return Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      * 
      */
     public Output<Boolean> quotedIdentifiersIgnoreCase() {
         return this.quotedIdentifiersIgnoreCase;
     }
     /**
-     * Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
-     * check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+     * Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
      * 
      */
     @Export(name="rowsPerResultset", refs={Integer.class}, tree="[0]")
     private Output<Integer> rowsPerResultset;
 
     /**
-     * @return Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
-     * check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+     * @return Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
      * 
      */
     public Output<Integer> rowsPerResultset() {
@@ -920,60 +722,42 @@ public class LegacyServiceUser extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.rsaPublicKey);
     }
     /**
-     * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
-     * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+     * Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      * 
      */
     @Export(name="rsaPublicKey2", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> rsaPublicKey2;
 
     /**
-     * @return Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication
-     * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+     * @return Specifies the user’s second RSA public key; used to rotate the public and private keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      * 
      */
     public Output<Optional<String>> rsaPublicKey2() {
         return Codegen.optional(this.rsaPublicKey2);
     }
     /**
-     * Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
-     * PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
-     * use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
-     * endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
-     * For more information, check [S3_STAGE_VPCE_DNS_NAME
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+     * Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
      * 
      */
     @Export(name="s3StageVpceDnsName", refs={String.class}, tree="[0]")
     private Output<String> s3StageVpceDnsName;
 
     /**
-     * @return Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
-     * PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
-     * use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
-     * endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
-     * For more information, check [S3_STAGE_VPCE_DNS_NAME
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+     * @return Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
      * 
      */
     public Output<String> s3StageVpceDnsName() {
         return this.s3StageVpceDnsName;
     }
     /**
-     * Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
-     * in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
-     * Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
-     * information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+     * Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
      * 
      */
     @Export(name="searchPath", refs={String.class}, tree="[0]")
     private Output<String> searchPath;
 
     /**
-     * @return Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
-     * in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
-     * Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
-     * information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+     * @return Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
      * 
      */
     public Output<String> searchPath() {
@@ -994,394 +778,280 @@ public class LegacyServiceUser extends com.pulumi.resources.CustomResource {
         return this.showOutputs;
     }
     /**
-     * Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure
-     * views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer
-     * account rather than the provider account. For more information, see [Introduction to Secure Data
-     * Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with
-     * shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check
-     * [SIMULATED_DATA_SHARING_CONSUMER
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
+     * Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, see [Introduction to Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
      * 
      */
     @Export(name="simulatedDataSharingConsumer", refs={String.class}, tree="[0]")
     private Output<String> simulatedDataSharingConsumer;
 
     /**
-     * @return Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure
-     * views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer
-     * account rather than the provider account. For more information, see [Introduction to Secure Data
-     * Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with
-     * shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check
-     * [SIMULATED_DATA_SHARING_CONSUMER
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
+     * @return Specifies the name of a consumer account to simulate for testing/validating shared data, particularly shared secure views. When this parameter is set in a session, shared views return rows as if executed in the specified consumer account rather than the provider account. For more information, see [Introduction to Secure Data Sharing](https://docs.snowflake.com/en/user-guide/data-sharing-intro) and [Working with shares](https://docs.snowflake.com/en/user-guide/data-sharing-provider). For more information, check [SIMULATED*DATA*SHARING_CONSUMER docs](https://docs.snowflake.com/en/sql-reference/parameters#simulated-data-sharing-consumer).
      * 
      */
     public Output<String> simulatedDataSharingConsumer() {
         return this.simulatedDataSharingConsumer;
     }
     /**
-     * Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
-     * by the system. This parameter can be used in conjunction with the
-     * [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
-     * ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+     * Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      * 
      */
     @Export(name="statementQueuedTimeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> statementQueuedTimeoutInSeconds;
 
     /**
-     * @return Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
-     * by the system. This parameter can be used in conjunction with the
-     * [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
-     * ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+     * @return Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      * 
      */
     public Output<Integer> statementQueuedTimeoutInSeconds() {
         return this.statementQueuedTimeoutInSeconds;
     }
     /**
-     * Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
-     * more information, check [STATEMENT_TIMEOUT_IN_SECONDS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+     * Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      * 
      */
     @Export(name="statementTimeoutInSeconds", refs={Integer.class}, tree="[0]")
     private Output<Integer> statementTimeoutInSeconds;
 
     /**
-     * @return Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
-     * more information, check [STATEMENT_TIMEOUT_IN_SECONDS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+     * @return Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      * 
      */
     public Output<Integer> statementTimeoutInSeconds() {
         return this.statementTimeoutInSeconds;
     }
     /**
-     * This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
-     * [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
-     * these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
-     * languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
-     * check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+     * This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
      * 
      */
     @Export(name="strictJsonOutput", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> strictJsonOutput;
 
     /**
-     * @return This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
-     * [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
-     * these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
-     * languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
-     * check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+     * @return This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
      * 
      */
     public Output<Boolean> strictJsonOutput() {
         return this.strictJsonOutput;
     }
     /**
-     * Specifies the input format for the TIME data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
-     * (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
-     * session). For more information, check [TIME_INPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+     * Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
      * 
      */
     @Export(name="timeInputFormat", refs={String.class}, tree="[0]")
     private Output<String> timeInputFormat;
 
     /**
-     * @return Specifies the input format for the TIME data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
-     * (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
-     * session). For more information, check [TIME_INPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+     * @return Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
      * 
      */
     public Output<String> timeInputFormat() {
         return this.timeInputFormat;
     }
     /**
-     * Specifies the display format for the TIME data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+     * Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
      * 
      */
     @Export(name="timeOutputFormat", refs={String.class}, tree="[0]")
     private Output<String> timeOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIME data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+     * @return Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
      * 
      */
     public Output<String> timeOutputFormat() {
         return this.timeOutputFormat;
     }
     /**
-     * Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
-     * aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
-     * check [TIMESTAMP_DAY_IS_ALWAYS_24H
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+     * Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
      * 
      */
     @Export(name="timestampDayIsAlways24h", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> timestampDayIsAlways24h;
 
     /**
-     * @return Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
-     * aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
-     * check [TIMESTAMP_DAY_IS_ALWAYS_24H
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+     * @return Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
      * 
      */
     public Output<Boolean> timestampDayIsAlways24h() {
         return this.timestampDayIsAlways24h;
     }
     /**
-     * Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
-     * AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
-     * during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+     * Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
      * 
      */
     @Export(name="timestampInputFormat", refs={String.class}, tree="[0]")
     private Output<String> timestampInputFormat;
 
     /**
-     * @return Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
-     * AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
-     * during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+     * @return Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
      * 
      */
     public Output<String> timestampInputFormat() {
         return this.timestampInputFormat;
     }
     /**
-     * Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
-     * [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
-     * more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      * 
      */
     @Export(name="timestampLtzOutputFormat", refs={String.class}, tree="[0]")
     private Output<String> timestampLtzOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
-     * [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
-     * more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * @return Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      * 
      */
     public Output<String> timestampLtzOutputFormat() {
         return this.timestampLtzOutputFormat;
     }
     /**
-     * Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      * 
      */
     @Export(name="timestampNtzOutputFormat", refs={String.class}, tree="[0]")
     private Output<String> timestampNtzOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+     * @return Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      * 
      */
     public Output<String> timestampNtzOutputFormat() {
         return this.timestampNtzOutputFormat;
     }
     /**
-     * Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
-     * output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+     * Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
      * 
      */
     @Export(name="timestampOutputFormat", refs={String.class}, tree="[0]")
     private Output<String> timestampOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
-     * output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+     * @return Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
      * 
      */
     public Output<String> timestampOutputFormat() {
         return this.timestampOutputFormat;
     }
     /**
-     * Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
-     * [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+     * Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
      * 
      */
     @Export(name="timestampTypeMapping", refs={String.class}, tree="[0]")
     private Output<String> timestampTypeMapping;
 
     /**
-     * @return Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
-     * [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+     * @return Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
      * 
      */
     public Output<String> timestampTypeMapping() {
         return this.timestampTypeMapping;
     }
     /**
-     * Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
-     * [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
-     * more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      * 
      */
     @Export(name="timestampTzOutputFormat", refs={String.class}, tree="[0]")
     private Output<String> timestampTzOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
-     * [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
-     * more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * @return Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      * 
      */
     public Output<String> timestampTzOutputFormat() {
         return this.timestampTzOutputFormat;
     }
     /**
-     * Specifies the time zone for the session. You can specify a [time zone
-     * name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
-     * name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
-     * Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
-     * information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+     * Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
      * 
      */
     @Export(name="timezone", refs={String.class}, tree="[0]")
     private Output<String> timezone;
 
     /**
-     * @return Specifies the time zone for the session. You can specify a [time zone
-     * name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
-     * name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
-     * Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
-     * information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+     * @return Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
      * 
      */
     public Output<String> timezone() {
         return this.timezone;
     }
     /**
-     * Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
-     * level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
-     * [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     @Export(name="traceLevel", refs={String.class}, tree="[0]")
     private Output<String> traceLevel;
 
     /**
-     * @return Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
-     * level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
-     * [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * @return Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     public Output<String> traceLevel() {
         return this.traceLevel;
     }
     /**
-     * Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
-     * more information, check [TRANSACTION_ABORT_ON_ERROR
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+     * Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
      * 
      */
     @Export(name="transactionAbortOnError", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> transactionAbortOnError;
 
     /**
-     * @return Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
-     * more information, check [TRANSACTION_ABORT_ON_ERROR
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+     * @return Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
      * 
      */
     public Output<Boolean> transactionAbortOnError() {
         return this.transactionAbortOnError;
     }
     /**
-     * Specifies the isolation level for transactions in the user session. For more information, check
-     * [TRANSACTION_DEFAULT_ISOLATION_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+     * Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
      * 
      */
     @Export(name="transactionDefaultIsolationLevel", refs={String.class}, tree="[0]")
     private Output<String> transactionDefaultIsolationLevel;
 
     /**
-     * @return Specifies the isolation level for transactions in the user session. For more information, check
-     * [TRANSACTION_DEFAULT_ISOLATION_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+     * @return Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
      * 
      */
     public Output<String> transactionDefaultIsolationLevel() {
         return this.transactionDefaultIsolationLevel;
     }
     /**
-     * Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
-     * parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
-     * represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+     * Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
      * 
      */
     @Export(name="twoDigitCenturyStart", refs={Integer.class}, tree="[0]")
     private Output<Integer> twoDigitCenturyStart;
 
     /**
-     * @return Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
-     * parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
-     * represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+     * @return Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
      * 
      */
     public Output<Integer> twoDigitCenturyStart() {
         return this.twoDigitCenturyStart;
     }
     /**
-     * Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
-     * information, check [UNSUPPORTED_DDL_ACTION
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+     * Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
      * 
      */
     @Export(name="unsupportedDdlAction", refs={String.class}, tree="[0]")
     private Output<String> unsupportedDdlAction;
 
     /**
-     * @return Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
-     * information, check [UNSUPPORTED_DDL_ACTION
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+     * @return Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
      * 
      */
     public Output<String> unsupportedDdlAction() {
         return this.unsupportedDdlAction;
     }
     /**
-     * Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
-     * information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+     * Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
      * 
      */
     @Export(name="useCachedResult", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> useCachedResult;
 
     /**
-     * @return Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
-     * information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+     * @return Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
      * 
      */
     public Output<Boolean> useCachedResult() {
@@ -1402,40 +1072,28 @@ public class LegacyServiceUser extends com.pulumi.resources.CustomResource {
         return this.userType;
     }
     /**
-     * Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
-     * which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
-     * first week of the year and December 31 is included in the last week of the year. For more information, check
-     * [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+     * Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
      * 
      */
     @Export(name="weekOfYearPolicy", refs={Integer.class}, tree="[0]")
     private Output<Integer> weekOfYearPolicy;
 
     /**
-     * @return Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
-     * which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
-     * first week of the year and December 31 is included in the last week of the year. For more information, check
-     * [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+     * @return Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
      * 
      */
     public Output<Integer> weekOfYearPolicy() {
         return this.weekOfYearPolicy;
     }
     /**
-     * Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
-     * ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
-     * day of the week. For more information, check [WEEK_START
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+     * Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
      * 
      */
     @Export(name="weekStart", refs={Integer.class}, tree="[0]")
     private Output<Integer> weekStart;
 
     /**
-     * @return Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
-     * ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
-     * day of the week. For more information, check [WEEK_START
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+     * @return Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
      * 
      */
     public Output<Integer> weekStart() {

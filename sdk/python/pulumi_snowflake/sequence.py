@@ -30,10 +30,10 @@ class SequenceArgs:
         The set of arguments for constructing a Sequence resource.
         :param pulumi.Input[builtins.str] database: The database in which to create the sequence. Don't use the | character.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the sequence. Don't use the | character.
-        :param pulumi.Input[builtins.str] comment: Specifies a comment for the sequence.
-        :param pulumi.Input[builtins.int] increment: The amount the sequence will increase by each time it is used
+        :param pulumi.Input[builtins.str] comment: (Default: ``) Specifies a comment for the sequence.
+        :param pulumi.Input[builtins.int] increment: (Default: `1`) The amount the sequence will increase by each time it is used
         :param pulumi.Input[builtins.str] name: Specifies the name for the sequence.
-        :param pulumi.Input[builtins.str] ordering: The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        :param pulumi.Input[builtins.str] ordering: (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
@@ -74,7 +74,7 @@ class SequenceArgs:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a comment for the sequence.
+        (Default: ``) Specifies a comment for the sequence.
         """
         return pulumi.get(self, "comment")
 
@@ -86,7 +86,7 @@ class SequenceArgs:
     @pulumi.getter
     def increment(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The amount the sequence will increase by each time it is used
+        (Default: `1`) The amount the sequence will increase by each time it is used
         """
         return pulumi.get(self, "increment")
 
@@ -110,7 +110,7 @@ class SequenceArgs:
     @pulumi.getter
     def ordering(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         """
         return pulumi.get(self, "ordering")
 
@@ -132,14 +132,13 @@ class _SequenceState:
                  schema: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Sequence resources.
-        :param pulumi.Input[builtins.str] comment: Specifies a comment for the sequence.
+        :param pulumi.Input[builtins.str] comment: (Default: ``) Specifies a comment for the sequence.
         :param pulumi.Input[builtins.str] database: The database in which to create the sequence. Don't use the | character.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.int] increment: The amount the sequence will increase by each time it is used
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.int] increment: (Default: `1`) The amount the sequence will increase by each time it is used
         :param pulumi.Input[builtins.str] name: Specifies the name for the sequence.
         :param pulumi.Input[builtins.int] next_value: The increment sequence interval.
-        :param pulumi.Input[builtins.str] ordering: The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        :param pulumi.Input[builtins.str] ordering: (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the sequence. Don't use the | character.
         """
         if comment is not None:
@@ -163,7 +162,7 @@ class _SequenceState:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a comment for the sequence.
+        (Default: ``) Specifies a comment for the sequence.
         """
         return pulumi.get(self, "comment")
 
@@ -187,8 +186,7 @@ class _SequenceState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -200,7 +198,7 @@ class _SequenceState:
     @pulumi.getter
     def increment(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The amount the sequence will increase by each time it is used
+        (Default: `1`) The amount the sequence will increase by each time it is used
         """
         return pulumi.get(self, "increment")
 
@@ -236,7 +234,7 @@ class _SequenceState:
     @pulumi.getter
     def ordering(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         """
         return pulumi.get(self, "ordering")
 
@@ -271,14 +269,21 @@ class Sequence(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a Sequence resource with the given unique name, props, and options.
+        ## Import
+
+        format is database name | schema name | sequence name
+
+        ```sh
+        $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] comment: Specifies a comment for the sequence.
+        :param pulumi.Input[builtins.str] comment: (Default: ``) Specifies a comment for the sequence.
         :param pulumi.Input[builtins.str] database: The database in which to create the sequence. Don't use the | character.
-        :param pulumi.Input[builtins.int] increment: The amount the sequence will increase by each time it is used
+        :param pulumi.Input[builtins.int] increment: (Default: `1`) The amount the sequence will increase by each time it is used
         :param pulumi.Input[builtins.str] name: Specifies the name for the sequence.
-        :param pulumi.Input[builtins.str] ordering: The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        :param pulumi.Input[builtins.str] ordering: (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the sequence. Don't use the | character.
         """
         ...
@@ -288,7 +293,14 @@ class Sequence(pulumi.CustomResource):
                  args: SequenceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Sequence resource with the given unique name, props, and options.
+        ## Import
+
+        format is database name | schema name | sequence name
+
+        ```sh
+        $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
+        ```
+
         :param str resource_name: The name of the resource.
         :param SequenceArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -356,14 +368,13 @@ class Sequence(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] comment: Specifies a comment for the sequence.
+        :param pulumi.Input[builtins.str] comment: (Default: ``) Specifies a comment for the sequence.
         :param pulumi.Input[builtins.str] database: The database in which to create the sequence. Don't use the | character.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.int] increment: The amount the sequence will increase by each time it is used
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.int] increment: (Default: `1`) The amount the sequence will increase by each time it is used
         :param pulumi.Input[builtins.str] name: Specifies the name for the sequence.
         :param pulumi.Input[builtins.int] next_value: The increment sequence interval.
-        :param pulumi.Input[builtins.str] ordering: The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        :param pulumi.Input[builtins.str] ordering: (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the sequence. Don't use the | character.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -384,7 +395,7 @@ class Sequence(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies a comment for the sequence.
+        (Default: ``) Specifies a comment for the sequence.
         """
         return pulumi.get(self, "comment")
 
@@ -400,8 +411,7 @@ class Sequence(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -409,7 +419,7 @@ class Sequence(pulumi.CustomResource):
     @pulumi.getter
     def increment(self) -> pulumi.Output[Optional[builtins.int]]:
         """
-        The amount the sequence will increase by each time it is used
+        (Default: `1`) The amount the sequence will increase by each time it is used
         """
         return pulumi.get(self, "increment")
 
@@ -433,7 +443,7 @@ class Sequence(pulumi.CustomResource):
     @pulumi.getter
     def ordering(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+        (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
         """
         return pulumi.get(self, "ordering")
 

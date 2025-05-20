@@ -17,39 +17,39 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/authenticationPolicy:AuthenticationPolicy example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;authentication_policy_name&gt;&#34;&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/authenticationPolicy:AuthenticationPolicy")
 public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * A list of authentication methods that are allowed during login. This parameter accepts one or more of the following
-     * values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+     * A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
      * 
      */
     @Export(name="authenticationMethods", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> authenticationMethods;
 
     /**
-     * @return A list of authentication methods that are allowed during login. This parameter accepts one or more of the following
-     * values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
+     * @return A list of authentication methods that are allowed during login. This parameter accepts one or more of the following values: `ALL` | `SAML` | `PASSWORD` | `OAUTH` | `KEYPAIR`
      * 
      */
     public Output<Optional<List<String>>> authenticationMethods() {
         return Codegen.optional(this.authenticationMethods);
     }
     /**
-     * A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the
-     * valid CLIENT_TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The
-     * CLIENT_TYPES property of an authentication policy is a best effort method to block user logins based on specific
-     * clients. It should not be used as the sole control to establish a security boundary.
+     * A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
      * 
      */
     @Export(name="clientTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> clientTypes;
 
     /**
-     * @return A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the
-     * valid CLIENT_TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The
-     * CLIENT_TYPES property of an authentication policy is a best effort method to block user logins based on specific
-     * clients. It should not be used as the sole control to establish a security boundary.
+     * @return A list of clients that can authenticate with Snowflake. If a client tries to connect, and the client is not one of the valid CLIENT*TYPES, then the login attempt fails. Allowed values are `ALL` | `SNOWFLAKE_UI` | `DRIVERS` | `SNOWSQL`. The CLIENT*TYPES property of an authentication policy is a best effort method to block user logins based on specific clients. It should not be used as the sole control to establish a security boundary.
      * 
      */
     public Output<Optional<List<String>>> clientTypes() {
@@ -70,16 +70,14 @@ public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using
-     * the following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using
-     * the following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -100,104 +98,84 @@ public class AuthenticationPolicy extends com.pulumi.resources.CustomResource {
         return this.describeOutputs;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not
-     * listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+     * A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
      * 
      */
     @Export(name="mfaAuthenticationMethods", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> mfaAuthenticationMethods;
 
     /**
-     * @return A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not
-     * listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
+     * @return A list of authentication methods that enforce multi-factor authentication (MFA) during login. Authentication methods not listed in this parameter do not prompt for multi-factor authentication. Allowed values are `ALL` | `SAML` | `PASSWORD`.
      * 
      */
     public Output<Optional<List<String>>> mfaAuthenticationMethods() {
         return Codegen.optional(this.mfaAuthenticationMethods);
     }
     /**
-     * Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When
-     * REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT_TYPES parameter must
-     * include SNOWFLAKE_UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+     * (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
      * 
      */
     @Export(name="mfaEnrollment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mfaEnrollment;
 
     /**
-     * @return Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When
-     * REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT_TYPES parameter must
-     * include SNOWFLAKE_UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
+     * @return (Default: `OPTIONAL`) Determines whether a user must enroll in multi-factor authentication. Allowed values are REQUIRED and OPTIONAL. When REQUIRED is specified, Enforces users to enroll in MFA. If this value is used, then the CLIENT*TYPES parameter must include SNOWFLAKE*UI, because Snowsight is the only place users can enroll in multi-factor authentication (MFA).
      * 
      */
     public Output<Optional<String>> mfaEnrollment() {
         return Codegen.optional(this.mfaEnrollment);
     }
     /**
-     * Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the authentication policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
         return this.schema;
     }
     /**
-     * A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or
-     * OAUTH are not in the AUTHENTICATION_METHODS list. All values in the SECURITY_INTEGRATIONS list must be compatible with
-     * the values in the AUTHENTICATION_METHODS list. For example, if SECURITY_INTEGRATIONS contains a SAML security
-     * integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all
-     * security integrations use ALL as parameter.
+     * A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
      * 
      */
     @Export(name="securityIntegrations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> securityIntegrations;
 
     /**
-     * @return A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or
-     * OAUTH are not in the AUTHENTICATION_METHODS list. All values in the SECURITY_INTEGRATIONS list must be compatible with
-     * the values in the AUTHENTICATION_METHODS list. For example, if SECURITY_INTEGRATIONS contains a SAML security
-     * integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all
-     * security integrations use ALL as parameter.
+     * @return A list of security integrations the authentication policy is associated with. This parameter has no effect when SAML or OAUTH are not in the AUTHENTICATION*METHODS list. All values in the SECURITY*INTEGRATIONS list must be compatible with the values in the AUTHENTICATION*METHODS list. For example, if SECURITY*INTEGRATIONS contains a SAML security integration, and AUTHENTICATION_METHODS contains OAUTH, then you cannot create the authentication policy. To allow all security integrations use ALL as parameter.
      * 
      */
     public Output<Optional<List<String>>> securityIntegrations() {

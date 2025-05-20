@@ -20,16 +20,14 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
     public static final ExternalTableState Empty = new ExternalTableState();
 
     /**
-     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-     * created.
+     * (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      * 
      */
     @Import(name="autoRefresh")
     private @Nullable Output<Boolean> autoRefresh;
 
     /**
-     * @return Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-     * created.
+     * @return (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      * 
      */
     public Optional<Output<Boolean>> autoRefresh() {
@@ -82,16 +80,14 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-     * OR REPLACE TABLE variant
+     * (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      * 
      */
     @Import(name="copyGrants")
     private @Nullable Output<Boolean> copyGrants;
 
     /**
-     * @return Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-     * OR REPLACE TABLE variant
+     * @return (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      * 
      */
     public Optional<Output<Boolean>> copyGrants() {
@@ -129,16 +125,14 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -146,16 +140,14 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or
-     * populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
+     * Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
      * 
      */
     @Import(name="location")
     private @Nullable Output<String> location;
 
     /**
-     * @return Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or
-     * populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
+     * @return Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
      * 
      */
     public Optional<Output<String>> location() {
@@ -163,16 +155,14 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-     * is created.
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-     * is created.
+     * @return Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -225,14 +215,14 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies weather to refresh when an external table is created.
+     * (Default: `true`) Specifies weather to refresh when an external table is created.
      * 
      */
     @Import(name="refreshOnCreate")
     private @Nullable Output<Boolean> refreshOnCreate;
 
     /**
-     * @return Specifies weather to refresh when an external table is created.
+     * @return (Default: `true`) Specifies weather to refresh when an external table is created.
      * 
      */
     public Optional<Output<Boolean>> refreshOnCreate() {
@@ -333,8 +323,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param autoRefresh Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-         * created.
+         * @param autoRefresh (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
          * 
          * @return builder
          * 
@@ -345,8 +334,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param autoRefresh Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-         * created.
+         * @param autoRefresh (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
          * 
          * @return builder
          * 
@@ -429,8 +417,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param copyGrants Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-         * OR REPLACE TABLE variant
+         * @param copyGrants (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
          * 
          * @return builder
          * 
@@ -441,8 +428,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param copyGrants Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-         * OR REPLACE TABLE variant
+         * @param copyGrants (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
          * 
          * @return builder
          * 
@@ -494,8 +480,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -506,8 +491,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -517,8 +501,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param location Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or
-         * populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
+         * @param location Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
          * 
          * @return builder
          * 
@@ -529,8 +512,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param location Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or
-         * populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
+         * @param location Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
          * 
          * @return builder
          * 
@@ -540,8 +522,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-         * is created.
+         * @param name Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
          * 
          * @return builder
          * 
@@ -552,8 +533,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-         * is created.
+         * @param name Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
          * 
          * @return builder
          * 
@@ -636,7 +616,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param refreshOnCreate Specifies weather to refresh when an external table is created.
+         * @param refreshOnCreate (Default: `true`) Specifies weather to refresh when an external table is created.
          * 
          * @return builder
          * 
@@ -647,7 +627,7 @@ public final class ExternalTableState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param refreshOnCreate Specifies weather to refresh when an external table is created.
+         * @param refreshOnCreate (Default: `true`) Specifies weather to refresh when an external table is created.
          * 
          * @return builder
          * 

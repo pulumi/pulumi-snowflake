@@ -20,16 +20,14 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
     public static final StreamOnTableArgs Empty = new StreamOnTableArgs();
 
     /**
-     * Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
-     * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="appendOnly")
     private @Nullable Output<String> appendOnly;
 
     /**
-     * @return Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
-     * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> appendOnly() {
@@ -73,16 +71,14 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -90,16 +86,14 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -107,16 +101,14 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -131,16 +123,14 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid
-     * using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     @Import(name="table", required=true)
     private Output<String> table;
 
     /**
-     * @return Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid
-     * using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * @return Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     public Output<String> table() {
@@ -181,8 +171,7 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appendOnly Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
-         * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param appendOnly (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -193,8 +182,7 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appendOnly Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
-         * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param appendOnly (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -252,8 +240,7 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -264,8 +251,7 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -275,8 +261,7 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-         * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -287,8 +272,7 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-         * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -298,8 +282,7 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -310,8 +293,7 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -330,8 +312,7 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param table Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid
-         * using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+         * @param table Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -342,8 +323,7 @@ public final class StreamOnTableArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param table Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid
-         * using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+         * @param table Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 

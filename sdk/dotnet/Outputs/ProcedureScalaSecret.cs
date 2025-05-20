@@ -14,7 +14,7 @@ namespace Pulumi.Snowflake.Outputs
     public sealed class ProcedureScalaSecret
     {
         /// <summary>
-        /// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        /// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         /// </summary>
         public readonly string SecretId;
         /// <summary>

@@ -37,13 +37,10 @@ class TableArgs:
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[builtins.str] database: The database in which to create the table.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the table.
-        :param pulumi.Input[builtins.bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
+        :param pulumi.Input[builtins.bool] change_tracking: (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the table.
-        :param pulumi.Input[builtins.int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
-               historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
-               argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
-               Snowflake default - in this case the schema value
+        :param pulumi.Input[builtins.int] data_retention_time_in_days: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
         :param pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]] tags: Definitions of a tag to associate with the resource.
@@ -112,7 +109,7 @@ class TableArgs:
     @pulumi.getter(name="changeTracking")
     def change_tracking(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to enable change tracking on the table. Default false.
+        (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         """
         return pulumi.get(self, "change_tracking")
 
@@ -148,10 +145,7 @@ class TableArgs:
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
-        historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
-        argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
-        Snowflake default - in this case the schema value
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
@@ -215,17 +209,13 @@ class _TableState:
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input['TableTagArgs']]]] = None):
         """
         Input properties used for looking up and filtering Table resources.
-        :param pulumi.Input[builtins.bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
+        :param pulumi.Input[builtins.bool] change_tracking: (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input['TableColumnArgs']]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the table.
-        :param pulumi.Input[builtins.int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
-               historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
-               argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
-               Snowflake default - in this case the schema value
+        :param pulumi.Input[builtins.int] data_retention_time_in_days: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         :param pulumi.Input[builtins.str] database: The database in which to create the table.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[builtins.str] owner: Name of the role that owns the table.
         :param pulumi.Input['TablePrimaryKeyArgs'] primary_key: Definitions of primary key constraint to create on table
@@ -267,7 +257,7 @@ class _TableState:
     @pulumi.getter(name="changeTracking")
     def change_tracking(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether to enable change tracking on the table. Default false.
+        (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         """
         return pulumi.get(self, "change_tracking")
 
@@ -315,10 +305,7 @@ class _TableState:
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
-        historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
-        argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
-        Snowflake default - in this case the schema value
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
@@ -342,8 +329,7 @@ class _TableState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -432,17 +418,21 @@ class Table(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[Union['TableTagArgs', 'TableTagArgsDict']]]]] = None,
                  __props__=None):
         """
-        Create a Table resource with the given unique name, props, and options.
+        ## Import
+
+        format is database name | schema name | table name
+
+        ```sh
+        $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
+        :param pulumi.Input[builtins.bool] change_tracking: (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the table.
-        :param pulumi.Input[builtins.int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
-               historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
-               argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
-               Snowflake default - in this case the schema value
+        :param pulumi.Input[builtins.int] data_retention_time_in_days: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         :param pulumi.Input[builtins.str] database: The database in which to create the table.
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']] primary_key: Definitions of primary key constraint to create on table
@@ -456,7 +446,14 @@ class Table(pulumi.CustomResource):
                  args: TableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Table resource with the given unique name, props, and options.
+        ## Import
+
+        format is database name | schema name | table name
+
+        ```sh
+        $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'
+        ```
+
         :param str resource_name: The name of the resource.
         :param TableArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -538,17 +535,13 @@ class Table(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] change_tracking: Specifies whether to enable change tracking on the table. Default false.
+        :param pulumi.Input[builtins.bool] change_tracking: (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] cluster_bies: A list of one or more table columns/expressions to be used as clustering key(s) for the table
         :param pulumi.Input[Sequence[pulumi.Input[Union['TableColumnArgs', 'TableColumnArgsDict']]]] columns: Definitions of a column to create in the table. Minimum one required.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the table.
-        :param pulumi.Input[builtins.int] data_retention_time_in_days: Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
-               historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
-               argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
-               Snowflake default - in this case the schema value
+        :param pulumi.Input[builtins.int] data_retention_time_in_days: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         :param pulumi.Input[builtins.str] database: The database in which to create the table.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the table; must be unique for the database and schema in which the table is created.
         :param pulumi.Input[builtins.str] owner: Name of the role that owns the table.
         :param pulumi.Input[Union['TablePrimaryKeyArgs', 'TablePrimaryKeyArgsDict']] primary_key: Definitions of primary key constraint to create on table
@@ -577,7 +570,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="changeTracking")
     def change_tracking(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies whether to enable change tracking on the table. Default false.
+        (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         """
         return pulumi.get(self, "change_tracking")
 
@@ -609,10 +602,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="dataRetentionTimeInDays")
     def data_retention_time_in_days(self) -> pulumi.Output[Optional[builtins.int]]:
         """
-        Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
-        historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
-        argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
-        Snowflake default - in this case the schema value
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         """
         return pulumi.get(self, "data_retention_time_in_days")
 
@@ -628,8 +618,7 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 

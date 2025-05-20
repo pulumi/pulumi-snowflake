@@ -9,12 +9,18 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/secondaryConnection:SecondaryConnection example '"&lt;secondary_connection_name&gt;"'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/secondaryConnection:SecondaryConnection")]
     public partial class SecondaryConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
-        /// information about this resource, see docs.
+        /// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
         /// </summary>
         [Output("asReplicaOf")]
         public Output<string> AsReplicaOf { get; private set; } = null!;
@@ -26,8 +32,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
@@ -39,10 +44,7 @@ namespace Pulumi.Snowflake
         public Output<bool> IsPrimary { get; private set; } = null!;
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
-        /// only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
-        /// name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
-        /// `|`, `.`, `"`.
+        /// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -100,8 +102,7 @@ namespace Pulumi.Snowflake
     public sealed class SecondaryConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
-        /// information about this resource, see docs.
+        /// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
         /// </summary>
         [Input("asReplicaOf", required: true)]
         public Input<string> AsReplicaOf { get; set; } = null!;
@@ -113,10 +114,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
-        /// only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
-        /// name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
-        /// `|`, `.`, `"`.
+        /// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -130,8 +128,7 @@ namespace Pulumi.Snowflake
     public sealed class SecondaryConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
-        /// information about this resource, see docs.
+        /// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
         /// </summary>
         [Input("asReplicaOf")]
         public Input<string>? AsReplicaOf { get; set; }
@@ -143,8 +140,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
@@ -156,10 +152,7 @@ namespace Pulumi.Snowflake
         public Input<bool>? IsPrimary { get; set; }
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
-        /// only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
-        /// name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
-        /// `|`, `.`, `"`.
+        /// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

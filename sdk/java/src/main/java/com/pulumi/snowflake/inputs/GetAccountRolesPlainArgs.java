@@ -14,16 +14,32 @@ public final class GetAccountRolesPlainArgs extends com.pulumi.resources.InvokeA
 
     public static final GetAccountRolesPlainArgs Empty = new GetAccountRolesPlainArgs();
 
+    /**
+     * Filters the SHOW GRANTS output by class name.
+     * 
+     */
     @Import(name="inClass")
     private @Nullable String inClass;
 
+    /**
+     * @return Filters the SHOW GRANTS output by class name.
+     * 
+     */
     public Optional<String> inClass() {
         return Optional.ofNullable(this.inClass);
     }
 
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     @Import(name="like")
     private @Nullable String like;
 
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
@@ -53,11 +69,23 @@ public final class GetAccountRolesPlainArgs extends com.pulumi.resources.InvokeA
             $ = new GetAccountRolesPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param inClass Filters the SHOW GRANTS output by class name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inClass(@Nullable String inClass) {
             $.inClass = inClass;
             return this;
         }
 
+        /**
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder like(@Nullable String like) {
             $.like = like;
             return this;

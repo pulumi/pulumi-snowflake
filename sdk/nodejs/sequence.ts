@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * format is database name | schema name | sequence name
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/sequence:Sequence example 'dbName|schemaName|sequenceName'
+ * ```
+ */
 export class Sequence extends pulumi.CustomResource {
     /**
      * Get an existing Sequence resource's state with the given name, ID, and optional extra
@@ -33,7 +42,7 @@ export class Sequence extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies a comment for the sequence.
+     * (Default: ``) Specifies a comment for the sequence.
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
@@ -41,12 +50,11 @@ export class Sequence extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * The amount the sequence will increase by each time it is used
+     * (Default: `1`) The amount the sequence will increase by each time it is used
      */
     public readonly increment!: pulumi.Output<number | undefined>;
     /**
@@ -58,7 +66,7 @@ export class Sequence extends pulumi.CustomResource {
      */
     public /*out*/ readonly nextValue!: pulumi.Output<number>;
     /**
-     * The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      */
     public readonly ordering!: pulumi.Output<string | undefined>;
     /**
@@ -114,7 +122,7 @@ export class Sequence extends pulumi.CustomResource {
  */
 export interface SequenceState {
     /**
-     * Specifies a comment for the sequence.
+     * (Default: ``) Specifies a comment for the sequence.
      */
     comment?: pulumi.Input<string>;
     /**
@@ -122,12 +130,11 @@ export interface SequenceState {
      */
     database?: pulumi.Input<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * The amount the sequence will increase by each time it is used
+     * (Default: `1`) The amount the sequence will increase by each time it is used
      */
     increment?: pulumi.Input<number>;
     /**
@@ -139,7 +146,7 @@ export interface SequenceState {
      */
     nextValue?: pulumi.Input<number>;
     /**
-     * The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      */
     ordering?: pulumi.Input<string>;
     /**
@@ -153,7 +160,7 @@ export interface SequenceState {
  */
 export interface SequenceArgs {
     /**
-     * Specifies a comment for the sequence.
+     * (Default: ``) Specifies a comment for the sequence.
      */
     comment?: pulumi.Input<string>;
     /**
@@ -161,7 +168,7 @@ export interface SequenceArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * The amount the sequence will increase by each time it is used
+     * (Default: `1`) The amount the sequence will increase by each time it is used
      */
     increment?: pulumi.Input<number>;
     /**
@@ -169,7 +176,7 @@ export interface SequenceArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
+     * (Default: `ORDER`) The ordering of the sequence. Either ORDER or NOORDER. Default is ORDER.
      */
     ordering?: pulumi.Input<string>;
     /**

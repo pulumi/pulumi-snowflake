@@ -31,14 +31,14 @@ public final class GetGrantsFutureGrantsToArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db_name&amp;gt;&#34;.&#34;&amp;lt;database_role_name&amp;gt;&#34;).
+     * Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
      * 
      */
     @Import(name="databaseRole")
     private @Nullable Output<String> databaseRole;
 
     /**
-     * @return Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db_name&amp;gt;&#34;.&#34;&amp;lt;database_role_name&amp;gt;&#34;).
+     * @return Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
      * 
      */
     public Optional<Output<String>> databaseRole() {
@@ -92,7 +92,7 @@ public final class GetGrantsFutureGrantsToArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param databaseRole Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db_name&amp;gt;&#34;.&#34;&amp;lt;database_role_name&amp;gt;&#34;).
+         * @param databaseRole Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class GetGrantsFutureGrantsToArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param databaseRole Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db_name&amp;gt;&#34;.&#34;&amp;lt;database_role_name&amp;gt;&#34;).
+         * @param databaseRole Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
          * 
          * @return builder
          * 

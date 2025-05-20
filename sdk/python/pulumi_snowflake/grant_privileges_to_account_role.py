@@ -34,18 +34,15 @@ class GrantPrivilegesToAccountRoleArgs:
                  with_grant_option: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a GrantPrivilegesToAccountRole resource.
-        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this
-               resource, see docs.
-        :param pulumi.Input[builtins.bool] all_privileges: Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-               is aligned with the Snowsight behavior.
-        :param pulumi.Input[builtins.str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-               always_apply field.
-        :param pulumi.Input[builtins.bool] on_account: If true, the privileges will be granted on the account.
+        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.bool] all_privileges: (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
+        :param pulumi.Input[builtins.str] always_apply_trigger: (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+        :param pulumi.Input[builtins.bool] on_account: (Default: `false`) If true, the privileges will be granted on the account.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs'] on_account_object: Specifies the account object on which privileges will be granted
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaArgs'] on_schema: Specifies the schema on which privileges will be granted.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectArgs'] on_schema_object: Specifies the schema object on which privileges will be granted.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] privileges: The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
-        :param pulumi.Input[builtins.bool] with_grant_option: Specifies whether the grantee can grant the privileges to other users.
+        :param pulumi.Input[builtins.bool] with_grant_option: (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
         """
         pulumi.set(__self__, "account_role_name", account_role_name)
         if all_privileges is not None:
@@ -71,8 +68,7 @@ class GrantPrivilegesToAccountRoleArgs:
     @pulumi.getter(name="accountRoleName")
     def account_role_name(self) -> pulumi.Input[builtins.str]:
         """
-        The fully qualified name of the account role to which privileges will be granted. For more information about this
-        resource, see docs.
+        The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "account_role_name")
 
@@ -84,8 +80,7 @@ class GrantPrivilegesToAccountRoleArgs:
     @pulumi.getter(name="allPrivileges")
     def all_privileges(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-        is aligned with the Snowsight behavior.
+        (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
         """
         return pulumi.get(self, "all_privileges")
 
@@ -106,8 +101,7 @@ class GrantPrivilegesToAccountRoleArgs:
     @pulumi.getter(name="alwaysApplyTrigger")
     def always_apply_trigger(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-        always_apply field.
+        (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         """
         return pulumi.get(self, "always_apply_trigger")
 
@@ -119,7 +113,7 @@ class GrantPrivilegesToAccountRoleArgs:
     @pulumi.getter(name="onAccount")
     def on_account(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, the privileges will be granted on the account.
+        (Default: `false`) If true, the privileges will be granted on the account.
         """
         return pulumi.get(self, "on_account")
 
@@ -179,7 +173,7 @@ class GrantPrivilegesToAccountRoleArgs:
     @pulumi.getter(name="withGrantOption")
     def with_grant_option(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the grantee can grant the privileges to other users.
+        (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
         """
         return pulumi.get(self, "with_grant_option")
 
@@ -203,18 +197,15 @@ class _GrantPrivilegesToAccountRoleState:
                  with_grant_option: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Input properties used for looking up and filtering GrantPrivilegesToAccountRole resources.
-        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this
-               resource, see docs.
-        :param pulumi.Input[builtins.bool] all_privileges: Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-               is aligned with the Snowsight behavior.
-        :param pulumi.Input[builtins.str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-               always_apply field.
-        :param pulumi.Input[builtins.bool] on_account: If true, the privileges will be granted on the account.
+        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.bool] all_privileges: (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
+        :param pulumi.Input[builtins.str] always_apply_trigger: (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+        :param pulumi.Input[builtins.bool] on_account: (Default: `false`) If true, the privileges will be granted on the account.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnAccountObjectArgs'] on_account_object: Specifies the account object on which privileges will be granted
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaArgs'] on_schema: Specifies the schema on which privileges will be granted.
         :param pulumi.Input['GrantPrivilegesToAccountRoleOnSchemaObjectArgs'] on_schema_object: Specifies the schema object on which privileges will be granted.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] privileges: The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
-        :param pulumi.Input[builtins.bool] with_grant_option: Specifies whether the grantee can grant the privileges to other users.
+        :param pulumi.Input[builtins.bool] with_grant_option: (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
         """
         if account_role_name is not None:
             pulumi.set(__self__, "account_role_name", account_role_name)
@@ -241,8 +232,7 @@ class _GrantPrivilegesToAccountRoleState:
     @pulumi.getter(name="accountRoleName")
     def account_role_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The fully qualified name of the account role to which privileges will be granted. For more information about this
-        resource, see docs.
+        The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "account_role_name")
 
@@ -254,8 +244,7 @@ class _GrantPrivilegesToAccountRoleState:
     @pulumi.getter(name="allPrivileges")
     def all_privileges(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-        is aligned with the Snowsight behavior.
+        (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
         """
         return pulumi.get(self, "all_privileges")
 
@@ -276,8 +265,7 @@ class _GrantPrivilegesToAccountRoleState:
     @pulumi.getter(name="alwaysApplyTrigger")
     def always_apply_trigger(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-        always_apply field.
+        (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         """
         return pulumi.get(self, "always_apply_trigger")
 
@@ -289,7 +277,7 @@ class _GrantPrivilegesToAccountRoleState:
     @pulumi.getter(name="onAccount")
     def on_account(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        If true, the privileges will be granted on the account.
+        (Default: `false`) If true, the privileges will be granted on the account.
         """
         return pulumi.get(self, "on_account")
 
@@ -349,7 +337,7 @@ class _GrantPrivilegesToAccountRoleState:
     @pulumi.getter(name="withGrantOption")
     def with_grant_option(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies whether the grantee can grant the privileges to other users.
+        (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
         """
         return pulumi.get(self, "with_grant_option")
 
@@ -376,21 +364,45 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
                  with_grant_option: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
         """
-        Create a GrantPrivilegesToAccountRole resource with the given unique name, props, and options.
+        ## Import
+
+        ### Import examples
+
+        #### Grant all privileges OnAccountObject (Database)
+
+        ```sh
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|ALL|OnAccountObject|DATABASE|"test_db"'`
+        ```
+
+        #### Grant list of privileges OnAllSchemasInDatabase
+
+        ```sh
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|"test_db"'`
+        ```
+
+        #### Grant list of privileges on table
+
+        ```sh
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|"test_db"."test_schema"."test_table"'`
+        ```
+
+        #### Grant list of privileges OnAll tables in schema
+
+        ```sh
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|"test_db"."test_schema"'`
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this
-               resource, see docs.
-        :param pulumi.Input[builtins.bool] all_privileges: Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-               is aligned with the Snowsight behavior.
-        :param pulumi.Input[builtins.str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-               always_apply field.
-        :param pulumi.Input[builtins.bool] on_account: If true, the privileges will be granted on the account.
+        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.bool] all_privileges: (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
+        :param pulumi.Input[builtins.str] always_apply_trigger: (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+        :param pulumi.Input[builtins.bool] on_account: (Default: `false`) If true, the privileges will be granted on the account.
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']] on_account_object: Specifies the account object on which privileges will be granted
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']] on_schema: Specifies the schema on which privileges will be granted.
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']] on_schema_object: Specifies the schema object on which privileges will be granted.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] privileges: The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
-        :param pulumi.Input[builtins.bool] with_grant_option: Specifies whether the grantee can grant the privileges to other users.
+        :param pulumi.Input[builtins.bool] with_grant_option: (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
         """
         ...
     @overload
@@ -399,7 +411,34 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
                  args: GrantPrivilegesToAccountRoleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a GrantPrivilegesToAccountRole resource with the given unique name, props, and options.
+        ## Import
+
+        ### Import examples
+
+        #### Grant all privileges OnAccountObject (Database)
+
+        ```sh
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|ALL|OnAccountObject|DATABASE|"test_db"'`
+        ```
+
+        #### Grant list of privileges OnAllSchemasInDatabase
+
+        ```sh
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|"test_db"'`
+        ```
+
+        #### Grant list of privileges on table
+
+        ```sh
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|"test_db"."test_schema"."test_table"'`
+        ```
+
+        #### Grant list of privileges OnAll tables in schema
+
+        ```sh
+        $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|"test_db"."test_schema"'`
+        ```
+
         :param str resource_name: The name of the resource.
         :param GrantPrivilegesToAccountRoleArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -473,18 +512,15 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this
-               resource, see docs.
-        :param pulumi.Input[builtins.bool] all_privileges: Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-               is aligned with the Snowsight behavior.
-        :param pulumi.Input[builtins.str] always_apply_trigger: This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-               always_apply field.
-        :param pulumi.Input[builtins.bool] on_account: If true, the privileges will be granted on the account.
+        :param pulumi.Input[builtins.str] account_role_name: The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.bool] all_privileges: (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
+        :param pulumi.Input[builtins.str] always_apply_trigger: (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
+        :param pulumi.Input[builtins.bool] on_account: (Default: `false`) If true, the privileges will be granted on the account.
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnAccountObjectArgs', 'GrantPrivilegesToAccountRoleOnAccountObjectArgsDict']] on_account_object: Specifies the account object on which privileges will be granted
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaArgs', 'GrantPrivilegesToAccountRoleOnSchemaArgsDict']] on_schema: Specifies the schema on which privileges will be granted.
         :param pulumi.Input[Union['GrantPrivilegesToAccountRoleOnSchemaObjectArgs', 'GrantPrivilegesToAccountRoleOnSchemaObjectArgsDict']] on_schema_object: Specifies the schema object on which privileges will be granted.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] privileges: The privileges to grant on the account role. This field is case-sensitive; use only upper-case privileges.
-        :param pulumi.Input[builtins.bool] with_grant_option: Specifies whether the grantee can grant the privileges to other users.
+        :param pulumi.Input[builtins.bool] with_grant_option: (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -506,8 +542,7 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
     @pulumi.getter(name="accountRoleName")
     def account_role_name(self) -> pulumi.Output[builtins.str]:
         """
-        The fully qualified name of the account role to which privileges will be granted. For more information about this
-        resource, see docs.
+        The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         """
         return pulumi.get(self, "account_role_name")
 
@@ -515,8 +550,7 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
     @pulumi.getter(name="allPrivileges")
     def all_privileges(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-        is aligned with the Snowsight behavior.
+        (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
         """
         return pulumi.get(self, "all_privileges")
 
@@ -529,8 +563,7 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
     @pulumi.getter(name="alwaysApplyTrigger")
     def always_apply_trigger(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-        always_apply field.
+        (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         """
         return pulumi.get(self, "always_apply_trigger")
 
@@ -538,7 +571,7 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
     @pulumi.getter(name="onAccount")
     def on_account(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        If true, the privileges will be granted on the account.
+        (Default: `false`) If true, the privileges will be granted on the account.
         """
         return pulumi.get(self, "on_account")
 
@@ -578,7 +611,7 @@ class GrantPrivilegesToAccountRole(pulumi.CustomResource):
     @pulumi.getter(name="withGrantOption")
     def with_grant_option(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies whether the grantee can grant the privileges to other users.
+        (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
         """
         return pulumi.get(self, "with_grant_option")
 

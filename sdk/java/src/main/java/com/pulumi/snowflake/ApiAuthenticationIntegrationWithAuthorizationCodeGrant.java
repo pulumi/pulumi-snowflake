@@ -19,6 +19,14 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant example &#39;&#34;&lt;integration_name&gt;&#34;&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant")
 public class ApiAuthenticationIntegrationWithAuthorizationCodeGrant extends com.pulumi.resources.CustomResource {
     /**
@@ -64,62 +72,56 @@ public class ApiAuthenticationIntegrationWithAuthorizationCodeGrant extends com.
         return this.enabled;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      * 
      */
     @Export(name="oauthAccessTokenValidity", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> oauthAccessTokenValidity;
 
     /**
-     * @return Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      * 
      */
     public Output<Optional<Integer>> oauthAccessTokenValidity() {
         return Codegen.optional(this.oauthAccessTokenValidity);
     }
     /**
-     * Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-     * the OAuth client credentials flow.
+     * Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
      * 
      */
     @Export(name="oauthAllowedScopes", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> oauthAllowedScopes;
 
     /**
-     * @return Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-     * the OAuth client credentials flow.
+     * @return Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
      * 
      */
     public Output<Optional<List<String>>> oauthAllowedScopes() {
@@ -140,16 +142,14 @@ public class ApiAuthenticationIntegrationWithAuthorizationCodeGrant extends com.
         return Codegen.optional(this.oauthAuthorizationEndpoint);
     }
     /**
-     * Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-     * resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+     * Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
      * 
      */
     @Export(name="oauthClientAuthMethod", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthClientAuthMethod;
 
     /**
-     * @return Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-     * resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+     * @return Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
      * 
      */
     public Output<Optional<String>> oauthClientAuthMethod() {
@@ -190,18 +190,14 @@ public class ApiAuthenticationIntegrationWithAuthorizationCodeGrant extends com.
         return Codegen.optional(this.oauthRefreshTokenValidity);
     }
     /**
-     * Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-     * refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-     * access token is issued directly). If removed from the config, the resource is recreated.
+     * Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
      * 
      */
     @Export(name="oauthTokenEndpoint", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> oauthTokenEndpoint;
 
     /**
-     * @return Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-     * refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-     * access token is issued directly). If removed from the config, the resource is recreated.
+     * @return Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
      * 
      */
     public Output<Optional<String>> oauthTokenEndpoint() {

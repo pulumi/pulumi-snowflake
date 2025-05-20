@@ -19,35 +19,61 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ### Import examples
+ * 
+ * #### Grant all privileges OnAccountObject (Database)
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example &#39;&#34;test_db_role&#34;|false|false|ALL|OnAccountObject|DATABASE|&#34;test_db&#34;&#39;`
+ * ```
+ * 
+ * #### Grant list of privileges OnAllSchemasInDatabase
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example &#39;&#34;test_db_role&#34;|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|&#34;test_db&#34;&#39;`
+ * ```
+ * 
+ * #### Grant list of privileges on table
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example &#39;&#34;test_db_role&#34;|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|&#34;test_db&#34;.&#34;test_schema&#34;.&#34;test_table&#34;&#39;`
+ * ```
+ * 
+ * #### Grant list of privileges OnAll tables in schema
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example &#39;&#34;test_db_role&#34;|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|&#34;test_db&#34;.&#34;test_schema&#34;&#39;`
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole")
 public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomResource {
     /**
-     * The fully qualified name of the account role to which privileges will be granted. For more information about this
-     * resource, see docs.
+     * The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Export(name="accountRoleName", refs={String.class}, tree="[0]")
     private Output<String> accountRoleName;
 
     /**
-     * @return The fully qualified name of the account role to which privileges will be granted. For more information about this
-     * resource, see docs.
+     * @return The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Output<String> accountRoleName() {
         return this.accountRoleName;
     }
     /**
-     * Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-     * is aligned with the Snowsight behavior.
+     * (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
      * 
      */
     @Export(name="allPrivileges", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allPrivileges;
 
     /**
-     * @return Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-     * is aligned with the Snowsight behavior.
+     * @return (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
      * 
      */
     public Output<Optional<Boolean>> allPrivileges() {
@@ -60,30 +86,28 @@ public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.alwaysApply);
     }
     /**
-     * This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-     * always_apply field.
+     * (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     @Export(name="alwaysApplyTrigger", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> alwaysApplyTrigger;
 
     /**
-     * @return This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-     * always_apply field.
+     * @return (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
      * 
      */
     public Output<Optional<String>> alwaysApplyTrigger() {
         return Codegen.optional(this.alwaysApplyTrigger);
     }
     /**
-     * If true, the privileges will be granted on the account.
+     * (Default: `false`) If true, the privileges will be granted on the account.
      * 
      */
     @Export(name="onAccount", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> onAccount;
 
     /**
-     * @return If true, the privileges will be granted on the account.
+     * @return (Default: `false`) If true, the privileges will be granted on the account.
      * 
      */
     public Output<Optional<Boolean>> onAccount() {
@@ -146,14 +170,14 @@ public class GrantPrivilegesToAccountRole extends com.pulumi.resources.CustomRes
         return Codegen.optional(this.privileges);
     }
     /**
-     * Specifies whether the grantee can grant the privileges to other users.
+     * (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      * 
      */
     @Export(name="withGrantOption", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> withGrantOption;
 
     /**
-     * @return Specifies whether the grantee can grant the privileges to other users.
+     * @return (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
      * 
      */
     public Output<Optional<Boolean>> withGrantOption() {

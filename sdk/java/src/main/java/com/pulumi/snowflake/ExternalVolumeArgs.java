@@ -19,18 +19,14 @@ public final class ExternalVolumeArgs extends com.pulumi.resources.ResourceArgs 
     public static final ExternalVolumeArgs Empty = new ExternalVolumeArgs();
 
     /**
-     * Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
-     * Snowflake as the catalog. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the
-     * provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="allowWrites")
     private @Nullable Output<String> allowWrites;
 
     /**
-     * @return Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
-     * Snowflake as the catalog. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the
-     * provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> allowWrites() {
@@ -53,16 +49,14 @@ public final class ExternalVolumeArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
-     * avoid using the following characters: `|`, `.`, `&#34;`.
+     * Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
-     * avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -70,22 +64,14 @@ public final class ExternalVolumeArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
-     * order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
-     * Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
-     * docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
-     * for more details on this.
+     * List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
      * 
      */
     @Import(name="storageLocations", required=true)
     private Output<List<ExternalVolumeStorageLocationArgs>> storageLocations;
 
     /**
-     * @return List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
-     * order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
-     * Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
-     * docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
-     * for more details on this.
+     * @return List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
      * 
      */
     public Output<List<ExternalVolumeStorageLocationArgs>> storageLocations() {
@@ -120,9 +106,7 @@ public final class ExternalVolumeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowWrites Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
-         * Snowflake as the catalog. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the
-         * provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param allowWrites (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -133,9 +117,7 @@ public final class ExternalVolumeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowWrites Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use
-         * Snowflake as the catalog. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the
-         * provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param allowWrites (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether write operations are allowed for the external volume; must be set to TRUE for Iceberg tables that use Snowflake as the catalog. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -166,8 +148,7 @@ public final class ExternalVolumeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
-         * avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -178,8 +159,7 @@ public final class ExternalVolumeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here),
-         * avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Identifier for the external volume; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -189,11 +169,7 @@ public final class ExternalVolumeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageLocations List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
-         * order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
-         * Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
-         * docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
-         * for more details on this.
+         * @param storageLocations List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
          * 
          * @return builder
          * 
@@ -204,11 +180,7 @@ public final class ExternalVolumeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageLocations List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
-         * order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
-         * Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
-         * docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
-         * for more details on this.
+         * @param storageLocations List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
          * 
          * @return builder
          * 
@@ -218,11 +190,7 @@ public final class ExternalVolumeArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageLocations List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The
-         * order of the list is important as it impacts the active storage location, and updates will be triggered if it changes.
-         * Note that not all parameter combinations are valid as they depend on the given storage_provider. Consult [the
-         * docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams)
-         * for more details on this.
+         * @param storageLocations List of named cloud storage locations in different regions and, optionally, cloud platforms. Minimum 1 required. The order of the list is important as it impacts the active storage location, and updates will be triggered if it changes. Note that not all parameter combinations are valid as they depend on the given storage*provider. Consult [the docs](https://docs.snowflake.com/en/sql-reference/sql/create-external-volume#cloud-provider-parameters-cloudproviderparams) for more details on this.
          * 
          * @return builder
          * 

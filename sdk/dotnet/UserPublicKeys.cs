@@ -25,8 +25,7 @@ namespace Pulumi.Snowflake
         public Output<string?> RsaPublicKey { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
-        /// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+        /// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         /// </summary>
         [Output("rsaPublicKey2")]
         public Output<string?> RsaPublicKey2 { get; private set; } = null!;
@@ -90,8 +89,7 @@ namespace Pulumi.Snowflake
         public Input<string>? RsaPublicKey { get; set; }
 
         /// <summary>
-        /// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
-        /// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+        /// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         /// </summary>
         [Input("rsaPublicKey2")]
         public Input<string>? RsaPublicKey2 { get; set; }
@@ -117,8 +115,7 @@ namespace Pulumi.Snowflake
         public Input<string>? RsaPublicKey { get; set; }
 
         /// <summary>
-        /// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
-        /// based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+        /// Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
         /// </summary>
         [Input("rsaPublicKey2")]
         public Input<string>? RsaPublicKey2 { get; set; }

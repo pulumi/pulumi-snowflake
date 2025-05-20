@@ -21,129 +21,113 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/functionPython:FunctionPython example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;function_name&gt;&#34;(varchar, varchar, varchar)&#39;
+ * ```
+ * 
+ * Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
+ * 
+ * Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won&#39;t be empty after importing and manual state operations may be required.
+ * 
+ */
 @ResourceType(type="snowflake:index/functionPython:FunctionPython")
 public class FunctionPython extends com.pulumi.resources.CustomResource {
     /**
-     * List of the arguments for the function. Consult the
-     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+     * List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
      * 
      */
     @Export(name="arguments", refs={List.class,FunctionPythonArgument.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FunctionPythonArgument>> arguments;
 
     /**
-     * @return List of the arguments for the function. Consult the
-     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+     * @return List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
      * 
      */
     public Output<Optional<List<FunctionPythonArgument>>> arguments() {
         return Codegen.optional(this.arguments);
     }
     /**
-     * Specifies a comment for the function.
+     * (Default: `user-defined function`) Specifies a comment for the function.
      * 
      */
     @Export(name="comment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> comment;
 
     /**
-     * @return Specifies a comment for the function.
+     * @return (Default: `user-defined function`) Specifies a comment for the function.
      * 
      */
     public Output<Optional<String>> comment() {
         return Codegen.optional(this.comment);
     }
     /**
-     * The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
         return this.database;
     }
     /**
-     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-     * For more information, check [ENABLE_CONSOLE_OUTPUT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     @Export(name="enableConsoleOutput", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableConsoleOutput;
 
     /**
-     * @return Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-     * For more information, check [ENABLE_CONSOLE_OUTPUT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * @return Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     public Output<Boolean> enableConsoleOutput() {
         return this.enableConsoleOutput;
     }
     /**
-     * The names of [external access
-     * integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-     * this function’s handler code to access external networks. An external access integration specifies [network
-     * rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-     * [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-     * (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+     * The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
      * 
      */
     @Export(name="externalAccessIntegrations", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> externalAccessIntegrations;
 
     /**
-     * @return The names of [external access
-     * integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-     * this function’s handler code to access external networks. An external access integration specifies [network
-     * rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-     * [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-     * (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+     * @return The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
      * 
      */
     public Output<Optional<List<String>>> externalAccessIntegrations() {
         return Codegen.optional(this.externalAccessIntegrations);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-     * do not include them. The `function_definition` value must be Python source code. For more information, see [Introduction
-     * to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff
-     * on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-     * change in case or run of whitespace is semantically significant.
+     * Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Python source code. For more information, see [Introduction to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     @Export(name="functionDefinition", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> functionDefinition;
 
     /**
-     * @return Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-     * do not include them. The `function_definition` value must be Python source code. For more information, see [Introduction
-     * to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff
-     * on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-     * change in case or run of whitespace is semantically significant.
+     * @return Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Python source code. For more information, see [Introduction to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     public Output<Optional<String>> functionDefinition() {
@@ -164,64 +148,42 @@ public class FunctionPython extends com.pulumi.resources.CustomResource {
         return this.functionLanguage;
     }
     /**
-     * The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the
-     * HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use
-     * the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module
-     * name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should
-     * be the name of a handler class.
+     * The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should be the name of a handler class.
      * 
      */
     @Export(name="handler", refs={String.class}, tree="[0]")
     private Output<String> handler;
 
     /**
-     * @return The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the
-     * HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use
-     * the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module
-     * name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should
-     * be the name of a handler class.
+     * @return The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should be the name of a handler class.
      * 
      */
     public Output<String> handler() {
         return this.handler;
     }
     /**
-     * The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file.
-     * Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a
-     * file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files).
-     * Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
+     * The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file. Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
      * 
      */
     @Export(name="imports", refs={List.class,FunctionPythonImport.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FunctionPythonImport>> imports;
 
     /**
-     * @return The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file.
-     * Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a
-     * file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files).
-     * Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
+     * @return The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file. Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
      * 
      */
     public Output<Optional<List<FunctionPythonImport>>> imports() {
         return Codegen.optional(this.imports);
     }
     /**
-     * Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see
-     * [Python user-defined aggregate
-     * functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options
-     * are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means
-     * to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Export(name="isAggregate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> isAggregate;
 
     /**
-     * @return Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see
-     * [Python user-defined aggregate
-     * functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options
-     * are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means
-     * to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Output<Optional<String>> isAggregate() {
@@ -234,84 +196,70 @@ public class FunctionPython extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.isSecure);
     }
     /**
-     * LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     @Export(name="logLevel", refs={String.class}, tree="[0]")
     private Output<String> logLevel;
 
     /**
-     * @return LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * @return LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     public Output<String> logLevel() {
         return this.logLevel;
     }
     /**
-     * METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+     * METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      * 
      */
     @Export(name="metricLevel", refs={String.class}, tree="[0]")
     private Output<String> metricLevel;
 
     /**
-     * @return METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+     * @return METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      * 
      */
     public Output<String> metricLevel() {
         return this.metricLevel;
     }
     /**
-     * The name of the function; the identifier does not need to be unique for the schema in which the function is created
-     * because UDFs are identified and resolved by the combination of the name and argument types. Check the
-     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-     * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the function; the identifier does not need to be unique for the schema in which the function is created
-     * because UDFs are identified and resolved by the combination of the name and argument types. Check the
-     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-     * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-     * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+     * Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      * 
      */
     @Export(name="nullInputBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> nullInputBehavior;
 
     /**
-     * @return Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-     * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+     * @return Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      * 
      */
     public Output<Optional<String>> nullInputBehavior() {
         return Codegen.optional(this.nullInputBehavior);
     }
     /**
-     * The name and version number of packages required as dependencies. The value should be of the form
-     * `package_name==version_number`.
+     * The name and version number of packages required as dependencies. The value should be of the form `package_name==version_number`.
      * 
      */
     @Export(name="packages", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> packages;
 
     /**
-     * @return The name and version number of packages required as dependencies. The value should be of the form
-     * `package_name==version_number`.
+     * @return The name and version number of packages required as dependencies. The value should be of the form `package_name==version_number`.
      * 
      */
     public Output<Optional<List<String>>> packages() {
@@ -332,36 +280,28 @@ public class FunctionPython extends com.pulumi.resources.CustomResource {
         return this.parameters;
     }
     /**
-     * Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-     * `IMMUTABLE`.
+     * Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
      * 
      */
     @Export(name="returnResultsBehavior", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> returnResultsBehavior;
 
     /**
-     * @return Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-     * `IMMUTABLE`.
+     * @return Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
      * 
      */
     public Output<Optional<String>> returnResultsBehavior() {
         return Codegen.optional(this.returnResultsBehavior);
     }
     /**
-     * Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar
-     * UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-     * table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-     * the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+     * Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
      * 
      */
     @Export(name="returnType", refs={String.class}, tree="[0]")
     private Output<String> returnType;
 
     /**
-     * @return Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar
-     * UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-     * table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-     * the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+     * @return Specifies the results returned by the UDF, which determines the UDF type. Use `&lt;result_data_type&gt;` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
      * 
      */
     public Output<String> returnType() {
@@ -382,38 +322,28 @@ public class FunctionPython extends com.pulumi.resources.CustomResource {
         return this.runtimeVersion;
     }
     /**
-     * The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
         return this.schema;
     }
     /**
-     * Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-     * can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-     * specify here must be allowed by the [external access
-     * integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-     * this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+     * Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
      * 
      */
     @Export(name="secrets", refs={List.class,FunctionPythonSecret.class}, tree="[0,1]")
     private Output</* @Nullable */ List<FunctionPythonSecret>> secrets;
 
     /**
-     * @return Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-     * can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-     * specify here must be allowed by the [external access
-     * integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-     * this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+     * @return Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
      * 
      */
     public Output<Optional<List<FunctionPythonSecret>>> secrets() {
@@ -434,16 +364,14 @@ public class FunctionPython extends com.pulumi.resources.CustomResource {
         return this.showOutputs;
     }
     /**
-     * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     @Export(name="traceLevel", refs={String.class}, tree="[0]")
     private Output<String> traceLevel;
 
     /**
-     * @return Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * @return Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     public Output<String> traceLevel() {

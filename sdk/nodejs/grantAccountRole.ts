@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole example '"test_role"|ROLE|"test_parent_role"'
+ * ```
+ */
 export class GrantAccountRole extends pulumi.CustomResource {
     /**
      * Get an existing GrantAccountRole resource's state with the given name, ID, and optional extra
@@ -33,18 +42,15 @@ export class GrantAccountRole extends pulumi.CustomResource {
     }
 
     /**
-     * The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
-     * information about this resource, see docs.
+     * The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
     public readonly parentRoleName!: pulumi.Output<string | undefined>;
     /**
-     * The fully qualified name of the role which will be granted to the user or parent role. For more information about this
-     * resource, see docs.
+     * The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
      */
     public readonly roleName!: pulumi.Output<string>;
     /**
-     * The fully qualified name of the user on which specified role will be granted. For more information about this resource,
-     * see docs.
+     * The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
      */
     public readonly userName!: pulumi.Output<string | undefined>;
 
@@ -83,18 +89,15 @@ export class GrantAccountRole extends pulumi.CustomResource {
  */
 export interface GrantAccountRoleState {
     /**
-     * The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
-     * information about this resource, see docs.
+     * The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
     parentRoleName?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the role which will be granted to the user or parent role. For more information about this
-     * resource, see docs.
+     * The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
      */
     roleName?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the user on which specified role will be granted. For more information about this resource,
-     * see docs.
+     * The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
      */
     userName?: pulumi.Input<string>;
 }
@@ -104,18 +107,15 @@ export interface GrantAccountRoleState {
  */
 export interface GrantAccountRoleArgs {
     /**
-     * The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
-     * information about this resource, see docs.
+     * The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      */
     parentRoleName?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the role which will be granted to the user or parent role. For more information about this
-     * resource, see docs.
+     * The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
      */
     roleName: pulumi.Input<string>;
     /**
-     * The fully qualified name of the user on which specified role will be granted. For more information about this resource,
-     * see docs.
+     * The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
      */
     userName?: pulumi.Input<string>;
 }

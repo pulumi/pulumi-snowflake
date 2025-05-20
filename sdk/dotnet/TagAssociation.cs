@@ -9,6 +9,15 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// ~&gt; **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/tagAssociation:TagAssociation")]
     public partial class TagAssociation : global::Pulumi.CustomResource
     {
@@ -19,17 +28,13 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> ObjectIdentifiers { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE
-        /// FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT
-        /// SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE
-        /// MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE
-        /// STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
+        /// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         /// </summary>
         [Output("objectType")]
         public Output<string> ObjectType { get; private set; } = null!;
 
         /// <summary>
-        /// If true, skips validation of the tag association.
+        /// (Default: `true`) If true, skips validation of the tag association.
         /// </summary>
         [Output("skipValidation")]
         public Output<bool?> SkipValidation { get; private set; } = null!;
@@ -105,17 +110,13 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE
-        /// FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT
-        /// SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE
-        /// MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE
-        /// STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
+        /// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         /// </summary>
         [Input("objectType", required: true)]
         public Input<string> ObjectType { get; set; } = null!;
 
         /// <summary>
-        /// If true, skips validation of the tag association.
+        /// (Default: `true`) If true, skips validation of the tag association.
         /// </summary>
         [Input("skipValidation")]
         public Input<bool>? SkipValidation { get; set; }
@@ -153,17 +154,13 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE
-        /// FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT
-        /// SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE
-        /// MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE
-        /// STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
+        /// Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
         /// </summary>
         [Input("objectType")]
         public Input<string>? ObjectType { get; set; }
 
         /// <summary>
-        /// If true, skips validation of the tag association.
+        /// (Default: `true`) If true, skips validation of the tag association.
         /// </summary>
         [Input("skipValidation")]
         public Input<bool>? SkipValidation { get; set; }

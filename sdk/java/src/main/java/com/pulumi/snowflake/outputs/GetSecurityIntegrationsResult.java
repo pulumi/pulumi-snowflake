@@ -20,8 +20,20 @@ public final class GetSecurityIntegrationsResult {
      * 
      */
     private String id;
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     private @Nullable String like;
+    /**
+     * @return Holds the aggregated output of all security integrations details queries.
+     * 
+     */
     private List<GetSecurityIntegrationsSecurityIntegration> securityIntegrations;
+    /**
+     * @return (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
     private @Nullable Boolean withDescribe;
 
     private GetSecurityIntegrationsResult() {}
@@ -32,12 +44,24 @@ public final class GetSecurityIntegrationsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
+    /**
+     * @return Holds the aggregated output of all security integrations details queries.
+     * 
+     */
     public List<GetSecurityIntegrationsSecurityIntegration> securityIntegrations() {
         return this.securityIntegrations;
     }
+    /**
+     * @return (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
     public Optional<Boolean> withDescribe() {
         return Optional.ofNullable(this.withDescribe);
     }

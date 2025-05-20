@@ -48,16 +48,14 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -65,16 +63,14 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see
-     * docs.
+     * Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
      * 
      */
     @Import(name="networkPolicy")
     private @Nullable Output<String> networkPolicy;
 
     /**
-     * @return Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see
-     * docs.
+     * @return Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> networkPolicy() {
@@ -82,18 +78,14 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into
-     * Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are:
-     * `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+     * Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
      * 
      */
     @Import(name="runAsRole", required=true)
     private Output<String> runAsRole;
 
     /**
-     * @return Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into
-     * Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are:
-     * `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+     * @return Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
      * 
      */
     public Output<String> runAsRole() {
@@ -116,20 +108,14 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the
-     * API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When
-     * the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default
-     * for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="syncPassword")
     private @Nullable Output<String> syncPassword;
 
     /**
-     * @return Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the
-     * API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When
-     * the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default
-     * for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> syncPassword() {
@@ -209,8 +195,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical
-         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -221,8 +206,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical
-         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -232,8 +216,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param networkPolicy Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see
-         * docs.
+         * @param networkPolicy Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -244,8 +227,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param networkPolicy Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see
-         * docs.
+         * @param networkPolicy Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -255,9 +237,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into
-         * Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are:
-         * `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
          * 
          * @return builder
          * 
@@ -268,9 +248,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into
-         * Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are:
-         * `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+         * @param runAsRole Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
          * 
          * @return builder
          * 
@@ -301,10 +279,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param syncPassword Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the
-         * API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When
-         * the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default
-         * for this value.
+         * @param syncPassword (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -315,10 +290,7 @@ public final class ScimIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param syncPassword Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the
-         * API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When
-         * the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default
-         * for this value.
+         * @param syncPassword (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 

@@ -66,36 +66,57 @@ class GetTasksResult:
     @property
     @pulumi.getter(name="in")
     def in_(self) -> Optional['outputs.GetTasksInResult']:
+        """
+        IN clause to filter the list of objects
+        """
         return pulumi.get(self, "in_")
 
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
+        """
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter
     def limit(self) -> Optional['outputs.GetTasksLimitResult']:
+        """
+        Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        """
         return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter(name="rootOnly")
     def root_only(self) -> Optional[builtins.bool]:
+        """
+        Filters the command output to return only root tasks (tasks with no predecessors).
+        """
         return pulumi.get(self, "root_only")
 
     @property
     @pulumi.getter(name="startsWith")
     def starts_with(self) -> Optional[builtins.str]:
+        """
+        Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        """
         return pulumi.get(self, "starts_with")
 
     @property
     @pulumi.getter
     def tasks(self) -> Sequence['outputs.GetTasksTaskResult']:
+        """
+        Holds the aggregated output of all task details queries.
+        """
         return pulumi.get(self, "tasks")
 
     @property
     @pulumi.getter(name="withParameters")
     def with_parameters(self) -> Optional[builtins.bool]:
+        """
+        (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+        """
         return pulumi.get(self, "with_parameters")
 
 
@@ -123,7 +144,17 @@ def get_tasks(in_: Optional[Union['GetTasksInArgs', 'GetTasksInArgsDict']] = Non
               with_parameters: Optional[builtins.bool] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTasksResult:
     """
-    Use this data source to access information about an existing resource.
+    !> **Sensitive values** This data source's `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+    Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
+
+
+    :param Union['GetTasksInArgs', 'GetTasksInArgsDict'] in_: IN clause to filter the list of objects
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetTasksLimitArgs', 'GetTasksLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param builtins.bool root_only: Filters the command output to return only root tasks (tasks with no predecessors).
+    :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
     """
     __args__ = dict()
     __args__['in'] = in_
@@ -152,7 +183,17 @@ def get_tasks_output(in_: Optional[pulumi.Input[Optional[Union['GetTasksInArgs',
                      with_parameters: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTasksResult]:
     """
-    Use this data source to access information about an existing resource.
+    !> **Sensitive values** This data source's `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+    Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
+
+
+    :param Union['GetTasksInArgs', 'GetTasksInArgsDict'] in_: IN clause to filter the list of objects
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetTasksLimitArgs', 'GetTasksLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param builtins.bool root_only: Filters the command output to return only root tasks (tasks with no predecessors).
+    :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
     """
     __args__ = dict()
     __args__['in'] = in_

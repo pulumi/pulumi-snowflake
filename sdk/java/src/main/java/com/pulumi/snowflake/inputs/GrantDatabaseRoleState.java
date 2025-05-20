@@ -16,16 +16,14 @@ public final class GrantDatabaseRoleState extends com.pulumi.resources.ResourceA
     public static final GrantDatabaseRoleState Empty = new GrantDatabaseRoleState();
 
     /**
-     * The fully qualified name of the database role which will be granted to share or parent role. For more information about
-     * this resource, see docs.
+     * The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
      * 
      */
     @Import(name="databaseRoleName")
     private @Nullable Output<String> databaseRoleName;
 
     /**
-     * @return The fully qualified name of the database role which will be granted to share or parent role. For more information about
-     * this resource, see docs.
+     * @return The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> databaseRoleName() {
@@ -33,16 +31,14 @@ public final class GrantDatabaseRoleState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-     * For more information about this resource, see docs.
+     * The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      * 
      */
     @Import(name="parentDatabaseRoleName")
     private @Nullable Output<String> parentDatabaseRoleName;
 
     /**
-     * @return The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-     * For more information about this resource, see docs.
+     * @return The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> parentDatabaseRoleName() {
@@ -50,16 +46,14 @@ public final class GrantDatabaseRoleState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-     * more information about this resource, see docs.
+     * The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      * 
      */
     @Import(name="parentRoleName")
     private @Nullable Output<String> parentRoleName;
 
     /**
-     * @return The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-     * more information about this resource, see docs.
+     * @return The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> parentRoleName() {
@@ -67,16 +61,14 @@ public final class GrantDatabaseRoleState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-     * docs.
+     * The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     @Import(name="shareName")
     private @Nullable Output<String> shareName;
 
     /**
-     * @return The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-     * docs.
+     * @return The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> shareName() {
@@ -111,8 +103,7 @@ public final class GrantDatabaseRoleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param databaseRoleName The fully qualified name of the database role which will be granted to share or parent role. For more information about
-         * this resource, see docs.
+         * @param databaseRoleName The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -123,8 +114,7 @@ public final class GrantDatabaseRoleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param databaseRoleName The fully qualified name of the database role which will be granted to share or parent role. For more information about
-         * this resource, see docs.
+         * @param databaseRoleName The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -134,8 +124,7 @@ public final class GrantDatabaseRoleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param parentDatabaseRoleName The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-         * For more information about this resource, see docs.
+         * @param parentDatabaseRoleName The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -146,8 +135,7 @@ public final class GrantDatabaseRoleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param parentDatabaseRoleName The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-         * For more information about this resource, see docs.
+         * @param parentDatabaseRoleName The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -157,8 +145,7 @@ public final class GrantDatabaseRoleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param parentRoleName The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-         * more information about this resource, see docs.
+         * @param parentRoleName The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -169,8 +156,7 @@ public final class GrantDatabaseRoleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param parentRoleName The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-         * more information about this resource, see docs.
+         * @param parentRoleName The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -180,8 +166,7 @@ public final class GrantDatabaseRoleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param shareName The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-         * docs.
+         * @param shareName The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -192,8 +177,7 @@ public final class GrantDatabaseRoleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param shareName The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-         * docs.
+         * @param shareName The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
          * 
          * @return builder
          * 

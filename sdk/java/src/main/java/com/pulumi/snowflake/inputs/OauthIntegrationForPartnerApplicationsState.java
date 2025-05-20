@@ -21,20 +21,14 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     public static final OauthIntegrationForPartnerApplicationsState Empty = new OauthIntegrationForPartnerApplicationsState();
 
     /**
-     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
-     * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
-     * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
-     * information about this resource, see docs.
+     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     @Import(name="blockedRolesLists")
     private @Nullable Output<List<String>> blockedRolesLists;
 
     /**
-     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
-     * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
-     * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
-     * information about this resource, see docs.
+     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> blockedRolesLists() {
@@ -72,18 +66,14 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     }
 
     /**
-     * Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the
-     * value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for
-     * this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<String> enabled;
 
     /**
-     * @return Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the
-     * value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for
-     * this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> enabled() {
@@ -91,16 +81,14 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -108,18 +96,14 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     }
 
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-     * unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-     * unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -127,16 +111,14 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     }
 
     /**
-     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
-     * | `TABLEAU_SERVER`.
+     * Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
      * 
      */
     @Import(name="oauthClient")
     private @Nullable Output<String> oauthClient;
 
     /**
-     * @return Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
-     * | `TABLEAU_SERVER`.
+     * @return Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
      * 
      */
     public Optional<Output<String>> oauthClient() {
@@ -144,18 +126,14 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     }
 
     /**
-     * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-     * expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
-     * &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="oauthIssueRefreshTokens")
     private @Nullable Output<String> oauthIssueRefreshTokens;
 
     /**
-     * @return Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-     * expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
-     * &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> oauthIssueRefreshTokens() {
@@ -163,16 +141,14 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     }
 
     /**
-     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
-     * only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+     * Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
      * 
      */
     @Import(name="oauthRedirectUri")
     private @Nullable Output<String> oauthRedirectUri;
 
     /**
-     * @return Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
-     * only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+     * @return Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
      * 
      */
     public Optional<Output<String>> oauthRedirectUri() {
@@ -180,14 +156,14 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     }
 
     /**
-     * Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      * 
      */
     @Import(name="oauthRefreshTokenValidity")
     private @Nullable Output<Integer> oauthRefreshTokenValidity;
 
     /**
-     * @return Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      * 
      */
     public Optional<Output<Integer>> oauthRefreshTokenValidity() {
@@ -195,16 +171,14 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
     }
 
     /**
-     * Specifies whether default secondary roles set in the user properties are activated by default in the session being
-     * opened. Valid options are: `IMPLICIT` | `NONE`.
+     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     @Import(name="oauthUseSecondaryRoles")
     private @Nullable Output<String> oauthUseSecondaryRoles;
 
     /**
-     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being
-     * opened. Valid options are: `IMPLICIT` | `NONE`.
+     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     public Optional<Output<String>> oauthUseSecondaryRoles() {
@@ -278,10 +252,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
-         * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
-         * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
-         * information about this resource, see docs.
+         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -292,10 +263,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
-         * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
-         * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
-         * information about this resource, see docs.
+         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -305,10 +273,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
-         * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
-         * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
-         * information about this resource, see docs.
+         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -370,9 +335,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param enabled Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the
-         * value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for
-         * this value.
+         * @param enabled (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -383,9 +346,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param enabled Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the
-         * value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for
-         * this value.
+         * @param enabled (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -395,8 +356,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -407,8 +367,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -418,9 +377,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-         * unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-         * following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -431,9 +388,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-         * unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-         * following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -443,8 +398,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param oauthClient Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
-         * | `TABLEAU_SERVER`.
+         * @param oauthClient Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
          * 
          * @return builder
          * 
@@ -455,8 +409,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param oauthClient Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP`
-         * | `TABLEAU_SERVER`.
+         * @param oauthClient Creates an OAuth interface between Snowflake and a partner application. Valid options are: `LOOKER` | `TABLEAU_DESKTOP` | `TABLEAU_SERVER`.
          * 
          * @return builder
          * 
@@ -466,9 +419,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param oauthIssueRefreshTokens Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-         * expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
-         * &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param oauthIssueRefreshTokens (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -479,9 +430,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param oauthIssueRefreshTokens Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-         * expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
-         * &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param oauthIssueRefreshTokens (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -491,8 +440,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param oauthRedirectUri Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
-         * only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+         * @param oauthRedirectUri Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
          * 
          * @return builder
          * 
@@ -503,8 +451,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param oauthRedirectUri Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be
-         * only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
+         * @param oauthRedirectUri Specifies the client URI. After a user is authenticated, the web browser is redirected to this URI. The field should be only set when OAUTH_CLIENT = LOOKER. In any other case the field should be left out empty.
          * 
          * @return builder
          * 
@@ -514,7 +461,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param oauthRefreshTokenValidity Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+         * @param oauthRefreshTokenValidity (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
          * 
          * @return builder
          * 
@@ -525,7 +472,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param oauthRefreshTokenValidity Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+         * @param oauthRefreshTokenValidity (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
          * 
          * @return builder
          * 
@@ -535,8 +482,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being
-         * opened. Valid options are: `IMPLICIT` | `NONE`.
+         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
          * 
          * @return builder
          * 
@@ -547,8 +493,7 @@ public final class OauthIntegrationForPartnerApplicationsState extends com.pulum
         }
 
         /**
-         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being
-         * opened. Valid options are: `IMPLICIT` | `NONE`.
+         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
          * 
          * @return builder
          * 

@@ -6,6 +6,13 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/streamOnView:StreamOnView example '"<database_name>"."<schema_name>"."<stream_name>"'
+ * ```
+ */
 export class StreamOnView extends pulumi.CustomResource {
     /**
      * Get an existing StreamOnView resource's state with the given name, ID, and optional extra
@@ -35,8 +42,7 @@ export class StreamOnView extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-     * the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly appendOnly!: pulumi.Output<string | undefined>;
     public readonly at!: pulumi.Output<outputs.StreamOnViewAt | undefined>;
@@ -47,8 +53,7 @@ export class StreamOnView extends pulumi.CustomResource {
     public readonly comment!: pulumi.Output<string | undefined>;
     public readonly copyGrants!: pulumi.Output<boolean | undefined>;
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `"`.
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -56,18 +61,15 @@ export class StreamOnView extends pulumi.CustomResource {
      */
     public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.StreamOnViewDescribeOutput[]>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `"`.
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly schema!: pulumi.Output<string>;
     public readonly showInitialRows!: pulumi.Output<string | undefined>;
@@ -77,13 +79,11 @@ export class StreamOnView extends pulumi.CustomResource {
     public /*out*/ readonly showOutputs!: pulumi.Output<outputs.StreamOnViewShowOutput[]>;
     public /*out*/ readonly stale!: pulumi.Output<boolean>;
     /**
-     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-     * needed.
+     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
      */
     public /*out*/ readonly streamType!: pulumi.Output<string>;
     /**
-     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
-     * the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
     public readonly view!: pulumi.Output<string>;
 
@@ -152,8 +152,7 @@ export class StreamOnView extends pulumi.CustomResource {
  */
 export interface StreamOnViewState {
     /**
-     * Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-     * the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     appendOnly?: pulumi.Input<string>;
     at?: pulumi.Input<inputs.StreamOnViewAt>;
@@ -164,8 +163,7 @@ export interface StreamOnViewState {
     comment?: pulumi.Input<string>;
     copyGrants?: pulumi.Input<boolean>;
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `"`.
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database?: pulumi.Input<string>;
     /**
@@ -173,18 +171,15 @@ export interface StreamOnViewState {
      */
     describeOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnViewDescribeOutput>[]>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `"`.
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string>;
     showInitialRows?: pulumi.Input<string>;
@@ -194,13 +189,11 @@ export interface StreamOnViewState {
     showOutputs?: pulumi.Input<pulumi.Input<inputs.StreamOnViewShowOutput>[]>;
     stale?: pulumi.Input<boolean>;
     /**
-     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-     * needed.
+     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
      */
     streamType?: pulumi.Input<string>;
     /**
-     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
-     * the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
     view?: pulumi.Input<string>;
 }
@@ -210,8 +203,7 @@ export interface StreamOnViewState {
  */
 export interface StreamOnViewArgs {
     /**
-     * Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-     * the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     appendOnly?: pulumi.Input<string>;
     at?: pulumi.Input<inputs.StreamOnViewAt>;
@@ -222,24 +214,20 @@ export interface StreamOnViewArgs {
     comment?: pulumi.Input<string>;
     copyGrants?: pulumi.Input<boolean>;
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `"`.
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `"`.
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema: pulumi.Input<string>;
     showInitialRows?: pulumi.Input<string>;
     /**
-     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using
-     * the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+     * Specifies an identifier for the view the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
      */
     view: pulumi.Input<string>;
 }

@@ -9,36 +9,36 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/failoverGroup:FailoverGroup example 'fg1'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/failoverGroup:FailoverGroup")]
     public partial class FailoverGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies the target account or list of target accounts to which replication and failover of specified objects from the
-        /// source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the
-        /// primary failover group in case of failover. Expected in the form &lt;org_name&gt;.&lt;target_account_name&gt;
+        /// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
         /// </summary>
         [Output("allowedAccounts")]
         public Output<ImmutableArray<string>> AllowedAccounts { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the database or list of databases for which you are enabling replication and failover from the source account
-        /// to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
+        /// Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
         /// </summary>
         [Output("allowedDatabases")]
         public Output<ImmutableArray<string>> AllowedDatabases { get; private set; } = null!;
 
         /// <summary>
-        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target
-        /// account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following
-        /// integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS
-        /// INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
+        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         /// </summary>
         [Output("allowedIntegrationTypes")]
         public Output<ImmutableArray<string>> AllowedIntegrationTypes { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the share or list of shares for which you are enabling replication and failover from the source account to the
-        /// target account. The OBJECT_TYPES list must include SHARES to set this parameter.
+        /// Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         /// </summary>
         [Output("allowedShares")]
         public Output<ImmutableArray<string>> AllowedShares { get; private set; } = null!;
@@ -50,30 +50,25 @@ namespace Pulumi.Snowflake
         public Output<Outputs.FailoverGroupFromReplica?> FromReplica { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Allows replicating objects to accounts on lower editions.
+        /// (Default: `false`) Allows replicating objects to accounts on lower editions.
         /// </summary>
         [Output("ignoreEditionCheck")]
         public Output<bool?> IgnoreEditionCheck { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot
-        /// contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object").
-        /// Identifiers enclosed in double quotes are also case-sensitive.
+        /// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Type(s) of objects for which you are enabling replication and failover from the source account to the target account.
-        /// The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES",
-        /// "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
+        /// Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         /// </summary>
         [Output("objectTypes")]
         public Output<ImmutableArray<string>> ObjectTypes { get; private set; } = null!;
@@ -134,9 +129,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedAccounts;
 
         /// <summary>
-        /// Specifies the target account or list of target accounts to which replication and failover of specified objects from the
-        /// source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the
-        /// primary failover group in case of failover. Expected in the form &lt;org_name&gt;.&lt;target_account_name&gt;
+        /// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
         /// </summary>
         public InputList<string> AllowedAccounts
         {
@@ -148,8 +141,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedDatabases;
 
         /// <summary>
-        /// Specifies the database or list of databases for which you are enabling replication and failover from the source account
-        /// to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
+        /// Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
         /// </summary>
         public InputList<string> AllowedDatabases
         {
@@ -161,10 +153,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedIntegrationTypes;
 
         /// <summary>
-        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target
-        /// account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following
-        /// integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS
-        /// INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
+        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         /// </summary>
         public InputList<string> AllowedIntegrationTypes
         {
@@ -176,8 +165,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedShares;
 
         /// <summary>
-        /// Specifies the share or list of shares for which you are enabling replication and failover from the source account to the
-        /// target account. The OBJECT_TYPES list must include SHARES to set this parameter.
+        /// Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         /// </summary>
         public InputList<string> AllowedShares
         {
@@ -192,15 +180,13 @@ namespace Pulumi.Snowflake
         public Input<Inputs.FailoverGroupFromReplicaArgs>? FromReplica { get; set; }
 
         /// <summary>
-        /// Allows replicating objects to accounts on lower editions.
+        /// (Default: `false`) Allows replicating objects to accounts on lower editions.
         /// </summary>
         [Input("ignoreEditionCheck")]
         public Input<bool>? IgnoreEditionCheck { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot
-        /// contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object").
-        /// Identifiers enclosed in double quotes are also case-sensitive.
+        /// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -209,9 +195,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _objectTypes;
 
         /// <summary>
-        /// Type(s) of objects for which you are enabling replication and failover from the source account to the target account.
-        /// The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES",
-        /// "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
+        /// Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         /// </summary>
         public InputList<string> ObjectTypes
         {
@@ -237,9 +221,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedAccounts;
 
         /// <summary>
-        /// Specifies the target account or list of target accounts to which replication and failover of specified objects from the
-        /// source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the
-        /// primary failover group in case of failover. Expected in the form &lt;org_name&gt;.&lt;target_account_name&gt;
+        /// Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
         /// </summary>
         public InputList<string> AllowedAccounts
         {
@@ -251,8 +233,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedDatabases;
 
         /// <summary>
-        /// Specifies the database or list of databases for which you are enabling replication and failover from the source account
-        /// to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
+        /// Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
         /// </summary>
         public InputList<string> AllowedDatabases
         {
@@ -264,10 +245,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedIntegrationTypes;
 
         /// <summary>
-        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target
-        /// account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following
-        /// integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS
-        /// INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
+        /// Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
         /// </summary>
         public InputList<string> AllowedIntegrationTypes
         {
@@ -279,8 +257,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedShares;
 
         /// <summary>
-        /// Specifies the share or list of shares for which you are enabling replication and failover from the source account to the
-        /// target account. The OBJECT_TYPES list must include SHARES to set this parameter.
+        /// Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
         /// </summary>
         public InputList<string> AllowedShares
         {
@@ -295,22 +272,19 @@ namespace Pulumi.Snowflake
         public Input<Inputs.FailoverGroupFromReplicaGetArgs>? FromReplica { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Allows replicating objects to accounts on lower editions.
+        /// (Default: `false`) Allows replicating objects to accounts on lower editions.
         /// </summary>
         [Input("ignoreEditionCheck")]
         public Input<bool>? IgnoreEditionCheck { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot
-        /// contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object").
-        /// Identifiers enclosed in double quotes are also case-sensitive.
+        /// Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -319,9 +293,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _objectTypes;
 
         /// <summary>
-        /// Type(s) of objects for which you are enabling replication and failover from the source account to the target account.
-        /// The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES",
-        /// "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
+        /// Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
         /// </summary>
         public InputList<string> ObjectTypes
         {

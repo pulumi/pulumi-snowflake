@@ -47,20 +47,17 @@ class ExternalFunctionArgs:
         :param pulumi.Input[builtins.str] return_type: Specifies the data type returned by the external function.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the external function.
         :param pulumi.Input[builtins.str] url_of_proxy_and_resource: This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
-        :param pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]] args: Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
-               service expects.
-        :param pulumi.Input[builtins.str] comment: A description of the external function.
-        :param pulumi.Input[builtins.str] compression: If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
-               proxy service to Snowflake.
+        :param pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]] args: Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+        :param pulumi.Input[builtins.str] comment: (Default: `user-defined function`) A description of the external function.
+        :param pulumi.Input[builtins.str] compression: (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] context_headers: Binds Snowflake context function results to HTTP headers.
         :param pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[builtins.int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
-               well as the function name. The function's signature (name and argument data types) must be unique within the schema.
-        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        :param pulumi.Input[builtins.str] null_input_behavior: (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
         :param pulumi.Input[builtins.str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[builtins.str] response_translator: This specifies the name of the response translator function.
-        :param pulumi.Input[builtins.bool] return_null_allowed: Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        :param pulumi.Input[builtins.bool] return_null_allowed: (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         """
         pulumi.set(__self__, "api_integration", api_integration)
         pulumi.set(__self__, "database", database)
@@ -167,8 +164,7 @@ class ExternalFunctionArgs:
     @pulumi.getter
     def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]]:
         """
-        Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
-        service expects.
+        Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
         """
         return pulumi.get(self, "args")
 
@@ -180,7 +176,7 @@ class ExternalFunctionArgs:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A description of the external function.
+        (Default: `user-defined function`) A description of the external function.
         """
         return pulumi.get(self, "comment")
 
@@ -192,8 +188,7 @@ class ExternalFunctionArgs:
     @pulumi.getter
     def compression(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
-        proxy service to Snowflake.
+        (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         """
         return pulumi.get(self, "compression")
 
@@ -241,8 +236,7 @@ class ExternalFunctionArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
-        well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         """
         return pulumi.get(self, "name")
 
@@ -254,7 +248,7 @@ class ExternalFunctionArgs:
     @pulumi.getter(name="nullInputBehavior")
     def null_input_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the behavior of the external function when called with null inputs.
+        (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
         """
         return pulumi.get(self, "null_input_behavior")
 
@@ -290,7 +284,7 @@ class ExternalFunctionArgs:
     @pulumi.getter(name="returnNullAllowed")
     def return_null_allowed(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         """
         return pulumi.get(self, "return_null_allowed")
 
@@ -324,25 +318,21 @@ class _ExternalFunctionState:
         """
         Input properties used for looking up and filtering ExternalFunction resources.
         :param pulumi.Input[builtins.str] api_integration: The name of the API integration object that should be used to authenticate the call to the proxy service.
-        :param pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]] args: Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
-               service expects.
-        :param pulumi.Input[builtins.str] comment: A description of the external function.
-        :param pulumi.Input[builtins.str] compression: If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
-               proxy service to Snowflake.
+        :param pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]] args: Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+        :param pulumi.Input[builtins.str] comment: (Default: `user-defined function`) A description of the external function.
+        :param pulumi.Input[builtins.str] compression: (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] context_headers: Binds Snowflake context function results to HTTP headers.
         :param pulumi.Input[builtins.str] created_on: Date and time when the external function was created.
         :param pulumi.Input[builtins.str] database: The database in which to create the external function.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input['ExternalFunctionHeaderArgs']]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[builtins.int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
-               well as the function name. The function's signature (name and argument data types) must be unique within the schema.
-        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        :param pulumi.Input[builtins.str] null_input_behavior: (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
         :param pulumi.Input[builtins.str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[builtins.str] response_translator: This specifies the name of the response translator function.
         :param pulumi.Input[builtins.str] return_behavior: Specifies the behavior of the function when returning results
-        :param pulumi.Input[builtins.bool] return_null_allowed: Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        :param pulumi.Input[builtins.bool] return_null_allowed: (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         :param pulumi.Input[builtins.str] return_type: Specifies the data type returned by the external function.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the external function.
         :param pulumi.Input[builtins.str] url_of_proxy_and_resource: This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
@@ -402,8 +392,7 @@ class _ExternalFunctionState:
     @pulumi.getter
     def args(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ExternalFunctionArgArgs']]]]:
         """
-        Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
-        service expects.
+        Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
         """
         return pulumi.get(self, "args")
 
@@ -415,7 +404,7 @@ class _ExternalFunctionState:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        A description of the external function.
+        (Default: `user-defined function`) A description of the external function.
         """
         return pulumi.get(self, "comment")
 
@@ -427,8 +416,7 @@ class _ExternalFunctionState:
     @pulumi.getter
     def compression(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
-        proxy service to Snowflake.
+        (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         """
         return pulumi.get(self, "compression")
 
@@ -476,8 +464,7 @@ class _ExternalFunctionState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -513,8 +500,7 @@ class _ExternalFunctionState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
-        well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         """
         return pulumi.get(self, "name")
 
@@ -526,7 +512,7 @@ class _ExternalFunctionState:
     @pulumi.getter(name="nullInputBehavior")
     def null_input_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the behavior of the external function when called with null inputs.
+        (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
         """
         return pulumi.get(self, "null_input_behavior")
 
@@ -574,7 +560,7 @@ class _ExternalFunctionState:
     @pulumi.getter(name="returnNullAllowed")
     def return_null_allowed(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         """
         return pulumi.get(self, "return_null_allowed")
 
@@ -644,26 +630,30 @@ class ExternalFunction(pulumi.CustomResource):
                  url_of_proxy_and_resource: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a ExternalFunction resource with the given unique name, props, and options.
+        ## Import
+
+        format is <database_name>.<schema_name>.<external_function_name>(<arg types, separated with ','>)
+
+        ```sh
+        $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName.schemaName.externalFunctionName(varchar, varchar, varchar)'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] api_integration: The name of the API integration object that should be used to authenticate the call to the proxy service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]] args: Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
-               service expects.
-        :param pulumi.Input[builtins.str] comment: A description of the external function.
-        :param pulumi.Input[builtins.str] compression: If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
-               proxy service to Snowflake.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]] args: Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+        :param pulumi.Input[builtins.str] comment: (Default: `user-defined function`) A description of the external function.
+        :param pulumi.Input[builtins.str] compression: (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] context_headers: Binds Snowflake context function results to HTTP headers.
         :param pulumi.Input[builtins.str] database: The database in which to create the external function.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[builtins.int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
-               well as the function name. The function's signature (name and argument data types) must be unique within the schema.
-        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        :param pulumi.Input[builtins.str] null_input_behavior: (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
         :param pulumi.Input[builtins.str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[builtins.str] response_translator: This specifies the name of the response translator function.
         :param pulumi.Input[builtins.str] return_behavior: Specifies the behavior of the function when returning results
-        :param pulumi.Input[builtins.bool] return_null_allowed: Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        :param pulumi.Input[builtins.bool] return_null_allowed: (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         :param pulumi.Input[builtins.str] return_type: Specifies the data type returned by the external function.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the external function.
         :param pulumi.Input[builtins.str] url_of_proxy_and_resource: This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
@@ -675,7 +665,14 @@ class ExternalFunction(pulumi.CustomResource):
                  args: ExternalFunctionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ExternalFunction resource with the given unique name, props, and options.
+        ## Import
+
+        format is <database_name>.<schema_name>.<external_function_name>(<arg types, separated with ','>)
+
+        ```sh
+        $ pulumi import snowflake:index/externalFunction:ExternalFunction example 'dbName.schemaName.externalFunctionName(varchar, varchar, varchar)'
+        ```
+
         :param str resource_name: The name of the resource.
         :param ExternalFunctionArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -785,25 +782,21 @@ class ExternalFunction(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] api_integration: The name of the API integration object that should be used to authenticate the call to the proxy service.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]] args: Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
-               service expects.
-        :param pulumi.Input[builtins.str] comment: A description of the external function.
-        :param pulumi.Input[builtins.str] compression: If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
-               proxy service to Snowflake.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionArgArgs', 'ExternalFunctionArgArgsDict']]]] args: Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
+        :param pulumi.Input[builtins.str] comment: (Default: `user-defined function`) A description of the external function.
+        :param pulumi.Input[builtins.str] compression: (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] context_headers: Binds Snowflake context function results to HTTP headers.
         :param pulumi.Input[builtins.str] created_on: Date and time when the external function was created.
         :param pulumi.Input[builtins.str] database: The database in which to create the external function.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[Sequence[pulumi.Input[Union['ExternalFunctionHeaderArgs', 'ExternalFunctionHeaderArgsDict']]]] headers: Allows users to specify key-value metadata that is sent with every request as HTTP headers.
         :param pulumi.Input[builtins.int] max_batch_rows: This specifies the maximum number of rows in each batch sent to the proxy service.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
-               well as the function name. The function's signature (name and argument data types) must be unique within the schema.
-        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the external function when called with null inputs.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        :param pulumi.Input[builtins.str] null_input_behavior: (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
         :param pulumi.Input[builtins.str] request_translator: This specifies the name of the request translator function
         :param pulumi.Input[builtins.str] response_translator: This specifies the name of the response translator function.
         :param pulumi.Input[builtins.str] return_behavior: Specifies the behavior of the function when returning results
-        :param pulumi.Input[builtins.bool] return_null_allowed: Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        :param pulumi.Input[builtins.bool] return_null_allowed: (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         :param pulumi.Input[builtins.str] return_type: Specifies the data type returned by the external function.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the external function.
         :param pulumi.Input[builtins.str] url_of_proxy_and_resource: This is the invocation URL of the proxy service and resource through which Snowflake calls the remote service.
@@ -845,8 +838,7 @@ class ExternalFunction(pulumi.CustomResource):
     @pulumi.getter
     def args(self) -> pulumi.Output[Optional[Sequence['outputs.ExternalFunctionArg']]]:
         """
-        Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote
-        service expects.
+        Specifies the arguments/inputs for the external function. These should correspond to the arguments that the remote service expects.
         """
         return pulumi.get(self, "args")
 
@@ -854,7 +846,7 @@ class ExternalFunction(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        A description of the external function.
+        (Default: `user-defined function`) A description of the external function.
         """
         return pulumi.get(self, "comment")
 
@@ -862,8 +854,7 @@ class ExternalFunction(pulumi.CustomResource):
     @pulumi.getter
     def compression(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the
-        proxy service to Snowflake.
+        (Default: `AUTO`) If specified, the JSON payload is compressed when sent from Snowflake to the proxy service, and when sent back from the proxy service to Snowflake.
         """
         return pulumi.get(self, "compression")
 
@@ -895,8 +886,7 @@ class ExternalFunction(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -920,8 +910,7 @@ class ExternalFunction(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the identifier for the external function. The identifier can contain the schema name and database name, as
-        well as the function name. The function's signature (name and argument data types) must be unique within the schema.
+        Specifies the identifier for the external function. The identifier can contain the schema name and database name, as well as the function name. The function's signature (name and argument data types) must be unique within the schema.
         """
         return pulumi.get(self, "name")
 
@@ -929,7 +918,7 @@ class ExternalFunction(pulumi.CustomResource):
     @pulumi.getter(name="nullInputBehavior")
     def null_input_behavior(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the behavior of the external function when called with null inputs.
+        (Default: `CALLED ON NULL INPUT`) Specifies the behavior of the external function when called with null inputs.
         """
         return pulumi.get(self, "null_input_behavior")
 
@@ -961,7 +950,7 @@ class ExternalFunction(pulumi.CustomResource):
     @pulumi.getter(name="returnNullAllowed")
     def return_null_allowed(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
+        (Default: `true`) Indicates whether the function can return NULL values (true) or must return only NON-NULL values (false).
         """
         return pulumi.get(self, "return_null_allowed")
 

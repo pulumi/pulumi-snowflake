@@ -12,20 +12,44 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ### Import examples
+//
+// #### Grant all privileges OnDatabase
+//
+// ```sh
+// $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|ALL|OnDatabase|"test_db"'`
+// ```
+//
+// #### Grant list of privileges OnAllSchemasInDatabase
+//
+// ```sh
+// $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|"test_db"'`
+// ```
+//
+// #### Grant list of privileges on table
+//
+// ```sh
+// $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|"test_db"."test_schema"."test_table"'`
+// ```
+//
+// #### Grant list of privileges OnAll tables in schema
+//
+// ```sh
+// $ pulumi import snowflake:index/grantPrivilegesToDatabaseRole:GrantPrivilegesToDatabaseRole example '"test_db"."test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|"test_db"."test_schema"'`
+// ```
 type GrantPrivilegesToDatabaseRole struct {
 	pulumi.CustomResourceState
 
-	// Grant all privileges on the database role.
+	// (Default: `false`) Grant all privileges on the database role.
 	AllPrivileges pulumi.BoolPtrOutput `pulumi:"allPrivileges"`
 	AlwaysApply   pulumi.BoolPtrOutput `pulumi:"alwaysApply"`
-	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-	// alwaysApply field.
+	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrOutput `pulumi:"alwaysApplyTrigger"`
-	// The fully qualified name of the database role to which privileges will be granted. For more information about this
-	// resource, see docs.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName pulumi.StringOutput `pulumi:"databaseRoleName"`
-	// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
-	// see docs.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
 	OnDatabase pulumi.StringPtrOutput `pulumi:"onDatabase"`
 	// Specifies the schema on which privileges will be granted.
 	OnSchema GrantPrivilegesToDatabaseRoleOnSchemaPtrOutput `pulumi:"onSchema"`
@@ -33,7 +57,7 @@ type GrantPrivilegesToDatabaseRole struct {
 	OnSchemaObject GrantPrivilegesToDatabaseRoleOnSchemaObjectPtrOutput `pulumi:"onSchemaObject"`
 	// The privileges to grant on the database role.
 	Privileges pulumi.StringArrayOutput `pulumi:"privileges"`
-	// If specified, allows the recipient role to grant the privileges to other roles.
+	// (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrOutput `pulumi:"withGrantOption"`
 }
 
@@ -70,17 +94,14 @@ func GetGrantPrivilegesToDatabaseRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GrantPrivilegesToDatabaseRole resources.
 type grantPrivilegesToDatabaseRoleState struct {
-	// Grant all privileges on the database role.
+	// (Default: `false`) Grant all privileges on the database role.
 	AllPrivileges *bool `pulumi:"allPrivileges"`
 	AlwaysApply   *bool `pulumi:"alwaysApply"`
-	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-	// alwaysApply field.
+	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
-	// The fully qualified name of the database role to which privileges will be granted. For more information about this
-	// resource, see docs.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName *string `pulumi:"databaseRoleName"`
-	// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
-	// see docs.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
 	OnDatabase *string `pulumi:"onDatabase"`
 	// Specifies the schema on which privileges will be granted.
 	OnSchema *GrantPrivilegesToDatabaseRoleOnSchema `pulumi:"onSchema"`
@@ -88,22 +109,19 @@ type grantPrivilegesToDatabaseRoleState struct {
 	OnSchemaObject *GrantPrivilegesToDatabaseRoleOnSchemaObject `pulumi:"onSchemaObject"`
 	// The privileges to grant on the database role.
 	Privileges []string `pulumi:"privileges"`
-	// If specified, allows the recipient role to grant the privileges to other roles.
+	// (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
 }
 
 type GrantPrivilegesToDatabaseRoleState struct {
-	// Grant all privileges on the database role.
+	// (Default: `false`) Grant all privileges on the database role.
 	AllPrivileges pulumi.BoolPtrInput
 	AlwaysApply   pulumi.BoolPtrInput
-	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-	// alwaysApply field.
+	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
-	// The fully qualified name of the database role to which privileges will be granted. For more information about this
-	// resource, see docs.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName pulumi.StringPtrInput
-	// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
-	// see docs.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
 	OnDatabase pulumi.StringPtrInput
 	// Specifies the schema on which privileges will be granted.
 	OnSchema GrantPrivilegesToDatabaseRoleOnSchemaPtrInput
@@ -111,7 +129,7 @@ type GrantPrivilegesToDatabaseRoleState struct {
 	OnSchemaObject GrantPrivilegesToDatabaseRoleOnSchemaObjectPtrInput
 	// The privileges to grant on the database role.
 	Privileges pulumi.StringArrayInput
-	// If specified, allows the recipient role to grant the privileges to other roles.
+	// (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
 }
 
@@ -120,17 +138,14 @@ func (GrantPrivilegesToDatabaseRoleState) ElementType() reflect.Type {
 }
 
 type grantPrivilegesToDatabaseRoleArgs struct {
-	// Grant all privileges on the database role.
+	// (Default: `false`) Grant all privileges on the database role.
 	AllPrivileges *bool `pulumi:"allPrivileges"`
 	AlwaysApply   *bool `pulumi:"alwaysApply"`
-	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-	// alwaysApply field.
+	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger *string `pulumi:"alwaysApplyTrigger"`
-	// The fully qualified name of the database role to which privileges will be granted. For more information about this
-	// resource, see docs.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName string `pulumi:"databaseRoleName"`
-	// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
-	// see docs.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
 	OnDatabase *string `pulumi:"onDatabase"`
 	// Specifies the schema on which privileges will be granted.
 	OnSchema *GrantPrivilegesToDatabaseRoleOnSchema `pulumi:"onSchema"`
@@ -138,23 +153,20 @@ type grantPrivilegesToDatabaseRoleArgs struct {
 	OnSchemaObject *GrantPrivilegesToDatabaseRoleOnSchemaObject `pulumi:"onSchemaObject"`
 	// The privileges to grant on the database role.
 	Privileges []string `pulumi:"privileges"`
-	// If specified, allows the recipient role to grant the privileges to other roles.
+	// (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption *bool `pulumi:"withGrantOption"`
 }
 
 // The set of arguments for constructing a GrantPrivilegesToDatabaseRole resource.
 type GrantPrivilegesToDatabaseRoleArgs struct {
-	// Grant all privileges on the database role.
+	// (Default: `false`) Grant all privileges on the database role.
 	AllPrivileges pulumi.BoolPtrInput
 	AlwaysApply   pulumi.BoolPtrInput
-	// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-	// alwaysApply field.
+	// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 	AlwaysApplyTrigger pulumi.StringPtrInput
-	// The fully qualified name of the database role to which privileges will be granted. For more information about this
-	// resource, see docs.
+	// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 	DatabaseRoleName pulumi.StringInput
-	// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
-	// see docs.
+	// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
 	OnDatabase pulumi.StringPtrInput
 	// Specifies the schema on which privileges will be granted.
 	OnSchema GrantPrivilegesToDatabaseRoleOnSchemaPtrInput
@@ -162,7 +174,7 @@ type GrantPrivilegesToDatabaseRoleArgs struct {
 	OnSchemaObject GrantPrivilegesToDatabaseRoleOnSchemaObjectPtrInput
 	// The privileges to grant on the database role.
 	Privileges pulumi.StringArrayInput
-	// If specified, allows the recipient role to grant the privileges to other roles.
+	// (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
 	WithGrantOption pulumi.BoolPtrInput
 }
 
@@ -253,7 +265,7 @@ func (o GrantPrivilegesToDatabaseRoleOutput) ToGrantPrivilegesToDatabaseRoleOutp
 	return o
 }
 
-// Grant all privileges on the database role.
+// (Default: `false`) Grant all privileges on the database role.
 func (o GrantPrivilegesToDatabaseRoleOutput) AllPrivileges() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.BoolPtrOutput { return v.AllPrivileges }).(pulumi.BoolPtrOutput)
 }
@@ -262,20 +274,17 @@ func (o GrantPrivilegesToDatabaseRoleOutput) AlwaysApply() pulumi.BoolPtrOutput 
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.BoolPtrOutput { return v.AlwaysApply }).(pulumi.BoolPtrOutput)
 }
 
-// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-// alwaysApply field.
+// (Default: “) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the alwaysApply field.
 func (o GrantPrivilegesToDatabaseRoleOutput) AlwaysApplyTrigger() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.StringPtrOutput { return v.AlwaysApplyTrigger }).(pulumi.StringPtrOutput)
 }
 
-// The fully qualified name of the database role to which privileges will be granted. For more information about this
-// resource, see docs.
+// The fully qualified name of the database role to which privileges will be granted. For more information about this resource, see docs.
 func (o GrantPrivilegesToDatabaseRoleOutput) DatabaseRoleName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.StringOutput { return v.DatabaseRoleName }).(pulumi.StringOutput)
 }
 
-// The fully qualified name of the database on which privileges will be granted. For more information about this resource,
-// see docs.
+// The fully qualified name of the database on which privileges will be granted. For more information about this resource, see docs.
 func (o GrantPrivilegesToDatabaseRoleOutput) OnDatabase() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.StringPtrOutput { return v.OnDatabase }).(pulumi.StringPtrOutput)
 }
@@ -299,7 +308,7 @@ func (o GrantPrivilegesToDatabaseRoleOutput) Privileges() pulumi.StringArrayOutp
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.StringArrayOutput { return v.Privileges }).(pulumi.StringArrayOutput)
 }
 
-// If specified, allows the recipient role to grant the privileges to other roles.
+// (Default: `false`) If specified, allows the recipient role to grant the privileges to other roles.
 func (o GrantPrivilegesToDatabaseRoleOutput) WithGrantOption() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRole) pulumi.BoolPtrOutput { return v.WithGrantOption }).(pulumi.BoolPtrOutput)
 }

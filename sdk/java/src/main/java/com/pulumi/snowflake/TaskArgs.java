@@ -21,18 +21,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     public static final TaskArgs Empty = new TaskArgs();
 
     /**
-     * Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
-     * of a session (e.g. network outage, browser termination, service interruption). For more information, check
-     * [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+     * Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
      * 
      */
     @Import(name="abortDetachedQuery")
     private @Nullable Output<Boolean> abortDetachedQuery;
 
     /**
-     * @return Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
-     * of a session (e.g. network outage, browser termination, service interruption). For more information, check
-     * [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+     * @return Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
      * 
      */
     public Optional<Output<Boolean>> abortDetachedQuery() {
@@ -40,20 +36,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies one or more predecessor tasks for the current task. Use this option to [create a
-     * DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
-     * DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
-     * technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="afters")
     private @Nullable Output<List<String>> afters;
 
     /**
-     * @return Specifies one or more predecessor tasks for the current task. Use this option to [create a
-     * DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
-     * DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
-     * technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<List<String>>> afters() {
@@ -61,18 +51,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
-     * parameter value to TRUE permits DAG runs to overlap. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set
-     * in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="allowOverlappingExecution")
     private @Nullable Output<String> allowOverlappingExecution;
 
     /**
-     * @return By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
-     * parameter value to TRUE permits DAG runs to overlap. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set
-     * in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> allowOverlappingExecution() {
@@ -80,20 +66,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
-     * without an active transaction, is automatically committed after the statement successfully completes. For more
-     * information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
-     * [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+     * Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
      * 
      */
     @Import(name="autocommit")
     private @Nullable Output<Boolean> autocommit;
 
     /**
-     * @return Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
-     * without an active transaction, is automatically committed after the statement successfully completes. For more
-     * information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
-     * [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+     * @return Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
      * 
      */
     public Optional<Output<Boolean>> autocommit() {
@@ -101,18 +81,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
-     * [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
-     * [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+     * The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
      * 
      */
     @Import(name="binaryInputFormat")
     private @Nullable Output<String> binaryInputFormat;
 
     /**
-     * @return The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
-     * [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
-     * [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+     * @return The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
      * 
      */
     public Optional<Output<String>> binaryInputFormat() {
@@ -120,18 +96,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
-     * [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
-     * [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+     * The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
      * 
      */
     @Import(name="binaryOutputFormat")
     private @Nullable Output<String> binaryOutputFormat;
 
     /**
-     * @return The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
-     * [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
-     * [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+     * @return The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
      * 
      */
     public Optional<Output<String>> binaryOutputFormat() {
@@ -139,18 +111,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
-     * queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+     * Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
      * 
      */
     @Import(name="clientMemoryLimit")
     private @Nullable Output<Integer> clientMemoryLimit;
 
     /**
-     * @return Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
-     * queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+     * @return Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
      * 
      */
     public Optional<Output<Integer>> clientMemoryLimit() {
@@ -158,20 +126,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
-     * databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
-     * quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+     * For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
      * 
      */
     @Import(name="clientMetadataRequestUseConnectionCtx")
     private @Nullable Output<Boolean> clientMetadataRequestUseConnectionCtx;
 
     /**
-     * @return For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
-     * databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
-     * quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+     * @return For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
      * 
      */
     public Optional<Output<Boolean>> clientMetadataRequestUseConnectionCtx() {
@@ -179,20 +141,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
-     * attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
-     * resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+     * Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
      * 
      */
     @Import(name="clientPrefetchThreads")
     private @Nullable Output<Integer> clientPrefetchThreads;
 
     /**
-     * @return Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
-     * attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
-     * resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+     * @return Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
      * 
      */
     public Optional<Output<Integer>> clientPrefetchThreads() {
@@ -200,18 +156,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
-     * downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+     * Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
      * 
      */
     @Import(name="clientResultChunkSize")
     private @Nullable Output<Integer> clientResultChunkSize;
 
     /**
-     * @return Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
-     * downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+     * @return Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
      * 
      */
     public Optional<Output<Integer>> clientResultChunkSize() {
@@ -219,18 +171,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
-     * information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+     * Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
      * 
      */
     @Import(name="clientResultColumnCaseInsensitive")
     private @Nullable Output<Boolean> clientResultColumnCaseInsensitive;
 
     /**
-     * @return Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
-     * information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+     * @return Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
      * 
      */
     public Optional<Output<Boolean>> clientResultColumnCaseInsensitive() {
@@ -238,18 +186,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
-     * information, check [CLIENT_SESSION_KEEP_ALIVE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+     * Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
      * 
      */
     @Import(name="clientSessionKeepAlive")
     private @Nullable Output<Boolean> clientSessionKeepAlive;
 
     /**
-     * @return Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
-     * information, check [CLIENT_SESSION_KEEP_ALIVE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+     * @return Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
      * 
      */
     public Optional<Output<Boolean>> clientSessionKeepAlive() {
@@ -257,18 +201,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of seconds in-between client attempts to update the token for the session. For more information, check
-     * [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+     * Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
      * 
      */
     @Import(name="clientSessionKeepAliveHeartbeatFrequency")
     private @Nullable Output<Integer> clientSessionKeepAliveHeartbeatFrequency;
 
     /**
-     * @return Number of seconds in-between client attempts to update the token for the session. For more information, check
-     * [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+     * @return Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
      * 
      */
     public Optional<Output<Integer>> clientSessionKeepAliveHeartbeatFrequency() {
@@ -276,22 +216,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the [TIMESTAMP_*
-     * variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
-     * use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
-     * information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+     * Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
      * 
      */
     @Import(name="clientTimestampTypeMapping")
     private @Nullable Output<String> clientTimestampTypeMapping;
 
     /**
-     * @return Specifies the [TIMESTAMP_*
-     * variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
-     * use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
-     * information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+     * @return Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
      * 
      */
     public Optional<Output<String>> clientTimestampTypeMapping() {
@@ -314,16 +246,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
-     * JSON format.
+     * Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
      * 
      */
     @Import(name="config")
     private @Nullable Output<String> config;
 
     /**
-     * @return Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
-     * JSON format.
+     * @return Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
      * 
      */
     public Optional<Output<String>> config() {
@@ -331,16 +261,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the task. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the task. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -348,18 +276,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the input format for the DATE data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+     * Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
      * 
      */
     @Import(name="dateInputFormat")
     private @Nullable Output<String> dateInputFormat;
 
     /**
-     * @return Specifies the input format for the DATE data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+     * @return Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
      * 
      */
     public Optional<Output<String>> dateInputFormat() {
@@ -367,18 +291,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the display format for the DATE data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+     * Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
      * 
      */
     @Import(name="dateOutputFormat")
     private @Nullable Output<String> dateOutputFormat;
 
     /**
-     * @return Specifies the display format for the DATE data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+     * @return Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
      * 
      */
     public Optional<Output<String>> dateOutputFormat() {
@@ -386,22 +306,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
-     * the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
-     * support the values in the output columns of the unload SQL statement or source table). For more information, check
-     * [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+     * Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
      * 
      */
     @Import(name="enableUnloadPhysicalTypeOptimization")
     private @Nullable Output<Boolean> enableUnloadPhysicalTypeOptimization;
 
     /**
-     * @return Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
-     * the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
-     * support the values in the output columns of the unload SQL statement or source table). For more information, check
-     * [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+     * @return Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
      * 
      */
     public Optional<Output<Boolean>> enableUnloadPhysicalTypeOptimization() {
@@ -409,16 +321,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
-     * here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     @Import(name="errorIntegration")
     private @Nullable Output<String> errorIntegration;
 
     /**
-     * @return Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
-     * here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * @return Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> errorIntegration() {
@@ -426,20 +336,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
-     * used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
-     * perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+     * Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
      * 
      */
     @Import(name="errorOnNondeterministicMerge")
     private @Nullable Output<Boolean> errorOnNondeterministicMerge;
 
     /**
-     * @return Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
-     * used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
-     * perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+     * @return Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
      * 
      */
     public Optional<Output<Boolean>> errorOnNondeterministicMerge() {
@@ -447,20 +351,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
-     * is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
-     * the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+     * Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
      * 
      */
     @Import(name="errorOnNondeterministicUpdate")
     private @Nullable Output<Boolean> errorOnNondeterministicUpdate;
 
     /**
-     * @return Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
-     * is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
-     * the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+     * @return Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
      * 
      */
     public Optional<Output<Boolean>> errorOnNondeterministicUpdate() {
@@ -468,22 +366,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
-     * in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
-     * and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
-     * graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
-     * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="finalize")
     private @Nullable Output<String> finalize;
 
     /**
-     * @return Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
-     * in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
-     * and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
-     * graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
-     * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> finalize_() {
@@ -491,20 +381,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Display format for [GEOGRAPHY
-     * values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
-     * information, check [GEOGRAPHY_OUTPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+     * Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
      * 
      */
     @Import(name="geographyOutputFormat")
     private @Nullable Output<String> geographyOutputFormat;
 
     /**
-     * @return Display format for [GEOGRAPHY
-     * values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
-     * information, check [GEOGRAPHY_OUTPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+     * @return Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
      * 
      */
     public Optional<Output<String>> geographyOutputFormat() {
@@ -512,20 +396,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Display format for [GEOMETRY
-     * values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
-     * information, check [GEOMETRY_OUTPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+     * Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
      * 
      */
     @Import(name="geometryOutputFormat")
     private @Nullable Output<String> geometryOutputFormat;
 
     /**
-     * @return Display format for [GEOMETRY
-     * values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
-     * information, check [GEOMETRY_OUTPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+     * @return Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
      * 
      */
     public Optional<Output<String>> geometryOutputFormat() {
@@ -533,16 +411,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+     * Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      * 
      */
     @Import(name="jdbcTreatTimestampNtzAsUtc")
     private @Nullable Output<Boolean> jdbcTreatTimestampNtzAsUtc;
 
     /**
-     * @return Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+     * @return Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
      * 
      */
     public Optional<Output<Boolean>> jdbcTreatTimestampNtzAsUtc() {
@@ -550,20 +426,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
-     * [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
-     * getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+     * Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
      * 
      */
     @Import(name="jdbcUseSessionTimezone")
     private @Nullable Output<Boolean> jdbcUseSessionTimezone;
 
     /**
-     * @return Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
-     * [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
-     * getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+     * @return Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
      * 
      */
     public Optional<Output<Boolean>> jdbcUseSessionTimezone() {
@@ -571,18 +441,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
-     * insert newline characters after each element. For more information, check [JSON_INDENT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+     * Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
      * 
      */
     @Import(name="jsonIndent")
     private @Nullable Output<Integer> jsonIndent;
 
     /**
-     * @return Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
-     * insert newline characters after each element. For more information, check [JSON_INDENT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+     * @return Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
      * 
      */
     public Optional<Output<Integer>> jsonIndent() {
@@ -590,16 +456,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
-     * information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+     * Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
      * 
      */
     @Import(name="lockTimeout")
     private @Nullable Output<Integer> lockTimeout;
 
     /**
-     * @return Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
-     * information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+     * @return Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
      * 
      */
     public Optional<Output<Integer>> lockTimeout() {
@@ -607,20 +471,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
-     * at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
-     * level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
-     * [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     @Import(name="logLevel")
     private @Nullable Output<String> logLevel;
 
     /**
-     * @return Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
-     * at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
-     * level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
-     * [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * @return Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     public Optional<Output<String>> logLevel() {
@@ -628,16 +486,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of statements to execute when using the multi-statement capability. For more information, check
-     * [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+     * Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
      * 
      */
     @Import(name="multiStatementCount")
     private @Nullable Output<Integer> multiStatementCount;
 
     /**
-     * @return Number of statements to execute when using the multi-statement capability. For more information, check
-     * [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+     * @return Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
      * 
      */
     public Optional<Output<Integer>> multiStatementCount() {
@@ -645,16 +501,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
-     * technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
-     * technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -662,24 +516,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
-     * column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
-     * auto-incremented column in [increasing or decreasing
-     * order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
-     * more information, check [NOORDER_SEQUENCE_AS_DEFAULT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+     * Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
      * 
      */
     @Import(name="noorderSequenceAsDefault")
     private @Nullable Output<Boolean> noorderSequenceAsDefault;
 
     /**
-     * @return Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
-     * column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
-     * auto-incremented column in [increasing or decreasing
-     * order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
-     * more information, check [NOORDER_SEQUENCE_AS_DEFAULT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+     * @return Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
      * 
      */
     public Optional<Output<Boolean>> noorderSequenceAsDefault() {
@@ -687,16 +531,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
-     * [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+     * Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
      * 
      */
     @Import(name="odbcTreatDecimalAsInt")
     private @Nullable Output<Boolean> odbcTreatDecimalAsInt;
 
     /**
-     * @return Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
-     * [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+     * @return Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
      * 
      */
     public Optional<Output<Boolean>> odbcTreatDecimalAsInt() {
@@ -704,20 +546,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
-     * displayed in the output of the [QUERY_HISTORY,
-     * QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
-     * information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+     * Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
      * 
      */
     @Import(name="queryTag")
     private @Nullable Output<String> queryTag;
 
     /**
-     * @return Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
-     * displayed in the output of the [QUERY_HISTORY,
-     * QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
-     * information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+     * @return Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
      * 
      */
     public Optional<Output<String>> queryTag() {
@@ -725,26 +561,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
-     * Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
-     * [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
-     * You can use this parameter in situations in which [third-party applications always use double quotes around
-     * identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
-     * more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+     * Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      * 
      */
     @Import(name="quotedIdentifiersIgnoreCase")
     private @Nullable Output<Boolean> quotedIdentifiersIgnoreCase;
 
     /**
-     * @return Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
-     * Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
-     * [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
-     * You can use this parameter in situations in which [third-party applications always use double quotes around
-     * identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
-     * more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+     * @return Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      * 
      */
     public Optional<Output<Boolean>> quotedIdentifiersIgnoreCase() {
@@ -752,16 +576,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
-     * check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+     * Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
      * 
      */
     @Import(name="rowsPerResultset")
     private @Nullable Output<Integer> rowsPerResultset;
 
     /**
-     * @return Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
-     * check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+     * @return Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
      * 
      */
     public Optional<Output<Integer>> rowsPerResultset() {
@@ -769,24 +591,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
-     * PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
-     * use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
-     * endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
-     * For more information, check [S3_STAGE_VPCE_DNS_NAME
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+     * Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
      * 
      */
     @Import(name="s3StageVpceDnsName")
     private @Nullable Output<String> s3StageVpceDnsName;
 
     /**
-     * @return Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
-     * PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
-     * use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
-     * endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
-     * For more information, check [S3_STAGE_VPCE_DNS_NAME
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+     * @return Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
      * 
      */
     public Optional<Output<String>> s3StageVpceDnsName() {
@@ -794,16 +606,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
-     * after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+     * The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
      * 
      */
     @Import(name="schedule")
     private @Nullable Output<TaskScheduleArgs> schedule;
 
     /**
-     * @return The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
-     * after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+     * @return The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
      * 
      */
     public Optional<Output<TaskScheduleArgs>> schedule() {
@@ -811,16 +621,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema", required=true)
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {
@@ -828,20 +636,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
-     * in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
-     * Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
-     * information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+     * Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
      * 
      */
     @Import(name="searchPath")
     private @Nullable Output<String> searchPath;
 
     /**
-     * @return Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
-     * in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
-     * Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
-     * information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+     * @return Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
      * 
      */
     public Optional<Output<String>> searchPath() {
@@ -879,22 +681,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
-     * by the system. This parameter can be used in conjunction with the
-     * [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
-     * ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+     * Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      * 
      */
     @Import(name="statementQueuedTimeoutInSeconds")
     private @Nullable Output<Integer> statementQueuedTimeoutInSeconds;
 
     /**
-     * @return Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
-     * by the system. This parameter can be used in conjunction with the
-     * [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
-     * ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+     * @return Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
      * 
      */
     public Optional<Output<Integer>> statementQueuedTimeoutInSeconds() {
@@ -902,18 +696,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
-     * more information, check [STATEMENT_TIMEOUT_IN_SECONDS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+     * Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      * 
      */
     @Import(name="statementTimeoutInSeconds")
     private @Nullable Output<Integer> statementTimeoutInSeconds;
 
     /**
-     * @return Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
-     * more information, check [STATEMENT_TIMEOUT_IN_SECONDS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+     * @return Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
      * 
      */
     public Optional<Output<Integer>> statementTimeoutInSeconds() {
@@ -921,22 +711,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
-     * [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
-     * these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
-     * languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
-     * check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+     * This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
      * 
      */
     @Import(name="strictJsonOutput")
     private @Nullable Output<Boolean> strictJsonOutput;
 
     /**
-     * @return This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
-     * [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
-     * these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
-     * languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
-     * check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+     * @return This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
      * 
      */
     public Optional<Output<Boolean>> strictJsonOutput() {
@@ -944,18 +726,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
-     * default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+     * Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      * 
      */
     @Import(name="suspendTaskAfterNumFailures")
     private @Nullable Output<Integer> suspendTaskAfterNumFailures;
 
     /**
-     * @return Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
-     * default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+     * @return Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      * 
      */
     public Optional<Output<Integer>> suspendTaskAfterNumFailures() {
@@ -963,18 +741,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
-     * can automatically retry the task graphs from the last task in the graph that failed. For more information, check
-     * [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+     * Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      * 
      */
     @Import(name="taskAutoRetryAttempts")
     private @Nullable Output<Integer> taskAutoRetryAttempts;
 
     /**
-     * @return Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
-     * can automatically retry the task graphs from the last task in the graph that failed. For more information, check
-     * [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+     * @return Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      * 
      */
     public Optional<Output<Integer>> taskAutoRetryAttempts() {
@@ -982,22 +756,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the input format for the TIME data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
-     * (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
-     * session). For more information, check [TIME_INPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+     * Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
      * 
      */
     @Import(name="timeInputFormat")
     private @Nullable Output<String> timeInputFormat;
 
     /**
-     * @return Specifies the input format for the TIME data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
-     * (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
-     * session). For more information, check [TIME_INPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+     * @return Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
      * 
      */
     public Optional<Output<String>> timeInputFormat() {
@@ -1005,18 +771,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the display format for the TIME data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+     * Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
      * 
      */
     @Import(name="timeOutputFormat")
     private @Nullable Output<String> timeOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIME data type. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+     * @return Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
      * 
      */
     public Optional<Output<String>> timeOutputFormat() {
@@ -1024,20 +786,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
-     * aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
-     * check [TIMESTAMP_DAY_IS_ALWAYS_24H
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+     * Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
      * 
      */
     @Import(name="timestampDayIsAlways24h")
     private @Nullable Output<Boolean> timestampDayIsAlways24h;
 
     /**
-     * @return Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
-     * aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
-     * check [TIMESTAMP_DAY_IS_ALWAYS_24H
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+     * @return Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
      * 
      */
     public Optional<Output<Boolean>> timestampDayIsAlways24h() {
@@ -1045,22 +801,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
-     * AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
-     * during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+     * Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
      * 
      */
     @Import(name="timestampInputFormat")
     private @Nullable Output<String> timestampInputFormat;
 
     /**
-     * @return Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
-     * AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
-     * during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+     * @return Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
      * 
      */
     public Optional<Output<String>> timestampInputFormat() {
@@ -1068,22 +816,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
-     * [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
-     * more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      * 
      */
     @Import(name="timestampLtzOutputFormat")
     private @Nullable Output<String> timestampLtzOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
-     * [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
-     * more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+     * @return Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
      * 
      */
     public Optional<Output<String>> timestampLtzOutputFormat() {
@@ -1091,16 +831,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+     * Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      * 
      */
     @Import(name="timestampNtzOutputFormat")
     private @Nullable Output<String> timestampNtzOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+     * @return Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
      * 
      */
     public Optional<Output<String>> timestampNtzOutputFormat() {
@@ -1108,18 +846,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
-     * output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+     * Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
      * 
      */
     @Import(name="timestampOutputFormat")
     private @Nullable Output<String> timestampOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
-     * output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+     * @return Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
      * 
      */
     public Optional<Output<String>> timestampOutputFormat() {
@@ -1127,16 +861,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
-     * [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+     * Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
      * 
      */
     @Import(name="timestampTypeMapping")
     private @Nullable Output<String> timestampTypeMapping;
 
     /**
-     * @return Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
-     * [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+     * @return Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
      * 
      */
     public Optional<Output<String>> timestampTypeMapping() {
@@ -1144,22 +876,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
-     * [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
-     * more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      * 
      */
     @Import(name="timestampTzOutputFormat")
     private @Nullable Output<String> timestampTzOutputFormat;
 
     /**
-     * @return Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
-     * [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
-     * more information, see [Date and time input and output
-     * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-     * [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+     * @return Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
      * 
      */
     public Optional<Output<String>> timestampTzOutputFormat() {
@@ -1167,22 +891,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the time zone for the session. You can specify a [time zone
-     * name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
-     * name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
-     * Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
-     * information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+     * Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
      * 
      */
     @Import(name="timezone")
     private @Nullable Output<String> timezone;
 
     /**
-     * @return Specifies the time zone for the session. You can specify a [time zone
-     * name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
-     * name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
-     * Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
-     * information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+     * @return Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
      * 
      */
     public Optional<Output<String>> timezone() {
@@ -1190,18 +906,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
-     * level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
-     * [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     @Import(name="traceLevel")
     private @Nullable Output<String> traceLevel;
 
     /**
-     * @return Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
-     * level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
-     * [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * @return Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     public Optional<Output<String>> traceLevel() {
@@ -1209,18 +921,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
-     * more information, check [TRANSACTION_ABORT_ON_ERROR
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+     * Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
      * 
      */
     @Import(name="transactionAbortOnError")
     private @Nullable Output<Boolean> transactionAbortOnError;
 
     /**
-     * @return Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
-     * more information, check [TRANSACTION_ABORT_ON_ERROR
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+     * @return Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
      * 
      */
     public Optional<Output<Boolean>> transactionAbortOnError() {
@@ -1228,18 +936,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the isolation level for transactions in the user session. For more information, check
-     * [TRANSACTION_DEFAULT_ISOLATION_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+     * Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
      * 
      */
     @Import(name="transactionDefaultIsolationLevel")
     private @Nullable Output<String> transactionDefaultIsolationLevel;
 
     /**
-     * @return Specifies the isolation level for transactions in the user session. For more information, check
-     * [TRANSACTION_DEFAULT_ISOLATION_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+     * @return Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
      * 
      */
     public Optional<Output<String>> transactionDefaultIsolationLevel() {
@@ -1247,20 +951,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
-     * parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
-     * represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+     * Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
      * 
      */
     @Import(name="twoDigitCenturyStart")
     private @Nullable Output<Integer> twoDigitCenturyStart;
 
     /**
-     * @return Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
-     * parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
-     * represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+     * @return Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
      * 
      */
     public Optional<Output<Integer>> twoDigitCenturyStart() {
@@ -1268,18 +966,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
-     * information, check [UNSUPPORTED_DDL_ACTION
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+     * Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
      * 
      */
     @Import(name="unsupportedDdlAction")
     private @Nullable Output<String> unsupportedDdlAction;
 
     /**
-     * @return Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
-     * information, check [UNSUPPORTED_DDL_ACTION
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+     * @return Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
      * 
      */
     public Optional<Output<String>> unsupportedDdlAction() {
@@ -1287,16 +981,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
-     * information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+     * Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
      * 
      */
     @Import(name="useCachedResult")
     private @Nullable Output<Boolean> useCachedResult;
 
     /**
-     * @return Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
-     * information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+     * @return Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
      * 
      */
     public Optional<Output<Boolean>> useCachedResult() {
@@ -1304,22 +996,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the size of the compute resources to provision for the first run of the task, before a task history is
-     * available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
-     * this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
-     * warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+     * Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      * 
      */
     @Import(name="userTaskManagedInitialWarehouseSize")
     private @Nullable Output<String> userTaskManagedInitialWarehouseSize;
 
     /**
-     * @return Specifies the size of the compute resources to provision for the first run of the task, before a task history is
-     * available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
-     * this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
-     * warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+     * @return Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      * 
      */
     public Optional<Output<String>> userTaskManagedInitialWarehouseSize() {
@@ -1327,18 +1011,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Minimum amount of time between Triggered Task executions in seconds For more information, check
-     * [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+     * Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
      * 
      */
     @Import(name="userTaskMinimumTriggerIntervalInSeconds")
     private @Nullable Output<Integer> userTaskMinimumTriggerIntervalInSeconds;
 
     /**
-     * @return Minimum amount of time between Triggered Task executions in seconds For more information, check
-     * [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+     * @return Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
      * 
      */
     public Optional<Output<Integer>> userTaskMinimumTriggerIntervalInSeconds() {
@@ -1346,16 +1026,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
-     * [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+     * Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      * 
      */
     @Import(name="userTaskTimeoutMs")
     private @Nullable Output<Integer> userTaskTimeoutMs;
 
     /**
-     * @return Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
-     * [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+     * @return Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      * 
      */
     public Optional<Output<Integer>> userTaskTimeoutMs() {
@@ -1363,18 +1041,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
-     * Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
-     * user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
+     * The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
      * 
      */
     @Import(name="warehouse")
     private @Nullable Output<String> warehouse;
 
     /**
-     * @return The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
-     * Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
-     * user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
+     * @return The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> warehouse() {
@@ -1382,20 +1056,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
-     * which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
-     * first week of the year and December 31 is included in the last week of the year. For more information, check
-     * [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+     * Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
      * 
      */
     @Import(name="weekOfYearPolicy")
     private @Nullable Output<Integer> weekOfYearPolicy;
 
     /**
-     * @return Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
-     * which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
-     * first week of the year and December 31 is included in the last week of the year. For more information, check
-     * [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+     * @return Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
      * 
      */
     public Optional<Output<Integer>> weekOfYearPolicy() {
@@ -1403,20 +1071,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
-     * ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
-     * day of the week. For more information, check [WEEK_START
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+     * Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
      * 
      */
     @Import(name="weekStart")
     private @Nullable Output<Integer> weekStart;
 
     /**
-     * @return Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
-     * ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
-     * day of the week. For more information, check [WEEK_START
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+     * @return Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
      * 
      */
     public Optional<Output<Integer>> weekStart() {
@@ -1424,20 +1086,14 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
-     * (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
-     * If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
-     * as a predecessor also don’t run.
+     * Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
      * 
      */
     @Import(name="when")
     private @Nullable Output<String> when;
 
     /**
-     * @return Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
-     * (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
-     * If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
-     * as a predecessor also don’t run.
+     * @return Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
      * 
      */
     public Optional<Output<String>> when() {
@@ -1540,9 +1196,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param abortDetachedQuery Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
-         * of a session (e.g. network outage, browser termination, service interruption). For more information, check
-         * [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+         * @param abortDetachedQuery Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
          * 
          * @return builder
          * 
@@ -1553,9 +1207,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param abortDetachedQuery Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination
-         * of a session (e.g. network outage, browser termination, service interruption). For more information, check
-         * [ABORT_DETACHED_QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
+         * @param abortDetachedQuery Specifies the action that Snowflake performs for in-progress queries if connectivity is lost due to abrupt termination of a session (e.g. network outage, browser termination, service interruption). For more information, check [ABORT*DETACHED*QUERY docs](https://docs.snowflake.com/en/sql-reference/parameters#abort-detached-query).
          * 
          * @return builder
          * 
@@ -1565,10 +1217,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param afters Specifies one or more predecessor tasks for the current task. Use this option to [create a
-         * DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
-         * DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
-         * technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param afters Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -1579,10 +1228,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param afters Specifies one or more predecessor tasks for the current task. Use this option to [create a
-         * DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
-         * DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
-         * technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param afters Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -1592,10 +1238,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param afters Specifies one or more predecessor tasks for the current task. Use this option to [create a
-         * DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing
-         * DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to
-         * technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param afters Specifies one or more predecessor tasks for the current task. Use this option to [create a DAG](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-task-dag) of tasks or add this task to an existing DAG. A DAG is a series of tasks that starts with a scheduled root task and is linked together by dependencies. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -1605,9 +1248,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowOverlappingExecution By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
-         * parameter value to TRUE permits DAG runs to overlap. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set
-         * in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param allowOverlappingExecution (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -1618,9 +1259,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allowOverlappingExecution By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the
-         * parameter value to TRUE permits DAG runs to overlap. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set
-         * in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param allowOverlappingExecution (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) By default, Snowflake ensures that only one instance of a particular DAG is allowed to run at a time, setting the parameter value to TRUE permits DAG runs to overlap. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -1630,10 +1269,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autocommit Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
-         * without an active transaction, is automatically committed after the statement successfully completes. For more
-         * information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
-         * [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+         * @param autocommit Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
          * 
          * @return builder
          * 
@@ -1644,10 +1280,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param autocommit Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed
-         * without an active transaction, is automatically committed after the statement successfully completes. For more
-         * information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check
-         * [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
+         * @param autocommit Specifies whether autocommit is enabled for the session. Autocommit determines whether a DML statement, when executed without an active transaction, is automatically committed after the statement successfully completes. For more information, see [Transactions](https://docs.snowflake.com/en/sql-reference/transactions). For more information, check [AUTOCOMMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#autocommit).
          * 
          * @return builder
          * 
@@ -1657,9 +1290,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param binaryInputFormat The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
-         * [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
-         * [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+         * @param binaryInputFormat The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
          * 
          * @return builder
          * 
@@ -1670,9 +1301,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param binaryInputFormat The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see
-         * [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
-         * [BINARY_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
+         * @param binaryInputFormat The format of VARCHAR values passed as input to VARCHAR-to-BINARY conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-input-format).
          * 
          * @return builder
          * 
@@ -1682,9 +1311,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param binaryOutputFormat The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
-         * [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
-         * [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+         * @param binaryOutputFormat The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
          * 
          * @return builder
          * 
@@ -1695,9 +1322,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param binaryOutputFormat The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see
-         * [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check
-         * [BINARY_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
+         * @param binaryOutputFormat The format for VARCHAR values returned as output by BINARY-to-VARCHAR conversion functions. For more information, see [Binary input and output](https://docs.snowflake.com/en/sql-reference/binary-input-output). For more information, check [BINARY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#binary-output-format).
          * 
          * @return builder
          * 
@@ -1707,9 +1332,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientMemoryLimit Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
-         * queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+         * @param clientMemoryLimit Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
          * 
          * @return builder
          * 
@@ -1720,9 +1343,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientMemoryLimit Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from
-         * queries (in MB). For more information, check [CLIENT_MEMORY_LIMIT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
+         * @param clientMemoryLimit Parameter that specifies the maximum amount of memory the JDBC driver or ODBC driver should use for the result set from queries (in MB). For more information, check [CLIENT*MEMORY*LIMIT docs](https://docs.snowflake.com/en/sql-reference/parameters#client-memory-limit).
          * 
          * @return builder
          * 
@@ -1732,10 +1353,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientMetadataRequestUseConnectionCtx For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
-         * databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
-         * quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+         * @param clientMetadataRequestUseConnectionCtx For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
          * 
          * @return builder
          * 
@@ -1746,10 +1364,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientMetadataRequestUseConnectionCtx For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all
-         * databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more
-         * quickly. For more information, check [CLIENT_METADATA_REQUEST_USE_CONNECTION_CTX
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
+         * @param clientMetadataRequestUseConnectionCtx For specific ODBC functions and JDBC methods, this parameter can change the default search scope from all databases/schemas to the current database/schema. The narrower search typically returns fewer rows and executes more quickly. For more information, check [CLIENT*METADATA*REQUEST*USE*CONNECTION_CTX docs](https://docs.snowflake.com/en/sql-reference/parameters#client-metadata-request-use-connection-ctx).
          * 
          * @return builder
          * 
@@ -1759,10 +1374,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientPrefetchThreads Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
-         * attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
-         * resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+         * @param clientPrefetchThreads Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
          * 
          * @return builder
          * 
@@ -1773,10 +1385,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientPrefetchThreads Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will
-         * attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s
-         * resources) to improve performance. For more information, check [CLIENT_PREFETCH_THREADS
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
+         * @param clientPrefetchThreads Parameter that specifies the number of threads used by the client to pre-fetch large result sets. The driver will attempt to honor the parameter value, but defines the minimum and maximum values (depending on your system’s resources) to improve performance. For more information, check [CLIENT*PREFETCH*THREADS docs](https://docs.snowflake.com/en/sql-reference/parameters#client-prefetch-threads).
          * 
          * @return builder
          * 
@@ -1786,9 +1395,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientResultChunkSize Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
-         * downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+         * @param clientResultChunkSize Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
          * 
          * @return builder
          * 
@@ -1799,9 +1406,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientResultChunkSize Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver
-         * downloads query results in chunks. For more information, check [CLIENT_RESULT_CHUNK_SIZE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
+         * @param clientResultChunkSize Parameter that specifies the maximum size of each set (or chunk) of query results to download (in MB). The JDBC driver downloads query results in chunks. For more information, check [CLIENT*RESULT*CHUNK_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-chunk-size).
          * 
          * @return builder
          * 
@@ -1811,9 +1416,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientResultColumnCaseInsensitive Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
-         * information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+         * @param clientResultColumnCaseInsensitive Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
          * 
          * @return builder
          * 
@@ -1824,9 +1427,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientResultColumnCaseInsensitive Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more
-         * information, check [CLIENT_RESULT_COLUMN_CASE_INSENSITIVE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
+         * @param clientResultColumnCaseInsensitive Parameter that indicates whether to match column name case-insensitively in ResultSet.get* methods in JDBC. For more information, check [CLIENT*RESULT*COLUMN*CASE*INSENSITIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-result-column-case-insensitive).
          * 
          * @return builder
          * 
@@ -1836,9 +1437,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSessionKeepAlive Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
-         * information, check [CLIENT_SESSION_KEEP_ALIVE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+         * @param clientSessionKeepAlive Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
          * 
          * @return builder
          * 
@@ -1849,9 +1448,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSessionKeepAlive Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more
-         * information, check [CLIENT_SESSION_KEEP_ALIVE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
+         * @param clientSessionKeepAlive Parameter that indicates whether to force a user to log in again after a period of inactivity in the session. For more information, check [CLIENT*SESSION*KEEP_ALIVE docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive).
          * 
          * @return builder
          * 
@@ -1861,9 +1458,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSessionKeepAliveHeartbeatFrequency Number of seconds in-between client attempts to update the token for the session. For more information, check
-         * [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+         * @param clientSessionKeepAliveHeartbeatFrequency Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
          * 
          * @return builder
          * 
@@ -1874,9 +1469,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientSessionKeepAliveHeartbeatFrequency Number of seconds in-between client attempts to update the token for the session. For more information, check
-         * [CLIENT_SESSION_KEEP_ALIVE_HEARTBEAT_FREQUENCY
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
+         * @param clientSessionKeepAliveHeartbeatFrequency Number of seconds in-between client attempts to update the token for the session. For more information, check [CLIENT*SESSION*KEEP*ALIVE*HEARTBEAT_FREQUENCY docs](https://docs.snowflake.com/en/sql-reference/parameters#client-session-keep-alive-heartbeat-frequency).
          * 
          * @return builder
          * 
@@ -1886,11 +1479,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientTimestampTypeMapping Specifies the [TIMESTAMP_*
-         * variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
-         * use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
-         * information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+         * @param clientTimestampTypeMapping Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
          * 
          * @return builder
          * 
@@ -1901,11 +1490,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clientTimestampTypeMapping Specifies the [TIMESTAMP_*
-         * variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to
-         * use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more
-         * information, check [CLIENT_TIMESTAMP_TYPE_MAPPING
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
+         * @param clientTimestampTypeMapping Specifies the [TIMESTAMP_* variation](https://docs.snowflake.com/en/sql-reference/data-types-datetime.html#label-datatypes-timestamp-variations) to use when binding timestamp variables for JDBC or ODBC applications that use the bind API to load data. For more information, check [CLIENT*TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#client-timestamp-type-mapping).
          * 
          * @return builder
          * 
@@ -1936,8 +1521,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
-         * JSON format.
+         * @param config Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
          * 
          * @return builder
          * 
@@ -1948,8 +1532,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param config Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in
-         * JSON format.
+         * @param config Specifies a string representation of key value pairs that can be accessed by all tasks in the task graph. Must be in JSON format.
          * 
          * @return builder
          * 
@@ -1959,8 +1542,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the task. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -1971,8 +1553,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the task. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -1982,9 +1563,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dateInputFormat Specifies the input format for the DATE data type. For more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-         * [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+         * @param dateInputFormat Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
          * 
          * @return builder
          * 
@@ -1995,9 +1574,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dateInputFormat Specifies the input format for the DATE data type. For more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-         * [DATE_INPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
+         * @param dateInputFormat Specifies the input format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-input-format).
          * 
          * @return builder
          * 
@@ -2007,9 +1584,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dateOutputFormat Specifies the display format for the DATE data type. For more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-         * [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+         * @param dateOutputFormat Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
          * 
          * @return builder
          * 
@@ -2020,9 +1595,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dateOutputFormat Specifies the display format for the DATE data type. For more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-         * [DATE_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
+         * @param dateOutputFormat Specifies the display format for the DATE data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [DATE*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#date-output-format).
          * 
          * @return builder
          * 
@@ -2032,11 +1605,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableUnloadPhysicalTypeOptimization Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
-         * the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
-         * support the values in the output columns of the unload SQL statement or source table). For more information, check
-         * [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+         * @param enableUnloadPhysicalTypeOptimization Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
          * 
          * @return builder
          * 
@@ -2047,11 +1616,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableUnloadPhysicalTypeOptimization Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in
-         * the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that
-         * support the values in the output columns of the unload SQL statement or source table). For more information, check
-         * [ENABLE_UNLOAD_PHYSICAL_TYPE_OPTIMIZATION
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
+         * @param enableUnloadPhysicalTypeOptimization Specifies whether to set the schema for unloaded Parquet files based on the logical column data types (i.e. the types in the unload SQL query or source table) or on the unloaded column values (i.e. the smallest data types and precision that support the values in the output columns of the unload SQL statement or source table). For more information, check [ENABLE*UNLOAD*PHYSICAL*TYPE*OPTIMIZATION docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-unload-physical-type-optimization).
          * 
          * @return builder
          * 
@@ -2061,8 +1626,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorIntegration Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
-         * here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+         * @param errorIntegration Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -2073,8 +1637,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorIntegration Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more
-         * here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+         * @param errorIntegration Specifies the name of the notification integration used for error notifications. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -2084,10 +1647,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorOnNondeterministicMerge Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
-         * used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
-         * perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+         * @param errorOnNondeterministicMerge Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
          * 
          * @return builder
          * 
@@ -2098,10 +1658,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorOnNondeterministicMerge Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is
-         * used to update or delete a target row that joins multiple source rows and the system cannot determine the action to
-         * perform on the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_MERGE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
+         * @param errorOnNondeterministicMerge Specifies whether to return an error when the [MERGE](https://docs.snowflake.com/en/sql-reference/sql/merge) command is used to update or delete a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_MERGE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-merge).
          * 
          * @return builder
          * 
@@ -2111,10 +1668,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorOnNondeterministicUpdate Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
-         * is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
-         * the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+         * @param errorOnNondeterministicUpdate Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
          * 
          * @return builder
          * 
@@ -2125,10 +1679,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param errorOnNondeterministicUpdate Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command
-         * is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on
-         * the target row. For more information, check [ERROR_ON_NONDETERMINISTIC_UPDATE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
+         * @param errorOnNondeterministicUpdate Specifies whether to return an error when the [UPDATE](https://docs.snowflake.com/en/sql-reference/sql/update) command is used to update a target row that joins multiple source rows and the system cannot determine the action to perform on the target row. For more information, check [ERROR*ON*NONDETERMINISTIC_UPDATE docs](https://docs.snowflake.com/en/sql-reference/parameters#error-on-nondeterministic-update).
          * 
          * @return builder
          * 
@@ -2138,11 +1689,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param finalize Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
-         * in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
-         * and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
-         * graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
-         * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param finalize Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -2153,11 +1700,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param finalize Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks
-         * in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release
-         * and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task
-         * graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations
-         * (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param finalize Specifies the name of a root task that the finalizer task is associated with. Finalizer tasks run after all other tasks in the task graph run to completion. You can define the SQL of a finalizer task to handle notifications and the release and cleanup of resources that a task graph uses. For more information, see [Release and cleanup of task graphs](https://docs.snowflake.com/en/user-guide/tasks-graphs.html#label-finalizer-task). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -2167,10 +1710,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geographyOutputFormat Display format for [GEOGRAPHY
-         * values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
-         * information, check [GEOGRAPHY_OUTPUT_FORMAT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+         * @param geographyOutputFormat Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
          * 
          * @return builder
          * 
@@ -2181,10 +1721,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geographyOutputFormat Display format for [GEOGRAPHY
-         * values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more
-         * information, check [GEOGRAPHY_OUTPUT_FORMAT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
+         * @param geographyOutputFormat Display format for [GEOGRAPHY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geography). For more information, check [GEOGRAPHY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geography-output-format).
          * 
          * @return builder
          * 
@@ -2194,10 +1731,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geometryOutputFormat Display format for [GEOMETRY
-         * values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
-         * information, check [GEOMETRY_OUTPUT_FORMAT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+         * @param geometryOutputFormat Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
          * 
          * @return builder
          * 
@@ -2208,10 +1742,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param geometryOutputFormat Display format for [GEOMETRY
-         * values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more
-         * information, check [GEOMETRY_OUTPUT_FORMAT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
+         * @param geometryOutputFormat Display format for [GEOMETRY values](https://docs.snowflake.com/en/sql-reference/data-types-geospatial.html#label-data-types-geometry). For more information, check [GEOMETRY*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#geometry-output-format).
          * 
          * @return builder
          * 
@@ -2221,8 +1752,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jdbcTreatTimestampNtzAsUtc Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+         * @param jdbcTreatTimestampNtzAsUtc Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
          * 
          * @return builder
          * 
@@ -2233,8 +1763,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jdbcTreatTimestampNtzAsUtc Specifies how JDBC processes TIMESTAMP_NTZ values. For more information, check [JDBC_TREAT_TIMESTAMP_NTZ_AS_UTC
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
+         * @param jdbcTreatTimestampNtzAsUtc Specifies how JDBC processes TIMESTAMP*NTZ values. For more information, check *TREAT*TIMESTAMP*NTZ*AS*UTC docs[JDBC](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-treat-timestamp-ntz-as-utc).
          * 
          * @return builder
          * 
@@ -2244,10 +1773,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jdbcUseSessionTimezone Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
-         * [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
-         * getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+         * @param jdbcUseSessionTimezone Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
          * 
          * @return builder
          * 
@@ -2258,10 +1784,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jdbcUseSessionTimezone Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the
-         * [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(),
-         * getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC_USE_SESSION_TIMEZONE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
+         * @param jdbcUseSessionTimezone Specifies whether the JDBC Driver uses the time zone of the JVM or the time zone of the session (specified by the [TIMEZONE](https://docs.snowflake.com/en/sql-reference/parameters#label-timezone) parameter) for the getDate(), getTime(), and getTimestamp() methods of the ResultSet class. For more information, check [JDBC*USE*SESSION_TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#jdbc-use-session-timezone).
          * 
          * @return builder
          * 
@@ -2271,9 +1794,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jsonIndent Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
-         * insert newline characters after each element. For more information, check [JSON_INDENT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+         * @param jsonIndent Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
          * 
          * @return builder
          * 
@@ -2284,9 +1805,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param jsonIndent Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to
-         * insert newline characters after each element. For more information, check [JSON_INDENT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
+         * @param jsonIndent Specifies the number of blank spaces to indent each new element in JSON output in the session. Also specifies whether to insert newline characters after each element. For more information, check [JSON_INDENT docs](https://docs.snowflake.com/en/sql-reference/parameters#json-indent).
          * 
          * @return builder
          * 
@@ -2296,8 +1815,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockTimeout Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
-         * information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+         * @param lockTimeout Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
          * 
          * @return builder
          * 
@@ -2308,8 +1826,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lockTimeout Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more
-         * information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
+         * @param lockTimeout Number of seconds to wait while trying to lock a resource, before timing out and aborting the statement. For more information, check [LOCK_TIMEOUT docs](https://docs.snowflake.com/en/sql-reference/parameters#lock-timeout).
          * 
          * @return builder
          * 
@@ -2319,10 +1836,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
-         * at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
-         * level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
-         * [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
          * 
          * @return builder
          * 
@@ -2333,10 +1847,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Messages
-         * at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log
-         * level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check
-         * [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Messages at the specified level (and at more severe levels) are ingested. For more information about log levels, see [Setting log level](https://docs.snowflake.com/en/developer-guide/logging-tracing/logging-log-level). For more information, check [LOG_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
          * 
          * @return builder
          * 
@@ -2346,8 +1857,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param multiStatementCount Number of statements to execute when using the multi-statement capability. For more information, check
-         * [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+         * @param multiStatementCount Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
          * 
          * @return builder
          * 
@@ -2358,8 +1868,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param multiStatementCount Number of statements to execute when using the multi-statement capability. For more information, check
-         * [MULTI_STATEMENT_COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
+         * @param multiStatementCount Number of statements to execute when using the multi-statement capability. For more information, check [MULTI*STATEMENT*COUNT docs](https://docs.snowflake.com/en/sql-reference/parameters#multi-statement-count).
          * 
          * @return builder
          * 
@@ -2369,8 +1878,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
-         * technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -2381,8 +1889,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to
-         * technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the task; must be unique for the database and schema in which the task is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -2392,12 +1899,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param noorderSequenceAsDefault Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
-         * column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
-         * auto-incremented column in [increasing or decreasing
-         * order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
-         * more information, check [NOORDER_SEQUENCE_AS_DEFAULT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+         * @param noorderSequenceAsDefault Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
          * 
          * @return builder
          * 
@@ -2408,12 +1910,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param noorderSequenceAsDefault Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table
-         * column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or
-         * auto-incremented column in [increasing or decreasing
-         * order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For
-         * more information, check [NOORDER_SEQUENCE_AS_DEFAULT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
+         * @param noorderSequenceAsDefault Specifies whether the ORDER or NOORDER property is set by default when you create a new sequence or add a new table column. The ORDER and NOORDER properties determine whether or not the values are generated for the sequence or auto-incremented column in [increasing or decreasing order](https://docs.snowflake.com/en/user-guide/querying-sequences.html#label-querying-sequences-increasing-values). For more information, check [NOORDER*SEQUENCE*AS_DEFAULT docs](https://docs.snowflake.com/en/sql-reference/parameters#noorder-sequence-as-default).
          * 
          * @return builder
          * 
@@ -2423,8 +1920,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param odbcTreatDecimalAsInt Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
-         * [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+         * @param odbcTreatDecimalAsInt Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
          * 
          * @return builder
          * 
@@ -2435,8 +1931,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param odbcTreatDecimalAsInt Specifies how ODBC processes columns that have a scale of zero (0). For more information, check
-         * [ODBC_TREAT_DECIMAL_AS_INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
+         * @param odbcTreatDecimalAsInt Specifies how ODBC processes columns that have a scale of zero (0). For more information, check [ODBC*TREAT*DECIMAL*AS*INT docs](https://docs.snowflake.com/en/sql-reference/parameters#odbc-treat-decimal-as-int).
          * 
          * @return builder
          * 
@@ -2446,10 +1941,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queryTag Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
-         * displayed in the output of the [QUERY_HISTORY,
-         * QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
-         * information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+         * @param queryTag Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
          * 
          * @return builder
          * 
@@ -2460,10 +1952,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queryTag Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are
-         * displayed in the output of the [QUERY_HISTORY,
-         * QUERY_HISTORY_BY_*](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more
-         * information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
+         * @param queryTag Optional string that can be used to tag queries and other SQL statements executed within a session. The tags are displayed in the output of the [QUERY*HISTORY, QUERY*HISTORY*BY**](https://docs.snowflake.com/en/sql-reference/functions/query_history) functions. For more information, check [QUERY_TAG docs](https://docs.snowflake.com/en/sql-reference/parameters#query-tag).
          * 
          * @return builder
          * 
@@ -2473,13 +1962,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quotedIdentifiersIgnoreCase Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
-         * Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
-         * [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
-         * You can use this parameter in situations in which [third-party applications always use double quotes around
-         * identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
-         * more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+         * @param quotedIdentifiersIgnoreCase Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
          * 
          * @return builder
          * 
@@ -2490,13 +1973,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quotedIdentifiersIgnoreCase Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default,
-         * Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see
-         * [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)).
-         * You can use this parameter in situations in which [third-party applications always use double quotes around
-         * identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For
-         * more information, check [QUOTED_IDENTIFIERS_IGNORE_CASE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+         * @param quotedIdentifiersIgnoreCase Specifies whether letters in double-quoted object identifiers are stored and resolved as uppercase letters. By default, Snowflake preserves the case of alphabetic characters when storing and resolving double-quoted identifiers (see [Identifier resolution](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing)). You can use this parameter in situations in which [third-party applications always use double quotes around identifiers](https://docs.snowflake.com/en/sql-reference/identifiers-syntax.html#label-identifier-casing-parameter). For more information, check [QUOTED*IDENTIFIERS*IGNORE_CASE docs](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
          * 
          * @return builder
          * 
@@ -2506,8 +1983,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rowsPerResultset Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
-         * check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+         * @param rowsPerResultset Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
          * 
          * @return builder
          * 
@@ -2518,8 +1994,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param rowsPerResultset Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information,
-         * check [ROWS_PER_RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
+         * @param rowsPerResultset Specifies the maximum number of rows returned in a result set. A value of 0 specifies no maximum. For more information, check [ROWS*PER*RESULTSET docs](https://docs.snowflake.com/en/sql-reference/parameters#rows-per-resultset).
          * 
          * @return builder
          * 
@@ -2529,12 +2004,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3StageVpceDnsName Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
-         * PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
-         * use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
-         * endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
-         * For more information, check [S3_STAGE_VPCE_DNS_NAME
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+         * @param s3StageVpceDnsName Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
          * 
          * @return builder
          * 
@@ -2545,12 +2015,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3StageVpceDnsName Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS
-         * PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html)
-         * use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface
-         * endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation).
-         * For more information, check [S3_STAGE_VPCE_DNS_NAME
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
+         * @param s3StageVpceDnsName Specifies the DNS name of an Amazon S3 interface endpoint. Requests sent to the internal stage of an account via [AWS PrivateLink for Amazon S3](https://docs.aws.amazon.com/AmazonS3/latest/userguide/privatelink-interface-endpoints.html) use this endpoint to connect. For more information, see [Accessing Internal stages with dedicated interface endpoints](https://docs.snowflake.com/en/user-guide/private-internal-stages-aws.html#label-aws-privatelink-internal-stage-network-isolation). For more information, check [S3*STAGE*VPCE*DNS*NAME docs](https://docs.snowflake.com/en/sql-reference/parameters#s3-stage-vpce-dns-name).
          * 
          * @return builder
          * 
@@ -2560,8 +2025,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
-         * after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+         * @param schedule The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
          * 
          * @return builder
          * 
@@ -2572,8 +2036,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schedule The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and
-         * after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
+         * @param schedule The schedule for periodically running the task. This can be a cron or interval in minutes. (Conflicts with finalize and after; when set, one of the sub-fields `minutes` or `using_cron` should be set)
          * 
          * @return builder
          * 
@@ -2583,8 +2046,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -2595,8 +2057,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param schema The schema in which to create the task. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the task. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -2606,10 +2067,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searchPath Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
-         * in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
-         * Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
-         * information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+         * @param searchPath Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
          * 
          * @return builder
          * 
@@ -2620,10 +2078,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param searchPath Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution
-         * in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path).
-         * Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more
-         * information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
+         * @param searchPath Specifies the path to search to resolve unqualified object names in queries. For more information, see [Name resolution in queries](https://docs.snowflake.com/en/sql-reference/name-resolution.html#label-object-name-resolution-search-path). Comma-separated list of identifiers. An identifier can be a fully or partially qualified schema name. For more information, check [SEARCH_PATH docs](https://docs.snowflake.com/en/sql-reference/parameters#search-path).
          * 
          * @return builder
          * 
@@ -2675,11 +2130,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementQueuedTimeoutInSeconds Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
-         * by the system. This parameter can be used in conjunction with the
-         * [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
-         * ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+         * @param statementQueuedTimeoutInSeconds Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
          * 
          * @return builder
          * 
@@ -2690,11 +2141,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementQueuedTimeoutInSeconds Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled
-         * by the system. This parameter can be used in conjunction with the
-         * [MAX_CONCURRENCY_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to
-         * ensure a warehouse is never backlogged. For more information, check [STATEMENT_QUEUED_TIMEOUT_IN_SECONDS
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
+         * @param statementQueuedTimeoutInSeconds Amount of time, in seconds, a SQL statement (query, DDL, DML, etc.) remains queued for a warehouse before it is canceled by the system. This parameter can be used in conjunction with the [MAX*CONCURRENCY*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters#label-max-concurrency-level) parameter to ensure a warehouse is never backlogged. For more information, check [STATEMENT*QUEUED*TIMEOUT*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-queued-timeout-in-seconds).
          * 
          * @return builder
          * 
@@ -2704,9 +2151,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementTimeoutInSeconds Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
-         * more information, check [STATEMENT_TIMEOUT_IN_SECONDS
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+         * @param statementTimeoutInSeconds Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
          * 
          * @return builder
          * 
@@ -2717,9 +2162,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param statementTimeoutInSeconds Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For
-         * more information, check [STATEMENT_TIMEOUT_IN_SECONDS
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
+         * @param statementTimeoutInSeconds Amount of time, in seconds, after which a running SQL statement (query, DDL, DML, etc.) is canceled by the system. For more information, check [STATEMENT*TIMEOUT*IN_SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#statement-timeout-in-seconds).
          * 
          * @return builder
          * 
@@ -2729,11 +2172,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param strictJsonOutput This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
-         * [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
-         * these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
-         * languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
-         * check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+         * @param strictJsonOutput This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
          * 
          * @return builder
          * 
@@ -2744,11 +2183,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param strictJsonOutput This parameter specifies whether JSON output in a session is compatible with the general standard (as described by
-         * [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however,
-         * these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and
-         * languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information,
-         * check [STRICT_JSON_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
+         * @param strictJsonOutput This parameter specifies whether JSON output in a session is compatible with the general standard (as described by [http://json.org](http://json.org)). By design, Snowflake allows JSON input that contains non-standard values; however, these non-standard values might result in Snowflake outputting JSON that is incompatible with other platforms and languages. This parameter, when enabled, ensures that Snowflake outputs valid/compatible JSON. For more information, check [STRICT*JSON*OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#strict-json-output).
          * 
          * @return builder
          * 
@@ -2758,9 +2193,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendTaskAfterNumFailures Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
-         * default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+         * @param suspendTaskAfterNumFailures Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
          * 
          * @return builder
          * 
@@ -2771,9 +2204,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendTaskAfterNumFailures Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The
-         * default is 0 (no automatic suspension). For more information, check [SUSPEND_TASK_AFTER_NUM_FAILURES
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+         * @param suspendTaskAfterNumFailures Specifies the number of consecutive failed task runs after which the current task is suspended automatically. The default is 0 (no automatic suspension). For more information, check [SUSPEND*TASK*AFTER*NUM*FAILURES docs](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
          * 
          * @return builder
          * 
@@ -2783,9 +2214,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskAutoRetryAttempts Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
-         * can automatically retry the task graphs from the last task in the graph that failed. For more information, check
-         * [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+         * @param taskAutoRetryAttempts Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
          * 
          * @return builder
          * 
@@ -2796,9 +2225,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskAutoRetryAttempts Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake
-         * can automatically retry the task graphs from the last task in the graph that failed. For more information, check
-         * [TASK_AUTO_RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+         * @param taskAutoRetryAttempts Specifies the number of automatic task graph retry attempts. If any task graphs complete in a FAILED state, Snowflake can automatically retry the task graphs from the last task in the graph that failed. For more information, check [TASK*AUTO*RETRY_ATTEMPTS docs](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
          * 
          * @return builder
          * 
@@ -2808,11 +2235,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeInputFormat Specifies the input format for the TIME data type. For more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
-         * (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
-         * session). For more information, check [TIME_INPUT_FORMAT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+         * @param timeInputFormat Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
          * 
          * @return builder
          * 
@@ -2823,11 +2246,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeInputFormat Specifies the input format for the TIME data type. For more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO
-         * (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the
-         * session). For more information, check [TIME_INPUT_FORMAT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
+         * @param timeInputFormat Specifies the input format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported time format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of times stored in the system during the session). For more information, check [TIME*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-input-format).
          * 
          * @return builder
          * 
@@ -2837,9 +2256,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeOutputFormat Specifies the display format for the TIME data type. For more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-         * [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+         * @param timeOutputFormat Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
          * 
          * @return builder
          * 
@@ -2850,9 +2267,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timeOutputFormat Specifies the display format for the TIME data type. For more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-         * [TIME_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
+         * @param timeOutputFormat Specifies the display format for the TIME data type. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIME*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#time-output-format).
          * 
          * @return builder
          * 
@@ -2862,10 +2277,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampDayIsAlways24h Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
-         * aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
-         * check [TIMESTAMP_DAY_IS_ALWAYS_24H
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+         * @param timestampDayIsAlways24h Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
          * 
          * @return builder
          * 
@@ -2876,10 +2288,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampDayIsAlways24h Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its
-         * aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information,
-         * check [TIMESTAMP_DAY_IS_ALWAYS_24H
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
+         * @param timestampDayIsAlways24h Specifies whether the [DATEADD](https://docs.snowflake.com/en/sql-reference/functions/dateadd) function (and its aliases) always consider a day to be exactly 24 hours for expressions that span multiple days. For more information, check [TIMESTAMP*DAY*IS*ALWAYS*24H docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-day-is-always-24h).
          * 
          * @return builder
          * 
@@ -2889,11 +2298,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampInputFormat Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
-         * AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
-         * during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+         * @param timestampInputFormat Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
          * 
          * @return builder
          * 
@@ -2904,11 +2309,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampInputFormat Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or
-         * AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system
-         * during the session). For more information, check [TIMESTAMP_INPUT_FORMAT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
+         * @param timestampInputFormat Specifies the input format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). Any valid, supported timestamp format or AUTO (AUTO specifies that Snowflake attempts to automatically detect the format of timestamps stored in the system during the session). For more information, check [TIMESTAMP*INPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-input-format).
          * 
          * @return builder
          * 
@@ -2918,11 +2319,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampLtzOutputFormat Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
-         * [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
-         * more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-         * [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+         * @param timestampLtzOutputFormat Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
          * 
          * @return builder
          * 
@@ -2933,11 +2330,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampLtzOutputFormat Specifies the display format for the TIMESTAMP_LTZ data type. If no format is specified, defaults to
-         * [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
-         * more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-         * [TIMESTAMP_LTZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
+         * @param timestampLtzOutputFormat Specifies the display format for the TIMESTAMP*LTZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*LTZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ltz-output-format).
          * 
          * @return builder
          * 
@@ -2947,8 +2340,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampNtzOutputFormat Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+         * @param timestampNtzOutputFormat Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
          * 
          * @return builder
          * 
@@ -2959,8 +2351,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampNtzOutputFormat Specifies the display format for the TIMESTAMP_NTZ data type. For more information, check [TIMESTAMP_NTZ_OUTPUT_FORMAT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
+         * @param timestampNtzOutputFormat Specifies the display format for the TIMESTAMP*NTZ data type. For more information, check *NTZ*OUTPUT*FORMAT docs[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-ntz-output-format).
          * 
          * @return builder
          * 
@@ -2970,9 +2361,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampOutputFormat Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
-         * output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-         * [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+         * @param timestampOutputFormat Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
          * 
          * @return builder
          * 
@@ -2983,9 +2372,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampOutputFormat Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and
-         * output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-         * [TIMESTAMP_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
+         * @param timestampOutputFormat Specifies the display format for the TIMESTAMP data type alias. For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-output-format).
          * 
          * @return builder
          * 
@@ -2995,8 +2382,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampTypeMapping Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
-         * [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+         * @param timestampTypeMapping Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
          * 
          * @return builder
          * 
@@ -3007,8 +2393,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampTypeMapping Specifies the TIMESTAMP_* variation that the TIMESTAMP data type alias maps to. For more information, check
-         * [TIMESTAMP_TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
+         * @param timestampTypeMapping Specifies the TIMESTAMP** variation that the TIMESTAMP data type alias maps to. For more information, check [TIMESTAMP*TYPE_MAPPING docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-type-mapping).
          * 
          * @return builder
          * 
@@ -3018,11 +2403,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampTzOutputFormat Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
-         * [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
-         * more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-         * [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+         * @param timestampTzOutputFormat Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
          * 
          * @return builder
          * 
@@ -3033,11 +2414,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timestampTzOutputFormat Specifies the display format for the TIMESTAMP_TZ data type. If no format is specified, defaults to
-         * [TIMESTAMP_OUTPUT_FORMAT](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For
-         * more information, see [Date and time input and output
-         * formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check
-         * [TIMESTAMP_TZ_OUTPUT_FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
+         * @param timestampTzOutputFormat Specifies the display format for the TIMESTAMP*TZ data type. If no format is specified, defaults to *OUTPUT*FORMAT[TIMESTAMP](https://docs.snowflake.com/en/sql-reference/parameters#label-timestamp-output-format). For more information, see [Date and time input and output formats](https://docs.snowflake.com/en/sql-reference/date-time-input-output). For more information, check [TIMESTAMP*TZ*OUTPUT*FORMAT docs](https://docs.snowflake.com/en/sql-reference/parameters#timestamp-tz-output-format).
          * 
          * @return builder
          * 
@@ -3047,11 +2424,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timezone Specifies the time zone for the session. You can specify a [time zone
-         * name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
-         * name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
-         * Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
-         * information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+         * @param timezone Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
          * 
          * @return builder
          * 
@@ -3062,11 +2435,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param timezone Specifies the time zone for the session. You can specify a [time zone
-         * name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link
-         * name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone
-         * Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more
-         * information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
+         * @param timezone Specifies the time zone for the session. You can specify a [time zone name](https://data.iana.org/time-zones/tzdb-2021a/zone1970.tab) or a [link name](https://data.iana.org/time-zones/tzdb-2021a/backward) from release 2021a of the [IANA Time Zone Database](https://www.iana.org/time-zones) (e.g. America/Los_Angeles, Europe/London, UTC, Etc/GMT, etc.). For more information, check [TIMEZONE docs](https://docs.snowflake.com/en/sql-reference/parameters#timezone).
          * 
          * @return builder
          * 
@@ -3076,9 +2445,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param traceLevel Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
-         * level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
-         * [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+         * @param traceLevel Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
          * 
          * @return builder
          * 
@@ -3089,9 +2456,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param traceLevel Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace
-         * level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check
-         * [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+         * @param traceLevel Controls how trace events are ingested into the event table. For more information about trace levels, see [Setting trace level](https://docs.snowflake.com/en/developer-guide/logging-tracing/tracing-trace-level). For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
          * 
          * @return builder
          * 
@@ -3101,9 +2466,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transactionAbortOnError Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
-         * more information, check [TRANSACTION_ABORT_ON_ERROR
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+         * @param transactionAbortOnError Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
          * 
          * @return builder
          * 
@@ -3114,9 +2477,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transactionAbortOnError Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For
-         * more information, check [TRANSACTION_ABORT_ON_ERROR
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
+         * @param transactionAbortOnError Specifies the action to perform when a statement issued within a non-autocommit transaction returns with an error. For more information, check [TRANSACTION*ABORT*ON_ERROR docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-abort-on-error).
          * 
          * @return builder
          * 
@@ -3126,9 +2487,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transactionDefaultIsolationLevel Specifies the isolation level for transactions in the user session. For more information, check
-         * [TRANSACTION_DEFAULT_ISOLATION_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+         * @param transactionDefaultIsolationLevel Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
          * 
          * @return builder
          * 
@@ -3139,9 +2498,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param transactionDefaultIsolationLevel Specifies the isolation level for transactions in the user session. For more information, check
-         * [TRANSACTION_DEFAULT_ISOLATION_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
+         * @param transactionDefaultIsolationLevel Specifies the isolation level for transactions in the user session. For more information, check [TRANSACTION*DEFAULT*ISOLATION_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#transaction-default-isolation-level).
          * 
          * @return builder
          * 
@@ -3151,10 +2508,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param twoDigitCenturyStart Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
-         * parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
-         * represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+         * @param twoDigitCenturyStart Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
          * 
          * @return builder
          * 
@@ -3165,10 +2519,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param twoDigitCenturyStart Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This
-         * parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years
-         * represented as 2 digits). For more information, check [TWO_DIGIT_CENTURY_START
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
+         * @param twoDigitCenturyStart Specifies the “century start” year for 2-digit years (i.e. the earliest year such dates can represent). This parameter prevents ambiguous dates when importing or converting data with the `YY` date format component (i.e. years represented as 2 digits). For more information, check [TWO*DIGIT*CENTURY_START docs](https://docs.snowflake.com/en/sql-reference/parameters#two-digit-century-start).
          * 
          * @return builder
          * 
@@ -3178,9 +2529,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param unsupportedDdlAction Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
-         * information, check [UNSUPPORTED_DDL_ACTION
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+         * @param unsupportedDdlAction Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
          * 
          * @return builder
          * 
@@ -3191,9 +2540,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param unsupportedDdlAction Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more
-         * information, check [UNSUPPORTED_DDL_ACTION
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
+         * @param unsupportedDdlAction Determines if an unsupported (i.e. non-default) value specified for a constraint property returns an error. For more information, check [UNSUPPORTED*DDL*ACTION docs](https://docs.snowflake.com/en/sql-reference/parameters#unsupported-ddl-action).
          * 
          * @return builder
          * 
@@ -3203,8 +2550,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useCachedResult Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
-         * information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+         * @param useCachedResult Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
          * 
          * @return builder
          * 
@@ -3215,8 +2561,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param useCachedResult Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more
-         * information, check [USE_CACHED_RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
+         * @param useCachedResult Specifies whether to reuse persisted query results, if available, when a matching query is submitted. For more information, check [USE*CACHED*RESULT docs](https://docs.snowflake.com/en/sql-reference/parameters#use-cached-result).
          * 
          * @return builder
          * 
@@ -3226,11 +2571,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTaskManagedInitialWarehouseSize Specifies the size of the compute resources to provision for the first run of the task, before a task history is
-         * available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
-         * this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
-         * warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+         * @param userTaskManagedInitialWarehouseSize Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
          * 
          * @return builder
          * 
@@ -3241,11 +2582,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTaskManagedInitialWarehouseSize Specifies the size of the compute resources to provision for the first run of the task, before a task history is
-         * available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores
-         * this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about
-         * warehouses, see docs. For more information, check [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+         * @param userTaskManagedInitialWarehouseSize Specifies the size of the compute resources to provision for the first run of the task, before a task history is available for Snowflake to determine an ideal size. Once a task has successfully completed a few runs, Snowflake ignores this parameter setting. Valid values are (case-insensitive): %s. (Conflicts with warehouse). For more information about warehouses, see docs. For more information, check [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
          * 
          * @return builder
          * 
@@ -3255,9 +2592,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTaskMinimumTriggerIntervalInSeconds Minimum amount of time between Triggered Task executions in seconds For more information, check
-         * [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+         * @param userTaskMinimumTriggerIntervalInSeconds Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
          * 
          * @return builder
          * 
@@ -3268,9 +2603,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTaskMinimumTriggerIntervalInSeconds Minimum amount of time between Triggered Task executions in seconds For more information, check
-         * [USER_TASK_MINIMUM_TRIGGER_INTERVAL_IN_SECONDS
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
+         * @param userTaskMinimumTriggerIntervalInSeconds Minimum amount of time between Triggered Task executions in seconds For more information, check [USER*TASK*MINIMUM*TRIGGER*INTERVAL*IN*SECONDS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-minimum-trigger-interval-in-seconds).
          * 
          * @return builder
          * 
@@ -3280,8 +2613,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTaskTimeoutMs Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
-         * [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+         * @param userTaskTimeoutMs Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
          * 
          * @return builder
          * 
@@ -3292,8 +2624,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTaskTimeoutMs Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check
-         * [USER_TASK_TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+         * @param userTaskTimeoutMs Specifies the time limit on a single run of the task before it times out (in milliseconds). For more information, check [USER*TASK*TIMEOUT_MS docs](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
          * 
          * @return builder
          * 
@@ -3303,9 +2634,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouse The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
-         * Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
-         * user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
+         * @param warehouse The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -3316,9 +2645,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param warehouse The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task.
-         * Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with
-         * user_task_managed_initial_warehouse_size) For more information about this resource, see docs.
+         * @param warehouse The warehouse the task will use. Omit this parameter to use Snowflake-managed compute resources for runs of this task. Due to Snowflake limitations warehouse identifier can consist of only upper-cased letters. (Conflicts with user*task*managed*initial*warehouse_size) For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -3328,10 +2655,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param weekOfYearPolicy Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
-         * which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
-         * first week of the year and December 31 is included in the last week of the year. For more information, check
-         * [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+         * @param weekOfYearPolicy Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
          * 
          * @return builder
          * 
@@ -3342,10 +2666,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param weekOfYearPolicy Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in
-         * which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the
-         * first week of the year and December 31 is included in the last week of the year. For more information, check
-         * [WEEK_OF_YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
+         * @param weekOfYearPolicy Specifies how the weeks in a given year are computed. `0`: The semantics used are equivalent to the ISO semantics, in which a week belongs to a given year if at least 4 days of that week are in that year. `1`: January 1 is included in the first week of the year and December 31 is included in the last week of the year. For more information, check [WEEK*OF*YEAR_POLICY docs](https://docs.snowflake.com/en/sql-reference/parameters#week-of-year-policy).
          * 
          * @return builder
          * 
@@ -3355,10 +2676,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param weekStart Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
-         * ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
-         * day of the week. For more information, check [WEEK_START
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+         * @param weekStart Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
          * 
          * @return builder
          * 
@@ -3369,10 +2687,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param weekStart Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e.
-         * ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified
-         * day of the week. For more information, check [WEEK_START
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
+         * @param weekStart Specifies the first day of the week (used by week-related date functions). `0`: Legacy Snowflake behavior is used (i.e. ISO-like semantics). `1` (Monday) to `7` (Sunday): All the week-related functions use weeks that start on the specified day of the week. For more information, check [WEEK_START docs](https://docs.snowflake.com/en/sql-reference/parameters#week-start).
          * 
          * @return builder
          * 
@@ -3382,10 +2697,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param when Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
-         * (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
-         * If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
-         * as a predecessor also don’t run.
+         * @param when Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
          * 
          * @return builder
          * 
@@ -3396,10 +2708,7 @@ public final class TaskArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param when Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered
-         * (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute.
-         * If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task
-         * as a predecessor also don’t run.
+         * @param when Specifies a Boolean SQL expression; multiple conditions joined with AND/OR are supported. When a task is triggered (based on its SCHEDULE or AFTER setting), it validates the conditions of the expression to determine whether to execute. If the conditions of the expression are not met, then the task skips the current run. Any tasks that identify this task as a predecessor also don’t run.
          * 
          * @return builder
          * 

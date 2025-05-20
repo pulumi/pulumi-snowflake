@@ -6,6 +6,13 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/failoverGroup:FailoverGroup example 'fg1'
+ * ```
+ */
 export class FailoverGroup extends pulumi.CustomResource {
     /**
      * Get an existing FailoverGroup resource's state with the given name, ID, and optional extra
@@ -35,26 +42,19 @@ export class FailoverGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the
-     * source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the
-     * primary failover group in case of failover. Expected in the form <org_name>.<target_account_name>
+     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
      */
     public readonly allowedAccounts!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the database or list of databases for which you are enabling replication and failover from the source account
-     * to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
+     * Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
      */
     public readonly allowedDatabases!: pulumi.Output<string[] | undefined>;
     /**
-     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target
-     * account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following
-     * integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS
-     * INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
+     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
      */
     public readonly allowedIntegrationTypes!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies the share or list of shares for which you are enabling replication and failover from the source account to the
-     * target account. The OBJECT_TYPES list must include SHARES to set this parameter.
+     * Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
      */
     public readonly allowedShares!: pulumi.Output<string[] | undefined>;
     /**
@@ -62,24 +62,19 @@ export class FailoverGroup extends pulumi.CustomResource {
      */
     public readonly fromReplica!: pulumi.Output<outputs.FailoverGroupFromReplica | undefined>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Allows replicating objects to accounts on lower editions.
+     * (Default: `false`) Allows replicating objects to accounts on lower editions.
      */
     public readonly ignoreEditionCheck!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot
-     * contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object").
-     * Identifiers enclosed in double quotes are also case-sensitive.
+     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Type(s) of objects for which you are enabling replication and failover from the source account to the target account.
-     * The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES",
-     * "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
+     * Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
      */
     public readonly objectTypes!: pulumi.Output<string[] | undefined>;
     /**
@@ -133,26 +128,19 @@ export class FailoverGroup extends pulumi.CustomResource {
  */
 export interface FailoverGroupState {
     /**
-     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the
-     * source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the
-     * primary failover group in case of failover. Expected in the form <org_name>.<target_account_name>
+     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
      */
     allowedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the database or list of databases for which you are enabling replication and failover from the source account
-     * to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
+     * Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
      */
     allowedDatabases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target
-     * account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following
-     * integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS
-     * INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
+     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
      */
     allowedIntegrationTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the share or list of shares for which you are enabling replication and failover from the source account to the
-     * target account. The OBJECT_TYPES list must include SHARES to set this parameter.
+     * Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
      */
     allowedShares?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -160,24 +148,19 @@ export interface FailoverGroupState {
      */
     fromReplica?: pulumi.Input<inputs.FailoverGroupFromReplica>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Allows replicating objects to accounts on lower editions.
+     * (Default: `false`) Allows replicating objects to accounts on lower editions.
      */
     ignoreEditionCheck?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot
-     * contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object").
-     * Identifiers enclosed in double quotes are also case-sensitive.
+     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
      */
     name?: pulumi.Input<string>;
     /**
-     * Type(s) of objects for which you are enabling replication and failover from the source account to the target account.
-     * The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES",
-     * "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
+     * Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
      */
     objectTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -191,26 +174,19 @@ export interface FailoverGroupState {
  */
 export interface FailoverGroupArgs {
     /**
-     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the
-     * source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the
-     * primary failover group in case of failover. Expected in the form <org_name>.<target_account_name>
+     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
      */
     allowedAccounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the database or list of databases for which you are enabling replication and failover from the source account
-     * to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
+     * Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
      */
     allowedDatabases?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target
-     * account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following
-     * integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS
-     * INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
+     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: "SECURITY INTEGRATIONS", "API INTEGRATIONS", "STORAGE INTEGRATIONS", "EXTERNAL ACCESS INTEGRATIONS", "NOTIFICATION INTEGRATIONS"
      */
     allowedIntegrationTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the share or list of shares for which you are enabling replication and failover from the source account to the
-     * target account. The OBJECT_TYPES list must include SHARES to set this parameter.
+     * Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
      */
     allowedShares?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -218,19 +194,15 @@ export interface FailoverGroupArgs {
      */
     fromReplica?: pulumi.Input<inputs.FailoverGroupFromReplica>;
     /**
-     * Allows replicating objects to accounts on lower editions.
+     * (Default: `false`) Allows replicating objects to accounts on lower editions.
      */
     ignoreEditionCheck?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot
-     * contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object").
-     * Identifiers enclosed in double quotes are also case-sensitive.
+     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. "My object"). Identifiers enclosed in double quotes are also case-sensitive.
      */
     name?: pulumi.Input<string>;
     /**
-     * Type(s) of objects for which you are enabling replication and failover from the source account to the target account.
-     * The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES",
-     * "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
+     * Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: "ACCOUNT PARAMETERS", "DATABASES", "INTEGRATIONS", "NETWORK POLICIES", "RESOURCE MONITORS", "ROLES", "SHARES", "USERS", "WAREHOUSES"
      */
     objectTypes?: pulumi.Input<pulumi.Input<string>[]>;
     /**

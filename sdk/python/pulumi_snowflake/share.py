@@ -25,8 +25,7 @@ class ShareArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a Share resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-               'organization_name.account_name
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
         """
@@ -41,8 +40,7 @@ class ShareArgs:
     @pulumi.getter
     def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-        'organization_name.account_name
+        A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         """
         return pulumi.get(self, "accounts")
 
@@ -84,11 +82,9 @@ class _ShareState:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Share resources.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-               'organization_name.account_name
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the managed account.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
         """
         if accounts is not None:
@@ -104,8 +100,7 @@ class _ShareState:
     @pulumi.getter
     def accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-        'organization_name.account_name
+        A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         """
         return pulumi.get(self, "accounts")
 
@@ -129,8 +124,7 @@ class _ShareState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -162,11 +156,15 @@ class Share(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a Share resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/share:Share example name
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-               'organization_name.account_name
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the managed account.
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
         """
@@ -177,7 +175,12 @@ class Share(pulumi.CustomResource):
                  args: Optional[ShareArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Share resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/share:Share example name
+        ```
+
         :param str resource_name: The name of the resource.
         :param ShareArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,11 +233,9 @@ class Share(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-               'organization_name.account_name
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] accounts: A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the managed account.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the share; must be unique for the account in which the share is created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -251,8 +252,7 @@ class Share(pulumi.CustomResource):
     @pulumi.getter
     def accounts(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-        'organization_name.account_name
+        A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
         """
         return pulumi.get(self, "accounts")
 
@@ -268,8 +268,7 @@ class Share(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 

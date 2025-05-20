@@ -4,6 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment example "MY_DATABASE|MY_SCHEMA|PASSWORD_POLICY_NAME|USER_NAME"
+ * ```
+ */
 export class UserPasswordPolicyAttachment extends pulumi.CustomResource {
     /**
      * Get an existing UserPasswordPolicyAttachment resource's state with the given name, ID, and optional extra

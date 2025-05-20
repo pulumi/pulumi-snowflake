@@ -14,9 +14,17 @@ public final class GetSystemGenerateScimAccessTokenArgs extends com.pulumi.resou
 
     public static final GetSystemGenerateScimAccessTokenArgs Empty = new GetSystemGenerateScimAccessTokenArgs();
 
+    /**
+     * SCIM Integration Name
+     * 
+     */
     @Import(name="integrationName", required=true)
     private Output<String> integrationName;
 
+    /**
+     * @return SCIM Integration Name
+     * 
+     */
     public Output<String> integrationName() {
         return this.integrationName;
     }
@@ -45,11 +53,23 @@ public final class GetSystemGenerateScimAccessTokenArgs extends com.pulumi.resou
             $ = new GetSystemGenerateScimAccessTokenArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param integrationName SCIM Integration Name
+         * 
+         * @return builder
+         * 
+         */
         public Builder integrationName(Output<String> integrationName) {
             $.integrationName = integrationName;
             return this;
         }
 
+        /**
+         * @param integrationName SCIM Integration Name
+         * 
+         * @return builder
+         * 
+         */
         public Builder integrationName(String integrationName) {
             return integrationName(Output.of(integrationName));
         }

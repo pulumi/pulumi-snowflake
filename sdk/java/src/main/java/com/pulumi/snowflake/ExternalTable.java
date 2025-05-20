@@ -18,19 +18,27 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * format is database name | schema name | external table name
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/externalTable:ExternalTable example &#39;dbName|schemaName|externalTableName&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/externalTable:ExternalTable")
 public class ExternalTable extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-     * created.
+     * (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      * 
      */
     @Export(name="autoRefresh", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoRefresh;
 
     /**
-     * @return Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-     * created.
+     * @return (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
      * 
      */
     public Output<Optional<Boolean>> autoRefresh() {
@@ -79,16 +87,14 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-     * OR REPLACE TABLE variant
+     * (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      * 
      */
     @Export(name="copyGrants", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyGrants;
 
     /**
-     * @return Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-     * OR REPLACE TABLE variant
+     * @return (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
      * 
      */
     public Output<Optional<Boolean>> copyGrants() {
@@ -123,48 +129,42 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
         return this.fileFormat;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or
-     * populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
+     * Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
      * 
      */
     @Export(name="location", refs={String.class}, tree="[0]")
     private Output<String> location;
 
     /**
-     * @return Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or
-     * populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
+     * @return Specifies a location for the external table, using its FQDN. You can hardcode it (`&#34;{@literal @}MYDB.MYSCHEMA.MYSTAGE&#34;`), or populate dynamically (`&#34;{@literal @}${snowflake_stage.mystage.fully_qualified_name}&#34;`)
      * 
      */
     public Output<String> location() {
         return this.location;
     }
     /**
-     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-     * is created.
+     * Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-     * is created.
+     * @return Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
      * 
      */
     public Output<String> name() {
@@ -213,14 +213,14 @@ public class ExternalTable extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.pattern);
     }
     /**
-     * Specifies weather to refresh when an external table is created.
+     * (Default: `true`) Specifies weather to refresh when an external table is created.
      * 
      */
     @Export(name="refreshOnCreate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> refreshOnCreate;
 
     /**
-     * @return Specifies weather to refresh when an external table is created.
+     * @return (Default: `true`) Specifies weather to refresh when an external table is created.
      * 
      */
     public Output<Optional<Boolean>> refreshOnCreate() {

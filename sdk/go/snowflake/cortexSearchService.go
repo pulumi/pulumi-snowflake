@@ -12,6 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/cortexSearchService:CortexSearchService example 'dbName|schemaName|fileFormatName'
+// ```
 type CortexSearchService struct {
 	pulumi.CustomResourceState
 
@@ -23,8 +28,7 @@ type CortexSearchService struct {
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// The database in which to create the Cortex search service.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -96,8 +100,7 @@ type cortexSearchServiceState struct {
 	CreatedOn *string `pulumi:"createdOn"`
 	// The database in which to create the Cortex search service.
 	Database *string `pulumi:"database"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
 	Name *string `pulumi:"name"`
@@ -122,8 +125,7 @@ type CortexSearchServiceState struct {
 	CreatedOn pulumi.StringPtrInput
 	// The database in which to create the Cortex search service.
 	Database pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
 	Name pulumi.StringPtrInput
@@ -293,8 +295,7 @@ func (o CortexSearchServiceOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *CortexSearchService) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name
-// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o CortexSearchServiceOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *CortexSearchService) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }

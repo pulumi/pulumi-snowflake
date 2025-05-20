@@ -11,12 +11,21 @@ namespace Pulumi.Snowflake
 {
     public static class GetDatabaseRoles
     {
+        /// <summary>
+        /// Data source used to get details of filtered database roles. Filtering is aligned with the current possibilities for [SHOW DATABASE ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-database-roles) query (`like` and `limit` are supported). The results of SHOW is encapsulated in show_output collection.
+        /// </summary>
         public static Task<GetDatabaseRolesResult> InvokeAsync(GetDatabaseRolesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseRolesResult>("snowflake:index/getDatabaseRoles:getDatabaseRoles", args ?? new GetDatabaseRolesArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Data source used to get details of filtered database roles. Filtering is aligned with the current possibilities for [SHOW DATABASE ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-database-roles) query (`like` and `limit` are supported). The results of SHOW is encapsulated in show_output collection.
+        /// </summary>
         public static Output<GetDatabaseRolesResult> Invoke(GetDatabaseRolesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseRolesResult>("snowflake:index/getDatabaseRoles:getDatabaseRoles", args ?? new GetDatabaseRolesInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Data source used to get details of filtered database roles. Filtering is aligned with the current possibilities for [SHOW DATABASE ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-database-roles) query (`like` and `limit` are supported). The results of SHOW is encapsulated in show_output collection.
+        /// </summary>
         public static Output<GetDatabaseRolesResult> Invoke(GetDatabaseRolesInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseRolesResult>("snowflake:index/getDatabaseRoles:getDatabaseRoles", args ?? new GetDatabaseRolesInvokeArgs(), options.WithDefaults());
     }
@@ -24,12 +33,21 @@ namespace Pulumi.Snowflake
 
     public sealed class GetDatabaseRolesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the database roles from.
+        /// </summary>
         [Input("inDatabase", required: true)]
         public string InDatabase { get; set; } = null!;
 
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         [Input("like")]
         public string? Like { get; set; }
 
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
         [Input("limit")]
         public Inputs.GetDatabaseRolesLimitArgs? Limit { get; set; }
 
@@ -41,12 +59,21 @@ namespace Pulumi.Snowflake
 
     public sealed class GetDatabaseRolesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The database from which to return the database roles from.
+        /// </summary>
         [Input("inDatabase", required: true)]
         public Input<string> InDatabase { get; set; } = null!;
 
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         [Input("like")]
         public Input<string>? Like { get; set; }
 
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
         [Input("limit")]
         public Input<Inputs.GetDatabaseRolesLimitInputArgs>? Limit { get; set; }
 
@@ -60,13 +87,25 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetDatabaseRolesResult
     {
+        /// <summary>
+        /// Holds the aggregated output of all database role details queries.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetDatabaseRolesDatabaseRoleResult> DatabaseRoles;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The database from which to return the database roles from.
+        /// </summary>
         public readonly string InDatabase;
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         public readonly string? Like;
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
         public readonly Outputs.GetDatabaseRolesLimitResult? Limit;
 
         [OutputConstructor]

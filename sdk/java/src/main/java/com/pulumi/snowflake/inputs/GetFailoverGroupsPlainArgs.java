@@ -14,9 +14,17 @@ public final class GetFailoverGroupsPlainArgs extends com.pulumi.resources.Invok
 
     public static final GetFailoverGroupsPlainArgs Empty = new GetFailoverGroupsPlainArgs();
 
+    /**
+     * Specifies the identifier for the account
+     * 
+     */
     @Import(name="inAccount")
     private @Nullable String inAccount;
 
+    /**
+     * @return Specifies the identifier for the account
+     * 
+     */
     public Optional<String> inAccount() {
         return Optional.ofNullable(this.inAccount);
     }
@@ -45,6 +53,12 @@ public final class GetFailoverGroupsPlainArgs extends com.pulumi.resources.Invok
             $ = new GetFailoverGroupsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param inAccount Specifies the identifier for the account
+         * 
+         * @return builder
+         * 
+         */
         public Builder inAccount(@Nullable String inAccount) {
             $.inAccount = inAccount;
             return this;

@@ -60,26 +60,41 @@ class GetMaskingPoliciesResult:
     @property
     @pulumi.getter(name="in")
     def in_(self) -> Optional['outputs.GetMaskingPoliciesInResult']:
+        """
+        IN clause to filter the list of masking policies
+        """
         return pulumi.get(self, "in_")
 
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
+        """
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter
     def limit(self) -> Optional['outputs.GetMaskingPoliciesLimitResult']:
+        """
+        Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        """
         return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter(name="maskingPolicies")
     def masking_policies(self) -> Sequence['outputs.GetMaskingPoliciesMaskingPolicyResult']:
+        """
+        Holds the aggregated output of all views details queries.
+        """
         return pulumi.get(self, "masking_policies")
 
     @property
     @pulumi.getter(name="withDescribe")
     def with_describe(self) -> Optional[builtins.bool]:
+        """
+        (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+        """
         return pulumi.get(self, "with_describe")
 
 
@@ -103,7 +118,15 @@ def get_masking_policies(in_: Optional[Union['GetMaskingPoliciesInArgs', 'GetMas
                          with_describe: Optional[builtins.bool] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMaskingPoliciesResult:
     """
-    Use this data source to access information about an existing resource.
+    !> **Sensitive values** This data source's `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+    Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `masking_policies`.
+
+
+    :param Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict'] in_: IN clause to filter the list of masking policies
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
     __args__['in'] = in_
@@ -126,7 +149,15 @@ def get_masking_policies_output(in_: Optional[pulumi.Input[Optional[Union['GetMa
                                 with_describe: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMaskingPoliciesResult]:
     """
-    Use this data source to access information about an existing resource.
+    !> **Sensitive values** This data source's `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+
+    Data source used to get details of filtered masking policies. Filtering is aligned with the current possibilities for [SHOW MASKING POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-masking-policies) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `masking_policies`.
+
+
+    :param Union['GetMaskingPoliciesInArgs', 'GetMaskingPoliciesInArgsDict'] in_: IN clause to filter the list of masking policies
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetMaskingPoliciesLimitArgs', 'GetMaskingPoliciesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
     __args__['in'] = in_

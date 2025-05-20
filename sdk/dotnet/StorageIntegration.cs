@@ -9,6 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/storageIntegration:StorageIntegration example name
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/storageIntegration:StorageIntegration")]
     public partial class StorageIntegration : global::Pulumi.CustomResource
     {
@@ -24,9 +31,15 @@ namespace Pulumi.Snowflake
         [Output("azureMultiTenantAppName")]
         public Output<string> AzureMultiTenantAppName { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: ``)
+        /// </summary>
         [Output("azureTenantId")]
         public Output<string?> AzureTenantId { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: ``)
+        /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
 
@@ -36,12 +49,14 @@ namespace Pulumi.Snowflake
         [Output("createdOn")]
         public Output<string> CreatedOn { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: `true`)
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
@@ -73,6 +88,9 @@ namespace Pulumi.Snowflake
         [Output("storageAwsObjectAcl")]
         public Output<string?> StorageAwsObjectAcl { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: ``)
+        /// </summary>
         [Output("storageAwsRoleArn")]
         public Output<string?> StorageAwsRoleArn { get; private set; } = null!;
 
@@ -94,6 +112,9 @@ namespace Pulumi.Snowflake
         [Output("storageProvider")]
         public Output<string> StorageProvider { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: `EXTERNAL_STAGE`)
+        /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
 
@@ -147,12 +168,21 @@ namespace Pulumi.Snowflake
 
     public sealed class StorageIntegrationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// (Default: ``)
+        /// </summary>
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
 
+        /// <summary>
+        /// (Default: ``)
+        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
+        /// <summary>
+        /// (Default: `true`)
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -177,6 +207,9 @@ namespace Pulumi.Snowflake
         [Input("storageAwsObjectAcl")]
         public Input<string>? StorageAwsObjectAcl { get; set; }
 
+        /// <summary>
+        /// (Default: ``)
+        /// </summary>
         [Input("storageAwsRoleArn")]
         public Input<string>? StorageAwsRoleArn { get; set; }
 
@@ -198,6 +231,9 @@ namespace Pulumi.Snowflake
         [Input("storageProvider", required: true)]
         public Input<string> StorageProvider { get; set; } = null!;
 
+        /// <summary>
+        /// (Default: `EXTERNAL_STAGE`)
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 
@@ -231,9 +267,15 @@ namespace Pulumi.Snowflake
         [Input("azureMultiTenantAppName")]
         public Input<string>? AzureMultiTenantAppName { get; set; }
 
+        /// <summary>
+        /// (Default: ``)
+        /// </summary>
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
 
+        /// <summary>
+        /// (Default: ``)
+        /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
 
@@ -243,12 +285,14 @@ namespace Pulumi.Snowflake
         [Input("createdOn")]
         public Input<string>? CreatedOn { get; set; }
 
+        /// <summary>
+        /// (Default: `true`)
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
@@ -286,6 +330,9 @@ namespace Pulumi.Snowflake
         [Input("storageAwsObjectAcl")]
         public Input<string>? StorageAwsObjectAcl { get; set; }
 
+        /// <summary>
+        /// (Default: ``)
+        /// </summary>
         [Input("storageAwsRoleArn")]
         public Input<string>? StorageAwsRoleArn { get; set; }
 
@@ -313,6 +360,9 @@ namespace Pulumi.Snowflake
         [Input("storageProvider")]
         public Input<string>? StorageProvider { get; set; }
 
+        /// <summary>
+        /// (Default: `EXTERNAL_STAGE`)
+        /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
 

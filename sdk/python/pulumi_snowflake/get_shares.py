@@ -50,11 +50,17 @@ class GetSharesResult:
     @property
     @pulumi.getter
     def pattern(self) -> Optional[builtins.str]:
+        """
+        Filters the command output by object name.
+        """
         return pulumi.get(self, "pattern")
 
     @property
     @pulumi.getter
     def shares(self) -> Sequence['outputs.GetSharesShareResult']:
+        """
+        List of all the shares available in the system.
+        """
         return pulumi.get(self, "shares")
 
 
@@ -72,7 +78,22 @@ class AwaitableGetSharesResult(GetSharesResult):
 def get_shares(pattern: Optional[builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSharesResult:
     """
-    Use this data source to access information about an existing resource.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    this = snowflake.get_shares()
+    ad = snowflake.get_shares(pattern="usage")
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param builtins.str pattern: Filters the command output by object name.
     """
     __args__ = dict()
     __args__['pattern'] = pattern
@@ -86,7 +107,22 @@ def get_shares(pattern: Optional[builtins.str] = None,
 def get_shares_output(pattern: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSharesResult]:
     """
-    Use this data source to access information about an existing resource.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    this = snowflake.get_shares()
+    ad = snowflake.get_shares(pattern="usage")
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param builtins.str pattern: Filters the command output by object name.
     """
     __args__ = dict()
     __args__['pattern'] = pattern

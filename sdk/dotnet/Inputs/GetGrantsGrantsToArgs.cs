@@ -25,13 +25,13 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? Application { get; set; }
 
         /// <summary>
-        /// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&amp;lt;app_name&amp;gt;"."&amp;lt;app_role_name&amp;gt;").
+        /// Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&amp;lt;app*name&amp;gt;"."&amp;lt;app*role_name&amp;gt;").
         /// </summary>
         [Input("applicationRole")]
         public Input<string>? ApplicationRole { get; set; }
 
         /// <summary>
-        /// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&amp;lt;db_name&amp;gt;"."&amp;lt;database_role_name&amp;gt;").
+        /// Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&amp;lt;db*name&amp;gt;"."&amp;lt;database*role_name&amp;gt;").
         /// </summary>
         [Input("databaseRole")]
         public Input<string>? DatabaseRole { get; set; }

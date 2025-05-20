@@ -11,12 +11,21 @@ namespace Pulumi.Snowflake
 {
     public static class GetAccounts
     {
+        /// <summary>
+        /// Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+        /// </summary>
         public static Task<GetAccountsResult> InvokeAsync(GetAccountsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountsResult>("snowflake:index/getAccounts:getAccounts", args ?? new GetAccountsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+        /// </summary>
         public static Output<GetAccountsResult> Invoke(GetAccountsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountsResult>("snowflake:index/getAccounts:getAccounts", args ?? new GetAccountsInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
+        /// </summary>
         public static Output<GetAccountsResult> Invoke(GetAccountsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountsResult>("snowflake:index/getAccounts:getAccounts", args ?? new GetAccountsInvokeArgs(), options.WithDefaults());
     }
@@ -24,9 +33,15 @@ namespace Pulumi.Snowflake
 
     public sealed class GetAccountsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         [Input("like")]
         public string? Like { get; set; }
 
+        /// <summary>
+        /// Includes dropped accounts that have not yet been deleted.
+        /// </summary>
         [Input("withHistory")]
         public bool? WithHistory { get; set; }
 
@@ -38,9 +53,15 @@ namespace Pulumi.Snowflake
 
     public sealed class GetAccountsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         [Input("like")]
         public Input<string>? Like { get; set; }
 
+        /// <summary>
+        /// Includes dropped accounts that have not yet been deleted.
+        /// </summary>
         [Input("withHistory")]
         public Input<bool>? WithHistory { get; set; }
 
@@ -54,12 +75,21 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetAccountsResult
     {
+        /// <summary>
+        /// Holds the aggregated output of all accounts details queries.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetAccountsAccountResult> Accounts;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         public readonly string? Like;
+        /// <summary>
+        /// Includes dropped accounts that have not yet been deleted.
+        /// </summary>
         public readonly bool? WithHistory;
 
         [OutputConstructor]

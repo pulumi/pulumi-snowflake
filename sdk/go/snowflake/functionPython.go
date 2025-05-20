@@ -12,99 +12,66 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/functionPython:FunctionPython example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
+// ```
+//
+// Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
+//
+// Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
 type FunctionPython struct {
 	pulumi.CustomResourceState
 
-	// List of the arguments for the function. Consult the
-	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+	// List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
 	Arguments FunctionPythonArgumentArrayOutput `pulumi:"arguments"`
-	// Specifies a comment for the function.
+	// (Default: `user-defined function`) Specifies a comment for the function.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-	// For more information, check [ENABLE_CONSOLE_OUTPUT
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput pulumi.BoolOutput `pulumi:"enableConsoleOutput"`
-	// The names of [external access
-	// integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-	// this function’s handler code to access external networks. An external access integration specifies [network
-	// rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-	// [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-	// (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+	// The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
 	ExternalAccessIntegrations pulumi.StringArrayOutput `pulumi:"externalAccessIntegrations"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-	// do not include them. The `functionDefinition` value must be Python source code. For more information, see [Introduction
-	// to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff
-	// on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-	// change in case or run of whitespace is semantically significant.
+	// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be Python source code. For more information, see [Introduction to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	FunctionDefinition pulumi.StringPtrOutput `pulumi:"functionDefinition"`
 	// Specifies language for the user. Used to detect external changes.
 	FunctionLanguage pulumi.StringOutput `pulumi:"functionLanguage"`
-	// The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the
-	// HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use
-	// the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module
-	// name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should
-	// be the name of a handler class.
+	// The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should be the name of a handler class.
 	Handler pulumi.StringOutput `pulumi:"handler"`
-	// The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file.
-	// Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a
-	// file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files).
-	// Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
+	// The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file. Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
 	Imports FunctionPythonImportArrayOutput `pulumi:"imports"`
-	// Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see
-	// [Python user-defined aggregate
-	// functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options
-	// are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-	// to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsAggregate pulumi.StringPtrOutput `pulumi:"isAggregate"`
 	IsSecure    pulumi.StringPtrOutput `pulumi:"isSecure"`
-	// LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringOutput `pulumi:"logLevel"`
-	// METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel pulumi.StringOutput `pulumi:"metricLevel"`
-	// The name of the function; the identifier does not need to be unique for the schema in which the function is created
-	// because UDFs are identified and resolved by the combination of the name and argument types. Check the
-	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-	// (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-	// NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+	// Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
 	NullInputBehavior pulumi.StringPtrOutput `pulumi:"nullInputBehavior"`
-	// The name and version number of packages required as dependencies. The value should be of the form
-	// `package_name==version_number`.
+	// The name and version number of packages required as dependencies. The value should be of the form `package_name==version_number`.
 	Packages pulumi.StringArrayOutput `pulumi:"packages"`
 	// Outputs the result of `SHOW PARAMETERS IN FUNCTION` for the given function.
 	Parameters FunctionPythonParameterArrayOutput `pulumi:"parameters"`
-	// Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-	// `IMMUTABLE`.
+	// Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
 	ReturnResultsBehavior pulumi.StringPtrOutput `pulumi:"returnResultsBehavior"`
-	// Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-	// UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-	// table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-	// the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+	// Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
 	ReturnType pulumi.StringOutput `pulumi:"returnType"`
 	// Specifies the Python version to use. The supported versions of Python are: 3.9, 3.10, and 3.11.
 	RuntimeVersion pulumi.StringOutput `pulumi:"runtimeVersion"`
-	// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
-	// Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-	// can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-	// specify here must be allowed by the [external access
-	// integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-	// this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	Secrets FunctionPythonSecretArrayOutput `pulumi:"secrets"`
 	// Outputs the result of `SHOW FUNCTION` for the given function.
 	ShowOutputs FunctionPythonShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel pulumi.StringOutput `pulumi:"traceLevel"`
 }
 
@@ -153,190 +120,106 @@ func GetFunctionPython(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FunctionPython resources.
 type functionPythonState struct {
-	// List of the arguments for the function. Consult the
-	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+	// List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
 	Arguments []FunctionPythonArgument `pulumi:"arguments"`
-	// Specifies a comment for the function.
+	// (Default: `user-defined function`) Specifies a comment for the function.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
-	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-	// For more information, check [ENABLE_CONSOLE_OUTPUT
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput *bool `pulumi:"enableConsoleOutput"`
-	// The names of [external access
-	// integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-	// this function’s handler code to access external networks. An external access integration specifies [network
-	// rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-	// [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-	// (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+	// The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
 	ExternalAccessIntegrations []string `pulumi:"externalAccessIntegrations"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-	// do not include them. The `functionDefinition` value must be Python source code. For more information, see [Introduction
-	// to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff
-	// on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-	// change in case or run of whitespace is semantically significant.
+	// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be Python source code. For more information, see [Introduction to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	FunctionDefinition *string `pulumi:"functionDefinition"`
 	// Specifies language for the user. Used to detect external changes.
 	FunctionLanguage *string `pulumi:"functionLanguage"`
-	// The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the
-	// HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use
-	// the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module
-	// name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should
-	// be the name of a handler class.
+	// The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should be the name of a handler class.
 	Handler *string `pulumi:"handler"`
-	// The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file.
-	// Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a
-	// file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files).
-	// Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
+	// The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file. Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
 	Imports []FunctionPythonImport `pulumi:"imports"`
-	// Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see
-	// [Python user-defined aggregate
-	// functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options
-	// are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-	// to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsAggregate *string `pulumi:"isAggregate"`
 	IsSecure    *string `pulumi:"isSecure"`
-	// LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel *string `pulumi:"logLevel"`
-	// METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel *string `pulumi:"metricLevel"`
-	// The name of the function; the identifier does not need to be unique for the schema in which the function is created
-	// because UDFs are identified and resolved by the combination of the name and argument types. Check the
-	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-	// (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-	// NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+	// Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
-	// The name and version number of packages required as dependencies. The value should be of the form
-	// `package_name==version_number`.
+	// The name and version number of packages required as dependencies. The value should be of the form `package_name==version_number`.
 	Packages []string `pulumi:"packages"`
 	// Outputs the result of `SHOW PARAMETERS IN FUNCTION` for the given function.
 	Parameters []FunctionPythonParameter `pulumi:"parameters"`
-	// Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-	// `IMMUTABLE`.
+	// Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
 	ReturnResultsBehavior *string `pulumi:"returnResultsBehavior"`
-	// Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-	// UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-	// table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-	// the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+	// Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
 	ReturnType *string `pulumi:"returnType"`
 	// Specifies the Python version to use. The supported versions of Python are: 3.9, 3.10, and 3.11.
 	RuntimeVersion *string `pulumi:"runtimeVersion"`
-	// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
-	// Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-	// can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-	// specify here must be allowed by the [external access
-	// integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-	// this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	Secrets []FunctionPythonSecret `pulumi:"secrets"`
 	// Outputs the result of `SHOW FUNCTION` for the given function.
 	ShowOutputs []FunctionPythonShowOutput `pulumi:"showOutputs"`
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel *string `pulumi:"traceLevel"`
 }
 
 type FunctionPythonState struct {
-	// List of the arguments for the function. Consult the
-	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+	// List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
 	Arguments FunctionPythonArgumentArrayInput
-	// Specifies a comment for the function.
+	// (Default: `user-defined function`) Specifies a comment for the function.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
-	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-	// For more information, check [ENABLE_CONSOLE_OUTPUT
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput pulumi.BoolPtrInput
-	// The names of [external access
-	// integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-	// this function’s handler code to access external networks. An external access integration specifies [network
-	// rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-	// [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-	// (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+	// The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
 	ExternalAccessIntegrations pulumi.StringArrayInput
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-	// do not include them. The `functionDefinition` value must be Python source code. For more information, see [Introduction
-	// to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff
-	// on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-	// change in case or run of whitespace is semantically significant.
+	// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be Python source code. For more information, see [Introduction to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	FunctionDefinition pulumi.StringPtrInput
 	// Specifies language for the user. Used to detect external changes.
 	FunctionLanguage pulumi.StringPtrInput
-	// The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the
-	// HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use
-	// the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module
-	// name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should
-	// be the name of a handler class.
+	// The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should be the name of a handler class.
 	Handler pulumi.StringPtrInput
-	// The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file.
-	// Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a
-	// file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files).
-	// Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
+	// The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file. Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
 	Imports FunctionPythonImportArrayInput
-	// Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see
-	// [Python user-defined aggregate
-	// functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options
-	// are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-	// to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsAggregate pulumi.StringPtrInput
 	IsSecure    pulumi.StringPtrInput
-	// LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringPtrInput
-	// METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel pulumi.StringPtrInput
-	// The name of the function; the identifier does not need to be unique for the schema in which the function is created
-	// because UDFs are identified and resolved by the combination of the name and argument types. Check the
-	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-	// (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-	// NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+	// Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
 	NullInputBehavior pulumi.StringPtrInput
-	// The name and version number of packages required as dependencies. The value should be of the form
-	// `package_name==version_number`.
+	// The name and version number of packages required as dependencies. The value should be of the form `package_name==version_number`.
 	Packages pulumi.StringArrayInput
 	// Outputs the result of `SHOW PARAMETERS IN FUNCTION` for the given function.
 	Parameters FunctionPythonParameterArrayInput
-	// Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-	// `IMMUTABLE`.
+	// Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
 	ReturnResultsBehavior pulumi.StringPtrInput
-	// Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-	// UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-	// table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-	// the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+	// Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
 	ReturnType pulumi.StringPtrInput
 	// Specifies the Python version to use. The supported versions of Python are: 3.9, 3.10, and 3.11.
 	RuntimeVersion pulumi.StringPtrInput
-	// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
-	// Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-	// can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-	// specify here must be allowed by the [external access
-	// integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-	// this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	Secrets FunctionPythonSecretArrayInput
 	// Outputs the result of `SHOW FUNCTION` for the given function.
 	ShowOutputs FunctionPythonShowOutputArrayInput
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel pulumi.StringPtrInput
 }
 
@@ -345,173 +228,91 @@ func (FunctionPythonState) ElementType() reflect.Type {
 }
 
 type functionPythonArgs struct {
-	// List of the arguments for the function. Consult the
-	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+	// List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
 	Arguments []FunctionPythonArgument `pulumi:"arguments"`
-	// Specifies a comment for the function.
+	// (Default: `user-defined function`) Specifies a comment for the function.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-	// For more information, check [ENABLE_CONSOLE_OUTPUT
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput *bool `pulumi:"enableConsoleOutput"`
-	// The names of [external access
-	// integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-	// this function’s handler code to access external networks. An external access integration specifies [network
-	// rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-	// [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-	// (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+	// The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
 	ExternalAccessIntegrations []string `pulumi:"externalAccessIntegrations"`
-	// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-	// do not include them. The `functionDefinition` value must be Python source code. For more information, see [Introduction
-	// to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff
-	// on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-	// change in case or run of whitespace is semantically significant.
+	// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be Python source code. For more information, see [Introduction to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	FunctionDefinition *string `pulumi:"functionDefinition"`
-	// The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the
-	// HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use
-	// the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module
-	// name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should
-	// be the name of a handler class.
+	// The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should be the name of a handler class.
 	Handler string `pulumi:"handler"`
-	// The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file.
-	// Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a
-	// file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files).
-	// Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
+	// The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file. Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
 	Imports []FunctionPythonImport `pulumi:"imports"`
-	// Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see
-	// [Python user-defined aggregate
-	// functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options
-	// are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-	// to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsAggregate *string `pulumi:"isAggregate"`
 	IsSecure    *string `pulumi:"isSecure"`
-	// LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel *string `pulumi:"logLevel"`
-	// METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel *string `pulumi:"metricLevel"`
-	// The name of the function; the identifier does not need to be unique for the schema in which the function is created
-	// because UDFs are identified and resolved by the combination of the name and argument types. Check the
-	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-	// (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-	// NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+	// Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
 	NullInputBehavior *string `pulumi:"nullInputBehavior"`
-	// The name and version number of packages required as dependencies. The value should be of the form
-	// `package_name==version_number`.
+	// The name and version number of packages required as dependencies. The value should be of the form `package_name==version_number`.
 	Packages []string `pulumi:"packages"`
-	// Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-	// `IMMUTABLE`.
+	// Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
 	ReturnResultsBehavior *string `pulumi:"returnResultsBehavior"`
-	// Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-	// UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-	// table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-	// the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+	// Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
 	ReturnType string `pulumi:"returnType"`
 	// Specifies the Python version to use. The supported versions of Python are: 3.9, 3.10, and 3.11.
 	RuntimeVersion string `pulumi:"runtimeVersion"`
-	// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
-	// Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-	// can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-	// specify here must be allowed by the [external access
-	// integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-	// this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	Secrets []FunctionPythonSecret `pulumi:"secrets"`
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel *string `pulumi:"traceLevel"`
 }
 
 // The set of arguments for constructing a FunctionPython resource.
 type FunctionPythonArgs struct {
-	// List of the arguments for the function. Consult the
-	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+	// List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
 	Arguments FunctionPythonArgumentArrayInput
-	// Specifies a comment for the function.
+	// (Default: `user-defined function`) Specifies a comment for the function.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-	// For more information, check [ENABLE_CONSOLE_OUTPUT
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+	// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 	EnableConsoleOutput pulumi.BoolPtrInput
-	// The names of [external access
-	// integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-	// this function’s handler code to access external networks. An external access integration specifies [network
-	// rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-	// [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-	// (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+	// The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
 	ExternalAccessIntegrations pulumi.StringArrayInput
-	// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-	// do not include them. The `functionDefinition` value must be Python source code. For more information, see [Introduction
-	// to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff
-	// on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-	// change in case or run of whitespace is semantically significant.
+	// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be Python source code. For more information, see [Introduction to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	FunctionDefinition pulumi.StringPtrInput
-	// The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the
-	// HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use
-	// the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module
-	// name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should
-	// be the name of a handler class.
+	// The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should be the name of a handler class.
 	Handler pulumi.StringInput
-	// The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file.
-	// Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a
-	// file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files).
-	// Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
+	// The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file. Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
 	Imports FunctionPythonImportArrayInput
-	// Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see
-	// [Python user-defined aggregate
-	// functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options
-	// are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-	// to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	IsAggregate pulumi.StringPtrInput
 	IsSecure    pulumi.StringPtrInput
-	// LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+	// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 	LogLevel pulumi.StringPtrInput
-	// METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+	// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 	MetricLevel pulumi.StringPtrInput
-	// The name of the function; the identifier does not need to be unique for the schema in which the function is created
-	// because UDFs are identified and resolved by the combination of the name and argument types. Check the
-	// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-	// (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-	// NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+	// Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
 	NullInputBehavior pulumi.StringPtrInput
-	// The name and version number of packages required as dependencies. The value should be of the form
-	// `package_name==version_number`.
+	// The name and version number of packages required as dependencies. The value should be of the form `package_name==version_number`.
 	Packages pulumi.StringArrayInput
-	// Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-	// `IMMUTABLE`.
+	// Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
 	ReturnResultsBehavior pulumi.StringPtrInput
-	// Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-	// UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-	// table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-	// the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+	// Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
 	ReturnType pulumi.StringInput
 	// Specifies the Python version to use. The supported versions of Python are: 3.9, 3.10, and 3.11.
 	RuntimeVersion pulumi.StringInput
-	// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
-	// Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-	// can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-	// specify here must be allowed by the [external access
-	// integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-	// this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	Secrets FunctionPythonSecretArrayInput
-	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-	// docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+	// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 	TraceLevel pulumi.StringPtrInput
 }
 
@@ -602,51 +403,37 @@ func (o FunctionPythonOutput) ToFunctionPythonOutputWithContext(ctx context.Cont
 	return o
 }
 
-// List of the arguments for the function. Consult the
-// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+// List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
 func (o FunctionPythonOutput) Arguments() FunctionPythonArgumentArrayOutput {
 	return o.ApplyT(func(v *FunctionPython) FunctionPythonArgumentArrayOutput { return v.Arguments }).(FunctionPythonArgumentArrayOutput)
 }
 
-// Specifies a comment for the function.
+// (Default: `user-defined function`) Specifies a comment for the function.
 func (o FunctionPythonOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-// characters: `|`, `.`, `"`.
+// The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o FunctionPythonOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-// For more information, check [ENABLE_CONSOLE_OUTPUT
-// docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+// Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
 func (o FunctionPythonOutput) EnableConsoleOutput() pulumi.BoolOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.BoolOutput { return v.EnableConsoleOutput }).(pulumi.BoolOutput)
 }
 
-// The names of [external access
-// integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-// this function’s handler code to access external networks. An external access integration specifies [network
-// rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-// [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-// (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+// The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
 func (o FunctionPythonOutput) ExternalAccessIntegrations() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringArrayOutput { return v.ExternalAccessIntegrations }).(pulumi.StringArrayOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name
-// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o FunctionPythonOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-// do not include them. The `functionDefinition` value must be Python source code. For more information, see [Introduction
-// to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff
-// on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-// change in case or run of whitespace is semantically significant.
+// Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `functionDefinition` value must be Python source code. For more information, see [Introduction to Python UDFs](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 func (o FunctionPythonOutput) FunctionDefinition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringPtrOutput { return v.FunctionDefinition }).(pulumi.StringPtrOutput)
 }
@@ -656,28 +443,17 @@ func (o FunctionPythonOutput) FunctionLanguage() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringOutput { return v.FunctionLanguage }).(pulumi.StringOutput)
 }
 
-// The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the
-// HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use
-// the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module
-// name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should
-// be the name of a handler class.
+// The name of the handler function or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a function name. If the handler code is in-line with the CREATE FUNCTION statement, you can use the function name alone. When the handler code is referenced at a stage, this value should be qualified with the module name, as in the following form: `my_module.my_function`. If the handler is for a tabular UDF, the HANDLER value should be the name of a handler class.
 func (o FunctionPythonOutput) Handler() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringOutput { return v.Handler }).(pulumi.StringOutput)
 }
 
-// The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file.
-// Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a
-// file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files).
-// Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
+// The location (stage), path, and name of the file(s) to import. A file can be a `.py` file or another type of file. Python UDFs can also read non-Python files, such as text files. For an example, see [Reading a file](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-examples.html#label-udf-python-read-files). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#python).
 func (o FunctionPythonOutput) Imports() FunctionPythonImportArrayOutput {
 	return o.ApplyT(func(v *FunctionPython) FunctionPythonImportArrayOutput { return v.Imports }).(FunctionPythonImportArrayOutput)
 }
 
-// Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see
-// [Python user-defined aggregate
-// functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options
-// are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-// to use the Snowflake default for this value.
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the function is an aggregate function. For more information about user-defined aggregate functions, see [Python user-defined aggregate functions](https://docs.snowflake.com/en/developer-guide/udf/python/udf-python-aggregate-functions). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 func (o FunctionPythonOutput) IsAggregate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringPtrOutput { return v.IsAggregate }).(pulumi.StringPtrOutput)
 }
@@ -686,34 +462,27 @@ func (o FunctionPythonOutput) IsSecure() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringPtrOutput { return v.IsSecure }).(pulumi.StringPtrOutput)
 }
 
-// LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-// docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+// LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
 func (o FunctionPythonOutput) LogLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringOutput { return v.LogLevel }).(pulumi.StringOutput)
 }
 
-// METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-// docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+// METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
 func (o FunctionPythonOutput) MetricLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringOutput { return v.MetricLevel }).(pulumi.StringOutput)
 }
 
-// The name of the function; the identifier does not need to be unique for the schema in which the function is created
-// because UDFs are identified and resolved by the combination of the name and argument types. Check the
-// [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-// (read more here), avoid using the following characters: `|`, `.`, `"`.
+// The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o FunctionPythonOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-// NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+// Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
 func (o FunctionPythonOutput) NullInputBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringPtrOutput { return v.NullInputBehavior }).(pulumi.StringPtrOutput)
 }
 
-// The name and version number of packages required as dependencies. The value should be of the form
-// `package_name==version_number`.
+// The name and version number of packages required as dependencies. The value should be of the form `package_name==version_number`.
 func (o FunctionPythonOutput) Packages() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringArrayOutput { return v.Packages }).(pulumi.StringArrayOutput)
 }
@@ -723,16 +492,12 @@ func (o FunctionPythonOutput) Parameters() FunctionPythonParameterArrayOutput {
 	return o.ApplyT(func(v *FunctionPython) FunctionPythonParameterArrayOutput { return v.Parameters }).(FunctionPythonParameterArrayOutput)
 }
 
-// Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-// `IMMUTABLE`.
+// Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
 func (o FunctionPythonOutput) ReturnResultsBehavior() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringPtrOutput { return v.ReturnResultsBehavior }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-// UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-// table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-// the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+// Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
 func (o FunctionPythonOutput) ReturnType() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringOutput { return v.ReturnType }).(pulumi.StringOutput)
 }
@@ -742,17 +507,12 @@ func (o FunctionPythonOutput) RuntimeVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringOutput { return v.RuntimeVersion }).(pulumi.StringOutput)
 }
 
-// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-// characters: `|`, `.`, `"`.
+// The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o FunctionPythonOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
 
-// Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-// can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-// specify here must be allowed by the [external access
-// integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-// this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+// Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
 func (o FunctionPythonOutput) Secrets() FunctionPythonSecretArrayOutput {
 	return o.ApplyT(func(v *FunctionPython) FunctionPythonSecretArrayOutput { return v.Secrets }).(FunctionPythonSecretArrayOutput)
 }
@@ -762,8 +522,7 @@ func (o FunctionPythonOutput) ShowOutputs() FunctionPythonShowOutputArrayOutput 
 	return o.ApplyT(func(v *FunctionPython) FunctionPythonShowOutputArrayOutput { return v.ShowOutputs }).(FunctionPythonShowOutputArrayOutput)
 }
 
-// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-// docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+// Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
 func (o FunctionPythonOutput) TraceLevel() pulumi.StringOutput {
 	return o.ApplyT(func(v *FunctionPython) pulumi.StringOutput { return v.TraceLevel }).(pulumi.StringOutput)
 }

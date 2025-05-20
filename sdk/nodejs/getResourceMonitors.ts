@@ -6,6 +6,9 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in showOutput collection.
+ */
 export function getResourceMonitors(args?: GetResourceMonitorsArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceMonitorsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -18,6 +21,9 @@ export function getResourceMonitors(args?: GetResourceMonitorsArgs, opts?: pulum
  * A collection of arguments for invoking getResourceMonitors.
  */
 export interface GetResourceMonitorsArgs {
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     like?: string;
 }
 
@@ -29,9 +35,18 @@ export interface GetResourceMonitorsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     readonly like?: string;
+    /**
+     * Holds the aggregated output of all resource monitor details queries.
+     */
     readonly resourceMonitors: outputs.GetResourceMonitorsResourceMonitor[];
 }
+/**
+ * Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in showOutput collection.
+ */
 export function getResourceMonitorsOutput(args?: GetResourceMonitorsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetResourceMonitorsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -44,5 +59,8 @@ export function getResourceMonitorsOutput(args?: GetResourceMonitorsOutputArgs, 
  * A collection of arguments for invoking getResourceMonitors.
  */
 export interface GetResourceMonitorsOutputArgs {
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     like?: pulumi.Input<string>;
 }

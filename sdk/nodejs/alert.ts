@@ -6,6 +6,15 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * format is database name | schema name | alert name
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
+ * ```
+ */
 export class Alert extends pulumi.CustomResource {
     /**
      * Get an existing Alert resource's state with the given name, ID, and optional extra
@@ -55,12 +64,11 @@ export class Alert extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
-     * Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+     * (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
@@ -157,12 +165,11 @@ export interface AlertState {
      */
     database?: pulumi.Input<string>;
     /**
-     * Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+     * (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
@@ -204,7 +211,7 @@ export interface AlertArgs {
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+     * (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
      */
     enabled?: pulumi.Input<boolean>;
     /**

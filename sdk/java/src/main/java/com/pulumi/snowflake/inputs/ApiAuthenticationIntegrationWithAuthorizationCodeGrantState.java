@@ -66,16 +66,14 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -83,16 +81,14 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
     }
 
     /**
-     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -100,14 +96,14 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
     }
 
     /**
-     * Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      * 
      */
     @Import(name="oauthAccessTokenValidity")
     private @Nullable Output<Integer> oauthAccessTokenValidity;
 
     /**
-     * @return Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      * 
      */
     public Optional<Output<Integer>> oauthAccessTokenValidity() {
@@ -115,16 +111,14 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
     }
 
     /**
-     * Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-     * the OAuth client credentials flow.
+     * Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
      * 
      */
     @Import(name="oauthAllowedScopes")
     private @Nullable Output<List<String>> oauthAllowedScopes;
 
     /**
-     * @return Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-     * the OAuth client credentials flow.
+     * @return Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
      * 
      */
     public Optional<Output<List<String>>> oauthAllowedScopes() {
@@ -147,16 +141,14 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
     }
 
     /**
-     * Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-     * resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+     * Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
      * 
      */
     @Import(name="oauthClientAuthMethod")
     private @Nullable Output<String> oauthClientAuthMethod;
 
     /**
-     * @return Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-     * resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+     * @return Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
      * 
      */
     public Optional<Output<String>> oauthClientAuthMethod() {
@@ -201,18 +193,14 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
     }
 
     /**
-     * Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-     * refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-     * access token is issued directly). If removed from the config, the resource is recreated.
+     * Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
      * 
      */
     @Import(name="oauthTokenEndpoint")
     private @Nullable Output<String> oauthTokenEndpoint;
 
     /**
-     * @return Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-     * refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-     * access token is issued directly). If removed from the config, the resource is recreated.
+     * @return Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
      * 
      */
     public Optional<Output<String>> oauthTokenEndpoint() {
@@ -345,8 +333,7 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -357,8 +344,7 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -368,8 +354,7 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
         }
 
         /**
-         * @param name Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -380,8 +365,7 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
         }
 
         /**
-         * @param name Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -391,7 +375,7 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
         }
 
         /**
-         * @param oauthAccessTokenValidity Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+         * @param oauthAccessTokenValidity (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
          * 
          * @return builder
          * 
@@ -402,7 +386,7 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
         }
 
         /**
-         * @param oauthAccessTokenValidity Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+         * @param oauthAccessTokenValidity (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
          * 
          * @return builder
          * 
@@ -412,8 +396,7 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
         }
 
         /**
-         * @param oauthAllowedScopes Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-         * the OAuth client credentials flow.
+         * @param oauthAllowedScopes Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
          * 
          * @return builder
          * 
@@ -424,8 +407,7 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
         }
 
         /**
-         * @param oauthAllowedScopes Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-         * the OAuth client credentials flow.
+         * @param oauthAllowedScopes Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
          * 
          * @return builder
          * 
@@ -435,8 +417,7 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
         }
 
         /**
-         * @param oauthAllowedScopes Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-         * the OAuth client credentials flow.
+         * @param oauthAllowedScopes Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
          * 
          * @return builder
          * 
@@ -467,8 +448,7 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
         }
 
         /**
-         * @param oauthClientAuthMethod Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-         * resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+         * @param oauthClientAuthMethod Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
          * 
          * @return builder
          * 
@@ -479,8 +459,7 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
         }
 
         /**
-         * @param oauthClientAuthMethod Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-         * resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+         * @param oauthClientAuthMethod Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
          * 
          * @return builder
          * 
@@ -541,9 +520,7 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
         }
 
         /**
-         * @param oauthTokenEndpoint Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-         * refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-         * access token is issued directly). If removed from the config, the resource is recreated.
+         * @param oauthTokenEndpoint Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 
@@ -554,9 +531,7 @@ public final class ApiAuthenticationIntegrationWithAuthorizationCodeGrantState e
         }
 
         /**
-         * @param oauthTokenEndpoint Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-         * refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-         * access token is issued directly). If removed from the config, the resource is recreated.
+         * @param oauthTokenEndpoint Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 

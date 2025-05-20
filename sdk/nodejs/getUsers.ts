@@ -6,6 +6,9 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -22,10 +25,25 @@ export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getUsers.
  */
 export interface GetUsersArgs {
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
     limit?: inputs.GetUsersLimit;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
     startsWith?: string;
+    /**
+     * (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+     */
     withDescribe?: boolean;
+    /**
+     * (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     */
     withParameters?: boolean;
 }
 
@@ -37,13 +55,34 @@ export interface GetUsersResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     readonly like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
     readonly limit?: outputs.GetUsersLimit;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
     readonly startsWith?: string;
+    /**
+     * Holds the aggregated output of all user details queries.
+     */
     readonly users: outputs.GetUsersUser[];
+    /**
+     * (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+     */
     readonly withDescribe?: boolean;
+    /**
+     * (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     */
     readonly withParameters?: boolean;
 }
+/**
+ * ## Example Usage
+ */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetUsersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,9 +99,24 @@ export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOu
  * A collection of arguments for invoking getUsers.
  */
 export interface GetUsersOutputArgs {
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     like?: pulumi.Input<string>;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
     limit?: pulumi.Input<inputs.GetUsersLimitArgs>;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
     startsWith?: pulumi.Input<string>;
+    /**
+     * (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+     */
     withDescribe?: pulumi.Input<boolean>;
+    /**
+     * (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     */
     withParameters?: pulumi.Input<boolean>;
 }

@@ -54,16 +54,25 @@ class GetTagsResult:
     @property
     @pulumi.getter(name="in")
     def in_(self) -> Optional['outputs.GetTagsInResult']:
+        """
+        IN clause to filter the list of objects
+        """
         return pulumi.get(self, "in_")
 
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
+        """
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter
     def tags(self) -> Sequence['outputs.GetTagsTagResult']:
+        """
+        Holds the aggregated output of all tags details queries.
+        """
         return pulumi.get(self, "tags")
 
 
@@ -83,7 +92,11 @@ def get_tags(in_: Optional[Union['GetTagsInArgs', 'GetTagsInArgsDict']] = None,
              like: Optional[builtins.str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTagsResult:
     """
-    Use this data source to access information about an existing resource.
+    Data source used to get details of filtered tags. Filtering is aligned with the current possibilities for [SHOW TAGS](https://docs.snowflake.com/en/sql-reference/sql/show-tags) query. The results of SHOW are encapsulated in one output collection `tags`.
+
+
+    :param Union['GetTagsInArgs', 'GetTagsInArgsDict'] in_: IN clause to filter the list of objects
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     """
     __args__ = dict()
     __args__['in'] = in_
@@ -100,7 +113,11 @@ def get_tags_output(in_: Optional[pulumi.Input[Optional[Union['GetTagsInArgs', '
                     like: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTagsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Data source used to get details of filtered tags. Filtering is aligned with the current possibilities for [SHOW TAGS](https://docs.snowflake.com/en/sql-reference/sql/show-tags) query. The results of SHOW are encapsulated in one output collection `tags`.
+
+
+    :param Union['GetTagsInArgs', 'GetTagsInArgsDict'] in_: IN clause to filter the list of objects
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     """
     __args__ = dict()
     __args__['in'] = in_

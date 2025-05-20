@@ -12,6 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/execute:Execute example '<random_uuid>'
+// ```
 type Execute struct {
 	pulumi.CustomResourceState
 
@@ -19,8 +24,7 @@ type Execute struct {
 	Execute pulumi.StringOutput `pulumi:"execute"`
 	// Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
 	Query pulumi.StringPtrOutput `pulumi:"query"`
-	// List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
-	// error.
+	// List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
 	QueryResults pulumi.StringMapArrayOutput `pulumi:"queryResults"`
 	// SQL statement to revert the execute statement. Invoked when resource is being destroyed.
 	Revert pulumi.StringOutput `pulumi:"revert"`
@@ -66,8 +70,7 @@ type executeState struct {
 	Execute *string `pulumi:"execute"`
 	// Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
 	Query *string `pulumi:"query"`
-	// List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
-	// error.
+	// List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
 	QueryResults []map[string]string `pulumi:"queryResults"`
 	// SQL statement to revert the execute statement. Invoked when resource is being destroyed.
 	Revert *string `pulumi:"revert"`
@@ -78,8 +81,7 @@ type ExecuteState struct {
 	Execute pulumi.StringPtrInput
 	// Optional SQL statement to do a read. Invoked on every resource refresh and every time it is changed.
 	Query pulumi.StringPtrInput
-	// List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
-	// error.
+	// List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
 	QueryResults pulumi.StringMapArrayInput
 	// SQL statement to revert the execute statement. Invoked when resource is being destroyed.
 	Revert pulumi.StringPtrInput
@@ -205,8 +207,7 @@ func (o ExecuteOutput) Query() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Execute) pulumi.StringPtrOutput { return v.Query }).(pulumi.StringPtrOutput)
 }
 
-// List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
-// error.
+// List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
 func (o ExecuteOutput) QueryResults() pulumi.StringMapArrayOutput {
 	return o.ApplyT(func(v *Execute) pulumi.StringMapArrayOutput { return v.QueryResults }).(pulumi.StringMapArrayOutput)
 }

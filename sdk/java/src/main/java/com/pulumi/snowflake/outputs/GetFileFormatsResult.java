@@ -12,19 +12,39 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFileFormatsResult {
+    /**
+     * @return The database from which to return the schemas from.
+     * 
+     */
     private String database;
+    /**
+     * @return The file formats in the schema
+     * 
+     */
     private List<GetFileFormatsFileFormat> fileFormats;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The schema from which to return the file formats from.
+     * 
+     */
     private String schema;
 
     private GetFileFormatsResult() {}
+    /**
+     * @return The database from which to return the schemas from.
+     * 
+     */
     public String database() {
         return this.database;
     }
+    /**
+     * @return The file formats in the schema
+     * 
+     */
     public List<GetFileFormatsFileFormat> fileFormats() {
         return this.fileFormats;
     }
@@ -35,6 +55,10 @@ public final class GetFileFormatsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The schema from which to return the file formats from.
+     * 
+     */
     public String schema() {
         return this.schema;
     }

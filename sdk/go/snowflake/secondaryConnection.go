@@ -12,23 +12,23 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/secondaryConnection:SecondaryConnection example '"<secondary_connection_name>"'
+// ```
 type SecondaryConnection struct {
 	pulumi.CustomResourceState
 
-	// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
-	// information about this resource, see docs.
+	// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
 	AsReplicaOf pulumi.StringOutput `pulumi:"asReplicaOf"`
 	// Specifies a comment for the secondary connection.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Indicates if the connection primary status has been changed. If change is detected, resource will be recreated.
 	IsPrimary pulumi.BoolOutput `pulumi:"isPrimary"`
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
-	// only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
-	// name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
-	// `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Outputs the result of `SHOW CONNECTIONS` for the given connection.
 	ShowOutputs SecondaryConnectionShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -67,40 +67,30 @@ func GetSecondaryConnection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecondaryConnection resources.
 type secondaryConnectionState struct {
-	// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
-	// information about this resource, see docs.
+	// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
 	AsReplicaOf *string `pulumi:"asReplicaOf"`
 	// Specifies a comment for the secondary connection.
 	Comment *string `pulumi:"comment"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Indicates if the connection primary status has been changed. If change is detected, resource will be recreated.
 	IsPrimary *bool `pulumi:"isPrimary"`
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
-	// only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
-	// name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
-	// `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 	// Outputs the result of `SHOW CONNECTIONS` for the given connection.
 	ShowOutputs []SecondaryConnectionShowOutput `pulumi:"showOutputs"`
 }
 
 type SecondaryConnectionState struct {
-	// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
-	// information about this resource, see docs.
+	// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
 	AsReplicaOf pulumi.StringPtrInput
 	// Specifies a comment for the secondary connection.
 	Comment pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	// Indicates if the connection primary status has been changed. If change is detected, resource will be recreated.
 	IsPrimary pulumi.BoolPtrInput
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
-	// only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
-	// name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
-	// `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 	// Outputs the result of `SHOW CONNECTIONS` for the given connection.
 	ShowOutputs SecondaryConnectionShowOutputArrayInput
@@ -111,29 +101,21 @@ func (SecondaryConnectionState) ElementType() reflect.Type {
 }
 
 type secondaryConnectionArgs struct {
-	// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
-	// information about this resource, see docs.
+	// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
 	AsReplicaOf string `pulumi:"asReplicaOf"`
 	// Specifies a comment for the secondary connection.
 	Comment *string `pulumi:"comment"`
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
-	// only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
-	// name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
-	// `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
 }
 
 // The set of arguments for constructing a SecondaryConnection resource.
 type SecondaryConnectionArgs struct {
-	// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
-	// information about this resource, see docs.
+	// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
 	AsReplicaOf pulumi.StringInput
 	// Specifies a comment for the secondary connection.
 	Comment pulumi.StringPtrInput
-	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
-	// only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
-	// name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
-	// `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
 }
 
@@ -224,8 +206,7 @@ func (o SecondaryConnectionOutput) ToSecondaryConnectionOutputWithContext(ctx co
 	return o
 }
 
-// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more
-// information about this resource, see docs.
+// Specifies the identifier for a primary connection from which to create a replica (i.e. a secondary connection). For more information about this resource, see docs.
 func (o SecondaryConnectionOutput) AsReplicaOf() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryConnection) pulumi.StringOutput { return v.AsReplicaOf }).(pulumi.StringOutput)
 }
@@ -235,8 +216,7 @@ func (o SecondaryConnectionOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecondaryConnection) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name
-// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o SecondaryConnectionOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryConnection) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
@@ -246,10 +226,7 @@ func (o SecondaryConnectionOutput) IsPrimary() pulumi.BoolOutput {
 	return o.ApplyT(func(v *SecondaryConnection) pulumi.BoolOutput { return v.IsPrimary }).(pulumi.BoolOutput)
 }
 
-// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may
-// only contain letters, decimal digits (0-9), and underscores (_). For a secondary connection, the name must match the
-// name of its primary connection. Due to technical limitations (read more here), avoid using the following characters:
-// `|`, `.`, `"`.
+// String that specifies the identifier (i.e. name) for the connection. Must start with an alphabetic character and may only contain letters, decimal digits (0-9), and underscores (*). For a secondary connection, the name must match the name of its primary connection. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o SecondaryConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecondaryConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

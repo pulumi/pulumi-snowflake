@@ -9,26 +9,32 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// format is role_name (string) | grantee_object_type (ROLE|USER) | grantee_name (string)
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/grantAccountRole:GrantAccountRole example '"test_role"|ROLE|"test_parent_role"'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/grantAccountRole:GrantAccountRole")]
     public partial class GrantAccountRole : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
-        /// information about this resource, see docs.
+        /// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         /// </summary>
         [Output("parentRoleName")]
         public Output<string?> ParentRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the role which will be granted to the user or parent role. For more information about this
-        /// resource, see docs.
+        /// The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
         /// </summary>
         [Output("roleName")]
         public Output<string> RoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the user on which specified role will be granted. For more information about this resource,
-        /// see docs.
+        /// The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
         /// </summary>
         [Output("userName")]
         public Output<string?> UserName { get; private set; } = null!;
@@ -80,22 +86,19 @@ namespace Pulumi.Snowflake
     public sealed class GrantAccountRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
-        /// information about this resource, see docs.
+        /// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         /// </summary>
         [Input("parentRoleName")]
         public Input<string>? ParentRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the role which will be granted to the user or parent role. For more information about this
-        /// resource, see docs.
+        /// The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
         /// </summary>
         [Input("roleName", required: true)]
         public Input<string> RoleName { get; set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the user on which specified role will be granted. For more information about this resource,
-        /// see docs.
+        /// The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }
@@ -109,22 +112,19 @@ namespace Pulumi.Snowflake
     public sealed class GrantAccountRoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more
-        /// information about this resource, see docs.
+        /// The fully qualified name of the parent role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         /// </summary>
         [Input("parentRoleName")]
         public Input<string>? ParentRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the role which will be granted to the user or parent role. For more information about this
-        /// resource, see docs.
+        /// The fully qualified name of the role which will be granted to the user or parent role. For more information about this resource, see docs.
         /// </summary>
         [Input("roleName")]
         public Input<string>? RoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the user on which specified role will be granted. For more information about this resource,
-        /// see docs.
+        /// The fully qualified name of the user on which specified role will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("userName")]
         public Input<string>? UserName { get; set; }

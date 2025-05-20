@@ -12,19 +12,39 @@ import java.util.Objects;
 
 @CustomType
 public final class GetExternalTablesResult {
+    /**
+     * @return The database from which to return the schemas from.
+     * 
+     */
     private String database;
+    /**
+     * @return The external tables in the schema
+     * 
+     */
     private List<GetExternalTablesExternalTable> externalTables;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The schema from which to return the external tables from.
+     * 
+     */
     private String schema;
 
     private GetExternalTablesResult() {}
+    /**
+     * @return The database from which to return the schemas from.
+     * 
+     */
     public String database() {
         return this.database;
     }
+    /**
+     * @return The external tables in the schema
+     * 
+     */
     public List<GetExternalTablesExternalTable> externalTables() {
         return this.externalTables;
     }
@@ -35,6 +55,10 @@ public final class GetExternalTablesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The schema from which to return the external tables from.
+     * 
+     */
     public String schema() {
         return this.schema;
     }

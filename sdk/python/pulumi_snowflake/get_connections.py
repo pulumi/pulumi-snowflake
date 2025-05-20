@@ -42,6 +42,9 @@ class GetConnectionsResult:
     @property
     @pulumi.getter
     def connections(self) -> Sequence['outputs.GetConnectionsConnectionResult']:
+        """
+        Holds the aggregated output of all connections details queries.
+        """
         return pulumi.get(self, "connections")
 
     @property
@@ -55,6 +58,9 @@ class GetConnectionsResult:
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
+        """
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        """
         return pulumi.get(self, "like")
 
 
@@ -72,7 +78,10 @@ class AwaitableGetConnectionsResult(GetConnectionsResult):
 def get_connections(like: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetConnectionsResult:
     """
-    Use this data source to access information about an existing resource.
+    Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
+
+
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     """
     __args__ = dict()
     __args__['like'] = like
@@ -86,7 +95,10 @@ def get_connections(like: Optional[builtins.str] = None,
 def get_connections_output(like: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetConnectionsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
+
+
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
     """
     __args__ = dict()
     __args__['like'] = like

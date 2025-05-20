@@ -10,31 +10,83 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSystemGetPrivateLinkConfigResult {
+    /**
+     * @return The name of your Snowflake account.
+     * 
+     */
     private String accountName;
+    /**
+     * @return The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
+     * 
+     */
     private String accountUrl;
+    /**
+     * @return The AWS VPCE ID for your account.
+     * 
+     */
     private String awsVpceId;
+    /**
+     * @return The Azure Private Link Service ID for your account.
+     * 
+     */
     private String azurePlsId;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The endpoint to connect to your Snowflake internal stage using AWS PrivateLink or Azure Private Link.
+     * 
+     */
     private String internalStage;
+    /**
+     * @return The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
+     * 
+     */
     private String ocspUrl;
+    /**
+     * @return The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
+     * 
+     */
     private String regionlessAccountUrl;
+    /**
+     * @return The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
+     * 
+     */
     private String regionlessSnowsightUrl;
+    /**
+     * @return The URL containing the cloud region to access Snowsight and the Snowflake Marketplace using Private Connectivity to the Snowflake Service.
+     * 
+     */
     private String snowsightUrl;
 
     private GetSystemGetPrivateLinkConfigResult() {}
+    /**
+     * @return The name of your Snowflake account.
+     * 
+     */
     public String accountName() {
         return this.accountName;
     }
+    /**
+     * @return The URL used to connect to Snowflake through AWS PrivateLink or Azure Private Link.
+     * 
+     */
     public String accountUrl() {
         return this.accountUrl;
     }
+    /**
+     * @return The AWS VPCE ID for your account.
+     * 
+     */
     public String awsVpceId() {
         return this.awsVpceId;
     }
+    /**
+     * @return The Azure Private Link Service ID for your account.
+     * 
+     */
     public String azurePlsId() {
         return this.azurePlsId;
     }
@@ -45,18 +97,38 @@ public final class GetSystemGetPrivateLinkConfigResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The endpoint to connect to your Snowflake internal stage using AWS PrivateLink or Azure Private Link.
+     * 
+     */
     public String internalStage() {
         return this.internalStage;
     }
+    /**
+     * @return The OCSP URL corresponding to your Snowflake account that uses AWS PrivateLink or Azure Private Link.
+     * 
+     */
     public String ocspUrl() {
         return this.ocspUrl;
     }
+    /**
+     * @return The regionless URL to connect to your Snowflake account using AWS PrivateLink, Azure Private Link, or Google Cloud Private Service Connect.
+     * 
+     */
     public String regionlessAccountUrl() {
         return this.regionlessAccountUrl;
     }
+    /**
+     * @return The URL for your organization to access Snowsight using Private Connectivity to the Snowflake Service.
+     * 
+     */
     public String regionlessSnowsightUrl() {
         return this.regionlessSnowsightUrl;
     }
+    /**
+     * @return The URL containing the cloud region to access Snowsight and the Snowflake Marketplace using Private Connectivity to the Snowflake Service.
+     * 
+     */
     public String snowsightUrl() {
         return this.snowsightUrl;
     }

@@ -12,11 +12,17 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// format is database name | schema name | external table name
+//
+// ```sh
+// $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
+// ```
 type ExternalTable struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-	// created.
+	// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
 	AutoRefresh pulumi.BoolPtrOutput `pulumi:"autoRefresh"`
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic pulumi.StringPtrOutput `pulumi:"awsSnsTopic"`
@@ -24,21 +30,17 @@ type ExternalTable struct {
 	Columns ExternalTableColumnArrayOutput `pulumi:"columns"`
 	// Specifies a comment for the external table.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-	// OR REPLACE TABLE variant
+	// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants pulumi.BoolPtrOutput `pulumi:"copyGrants"`
 	// The database in which to create the external table.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Specifies the file format for the external table.
 	FileFormat pulumi.StringOutput `pulumi:"fileFormat"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or
-	// populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
+	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
 	Location pulumi.StringOutput `pulumi:"location"`
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-	// is created.
+	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Name of the role that owns the external table.
 	Owner pulumi.StringOutput `pulumi:"owner"`
@@ -46,7 +48,7 @@ type ExternalTable struct {
 	PartitionBies pulumi.StringArrayOutput `pulumi:"partitionBies"`
 	// Specifies the file names and/or paths on the external stage to match.
 	Pattern pulumi.StringPtrOutput `pulumi:"pattern"`
-	// Specifies weather to refresh when an external table is created.
+	// (Default: `true`) Specifies weather to refresh when an external table is created.
 	RefreshOnCreate pulumi.BoolPtrOutput `pulumi:"refreshOnCreate"`
 	// The schema in which to create the external table.
 	Schema pulumi.StringOutput `pulumi:"schema"`
@@ -103,8 +105,7 @@ func GetExternalTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ExternalTable resources.
 type externalTableState struct {
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-	// created.
+	// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
 	AutoRefresh *bool `pulumi:"autoRefresh"`
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic *string `pulumi:"awsSnsTopic"`
@@ -112,21 +113,17 @@ type externalTableState struct {
 	Columns []ExternalTableColumn `pulumi:"columns"`
 	// Specifies a comment for the external table.
 	Comment *string `pulumi:"comment"`
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-	// OR REPLACE TABLE variant
+	// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants *bool `pulumi:"copyGrants"`
 	// The database in which to create the external table.
 	Database *string `pulumi:"database"`
 	// Specifies the file format for the external table.
 	FileFormat *string `pulumi:"fileFormat"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or
-	// populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
+	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
 	Location *string `pulumi:"location"`
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-	// is created.
+	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
 	Name *string `pulumi:"name"`
 	// Name of the role that owns the external table.
 	Owner *string `pulumi:"owner"`
@@ -134,7 +131,7 @@ type externalTableState struct {
 	PartitionBies []string `pulumi:"partitionBies"`
 	// Specifies the file names and/or paths on the external stage to match.
 	Pattern *string `pulumi:"pattern"`
-	// Specifies weather to refresh when an external table is created.
+	// (Default: `true`) Specifies weather to refresh when an external table is created.
 	RefreshOnCreate *bool `pulumi:"refreshOnCreate"`
 	// The schema in which to create the external table.
 	Schema *string `pulumi:"schema"`
@@ -147,8 +144,7 @@ type externalTableState struct {
 }
 
 type ExternalTableState struct {
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-	// created.
+	// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
 	AutoRefresh pulumi.BoolPtrInput
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic pulumi.StringPtrInput
@@ -156,21 +152,17 @@ type ExternalTableState struct {
 	Columns ExternalTableColumnArrayInput
 	// Specifies a comment for the external table.
 	Comment pulumi.StringPtrInput
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-	// OR REPLACE TABLE variant
+	// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants pulumi.BoolPtrInput
 	// The database in which to create the external table.
 	Database pulumi.StringPtrInput
 	// Specifies the file format for the external table.
 	FileFormat pulumi.StringPtrInput
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or
-	// populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
+	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
 	Location pulumi.StringPtrInput
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-	// is created.
+	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
 	Name pulumi.StringPtrInput
 	// Name of the role that owns the external table.
 	Owner pulumi.StringPtrInput
@@ -178,7 +170,7 @@ type ExternalTableState struct {
 	PartitionBies pulumi.StringArrayInput
 	// Specifies the file names and/or paths on the external stage to match.
 	Pattern pulumi.StringPtrInput
-	// Specifies weather to refresh when an external table is created.
+	// (Default: `true`) Specifies weather to refresh when an external table is created.
 	RefreshOnCreate pulumi.BoolPtrInput
 	// The schema in which to create the external table.
 	Schema pulumi.StringPtrInput
@@ -195,8 +187,7 @@ func (ExternalTableState) ElementType() reflect.Type {
 }
 
 type externalTableArgs struct {
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-	// created.
+	// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
 	AutoRefresh *bool `pulumi:"autoRefresh"`
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic *string `pulumi:"awsSnsTopic"`
@@ -204,24 +195,21 @@ type externalTableArgs struct {
 	Columns []ExternalTableColumn `pulumi:"columns"`
 	// Specifies a comment for the external table.
 	Comment *string `pulumi:"comment"`
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-	// OR REPLACE TABLE variant
+	// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants *bool `pulumi:"copyGrants"`
 	// The database in which to create the external table.
 	Database string `pulumi:"database"`
 	// Specifies the file format for the external table.
 	FileFormat string `pulumi:"fileFormat"`
-	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or
-	// populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
+	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
 	Location string `pulumi:"location"`
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-	// is created.
+	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
 	Name *string `pulumi:"name"`
 	// Specifies any partition columns to evaluate for the external table.
 	PartitionBies []string `pulumi:"partitionBies"`
 	// Specifies the file names and/or paths on the external stage to match.
 	Pattern *string `pulumi:"pattern"`
-	// Specifies weather to refresh when an external table is created.
+	// (Default: `true`) Specifies weather to refresh when an external table is created.
 	RefreshOnCreate *bool `pulumi:"refreshOnCreate"`
 	// The schema in which to create the external table.
 	Schema string `pulumi:"schema"`
@@ -235,8 +223,7 @@ type externalTableArgs struct {
 
 // The set of arguments for constructing a ExternalTable resource.
 type ExternalTableArgs struct {
-	// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-	// created.
+	// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
 	AutoRefresh pulumi.BoolPtrInput
 	// Specifies the aws sns topic for the external table.
 	AwsSnsTopic pulumi.StringPtrInput
@@ -244,24 +231,21 @@ type ExternalTableArgs struct {
 	Columns ExternalTableColumnArrayInput
 	// Specifies a comment for the external table.
 	Comment pulumi.StringPtrInput
-	// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-	// OR REPLACE TABLE variant
+	// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 	CopyGrants pulumi.BoolPtrInput
 	// The database in which to create the external table.
 	Database pulumi.StringInput
 	// Specifies the file format for the external table.
 	FileFormat pulumi.StringInput
-	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or
-	// populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
+	// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
 	Location pulumi.StringInput
-	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-	// is created.
+	// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
 	Name pulumi.StringPtrInput
 	// Specifies any partition columns to evaluate for the external table.
 	PartitionBies pulumi.StringArrayInput
 	// Specifies the file names and/or paths on the external stage to match.
 	Pattern pulumi.StringPtrInput
-	// Specifies weather to refresh when an external table is created.
+	// (Default: `true`) Specifies weather to refresh when an external table is created.
 	RefreshOnCreate pulumi.BoolPtrInput
 	// The schema in which to create the external table.
 	Schema pulumi.StringInput
@@ -360,8 +344,7 @@ func (o ExternalTableOutput) ToExternalTableOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-// created.
+// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
 func (o ExternalTableOutput) AutoRefresh() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.BoolPtrOutput { return v.AutoRefresh }).(pulumi.BoolPtrOutput)
 }
@@ -381,8 +364,7 @@ func (o ExternalTableOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-// OR REPLACE TABLE variant
+// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
 func (o ExternalTableOutput) CopyGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.BoolPtrOutput { return v.CopyGrants }).(pulumi.BoolPtrOutput)
 }
@@ -397,20 +379,17 @@ func (o ExternalTableOutput) FileFormat() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.FileFormat }).(pulumi.StringOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name
-// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o ExternalTableOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or
-// populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
+// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
 func (o ExternalTableOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-// is created.
+// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
 func (o ExternalTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -430,7 +409,7 @@ func (o ExternalTableOutput) Pattern() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.StringPtrOutput { return v.Pattern }).(pulumi.StringPtrOutput)
 }
 
-// Specifies weather to refresh when an external table is created.
+// (Default: `true`) Specifies weather to refresh when an external table is created.
 func (o ExternalTableOutput) RefreshOnCreate() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ExternalTable) pulumi.BoolPtrOutput { return v.RefreshOnCreate }).(pulumi.BoolPtrOutput)
 }

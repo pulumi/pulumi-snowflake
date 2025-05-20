@@ -41,11 +41,17 @@ class GetSystemGetAwsSnsIamPolicyResult:
     @property
     @pulumi.getter(name="awsSnsTopicArn")
     def aws_sns_topic_arn(self) -> builtins.str:
+        """
+        Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
+        """
         return pulumi.get(self, "aws_sns_topic_arn")
 
     @property
     @pulumi.getter(name="awsSnsTopicPolicyJson")
     def aws_sns_topic_policy_json(self) -> builtins.str:
+        """
+        IAM policy for Snowflake’s SQS queue to subscribe to this topic
+        """
         return pulumi.get(self, "aws_sns_topic_policy_json")
 
     @property
@@ -71,7 +77,19 @@ class AwaitableGetSystemGetAwsSnsIamPolicyResult(GetSystemGetAwsSnsIamPolicyResu
 def get_system_get_aws_sns_iam_policy(aws_sns_topic_arn: Optional[builtins.str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemGetAwsSnsIamPolicyResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    snowflake_policy = snowflake.get_system_get_aws_sns_iam_policy(aws_sns_topic_arn="<aws_sns_topic_arn>")
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param builtins.str aws_sns_topic_arn: Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
     """
     __args__ = dict()
     __args__['awsSnsTopicArn'] = aws_sns_topic_arn
@@ -85,7 +103,19 @@ def get_system_get_aws_sns_iam_policy(aws_sns_topic_arn: Optional[builtins.str] 
 def get_system_get_aws_sns_iam_policy_output(aws_sns_topic_arn: Optional[pulumi.Input[builtins.str]] = None,
                                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemGetAwsSnsIamPolicyResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    snowflake_policy = snowflake.get_system_get_aws_sns_iam_policy(aws_sns_topic_arn="<aws_sns_topic_arn>")
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param builtins.str aws_sns_topic_arn: Amazon Resource Name (ARN) of the SNS topic for your S3 bucket
     """
     __args__ = dict()
     __args__['awsSnsTopicArn'] = aws_sns_topic_arn

@@ -41,8 +41,7 @@ export class UserPublicKeys extends pulumi.CustomResource {
      */
     public readonly rsaPublicKey!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
-     * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+     * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
     public readonly rsaPublicKey2!: pulumi.Output<string | undefined>;
 
@@ -86,8 +85,7 @@ export interface UserPublicKeysState {
      */
     rsaPublicKey?: pulumi.Input<string>;
     /**
-     * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
-     * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+     * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
     rsaPublicKey2?: pulumi.Input<string>;
 }
@@ -105,8 +103,7 @@ export interface UserPublicKeysArgs {
      */
     rsaPublicKey?: pulumi.Input<string>;
     /**
-     * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication
-     * based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
+     * Specifies the user’s second RSA public key; used to rotate the public and Public keys for key-pair authentication based on an expiration schedule set by your organization. Must be on 1 line without header and trailer.
      */
     rsaPublicKey2?: pulumi.Input<string>;
 }

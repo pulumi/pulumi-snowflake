@@ -31,7 +31,7 @@ namespace Pulumi.Snowflake.Inputs
         public Input<string>? Stream { get; set; }
 
         /// <summary>
-        /// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        /// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         /// </summary>
         [Input("timestamp")]
         public Input<string>? Timestamp { get; set; }

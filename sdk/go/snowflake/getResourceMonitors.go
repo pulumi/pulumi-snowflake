@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Data source used to get details of filtered resource monitors. Filtering is aligned with the current possibilities for [SHOW RESOURCE MONITORS](https://docs.snowflake.com/en/sql-reference/sql/show-resource-monitors) query (`like` is supported). The results of SHOW is encapsulated in showOutput collection.
 func GetResourceMonitors(ctx *pulumi.Context, args *GetResourceMonitorsArgs, opts ...pulumi.InvokeOption) (*GetResourceMonitorsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResourceMonitorsResult
@@ -23,14 +24,17 @@ func GetResourceMonitors(ctx *pulumi.Context, args *GetResourceMonitorsArgs, opt
 
 // A collection of arguments for invoking getResourceMonitors.
 type GetResourceMonitorsArgs struct {
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
 }
 
 // A collection of values returned by getResourceMonitors.
 type GetResourceMonitorsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id               string                               `pulumi:"id"`
-	Like             *string                              `pulumi:"like"`
+	Id string `pulumi:"id"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Holds the aggregated output of all resource monitor details queries.
 	ResourceMonitors []GetResourceMonitorsResourceMonitor `pulumi:"resourceMonitors"`
 }
 
@@ -45,6 +49,7 @@ func GetResourceMonitorsOutput(ctx *pulumi.Context, args GetResourceMonitorsOutp
 
 // A collection of arguments for invoking getResourceMonitors.
 type GetResourceMonitorsOutputArgs struct {
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like pulumi.StringPtrInput `pulumi:"like"`
 }
 
@@ -72,10 +77,12 @@ func (o GetResourceMonitorsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResourceMonitorsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetResourceMonitorsResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetResourceMonitorsResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
+// Holds the aggregated output of all resource monitor details queries.
 func (o GetResourceMonitorsResultOutput) ResourceMonitors() GetResourceMonitorsResourceMonitorArrayOutput {
 	return o.ApplyT(func(v GetResourceMonitorsResult) []GetResourceMonitorsResourceMonitor { return v.ResourceMonitors }).(GetResourceMonitorsResourceMonitorArrayOutput)
 }

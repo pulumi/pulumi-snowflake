@@ -16,6 +16,16 @@ import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * format is database name | schema name | alert name
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/alert:Alert example &#39;dbName|schemaName|alertName&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/alert:Alert")
 public class Alert extends com.pulumi.resources.CustomResource {
     /**
@@ -89,30 +99,28 @@ public class Alert extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+     * (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
      * 
      */
     @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
-     * @return Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
+     * @return (Default: `false`) Specifies if an alert should be &#39;started&#39; (enabled) after creation or should remain &#39;suspended&#39; (default).
      * 
      */
     public Output<Optional<Boolean>> enabled() {
         return Codegen.optional(this.enabled);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {

@@ -12,16 +12,32 @@ import java.util.Objects;
 
 @CustomType
 public final class GetStagesResult {
+    /**
+     * @return The database from which to return the schemas from.
+     * 
+     */
     private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The schema from which to return the stages from.
+     * 
+     */
     private String schema;
+    /**
+     * @return The stages in the schema
+     * 
+     */
     private List<GetStagesStage> stages;
 
     private GetStagesResult() {}
+    /**
+     * @return The database from which to return the schemas from.
+     * 
+     */
     public String database() {
         return this.database;
     }
@@ -32,9 +48,17 @@ public final class GetStagesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The schema from which to return the stages from.
+     * 
+     */
     public String schema() {
         return this.schema;
     }
+    /**
+     * @return The stages in the schema
+     * 
+     */
     public List<GetStagesStage> stages() {
         return this.stages;
     }

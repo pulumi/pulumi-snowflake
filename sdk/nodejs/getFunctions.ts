@@ -6,6 +6,23 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const current = snowflake.getFunctions({
+ *     database: "MYDB",
+ *     schema: "MYSCHEMA",
+ * });
+ * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ */
 export function getFunctions(args: GetFunctionsArgs, opts?: pulumi.InvokeOptions): Promise<GetFunctionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getFunctions:getFunctions", {
@@ -18,7 +35,13 @@ export function getFunctions(args: GetFunctionsArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getFunctions.
  */
 export interface GetFunctionsArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: string;
+    /**
+     * The schema from which to return the functions from.
+     */
     schema: string;
 }
 
@@ -26,14 +49,40 @@ export interface GetFunctionsArgs {
  * A collection of values returned by getFunctions.
  */
 export interface GetFunctionsResult {
+    /**
+     * The database from which to return the schemas from.
+     */
     readonly database: string;
+    /**
+     * The functions in the schema
+     */
     readonly functions: outputs.GetFunctionsFunction[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The schema from which to return the functions from.
+     */
     readonly schema: string;
 }
+/**
+ * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const current = snowflake.getFunctions({
+ *     database: "MYDB",
+ *     schema: "MYSCHEMA",
+ * });
+ * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ */
 export function getFunctionsOutput(args: GetFunctionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetFunctionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getFunctions:getFunctions", {
@@ -46,6 +95,12 @@ export function getFunctionsOutput(args: GetFunctionsOutputArgs, opts?: pulumi.I
  * A collection of arguments for invoking getFunctions.
  */
 export interface GetFunctionsOutputArgs {
+    /**
+     * The database from which to return the schemas from.
+     */
     database: pulumi.Input<string>;
+    /**
+     * The schema from which to return the functions from.
+     */
     schema: pulumi.Input<string>;
 }

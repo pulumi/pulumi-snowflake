@@ -17,6 +17,16 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * format is database name | schema name | file format name
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/fileFormat:FileFormat example &#39;dbName|schemaName|fileFormatName&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/fileFormat:FileFormat")
 public class FileFormat extends com.pulumi.resources.CustomResource {
     /**
@@ -118,16 +128,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
         return this.dateFormat;
     }
     /**
-     * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-     * native representation.
+     * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
      * 
      */
     @Export(name="disableAutoConvert", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> disableAutoConvert;
 
     /**
-     * @return Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-     * native representation.
+     * @return Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
      * 
      */
     public Output<Optional<Boolean>> disableAutoConvert() {
@@ -148,16 +156,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.disableSnowflakeData);
     }
     /**
-     * Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-     * delimiters.
+     * Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
      * 
      */
     @Export(name="emptyFieldAsNull", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> emptyFieldAsNull;
 
     /**
-     * @return Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-     * delimiters.
+     * @return Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
      * 
      */
     public Output<Optional<Boolean>> emptyFieldAsNull() {
@@ -192,16 +198,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
         return this.encoding;
     }
     /**
-     * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-     * file does not match the number of columns in the corresponding table.
+     * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
      * 
      */
     @Export(name="errorOnColumnCountMismatch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> errorOnColumnCountMismatch;
 
     /**
-     * @return Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-     * file does not match the number of columns in the corresponding table.
+     * @return Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
      * 
      */
     public Output<Optional<Boolean>> errorOnColumnCountMismatch() {
@@ -236,16 +240,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
         return this.escapeUnenclosedField;
     }
     /**
-     * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-     * unloaded file (data unloading).
+     * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
      * 
      */
     @Export(name="fieldDelimiter", refs={String.class}, tree="[0]")
     private Output<String> fieldDelimiter;
 
     /**
-     * @return Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-     * unloaded file (data unloading).
+     * @return Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
      * 
      */
     public Output<String> fieldDelimiter() {
@@ -294,16 +296,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
         return this.formatType;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
@@ -324,16 +324,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ignoreUtf8Errors);
     }
     /**
-     * Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-     * created.
+     * Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-     * created.
+     * @return Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
      * 
      */
     public Output<String> name() {
@@ -382,16 +380,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.preserveSpace);
     }
     /**
-     * Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-     * unloaded file (data unloading).
+     * Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
      * 
      */
     @Export(name="recordDelimiter", refs={String.class}, tree="[0]")
     private Output<String> recordDelimiter;
 
     /**
-     * @return Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-     * unloaded file (data unloading).
+     * @return Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
      * 
      */
     public Output<String> recordDelimiter() {
@@ -496,16 +492,14 @@ public class FileFormat extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.stripOuterArray);
     }
     /**
-     * Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-     * documents.
+     * Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
      * 
      */
     @Export(name="stripOuterElement", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> stripOuterElement;
 
     /**
-     * @return Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-     * documents.
+     * @return Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
      * 
      */
     public Output<Optional<Boolean>> stripOuterElement() {

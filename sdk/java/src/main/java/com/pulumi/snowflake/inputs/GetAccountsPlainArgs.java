@@ -15,16 +15,32 @@ public final class GetAccountsPlainArgs extends com.pulumi.resources.InvokeArgs 
 
     public static final GetAccountsPlainArgs Empty = new GetAccountsPlainArgs();
 
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     @Import(name="like")
     private @Nullable String like;
 
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
 
+    /**
+     * Includes dropped accounts that have not yet been deleted.
+     * 
+     */
     @Import(name="withHistory")
     private @Nullable Boolean withHistory;
 
+    /**
+     * @return Includes dropped accounts that have not yet been deleted.
+     * 
+     */
     public Optional<Boolean> withHistory() {
         return Optional.ofNullable(this.withHistory);
     }
@@ -54,11 +70,23 @@ public final class GetAccountsPlainArgs extends com.pulumi.resources.InvokeArgs 
             $ = new GetAccountsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder like(@Nullable String like) {
             $.like = like;
             return this;
         }
 
+        /**
+         * @param withHistory Includes dropped accounts that have not yet been deleted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withHistory(@Nullable Boolean withHistory) {
             $.withHistory = withHistory;
             return this;

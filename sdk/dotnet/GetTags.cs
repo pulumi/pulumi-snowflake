@@ -11,12 +11,21 @@ namespace Pulumi.Snowflake
 {
     public static class GetTags
     {
+        /// <summary>
+        /// Data source used to get details of filtered tags. Filtering is aligned with the current possibilities for [SHOW TAGS](https://docs.snowflake.com/en/sql-reference/sql/show-tags) query. The results of SHOW are encapsulated in one output collection `tags`.
+        /// </summary>
         public static Task<GetTagsResult> InvokeAsync(GetTagsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagsResult>("snowflake:index/getTags:getTags", args ?? new GetTagsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Data source used to get details of filtered tags. Filtering is aligned with the current possibilities for [SHOW TAGS](https://docs.snowflake.com/en/sql-reference/sql/show-tags) query. The results of SHOW are encapsulated in one output collection `tags`.
+        /// </summary>
         public static Output<GetTagsResult> Invoke(GetTagsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagsResult>("snowflake:index/getTags:getTags", args ?? new GetTagsInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Data source used to get details of filtered tags. Filtering is aligned with the current possibilities for [SHOW TAGS](https://docs.snowflake.com/en/sql-reference/sql/show-tags) query. The results of SHOW are encapsulated in one output collection `tags`.
+        /// </summary>
         public static Output<GetTagsResult> Invoke(GetTagsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagsResult>("snowflake:index/getTags:getTags", args ?? new GetTagsInvokeArgs(), options.WithDefaults());
     }
@@ -24,9 +33,15 @@ namespace Pulumi.Snowflake
 
     public sealed class GetTagsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// IN clause to filter the list of objects
+        /// </summary>
         [Input("in")]
         public Inputs.GetTagsInArgs? In { get; set; }
 
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         [Input("like")]
         public string? Like { get; set; }
 
@@ -38,9 +53,15 @@ namespace Pulumi.Snowflake
 
     public sealed class GetTagsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// IN clause to filter the list of objects
+        /// </summary>
         [Input("in")]
         public Input<Inputs.GetTagsInInputArgs>? In { get; set; }
 
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         [Input("like")]
         public Input<string>? Like { get; set; }
 
@@ -58,8 +79,17 @@ namespace Pulumi.Snowflake
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// IN clause to filter the list of objects
+        /// </summary>
         public readonly Outputs.GetTagsInResult? In;
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         public readonly string? Like;
+        /// <summary>
+        /// Holds the aggregated output of all tags details queries.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetTagsTagResult> Tags;
 
         [OutputConstructor]

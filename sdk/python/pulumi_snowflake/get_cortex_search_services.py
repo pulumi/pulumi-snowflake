@@ -52,6 +52,9 @@ class GetCortexSearchServicesResult:
     @property
     @pulumi.getter(name="cortexSearchServices")
     def cortex_search_services(self) -> Sequence['outputs.GetCortexSearchServicesCortexSearchServiceResult']:
+        """
+        Holds the output of SHOW CORTEX SEARCH SERVICES.
+        """
         return pulumi.get(self, "cortex_search_services")
 
     @property
@@ -65,21 +68,33 @@ class GetCortexSearchServicesResult:
     @property
     @pulumi.getter(name="in")
     def in_(self) -> Optional['outputs.GetCortexSearchServicesInResult']:
+        """
+        IN clause to filter the list of cortex search services.
+        """
         return pulumi.get(self, "in_")
 
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
+        """
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter
     def limit(self) -> Optional['outputs.GetCortexSearchServicesLimitResult']:
+        """
+        Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        """
         return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter(name="startsWith")
     def starts_with(self) -> Optional[builtins.str]:
+        """
+        Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        """
         return pulumi.get(self, "starts_with")
 
 
@@ -103,7 +118,38 @@ def get_cortex_search_services(in_: Optional[Union['GetCortexSearchServicesInArg
                                starts_with: Optional[builtins.str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetCortexSearchServicesResult:
     """
-    Use this data source to access information about an existing resource.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    # Simple usage
+    simple = snowflake.get_cortex_search_services()
+    pulumi.export("simpleOutput", simple.cortex_search_services)
+    # Filtering (like)
+    like = snowflake.get_cortex_search_services(like="some-name")
+    pulumi.export("likeOutput", like.cortex_search_services)
+    # Filtering (starts_with)
+    starts_with = snowflake.get_cortex_search_services(starts_with="prefix-")
+    pulumi.export("startsWithOutput", starts_with.cortex_search_services)
+    # Filtering (limit)
+    limit = snowflake.get_cortex_search_services(limit={
+        "rows": 10,
+        "from_": "prefix-",
+    })
+    pulumi.export("limitOutput", limit.cortex_search_services)
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param Union['GetCortexSearchServicesInArgs', 'GetCortexSearchServicesInArgsDict'] in_: IN clause to filter the list of cortex search services.
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetCortexSearchServicesLimitArgs', 'GetCortexSearchServicesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     """
     __args__ = dict()
     __args__['in'] = in_
@@ -126,7 +172,38 @@ def get_cortex_search_services_output(in_: Optional[pulumi.Input[Optional[Union[
                                       starts_with: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetCortexSearchServicesResult]:
     """
-    Use this data source to access information about an existing resource.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    # Simple usage
+    simple = snowflake.get_cortex_search_services()
+    pulumi.export("simpleOutput", simple.cortex_search_services)
+    # Filtering (like)
+    like = snowflake.get_cortex_search_services(like="some-name")
+    pulumi.export("likeOutput", like.cortex_search_services)
+    # Filtering (starts_with)
+    starts_with = snowflake.get_cortex_search_services(starts_with="prefix-")
+    pulumi.export("startsWithOutput", starts_with.cortex_search_services)
+    # Filtering (limit)
+    limit = snowflake.get_cortex_search_services(limit={
+        "rows": 10,
+        "from_": "prefix-",
+    })
+    pulumi.export("limitOutput", limit.cortex_search_services)
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param Union['GetCortexSearchServicesInArgs', 'GetCortexSearchServicesInArgsDict'] in_: IN clause to filter the list of cortex search services.
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetCortexSearchServicesLimitArgs', 'GetCortexSearchServicesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     """
     __args__ = dict()
     __args__['in'] = in_

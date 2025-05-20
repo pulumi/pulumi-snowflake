@@ -9,33 +9,38 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// format is database_role_name (string) | object_type (ROLE|DATABASE ROLE|SHARE) | grantee_name (string)
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/grantDatabaseRole:GrantDatabaseRole example '"ABC"."test_db_role"|ROLE|"test_parent_role"'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/grantDatabaseRole:GrantDatabaseRole")]
     public partial class GrantDatabaseRole : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The fully qualified name of the database role which will be granted to share or parent role. For more information about
-        /// this resource, see docs.
+        /// The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
         /// </summary>
         [Output("databaseRoleName")]
         public Output<string> DatabaseRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-        /// For more information about this resource, see docs.
+        /// The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         /// </summary>
         [Output("parentDatabaseRoleName")]
         public Output<string?> ParentDatabaseRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-        /// more information about this resource, see docs.
+        /// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         /// </summary>
         [Output("parentRoleName")]
         public Output<string?> ParentRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-        /// docs.
+        /// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Output("shareName")]
         public Output<string?> ShareName { get; private set; } = null!;
@@ -87,29 +92,25 @@ namespace Pulumi.Snowflake
     public sealed class GrantDatabaseRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the database role which will be granted to share or parent role. For more information about
-        /// this resource, see docs.
+        /// The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
         /// </summary>
         [Input("databaseRoleName", required: true)]
         public Input<string> DatabaseRoleName { get; set; } = null!;
 
         /// <summary>
-        /// The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-        /// For more information about this resource, see docs.
+        /// The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         /// </summary>
         [Input("parentDatabaseRoleName")]
         public Input<string>? ParentDatabaseRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-        /// more information about this resource, see docs.
+        /// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         /// </summary>
         [Input("parentRoleName")]
         public Input<string>? ParentRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-        /// docs.
+        /// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("shareName")]
         public Input<string>? ShareName { get; set; }
@@ -123,29 +124,25 @@ namespace Pulumi.Snowflake
     public sealed class GrantDatabaseRoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the database role which will be granted to share or parent role. For more information about
-        /// this resource, see docs.
+        /// The fully qualified name of the database role which will be granted to share or parent role. For more information about this resource, see docs.
         /// </summary>
         [Input("databaseRoleName")]
         public Input<string>? DatabaseRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the parent database role which will create a parent-child relationship between the roles.
-        /// For more information about this resource, see docs.
+        /// The fully qualified name of the parent database role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         /// </summary>
         [Input("parentDatabaseRoleName")]
         public Input<string>? ParentDatabaseRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For
-        /// more information about this resource, see docs.
+        /// The fully qualified name of the parent account role which will create a parent-child relationship between the roles. For more information about this resource, see docs.
         /// </summary>
         [Input("parentRoleName")]
         public Input<string>? ParentRoleName { get; set; }
 
         /// <summary>
-        /// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see
-        /// docs.
+        /// The fully qualified name of the share on which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("shareName")]
         public Input<string>? ShareName { get; set; }

@@ -15,16 +15,32 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetAccountsResult {
+    /**
+     * @return Holds the aggregated output of all accounts details queries.
+     * 
+     */
     private List<GetAccountsAccount> accounts;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     private @Nullable String like;
+    /**
+     * @return Includes dropped accounts that have not yet been deleted.
+     * 
+     */
     private @Nullable Boolean withHistory;
 
     private GetAccountsResult() {}
+    /**
+     * @return Holds the aggregated output of all accounts details queries.
+     * 
+     */
     public List<GetAccountsAccount> accounts() {
         return this.accounts;
     }
@@ -35,9 +51,17 @@ public final class GetAccountsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
+    /**
+     * @return Includes dropped accounts that have not yet been deleted.
+     * 
+     */
     public Optional<Boolean> withHistory() {
         return Optional.ofNullable(this.withHistory);
     }

@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * format is application_role_name (string) | object_type (ACCOUNT_ROLE|APPLICATION) | grantee_name (string)
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/grantApplicationRole:GrantApplicationRole example '"my_application"."app_role_1"|ACCOUNT_ROLE|"my_role"'
+ * ```
+ */
 export class GrantApplicationRole extends pulumi.CustomResource {
     /**
      * Get an existing GrantApplicationRole resource's state with the given name, ID, and optional extra
@@ -41,8 +50,7 @@ export class GrantApplicationRole extends pulumi.CustomResource {
      */
     public readonly applicationRoleName!: pulumi.Output<string>;
     /**
-     * The fully qualified name of the account role on which application role will be granted. For more information about this
-     * resource, see docs.
+     * The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
      */
     public readonly parentAccountRoleName!: pulumi.Output<string | undefined>;
 
@@ -89,8 +97,7 @@ export interface GrantApplicationRoleState {
      */
     applicationRoleName?: pulumi.Input<string>;
     /**
-     * The fully qualified name of the account role on which application role will be granted. For more information about this
-     * resource, see docs.
+     * The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
      */
     parentAccountRoleName?: pulumi.Input<string>;
 }
@@ -108,8 +115,7 @@ export interface GrantApplicationRoleArgs {
      */
     applicationRoleName: pulumi.Input<string>;
     /**
-     * The fully qualified name of the account role on which application role will be granted. For more information about this
-     * resource, see docs.
+     * The fully qualified name of the account role on which application role will be granted. For more information about this resource, see docs.
      */
     parentAccountRoleName?: pulumi.Input<string>;
 }

@@ -16,23 +16,47 @@ public final class GetDatabaseRolesPlainArgs extends com.pulumi.resources.Invoke
 
     public static final GetDatabaseRolesPlainArgs Empty = new GetDatabaseRolesPlainArgs();
 
+    /**
+     * The database from which to return the database roles from.
+     * 
+     */
     @Import(name="inDatabase", required=true)
     private String inDatabase;
 
+    /**
+     * @return The database from which to return the database roles from.
+     * 
+     */
     public String inDatabase() {
         return this.inDatabase;
     }
 
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     @Import(name="like")
     private @Nullable String like;
 
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
 
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
     @Import(name="limit")
     private @Nullable GetDatabaseRolesLimit limit;
 
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
     public Optional<GetDatabaseRolesLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
@@ -63,16 +87,34 @@ public final class GetDatabaseRolesPlainArgs extends com.pulumi.resources.Invoke
             $ = new GetDatabaseRolesPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param inDatabase The database from which to return the database roles from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder inDatabase(String inDatabase) {
             $.inDatabase = inDatabase;
             return this;
         }
 
+        /**
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder like(@Nullable String like) {
             $.like = like;
             return this;
         }
 
+        /**
+         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder limit(@Nullable GetDatabaseRolesLimit limit) {
             $.limit = limit;
             return this;

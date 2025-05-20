@@ -19,7 +19,15 @@ public final class GetSharesResult {
      * 
      */
     private String id;
+    /**
+     * @return Filters the command output by object name.
+     * 
+     */
     private @Nullable String pattern;
+    /**
+     * @return List of all the shares available in the system.
+     * 
+     */
     private List<GetSharesShare> shares;
 
     private GetSharesResult() {}
@@ -30,9 +38,17 @@ public final class GetSharesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Filters the command output by object name.
+     * 
+     */
     public Optional<String> pattern() {
         return Optional.ofNullable(this.pattern);
     }
+    /**
+     * @return List of all the shares available in the system.
+     * 
+     */
     public List<GetSharesShare> shares() {
         return this.shares;
     }

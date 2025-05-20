@@ -46,14 +46,14 @@ public final class GetGrantsGrantsTo extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Lists all the privileges and roles granted to the application role. Must be a fully qualified name (&#34;&amp;lt;app_name&amp;gt;&#34;.&#34;&amp;lt;app_role_name&amp;gt;&#34;).
+     * Lists all the privileges and roles granted to the application role. Must be a fully qualified name (&#34;&amp;lt;app*name&amp;gt;&#34;.&#34;&amp;lt;app*role_name&amp;gt;&#34;).
      * 
      */
     @Import(name="applicationRole")
     private @Nullable String applicationRole;
 
     /**
-     * @return Lists all the privileges and roles granted to the application role. Must be a fully qualified name (&#34;&amp;lt;app_name&amp;gt;&#34;.&#34;&amp;lt;app_role_name&amp;gt;&#34;).
+     * @return Lists all the privileges and roles granted to the application role. Must be a fully qualified name (&#34;&amp;lt;app*name&amp;gt;&#34;.&#34;&amp;lt;app*role_name&amp;gt;&#34;).
      * 
      */
     public Optional<String> applicationRole() {
@@ -61,14 +61,14 @@ public final class GetGrantsGrantsTo extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * Lists all privileges and roles granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db_name&amp;gt;&#34;.&#34;&amp;lt;database_role_name&amp;gt;&#34;).
+     * Lists all privileges and roles granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
      * 
      */
     @Import(name="databaseRole")
     private @Nullable String databaseRole;
 
     /**
-     * @return Lists all privileges and roles granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db_name&amp;gt;&#34;.&#34;&amp;lt;database_role_name&amp;gt;&#34;).
+     * @return Lists all privileges and roles granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
      * 
      */
     public Optional<String> databaseRole() {
@@ -157,7 +157,7 @@ public final class GetGrantsGrantsTo extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param applicationRole Lists all the privileges and roles granted to the application role. Must be a fully qualified name (&#34;&amp;lt;app_name&amp;gt;&#34;.&#34;&amp;lt;app_role_name&amp;gt;&#34;).
+         * @param applicationRole Lists all the privileges and roles granted to the application role. Must be a fully qualified name (&#34;&amp;lt;app*name&amp;gt;&#34;.&#34;&amp;lt;app*role_name&amp;gt;&#34;).
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class GetGrantsGrantsTo extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param databaseRole Lists all privileges and roles granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db_name&amp;gt;&#34;.&#34;&amp;lt;database_role_name&amp;gt;&#34;).
+         * @param databaseRole Lists all privileges and roles granted to the database role. Must be a fully qualified name (&#34;&amp;lt;db*name&amp;gt;&#34;.&#34;&amp;lt;database*role_name&amp;gt;&#34;).
          * 
          * @return builder
          * 

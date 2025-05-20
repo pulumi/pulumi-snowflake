@@ -11,6 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Data source used to get details of filtered accounts. Filtering is aligned with the current possibilities for [SHOW ACCOUNTS](https://docs.snowflake.com/en/sql-reference/sql/show-accounts) query. The results of SHOW are encapsulated in one output collection `accounts`.
 func GetAccounts(ctx *pulumi.Context, args *GetAccountsArgs, opts ...pulumi.InvokeOption) (*GetAccountsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAccountsResult
@@ -23,17 +24,22 @@ func GetAccounts(ctx *pulumi.Context, args *GetAccountsArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getAccounts.
 type GetAccountsArgs struct {
-	Like        *string `pulumi:"like"`
-	WithHistory *bool   `pulumi:"withHistory"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Includes dropped accounts that have not yet been deleted.
+	WithHistory *bool `pulumi:"withHistory"`
 }
 
 // A collection of values returned by getAccounts.
 type GetAccountsResult struct {
+	// Holds the aggregated output of all accounts details queries.
 	Accounts []GetAccountsAccount `pulumi:"accounts"`
 	// The provider-assigned unique ID for this managed resource.
-	Id          string  `pulumi:"id"`
-	Like        *string `pulumi:"like"`
-	WithHistory *bool   `pulumi:"withHistory"`
+	Id string `pulumi:"id"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Includes dropped accounts that have not yet been deleted.
+	WithHistory *bool `pulumi:"withHistory"`
 }
 
 func GetAccountsOutput(ctx *pulumi.Context, args GetAccountsOutputArgs, opts ...pulumi.InvokeOption) GetAccountsResultOutput {
@@ -47,8 +53,10 @@ func GetAccountsOutput(ctx *pulumi.Context, args GetAccountsOutputArgs, opts ...
 
 // A collection of arguments for invoking getAccounts.
 type GetAccountsOutputArgs struct {
-	Like        pulumi.StringPtrInput `pulumi:"like"`
-	WithHistory pulumi.BoolPtrInput   `pulumi:"withHistory"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// Includes dropped accounts that have not yet been deleted.
+	WithHistory pulumi.BoolPtrInput `pulumi:"withHistory"`
 }
 
 func (GetAccountsOutputArgs) ElementType() reflect.Type {
@@ -70,6 +78,7 @@ func (o GetAccountsResultOutput) ToGetAccountsResultOutputWithContext(ctx contex
 	return o
 }
 
+// Holds the aggregated output of all accounts details queries.
 func (o GetAccountsResultOutput) Accounts() GetAccountsAccountArrayOutput {
 	return o.ApplyT(func(v GetAccountsResult) []GetAccountsAccount { return v.Accounts }).(GetAccountsAccountArrayOutput)
 }
@@ -79,10 +88,12 @@ func (o GetAccountsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetAccountsResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetAccountsResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
+// Includes dropped accounts that have not yet been deleted.
 func (o GetAccountsResultOutput) WithHistory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetAccountsResult) *bool { return v.WithHistory }).(pulumi.BoolPtrOutput)
 }

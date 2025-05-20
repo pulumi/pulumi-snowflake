@@ -15,6 +15,10 @@ public final class GetCurrentRoleResult {
      * 
      */
     private String id;
+    /**
+     * @return The name of the [primary role](https://docs.snowflake.com/en/user-guide/security-access-control-overview.html#label-access-control-role-enforcement) in use for the current session.
+     * 
+     */
     private String name;
 
     private GetCurrentRoleResult() {}
@@ -25,6 +29,10 @@ public final class GetCurrentRoleResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The name of the [primary role](https://docs.snowflake.com/en/user-guide/security-access-control-overview.html#label-access-control-role-enforcement) in use for the current session.
+     * 
+     */
     public String name() {
         return this.name;
     }

@@ -17,16 +17,14 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
     public static final ManagedAccountArgs Empty = new ManagedAccountArgs();
 
     /**
-     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-     * administrator for the account.
+     * Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
      * 
      */
     @Import(name="adminName", required=true)
     private Output<String> adminName;
 
     /**
-     * @return Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-     * administrator for the account.
+     * @return Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
      * 
      */
     public Output<String> adminName() {
@@ -34,16 +32,14 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Password for the initial user in the managed account. Check [Snowflake-provided password
-     * policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+     * Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      * 
      */
     @Import(name="adminPassword", required=true)
     private Output<String> adminPassword;
 
     /**
-     * @return Password for the initial user in the managed account. Check [Snowflake-provided password
-     * policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+     * @return Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
      * 
      */
     public Output<String> adminPassword() {
@@ -81,14 +77,14 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the type of managed account.
+     * (Default: `READER`) Specifies the type of managed account.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Specifies the type of managed account.
+     * @return (Default: `READER`) Specifies the type of managed account.
      * 
      */
     public Optional<Output<String>> type() {
@@ -124,8 +120,7 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param adminName Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-         * administrator for the account.
+         * @param adminName Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
          * 
          * @return builder
          * 
@@ -136,8 +131,7 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param adminName Identifier, as well as login name, for the initial user in the managed account. This user serves as the account
-         * administrator for the account.
+         * @param adminName Identifier, as well as login name, for the initial user in the managed account. This user serves as the account administrator for the account.
          * 
          * @return builder
          * 
@@ -147,8 +141,7 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param adminPassword Password for the initial user in the managed account. Check [Snowflake-provided password
-         * policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+         * @param adminPassword Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
          * 
          * @return builder
          * 
@@ -159,8 +152,7 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param adminPassword Password for the initial user in the managed account. Check [Snowflake-provided password
-         * policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
+         * @param adminPassword Password for the initial user in the managed account. Check [Snowflake-provided password policy](https://docs.snowflake.com/en/user-guide/admin-user-management#snowflake-provided-password-policy).
          * 
          * @return builder
          * 
@@ -212,7 +204,7 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type Specifies the type of managed account.
+         * @param type (Default: `READER`) Specifies the type of managed account.
          * 
          * @return builder
          * 
@@ -223,7 +215,7 @@ public final class ManagedAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param type Specifies the type of managed account.
+         * @param type (Default: `READER`) Specifies the type of managed account.
          * 
          * @return builder
          * 

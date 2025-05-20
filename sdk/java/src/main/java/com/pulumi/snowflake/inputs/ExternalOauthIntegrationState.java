@@ -66,16 +66,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the list of roles that the client can set as the primary role. For more information about this resource, see
-     * docs.
+     * Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
      * 
      */
     @Import(name="externalOauthAllowedRolesLists")
     private @Nullable Output<List<String>> externalOauthAllowedRolesLists;
 
     /**
-     * @return Specifies the list of roles that the client can set as the primary role. For more information about this resource, see
-     * docs.
+     * @return Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> externalOauthAllowedRolesLists() {
@@ -83,16 +81,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values
-     * are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+     * Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
      * 
      */
     @Import(name="externalOauthAnyRoleMode")
     private @Nullable Output<String> externalOauthAnyRoleMode;
 
     /**
-     * @return Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values
-     * are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+     * @return Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
      * 
      */
     public Optional<Output<String>> externalOauthAnyRoleMode() {
@@ -100,16 +96,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s
-     * Snowflake Account URL
+     * Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
      * 
      */
     @Import(name="externalOauthAudienceLists")
     private @Nullable Output<List<String>> externalOauthAudienceLists;
 
     /**
-     * @return Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s
-     * Snowflake Account URL
+     * @return Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
      * 
      */
     public Optional<Output<List<String>>> externalOauthAudienceLists() {
@@ -117,20 +111,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the
-     * ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT
-     * command to set the EXTERNAL_OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more information
-     * about this resource, see docs.
+     * Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     @Import(name="externalOauthBlockedRolesLists")
     private @Nullable Output<List<String>> externalOauthBlockedRolesLists;
 
     /**
-     * @return Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the
-     * ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT
-     * command to set the EXTERNAL_OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more information
-     * about this resource, see docs.
+     * @return Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> externalOauthBlockedRolesLists() {
@@ -153,18 +141,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
-     * OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the
-     * resource is recreated.
+     * Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
      * 
      */
     @Import(name="externalOauthJwsKeysUrls")
     private @Nullable Output<List<String>> externalOauthJwsKeysUrls;
 
     /**
-     * @return Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
-     * OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the
-     * resource is recreated.
+     * @return Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
      * 
      */
     public Optional<Output<List<String>>> externalOauthJwsKeysUrls() {
@@ -172,16 +156,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-     * If removed from the config, the resource is recreated.
+     * Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
      * 
      */
     @Import(name="externalOauthRsaPublicKey")
     private @Nullable Output<String> externalOauthRsaPublicKey;
 
     /**
-     * @return Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-     * If removed from the config, the resource is recreated.
+     * @return Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
      * 
      */
     public Optional<Output<String>> externalOauthRsaPublicKey() {
@@ -189,16 +171,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
-     * key rotation. If removed from the config, the resource is recreated.
+     * Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
      * 
      */
     @Import(name="externalOauthRsaPublicKey2")
     private @Nullable Output<String> externalOauthRsaPublicKey2;
 
     /**
-     * @return Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
-     * key rotation. If removed from the config, the resource is recreated.
+     * @return Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
      * 
      */
     public Optional<Output<String>> externalOauthRsaPublicKey2() {
@@ -221,16 +201,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is
-     * recreated.
+     * Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
      * 
      */
     @Import(name="externalOauthScopeMappingAttribute")
     private @Nullable Output<String> externalOauthScopeMappingAttribute;
 
     /**
-     * @return Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is
-     * recreated.
+     * @return Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
      * 
      */
     public Optional<Output<String>> externalOauthScopeMappingAttribute() {
@@ -238,16 +216,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid
-     * values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+     * Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
      * 
      */
     @Import(name="externalOauthSnowflakeUserMappingAttribute")
     private @Nullable Output<String> externalOauthSnowflakeUserMappingAttribute;
 
     /**
-     * @return Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid
-     * values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+     * @return Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
      * 
      */
     public Optional<Output<String>> externalOauthSnowflakeUserMappingAttribute() {
@@ -255,16 +231,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If
-     * removed from the config, the resource is recreated.
+     * Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
      * 
      */
     @Import(name="externalOauthTokenUserMappingClaims")
     private @Nullable Output<List<String>> externalOauthTokenUserMappingClaims;
 
     /**
-     * @return Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If
-     * removed from the config, the resource is recreated.
+     * @return Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
      * 
      */
     public Optional<Output<List<String>>> externalOauthTokenUserMappingClaims() {
@@ -272,16 +246,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
-     * OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+     * Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
      * 
      */
     @Import(name="externalOauthType")
     private @Nullable Output<String> externalOauthType;
 
     /**
-     * @return Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
-     * OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+     * @return Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
      * 
      */
     public Optional<Output<String>> externalOauthType() {
@@ -289,16 +261,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -306,18 +276,14 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
-     * be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
-     * be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -471,8 +437,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role. For more information about this resource, see
-         * docs.
+         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -483,8 +448,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role. For more information about this resource, see
-         * docs.
+         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -494,8 +458,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role. For more information about this resource, see
-         * docs.
+         * @param externalOauthAllowedRolesLists Specifies the list of roles that the client can set as the primary role. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -505,8 +468,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthAnyRoleMode Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values
-         * are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+         * @param externalOauthAnyRoleMode Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
          * 
          * @return builder
          * 
@@ -517,8 +479,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthAnyRoleMode Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values
-         * are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
+         * @param externalOauthAnyRoleMode Specifies whether the OAuth client or user can use a role that is not defined in the OAuth access token. Valid values are (case-insensitive): `DISABLE` | `ENABLE` | `ENABLE_FOR_PRIVILEGE`.
          * 
          * @return builder
          * 
@@ -528,8 +489,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthAudienceLists Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s
-         * Snowflake Account URL
+         * @param externalOauthAudienceLists Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
          * 
          * @return builder
          * 
@@ -540,8 +500,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthAudienceLists Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s
-         * Snowflake Account URL
+         * @param externalOauthAudienceLists Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
          * 
          * @return builder
          * 
@@ -551,8 +510,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthAudienceLists Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s
-         * Snowflake Account URL
+         * @param externalOauthAudienceLists Specifies additional values that can be used for the access token&#39;s audience validation on top of using the Customer&#39;s Snowflake Account URL
          * 
          * @return builder
          * 
@@ -562,10 +520,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the
-         * ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT
-         * command to set the EXTERNAL_OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more information
-         * about this resource, see docs.
+         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -576,10 +531,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the
-         * ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT
-         * command to set the EXTERNAL_OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more information
-         * about this resource, see docs.
+         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -589,10 +541,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the
-         * ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT
-         * command to set the EXTERNAL_OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more information
-         * about this resource, see docs.
+         * @param externalOauthBlockedRolesLists Specifies the list of roles that a client cannot set as the primary role. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the EXTERNAL*OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -623,9 +572,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthJwsKeysUrls Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
-         * OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the
-         * resource is recreated.
+         * @param externalOauthJwsKeysUrls Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 
@@ -636,9 +583,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthJwsKeysUrls Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
-         * OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the
-         * resource is recreated.
+         * @param externalOauthJwsKeysUrls Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 
@@ -648,9 +593,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthJwsKeysUrls Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External
-         * OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the
-         * resource is recreated.
+         * @param externalOauthJwsKeysUrls Specifies the endpoint or a list of endpoints from which to download public keys or certificates to validate an External OAuth access token. The maximum number of URLs that can be specified in the list is 3. If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 
@@ -660,8 +603,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthRsaPublicKey Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-         * If removed from the config, the resource is recreated.
+         * @param externalOauthRsaPublicKey Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 
@@ -672,8 +614,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthRsaPublicKey Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers.
-         * If removed from the config, the resource is recreated.
+         * @param externalOauthRsaPublicKey Specifies a Base64-encoded RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 
@@ -683,8 +624,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthRsaPublicKey2 Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
-         * key rotation. If removed from the config, the resource is recreated.
+         * @param externalOauthRsaPublicKey2 Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 
@@ -695,8 +635,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthRsaPublicKey2 Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for
-         * key rotation. If removed from the config, the resource is recreated.
+         * @param externalOauthRsaPublicKey2 Specifies a second RSA public key, without the -----BEGIN PUBLIC KEY----- and -----END PUBLIC KEY----- headers. Used for key rotation. If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 
@@ -727,8 +666,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthScopeMappingAttribute Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is
-         * recreated.
+         * @param externalOauthScopeMappingAttribute Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 
@@ -739,8 +677,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthScopeMappingAttribute Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is
-         * recreated.
+         * @param externalOauthScopeMappingAttribute Specifies the access token claim to map the access token to an account role. If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 
@@ -750,8 +687,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthSnowflakeUserMappingAttribute Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid
-         * values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+         * @param externalOauthSnowflakeUserMappingAttribute Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
          * 
          * @return builder
          * 
@@ -762,8 +698,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthSnowflakeUserMappingAttribute Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid
-         * values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
+         * @param externalOauthSnowflakeUserMappingAttribute Indicates which Snowflake user record attribute should be used to map the access token to a Snowflake user record. Valid values are (case-insensitive): `LOGIN_NAME` | `EMAIL_ADDRESS`.
          * 
          * @return builder
          * 
@@ -773,8 +708,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthTokenUserMappingClaims Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If
-         * removed from the config, the resource is recreated.
+         * @param externalOauthTokenUserMappingClaims Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 
@@ -785,8 +719,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthTokenUserMappingClaims Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If
-         * removed from the config, the resource is recreated.
+         * @param externalOauthTokenUserMappingClaims Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 
@@ -796,8 +729,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthTokenUserMappingClaims Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If
-         * removed from the config, the resource is recreated.
+         * @param externalOauthTokenUserMappingClaims Specifies the access token claim or claims that can be used to map the access token to a Snowflake user record. If removed from the config, the resource is recreated.
          * 
          * @return builder
          * 
@@ -807,8 +739,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthType Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
-         * OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+         * @param externalOauthType Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
          * 
          * @return builder
          * 
@@ -819,8 +750,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param externalOauthType Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom
-         * OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
+         * @param externalOauthType Specifies the OAuth 2.0 authorization server to be Okta, Microsoft Azure AD, Ping Identity PingFederate, or a Custom OAuth 2.0 authorization server. Valid values are (case-insensitive): `OKTA` | `AZURE` | `PING_FEDERATE` | `CUSTOM`.
          * 
          * @return builder
          * 
@@ -830,8 +760,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -842,8 +771,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -853,9 +781,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
-         * be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-         * following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -866,9 +792,7 @@ public final class ExternalOauthIntegrationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param name Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should
-         * be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-         * following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the name of the External Oath integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 

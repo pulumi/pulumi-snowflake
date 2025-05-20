@@ -34,7 +34,7 @@ class PipeArgs:
         :param pulumi.Input[builtins.str] copy_statement: Specifies the copy statement for the pipe.
         :param pulumi.Input[builtins.str] database: The database in which to create the pipe.
         :param pulumi.Input[builtins.str] schema: The schema in which to create the pipe.
-        :param pulumi.Input[builtins.bool] auto_ingest: Specifies a auto_ingest param for the pipe.
+        :param pulumi.Input[builtins.bool] auto_ingest: (Default: `false`) Specifies a auto_ingest param for the pipe.
         :param pulumi.Input[builtins.str] aws_sns_topic_arn: Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the pipe.
         :param pulumi.Input[builtins.str] error_integration: Specifies the name of the notification integration used for error notifications.
@@ -97,7 +97,7 @@ class PipeArgs:
     @pulumi.getter(name="autoIngest")
     def auto_ingest(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies a auto_ingest param for the pipe.
+        (Default: `false`) Specifies a auto_ingest param for the pipe.
         """
         return pulumi.get(self, "auto_ingest")
 
@@ -183,14 +183,13 @@ class _PipeState:
                  schema: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering Pipe resources.
-        :param pulumi.Input[builtins.bool] auto_ingest: Specifies a auto_ingest param for the pipe.
+        :param pulumi.Input[builtins.bool] auto_ingest: (Default: `false`) Specifies a auto_ingest param for the pipe.
         :param pulumi.Input[builtins.str] aws_sns_topic_arn: Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the pipe.
         :param pulumi.Input[builtins.str] copy_statement: Specifies the copy statement for the pipe.
         :param pulumi.Input[builtins.str] database: The database in which to create the pipe.
         :param pulumi.Input[builtins.str] error_integration: Specifies the name of the notification integration used for error notifications.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] integration: Specifies an integration for the pipe.
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
         :param pulumi.Input[builtins.str] notification_channel: Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
@@ -226,7 +225,7 @@ class _PipeState:
     @pulumi.getter(name="autoIngest")
     def auto_ingest(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Specifies a auto_ingest param for the pipe.
+        (Default: `false`) Specifies a auto_ingest param for the pipe.
         """
         return pulumi.get(self, "auto_ingest")
 
@@ -298,8 +297,7 @@ class _PipeState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -385,10 +383,17 @@ class Pipe(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a Pipe resource with the given unique name, props, and options.
+        ## Import
+
+        format is database name | schema name | pipe name
+
+        ```sh
+        $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] auto_ingest: Specifies a auto_ingest param for the pipe.
+        :param pulumi.Input[builtins.bool] auto_ingest: (Default: `false`) Specifies a auto_ingest param for the pipe.
         :param pulumi.Input[builtins.str] aws_sns_topic_arn: Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the pipe.
         :param pulumi.Input[builtins.str] copy_statement: Specifies the copy statement for the pipe.
@@ -405,7 +410,14 @@ class Pipe(pulumi.CustomResource):
                  args: PipeArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a Pipe resource with the given unique name, props, and options.
+        ## Import
+
+        format is database name | schema name | pipe name
+
+        ```sh
+        $ pulumi import snowflake:index/pipe:Pipe example 'dbName|schemaName|pipeName'
+        ```
+
         :param str resource_name: The name of the resource.
         :param PipeArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -486,14 +498,13 @@ class Pipe(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.bool] auto_ingest: Specifies a auto_ingest param for the pipe.
+        :param pulumi.Input[builtins.bool] auto_ingest: (Default: `false`) Specifies a auto_ingest param for the pipe.
         :param pulumi.Input[builtins.str] aws_sns_topic_arn: Specifies the Amazon Resource Name (ARN) for the SNS topic for your S3 bucket.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the pipe.
         :param pulumi.Input[builtins.str] copy_statement: Specifies the copy statement for the pipe.
         :param pulumi.Input[builtins.str] database: The database in which to create the pipe.
         :param pulumi.Input[builtins.str] error_integration: Specifies the name of the notification integration used for error notifications.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] integration: Specifies an integration for the pipe.
         :param pulumi.Input[builtins.str] name: Specifies the identifier for the pipe; must be unique for the database and schema in which the pipe is created.
         :param pulumi.Input[builtins.str] notification_channel: Amazon Resource Name of the Amazon SQS queue for the stage named in the DEFINITION column.
@@ -522,7 +533,7 @@ class Pipe(pulumi.CustomResource):
     @pulumi.getter(name="autoIngest")
     def auto_ingest(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
-        Specifies a auto_ingest param for the pipe.
+        (Default: `false`) Specifies a auto_ingest param for the pipe.
         """
         return pulumi.get(self, "auto_ingest")
 
@@ -570,8 +581,7 @@ class Pipe(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 

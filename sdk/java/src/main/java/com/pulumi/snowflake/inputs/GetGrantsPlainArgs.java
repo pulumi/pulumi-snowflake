@@ -18,37 +18,77 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetGrantsPlainArgs Empty = new GetGrantsPlainArgs();
 
+    /**
+     * Lists all privileges on new (i.e. future) objects.
+     * 
+     */
     @Import(name="futureGrantsIn")
     private @Nullable GetGrantsFutureGrantsIn futureGrantsIn;
 
+    /**
+     * @return Lists all privileges on new (i.e. future) objects.
+     * 
+     */
     public Optional<GetGrantsFutureGrantsIn> futureGrantsIn() {
         return Optional.ofNullable(this.futureGrantsIn);
     }
 
+    /**
+     * Lists all privileges granted to the object on new (i.e. future) objects.
+     * 
+     */
     @Import(name="futureGrantsTo")
     private @Nullable GetGrantsFutureGrantsTo futureGrantsTo;
 
+    /**
+     * @return Lists all privileges granted to the object on new (i.e. future) objects.
+     * 
+     */
     public Optional<GetGrantsFutureGrantsTo> futureGrantsTo() {
         return Optional.ofNullable(this.futureGrantsTo);
     }
 
+    /**
+     * Lists all objects to which the given object has been granted.
+     * 
+     */
     @Import(name="grantsOf")
     private @Nullable GetGrantsGrantsOf grantsOf;
 
+    /**
+     * @return Lists all objects to which the given object has been granted.
+     * 
+     */
     public Optional<GetGrantsGrantsOf> grantsOf() {
         return Optional.ofNullable(this.grantsOf);
     }
 
+    /**
+     * Lists all privileges that have been granted on an object or on an account.
+     * 
+     */
     @Import(name="grantsOn")
     private @Nullable GetGrantsGrantsOn grantsOn;
 
+    /**
+     * @return Lists all privileges that have been granted on an object or on an account.
+     * 
+     */
     public Optional<GetGrantsGrantsOn> grantsOn() {
         return Optional.ofNullable(this.grantsOn);
     }
 
+    /**
+     * Lists all privileges granted to the object.
+     * 
+     */
     @Import(name="grantsTo")
     private @Nullable GetGrantsGrantsTo grantsTo;
 
+    /**
+     * @return Lists all privileges granted to the object.
+     * 
+     */
     public Optional<GetGrantsGrantsTo> grantsTo() {
         return Optional.ofNullable(this.grantsTo);
     }
@@ -81,26 +121,56 @@ public final class GetGrantsPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetGrantsPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param futureGrantsIn Lists all privileges on new (i.e. future) objects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder futureGrantsIn(@Nullable GetGrantsFutureGrantsIn futureGrantsIn) {
             $.futureGrantsIn = futureGrantsIn;
             return this;
         }
 
+        /**
+         * @param futureGrantsTo Lists all privileges granted to the object on new (i.e. future) objects.
+         * 
+         * @return builder
+         * 
+         */
         public Builder futureGrantsTo(@Nullable GetGrantsFutureGrantsTo futureGrantsTo) {
             $.futureGrantsTo = futureGrantsTo;
             return this;
         }
 
+        /**
+         * @param grantsOf Lists all objects to which the given object has been granted.
+         * 
+         * @return builder
+         * 
+         */
         public Builder grantsOf(@Nullable GetGrantsGrantsOf grantsOf) {
             $.grantsOf = grantsOf;
             return this;
         }
 
+        /**
+         * @param grantsOn Lists all privileges that have been granted on an object or on an account.
+         * 
+         * @return builder
+         * 
+         */
         public Builder grantsOn(@Nullable GetGrantsGrantsOn grantsOn) {
             $.grantsOn = grantsOn;
             return this;
         }
 
+        /**
+         * @param grantsTo Lists all privileges granted to the object.
+         * 
+         * @return builder
+         * 
+         */
         public Builder grantsTo(@Nullable GetGrantsGrantsTo grantsTo) {
             $.grantsTo = grantsTo;
             return this;

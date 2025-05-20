@@ -41,6 +41,9 @@ class GetSystemGenerateScimAccessTokenResult:
     @property
     @pulumi.getter(name="accessToken")
     def access_token(self) -> builtins.str:
+        """
+        SCIM Access Token
+        """
         return pulumi.get(self, "access_token")
 
     @property
@@ -54,6 +57,9 @@ class GetSystemGenerateScimAccessTokenResult:
     @property
     @pulumi.getter(name="integrationName")
     def integration_name(self) -> builtins.str:
+        """
+        SCIM Integration Name
+        """
         return pulumi.get(self, "integration_name")
 
 
@@ -71,7 +77,21 @@ class AwaitableGetSystemGenerateScimAccessTokenResult(GetSystemGenerateScimAcces
 def get_system_generate_scim_access_token(integration_name: Optional[builtins.str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSystemGenerateScimAccessTokenResult:
     """
-    Use this data source to access information about an existing resource.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    scim = snowflake.get_system_generate_scim_access_token(integration_name="AAD_PROVISIONING")
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param builtins.str integration_name: SCIM Integration Name
     """
     __args__ = dict()
     __args__['integrationName'] = integration_name
@@ -85,7 +105,21 @@ def get_system_generate_scim_access_token(integration_name: Optional[builtins.st
 def get_system_generate_scim_access_token_output(integration_name: Optional[pulumi.Input[builtins.str]] = None,
                                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSystemGenerateScimAccessTokenResult]:
     """
-    Use this data source to access information about an existing resource.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    scim = snowflake.get_system_generate_scim_access_token(integration_name="AAD_PROVISIONING")
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param builtins.str integration_name: SCIM Integration Name
     """
     __args__ = dict()
     __args__['integrationName'] = integration_name

@@ -32,26 +32,14 @@ class MaskingPolicyArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a MaskingPolicy resource.
-        :param pulumi.Input[Sequence[pulumi.Input['MaskingPolicyArgumentArgs']]] arguments: List of the arguments for the masking policy. The first column and its data type always indicate the column data type
-               values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
-               first column argument in a conditional masking policy.
-        :param pulumi.Input[builtins.str] body: Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
-               characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
-               semantically significant.
-        :param pulumi.Input[builtins.str] database: The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-               following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] return_data_type: The return data type must match the input data type of the first column that is specified as an input column. For more
-               information about data types, check [Snowflake
-               docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-               following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input['MaskingPolicyArgumentArgs']]] arguments: List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+        :param pulumi.Input[builtins.str] body: Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        :param pulumi.Input[builtins.str] database: The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] return_data_type: The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the masking policy.
-        :param pulumi.Input[builtins.str] exempt_other_policies: Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
-               by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
-               are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-               to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-               is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] exempt_other_policies: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         pulumi.set(__self__, "arguments", arguments)
         pulumi.set(__self__, "body", body)
@@ -69,9 +57,7 @@ class MaskingPolicyArgs:
     @pulumi.getter
     def arguments(self) -> pulumi.Input[Sequence[pulumi.Input['MaskingPolicyArgumentArgs']]]:
         """
-        List of the arguments for the masking policy. The first column and its data type always indicate the column data type
-        values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
-        first column argument in a conditional masking policy.
+        List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
         """
         return pulumi.get(self, "arguments")
 
@@ -83,9 +69,7 @@ class MaskingPolicyArgs:
     @pulumi.getter
     def body(self) -> pulumi.Input[builtins.str]:
         """
-        Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
-        characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
-        semantically significant.
+        Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "body")
 
@@ -97,8 +81,7 @@ class MaskingPolicyArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[builtins.str]:
         """
-        The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-        following characters: `|`, `.`, `"`.
+        The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -110,9 +93,7 @@ class MaskingPolicyArgs:
     @pulumi.getter(name="returnDataType")
     def return_data_type(self) -> pulumi.Input[builtins.str]:
         """
-        The return data type must match the input data type of the first column that is specified as an input column. For more
-        information about data types, check [Snowflake
-        docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         """
         return pulumi.get(self, "return_data_type")
 
@@ -124,8 +105,7 @@ class MaskingPolicyArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[builtins.str]:
         """
-        The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-        following characters: `|`, `.`, `"`.
+        The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -149,10 +129,7 @@ class MaskingPolicyArgs:
     @pulumi.getter(name="exemptOtherPolicies")
     def exempt_other_policies(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
-        by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
-        are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-        to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "exempt_other_policies")
 
@@ -164,8 +141,7 @@ class MaskingPolicyArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-        is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -190,29 +166,16 @@ class _MaskingPolicyState:
                  show_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['MaskingPolicyShowOutputArgs']]]] = None):
         """
         Input properties used for looking up and filtering MaskingPolicy resources.
-        :param pulumi.Input[Sequence[pulumi.Input['MaskingPolicyArgumentArgs']]] arguments: List of the arguments for the masking policy. The first column and its data type always indicate the column data type
-               values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
-               first column argument in a conditional masking policy.
-        :param pulumi.Input[builtins.str] body: Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
-               characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
-               semantically significant.
+        :param pulumi.Input[Sequence[pulumi.Input['MaskingPolicyArgumentArgs']]] arguments: List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+        :param pulumi.Input[builtins.str] body: Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the masking policy.
-        :param pulumi.Input[builtins.str] database: The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-               following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['MaskingPolicyDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE MASKING POLICY` for the given masking policy.
-        :param pulumi.Input[builtins.str] exempt_other_policies: Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
-               by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
-               are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-               to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-               is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] return_data_type: The return data type must match the input data type of the first column that is specified as an input column. For more
-               information about data types, check [Snowflake
-               docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-               following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] exempt_other_policies: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] return_data_type: The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['MaskingPolicyShowOutputArgs']]] show_outputs: Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
         """
         if arguments is not None:
@@ -242,9 +205,7 @@ class _MaskingPolicyState:
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaskingPolicyArgumentArgs']]]]:
         """
-        List of the arguments for the masking policy. The first column and its data type always indicate the column data type
-        values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
-        first column argument in a conditional masking policy.
+        List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
         """
         return pulumi.get(self, "arguments")
 
@@ -256,9 +217,7 @@ class _MaskingPolicyState:
     @pulumi.getter
     def body(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
-        characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
-        semantically significant.
+        Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "body")
 
@@ -282,8 +241,7 @@ class _MaskingPolicyState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-        following characters: `|`, `.`, `"`.
+        The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -307,10 +265,7 @@ class _MaskingPolicyState:
     @pulumi.getter(name="exemptOtherPolicies")
     def exempt_other_policies(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
-        by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
-        are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-        to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "exempt_other_policies")
 
@@ -322,8 +277,7 @@ class _MaskingPolicyState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -335,8 +289,7 @@ class _MaskingPolicyState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-        is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -348,9 +301,7 @@ class _MaskingPolicyState:
     @pulumi.getter(name="returnDataType")
     def return_data_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The return data type must match the input data type of the first column that is specified as an input column. For more
-        information about data types, check [Snowflake
-        docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         """
         return pulumi.get(self, "return_data_type")
 
@@ -362,8 +313,7 @@ class _MaskingPolicyState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-        following characters: `|`, `.`, `"`.
+        The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -400,29 +350,22 @@ class MaskingPolicy(pulumi.CustomResource):
                  schema: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a MaskingPolicy resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example '"<database_name>"."<schema_name>"."<masking_policy_name>"'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaskingPolicyArgumentArgs', 'MaskingPolicyArgumentArgsDict']]]] arguments: List of the arguments for the masking policy. The first column and its data type always indicate the column data type
-               values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
-               first column argument in a conditional masking policy.
-        :param pulumi.Input[builtins.str] body: Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
-               characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
-               semantically significant.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaskingPolicyArgumentArgs', 'MaskingPolicyArgumentArgsDict']]]] arguments: List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+        :param pulumi.Input[builtins.str] body: Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the masking policy.
-        :param pulumi.Input[builtins.str] database: The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-               following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] exempt_other_policies: Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
-               by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
-               are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-               to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-               is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] return_data_type: The return data type must match the input data type of the first column that is specified as an input column. For more
-               information about data types, check [Snowflake
-               docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-               following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] exempt_other_policies: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] return_data_type: The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         ...
     @overload
@@ -431,7 +374,12 @@ class MaskingPolicy(pulumi.CustomResource):
                  args: MaskingPolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a MaskingPolicy resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example '"<database_name>"."<schema_name>"."<masking_policy_name>"'
+        ```
+
         :param str resource_name: The name of the resource.
         :param MaskingPolicyArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -513,29 +461,16 @@ class MaskingPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['MaskingPolicyArgumentArgs', 'MaskingPolicyArgumentArgsDict']]]] arguments: List of the arguments for the masking policy. The first column and its data type always indicate the column data type
-               values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
-               first column argument in a conditional masking policy.
-        :param pulumi.Input[builtins.str] body: Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
-               characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
-               semantically significant.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['MaskingPolicyArgumentArgs', 'MaskingPolicyArgumentArgsDict']]]] arguments: List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
+        :param pulumi.Input[builtins.str] body: Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the masking policy.
-        :param pulumi.Input[builtins.str] database: The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-               following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MaskingPolicyDescribeOutputArgs', 'MaskingPolicyDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE MASKING POLICY` for the given masking policy.
-        :param pulumi.Input[builtins.str] exempt_other_policies: Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
-               by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
-               are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-               to use the Snowflake default for this value.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-               is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] return_data_type: The return data type must match the input data type of the first column that is specified as an input column. For more
-               information about data types, check [Snowflake
-               docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-               following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] exempt_other_policies: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] return_data_type: The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MaskingPolicyShowOutputArgs', 'MaskingPolicyShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW MASKING POLICIES` for the given masking policy.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -559,9 +494,7 @@ class MaskingPolicy(pulumi.CustomResource):
     @pulumi.getter
     def arguments(self) -> pulumi.Output[Sequence['outputs.MaskingPolicyArgument']]:
         """
-        List of the arguments for the masking policy. The first column and its data type always indicate the column data type
-        values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
-        first column argument in a conditional masking policy.
+        List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
         """
         return pulumi.get(self, "arguments")
 
@@ -569,9 +502,7 @@ class MaskingPolicy(pulumi.CustomResource):
     @pulumi.getter
     def body(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
-        characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
-        semantically significant.
+        Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "body")
 
@@ -587,8 +518,7 @@ class MaskingPolicy(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[builtins.str]:
         """
-        The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-        following characters: `|`, `.`, `"`.
+        The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -604,10 +534,7 @@ class MaskingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="exemptOtherPolicies")
     def exempt_other_policies(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
-        by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
-        are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means
-        to use the Snowflake default for this value.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         """
         return pulumi.get(self, "exempt_other_policies")
 
@@ -615,8 +542,7 @@ class MaskingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -624,8 +550,7 @@ class MaskingPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-        is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -633,9 +558,7 @@ class MaskingPolicy(pulumi.CustomResource):
     @pulumi.getter(name="returnDataType")
     def return_data_type(self) -> pulumi.Output[builtins.str]:
         """
-        The return data type must match the input data type of the first column that is specified as an input column. For more
-        information about data types, check [Snowflake
-        docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+        The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
         """
         return pulumi.get(self, "return_data_type")
 
@@ -643,8 +566,7 @@ class MaskingPolicy(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[builtins.str]:
         """
-        The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-        following characters: `|`, `.`, `"`.
+        The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 

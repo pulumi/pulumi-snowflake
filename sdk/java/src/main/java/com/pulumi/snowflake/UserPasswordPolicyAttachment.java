@@ -13,6 +13,14 @@ import com.pulumi.snowflake.inputs.UserPasswordPolicyAttachmentState;
 import java.lang.String;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment example &#34;MY_DATABASE|MY_SCHEMA|PASSWORD_POLICY_NAME|USER_NAME&#34;
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment")
 public class UserPasswordPolicyAttachment extends com.pulumi.resources.CustomResource {
     /**

@@ -11,12 +11,27 @@ namespace Pulumi.Snowflake
 {
     public static class GetTasks
     {
+        /// <summary>
+        /// !&gt; **Sensitive values** This data source's `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        /// 
+        /// Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
+        /// </summary>
         public static Task<GetTasksResult> InvokeAsync(GetTasksArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTasksResult>("snowflake:index/getTasks:getTasks", args ?? new GetTasksArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// !&gt; **Sensitive values** This data source's `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        /// 
+        /// Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
+        /// </summary>
         public static Output<GetTasksResult> Invoke(GetTasksInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTasksResult>("snowflake:index/getTasks:getTasks", args ?? new GetTasksInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// !&gt; **Sensitive values** This data source's `show_output.config` and `show_output.definition` fields are not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
+        /// 
+        /// Data source used to get details of filtered tasks. Filtering is aligned with the current possibilities for [SHOW TASKS](https://docs.snowflake.com/en/sql-reference/sql/show-tasks) query. The results of SHOW and SHOW PARAMETERS IN are encapsulated in one output collection `tasks`.
+        /// </summary>
         public static Output<GetTasksResult> Invoke(GetTasksInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetTasksResult>("snowflake:index/getTasks:getTasks", args ?? new GetTasksInvokeArgs(), options.WithDefaults());
     }
@@ -24,21 +39,39 @@ namespace Pulumi.Snowflake
 
     public sealed class GetTasksArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// IN clause to filter the list of objects
+        /// </summary>
         [Input("in")]
         public Inputs.GetTasksInArgs? In { get; set; }
 
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         [Input("like")]
         public string? Like { get; set; }
 
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
         [Input("limit")]
         public Inputs.GetTasksLimitArgs? Limit { get; set; }
 
+        /// <summary>
+        /// Filters the command output to return only root tasks (tasks with no predecessors).
+        /// </summary>
         [Input("rootOnly")]
         public bool? RootOnly { get; set; }
 
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
         [Input("startsWith")]
         public string? StartsWith { get; set; }
 
+        /// <summary>
+        /// (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+        /// </summary>
         [Input("withParameters")]
         public bool? WithParameters { get; set; }
 
@@ -50,21 +83,39 @@ namespace Pulumi.Snowflake
 
     public sealed class GetTasksInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// IN clause to filter the list of objects
+        /// </summary>
         [Input("in")]
         public Input<Inputs.GetTasksInInputArgs>? In { get; set; }
 
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         [Input("like")]
         public Input<string>? Like { get; set; }
 
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
         [Input("limit")]
         public Input<Inputs.GetTasksLimitInputArgs>? Limit { get; set; }
 
+        /// <summary>
+        /// Filters the command output to return only root tasks (tasks with no predecessors).
+        /// </summary>
         [Input("rootOnly")]
         public Input<bool>? RootOnly { get; set; }
 
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
         [Input("startsWith")]
         public Input<string>? StartsWith { get; set; }
 
+        /// <summary>
+        /// (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+        /// </summary>
         [Input("withParameters")]
         public Input<bool>? WithParameters { get; set; }
 
@@ -82,12 +133,33 @@ namespace Pulumi.Snowflake
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// IN clause to filter the list of objects
+        /// </summary>
         public readonly Outputs.GetTasksInResult? In;
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         public readonly string? Like;
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
         public readonly Outputs.GetTasksLimitResult? Limit;
+        /// <summary>
+        /// Filters the command output to return only root tasks (tasks with no predecessors).
+        /// </summary>
         public readonly bool? RootOnly;
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
         public readonly string? StartsWith;
+        /// <summary>
+        /// Holds the aggregated output of all task details queries.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetTasksTaskResult> Tasks;
+        /// <summary>
+        /// (Default: `true`) Runs SHOW PARAMETERS FOR TASK for each task returned by SHOW TASK and saves the output to the parameters field as a map. By default this value is set to true.
+        /// </summary>
         public readonly bool? WithParameters;
 
         [OutputConstructor]

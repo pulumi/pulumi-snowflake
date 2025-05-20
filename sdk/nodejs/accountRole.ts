@@ -6,6 +6,13 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/accountRole:AccountRole example '"<account_role_name>"'
+ * ```
+ */
 export class AccountRole extends pulumi.CustomResource {
     /**
      * Get an existing AccountRole resource's state with the given name, ID, and optional extra
@@ -36,13 +43,11 @@ export class AccountRole extends pulumi.CustomResource {
 
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `"`.
+     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -85,13 +90,11 @@ export class AccountRole extends pulumi.CustomResource {
 export interface AccountRoleState {
     comment?: pulumi.Input<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `"`.
+     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -106,8 +109,7 @@ export interface AccountRoleState {
 export interface AccountRoleArgs {
     comment?: pulumi.Input<string>;
     /**
-     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `"`.
+     * Identifier for the role; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
 }

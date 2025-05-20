@@ -15,23 +15,47 @@ public final class GetAlertsArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetAlertsArgs Empty = new GetAlertsArgs();
 
+    /**
+     * The database from which to return the alerts from.
+     * 
+     */
     @Import(name="database")
     private @Nullable Output<String> database;
 
+    /**
+     * @return The database from which to return the alerts from.
+     * 
+     */
     public Optional<Output<String>> database() {
         return Optional.ofNullable(this.database);
     }
 
+    /**
+     * Filters the command output by object name.
+     * 
+     */
     @Import(name="pattern")
     private @Nullable Output<String> pattern;
 
+    /**
+     * @return Filters the command output by object name.
+     * 
+     */
     public Optional<Output<String>> pattern() {
         return Optional.ofNullable(this.pattern);
     }
 
+    /**
+     * The schema from which to return the alerts from.
+     * 
+     */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
+    /**
+     * @return The schema from which to return the alerts from.
+     * 
+     */
     public Optional<Output<String>> schema() {
         return Optional.ofNullable(this.schema);
     }
@@ -62,29 +86,65 @@ public final class GetAlertsArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetAlertsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param database The database from which to return the alerts from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder database(@Nullable Output<String> database) {
             $.database = database;
             return this;
         }
 
+        /**
+         * @param database The database from which to return the alerts from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder database(String database) {
             return database(Output.of(database));
         }
 
+        /**
+         * @param pattern Filters the command output by object name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pattern(@Nullable Output<String> pattern) {
             $.pattern = pattern;
             return this;
         }
 
+        /**
+         * @param pattern Filters the command output by object name.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pattern(String pattern) {
             return pattern(Output.of(pattern));
         }
 
+        /**
+         * @param schema The schema from which to return the alerts from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schema(@Nullable Output<String> schema) {
             $.schema = schema;
             return this;
         }
 
+        /**
+         * @param schema The schema from which to return the alerts from.
+         * 
+         * @return builder
+         * 
+         */
         public Builder schema(String schema) {
             return schema(Output.of(schema));
         }

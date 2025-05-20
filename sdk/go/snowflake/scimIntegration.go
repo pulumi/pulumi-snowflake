@@ -12,6 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/scimIntegration:ScimIntegration example '"<integration_name>"'
+// ```
 type ScimIntegration struct {
 	pulumi.CustomResourceState
 
@@ -21,27 +26,19 @@ type ScimIntegration struct {
 	DescribeOutputs ScimIntegrationDescribeOutputArrayOutput `pulumi:"describeOutputs"`
 	// Specify whether the security integration is enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical
-	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see
-	// docs.
+	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy pulumi.StringPtrOutput `pulumi:"networkPolicy"`
-	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into
-	// Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are:
-	// `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
 	RunAsRole pulumi.StringOutput `pulumi:"runAsRole"`
 	// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
 	ScimClient pulumi.StringOutput `pulumi:"scimClient"`
 	// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
 	ShowOutputs ScimIntegrationShowOutputArrayOutput `pulumi:"showOutputs"`
-	// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the
-	// API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When
-	// the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default
-	// for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	SyncPassword pulumi.StringPtrOutput `pulumi:"syncPassword"`
 }
 
@@ -90,27 +87,19 @@ type scimIntegrationState struct {
 	DescribeOutputs []ScimIntegrationDescribeOutput `pulumi:"describeOutputs"`
 	// Specify whether the security integration is enabled.
 	Enabled *bool `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical
-	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see
-	// docs.
+	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into
-	// Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are:
-	// `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
 	RunAsRole *string `pulumi:"runAsRole"`
 	// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
 	ScimClient *string `pulumi:"scimClient"`
 	// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
 	ShowOutputs []ScimIntegrationShowOutput `pulumi:"showOutputs"`
-	// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the
-	// API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When
-	// the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default
-	// for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	SyncPassword *string `pulumi:"syncPassword"`
 }
 
@@ -121,27 +110,19 @@ type ScimIntegrationState struct {
 	DescribeOutputs ScimIntegrationDescribeOutputArrayInput
 	// Specify whether the security integration is enabled.
 	Enabled pulumi.BoolPtrInput
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical
-	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see
-	// docs.
+	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy pulumi.StringPtrInput
-	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into
-	// Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are:
-	// `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
 	RunAsRole pulumi.StringPtrInput
 	// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
 	ScimClient pulumi.StringPtrInput
 	// Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
 	ShowOutputs ScimIntegrationShowOutputArrayInput
-	// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the
-	// API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When
-	// the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default
-	// for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	SyncPassword pulumi.StringPtrInput
 }
 
@@ -154,22 +135,15 @@ type scimIntegrationArgs struct {
 	Comment *string `pulumi:"comment"`
 	// Specify whether the security integration is enabled.
 	Enabled bool `pulumi:"enabled"`
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical
-	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see
-	// docs.
+	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy *string `pulumi:"networkPolicy"`
-	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into
-	// Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are:
-	// `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
 	RunAsRole string `pulumi:"runAsRole"`
 	// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
 	ScimClient string `pulumi:"scimClient"`
-	// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the
-	// API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When
-	// the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default
-	// for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	SyncPassword *string `pulumi:"syncPassword"`
 }
 
@@ -179,22 +153,15 @@ type ScimIntegrationArgs struct {
 	Comment pulumi.StringPtrInput
 	// Specify whether the security integration is enabled.
 	Enabled pulumi.BoolInput
-	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical
-	// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see
-	// docs.
+	// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 	NetworkPolicy pulumi.StringPtrInput
-	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into
-	// Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are:
-	// `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+	// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
 	RunAsRole pulumi.StringInput
 	// Specifies the client type for the scim integration. Valid options are: `OKTA` | `AZURE` | `GENERIC`.
 	ScimClient pulumi.StringInput
-	// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the
-	// API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When
-	// the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default
-	// for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	SyncPassword pulumi.StringPtrInput
 }
 
@@ -300,27 +267,22 @@ func (o ScimIntegrationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name
-// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o ScimIntegrationOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical
-// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// String that specifies the identifier (i.e. name) for the integration; must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o ScimIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see
-// docs.
+// Specifies an existing network policy that controls SCIM network traffic. For more information about this resource, see docs.
 func (o ScimIntegrationOutput) NetworkPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.StringPtrOutput { return v.NetworkPolicy }).(pulumi.StringPtrOutput)
 }
 
-// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into
-// Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are:
-// `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
+// Specify the SCIM role in Snowflake that owns any users and roles that are imported from the identity provider into Snowflake using SCIM. Provider assumes that the specified role is already provided. Valid options are: `OKTA_PROVISIONER` | `AAD_PROVISIONER` | `GENERIC_SCIM_PROVISIONER`.
 func (o ScimIntegrationOutput) RunAsRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.StringOutput { return v.RunAsRole }).(pulumi.StringOutput)
 }
@@ -335,10 +297,7 @@ func (o ScimIntegrationOutput) ShowOutputs() ScimIntegrationShowOutputArrayOutpu
 	return o.ApplyT(func(v *ScimIntegration) ScimIntegrationShowOutputArrayOutput { return v.ShowOutputs }).(ScimIntegrationShowOutputArrayOutput)
 }
 
-// Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the
-// API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When
-// the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default
-// for this value.
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to enable or disable the synchronization of a user password from an Okta SCIM client as part of the API request to Snowflake. This property is not supported for Azure SCIM. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 func (o ScimIntegrationOutput) SyncPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ScimIntegration) pulumi.StringPtrOutput { return v.SyncPassword }).(pulumi.StringPtrOutput)
 }

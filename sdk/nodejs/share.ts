@@ -4,6 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/share:Share example name
+ * ```
+ */
 export class Share extends pulumi.CustomResource {
     /**
      * Get an existing Share resource's state with the given name, ID, and optional extra
@@ -33,8 +40,7 @@ export class Share extends pulumi.CustomResource {
     }
 
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-     * 'organization_name.account_name
+     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
      */
     public readonly accounts!: pulumi.Output<string[] | undefined>;
     /**
@@ -42,8 +48,7 @@ export class Share extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
@@ -85,8 +90,7 @@ export class Share extends pulumi.CustomResource {
  */
 export interface ShareState {
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-     * 'organization_name.account_name
+     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
      */
     accounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -94,8 +98,7 @@ export interface ShareState {
      */
     comment?: pulumi.Input<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
@@ -109,8 +112,7 @@ export interface ShareState {
  */
 export interface ShareArgs {
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-     * 'organization_name.account_name
+     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of 'organization*name.account*name
      */
     accounts?: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -22,10 +22,30 @@ public final class GetMaskingPoliciesResult {
      * 
      */
     private String id;
+    /**
+     * @return IN clause to filter the list of masking policies
+     * 
+     */
     private @Nullable GetMaskingPoliciesIn in;
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     private @Nullable String like;
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
     private @Nullable GetMaskingPoliciesLimit limit;
+    /**
+     * @return Holds the aggregated output of all views details queries.
+     * 
+     */
     private List<GetMaskingPoliciesMaskingPolicy> maskingPolicies;
+    /**
+     * @return (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
     private @Nullable Boolean withDescribe;
 
     private GetMaskingPoliciesResult() {}
@@ -36,18 +56,38 @@ public final class GetMaskingPoliciesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return IN clause to filter the list of masking policies
+     * 
+     */
     public Optional<GetMaskingPoliciesIn> in() {
         return Optional.ofNullable(this.in);
     }
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
     public Optional<GetMaskingPoliciesLimit> limit() {
         return Optional.ofNullable(this.limit);
     }
+    /**
+     * @return Holds the aggregated output of all views details queries.
+     * 
+     */
     public List<GetMaskingPoliciesMaskingPolicy> maskingPolicies() {
         return this.maskingPolicies;
     }
+    /**
+     * @return (Default: `true`) Runs DESC MASKING POLICY for each masking policy returned by SHOW MASKING POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
     public Optional<Boolean> withDescribe() {
         return Optional.ofNullable(this.withDescribe);
     }

@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ~> **Note** Due to technical limitations of Terraform SDK, `object_identifiers` are not set during import state. Please run `terraform refresh` after importing to get this field populated.
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/tagAssociation:TagAssociation example '"TAG_DATABASE"."TAG_SCHEMA"."TAG_NAME"|TAG_VALUE|OBJECT_TYPE'
+ * ```
+ */
 export class TagAssociation extends pulumi.CustomResource {
     /**
      * Get an existing TagAssociation resource's state with the given name, ID, and optional extra
@@ -37,15 +46,11 @@ export class TagAssociation extends pulumi.CustomResource {
      */
     public readonly objectIdentifiers!: pulumi.Output<string[]>;
     /**
-     * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE
-     * FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT
-     * SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE
-     * MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE
-     * STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
+     * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
      */
     public readonly objectType!: pulumi.Output<string>;
     /**
-     * If true, skips validation of the tag association.
+     * (Default: `true`) If true, skips validation of the tag association.
      */
     public readonly skipValidation!: pulumi.Output<boolean | undefined>;
     /**
@@ -109,15 +114,11 @@ export interface TagAssociationState {
      */
     objectIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE
-     * FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT
-     * SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE
-     * MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE
-     * STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
+     * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
      */
     objectType?: pulumi.Input<string>;
     /**
-     * If true, skips validation of the tag association.
+     * (Default: `true`) If true, skips validation of the tag association.
      */
     skipValidation?: pulumi.Input<boolean>;
     /**
@@ -139,15 +140,11 @@ export interface TagAssociationArgs {
      */
     objectIdentifiers: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE
-     * FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT
-     * SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE
-     * MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE
-     * STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
+     * Specifies the type of object to add a tag. Allowed object types: [ACCOUNT APPLICATION APPLICATION PACKAGE DATABASE FAILOVER GROUP INTEGRATION NETWORK POLICY REPLICATION GROUP ROLE SHARE USER WAREHOUSE DATABASE ROLE SCHEMA ALERT SNOWFLAKE.CORE.BUDGET SNOWFLAKE.ML.CLASSIFICATION EXTERNAL FUNCTION EXTERNAL TABLE FUNCTION GIT REPOSITORY ICEBERG TABLE MATERIALIZED VIEW PIPE MASKING POLICY PASSWORD POLICY ROW ACCESS POLICY SESSION POLICY PRIVACY POLICY PROCEDURE STAGE STREAM TABLE TASK VIEW COLUMN EVENT TABLE].
      */
     objectType: pulumi.Input<string>;
     /**
-     * If true, skips validation of the tag association.
+     * (Default: `true`) If true, skips validation of the tag association.
      */
     skipValidation?: pulumi.Input<boolean>;
     /**

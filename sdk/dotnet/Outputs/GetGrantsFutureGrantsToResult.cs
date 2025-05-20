@@ -18,7 +18,7 @@ namespace Pulumi.Snowflake.Outputs
         /// </summary>
         public readonly string? AccountRole;
         /// <summary>
-        /// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&amp;lt;db_name&amp;gt;"."&amp;lt;database_role_name&amp;gt;").
+        /// Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&amp;lt;db*name&amp;gt;"."&amp;lt;database*role_name&amp;gt;").
         /// </summary>
         public readonly string? DatabaseRole;
 

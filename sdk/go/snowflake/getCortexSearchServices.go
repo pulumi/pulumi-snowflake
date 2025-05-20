@@ -11,6 +11,62 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// Simple usage
+//			simple, err := snowflake.GetCortexSearchServices(ctx, &snowflake.GetCortexSearchServicesArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("simpleOutput", simple.CortexSearchServices)
+//			// Filtering (like)
+//			like, err := snowflake.GetCortexSearchServices(ctx, &snowflake.GetCortexSearchServicesArgs{
+//				Like: pulumi.StringRef("some-name"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("likeOutput", like.CortexSearchServices)
+//			// Filtering (starts_with)
+//			startsWith, err := snowflake.GetCortexSearchServices(ctx, &snowflake.GetCortexSearchServicesArgs{
+//				StartsWith: pulumi.StringRef("prefix-"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("startsWithOutput", startsWith.CortexSearchServices)
+//			// Filtering (limit)
+//			limit, err := snowflake.GetCortexSearchServices(ctx, &snowflake.GetCortexSearchServicesArgs{
+//				Limit: snowflake.GetCortexSearchServicesLimit{
+//					Rows: 10,
+//					From: pulumi.StringRef("prefix-"),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("limitOutput", limit.CortexSearchServices)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetCortexSearchServices(ctx *pulumi.Context, args *GetCortexSearchServicesArgs, opts ...pulumi.InvokeOption) (*GetCortexSearchServicesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetCortexSearchServicesResult
@@ -23,21 +79,30 @@ func GetCortexSearchServices(ctx *pulumi.Context, args *GetCortexSearchServicesA
 
 // A collection of arguments for invoking getCortexSearchServices.
 type GetCortexSearchServicesArgs struct {
-	In         *GetCortexSearchServicesIn    `pulumi:"in"`
-	Like       *string                       `pulumi:"like"`
-	Limit      *GetCortexSearchServicesLimit `pulumi:"limit"`
-	StartsWith *string                       `pulumi:"startsWith"`
+	// IN clause to filter the list of cortex search services.
+	In *GetCortexSearchServicesIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetCortexSearchServicesLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
 }
 
 // A collection of values returned by getCortexSearchServices.
 type GetCortexSearchServicesResult struct {
+	// Holds the output of SHOW CORTEX SEARCH SERVICES.
 	CortexSearchServices []GetCortexSearchServicesCortexSearchService `pulumi:"cortexSearchServices"`
 	// The provider-assigned unique ID for this managed resource.
-	Id         string                        `pulumi:"id"`
-	In         *GetCortexSearchServicesIn    `pulumi:"in"`
-	Like       *string                       `pulumi:"like"`
-	Limit      *GetCortexSearchServicesLimit `pulumi:"limit"`
-	StartsWith *string                       `pulumi:"startsWith"`
+	Id string `pulumi:"id"`
+	// IN clause to filter the list of cortex search services.
+	In *GetCortexSearchServicesIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetCortexSearchServicesLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
 }
 
 func GetCortexSearchServicesOutput(ctx *pulumi.Context, args GetCortexSearchServicesOutputArgs, opts ...pulumi.InvokeOption) GetCortexSearchServicesResultOutput {
@@ -51,10 +116,14 @@ func GetCortexSearchServicesOutput(ctx *pulumi.Context, args GetCortexSearchServ
 
 // A collection of arguments for invoking getCortexSearchServices.
 type GetCortexSearchServicesOutputArgs struct {
-	In         GetCortexSearchServicesInPtrInput    `pulumi:"in"`
-	Like       pulumi.StringPtrInput                `pulumi:"like"`
-	Limit      GetCortexSearchServicesLimitPtrInput `pulumi:"limit"`
-	StartsWith pulumi.StringPtrInput                `pulumi:"startsWith"`
+	// IN clause to filter the list of cortex search services.
+	In GetCortexSearchServicesInPtrInput `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit GetCortexSearchServicesLimitPtrInput `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
 }
 
 func (GetCortexSearchServicesOutputArgs) ElementType() reflect.Type {
@@ -76,6 +145,7 @@ func (o GetCortexSearchServicesResultOutput) ToGetCortexSearchServicesResultOutp
 	return o
 }
 
+// Holds the output of SHOW CORTEX SEARCH SERVICES.
 func (o GetCortexSearchServicesResultOutput) CortexSearchServices() GetCortexSearchServicesCortexSearchServiceArrayOutput {
 	return o.ApplyT(func(v GetCortexSearchServicesResult) []GetCortexSearchServicesCortexSearchService {
 		return v.CortexSearchServices
@@ -87,18 +157,22 @@ func (o GetCortexSearchServicesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCortexSearchServicesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// IN clause to filter the list of cortex search services.
 func (o GetCortexSearchServicesResultOutput) In() GetCortexSearchServicesInPtrOutput {
 	return o.ApplyT(func(v GetCortexSearchServicesResult) *GetCortexSearchServicesIn { return v.In }).(GetCortexSearchServicesInPtrOutput)
 }
 
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 func (o GetCortexSearchServicesResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCortexSearchServicesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
+// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 func (o GetCortexSearchServicesResultOutput) Limit() GetCortexSearchServicesLimitPtrOutput {
 	return o.ApplyT(func(v GetCortexSearchServicesResult) *GetCortexSearchServicesLimit { return v.Limit }).(GetCortexSearchServicesLimitPtrOutput)
 }
 
+// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 func (o GetCortexSearchServicesResultOutput) StartsWith() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCortexSearchServicesResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
 }

@@ -9,12 +9,20 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// format is database name | schema name | external table name
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/externalTable:ExternalTable example 'dbName|schemaName|externalTableName'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/externalTable:ExternalTable")]
     public partial class ExternalTable : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-        /// created.
+        /// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         /// </summary>
         [Output("autoRefresh")]
         public Output<bool?> AutoRefresh { get; private set; } = null!;
@@ -38,8 +46,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-        /// OR REPLACE TABLE variant
+        /// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         /// </summary>
         [Output("copyGrants")]
         public Output<bool?> CopyGrants { get; private set; } = null!;
@@ -57,22 +64,19 @@ namespace Pulumi.Snowflake
         public Output<string> FileFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or
-        /// populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
+        /// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-        /// is created.
+        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -96,7 +100,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Pattern { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies weather to refresh when an external table is created.
+        /// (Default: `true`) Specifies weather to refresh when an external table is created.
         /// </summary>
         [Output("refreshOnCreate")]
         public Output<bool?> RefreshOnCreate { get; private set; } = null!;
@@ -166,8 +170,7 @@ namespace Pulumi.Snowflake
     public sealed class ExternalTableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-        /// created.
+        /// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         /// </summary>
         [Input("autoRefresh")]
         public Input<bool>? AutoRefresh { get; set; }
@@ -197,8 +200,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-        /// OR REPLACE TABLE variant
+        /// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         /// </summary>
         [Input("copyGrants")]
         public Input<bool>? CopyGrants { get; set; }
@@ -216,15 +218,13 @@ namespace Pulumi.Snowflake
         public Input<string> FileFormat { get; set; } = null!;
 
         /// <summary>
-        /// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or
-        /// populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
+        /// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         /// </summary>
         [Input("location", required: true)]
         public Input<string> Location { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-        /// is created.
+        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -248,7 +248,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// Specifies weather to refresh when an external table is created.
+        /// (Default: `true`) Specifies weather to refresh when an external table is created.
         /// </summary>
         [Input("refreshOnCreate")]
         public Input<bool>? RefreshOnCreate { get; set; }
@@ -287,8 +287,7 @@ namespace Pulumi.Snowflake
     public sealed class ExternalTableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to automatically refresh the external table metadata once, immediately after the external table is
-        /// created.
+        /// (Default: `true`) Specifies whether to automatically refresh the external table metadata once, immediately after the external table is created.
         /// </summary>
         [Input("autoRefresh")]
         public Input<bool>? AutoRefresh { get; set; }
@@ -318,8 +317,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE
-        /// OR REPLACE TABLE variant
+        /// (Default: `false`) Specifies to retain the access permissions from the original table when an external table is recreated using the CREATE OR REPLACE TABLE variant
         /// </summary>
         [Input("copyGrants")]
         public Input<bool>? CopyGrants { get; set; }
@@ -337,22 +335,19 @@ namespace Pulumi.Snowflake
         public Input<string>? FileFormat { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or
-        /// populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
+        /// Specifies a location for the external table, using its FQDN. You can hardcode it (`"@MYDB.MYSCHEMA.MYSTAGE"`), or populate dynamically (`"@${snowflake_stage.mystage.fully_qualified_name}"`)
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable
-        /// is created.
+        /// Specifies the identifier for the external table; must be unique for the database and schema in which the externalTable is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -382,7 +377,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Pattern { get; set; }
 
         /// <summary>
-        /// Specifies weather to refresh when an external table is created.
+        /// (Default: `true`) Specifies weather to refresh when an external table is created.
         /// </summary>
         [Input("refreshOnCreate")]
         public Input<bool>? RefreshOnCreate { get; set; }

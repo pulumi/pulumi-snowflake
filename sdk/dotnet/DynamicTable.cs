@@ -9,6 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/dynamicTable:DynamicTable dt "mydb|myschema|product"
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/dynamicTable:DynamicTable")]
     public partial class DynamicTable : global::Pulumi.CustomResource
     {
@@ -55,14 +62,13 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
+        /// (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         /// </summary>
         [Output("initialize")]
         public Output<string?> Initialize { get; private set; } = null!;
@@ -86,14 +92,13 @@ namespace Pulumi.Snowflake
         public Output<string> LastSuspendedOn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
-        /// created.
+        /// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether to replace the dynamic table if it already exists.
+        /// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
         /// </summary>
         [Output("orReplace")]
         public Output<bool?> OrReplace { get; private set; } = null!;
@@ -111,8 +116,7 @@ namespace Pulumi.Snowflake
         public Output<string> Query { get; private set; } = null!;
 
         /// <summary>
-        /// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
-        /// decide.
+        /// (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         /// </summary>
         [Output("refreshMode")]
         public Output<string?> RefreshMode { get; private set; } = null!;
@@ -212,20 +216,19 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
+        /// (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         /// </summary>
         [Input("initialize")]
         public Input<string>? Initialize { get; set; }
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
-        /// created.
+        /// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether to replace the dynamic table if it already exists.
+        /// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
@@ -237,8 +240,7 @@ namespace Pulumi.Snowflake
         public Input<string> Query { get; set; } = null!;
 
         /// <summary>
-        /// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
-        /// decide.
+        /// (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         /// </summary>
         [Input("refreshMode")]
         public Input<string>? RefreshMode { get; set; }
@@ -312,14 +314,13 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON_CREATE and ON_SCHEDULE.
+        /// (Default: `ON_CREATE`) Initialize trigger for the dynamic table. Can only be set on creation. Available options are ON*CREATE and ON*SCHEDULE.
         /// </summary>
         [Input("initialize")]
         public Input<string>? Initialize { get; set; }
@@ -343,14 +344,13 @@ namespace Pulumi.Snowflake
         public Input<string>? LastSuspendedOn { get; set; }
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is
-        /// created.
+        /// Specifies the identifier (i.e. name) for the dynamic table; must be unique for the schema in which the dynamic table is created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether to replace the dynamic table if it already exists.
+        /// (Default: `false`) Specifies whether to replace the dynamic table if it already exists.
         /// </summary>
         [Input("orReplace")]
         public Input<bool>? OrReplace { get; set; }
@@ -368,8 +368,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Query { get; set; }
 
         /// <summary>
-        /// INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake
-        /// decide.
+        /// (Default: `AUTO`) INCREMENTAL to use incremental refreshes, FULL to recompute the whole table on every refresh, or AUTO to let Snowflake decide.
         /// </summary>
         [Input("refreshMode")]
         public Input<string>? RefreshMode { get; set; }

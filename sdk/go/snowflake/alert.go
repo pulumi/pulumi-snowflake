@@ -12,6 +12,13 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// format is database name | schema name | alert name
+//
+// ```sh
+// $ pulumi import snowflake:index/alert:Alert example 'dbName|schemaName|alertName'
+// ```
 type Alert struct {
 	pulumi.CustomResourceState
 
@@ -25,10 +32,9 @@ type Alert struct {
 	Condition pulumi.StringOutput `pulumi:"condition"`
 	// The database in which to create the alert.
 	Database pulumi.StringOutput `pulumi:"database"`
-	// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+	// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -93,10 +99,9 @@ type alertState struct {
 	Condition *string `pulumi:"condition"`
 	// The database in which to create the alert.
 	Database *string `pulumi:"database"`
-	// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+	// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
 	Enabled *bool `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
 	Name *string `pulumi:"name"`
@@ -117,10 +122,9 @@ type AlertState struct {
 	Condition pulumi.StringPtrInput
 	// The database in which to create the alert.
 	Database pulumi.StringPtrInput
-	// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+	// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
 	Enabled pulumi.BoolPtrInput
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
 	Name pulumi.StringPtrInput
@@ -145,7 +149,7 @@ type alertArgs struct {
 	Condition string `pulumi:"condition"`
 	// The database in which to create the alert.
 	Database string `pulumi:"database"`
-	// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+	// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
 	Enabled *bool `pulumi:"enabled"`
 	// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
 	Name *string `pulumi:"name"`
@@ -167,7 +171,7 @@ type AlertArgs struct {
 	Condition pulumi.StringInput
 	// The database in which to create the alert.
 	Database pulumi.StringInput
-	// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+	// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
 	Enabled pulumi.BoolPtrInput
 	// Specifies the identifier for the alert; must be unique for the database and schema in which the alert is created.
 	Name pulumi.StringPtrInput
@@ -289,13 +293,12 @@ func (o AlertOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alert) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
 
-// Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
+// (Default: `false`) Specifies if an alert should be 'started' (enabled) after creation or should remain 'suspended' (default).
 func (o AlertOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Alert) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name
-// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o AlertOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alert) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }

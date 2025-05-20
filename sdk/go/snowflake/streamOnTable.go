@@ -12,40 +12,38 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/streamOnTable:StreamOnTable example '"<database_name>"."<schema_name>"."<stream_name>"'
+// ```
 type StreamOnTable struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-	// the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AppendOnly pulumi.StringPtrOutput       `pulumi:"appendOnly"`
 	At         StreamOnTableAtPtrOutput     `pulumi:"at"`
 	Before     StreamOnTableBeforePtrOutput `pulumi:"before"`
 	// Specifies a comment for the stream.
 	Comment    pulumi.StringPtrOutput `pulumi:"comment"`
 	CopyGrants pulumi.BoolPtrOutput   `pulumi:"copyGrants"`
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE STREAM` for the given stream.
 	DescribeOutputs StreamOnTableDescribeOutputArrayOutput `pulumi:"describeOutputs"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-	// to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema          pulumi.StringOutput    `pulumi:"schema"`
 	ShowInitialRows pulumi.StringPtrOutput `pulumi:"showInitialRows"`
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs StreamOnTableShowOutputArrayOutput `pulumi:"showOutputs"`
 	Stale       pulumi.BoolOutput                  `pulumi:"stale"`
-	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-	// needed.
+	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
 	StreamType pulumi.StringOutput `pulumi:"streamType"`
-	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid
-	// using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
 	Table pulumi.StringOutput `pulumi:"table"`
 }
 
@@ -88,72 +86,58 @@ func GetStreamOnTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StreamOnTable resources.
 type streamOnTableState struct {
-	// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-	// the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AppendOnly *string              `pulumi:"appendOnly"`
 	At         *StreamOnTableAt     `pulumi:"at"`
 	Before     *StreamOnTableBefore `pulumi:"before"`
 	// Specifies a comment for the stream.
 	Comment    *string `pulumi:"comment"`
 	CopyGrants *bool   `pulumi:"copyGrants"`
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE STREAM` for the given stream.
 	DescribeOutputs []StreamOnTableDescribeOutput `pulumi:"describeOutputs"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-	// to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema          *string `pulumi:"schema"`
 	ShowInitialRows *string `pulumi:"showInitialRows"`
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs []StreamOnTableShowOutput `pulumi:"showOutputs"`
 	Stale       *bool                     `pulumi:"stale"`
-	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-	// needed.
+	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
 	StreamType *string `pulumi:"streamType"`
-	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid
-	// using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
 	Table *string `pulumi:"table"`
 }
 
 type StreamOnTableState struct {
-	// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-	// the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AppendOnly pulumi.StringPtrInput
 	At         StreamOnTableAtPtrInput
 	Before     StreamOnTableBeforePtrInput
 	// Specifies a comment for the stream.
 	Comment    pulumi.StringPtrInput
 	CopyGrants pulumi.BoolPtrInput
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE STREAM` for the given stream.
 	DescribeOutputs StreamOnTableDescribeOutputArrayInput
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-	// to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema          pulumi.StringPtrInput
 	ShowInitialRows pulumi.StringPtrInput
 	// Outputs the result of `SHOW STREAMS` for the given stream.
 	ShowOutputs StreamOnTableShowOutputArrayInput
 	Stale       pulumi.BoolPtrInput
-	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-	// needed.
+	// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
 	StreamType pulumi.StringPtrInput
-	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid
-	// using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
 	Table pulumi.StringPtrInput
 }
 
@@ -162,51 +146,41 @@ func (StreamOnTableState) ElementType() reflect.Type {
 }
 
 type streamOnTableArgs struct {
-	// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-	// the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AppendOnly *string              `pulumi:"appendOnly"`
 	At         *StreamOnTableAt     `pulumi:"at"`
 	Before     *StreamOnTableBefore `pulumi:"before"`
 	// Specifies a comment for the stream.
 	Comment    *string `pulumi:"comment"`
 	CopyGrants *bool   `pulumi:"copyGrants"`
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-	// to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema          string  `pulumi:"schema"`
 	ShowInitialRows *string `pulumi:"showInitialRows"`
-	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid
-	// using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
 	Table string `pulumi:"table"`
 }
 
 // The set of arguments for constructing a StreamOnTable resource.
 type StreamOnTableArgs struct {
-	// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-	// the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+	// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 	AppendOnly pulumi.StringPtrInput
 	At         StreamOnTableAtPtrInput
 	Before     StreamOnTableBeforePtrInput
 	// Specifies a comment for the stream.
 	Comment    pulumi.StringPtrInput
 	CopyGrants pulumi.BoolPtrInput
-	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-	// to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-	// characters: `|`, `.`, `"`.
+	// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema          pulumi.StringInput
 	ShowInitialRows pulumi.StringPtrInput
-	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid
-	// using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+	// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
 	Table pulumi.StringInput
 }
 
@@ -297,8 +271,7 @@ func (o StreamOnTableOutput) ToStreamOnTableOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in
-// the configuration the provider will put "default" there which means to use the Snowflake default for this value.
+// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an append-only stream. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
 func (o StreamOnTableOutput) AppendOnly() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringPtrOutput { return v.AppendOnly }).(pulumi.StringPtrOutput)
 }
@@ -320,8 +293,7 @@ func (o StreamOnTableOutput) CopyGrants() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.BoolPtrOutput { return v.CopyGrants }).(pulumi.BoolPtrOutput)
 }
 
-// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-// characters: `|`, `.`, `"`.
+// The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o StreamOnTableOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -331,20 +303,17 @@ func (o StreamOnTableOutput) DescribeOutputs() StreamOnTableDescribeOutputArrayO
 	return o.ApplyT(func(v *StreamOnTable) StreamOnTableDescribeOutputArrayOutput { return v.DescribeOutputs }).(StreamOnTableDescribeOutputArrayOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name
-// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o StreamOnTableOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-// to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o StreamOnTableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-// characters: `|`, `.`, `"`.
+// The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o StreamOnTableOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }
@@ -362,14 +331,12 @@ func (o StreamOnTableOutput) Stale() pulumi.BoolOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.BoolOutput { return v.Stale }).(pulumi.BoolOutput)
 }
 
-// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-// needed.
+// Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
 func (o StreamOnTableOutput) StreamType() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringOutput { return v.StreamType }).(pulumi.StringOutput)
 }
 
-// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid
-// using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+// Specifies an identifier for the table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
 func (o StreamOnTableOutput) Table() pulumi.StringOutput {
 	return o.ApplyT(func(v *StreamOnTable) pulumi.StringOutput { return v.Table }).(pulumi.StringOutput)
 }

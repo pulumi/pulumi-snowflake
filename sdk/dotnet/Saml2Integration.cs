@@ -9,20 +9,24 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/saml2Integration:Saml2Integration example '"&lt;integration_name&gt;"'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/saml2Integration:Saml2Integration")]
     public partial class Saml2Integration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A list of regular expressions that email addresses are matched against to authenticate with a SAML2 security
-        /// integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake
-        /// limitations.
+        /// A list of regular expressions that email addresses are matched against to authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         /// </summary>
         [Output("allowedEmailPatterns")]
         public Output<ImmutableArray<string>> AllowedEmailPatterns { get; private set; } = null!;
 
         /// <summary>
-        /// A list of email domains that can authenticate with a SAML2 security integration. If this field changes value from
-        /// non-empty to empty, the whole resource is recreated because of Snowflake limitations.
+        /// A list of email domains that can authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         /// </summary>
         [Output("allowedUserDomains")]
         public Output<ImmutableArray<string>> AllowedUserDomains { get; private set; } = null!;
@@ -40,44 +44,31 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.Saml2IntegrationDescribeOutput>> DescribeOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether this security integration is enabled or disabled. Available options are: "true" or "false". When the
-        /// value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for
-        /// this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this security integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("enabled")]
         public Output<string?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be
-        /// unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-        /// following characters: `|`, `.`, `"`.
+        /// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in With button
-        /// on the login page. FALSE: does not display the Log in With button on the login page. Available options are: "true" or
-        /// "false". When the value is not set in the configuration the provider will put "default" there which means to use the
-        /// Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in With button on the login page. FALSE: does not display the Log in With button on the login page. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("saml2EnableSpInitiated")]
         public Output<string?> Saml2EnableSpInitiated { get; private set; } = null!;
 
         /// <summary>
-        /// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access
-        /// Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake
-        /// to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the
-        /// identity provider exists. FALSE: does not force users to authenticate again to access Snowflake. Available options are:
-        /// "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to
-        /// use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("saml2ForceAuthn")]
         public Output<string?> Saml2ForceAuthn { get; private set; } = null!;
@@ -89,8 +80,7 @@ namespace Pulumi.Snowflake
         public Output<string> Saml2Issuer { get; private set; } = null!;
 
         /// <summary>
-        /// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web
-        /// interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
+        /// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
         /// </summary>
         [Output("saml2PostLogoutRedirectUrl")]
         public Output<string?> Saml2PostLogoutRedirectUrl { get; private set; } = null!;
@@ -102,62 +92,43 @@ namespace Pulumi.Snowflake
         public Output<string> Saml2Provider { get; private set; } = null!;
 
         /// <summary>
-        /// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML
-        /// Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. Valid options are:
-        /// `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` |
-        /// `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName` |
-        /// `urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName` |
-        /// `urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos` | `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` |
-        /// `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`.
+        /// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. Valid options are: `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` | `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName` | `urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName` | `urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos` | `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` | `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`.
         /// </summary>
         [Output("saml2RequestedNameidFormat")]
         public Output<string?> Saml2RequestedNameidFormat { get; private set; } = null!;
 
         /// <summary>
-        /// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow
-        /// SAML requests to be signed. Available options are: "true" or "false". When the value is not set in the configuration the
-        /// provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Output("saml2SignRequest")]
         public Output<string?> Saml2SignRequest { get; private set; } = null!;
 
         /// <summary>
-        /// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication
-        /// response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when
-        /// initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message
-        /// indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the
-        /// account name must be converted to a hyphen. See
-        /// [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
+        /// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the account name must be converted to a hyphen. See [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
         /// </summary>
         [Output("saml2SnowflakeAcsUrl")]
         public Output<string?> Saml2SnowflakeAcsUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified,
-        /// Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in
-        /// URLs, the underscore in the account name must be converted to a hyphen. See
-        /// [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
+        /// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the account name must be converted to a hyphen. See [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
         /// </summary>
         [Output("saml2SnowflakeIssuerUrl")]
         public Output<string?> Saml2SnowflakeIssuerUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The string containing the label to display after the Log In With button on the login page. If this field changes value
-        /// from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
+        /// The string containing the label to display after the Log In With button on the login page. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         /// </summary>
         [Output("saml2SpInitiatedLoginPageLabel")]
         public Output<string?> Saml2SpInitiatedLoginPageLabel { get; private set; } = null!;
 
         /// <summary>
-        /// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a
-        /// SAML AuthnRequest message.
+        /// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
         /// </summary>
         [Output("saml2SsoUrl")]
         public Output<string> Saml2SsoUrl { get; private set; } = null!;
 
         /// <summary>
-        /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending
-        /// -----END CERTIFICATE----- markers.
+        /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
         /// </summary>
         [Output("saml2X509Cert")]
         public Output<string> Saml2X509Cert { get; private set; } = null!;
@@ -222,9 +193,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedEmailPatterns;
 
         /// <summary>
-        /// A list of regular expressions that email addresses are matched against to authenticate with a SAML2 security
-        /// integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake
-        /// limitations.
+        /// A list of regular expressions that email addresses are matched against to authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         /// </summary>
         public InputList<string> AllowedEmailPatterns
         {
@@ -236,8 +205,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedUserDomains;
 
         /// <summary>
-        /// A list of email domains that can authenticate with a SAML2 security integration. If this field changes value from
-        /// non-empty to empty, the whole resource is recreated because of Snowflake limitations.
+        /// A list of email domains that can authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         /// </summary>
         public InputList<string> AllowedUserDomains
         {
@@ -252,37 +220,25 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies whether this security integration is enabled or disabled. Available options are: "true" or "false". When the
-        /// value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for
-        /// this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this security integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("enabled")]
         public Input<string>? Enabled { get; set; }
 
         /// <summary>
-        /// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be
-        /// unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-        /// following characters: `|`, `.`, `"`.
+        /// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in With button
-        /// on the login page. FALSE: does not display the Log in With button on the login page. Available options are: "true" or
-        /// "false". When the value is not set in the configuration the provider will put "default" there which means to use the
-        /// Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in With button on the login page. FALSE: does not display the Log in With button on the login page. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("saml2EnableSpInitiated")]
         public Input<string>? Saml2EnableSpInitiated { get; set; }
 
         /// <summary>
-        /// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access
-        /// Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake
-        /// to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the
-        /// identity provider exists. FALSE: does not force users to authenticate again to access Snowflake. Available options are:
-        /// "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to
-        /// use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("saml2ForceAuthn")]
         public Input<string>? Saml2ForceAuthn { get; set; }
@@ -294,8 +250,7 @@ namespace Pulumi.Snowflake
         public Input<string> Saml2Issuer { get; set; } = null!;
 
         /// <summary>
-        /// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web
-        /// interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
+        /// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
         /// </summary>
         [Input("saml2PostLogoutRedirectUrl")]
         public Input<string>? Saml2PostLogoutRedirectUrl { get; set; }
@@ -307,55 +262,37 @@ namespace Pulumi.Snowflake
         public Input<string> Saml2Provider { get; set; } = null!;
 
         /// <summary>
-        /// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML
-        /// Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. Valid options are:
-        /// `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` |
-        /// `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName` |
-        /// `urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName` |
-        /// `urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos` | `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` |
-        /// `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`.
+        /// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. Valid options are: `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` | `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName` | `urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName` | `urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos` | `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` | `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`.
         /// </summary>
         [Input("saml2RequestedNameidFormat")]
         public Input<string>? Saml2RequestedNameidFormat { get; set; }
 
         /// <summary>
-        /// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow
-        /// SAML requests to be signed. Available options are: "true" or "false". When the value is not set in the configuration the
-        /// provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("saml2SignRequest")]
         public Input<string>? Saml2SignRequest { get; set; }
 
         /// <summary>
-        /// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication
-        /// response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when
-        /// initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message
-        /// indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the
-        /// account name must be converted to a hyphen. See
-        /// [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
+        /// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the account name must be converted to a hyphen. See [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
         /// </summary>
         [Input("saml2SnowflakeAcsUrl")]
         public Input<string>? Saml2SnowflakeAcsUrl { get; set; }
 
         /// <summary>
-        /// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified,
-        /// Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in
-        /// URLs, the underscore in the account name must be converted to a hyphen. See
-        /// [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
+        /// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the account name must be converted to a hyphen. See [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
         /// </summary>
         [Input("saml2SnowflakeIssuerUrl")]
         public Input<string>? Saml2SnowflakeIssuerUrl { get; set; }
 
         /// <summary>
-        /// The string containing the label to display after the Log In With button on the login page. If this field changes value
-        /// from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
+        /// The string containing the label to display after the Log In With button on the login page. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         /// </summary>
         [Input("saml2SpInitiatedLoginPageLabel")]
         public Input<string>? Saml2SpInitiatedLoginPageLabel { get; set; }
 
         /// <summary>
-        /// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a
-        /// SAML AuthnRequest message.
+        /// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
         /// </summary>
         [Input("saml2SsoUrl", required: true)]
         public Input<string> Saml2SsoUrl { get; set; } = null!;
@@ -364,8 +301,7 @@ namespace Pulumi.Snowflake
         private Input<string>? _saml2X509Cert;
 
         /// <summary>
-        /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending
-        /// -----END CERTIFICATE----- markers.
+        /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
         /// </summary>
         public Input<string>? Saml2X509Cert
         {
@@ -389,9 +325,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedEmailPatterns;
 
         /// <summary>
-        /// A list of regular expressions that email addresses are matched against to authenticate with a SAML2 security
-        /// integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake
-        /// limitations.
+        /// A list of regular expressions that email addresses are matched against to authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         /// </summary>
         public InputList<string> AllowedEmailPatterns
         {
@@ -403,8 +337,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _allowedUserDomains;
 
         /// <summary>
-        /// A list of email domains that can authenticate with a SAML2 security integration. If this field changes value from
-        /// non-empty to empty, the whole resource is recreated because of Snowflake limitations.
+        /// A list of email domains that can authenticate with a SAML2 security integration. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         /// </summary>
         public InputList<string> AllowedUserDomains
         {
@@ -431,44 +364,31 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies whether this security integration is enabled or disabled. Available options are: "true" or "false". When the
-        /// value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for
-        /// this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this security integration is enabled or disabled. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("enabled")]
         public Input<string>? Enabled { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be
-        /// unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-        /// following characters: `|`, `.`, `"`.
+        /// Specifies the name of the SAML2 integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in With button
-        /// on the login page. FALSE: does not display the Log in With button on the login page. Available options are: "true" or
-        /// "false". When the value is not set in the configuration the provider will put "default" there which means to use the
-        /// Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating if the Log In With button will be shown on the login page. TRUE: displays the Log in With button on the login page. FALSE: does not display the Log in With button on the login page. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("saml2EnableSpInitiated")]
         public Input<string>? Saml2EnableSpInitiated { get; set; }
 
         /// <summary>
-        /// The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access
-        /// Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake
-        /// to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the
-        /// identity provider exists. FALSE: does not force users to authenticate again to access Snowflake. Available options are:
-        /// "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to
-        /// use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating whether users, during the initial authentication flow, are forced to authenticate again to access Snowflake. When set to TRUE, Snowflake sets the ForceAuthn SAML parameter to TRUE in the outgoing request from Snowflake to the identity provider. TRUE: forces users to authenticate again to access Snowflake, even if a valid session with the identity provider exists. FALSE: does not force users to authenticate again to access Snowflake. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("saml2ForceAuthn")]
         public Input<string>? Saml2ForceAuthn { get; set; }
@@ -480,8 +400,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Saml2Issuer { get; set; }
 
         /// <summary>
-        /// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web
-        /// interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
+        /// The endpoint to which Snowflake redirects users after clicking the Log Out button in the classic Snowflake web interface. Snowflake terminates the Snowflake session upon redirecting to the specified endpoint.
         /// </summary>
         [Input("saml2PostLogoutRedirectUrl")]
         public Input<string>? Saml2PostLogoutRedirectUrl { get; set; }
@@ -493,55 +412,37 @@ namespace Pulumi.Snowflake
         public Input<string>? Saml2Provider { get; set; }
 
         /// <summary>
-        /// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML
-        /// Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. Valid options are:
-        /// `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` |
-        /// `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName` |
-        /// `urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName` |
-        /// `urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos` | `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` |
-        /// `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`.
+        /// The SAML NameID format allows Snowflake to set an expectation of the identifying attribute of the user (i.e. SAML Subject) in the SAML assertion from the IdP to ensure a valid authentication to Snowflake. Valid options are: `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` | `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress` | `urn:oasis:names:tc:SAML:1.1:nameid-format:X509SubjectName` | `urn:oasis:names:tc:SAML:1.1:nameid-format:WindowsDomainQualifiedName` | `urn:oasis:names:tc:SAML:2.0:nameid-format:kerberos` | `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent` | `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`.
         /// </summary>
         [Input("saml2RequestedNameidFormat")]
         public Input<string>? Saml2RequestedNameidFormat { get; set; }
 
         /// <summary>
-        /// The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow
-        /// SAML requests to be signed. Available options are: "true" or "false". When the value is not set in the configuration the
-        /// provider will put "default" there which means to use the Snowflake default for this value.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) The Boolean indicating whether SAML requests are signed. TRUE: allows SAML requests to be signed. FALSE: does not allow SAML requests to be signed. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
         /// </summary>
         [Input("saml2SignRequest")]
         public Input<string>? Saml2SignRequest { get; set; }
 
         /// <summary>
-        /// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication
-        /// response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when
-        /// initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message
-        /// indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the
-        /// account name must be converted to a hyphen. See
-        /// [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
+        /// The string containing the Snowflake Assertion Consumer Service URL to which the IdP will send its SAML authentication response back to Snowflake. This property will be set in the SAML authentication request generated by Snowflake when initiating a SAML SSO operation with the IdP. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the account name must be converted to a hyphen. See [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
         /// </summary>
         [Input("saml2SnowflakeAcsUrl")]
         public Input<string>? Saml2SnowflakeAcsUrl { get; set; }
 
         /// <summary>
-        /// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified,
-        /// Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in
-        /// URLs, the underscore in the account name must be converted to a hyphen. See
-        /// [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
+        /// The string containing the EntityID / Issuer for the Snowflake service provider. If an incorrect value is specified, Snowflake returns an error message indicating the acceptable values to use. Because Okta does not support underscores in URLs, the underscore in the account name must be converted to a hyphen. See [docs](https://docs.snowflake.com/en/user-guide/organizations-connect#okta-urls).
         /// </summary>
         [Input("saml2SnowflakeIssuerUrl")]
         public Input<string>? Saml2SnowflakeIssuerUrl { get; set; }
 
         /// <summary>
-        /// The string containing the label to display after the Log In With button on the login page. If this field changes value
-        /// from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
+        /// The string containing the label to display after the Log In With button on the login page. If this field changes value from non-empty to empty, the whole resource is recreated because of Snowflake limitations.
         /// </summary>
         [Input("saml2SpInitiatedLoginPageLabel")]
         public Input<string>? Saml2SpInitiatedLoginPageLabel { get; set; }
 
         /// <summary>
-        /// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a
-        /// SAML AuthnRequest message.
+        /// The string containing the IdP SSO URL, where the user should be redirected by Snowflake (the Service Provider) with a SAML AuthnRequest message.
         /// </summary>
         [Input("saml2SsoUrl")]
         public Input<string>? Saml2SsoUrl { get; set; }
@@ -550,8 +451,7 @@ namespace Pulumi.Snowflake
         private Input<string>? _saml2X509Cert;
 
         /// <summary>
-        /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending
-        /// -----END CERTIFICATE----- markers.
+        /// The Base64 encoded IdP signing certificate on a single line without the leading -----BEGIN CERTIFICATE----- and ending -----END CERTIFICATE----- markers.
         /// </summary>
         public Input<string>? Saml2X509Cert
         {

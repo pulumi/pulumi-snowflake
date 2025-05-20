@@ -16,9 +16,17 @@ public final class ViewDataMetricScheduleArgs extends com.pulumi.resources.Resou
 
     public static final ViewDataMetricScheduleArgs Empty = new ViewDataMetricScheduleArgs();
 
+    /**
+     * Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `using_cron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `using_cron` field, or replace*triggered*by metadata argument.
+     * 
+     */
     @Import(name="minutes")
     private @Nullable Output<Integer> minutes;
 
+    /**
+     * @return Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `using_cron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `using_cron` field, or replace*triggered*by metadata argument.
+     * 
+     */
     public Optional<Output<Integer>> minutes() {
         return Optional.ofNullable(this.minutes);
     }
@@ -63,11 +71,23 @@ public final class ViewDataMetricScheduleArgs extends com.pulumi.resources.Resou
             $ = new ViewDataMetricScheduleArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param minutes Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `using_cron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `using_cron` field, or replace*triggered*by metadata argument.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minutes(@Nullable Output<Integer> minutes) {
             $.minutes = minutes;
             return this;
         }
 
+        /**
+         * @param minutes Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `using_cron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `using_cron` field, or replace*triggered*by metadata argument.
+         * 
+         * @return builder
+         * 
+         */
         public Builder minutes(Integer minutes) {
             return minutes(Output.of(minutes));
         }

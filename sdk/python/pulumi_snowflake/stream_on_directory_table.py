@@ -30,17 +30,11 @@ class StreamOnDirectoryTableArgs:
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a StreamOnDirectoryTable resource.
-        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] stage: Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read
-               the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified
-               name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid
-               using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] stage: Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the stream.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-               to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "schema", schema)
@@ -56,8 +50,7 @@ class StreamOnDirectoryTableArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[builtins.str]:
         """
-        The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -69,8 +62,7 @@ class StreamOnDirectoryTableArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[builtins.str]:
         """
-        The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -82,10 +74,7 @@ class StreamOnDirectoryTableArgs:
     @pulumi.getter
     def stage(self) -> pulumi.Input[builtins.str]:
         """
-        Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read
-        the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified
-        name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid
-        using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "stage")
 
@@ -118,8 +107,7 @@ class StreamOnDirectoryTableArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-        to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -145,22 +133,14 @@ class _StreamOnDirectoryTableState:
         """
         Input properties used for looking up and filtering StreamOnDirectoryTable resources.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the stream.
-        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['StreamOnDirectoryTableDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE STREAM` for the given stream.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-               to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['StreamOnDirectoryTableShowOutputArgs']]] show_outputs: Outputs the result of `SHOW STREAMS` for the given stream.
-        :param pulumi.Input[builtins.str] stage: Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read
-               the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified
-               name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid
-               using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-               needed.
+        :param pulumi.Input[builtins.str] stage: Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
         """
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
@@ -210,8 +190,7 @@ class _StreamOnDirectoryTableState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -235,8 +214,7 @@ class _StreamOnDirectoryTableState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -248,8 +226,7 @@ class _StreamOnDirectoryTableState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-        to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -261,8 +238,7 @@ class _StreamOnDirectoryTableState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -286,10 +262,7 @@ class _StreamOnDirectoryTableState:
     @pulumi.getter
     def stage(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read
-        the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified
-        name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid
-        using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "stage")
 
@@ -310,8 +283,7 @@ class _StreamOnDirectoryTableState:
     @pulumi.getter(name="streamType")
     def stream_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-        needed.
+        Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
         """
         return pulumi.get(self, "stream_type")
 
@@ -334,20 +306,19 @@ class StreamOnDirectoryTable(pulumi.CustomResource):
                  stage: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a StreamOnDirectoryTable resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable example '"<database_name>"."<schema_name>"."<stream_name>"'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the stream.
-        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-               to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] stage: Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read
-               the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified
-               name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid
-               using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] stage: Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         ...
     @overload
@@ -356,7 +327,12 @@ class StreamOnDirectoryTable(pulumi.CustomResource):
                  args: StreamOnDirectoryTableArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a StreamOnDirectoryTable resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/streamOnDirectoryTable:StreamOnDirectoryTable example '"<database_name>"."<schema_name>"."<stream_name>"'
+        ```
+
         :param str resource_name: The name of the resource.
         :param StreamOnDirectoryTableArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -433,22 +409,14 @@ class StreamOnDirectoryTable(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the stream.
-        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] database: The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnDirectoryTableDescribeOutputArgs', 'StreamOnDirectoryTableDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE STREAM` for the given stream.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-               to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['StreamOnDirectoryTableShowOutputArgs', 'StreamOnDirectoryTableShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW STREAMS` for the given stream.
-        :param pulumi.Input[builtins.str] stage: Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read
-               the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified
-               name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid
-               using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
-        :param pulumi.Input[builtins.str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-               needed.
+        :param pulumi.Input[builtins.str] stage: Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] stream_type: Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -484,8 +452,7 @@ class StreamOnDirectoryTable(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[builtins.str]:
         """
-        The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -501,8 +468,7 @@ class StreamOnDirectoryTable(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -510,8 +476,7 @@ class StreamOnDirectoryTable(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-        to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -519,8 +484,7 @@ class StreamOnDirectoryTable(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[builtins.str]:
         """
-        The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -536,10 +500,7 @@ class StreamOnDirectoryTable(pulumi.CustomResource):
     @pulumi.getter
     def stage(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read
-        the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified
-        name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid
-        using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
+        Specifies an identifier for the stage the stream will monitor. Due to Snowflake limitations, the provider can not read the stage's database and schema. For stages, Snowflake returns only partially qualified name instead of fully qualified name. Please use stages located in the same schema as the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`. For more information about this resource, see docs.
         """
         return pulumi.get(self, "stage")
 
@@ -552,8 +513,7 @@ class StreamOnDirectoryTable(pulumi.CustomResource):
     @pulumi.getter(name="streamType")
     def stream_type(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-        needed.
+        Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
         """
         return pulumi.get(self, "stream_type")
 

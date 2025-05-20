@@ -6,6 +6,9 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Data source used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
+ */
 export function getStreams(args?: GetStreamsArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -22,10 +25,25 @@ export function getStreams(args?: GetStreamsArgs, opts?: pulumi.InvokeOptions): 
  * A collection of arguments for invoking getStreams.
  */
 export interface GetStreamsArgs {
+    /**
+     * IN clause to filter the list of objects
+     */
     in?: inputs.GetStreamsIn;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
     limit?: inputs.GetStreamsLimit;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
     startsWith?: string;
+    /**
+     * (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+     */
     withDescribe?: boolean;
 }
 
@@ -37,13 +55,34 @@ export interface GetStreamsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * IN clause to filter the list of objects
+     */
     readonly in?: outputs.GetStreamsIn;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     readonly like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
     readonly limit?: outputs.GetStreamsLimit;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
     readonly startsWith?: string;
+    /**
+     * Holds the aggregated output of all streams details queries.
+     */
     readonly streams: outputs.GetStreamsStream[];
+    /**
+     * (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+     */
     readonly withDescribe?: boolean;
 }
+/**
+ * Data source used to get details of filtered streams. Filtering is aligned with the current possibilities for [SHOW STREAMS](https://docs.snowflake.com/en/sql-reference/sql/show-streams) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `streams`.
+ */
 export function getStreamsOutput(args?: GetStreamsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetStreamsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -60,9 +99,24 @@ export function getStreamsOutput(args?: GetStreamsOutputArgs, opts?: pulumi.Invo
  * A collection of arguments for invoking getStreams.
  */
 export interface GetStreamsOutputArgs {
+    /**
+     * IN clause to filter the list of objects
+     */
     in?: pulumi.Input<inputs.GetStreamsInArgs>;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     like?: pulumi.Input<string>;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
     limit?: pulumi.Input<inputs.GetStreamsLimitArgs>;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
     startsWith?: pulumi.Input<string>;
+    /**
+     * (Default: `true`) Runs DESC STREAM for each user returned by SHOW STREAMS. The output of describe is saved to the description field. By default this value is set to true.
+     */
     withDescribe?: pulumi.Input<boolean>;
 }

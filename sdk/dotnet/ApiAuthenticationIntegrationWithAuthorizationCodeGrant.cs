@@ -9,6 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant example '"&lt;integration_name&gt;"'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/apiAuthenticationIntegrationWithAuthorizationCodeGrant:ApiAuthenticationIntegrationWithAuthorizationCodeGrant")]
     public partial class ApiAuthenticationIntegrationWithAuthorizationCodeGrant : global::Pulumi.CustomResource
     {
@@ -31,28 +38,25 @@ namespace Pulumi.Snowflake
         public Output<bool> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-        /// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
         /// </summary>
         [Output("oauthAccessTokenValidity")]
         public Output<int?> OauthAccessTokenValidity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-        /// the OAuth client credentials flow.
+        /// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
         /// </summary>
         [Output("oauthAllowedScopes")]
         public Output<ImmutableArray<string>> OauthAllowedScopes { get; private set; } = null!;
@@ -64,8 +68,7 @@ namespace Pulumi.Snowflake
         public Output<string?> OauthAuthorizationEndpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-        /// resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+        /// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         /// </summary>
         [Output("oauthClientAuthMethod")]
         public Output<string?> OauthClientAuthMethod { get; private set; } = null!;
@@ -86,9 +89,7 @@ namespace Pulumi.Snowflake
         public Output<int?> OauthRefreshTokenValidity { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-        /// refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-        /// access token is issued directly). If removed from the config, the resource is recreated.
+        /// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         /// </summary>
         [Output("oauthTokenEndpoint")]
         public Output<string?> OauthTokenEndpoint { get; private set; } = null!;
@@ -163,14 +164,13 @@ namespace Pulumi.Snowflake
         public Input<bool> Enabled { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-        /// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
         /// </summary>
         [Input("oauthAccessTokenValidity")]
         public Input<int>? OauthAccessTokenValidity { get; set; }
@@ -179,8 +179,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _oauthAllowedScopes;
 
         /// <summary>
-        /// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-        /// the OAuth client credentials flow.
+        /// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
         /// </summary>
         public InputList<string> OauthAllowedScopes
         {
@@ -195,8 +194,7 @@ namespace Pulumi.Snowflake
         public Input<string>? OauthAuthorizationEndpoint { get; set; }
 
         /// <summary>
-        /// Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-        /// resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+        /// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         /// </summary>
         [Input("oauthClientAuthMethod")]
         public Input<string>? OauthClientAuthMethod { get; set; }
@@ -236,9 +234,7 @@ namespace Pulumi.Snowflake
         public Input<int>? OauthRefreshTokenValidity { get; set; }
 
         /// <summary>
-        /// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-        /// refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-        /// access token is issued directly). If removed from the config, the resource is recreated.
+        /// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         /// </summary>
         [Input("oauthTokenEndpoint")]
         public Input<string>? OauthTokenEndpoint { get; set; }
@@ -276,21 +272,19 @@ namespace Pulumi.Snowflake
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-        /// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
         /// </summary>
         [Input("oauthAccessTokenValidity")]
         public Input<int>? OauthAccessTokenValidity { get; set; }
@@ -299,8 +293,7 @@ namespace Pulumi.Snowflake
         private InputList<string>? _oauthAllowedScopes;
 
         /// <summary>
-        /// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-        /// the OAuth client credentials flow.
+        /// Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
         /// </summary>
         public InputList<string> OauthAllowedScopes
         {
@@ -315,8 +308,7 @@ namespace Pulumi.Snowflake
         public Input<string>? OauthAuthorizationEndpoint { get; set; }
 
         /// <summary>
-        /// Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-        /// resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+        /// Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         /// </summary>
         [Input("oauthClientAuthMethod")]
         public Input<string>? OauthClientAuthMethod { get; set; }
@@ -356,9 +348,7 @@ namespace Pulumi.Snowflake
         public Input<int>? OauthRefreshTokenValidity { get; set; }
 
         /// <summary>
-        /// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-        /// refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-        /// access token is issued directly). If removed from the config, the resource is recreated.
+        /// Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         /// </summary>
         [Input("oauthTokenEndpoint")]
         public Input<string>? OauthTokenEndpoint { get; set; }

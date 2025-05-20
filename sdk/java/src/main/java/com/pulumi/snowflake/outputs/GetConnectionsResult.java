@@ -14,15 +14,27 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetConnectionsResult {
+    /**
+     * @return Holds the aggregated output of all connections details queries.
+     * 
+     */
     private List<GetConnectionsConnection> connections;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     private @Nullable String like;
 
     private GetConnectionsResult() {}
+    /**
+     * @return Holds the aggregated output of all connections details queries.
+     * 
+     */
     public List<GetConnectionsConnection> connections() {
         return this.connections;
     }
@@ -33,6 +45,10 @@ public final class GetConnectionsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     public Optional<String> like() {
         return Optional.ofNullable(this.like);
     }

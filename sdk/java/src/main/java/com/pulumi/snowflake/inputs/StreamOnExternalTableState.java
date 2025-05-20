@@ -58,16 +58,14 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> database() {
@@ -90,16 +88,14 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here),
-     * avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     @Import(name="externalTable")
     private @Nullable Output<String> externalTable;
 
     /**
-     * @return Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here),
-     * avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+     * @return Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> externalTable() {
@@ -107,16 +103,14 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -124,16 +118,14 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies whether this is an insert-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
-     * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an insert-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="insertOnly")
     private @Nullable Output<String> insertOnly;
 
     /**
-     * @return Specifies whether this is an insert-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
-     * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an insert-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> insertOnly() {
@@ -141,16 +133,14 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-     * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -158,16 +148,14 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -197,16 +185,14 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-     * needed.
+     * Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
      * 
      */
     @Import(name="streamType")
     private @Nullable Output<String> streamType;
 
     /**
-     * @return Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-     * needed.
+     * @return Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
      * 
      */
     public Optional<Output<String>> streamType() {
@@ -299,8 +285,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -311,8 +296,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -353,8 +337,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param externalTable Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here),
-         * avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+         * @param externalTable Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -365,8 +348,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param externalTable Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here),
-         * avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
+         * @param externalTable Specifies an identifier for the external table the stream will monitor. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -376,8 +358,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -388,8 +369,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -399,8 +379,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param insertOnly Specifies whether this is an insert-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
-         * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param insertOnly (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an insert-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -411,8 +390,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param insertOnly Specifies whether this is an insert-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in
-         * the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param insertOnly (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this is an insert-only stream. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -422,8 +400,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-         * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -434,8 +411,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due
-         * to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the stream; must be unique for the database and schema in which the stream is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -445,8 +421,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -457,8 +432,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the stream. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -508,8 +482,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-         * needed.
+         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
          * 
          * @return builder
          * 
@@ -520,8 +493,7 @@ public final class StreamOnExternalTableState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if
-         * needed.
+         * @param streamType Specifies a type for the stream. This field is used for checking external changes and recreating the resources if needed.
          * 
          * @return builder
          * 

@@ -6,6 +6,9 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `inClass` are all supported). The results of SHOW are encapsulated in one output collection.
+ */
 export function getAccountRoles(args?: GetAccountRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountRolesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,7 +22,13 @@ export function getAccountRoles(args?: GetAccountRolesArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getAccountRoles.
  */
 export interface GetAccountRolesArgs {
+    /**
+     * Filters the SHOW GRANTS output by class name.
+     */
     inClass?: string;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     like?: string;
 }
 
@@ -27,14 +36,26 @@ export interface GetAccountRolesArgs {
  * A collection of values returned by getAccountRoles.
  */
 export interface GetAccountRolesResult {
+    /**
+     * Holds the aggregated output of all account role details queries.
+     */
     readonly accountRoles: outputs.GetAccountRolesAccountRole[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Filters the SHOW GRANTS output by class name.
+     */
     readonly inClass?: string;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     readonly like?: string;
 }
+/**
+ * Data source used to get details of filtered account roles. Filtering is aligned with the current possibilities for [SHOW ROLES](https://docs.snowflake.com/en/sql-reference/sql/show-roles) query (`like` and `inClass` are all supported). The results of SHOW are encapsulated in one output collection.
+ */
 export function getAccountRolesOutput(args?: GetAccountRolesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAccountRolesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +69,12 @@ export function getAccountRolesOutput(args?: GetAccountRolesOutputArgs, opts?: p
  * A collection of arguments for invoking getAccountRoles.
  */
 export interface GetAccountRolesOutputArgs {
+    /**
+     * Filters the SHOW GRANTS output by class name.
+     */
     inClass?: pulumi.Input<string>;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     like?: pulumi.Input<string>;
 }

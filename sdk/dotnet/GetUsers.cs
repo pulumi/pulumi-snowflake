@@ -11,12 +11,21 @@ namespace Pulumi.Snowflake
 {
     public static class GetUsers
     {
+        /// <summary>
+        /// ## Example Usage
+        /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("snowflake:index/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// ## Example Usage
+        /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("snowflake:index/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// ## Example Usage
+        /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("snowflake:index/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());
     }
@@ -24,18 +33,33 @@ namespace Pulumi.Snowflake
 
     public sealed class GetUsersArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         [Input("like")]
         public string? Like { get; set; }
 
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
         [Input("limit")]
         public Inputs.GetUsersLimitArgs? Limit { get; set; }
 
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
         [Input("startsWith")]
         public string? StartsWith { get; set; }
 
+        /// <summary>
+        /// (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
         [Input("withDescribe")]
         public bool? WithDescribe { get; set; }
 
+        /// <summary>
+        /// (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// </summary>
         [Input("withParameters")]
         public bool? WithParameters { get; set; }
 
@@ -47,18 +71,33 @@ namespace Pulumi.Snowflake
 
     public sealed class GetUsersInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         [Input("like")]
         public Input<string>? Like { get; set; }
 
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
         [Input("limit")]
         public Input<Inputs.GetUsersLimitInputArgs>? Limit { get; set; }
 
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
         [Input("startsWith")]
         public Input<string>? StartsWith { get; set; }
 
+        /// <summary>
+        /// (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
         [Input("withDescribe")]
         public Input<bool>? WithDescribe { get; set; }
 
+        /// <summary>
+        /// (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// </summary>
         [Input("withParameters")]
         public Input<bool>? WithParameters { get; set; }
 
@@ -76,11 +115,29 @@ namespace Pulumi.Snowflake
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         public readonly string? Like;
+        /// <summary>
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// </summary>
         public readonly Outputs.GetUsersLimitResult? Limit;
+        /// <summary>
+        /// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        /// </summary>
         public readonly string? StartsWith;
+        /// <summary>
+        /// Holds the aggregated output of all user details queries.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersUserResult> Users;
+        /// <summary>
+        /// (Default: `true`) Runs DESC USER for each user returned by SHOW USERS. The output of describe is saved to the description field. By default this value is set to true.
+        /// </summary>
         public readonly bool? WithDescribe;
+        /// <summary>
+        /// (Default: `true`) Runs SHOW PARAMETERS FOR USER for each user returned by SHOW USERS. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        /// </summary>
         public readonly bool? WithParameters;
 
         [OutputConstructor]

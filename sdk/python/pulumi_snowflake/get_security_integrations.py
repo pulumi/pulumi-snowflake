@@ -53,16 +53,25 @@ class GetSecurityIntegrationsResult:
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
+        """
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter(name="securityIntegrations")
     def security_integrations(self) -> Sequence['outputs.GetSecurityIntegrationsSecurityIntegrationResult']:
+        """
+        Holds the aggregated output of all security integrations details queries.
+        """
         return pulumi.get(self, "security_integrations")
 
     @property
     @pulumi.getter(name="withDescribe")
     def with_describe(self) -> Optional[builtins.bool]:
+        """
+        (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+        """
         return pulumi.get(self, "with_describe")
 
 
@@ -82,7 +91,11 @@ def get_security_integrations(like: Optional[builtins.str] = None,
                               with_describe: Optional[builtins.bool] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecurityIntegrationsResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
     __args__['like'] = like
@@ -99,7 +112,11 @@ def get_security_integrations_output(like: Optional[pulumi.Input[Optional[builti
                                      with_describe: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                                      opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecurityIntegrationsResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
     __args__['like'] = like

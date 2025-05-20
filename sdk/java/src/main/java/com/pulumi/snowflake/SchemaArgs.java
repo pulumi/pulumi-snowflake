@@ -19,16 +19,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     public static final SchemaArgs Empty = new SchemaArgs();
 
     /**
-     * The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
-     * [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+     * The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      * 
      */
     @Import(name="catalog")
     private @Nullable Output<String> catalog;
 
     /**
-     * @return The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
-     * [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+     * @return The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
      * 
      */
     public Optional<Output<String>> catalog() {
@@ -51,18 +49,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
-     * as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
-     * [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+     * Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      * 
      */
     @Import(name="dataRetentionTimeInDays")
     private @Nullable Output<Integer> dataRetentionTimeInDays;
 
     /**
-     * @return Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
-     * as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
-     * [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+     * @return Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
      * 
      */
     public Optional<Output<Integer>> dataRetentionTimeInDays() {
@@ -70,16 +64,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the schema. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database", required=true)
     private Output<String> database;
 
     /**
-     * @return The database in which to create the schema. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -87,18 +79,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
-     * schema or table level. For more information, see [collation
-     * specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+     * Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      * 
      */
     @Import(name="defaultDdlCollation")
     private @Nullable Output<String> defaultDdlCollation;
 
     /**
-     * @return Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
-     * schema or table level. For more information, see [collation
-     * specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+     * @return Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
      * 
      */
     public Optional<Output<String>> defaultDdlCollation() {
@@ -121,16 +109,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
-     * [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+     * The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      * 
      */
     @Import(name="externalVolume")
     private @Nullable Output<String> externalVolume;
 
     /**
-     * @return The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
-     * [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+     * @return The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
      * 
      */
     public Optional<Output<String>> externalVolume() {
@@ -138,20 +124,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
-     * storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
-     * a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-     * put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="isTransient")
     private @Nullable Output<String> isTransient;
 
     /**
-     * @return Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
-     * storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
-     * a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-     * put &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> isTransient() {
@@ -159,20 +139,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
-     * options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
-     * ingested. For more information, see
-     * [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+     * Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
      * 
      */
     @Import(name="logLevel")
     private @Nullable Output<String> logLevel;
 
     /**
-     * @return Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
-     * options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
-     * ingested. For more information, see
-     * [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+     * @return Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
      * 
      */
     public Optional<Output<String>> logLevel() {
@@ -180,20 +154,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
-     * tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
-     * parameter, see
-     * [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+     * Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
      * 
      */
     @Import(name="maxDataExtensionTimeInDays")
     private @Nullable Output<Integer> maxDataExtensionTimeInDays;
 
     /**
-     * @return Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
-     * tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
-     * parameter, see
-     * [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+     * @return Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
      * 
      */
     public Optional<Output<Integer>> maxDataExtensionTimeInDays() {
@@ -201,20 +169,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name
-     * is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is
-     * used to match the desired state. Due to technical limitations (read more here), avoid using the following characters:
-     * `|`, `.`, `&#34;`.
+     * Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name
-     * is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is
-     * used to match the desired state. Due to technical limitations (read more here), avoid using the following characters:
-     * `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -222,18 +184,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a
-     * different role. For more information, check [PIPE_EXECUTION_PAUSED
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
      * 
      */
     @Import(name="pipeExecutionPaused")
     private @Nullable Output<Boolean> pipeExecutionPaused;
 
     /**
-     * @return Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a
-     * different role. For more information, check [PIPE_EXECUTION_PAUSED
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+     * @return Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
      * 
      */
     public Optional<Output<Boolean>> pipeExecutionPaused() {
@@ -241,16 +199,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, the case of quoted identifiers is ignored. For more information, see
-     * [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+     * If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      * 
      */
     @Import(name="quotedIdentifiersIgnoreCase")
     private @Nullable Output<Boolean> quotedIdentifiersIgnoreCase;
 
     /**
-     * @return If true, the case of quoted identifiers is ignored. For more information, see
-     * [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+     * @return If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
      * 
      */
     public Optional<Output<Boolean>> quotedIdentifiersIgnoreCase() {
@@ -258,18 +214,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
-     * an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
-     * see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+     * Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      * 
      */
     @Import(name="replaceInvalidCharacters")
     private @Nullable Output<Boolean> replaceInvalidCharacters;
 
     /**
-     * @return Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
-     * an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
-     * see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+     * @return Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
      * 
      */
     public Optional<Output<Boolean>> replaceInvalidCharacters() {
@@ -277,22 +229,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
-     * OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
-     * third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
-     * table performance within Snowflake. For more information, see
-     * [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+     * The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      * 
      */
     @Import(name="storageSerializationPolicy")
     private @Nullable Output<String> storageSerializationPolicy;
 
     /**
-     * @return The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
-     * OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
-     * third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
-     * table performance within Snowflake. For more information, see
-     * [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+     * @return The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
      * 
      */
     public Optional<Output<String>> storageSerializationPolicy() {
@@ -300,18 +244,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
-     * information, see
-     * [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+     * How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      * 
      */
     @Import(name="suspendTaskAfterNumFailures")
     private @Nullable Output<Integer> suspendTaskAfterNumFailures;
 
     /**
-     * @return How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
-     * information, see
-     * [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+     * @return How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
      * 
      */
     public Optional<Output<Integer>> suspendTaskAfterNumFailures() {
@@ -319,16 +259,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Maximum automatic retries allowed for a user task. For more information, see
-     * [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+     * Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      * 
      */
     @Import(name="taskAutoRetryAttempts")
     private @Nullable Output<Integer> taskAutoRetryAttempts;
 
     /**
-     * @return Maximum automatic retries allowed for a user task. For more information, see
-     * [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+     * @return Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
      * 
      */
     public Optional<Output<Integer>> taskAutoRetryAttempts() {
@@ -336,16 +274,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
-     * about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+     * Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
      * 
      */
     @Import(name="traceLevel")
     private @Nullable Output<String> traceLevel;
 
     /**
-     * @return Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
-     * about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+     * @return Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
      * 
      */
     public Optional<Output<String>> traceLevel() {
@@ -353,16 +289,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
-     * [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+     * The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      * 
      */
     @Import(name="userTaskManagedInitialWarehouseSize")
     private @Nullable Output<String> userTaskManagedInitialWarehouseSize;
 
     /**
-     * @return The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
-     * [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+     * @return The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
      * 
      */
     public Optional<Output<String>> userTaskManagedInitialWarehouseSize() {
@@ -385,16 +319,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * User task execution timeout in milliseconds. For more information, see
-     * [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+     * User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      * 
      */
     @Import(name="userTaskTimeoutMs")
     private @Nullable Output<Integer> userTaskTimeoutMs;
 
     /**
-     * @return User task execution timeout in milliseconds. For more information, see
-     * [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+     * @return User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
      * 
      */
     public Optional<Output<Integer>> userTaskTimeoutMs() {
@@ -402,18 +334,14 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available
-     * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
-     * which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="withManagedAccess")
     private @Nullable Output<String> withManagedAccess;
 
     /**
-     * @return Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available
-     * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
-     * which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> withManagedAccess() {
@@ -466,8 +394,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalog The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
-         * [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+         * @param catalog The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
          * 
          * @return builder
          * 
@@ -478,8 +405,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param catalog The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see
-         * [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
+         * @param catalog The database parameter that specifies the default catalog to use for Iceberg tables. For more information, see [CATALOG](https://docs.snowflake.com/en/sql-reference/parameters#catalog).
          * 
          * @return builder
          * 
@@ -510,9 +436,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataRetentionTimeInDays Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
-         * as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
-         * [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+         * @param dataRetentionTimeInDays Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
          * 
          * @return builder
          * 
@@ -523,9 +447,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dataRetentionTimeInDays Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well
-         * as specifying the default Time Travel retention time for all schemas created in the database. For more details, see
-         * [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
+         * @param dataRetentionTimeInDays Specifies the number of days for which Time Travel actions (CLONE and UNDROP) can be performed on the database, as well as specifying the default Time Travel retention time for all schemas created in the database. For more details, see [Understanding &amp; Using Time Travel](https://docs.snowflake.com/en/user-guide/data-time-travel).
          * 
          * @return builder
          * 
@@ -535,8 +457,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the schema. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -547,8 +468,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the schema. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -558,9 +478,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultDdlCollation Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
-         * schema or table level. For more information, see [collation
-         * specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+         * @param defaultDdlCollation Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
          * 
          * @return builder
          * 
@@ -571,9 +489,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultDdlCollation Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on
-         * schema or table level. For more information, see [collation
-         * specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
+         * @param defaultDdlCollation Specifies a default collation specification for all schemas and tables added to the database. It can be overridden on schema or table level. For more information, see [collation specification](https://docs.snowflake.com/en/sql-reference/collation#label-collation-specification).
          * 
          * @return builder
          * 
@@ -604,8 +520,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalVolume The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
-         * [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+         * @param externalVolume The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
          * 
          * @return builder
          * 
@@ -616,8 +531,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param externalVolume The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see
-         * [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
+         * @param externalVolume The database parameter that specifies the default external volume to use for Iceberg tables. For more information, see [EXTERNAL_VOLUME](https://docs.snowflake.com/en/sql-reference/parameters#external-volume).
          * 
          * @return builder
          * 
@@ -627,10 +541,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isTransient Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
-         * storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
-         * a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-         * put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param isTransient (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -641,10 +552,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param isTransient Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional
-         * storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of
-         * a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will
-         * put &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param isTransient (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies the schema as transient. Transient schemas do not have a Fail-safe period so they do not incur additional storage costs once they leave Time Travel; however, this means they are also not protected by Fail-safe in the event of a data loss. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -654,10 +562,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
-         * options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
-         * ingested. For more information, see
-         * [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
          * 
          * @return builder
          * 
@@ -668,10 +573,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Valid
-         * options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are
-         * ingested. For more information, see
-         * [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
+         * @param logLevel Specifies the severity level of messages that should be ingested and made available in the active event table. Valid options are: [TRACE DEBUG INFO WARN ERROR FATAL OFF]. Messages at the specified level (and at more severe levels) are ingested. For more information, see [LOG_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-log-level).
          * 
          * @return builder
          * 
@@ -681,10 +583,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxDataExtensionTimeInDays Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
-         * tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
-         * parameter, see
-         * [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+         * @param maxDataExtensionTimeInDays Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
          * 
          * @return builder
          * 
@@ -695,10 +594,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param maxDataExtensionTimeInDays Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for
-         * tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this
-         * parameter, see
-         * [MAX_DATA_EXTENSION_TIME_IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
+         * @param maxDataExtensionTimeInDays Object parameter that specifies the maximum number of days for which Snowflake can extend the data retention period for tables in the database to prevent streams on the tables from becoming stale. For a detailed description of this parameter, see [MAX*DATA*EXTENSION*TIME*IN_DAYS](https://docs.snowflake.com/en/sql-reference/parameters.html#label-max-data-extension-time-in-days).
          * 
          * @return builder
          * 
@@ -708,10 +604,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name
-         * is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is
-         * used to match the desired state. Due to technical limitations (read more here), avoid using the following characters:
-         * `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -722,10 +615,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name
-         * is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is
-         * used to match the desired state. Due to technical limitations (read more here), avoid using the following characters:
-         * `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the schema; must be unique for the database in which the schema is created. When the name is `PUBLIC`, during creation the provider checks if this schema has already been created and, in such case, `ALTER` is used to match the desired state. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -735,9 +625,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a
-         * different role. For more information, check [PIPE_EXECUTION_PAUSED
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
          * 
          * @return builder
          * 
@@ -748,9 +636,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a
-         * different role. For more information, check [PIPE_EXECUTION_PAUSED
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
+         * @param pipeExecutionPaused Specifies whether to pause a running pipe, primarily in preparation for transferring ownership of the pipe to a different role. For more information, check [PIPE*EXECUTION*PAUSED docs](https://docs.snowflake.com/en/sql-reference/parameters#pipe-execution-paused).
          * 
          * @return builder
          * 
@@ -760,8 +646,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quotedIdentifiersIgnoreCase If true, the case of quoted identifiers is ignored. For more information, see
-         * [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+         * @param quotedIdentifiersIgnoreCase If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
          * 
          * @return builder
          * 
@@ -772,8 +657,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param quotedIdentifiersIgnoreCase If true, the case of quoted identifiers is ignored. For more information, see
-         * [QUOTED_IDENTIFIERS_IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
+         * @param quotedIdentifiersIgnoreCase If true, the case of quoted identifiers is ignored. For more information, see [QUOTED*IDENTIFIERS*IGNORE_CASE](https://docs.snowflake.com/en/sql-reference/parameters#quoted-identifiers-ignore-case).
          * 
          * @return builder
          * 
@@ -783,9 +667,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
-         * an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
-         * see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
          * 
          * @return builder
          * 
@@ -796,9 +678,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for
-         * an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information,
-         * see [REPLACE_INVALID_CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
+         * @param replaceInvalidCharacters Specifies whether to replace invalid UTF-8 characters with the Unicode replacement character (�) in query results for an Iceberg table. You can only set this parameter for tables that use an external Iceberg catalog. For more information, see [REPLACE*INVALID*CHARACTERS](https://docs.snowflake.com/en/sql-reference/parameters#replace-invalid-characters).
          * 
          * @return builder
          * 
@@ -808,11 +688,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageSerializationPolicy The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
-         * OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
-         * third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
-         * table performance within Snowflake. For more information, see
-         * [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+         * @param storageSerializationPolicy The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
          * 
          * @return builder
          * 
@@ -823,11 +699,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageSerializationPolicy The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE
-         * OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with
-         * third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best
-         * table performance within Snowflake. For more information, see
-         * [STORAGE_SERIALIZATION_POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
+         * @param storageSerializationPolicy The storage serialization policy for Iceberg tables that use Snowflake as the catalog. Valid options are: [COMPATIBLE OPTIMIZED]. COMPATIBLE: Snowflake performs encoding and compression of data files that ensures interoperability with third-party compute engines. OPTIMIZED: Snowflake performs encoding and compression of data files that ensures the best table performance within Snowflake. For more information, see [STORAGE*SERIALIZATION*POLICY](https://docs.snowflake.com/en/sql-reference/parameters#storage-serialization-policy).
          * 
          * @return builder
          * 
@@ -837,9 +709,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendTaskAfterNumFailures How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
-         * information, see
-         * [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+         * @param suspendTaskAfterNumFailures How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
          * 
          * @return builder
          * 
@@ -850,9 +720,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param suspendTaskAfterNumFailures How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more
-         * information, see
-         * [SUSPEND_TASK_AFTER_NUM_FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
+         * @param suspendTaskAfterNumFailures How many times a task must fail in a row before it is automatically suspended. 0 disables auto-suspending. For more information, see [SUSPEND*TASK*AFTER*NUM*FAILURES](https://docs.snowflake.com/en/sql-reference/parameters#suspend-task-after-num-failures).
          * 
          * @return builder
          * 
@@ -862,8 +730,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskAutoRetryAttempts Maximum automatic retries allowed for a user task. For more information, see
-         * [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+         * @param taskAutoRetryAttempts Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
          * 
          * @return builder
          * 
@@ -874,8 +741,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param taskAutoRetryAttempts Maximum automatic retries allowed for a user task. For more information, see
-         * [TASK_AUTO_RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
+         * @param taskAutoRetryAttempts Maximum automatic retries allowed for a user task. For more information, see [TASK*AUTO*RETRY_ATTEMPTS](https://docs.snowflake.com/en/sql-reference/parameters#task-auto-retry-attempts).
          * 
          * @return builder
          * 
@@ -885,8 +751,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param traceLevel Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
-         * about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+         * @param traceLevel Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
          * 
          * @return builder
          * 
@@ -897,8 +762,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param traceLevel Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON_EVENT OFF]. For information
-         * about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+         * @param traceLevel Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
          * 
          * @return builder
          * 
@@ -908,8 +772,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTaskManagedInitialWarehouseSize The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
-         * [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+         * @param userTaskManagedInitialWarehouseSize The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
          * 
          * @return builder
          * 
@@ -920,8 +783,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTaskManagedInitialWarehouseSize The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see
-         * [USER_TASK_MANAGED_INITIAL_WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
+         * @param userTaskManagedInitialWarehouseSize The initial size of warehouse to use for managed warehouses in the absence of history. For more information, see [USER*TASK*MANAGED*INITIAL*WAREHOUSE_SIZE](https://docs.snowflake.com/en/sql-reference/parameters#user-task-managed-initial-warehouse-size).
          * 
          * @return builder
          * 
@@ -952,8 +814,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTaskTimeoutMs User task execution timeout in milliseconds. For more information, see
-         * [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+         * @param userTaskTimeoutMs User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
          * 
          * @return builder
          * 
@@ -964,8 +825,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param userTaskTimeoutMs User task execution timeout in milliseconds. For more information, see
-         * [USER_TASK_TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
+         * @param userTaskTimeoutMs User task execution timeout in milliseconds. For more information, see [USER*TASK*TIMEOUT_MS](https://docs.snowflake.com/en/sql-reference/parameters#user-task-timeout-ms).
          * 
          * @return builder
          * 
@@ -975,9 +835,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param withManagedAccess Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available
-         * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
-         * which means to use the Snowflake default for this value.
+         * @param withManagedAccess (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -988,9 +846,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param withManagedAccess Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available
-         * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
-         * which means to use the Snowflake default for this value.
+         * @param withManagedAccess (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies a managed schema. Managed access schemas centralize privilege management with the schema owner. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 

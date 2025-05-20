@@ -11,6 +11,36 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetFileFormats(ctx, &snowflake.GetFileFormatsArgs{
+//				Database: "MYDB",
+//				Schema:   "MYSCHEMA",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetFileFormats(ctx *pulumi.Context, args *GetFileFormatsArgs, opts ...pulumi.InvokeOption) (*GetFileFormatsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetFileFormatsResult
@@ -23,16 +53,21 @@ func GetFileFormats(ctx *pulumi.Context, args *GetFileFormatsArgs, opts ...pulum
 
 // A collection of arguments for invoking getFileFormats.
 type GetFileFormatsArgs struct {
+	// The database from which to return the schemas from.
 	Database string `pulumi:"database"`
-	Schema   string `pulumi:"schema"`
+	// The schema from which to return the file formats from.
+	Schema string `pulumi:"schema"`
 }
 
 // A collection of values returned by getFileFormats.
 type GetFileFormatsResult struct {
-	Database    string                     `pulumi:"database"`
+	// The database from which to return the schemas from.
+	Database string `pulumi:"database"`
+	// The file formats in the schema
 	FileFormats []GetFileFormatsFileFormat `pulumi:"fileFormats"`
 	// The provider-assigned unique ID for this managed resource.
-	Id     string `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The schema from which to return the file formats from.
 	Schema string `pulumi:"schema"`
 }
 
@@ -47,8 +82,10 @@ func GetFileFormatsOutput(ctx *pulumi.Context, args GetFileFormatsOutputArgs, op
 
 // A collection of arguments for invoking getFileFormats.
 type GetFileFormatsOutputArgs struct {
+	// The database from which to return the schemas from.
 	Database pulumi.StringInput `pulumi:"database"`
-	Schema   pulumi.StringInput `pulumi:"schema"`
+	// The schema from which to return the file formats from.
+	Schema pulumi.StringInput `pulumi:"schema"`
 }
 
 func (GetFileFormatsOutputArgs) ElementType() reflect.Type {
@@ -70,10 +107,12 @@ func (o GetFileFormatsResultOutput) ToGetFileFormatsResultOutputWithContext(ctx 
 	return o
 }
 
+// The database from which to return the schemas from.
 func (o GetFileFormatsResultOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileFormatsResult) string { return v.Database }).(pulumi.StringOutput)
 }
 
+// The file formats in the schema
 func (o GetFileFormatsResultOutput) FileFormats() GetFileFormatsFileFormatArrayOutput {
 	return o.ApplyT(func(v GetFileFormatsResult) []GetFileFormatsFileFormat { return v.FileFormats }).(GetFileFormatsFileFormatArrayOutput)
 }
@@ -83,6 +122,7 @@ func (o GetFileFormatsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileFormatsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The schema from which to return the file formats from.
 func (o GetFileFormatsResultOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFileFormatsResult) string { return v.Schema }).(pulumi.StringOutput)
 }

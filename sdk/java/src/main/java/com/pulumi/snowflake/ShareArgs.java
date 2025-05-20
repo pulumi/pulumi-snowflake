@@ -17,16 +17,14 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
     public static final ShareArgs Empty = new ShareArgs();
 
     /**
-     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-     * &#39;organization_name.account_name
+     * A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
      * 
      */
     @Import(name="accounts")
     private @Nullable Output<List<String>> accounts;
 
     /**
-     * @return A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-     * &#39;organization_name.account_name
+     * @return A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
      * 
      */
     public Optional<Output<List<String>>> accounts() {
@@ -90,8 +88,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-         * &#39;organization_name.account_name
+         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
          * 
          * @return builder
          * 
@@ -102,8 +99,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-         * &#39;organization_name.account_name
+         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
          * 
          * @return builder
          * 
@@ -113,8 +109,7 @@ public final class ShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of
-         * &#39;organization_name.account_name
+         * @param accounts A list of accounts to be added to the share. Values should not be the account locator, but in the form of &#39;organization*name.account*name
          * 
          * @return builder
          * 

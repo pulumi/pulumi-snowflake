@@ -4,6 +4,13 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/execute:Execute example '<random_uuid>'
+ * ```
+ */
 export class Execute extends pulumi.CustomResource {
     /**
      * Get an existing Execute resource's state with the given name, ID, and optional extra
@@ -41,8 +48,7 @@ export class Execute extends pulumi.CustomResource {
      */
     public readonly query!: pulumi.Output<string | undefined>;
     /**
-     * List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
-     * error.
+     * List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
      */
     public /*out*/ readonly queryResults!: pulumi.Output<{[key: string]: string}[]>;
     /**
@@ -98,8 +104,7 @@ export interface ExecuteState {
      */
     query?: pulumi.Input<string>;
     /**
-     * List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
-     * error.
+     * List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
      */
     queryResults?: pulumi.Input<pulumi.Input<{[key: string]: pulumi.Input<string>}>[]>;
     /**

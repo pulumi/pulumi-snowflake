@@ -12,6 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/emailNotificationIntegration:EmailNotificationIntegration example name
+// ```
 type EmailNotificationIntegration struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +25,7 @@ type EmailNotificationIntegration struct {
 	// A comment for the email integration.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	Enabled pulumi.BoolOutput      `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	Name               pulumi.StringOutput `pulumi:"name"`
 }
@@ -64,8 +68,7 @@ type emailNotificationIntegrationState struct {
 	// A comment for the email integration.
 	Comment *string `pulumi:"comment"`
 	Enabled *bool   `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	Name               *string `pulumi:"name"`
 }
@@ -76,8 +79,7 @@ type EmailNotificationIntegrationState struct {
 	// A comment for the email integration.
 	Comment pulumi.StringPtrInput
 	Enabled pulumi.BoolPtrInput
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	Name               pulumi.StringPtrInput
 }
@@ -206,8 +208,7 @@ func (o EmailNotificationIntegrationOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *EmailNotificationIntegration) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name
-// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o EmailNotificationIntegrationOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailNotificationIntegration) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }

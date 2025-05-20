@@ -18,18 +18,14 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
     public static final ResourceMonitorArgs Empty = new ResourceMonitorArgs();
 
     /**
-     * The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses
-     * assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be
-     * at 100% of quota.
+     * The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
      * 
      */
     @Import(name="creditQuota")
     private @Nullable Output<Integer> creditQuota;
 
     /**
-     * @return The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses
-     * assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be
-     * at 100% of quota.
+     * @return The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
      * 
      */
     public Optional<Output<Integer>> creditQuota() {
@@ -52,22 +48,14 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` |
-     * `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If
-     * you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from
-     * the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to
-     * Snowflake limitation and the lack of unset functionality for this parameter.
+     * The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
      * 
      */
     @Import(name="frequency")
     private @Nullable Output<String> frequency;
 
     /**
-     * @return The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` |
-     * `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If
-     * you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from
-     * the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to
-     * Snowflake limitation and the lack of unset functionality for this parameter.
+     * @return The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
      * 
      */
     public Optional<Output<String>> frequency() {
@@ -75,16 +63,14 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here),
-     * avoid using the following characters: `|`, `.`, `&#34;`.
+     * Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here),
-     * avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -92,18 +78,14 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the
-     * notify_users field will be notified (to receive the notification they should have notifications enabled). Values over
-     * 100 are supported.
+     * Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
      * 
      */
     @Import(name="notifyTriggers")
     private @Nullable Output<List<Integer>> notifyTriggers;
 
     /**
-     * @return Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the
-     * notify_users field will be notified (to receive the notification they should have notifications enabled). Values over
-     * 100 are supported.
+     * @return Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
      * 
      */
     public Optional<Output<List<Integer>>> notifyTriggers() {
@@ -111,16 +93,14 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more
-     * information about this resource, see docs.
+     * Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      * 
      */
     @Import(name="notifyUsers")
     private @Nullable Output<List<String>> notifyUsers;
 
     /**
-     * @return Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more
-     * information about this resource, see docs.
+     * @return Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> notifyUsers() {
@@ -128,20 +108,14 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a
-     * `start_timestamp` for a resource monitor, you must also set `frequency`. After removing this field from the config, the
-     * previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation
-     * and the lack of unset functionality for this parameter.
+     * The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
      * 
      */
     @Import(name="startTimestamp")
     private @Nullable Output<String> startTimestamp;
 
     /**
-     * @return The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a
-     * `start_timestamp` for a resource monitor, you must also set `frequency`. After removing this field from the config, the
-     * previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation
-     * and the lack of unset functionality for this parameter.
+     * @return The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
      * 
      */
     public Optional<Output<String>> startTimestamp() {
@@ -149,18 +123,14 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
-     * this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this
-     * action sends a notification to all users who have enabled notifications for themselves.
+     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      * 
      */
     @Import(name="suspendImmediateTrigger")
     private @Nullable Output<Integer> suspendImmediateTrigger;
 
     /**
-     * @return Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
-     * this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this
-     * action sends a notification to all users who have enabled notifications for themselves.
+     * @return Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      * 
      */
     public Optional<Output<Integer>> suspendImmediateTrigger() {
@@ -168,20 +138,14 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
-     * this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new
-     * queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition,
-     * this action sends a notification to all users who have enabled notifications for themselves.
+     * Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      * 
      */
     @Import(name="suspendTrigger")
     private @Nullable Output<Integer> suspendTrigger;
 
     /**
-     * @return Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
-     * this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new
-     * queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition,
-     * this action sends a notification to all users who have enabled notifications for themselves.
+     * @return Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
      * 
      */
     public Optional<Output<Integer>> suspendTrigger() {
@@ -221,9 +185,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param creditQuota The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses
-         * assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be
-         * at 100% of quota.
+         * @param creditQuota The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
          * 
          * @return builder
          * 
@@ -234,9 +196,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param creditQuota The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses
-         * assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be
-         * at 100% of quota.
+         * @param creditQuota The number of credits allocated to the resource monitor per frequency interval. When total usage for all warehouses assigned to the monitor reaches this number for the current frequency interval, the resource monitor is considered to be at 100% of quota.
          * 
          * @return builder
          * 
@@ -267,11 +227,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param frequency The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` |
-         * `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If
-         * you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from
-         * the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to
-         * Snowflake limitation and the lack of unset functionality for this parameter.
+         * @param frequency The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
          * 
          * @return builder
          * 
@@ -282,11 +238,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param frequency The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` |
-         * `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If
-         * you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from
-         * the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to
-         * Snowflake limitation and the lack of unset functionality for this parameter.
+         * @param frequency The frequency interval at which the credit usage resets to 0. Valid values are (case-insensitive): `MONTHLY` | `DAILY` | `WEEKLY` | `YEARLY` | `NEVER`. If you set a `frequency` for a resource monitor, you must also set `start_timestamp`. If you specify `NEVER` for the frequency, the credit usage for the warehouse does not reset. After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
          * 
          * @return builder
          * 
@@ -296,8 +248,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here),
-         * avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -308,8 +259,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here),
-         * avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name Identifier for the resource monitor; must be unique for your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -319,9 +269,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param notifyTriggers Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the
-         * notify_users field will be notified (to receive the notification they should have notifications enabled). Values over
-         * 100 are supported.
+         * @param notifyTriggers Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
          * 
          * @return builder
          * 
@@ -332,9 +280,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param notifyTriggers Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the
-         * notify_users field will be notified (to receive the notification they should have notifications enabled). Values over
-         * 100 are supported.
+         * @param notifyTriggers Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
          * 
          * @return builder
          * 
@@ -344,9 +290,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param notifyTriggers Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the
-         * notify_users field will be notified (to receive the notification they should have notifications enabled). Values over
-         * 100 are supported.
+         * @param notifyTriggers Specifies a list of percentages of the credit quota. After reaching any of the values the users passed in the notify_users field will be notified (to receive the notification they should have notifications enabled). Values over 100 are supported.
          * 
          * @return builder
          * 
@@ -356,8 +300,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param notifyUsers Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more
-         * information about this resource, see docs.
+         * @param notifyUsers Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -368,8 +311,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param notifyUsers Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more
-         * information about this resource, see docs.
+         * @param notifyUsers Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -379,8 +321,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param notifyUsers Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more
-         * information about this resource, see docs.
+         * @param notifyUsers Specifies the list of users (their identifiers) to receive email notifications on resource monitors. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -390,10 +331,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param startTimestamp The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a
-         * `start_timestamp` for a resource monitor, you must also set `frequency`. After removing this field from the config, the
-         * previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation
-         * and the lack of unset functionality for this parameter.
+         * @param startTimestamp The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
          * 
          * @return builder
          * 
@@ -404,10 +342,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param startTimestamp The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a
-         * `start_timestamp` for a resource monitor, you must also set `frequency`. After removing this field from the config, the
-         * previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation
-         * and the lack of unset functionality for this parameter.
+         * @param startTimestamp The date and time when the resource monitor starts monitoring credit usage for the assigned warehouses. If you set a `start_timestamp` for a resource monitor, you must also set `frequency`.  After removing this field from the config, the previously set value will be preserved on the Snowflake side, not the default value. That&#39;s due to Snowflake limitation and the lack of unset functionality for this parameter.
          * 
          * @return builder
          * 
@@ -417,9 +352,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param suspendImmediateTrigger Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
-         * this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this
-         * action sends a notification to all users who have enabled notifications for themselves.
+         * @param suspendImmediateTrigger Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
          * 
          * @return builder
          * 
@@ -430,9 +363,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param suspendImmediateTrigger Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
-         * this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this
-         * action sends a notification to all users who have enabled notifications for themselves.
+         * @param suspendImmediateTrigger Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses immediately cancel any currently running queries or statements. In addition, this action sends a notification to all users who have enabled notifications for themselves.
          * 
          * @return builder
          * 
@@ -442,10 +373,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param suspendTrigger Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
-         * this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new
-         * queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition,
-         * this action sends a notification to all users who have enabled notifications for themselves.
+         * @param suspendTrigger Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
          * 
          * @return builder
          * 
@@ -456,10 +384,7 @@ public final class ResourceMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param suspendTrigger Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching
-         * this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new
-         * queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition,
-         * this action sends a notification to all users who have enabled notifications for themselves.
+         * @param suspendTrigger Represents a numeric value specified as a percentage of the credit quota. Values over 100 are supported. After reaching this value, all assigned warehouses while allowing currently running queries to complete will be suspended. No new queries can be executed by the warehouses until the credit quota for the resource monitor is increased. In addition, this action sends a notification to all users who have enabled notifications for themselves.
          * 
          * @return builder
          * 

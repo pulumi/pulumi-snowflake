@@ -11,12 +11,21 @@ namespace Pulumi.Snowflake
 {
     public static class GetConnections
     {
+        /// <summary>
+        /// Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
+        /// </summary>
         public static Task<GetConnectionsResult> InvokeAsync(GetConnectionsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionsResult>("snowflake:index/getConnections:getConnections", args ?? new GetConnectionsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
+        /// </summary>
         public static Output<GetConnectionsResult> Invoke(GetConnectionsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionsResult>("snowflake:index/getConnections:getConnections", args ?? new GetConnectionsInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
+        /// </summary>
         public static Output<GetConnectionsResult> Invoke(GetConnectionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionsResult>("snowflake:index/getConnections:getConnections", args ?? new GetConnectionsInvokeArgs(), options.WithDefaults());
     }
@@ -24,6 +33,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetConnectionsArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         [Input("like")]
         public string? Like { get; set; }
 
@@ -35,6 +47,9 @@ namespace Pulumi.Snowflake
 
     public sealed class GetConnectionsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         [Input("like")]
         public Input<string>? Like { get; set; }
 
@@ -48,11 +63,17 @@ namespace Pulumi.Snowflake
     [OutputType]
     public sealed class GetConnectionsResult
     {
+        /// <summary>
+        /// Holds the aggregated output of all connections details queries.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetConnectionsConnectionResult> Connections;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        /// </summary>
         public readonly string? Like;
 
         [OutputConstructor]

@@ -11,6 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := snowflake.GetStorageIntegrations(ctx, map[string]interface{}{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetStorageIntegrations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetStorageIntegrationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetStorageIntegrationsResult
@@ -24,7 +51,8 @@ func GetStorageIntegrations(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*
 // A collection of values returned by getStorageIntegrations.
 type GetStorageIntegrationsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id                  string                                     `pulumi:"id"`
+	Id string `pulumi:"id"`
+	// The storage integrations in the database
 	StorageIntegrations []GetStorageIntegrationsStorageIntegration `pulumi:"storageIntegrations"`
 }
 
@@ -55,6 +83,7 @@ func (o GetStorageIntegrationsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStorageIntegrationsResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The storage integrations in the database
 func (o GetStorageIntegrationsResultOutput) StorageIntegrations() GetStorageIntegrationsStorageIntegrationArrayOutput {
 	return o.ApplyT(func(v GetStorageIntegrationsResult) []GetStorageIntegrationsStorageIntegration {
 		return v.StorageIntegrations

@@ -33,16 +33,14 @@ public final class DatabaseRoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The database in which to create the database role. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the database role. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> database() {
@@ -50,16 +48,14 @@ public final class DatabaseRoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -67,16 +63,14 @@ public final class DatabaseRoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -84,16 +78,14 @@ public final class DatabaseRoleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed
-     * whenever comment field changes.
+     * Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
      * 
      */
     @Import(name="showOutputs")
     private @Nullable Output<List<DatabaseRoleShowOutputArgs>> showOutputs;
 
     /**
-     * @return Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed
-     * whenever comment field changes.
+     * @return Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
      * 
      */
     public Optional<Output<List<DatabaseRoleShowOutputArgs>>> showOutputs() {
@@ -150,8 +142,7 @@ public final class DatabaseRoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the database role. Due to technical limitations (read more here), avoid using the
-         * following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -162,8 +153,7 @@ public final class DatabaseRoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param database The database in which to create the database role. Due to technical limitations (read more here), avoid using the
-         * following characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -173,8 +163,7 @@ public final class DatabaseRoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -185,8 +174,7 @@ public final class DatabaseRoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -196,8 +184,7 @@ public final class DatabaseRoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -208,8 +195,7 @@ public final class DatabaseRoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the identifier for the database role. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -219,8 +205,7 @@ public final class DatabaseRoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed
-         * whenever comment field changes.
+         * @param showOutputs Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
          * 
          * @return builder
          * 
@@ -231,8 +216,7 @@ public final class DatabaseRoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed
-         * whenever comment field changes.
+         * @param showOutputs Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
          * 
          * @return builder
          * 
@@ -242,8 +226,7 @@ public final class DatabaseRoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param showOutputs Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed
-         * whenever comment field changes.
+         * @param showOutputs Outputs the result of `SHOW DATABASE ROLES` for the given database role. Note that this value will be only recomputed whenever comment field changes.
          * 
          * @return builder
          * 

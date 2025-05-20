@@ -6,6 +6,13 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/view:View example '"<database_name>"."<schema_name>"."<view_name>"'
+ * ```
+ */
 export class View extends pulumi.CustomResource {
     /**
      * Get an existing View resource's state with the given name, ID, and optional extra
@@ -39,15 +46,11 @@ export class View extends pulumi.CustomResource {
      */
     public readonly aggregationPolicy!: pulumi.Output<outputs.ViewAggregationPolicy | undefined>;
     /**
-     * Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is
-     * not set in the configuration the provider will put "default" there which means to use the Snowflake default for this
-     * value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly changeTracking!: pulumi.Output<string | undefined>;
     /**
-     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that
-     * specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the
-     * columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
+     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      */
     public readonly columns!: pulumi.Output<outputs.ViewColumn[] | undefined>;
     /**
@@ -64,8 +67,7 @@ export class View extends pulumi.CustomResource {
      */
     public readonly dataMetricSchedule!: pulumi.Output<outputs.ViewDataMetricSchedule | undefined>;
     /**
-     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `"`.
+     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly database!: pulumi.Output<string>;
     /**
@@ -73,21 +75,17 @@ export class View extends pulumi.CustomResource {
      */
     public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.ViewDescribeOutput[]>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table
-     * expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will
-     * put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     public readonly isRecursive!: pulumi.Output<string | undefined>;
     public readonly isSecure!: pulumi.Output<string | undefined>;
     public readonly isTemporary!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -95,8 +93,7 @@ export class View extends pulumi.CustomResource {
      */
     public readonly rowAccessPolicy!: pulumi.Output<outputs.ViewRowAccessPolicy | undefined>;
     /**
-     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `"`.
+     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly schema!: pulumi.Output<string>;
     /**
@@ -104,9 +101,7 @@ export class View extends pulumi.CustomResource {
      */
     public /*out*/ readonly showOutputs!: pulumi.Output<outputs.ViewShowOutput[]>;
     /**
-     * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters
-     * with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically
-     * significant.
+     * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
     public readonly statement!: pulumi.Output<string>;
 
@@ -185,15 +180,11 @@ export interface ViewState {
      */
     aggregationPolicy?: pulumi.Input<inputs.ViewAggregationPolicy>;
     /**
-     * Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is
-     * not set in the configuration the provider will put "default" there which means to use the Snowflake default for this
-     * value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     changeTracking?: pulumi.Input<string>;
     /**
-     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that
-     * specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the
-     * columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
+     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      */
     columns?: pulumi.Input<pulumi.Input<inputs.ViewColumn>[]>;
     /**
@@ -210,8 +201,7 @@ export interface ViewState {
      */
     dataMetricSchedule?: pulumi.Input<inputs.ViewDataMetricSchedule>;
     /**
-     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `"`.
+     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database?: pulumi.Input<string>;
     /**
@@ -219,21 +209,17 @@ export interface ViewState {
      */
     describeOutputs?: pulumi.Input<pulumi.Input<inputs.ViewDescribeOutput>[]>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table
-     * expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will
-     * put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     isRecursive?: pulumi.Input<string>;
     isSecure?: pulumi.Input<string>;
     isTemporary?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -241,8 +227,7 @@ export interface ViewState {
      */
     rowAccessPolicy?: pulumi.Input<inputs.ViewRowAccessPolicy>;
     /**
-     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `"`.
+     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema?: pulumi.Input<string>;
     /**
@@ -250,9 +235,7 @@ export interface ViewState {
      */
     showOutputs?: pulumi.Input<pulumi.Input<inputs.ViewShowOutput>[]>;
     /**
-     * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters
-     * with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically
-     * significant.
+     * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
     statement?: pulumi.Input<string>;
 }
@@ -266,15 +249,11 @@ export interface ViewArgs {
      */
     aggregationPolicy?: pulumi.Input<inputs.ViewAggregationPolicy>;
     /**
-     * Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is
-     * not set in the configuration the provider will put "default" there which means to use the Snowflake default for this
-     * value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies to enable or disable change tracking on the table. Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     changeTracking?: pulumi.Input<string>;
     /**
-     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that
-     * specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the
-     * columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
+     * If you want to change the name of a column or add a comment to a column in the new view, include a column list that specifies the column names and (if needed) comments about the columns. You do not need to specify the data types of the columns. If this field is not specified, columns are inferred from the `statement` field by Snowflake.
      */
     columns?: pulumi.Input<pulumi.Input<inputs.ViewColumn>[]>;
     /**
@@ -291,21 +270,17 @@ export interface ViewArgs {
      */
     dataMetricSchedule?: pulumi.Input<inputs.ViewDataMetricSchedule>;
     /**
-     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `"`.
+     * The database in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     database: pulumi.Input<string>;
     /**
-     * Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table
-     * expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will
-     * put "default" there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the view can refer to itself using recursive syntax without necessarily using a CTE (common table expression). Available options are: "true" or "false". When the value is not set in the configuration the provider will put "default" there which means to use the Snowflake default for this value.
      */
     isRecursive?: pulumi.Input<string>;
     isSecure?: pulumi.Input<string>;
     isTemporary?: pulumi.Input<string>;
     /**
-     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier for the view; must be unique for the schema in which the view is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -313,14 +288,11 @@ export interface ViewArgs {
      */
     rowAccessPolicy?: pulumi.Input<inputs.ViewRowAccessPolicy>;
     /**
-     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `"`.
+     * The schema in which to create the view. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     schema: pulumi.Input<string>;
     /**
-     * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters
-     * with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically
-     * significant.
+     * Specifies the query used to create the view. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      */
     statement: pulumi.Input<string>;
 }

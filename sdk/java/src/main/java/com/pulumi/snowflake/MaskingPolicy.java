@@ -18,39 +18,39 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/maskingPolicy:MaskingPolicy example &#39;&#34;&lt;database_name&gt;&#34;.&#34;&lt;schema_name&gt;&#34;.&#34;&lt;masking_policy_name&gt;&#34;&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/maskingPolicy:MaskingPolicy")
 public class MaskingPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * List of the arguments for the masking policy. The first column and its data type always indicate the column data type
-     * values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
-     * first column argument in a conditional masking policy.
+     * List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
      * 
      */
     @Export(name="arguments", refs={List.class,MaskingPolicyArgument.class}, tree="[0,1]")
     private Output<List<MaskingPolicyArgument>> arguments;
 
     /**
-     * @return List of the arguments for the masking policy. The first column and its data type always indicate the column data type
-     * values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the
-     * first column argument in a conditional masking policy.
+     * @return List of the arguments for the masking policy. The first column and its data type always indicate the column data type values to mask or tokenize in the subsequent policy conditions. Note that you can not specify a virtual column as the first column argument in a conditional masking policy.
      * 
      */
     public Output<List<MaskingPolicyArgument>> arguments() {
         return this.arguments;
     }
     /**
-     * Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
-     * characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
-     * semantically significant.
+     * Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     @Export(name="body", refs={String.class}, tree="[0]")
     private Output<String> body;
 
     /**
-     * @return Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank
-     * characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is
-     * semantically significant.
+     * @return Specifies the SQL expression that transforms the data. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     public Output<String> body() {
@@ -71,16 +71,14 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="database", refs={String.class}, tree="[0]")
     private Output<String> database;
 
     /**
-     * @return The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> database() {
@@ -101,86 +99,70 @@ public class MaskingPolicy extends com.pulumi.resources.CustomResource {
         return this.describeOutputs;
     }
     /**
-     * Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
-     * by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
-     * are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means
-     * to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Export(name="exemptOtherPolicies", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> exemptOtherPolicies;
 
     /**
-     * @return Specifies whether the row access policy or conditional masking policy can reference a column that is already protected
-     * by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options
-     * are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means
-     * to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether the row access policy or conditional masking policy can reference a column that is already protected by a masking policy. Due to Snowflake limitations, when value is changed, the resource is recreated. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Output<Optional<String>> exemptOtherPolicies() {
         return Codegen.optional(this.exemptOtherPolicies);
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {
         return this.fullyQualifiedName;
     }
     /**
-     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-     * is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy
-     * is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the identifier for the masking policy; must be unique for the database and schema in which the masking policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * The return data type must match the input data type of the first column that is specified as an input column. For more
-     * information about data types, check [Snowflake
-     * docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+     * The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     @Export(name="returnDataType", refs={String.class}, tree="[0]")
     private Output<String> returnDataType;
 
     /**
-     * @return The return data type must match the input data type of the first column that is specified as an input column. For more
-     * information about data types, check [Snowflake
-     * docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
+     * @return The return data type must match the input data type of the first column that is specified as an input column. For more information about data types, check [Snowflake docs](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
      * 
      */
     public Output<String> returnDataType() {
         return this.returnDataType;
     }
     /**
-     * The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Export(name="schema", refs={String.class}, tree="[0]")
     private Output<String> schema;
 
     /**
-     * @return The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the masking policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Output<String> schema() {

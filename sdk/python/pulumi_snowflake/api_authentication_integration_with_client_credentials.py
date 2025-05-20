@@ -37,17 +37,12 @@ class ApiAuthenticationIntegrationWithClientCredentialsArgs:
         :param pulumi.Input[builtins.bool] enabled: Specifies whether this security integration is enabled or disabled.
         :param pulumi.Input[builtins.str] oauth_client_id: Specifies the client ID for the OAuth application in the external service.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the integration.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-               limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.int] oauth_access_token_validity: Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] oauth_allowed_scopes: Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-               the OAuth client credentials flow.
-        :param pulumi.Input[builtins.str] oauth_client_auth_method: Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-               resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.int] oauth_access_token_validity: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] oauth_allowed_scopes: Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
+        :param pulumi.Input[builtins.str] oauth_client_auth_method: Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         :param pulumi.Input[builtins.int] oauth_refresh_token_validity: Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
-        :param pulumi.Input[builtins.str] oauth_token_endpoint: Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-               refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-               access token is issued directly). If removed from the config, the resource is recreated.
+        :param pulumi.Input[builtins.str] oauth_token_endpoint: Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "oauth_client_id", oauth_client_id)
@@ -116,8 +111,7 @@ class ApiAuthenticationIntegrationWithClientCredentialsArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-        limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -129,7 +123,7 @@ class ApiAuthenticationIntegrationWithClientCredentialsArgs:
     @pulumi.getter(name="oauthAccessTokenValidity")
     def oauth_access_token_validity(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
         """
         return pulumi.get(self, "oauth_access_token_validity")
 
@@ -141,8 +135,7 @@ class ApiAuthenticationIntegrationWithClientCredentialsArgs:
     @pulumi.getter(name="oauthAllowedScopes")
     def oauth_allowed_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-        the OAuth client credentials flow.
+        Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
         """
         return pulumi.get(self, "oauth_allowed_scopes")
 
@@ -154,8 +147,7 @@ class ApiAuthenticationIntegrationWithClientCredentialsArgs:
     @pulumi.getter(name="oauthClientAuthMethod")
     def oauth_client_auth_method(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-        resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+        Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         """
         return pulumi.get(self, "oauth_client_auth_method")
 
@@ -179,9 +171,7 @@ class ApiAuthenticationIntegrationWithClientCredentialsArgs:
     @pulumi.getter(name="oauthTokenEndpoint")
     def oauth_token_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-        refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-        access token is issued directly). If removed from the config, the resource is recreated.
+        Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "oauth_token_endpoint")
 
@@ -211,20 +201,14 @@ class _ApiAuthenticationIntegrationWithClientCredentialsState:
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the integration.
         :param pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether this security integration is enabled or disabled.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-               limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.int] oauth_access_token_validity: Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] oauth_allowed_scopes: Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-               the OAuth client credentials flow.
-        :param pulumi.Input[builtins.str] oauth_client_auth_method: Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-               resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.int] oauth_access_token_validity: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] oauth_allowed_scopes: Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
+        :param pulumi.Input[builtins.str] oauth_client_auth_method: Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         :param pulumi.Input[builtins.str] oauth_client_id: Specifies the client ID for the OAuth application in the external service.
         :param pulumi.Input[builtins.int] oauth_refresh_token_validity: Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
-        :param pulumi.Input[builtins.str] oauth_token_endpoint: Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-               refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-               access token is issued directly). If removed from the config, the resource is recreated.
+        :param pulumi.Input[builtins.str] oauth_token_endpoint: Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         :param pulumi.Input[Sequence[pulumi.Input['ApiAuthenticationIntegrationWithClientCredentialsShowOutputArgs']]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
         if comment is not None:
@@ -294,8 +278,7 @@ class _ApiAuthenticationIntegrationWithClientCredentialsState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -307,8 +290,7 @@ class _ApiAuthenticationIntegrationWithClientCredentialsState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-        limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -320,7 +302,7 @@ class _ApiAuthenticationIntegrationWithClientCredentialsState:
     @pulumi.getter(name="oauthAccessTokenValidity")
     def oauth_access_token_validity(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
         """
         return pulumi.get(self, "oauth_access_token_validity")
 
@@ -332,8 +314,7 @@ class _ApiAuthenticationIntegrationWithClientCredentialsState:
     @pulumi.getter(name="oauthAllowedScopes")
     def oauth_allowed_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-        the OAuth client credentials flow.
+        Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
         """
         return pulumi.get(self, "oauth_allowed_scopes")
 
@@ -345,8 +326,7 @@ class _ApiAuthenticationIntegrationWithClientCredentialsState:
     @pulumi.getter(name="oauthClientAuthMethod")
     def oauth_client_auth_method(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-        resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+        Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         """
         return pulumi.get(self, "oauth_client_auth_method")
 
@@ -391,9 +371,7 @@ class _ApiAuthenticationIntegrationWithClientCredentialsState:
     @pulumi.getter(name="oauthTokenEndpoint")
     def oauth_token_endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-        refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-        access token is issued directly). If removed from the config, the resource is recreated.
+        Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "oauth_token_endpoint")
 
@@ -432,23 +410,23 @@ class ApiAuthenticationIntegrationWithClientCredentials(pulumi.CustomResource):
                  oauth_token_endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a ApiAuthenticationIntegrationWithClientCredentials resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials example '"<integration_name>"'
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the integration.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether this security integration is enabled or disabled.
-        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-               limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.int] oauth_access_token_validity: Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] oauth_allowed_scopes: Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-               the OAuth client credentials flow.
-        :param pulumi.Input[builtins.str] oauth_client_auth_method: Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-               resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.int] oauth_access_token_validity: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] oauth_allowed_scopes: Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
+        :param pulumi.Input[builtins.str] oauth_client_auth_method: Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         :param pulumi.Input[builtins.str] oauth_client_id: Specifies the client ID for the OAuth application in the external service.
         :param pulumi.Input[builtins.int] oauth_refresh_token_validity: Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
-        :param pulumi.Input[builtins.str] oauth_token_endpoint: Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-               refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-               access token is issued directly). If removed from the config, the resource is recreated.
+        :param pulumi.Input[builtins.str] oauth_token_endpoint: Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         """
         ...
     @overload
@@ -457,7 +435,12 @@ class ApiAuthenticationIntegrationWithClientCredentials(pulumi.CustomResource):
                  args: ApiAuthenticationIntegrationWithClientCredentialsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a ApiAuthenticationIntegrationWithClientCredentials resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials example '"<integration_name>"'
+        ```
+
         :param str resource_name: The name of the resource.
         :param ApiAuthenticationIntegrationWithClientCredentialsArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -546,20 +529,14 @@ class ApiAuthenticationIntegrationWithClientCredentials(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the integration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgs', 'ApiAuthenticationIntegrationWithClientCredentialsDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE SECURITY INTEGRATIONS` for the given security integration.
         :param pulumi.Input[builtins.bool] enabled: Specifies whether this security integration is enabled or disabled.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-               limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.int] oauth_access_token_validity: Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] oauth_allowed_scopes: Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-               the OAuth client credentials flow.
-        :param pulumi.Input[builtins.str] oauth_client_auth_method: Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-               resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.int] oauth_access_token_validity: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] oauth_allowed_scopes: Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
+        :param pulumi.Input[builtins.str] oauth_client_auth_method: Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         :param pulumi.Input[builtins.str] oauth_client_id: Specifies the client ID for the OAuth application in the external service.
         :param pulumi.Input[builtins.int] oauth_refresh_token_validity: Specifies the value to determine the validity of the refresh token obtained from the OAuth server.
-        :param pulumi.Input[builtins.str] oauth_token_endpoint: Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-               refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-               access token is issued directly). If removed from the config, the resource is recreated.
+        :param pulumi.Input[builtins.str] oauth_token_endpoint: Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApiAuthenticationIntegrationWithClientCredentialsShowOutputArgs', 'ApiAuthenticationIntegrationWithClientCredentialsShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW SECURITY INTEGRATIONS` for the given security integration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -609,8 +586,7 @@ class ApiAuthenticationIntegrationWithClientCredentials(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -618,8 +594,7 @@ class ApiAuthenticationIntegrationWithClientCredentials(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-        limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -627,7 +602,7 @@ class ApiAuthenticationIntegrationWithClientCredentials(pulumi.CustomResource):
     @pulumi.getter(name="oauthAccessTokenValidity")
     def oauth_access_token_validity(self) -> pulumi.Output[Optional[builtins.int]]:
         """
-        Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+        (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
         """
         return pulumi.get(self, "oauth_access_token_validity")
 
@@ -635,8 +610,7 @@ class ApiAuthenticationIntegrationWithClientCredentials(pulumi.CustomResource):
     @pulumi.getter(name="oauthAllowedScopes")
     def oauth_allowed_scopes(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-        the OAuth client credentials flow.
+        Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
         """
         return pulumi.get(self, "oauth_allowed_scopes")
 
@@ -644,8 +618,7 @@ class ApiAuthenticationIntegrationWithClientCredentials(pulumi.CustomResource):
     @pulumi.getter(name="oauthClientAuthMethod")
     def oauth_client_auth_method(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-        resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+        Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
         """
         return pulumi.get(self, "oauth_client_auth_method")
 
@@ -674,9 +647,7 @@ class ApiAuthenticationIntegrationWithClientCredentials(pulumi.CustomResource):
     @pulumi.getter(name="oauthTokenEndpoint")
     def oauth_token_endpoint(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-        refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-        access token is issued directly). If removed from the config, the resource is recreated.
+        Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
         """
         return pulumi.get(self, "oauth_token_endpoint")
 

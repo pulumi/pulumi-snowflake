@@ -12,32 +12,29 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/rowAccessPolicy:RowAccessPolicy example '"<database_name>"."<schema_name>"."<row_access_policy_name>"'
+// ```
 type RowAccessPolicy struct {
 	pulumi.CustomResourceState
 
-	// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to
-	// determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be
-	// protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+	// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
 	Arguments RowAccessPolicyArgumentArrayOutput `pulumi:"arguments"`
-	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this
-	// field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
-	// case or run of whitespace is semantically significant.
+	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	Body pulumi.StringOutput `pulumi:"body"`
 	// Specifies a comment for the row access policy.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringOutput `pulumi:"database"`
 	// Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.
 	DescribeOutputs RowAccessPolicyDescribeOutputArrayOutput `pulumi:"describeOutputs"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
-	// policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringOutput `pulumi:"schema"`
 	// Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
 	ShowOutputs RowAccessPolicyShowOutputArrayOutput `pulumi:"showOutputs"`
@@ -85,58 +82,42 @@ func GetRowAccessPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RowAccessPolicy resources.
 type rowAccessPolicyState struct {
-	// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to
-	// determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be
-	// protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+	// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
 	Arguments []RowAccessPolicyArgument `pulumi:"arguments"`
-	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this
-	// field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
-	// case or run of whitespace is semantically significant.
+	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	Body *string `pulumi:"body"`
 	// Specifies a comment for the row access policy.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database *string `pulumi:"database"`
 	// Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.
 	DescribeOutputs []RowAccessPolicyDescribeOutput `pulumi:"describeOutputs"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
-	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
-	// policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema *string `pulumi:"schema"`
 	// Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
 	ShowOutputs []RowAccessPolicyShowOutput `pulumi:"showOutputs"`
 }
 
 type RowAccessPolicyState struct {
-	// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to
-	// determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be
-	// protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+	// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
 	Arguments RowAccessPolicyArgumentArrayInput
-	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this
-	// field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
-	// case or run of whitespace is semantically significant.
+	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	Body pulumi.StringPtrInput
 	// Specifies a comment for the row access policy.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringPtrInput
 	// Outputs the result of `DESCRIBE ROW ACCESS POLICY` for the given row access policy.
 	DescribeOutputs RowAccessPolicyDescribeOutputArrayInput
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
-	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
-	// policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringPtrInput
 	// Outputs the result of `SHOW ROW ACCESS POLICIES` for the given row access policy.
 	ShowOutputs RowAccessPolicyShowOutputArrayInput
@@ -147,47 +128,33 @@ func (RowAccessPolicyState) ElementType() reflect.Type {
 }
 
 type rowAccessPolicyArgs struct {
-	// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to
-	// determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be
-	// protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+	// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
 	Arguments []RowAccessPolicyArgument `pulumi:"arguments"`
-	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this
-	// field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
-	// case or run of whitespace is semantically significant.
+	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	Body string `pulumi:"body"`
 	// Specifies a comment for the row access policy.
 	Comment *string `pulumi:"comment"`
-	// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database string `pulumi:"database"`
-	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
-	// policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name *string `pulumi:"name"`
-	// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema string `pulumi:"schema"`
 }
 
 // The set of arguments for constructing a RowAccessPolicy resource.
 type RowAccessPolicyArgs struct {
-	// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to
-	// determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be
-	// protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+	// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
 	Arguments RowAccessPolicyArgumentArrayInput
-	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this
-	// field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
-	// case or run of whitespace is semantically significant.
+	// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 	Body pulumi.StringInput
 	// Specifies a comment for the row access policy.
 	Comment pulumi.StringPtrInput
-	// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Database pulumi.StringInput
-	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
-	// policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+	// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Name pulumi.StringPtrInput
-	// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the
-	// following characters: `|`, `.`, `"`.
+	// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 	Schema pulumi.StringInput
 }
 
@@ -278,16 +245,12 @@ func (o RowAccessPolicyOutput) ToRowAccessPolicyOutputWithContext(ctx context.Co
 	return o
 }
 
-// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to
-// determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be
-// protected by the row access policy. If any argument name or type is changed, the resource is recreated.
+// List of the arguments for the row access policy. A signature specifies a set of attributes that must be considered to determine whether the row is accessible. The attribute values come from the database object (e.g. table or view) to be protected by the row access policy. If any argument name or type is changed, the resource is recreated.
 func (o RowAccessPolicyOutput) Arguments() RowAccessPolicyArgumentArrayOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) RowAccessPolicyArgumentArrayOutput { return v.Arguments }).(RowAccessPolicyArgumentArrayOutput)
 }
 
-// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this
-// field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
-// case or run of whitespace is semantically significant.
+// Specifies the SQL expression. The expression can be any boolean-valued SQL expression. To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
 func (o RowAccessPolicyOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) pulumi.StringOutput { return v.Body }).(pulumi.StringOutput)
 }
@@ -297,8 +260,7 @@ func (o RowAccessPolicyOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the
-// following characters: `|`, `.`, `"`.
+// The database in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o RowAccessPolicyOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
 }
@@ -308,20 +270,17 @@ func (o RowAccessPolicyOutput) DescribeOutputs() RowAccessPolicyDescribeOutputAr
 	return o.ApplyT(func(v *RowAccessPolicy) RowAccessPolicyDescribeOutputArrayOutput { return v.DescribeOutputs }).(RowAccessPolicyDescribeOutputArrayOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name
-// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o RowAccessPolicyOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
 
-// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access
-// policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+// Specifies the identifier for the row access policy; must be unique for the database and schema in which the row access policy is created. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o RowAccessPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the
-// following characters: `|`, `.`, `"`.
+// The schema in which to create the row access policy. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
 func (o RowAccessPolicyOutput) Schema() pulumi.StringOutput {
 	return o.ApplyT(func(v *RowAccessPolicy) pulumi.StringOutput { return v.Schema }).(pulumi.StringOutput)
 }

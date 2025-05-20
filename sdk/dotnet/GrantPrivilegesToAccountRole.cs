@@ -9,19 +9,46 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// ### Import examples
+    /// 
+    /// #### Grant all privileges OnAccountObject (Database)
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|ALL|OnAccountObject|DATABASE|"test_db"'`
+    /// ```
+    /// 
+    /// #### Grant list of privileges OnAllSchemasInDatabase
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|CREATE TAG,CREATE TABLE|OnSchema|OnAllSchemasInDatabase|"test_db"'`
+    /// ```
+    /// 
+    /// #### Grant list of privileges on table
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnObject|TABLE|"test_db"."test_schema"."test_table"'`
+    /// ```
+    /// 
+    /// #### Grant list of privileges OnAll tables in schema
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole example '"test_db_role"|false|false|SELECT,DELETE,INSERT|OnSchemaObject|OnAll|TABLES|InSchema|"test_db"."test_schema"'`
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/grantPrivilegesToAccountRole:GrantPrivilegesToAccountRole")]
     public partial class GrantPrivilegesToAccountRole : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The fully qualified name of the account role to which privileges will be granted. For more information about this
-        /// resource, see docs.
+        /// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Output("accountRoleName")]
         public Output<string> AccountRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-        /// is aligned with the Snowsight behavior.
+        /// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
         /// </summary>
         [Output("allPrivileges")]
         public Output<bool?> AllPrivileges { get; private set; } = null!;
@@ -30,14 +57,13 @@ namespace Pulumi.Snowflake
         public Output<bool?> AlwaysApply { get; private set; } = null!;
 
         /// <summary>
-        /// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-        /// always_apply field.
+        /// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         /// </summary>
         [Output("alwaysApplyTrigger")]
         public Output<string?> AlwaysApplyTrigger { get; private set; } = null!;
 
         /// <summary>
-        /// If true, the privileges will be granted on the account.
+        /// (Default: `false`) If true, the privileges will be granted on the account.
         /// </summary>
         [Output("onAccount")]
         public Output<bool?> OnAccount { get; private set; } = null!;
@@ -67,7 +93,7 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<string>> Privileges { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the grantee can grant the privileges to other users.
+        /// (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
         /// </summary>
         [Output("withGrantOption")]
         public Output<bool?> WithGrantOption { get; private set; } = null!;
@@ -119,15 +145,13 @@ namespace Pulumi.Snowflake
     public sealed class GrantPrivilegesToAccountRoleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the account role to which privileges will be granted. For more information about this
-        /// resource, see docs.
+        /// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("accountRoleName", required: true)]
         public Input<string> AccountRoleName { get; set; } = null!;
 
         /// <summary>
-        /// Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-        /// is aligned with the Snowsight behavior.
+        /// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
         /// </summary>
         [Input("allPrivileges")]
         public Input<bool>? AllPrivileges { get; set; }
@@ -136,14 +160,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? AlwaysApply { get; set; }
 
         /// <summary>
-        /// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-        /// always_apply field.
+        /// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         /// </summary>
         [Input("alwaysApplyTrigger")]
         public Input<string>? AlwaysApplyTrigger { get; set; }
 
         /// <summary>
-        /// If true, the privileges will be granted on the account.
+        /// (Default: `false`) If true, the privileges will be granted on the account.
         /// </summary>
         [Input("onAccount")]
         public Input<bool>? OnAccount { get; set; }
@@ -179,7 +202,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies whether the grantee can grant the privileges to other users.
+        /// (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
         /// </summary>
         [Input("withGrantOption")]
         public Input<bool>? WithGrantOption { get; set; }
@@ -193,15 +216,13 @@ namespace Pulumi.Snowflake
     public sealed class GrantPrivilegesToAccountRoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The fully qualified name of the account role to which privileges will be granted. For more information about this
-        /// resource, see docs.
+        /// The fully qualified name of the account role to which privileges will be granted. For more information about this resource, see docs.
         /// </summary>
         [Input("accountRoleName")]
         public Input<string>? AccountRoleName { get; set; }
 
         /// <summary>
-        /// Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which
-        /// is aligned with the Snowsight behavior.
+        /// (Default: `false`) Grant all privileges on the account role. When all privileges cannot be granted, the provider returns a warning, which is aligned with the Snowsight behavior.
         /// </summary>
         [Input("allPrivileges")]
         public Input<bool>? AllPrivileges { get; set; }
@@ -210,14 +231,13 @@ namespace Pulumi.Snowflake
         public Input<bool>? AlwaysApply { get; set; }
 
         /// <summary>
-        /// This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the
-        /// always_apply field.
+        /// (Default: ``) This is a helper field and should not be set. Its main purpose is to help to achieve the functionality described by the always_apply field.
         /// </summary>
         [Input("alwaysApplyTrigger")]
         public Input<string>? AlwaysApplyTrigger { get; set; }
 
         /// <summary>
-        /// If true, the privileges will be granted on the account.
+        /// (Default: `false`) If true, the privileges will be granted on the account.
         /// </summary>
         [Input("onAccount")]
         public Input<bool>? OnAccount { get; set; }
@@ -253,7 +273,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Specifies whether the grantee can grant the privileges to other users.
+        /// (Default: `false`) Specifies whether the grantee can grant the privileges to other users.
         /// </summary>
         [Input("withGrantOption")]
         public Input<bool>? WithGrantOption { get; set; }

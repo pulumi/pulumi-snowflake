@@ -16,23 +16,47 @@ public final class GetWarehousesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetWarehousesArgs Empty = new GetWarehousesArgs();
 
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     @Import(name="like")
     private @Nullable Output<String> like;
 
+    /**
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
     public Optional<Output<String>> like() {
         return Optional.ofNullable(this.like);
     }
 
+    /**
+     * (Default: `true`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
     @Import(name="withDescribe")
     private @Nullable Output<Boolean> withDescribe;
 
+    /**
+     * @return (Default: `true`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
     public Optional<Output<Boolean>> withDescribe() {
         return Optional.ofNullable(this.withDescribe);
     }
 
+    /**
+     * (Default: `true`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
     @Import(name="withParameters")
     private @Nullable Output<Boolean> withParameters;
 
+    /**
+     * @return (Default: `true`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+     * 
+     */
     public Optional<Output<Boolean>> withParameters() {
         return Optional.ofNullable(this.withParameters);
     }
@@ -63,29 +87,65 @@ public final class GetWarehousesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetWarehousesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder like(@Nullable Output<String> like) {
             $.like = like;
             return this;
         }
 
+        /**
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder like(String like) {
             return like(Output.of(like));
         }
 
+        /**
+         * @param withDescribe (Default: `true`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withDescribe(@Nullable Output<Boolean> withDescribe) {
             $.withDescribe = withDescribe;
             return this;
         }
 
+        /**
+         * @param withDescribe (Default: `true`) Runs DESC WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the description field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withDescribe(Boolean withDescribe) {
             return withDescribe(Output.of(withDescribe));
         }
 
+        /**
+         * @param withParameters (Default: `true`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withParameters(@Nullable Output<Boolean> withParameters) {
             $.withParameters = withParameters;
             return this;
         }
 
+        /**
+         * @param withParameters (Default: `true`) Runs SHOW PARAMETERS FOR WAREHOUSE for each warehouse returned by SHOW WAREHOUSES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
         public Builder withParameters(Boolean withParameters) {
             return withParameters(Output.of(withParameters));
         }

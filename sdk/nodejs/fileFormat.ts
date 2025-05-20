@@ -4,6 +4,15 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * format is database name | schema name | file format name
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/fileFormat:FileFormat example 'dbName|schemaName|fileFormatName'
+ * ```
+ */
 export class FileFormat extends pulumi.CustomResource {
     /**
      * Get an existing FileFormat resource's state with the given name, ID, and optional extra
@@ -61,8 +70,7 @@ export class FileFormat extends pulumi.CustomResource {
      */
     public readonly dateFormat!: pulumi.Output<string>;
     /**
-     * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-     * native representation.
+     * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
      */
     public readonly disableAutoConvert!: pulumi.Output<boolean | undefined>;
     /**
@@ -70,8 +78,7 @@ export class FileFormat extends pulumi.CustomResource {
      */
     public readonly disableSnowflakeData!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-     * delimiters.
+     * Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
      */
     public readonly emptyFieldAsNull!: pulumi.Output<boolean | undefined>;
     /**
@@ -83,8 +90,7 @@ export class FileFormat extends pulumi.CustomResource {
      */
     public readonly encoding!: pulumi.Output<string>;
     /**
-     * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-     * file does not match the number of columns in the corresponding table.
+     * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
      */
     public readonly errorOnColumnCountMismatch!: pulumi.Output<boolean | undefined>;
     /**
@@ -96,8 +102,7 @@ export class FileFormat extends pulumi.CustomResource {
      */
     public readonly escapeUnenclosedField!: pulumi.Output<string>;
     /**
-     * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-     * unloaded file (data unloading).
+     * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
      */
     public readonly fieldDelimiter!: pulumi.Output<string>;
     /**
@@ -113,8 +118,7 @@ export class FileFormat extends pulumi.CustomResource {
      */
     public readonly formatType!: pulumi.Output<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
@@ -122,8 +126,7 @@ export class FileFormat extends pulumi.CustomResource {
      */
     public readonly ignoreUtf8Errors!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-     * created.
+     * Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -139,8 +142,7 @@ export class FileFormat extends pulumi.CustomResource {
      */
     public readonly preserveSpace!: pulumi.Output<boolean | undefined>;
     /**
-     * Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-     * unloaded file (data unloading).
+     * Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
      */
     public readonly recordDelimiter!: pulumi.Output<string>;
     /**
@@ -172,8 +174,7 @@ export class FileFormat extends pulumi.CustomResource {
      */
     public readonly stripOuterArray!: pulumi.Output<boolean | undefined>;
     /**
-     * Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-     * documents.
+     * Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
      */
     public readonly stripOuterElement!: pulumi.Output<boolean | undefined>;
     /**
@@ -326,8 +327,7 @@ export interface FileFormatState {
      */
     dateFormat?: pulumi.Input<string>;
     /**
-     * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-     * native representation.
+     * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
      */
     disableAutoConvert?: pulumi.Input<boolean>;
     /**
@@ -335,8 +335,7 @@ export interface FileFormatState {
      */
     disableSnowflakeData?: pulumi.Input<boolean>;
     /**
-     * Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-     * delimiters.
+     * Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
      */
     emptyFieldAsNull?: pulumi.Input<boolean>;
     /**
@@ -348,8 +347,7 @@ export interface FileFormatState {
      */
     encoding?: pulumi.Input<string>;
     /**
-     * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-     * file does not match the number of columns in the corresponding table.
+     * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
      */
     errorOnColumnCountMismatch?: pulumi.Input<boolean>;
     /**
@@ -361,8 +359,7 @@ export interface FileFormatState {
      */
     escapeUnenclosedField?: pulumi.Input<string>;
     /**
-     * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-     * unloaded file (data unloading).
+     * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
      */
     fieldDelimiter?: pulumi.Input<string>;
     /**
@@ -378,8 +375,7 @@ export interface FileFormatState {
      */
     formatType?: pulumi.Input<string>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
@@ -387,8 +383,7 @@ export interface FileFormatState {
      */
     ignoreUtf8Errors?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-     * created.
+     * Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -404,8 +399,7 @@ export interface FileFormatState {
      */
     preserveSpace?: pulumi.Input<boolean>;
     /**
-     * Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-     * unloaded file (data unloading).
+     * Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
      */
     recordDelimiter?: pulumi.Input<string>;
     /**
@@ -437,8 +431,7 @@ export interface FileFormatState {
      */
     stripOuterArray?: pulumi.Input<boolean>;
     /**
-     * Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-     * documents.
+     * Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
      */
     stripOuterElement?: pulumi.Input<boolean>;
     /**
@@ -488,8 +481,7 @@ export interface FileFormatArgs {
      */
     dateFormat?: pulumi.Input<string>;
     /**
-     * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to
-     * native representation.
+     * Boolean that specifies whether the XML parser disables automatic conversion of numeric and Boolean values from text to native representation.
      */
     disableAutoConvert?: pulumi.Input<boolean>;
     /**
@@ -497,8 +489,7 @@ export interface FileFormatArgs {
      */
     disableSnowflakeData?: pulumi.Input<boolean>;
     /**
-     * Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive
-     * delimiters.
+     * Specifies whether to insert SQL NULL for empty fields in an input file, which are represented by two successive delimiters.
      */
     emptyFieldAsNull?: pulumi.Input<boolean>;
     /**
@@ -510,8 +501,7 @@ export interface FileFormatArgs {
      */
     encoding?: pulumi.Input<string>;
     /**
-     * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input
-     * file does not match the number of columns in the corresponding table.
+     * Boolean that specifies whether to generate a parsing error if the number of delimited columns (i.e. fields) in an input file does not match the number of columns in the corresponding table.
      */
     errorOnColumnCountMismatch?: pulumi.Input<boolean>;
     /**
@@ -523,8 +513,7 @@ export interface FileFormatArgs {
      */
     escapeUnenclosedField?: pulumi.Input<string>;
     /**
-     * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or
-     * unloaded file (data unloading).
+     * Specifies one or more singlebyte or multibyte characters that separate fields in an input file (data loading) or unloaded file (data unloading).
      */
     fieldDelimiter?: pulumi.Input<string>;
     /**
@@ -544,8 +533,7 @@ export interface FileFormatArgs {
      */
     ignoreUtf8Errors?: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier for the file format; must be unique for the database and schema in which the file format is
-     * created.
+     * Specifies the identifier for the file format; must be unique for the database and schema in which the file format is created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -561,8 +549,7 @@ export interface FileFormatArgs {
      */
     preserveSpace?: pulumi.Input<boolean>;
     /**
-     * Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or
-     * unloaded file (data unloading).
+     * Specifies one or more singlebyte or multibyte characters that separate records in an input file (data loading) or unloaded file (data unloading).
      */
     recordDelimiter?: pulumi.Input<string>;
     /**
@@ -594,8 +581,7 @@ export interface FileFormatArgs {
      */
     stripOuterArray?: pulumi.Input<boolean>;
     /**
-     * Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate
-     * documents.
+     * Boolean that specifies whether the XML parser strips out the outer XML element, exposing 2nd level elements as separate documents.
      */
     stripOuterElement?: pulumi.Input<boolean>;
     /**

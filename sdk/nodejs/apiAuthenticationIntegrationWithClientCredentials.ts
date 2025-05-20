@@ -6,6 +6,13 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Import
+ *
+ * ```sh
+ * $ pulumi import snowflake:index/apiAuthenticationIntegrationWithClientCredentials:ApiAuthenticationIntegrationWithClientCredentials example '"<integration_name>"'
+ * ```
+ */
 export class ApiAuthenticationIntegrationWithClientCredentials extends pulumi.CustomResource {
     /**
      * Get an existing ApiAuthenticationIntegrationWithClientCredentials resource's state with the given name, ID, and optional extra
@@ -47,27 +54,23 @@ export class ApiAuthenticationIntegrationWithClientCredentials extends pulumi.Cu
      */
     public readonly enabled!: pulumi.Output<boolean>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
     /**
-     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      */
     public readonly oauthAccessTokenValidity!: pulumi.Output<number | undefined>;
     /**
-     * Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-     * the OAuth client credentials flow.
+     * Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
      */
     public readonly oauthAllowedScopes!: pulumi.Output<string[] | undefined>;
     /**
-     * Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-     * resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+     * Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
      */
     public readonly oauthClientAuthMethod!: pulumi.Output<string | undefined>;
     /**
@@ -80,9 +83,7 @@ export class ApiAuthenticationIntegrationWithClientCredentials extends pulumi.Cu
      */
     public readonly oauthRefreshTokenValidity!: pulumi.Output<number | undefined>;
     /**
-     * Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-     * refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-     * access token is issued directly). If removed from the config, the resource is recreated.
+     * Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
      */
     public readonly oauthTokenEndpoint!: pulumi.Output<string | undefined>;
     /**
@@ -165,27 +166,23 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     fullyQualifiedName?: pulumi.Input<string>;
     /**
-     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      */
     oauthAccessTokenValidity?: pulumi.Input<number>;
     /**
-     * Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-     * the OAuth client credentials flow.
+     * Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
      */
     oauthAllowedScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-     * resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+     * Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
      */
     oauthClientAuthMethod?: pulumi.Input<string>;
     /**
@@ -198,9 +195,7 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsState {
      */
     oauthRefreshTokenValidity?: pulumi.Input<number>;
     /**
-     * Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-     * refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-     * access token is issued directly). If removed from the config, the resource is recreated.
+     * Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
      */
     oauthTokenEndpoint?: pulumi.Input<string>;
     /**
@@ -222,22 +217,19 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsArgs {
      */
     enabled: pulumi.Input<boolean>;
     /**
-     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+     * Specifies the identifier (i.e. name) for the integration. This value must be unique in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
      */
     name?: pulumi.Input<string>;
     /**
-     * Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the default lifetime of the OAuth access token (in seconds) issued by an OAuth server.
      */
     oauthAccessTokenValidity?: pulumi.Input<number>;
     /**
-     * Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during
-     * the OAuth client credentials flow.
+     * Specifies a list of scopes to use when making a request from the OAuth by a role with USAGE on the integration during the OAuth client credentials flow.
      */
     oauthAllowedScopes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Specifies that POST is used as the authentication method to the external service. If removed from the config, the
-     * resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
+     * Specifies that POST is used as the authentication method to the external service. If removed from the config, the resource is recreated. Valid values are (case-insensitive): `CLIENT_SECRET_POST`.
      */
     oauthClientAuthMethod?: pulumi.Input<string>;
     /**
@@ -250,9 +242,7 @@ export interface ApiAuthenticationIntegrationWithClientCredentialsArgs {
      */
     oauthRefreshTokenValidity?: pulumi.Input<number>;
     /**
-     * Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or
-     * refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an
-     * access token is issued directly). If removed from the config, the resource is recreated.
+     * Specifies the token endpoint used by the client to obtain an access token by presenting its authorization grant or refresh token. The token endpoint is used with every authorization grant except for the implicit grant type (since an access token is issued directly). If removed from the config, the resource is recreated.
      */
     oauthTokenEndpoint?: pulumi.Input<string>;
 }

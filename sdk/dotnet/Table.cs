@@ -9,11 +9,20 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// format is database name | schema name | table name
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/table:Table example 'databaseName|schemaName|tableName'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/table:Table")]
     public partial class Table : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether to enable change tracking on the table. Default false.
+        /// (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         /// </summary>
         [Output("changeTracking")]
         public Output<bool?> ChangeTracking { get; private set; } = null!;
@@ -37,10 +46,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
-        /// historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
-        /// argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
-        /// Snowflake default - in this case the schema value
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         /// </summary>
         [Output("dataRetentionTimeInDays")]
         public Output<int?> DataRetentionTimeInDays { get; private set; } = null!;
@@ -52,8 +58,7 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
@@ -135,7 +140,7 @@ namespace Pulumi.Snowflake
     public sealed class TableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to enable change tracking on the table. Default false.
+        /// (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         /// </summary>
         [Input("changeTracking")]
         public Input<bool>? ChangeTracking { get; set; }
@@ -171,10 +176,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
-        /// historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
-        /// argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
-        /// Snowflake default - in this case the schema value
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         /// </summary>
         [Input("dataRetentionTimeInDays")]
         public Input<int>? DataRetentionTimeInDays { get; set; }
@@ -225,7 +227,7 @@ namespace Pulumi.Snowflake
     public sealed class TableState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether to enable change tracking on the table. Default false.
+        /// (Default: `false`) Specifies whether to enable change tracking on the table. Default false.
         /// </summary>
         [Input("changeTracking")]
         public Input<bool>? ChangeTracking { get; set; }
@@ -261,10 +263,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on
-        /// historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this
-        /// argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use
-        /// Snowflake default - in this case the schema value
+        /// (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies the retention period for the table so that Time Travel actions (SELECT, CLONE, UNDROP) can be performed on historical data in the table. If you wish to inherit the parent schema setting then pass in the schema attribute to this argument or do not fill this parameter at all; the default value for this field is -1, which is a fallback to use Snowflake default - in this case the schema value
         /// </summary>
         [Input("dataRetentionTimeInDays")]
         public Input<int>? DataRetentionTimeInDays { get; set; }
@@ -276,8 +275,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Database { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }

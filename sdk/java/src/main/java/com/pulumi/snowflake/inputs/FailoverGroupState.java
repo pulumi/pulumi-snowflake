@@ -20,18 +20,14 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     public static final FailoverGroupState Empty = new FailoverGroupState();
 
     /**
-     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the
-     * source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the
-     * primary failover group in case of failover. Expected in the form &lt;org_name&gt;.&lt;target_account_name&gt;
+     * Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
      * 
      */
     @Import(name="allowedAccounts")
     private @Nullable Output<List<String>> allowedAccounts;
 
     /**
-     * @return Specifies the target account or list of target accounts to which replication and failover of specified objects from the
-     * source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the
-     * primary failover group in case of failover. Expected in the form &lt;org_name&gt;.&lt;target_account_name&gt;
+     * @return Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
      * 
      */
     public Optional<Output<List<String>>> allowedAccounts() {
@@ -39,16 +35,14 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the database or list of databases for which you are enabling replication and failover from the source account
-     * to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
+     * Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
      * 
      */
     @Import(name="allowedDatabases")
     private @Nullable Output<List<String>> allowedDatabases;
 
     /**
-     * @return Specifies the database or list of databases for which you are enabling replication and failover from the source account
-     * to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
+     * @return Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
      * 
      */
     public Optional<Output<List<String>>> allowedDatabases() {
@@ -56,20 +50,14 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target
-     * account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following
-     * integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS
-     * INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
+     * Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
      * 
      */
     @Import(name="allowedIntegrationTypes")
     private @Nullable Output<List<String>> allowedIntegrationTypes;
 
     /**
-     * @return Type(s) of integrations for which you are enabling replication and failover from the source account to the target
-     * account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following
-     * integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS
-     * INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
+     * @return Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
      * 
      */
     public Optional<Output<List<String>>> allowedIntegrationTypes() {
@@ -77,16 +65,14 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the share or list of shares for which you are enabling replication and failover from the source account to the
-     * target account. The OBJECT_TYPES list must include SHARES to set this parameter.
+     * Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
      * 
      */
     @Import(name="allowedShares")
     private @Nullable Output<List<String>> allowedShares;
 
     /**
-     * @return Specifies the share or list of shares for which you are enabling replication and failover from the source account to the
-     * target account. The OBJECT_TYPES list must include SHARES to set this parameter.
+     * @return Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
      * 
      */
     public Optional<Output<List<String>>> allowedShares() {
@@ -109,16 +95,14 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -126,14 +110,14 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Allows replicating objects to accounts on lower editions.
+     * (Default: `false`) Allows replicating objects to accounts on lower editions.
      * 
      */
     @Import(name="ignoreEditionCheck")
     private @Nullable Output<Boolean> ignoreEditionCheck;
 
     /**
-     * @return Allows replicating objects to accounts on lower editions.
+     * @return (Default: `false`) Allows replicating objects to accounts on lower editions.
      * 
      */
     public Optional<Output<Boolean>> ignoreEditionCheck() {
@@ -141,18 +125,14 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot
-     * contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;).
-     * Identifiers enclosed in double quotes are also case-sensitive.
+     * Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;). Identifiers enclosed in double quotes are also case-sensitive.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot
-     * contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;).
-     * Identifiers enclosed in double quotes are also case-sensitive.
+     * @return Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;). Identifiers enclosed in double quotes are also case-sensitive.
      * 
      */
     public Optional<Output<String>> name() {
@@ -160,18 +140,14 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Type(s) of objects for which you are enabling replication and failover from the source account to the target account.
-     * The following object types are supported: &#34;ACCOUNT PARAMETERS&#34;, &#34;DATABASES&#34;, &#34;INTEGRATIONS&#34;, &#34;NETWORK POLICIES&#34;,
-     * &#34;RESOURCE MONITORS&#34;, &#34;ROLES&#34;, &#34;SHARES&#34;, &#34;USERS&#34;, &#34;WAREHOUSES&#34;
+     * Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: &#34;ACCOUNT PARAMETERS&#34;, &#34;DATABASES&#34;, &#34;INTEGRATIONS&#34;, &#34;NETWORK POLICIES&#34;, &#34;RESOURCE MONITORS&#34;, &#34;ROLES&#34;, &#34;SHARES&#34;, &#34;USERS&#34;, &#34;WAREHOUSES&#34;
      * 
      */
     @Import(name="objectTypes")
     private @Nullable Output<List<String>> objectTypes;
 
     /**
-     * @return Type(s) of objects for which you are enabling replication and failover from the source account to the target account.
-     * The following object types are supported: &#34;ACCOUNT PARAMETERS&#34;, &#34;DATABASES&#34;, &#34;INTEGRATIONS&#34;, &#34;NETWORK POLICIES&#34;,
-     * &#34;RESOURCE MONITORS&#34;, &#34;ROLES&#34;, &#34;SHARES&#34;, &#34;USERS&#34;, &#34;WAREHOUSES&#34;
+     * @return Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: &#34;ACCOUNT PARAMETERS&#34;, &#34;DATABASES&#34;, &#34;INTEGRATIONS&#34;, &#34;NETWORK POLICIES&#34;, &#34;RESOURCE MONITORS&#34;, &#34;ROLES&#34;, &#34;SHARES&#34;, &#34;USERS&#34;, &#34;WAREHOUSES&#34;
      * 
      */
     public Optional<Output<List<String>>> objectTypes() {
@@ -227,9 +203,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedAccounts Specifies the target account or list of target accounts to which replication and failover of specified objects from the
-         * source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the
-         * primary failover group in case of failover. Expected in the form &lt;org_name&gt;.&lt;target_account_name&gt;
+         * @param allowedAccounts Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
          * 
          * @return builder
          * 
@@ -240,9 +214,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedAccounts Specifies the target account or list of target accounts to which replication and failover of specified objects from the
-         * source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the
-         * primary failover group in case of failover. Expected in the form &lt;org_name&gt;.&lt;target_account_name&gt;
+         * @param allowedAccounts Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
          * 
          * @return builder
          * 
@@ -252,9 +224,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedAccounts Specifies the target account or list of target accounts to which replication and failover of specified objects from the
-         * source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the
-         * primary failover group in case of failover. Expected in the form &lt;org_name&gt;.&lt;target_account_name&gt;
+         * @param allowedAccounts Specifies the target account or list of target accounts to which replication and failover of specified objects from the source account is enabled. Secondary failover groups in the target accounts in this list can be promoted to serve as the primary failover group in case of failover. Expected in the form \n\n.\n\n
          * 
          * @return builder
          * 
@@ -264,8 +234,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedDatabases Specifies the database or list of databases for which you are enabling replication and failover from the source account
-         * to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
+         * @param allowedDatabases Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
          * 
          * @return builder
          * 
@@ -276,8 +245,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedDatabases Specifies the database or list of databases for which you are enabling replication and failover from the source account
-         * to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
+         * @param allowedDatabases Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
          * 
          * @return builder
          * 
@@ -287,8 +255,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedDatabases Specifies the database or list of databases for which you are enabling replication and failover from the source account
-         * to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
+         * @param allowedDatabases Specifies the database or list of databases for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include DATABASES to set this parameter.
          * 
          * @return builder
          * 
@@ -298,10 +265,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedIntegrationTypes Type(s) of integrations for which you are enabling replication and failover from the source account to the target
-         * account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following
-         * integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS
-         * INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
+         * @param allowedIntegrationTypes Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
          * 
          * @return builder
          * 
@@ -312,10 +276,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedIntegrationTypes Type(s) of integrations for which you are enabling replication and failover from the source account to the target
-         * account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following
-         * integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS
-         * INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
+         * @param allowedIntegrationTypes Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
          * 
          * @return builder
          * 
@@ -325,10 +286,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedIntegrationTypes Type(s) of integrations for which you are enabling replication and failover from the source account to the target
-         * account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following
-         * integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS
-         * INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
+         * @param allowedIntegrationTypes Type(s) of integrations for which you are enabling replication and failover from the source account to the target account. This property requires that the OBJECT_TYPES list include INTEGRATIONS to set this parameter. The following integration types are supported: &#34;SECURITY INTEGRATIONS&#34;, &#34;API INTEGRATIONS&#34;, &#34;STORAGE INTEGRATIONS&#34;, &#34;EXTERNAL ACCESS INTEGRATIONS&#34;, &#34;NOTIFICATION INTEGRATIONS&#34;
          * 
          * @return builder
          * 
@@ -338,8 +296,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedShares Specifies the share or list of shares for which you are enabling replication and failover from the source account to the
-         * target account. The OBJECT_TYPES list must include SHARES to set this parameter.
+         * @param allowedShares Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
          * 
          * @return builder
          * 
@@ -350,8 +307,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedShares Specifies the share or list of shares for which you are enabling replication and failover from the source account to the
-         * target account. The OBJECT_TYPES list must include SHARES to set this parameter.
+         * @param allowedShares Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
          * 
          * @return builder
          * 
@@ -361,8 +317,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param allowedShares Specifies the share or list of shares for which you are enabling replication and failover from the source account to the
-         * target account. The OBJECT_TYPES list must include SHARES to set this parameter.
+         * @param allowedShares Specifies the share or list of shares for which you are enabling replication and failover from the source account to the target account. The OBJECT_TYPES list must include SHARES to set this parameter.
          * 
          * @return builder
          * 
@@ -393,8 +348,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -405,8 +359,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -416,7 +369,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ignoreEditionCheck Allows replicating objects to accounts on lower editions.
+         * @param ignoreEditionCheck (Default: `false`) Allows replicating objects to accounts on lower editions.
          * 
          * @return builder
          * 
@@ -427,7 +380,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param ignoreEditionCheck Allows replicating objects to accounts on lower editions.
+         * @param ignoreEditionCheck (Default: `false`) Allows replicating objects to accounts on lower editions.
          * 
          * @return builder
          * 
@@ -437,9 +390,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot
-         * contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;).
-         * Identifiers enclosed in double quotes are also case-sensitive.
+         * @param name Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;). Identifiers enclosed in double quotes are also case-sensitive.
          * 
          * @return builder
          * 
@@ -450,9 +401,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param name Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot
-         * contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;).
-         * Identifiers enclosed in double quotes are also case-sensitive.
+         * @param name Specifies the identifier for the failover group. The identifier must start with an alphabetic character and cannot contain spaces or special characters unless the identifier string is enclosed in double quotes (e.g. &#34;My object&#34;). Identifiers enclosed in double quotes are also case-sensitive.
          * 
          * @return builder
          * 
@@ -462,9 +411,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param objectTypes Type(s) of objects for which you are enabling replication and failover from the source account to the target account.
-         * The following object types are supported: &#34;ACCOUNT PARAMETERS&#34;, &#34;DATABASES&#34;, &#34;INTEGRATIONS&#34;, &#34;NETWORK POLICIES&#34;,
-         * &#34;RESOURCE MONITORS&#34;, &#34;ROLES&#34;, &#34;SHARES&#34;, &#34;USERS&#34;, &#34;WAREHOUSES&#34;
+         * @param objectTypes Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: &#34;ACCOUNT PARAMETERS&#34;, &#34;DATABASES&#34;, &#34;INTEGRATIONS&#34;, &#34;NETWORK POLICIES&#34;, &#34;RESOURCE MONITORS&#34;, &#34;ROLES&#34;, &#34;SHARES&#34;, &#34;USERS&#34;, &#34;WAREHOUSES&#34;
          * 
          * @return builder
          * 
@@ -475,9 +422,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param objectTypes Type(s) of objects for which you are enabling replication and failover from the source account to the target account.
-         * The following object types are supported: &#34;ACCOUNT PARAMETERS&#34;, &#34;DATABASES&#34;, &#34;INTEGRATIONS&#34;, &#34;NETWORK POLICIES&#34;,
-         * &#34;RESOURCE MONITORS&#34;, &#34;ROLES&#34;, &#34;SHARES&#34;, &#34;USERS&#34;, &#34;WAREHOUSES&#34;
+         * @param objectTypes Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: &#34;ACCOUNT PARAMETERS&#34;, &#34;DATABASES&#34;, &#34;INTEGRATIONS&#34;, &#34;NETWORK POLICIES&#34;, &#34;RESOURCE MONITORS&#34;, &#34;ROLES&#34;, &#34;SHARES&#34;, &#34;USERS&#34;, &#34;WAREHOUSES&#34;
          * 
          * @return builder
          * 
@@ -487,9 +432,7 @@ public final class FailoverGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param objectTypes Type(s) of objects for which you are enabling replication and failover from the source account to the target account.
-         * The following object types are supported: &#34;ACCOUNT PARAMETERS&#34;, &#34;DATABASES&#34;, &#34;INTEGRATIONS&#34;, &#34;NETWORK POLICIES&#34;,
-         * &#34;RESOURCE MONITORS&#34;, &#34;ROLES&#34;, &#34;SHARES&#34;, &#34;USERS&#34;, &#34;WAREHOUSES&#34;
+         * @param objectTypes Type(s) of objects for which you are enabling replication and failover from the source account to the target account. The following object types are supported: &#34;ACCOUNT PARAMETERS&#34;, &#34;DATABASES&#34;, &#34;INTEGRATIONS&#34;, &#34;NETWORK POLICIES&#34;, &#34;RESOURCE MONITORS&#34;, &#34;ROLES&#34;, &#34;SHARES&#34;, &#34;USERS&#34;, &#34;WAREHOUSES&#34;
          * 
          * @return builder
          * 

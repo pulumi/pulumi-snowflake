@@ -37,37 +37,18 @@ class FunctionSqlArgs:
                  trace_level: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionSql resource.
-        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-               do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to
-               SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this
-               field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
-               case or run of whitespace is semantically significant.
-        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-               UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-               table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-               the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionSqlArgumentArgs']]] arguments: List of the arguments for the function. Consult the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
-        :param pulumi.Input[builtins.str] comment: Specifies a comment for the function.
-        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-               For more information, check [ENABLE_CONSOLE_OUTPUT
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
-        :param pulumi.Input[builtins.str] log_level: LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.str] metric_level: METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
-        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created
-               because UDFs are identified and resolved by the combination of the name and argument types. Check the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-               (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-               `IMMUTABLE`.
-        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionSqlArgumentArgs']]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        :param pulumi.Input[builtins.str] comment: (Default: `user-defined function`) Specifies a comment for the function.
+        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "function_definition", function_definition)
@@ -96,8 +77,7 @@ class FunctionSqlArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[builtins.str]:
         """
-        The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -109,11 +89,7 @@ class FunctionSqlArgs:
     @pulumi.getter(name="functionDefinition")
     def function_definition(self) -> pulumi.Input[builtins.str]:
         """
-        Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-        do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to
-        SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this
-        field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
-        case or run of whitespace is semantically significant.
+        Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "function_definition")
 
@@ -125,10 +101,7 @@ class FunctionSqlArgs:
     @pulumi.getter(name="returnType")
     def return_type(self) -> pulumi.Input[builtins.str]:
         """
-        Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-        UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-        table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-        the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
         """
         return pulumi.get(self, "return_type")
 
@@ -140,8 +113,7 @@ class FunctionSqlArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[builtins.str]:
         """
-        The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -153,8 +125,7 @@ class FunctionSqlArgs:
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionSqlArgumentArgs']]]]:
         """
-        List of the arguments for the function. Consult the
-        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
         """
         return pulumi.get(self, "arguments")
 
@@ -166,7 +137,7 @@ class FunctionSqlArgs:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a comment for the function.
+        (Default: `user-defined function`) Specifies a comment for the function.
         """
         return pulumi.get(self, "comment")
 
@@ -178,9 +149,7 @@ class FunctionSqlArgs:
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-        For more information, check [ENABLE_CONSOLE_OUTPUT
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
@@ -201,8 +170,7 @@ class FunctionSqlArgs:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -214,8 +182,7 @@ class FunctionSqlArgs:
     @pulumi.getter(name="metricLevel")
     def metric_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
@@ -227,10 +194,7 @@ class FunctionSqlArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the function; the identifier does not need to be unique for the schema in which the function is created
-        because UDFs are identified and resolved by the combination of the name and argument types. Check the
-        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-        (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -242,8 +206,7 @@ class FunctionSqlArgs:
     @pulumi.getter(name="returnResultsBehavior")
     def return_results_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-        `IMMUTABLE`.
+        Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
         """
         return pulumi.get(self, "return_results_behavior")
 
@@ -255,8 +218,7 @@ class FunctionSqlArgs:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -287,42 +249,22 @@ class _FunctionSqlState:
                  trace_level: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionSql resources.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionSqlArgumentArgs']]] arguments: List of the arguments for the function. Consult the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
-        :param pulumi.Input[builtins.str] comment: Specifies a comment for the function.
-        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-               For more information, check [ENABLE_CONSOLE_OUTPUT
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-               do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to
-               SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this
-               field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
-               case or run of whitespace is semantically significant.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionSqlArgumentArgs']]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        :param pulumi.Input[builtins.str] comment: (Default: `user-defined function`) Specifies a comment for the function.
+        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[builtins.str] function_language: Specifies language for the user. Used to detect external changes.
-        :param pulumi.Input[builtins.str] log_level: LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.str] metric_level: METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
-        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created
-               because UDFs are identified and resolved by the combination of the name and argument types. Check the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-               (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionSqlParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN FUNCTION` for the given function.
-        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-               `IMMUTABLE`.
-        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-               UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-               table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-               the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionSqlShowOutputArgs']]] show_outputs: Outputs the result of `SHOW FUNCTION` for the given function.
-        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
@@ -363,8 +305,7 @@ class _FunctionSqlState:
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionSqlArgumentArgs']]]]:
         """
-        List of the arguments for the function. Consult the
-        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
         """
         return pulumi.get(self, "arguments")
 
@@ -376,7 +317,7 @@ class _FunctionSqlState:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a comment for the function.
+        (Default: `user-defined function`) Specifies a comment for the function.
         """
         return pulumi.get(self, "comment")
 
@@ -388,8 +329,7 @@ class _FunctionSqlState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -401,9 +341,7 @@ class _FunctionSqlState:
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-        For more information, check [ENABLE_CONSOLE_OUTPUT
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
@@ -415,8 +353,7 @@ class _FunctionSqlState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -428,11 +365,7 @@ class _FunctionSqlState:
     @pulumi.getter(name="functionDefinition")
     def function_definition(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-        do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to
-        SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this
-        field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
-        case or run of whitespace is semantically significant.
+        Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "function_definition")
 
@@ -465,8 +398,7 @@ class _FunctionSqlState:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -478,8 +410,7 @@ class _FunctionSqlState:
     @pulumi.getter(name="metricLevel")
     def metric_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
@@ -491,10 +422,7 @@ class _FunctionSqlState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the function; the identifier does not need to be unique for the schema in which the function is created
-        because UDFs are identified and resolved by the combination of the name and argument types. Check the
-        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-        (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -518,8 +446,7 @@ class _FunctionSqlState:
     @pulumi.getter(name="returnResultsBehavior")
     def return_results_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-        `IMMUTABLE`.
+        Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
         """
         return pulumi.get(self, "return_results_behavior")
 
@@ -531,10 +458,7 @@ class _FunctionSqlState:
     @pulumi.getter(name="returnType")
     def return_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-        UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-        table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-        the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
         """
         return pulumi.get(self, "return_type")
 
@@ -546,8 +470,7 @@ class _FunctionSqlState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -571,8 +494,7 @@ class _FunctionSqlState:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -602,40 +524,30 @@ class FunctionSql(pulumi.CustomResource):
                  trace_level: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a FunctionSql resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/functionSql:FunctionSql example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
+        ```
+
+        Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
+
+        Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict']]]] arguments: List of the arguments for the function. Consult the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
-        :param pulumi.Input[builtins.str] comment: Specifies a comment for the function.
-        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-               For more information, check [ENABLE_CONSOLE_OUTPUT
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
-        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-               do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to
-               SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this
-               field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
-               case or run of whitespace is semantically significant.
-        :param pulumi.Input[builtins.str] log_level: LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.str] metric_level: METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
-        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created
-               because UDFs are identified and resolved by the combination of the name and argument types. Check the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-               (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-               `IMMUTABLE`.
-        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-               UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-               table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-               the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict']]]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        :param pulumi.Input[builtins.str] comment: (Default: `user-defined function`) Specifies a comment for the function.
+        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        :param pulumi.Input[builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         ...
     @overload
@@ -644,7 +556,16 @@ class FunctionSql(pulumi.CustomResource):
                  args: FunctionSqlArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FunctionSql resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/functionSql:FunctionSql example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
+        ```
+
+        Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
+
+        Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
+
         :param str resource_name: The name of the resource.
         :param FunctionSqlArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -741,42 +662,22 @@ class FunctionSql(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict']]]] arguments: List of the arguments for the function. Consult the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
-        :param pulumi.Input[builtins.str] comment: Specifies a comment for the function.
-        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-               For more information, check [ENABLE_CONSOLE_OUTPUT
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-               do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to
-               SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this
-               field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
-               case or run of whitespace is semantically significant.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlArgumentArgs', 'FunctionSqlArgumentArgsDict']]]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        :param pulumi.Input[builtins.str] comment: (Default: `user-defined function`) Specifies a comment for the function.
+        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[builtins.str] function_language: Specifies language for the user. Used to detect external changes.
-        :param pulumi.Input[builtins.str] log_level: LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.str] metric_level: METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
-        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created
-               because UDFs are identified and resolved by the combination of the name and argument types. Check the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-               (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlParameterArgs', 'FunctionSqlParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN FUNCTION` for the given function.
-        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-               `IMMUTABLE`.
-        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-               UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-               table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-               the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionSqlShowOutputArgs', 'FunctionSqlShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW FUNCTION` for the given function.
-        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -805,8 +706,7 @@ class FunctionSql(pulumi.CustomResource):
     @pulumi.getter
     def arguments(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionSqlArgument']]]:
         """
-        List of the arguments for the function. Consult the
-        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
         """
         return pulumi.get(self, "arguments")
 
@@ -814,7 +714,7 @@ class FunctionSql(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies a comment for the function.
+        (Default: `user-defined function`) Specifies a comment for the function.
         """
         return pulumi.get(self, "comment")
 
@@ -822,8 +722,7 @@ class FunctionSql(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[builtins.str]:
         """
-        The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -831,9 +730,7 @@ class FunctionSql(pulumi.CustomResource):
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> pulumi.Output[builtins.bool]:
         """
-        Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-        For more information, check [ENABLE_CONSOLE_OUTPUT
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
@@ -841,8 +738,7 @@ class FunctionSql(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -850,11 +746,7 @@ class FunctionSql(pulumi.CustomResource):
     @pulumi.getter(name="functionDefinition")
     def function_definition(self) -> pulumi.Output[builtins.str]:
         """
-        Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-        do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to
-        SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this
-        field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in
-        case or run of whitespace is semantically significant.
+        Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be SQL source code. For more information, see [Introduction to SQL UDFs](https://docs.snowflake.com/en/developer-guide/udf/sql/udf-sql-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "function_definition")
 
@@ -875,8 +767,7 @@ class FunctionSql(pulumi.CustomResource):
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Output[builtins.str]:
         """
-        LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -884,8 +775,7 @@ class FunctionSql(pulumi.CustomResource):
     @pulumi.getter(name="metricLevel")
     def metric_level(self) -> pulumi.Output[builtins.str]:
         """
-        METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
@@ -893,10 +783,7 @@ class FunctionSql(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the function; the identifier does not need to be unique for the schema in which the function is created
-        because UDFs are identified and resolved by the combination of the name and argument types. Check the
-        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-        (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -912,8 +799,7 @@ class FunctionSql(pulumi.CustomResource):
     @pulumi.getter(name="returnResultsBehavior")
     def return_results_behavior(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-        `IMMUTABLE`.
+        Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
         """
         return pulumi.get(self, "return_results_behavior")
 
@@ -921,10 +807,7 @@ class FunctionSql(pulumi.CustomResource):
     @pulumi.getter(name="returnType")
     def return_type(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-        UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-        table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-        the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
         """
         return pulumi.get(self, "return_type")
 
@@ -932,8 +815,7 @@ class FunctionSql(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[builtins.str]:
         """
-        The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -949,8 +831,7 @@ class FunctionSql(pulumi.CustomResource):
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> pulumi.Output[builtins.str]:
         """
-        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 

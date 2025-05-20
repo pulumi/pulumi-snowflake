@@ -4,6 +4,26 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
+/**
+ * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const _this = snowflake.getCurrentAccount({});
+ * const snowflakeAccountUrl = new aws.index.SsmParameter("snowflake_account_url", {
+ *     name: "/snowflake/account_url",
+ *     type: "String",
+ *     value: _this.url,
+ * });
+ * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ */
 export function getCurrentAccount(opts?: pulumi.InvokeOptions): Promise<GetCurrentAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getCurrentAccount:getCurrentAccount", {
@@ -14,14 +34,43 @@ export function getCurrentAccount(opts?: pulumi.InvokeOptions): Promise<GetCurre
  * A collection of values returned by getCurrentAccount.
  */
 export interface GetCurrentAccountResult {
+    /**
+     * The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
+     */
     readonly account: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The Snowflake Region; as returned by CURRENT_REGION()
+     */
     readonly region: string;
+    /**
+     * The Snowflake URL.
+     */
     readonly url: string;
 }
+/**
+ * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as snowflake from "@pulumi/snowflake";
+ *
+ * const _this = snowflake.getCurrentAccount({});
+ * const snowflakeAccountUrl = new aws.index.SsmParameter("snowflake_account_url", {
+ *     name: "/snowflake/account_url",
+ *     type: "String",
+ *     value: _this.url,
+ * });
+ * ```
+ *
+ * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ */
 export function getCurrentAccountOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetCurrentAccountResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getCurrentAccount:getCurrentAccount", {

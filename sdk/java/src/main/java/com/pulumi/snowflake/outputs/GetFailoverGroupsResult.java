@@ -14,15 +14,27 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetFailoverGroupsResult {
+    /**
+     * @return List of all the failover groups available in the system.
+     * 
+     */
     private List<GetFailoverGroupsFailoverGroup> failoverGroups;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Specifies the identifier for the account
+     * 
+     */
     private @Nullable String inAccount;
 
     private GetFailoverGroupsResult() {}
+    /**
+     * @return List of all the failover groups available in the system.
+     * 
+     */
     public List<GetFailoverGroupsFailoverGroup> failoverGroups() {
         return this.failoverGroups;
     }
@@ -33,6 +45,10 @@ public final class GetFailoverGroupsResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Specifies the identifier for the account
+     * 
+     */
     public Optional<String> inAccount() {
         return Optional.ofNullable(this.inAccount);
     }

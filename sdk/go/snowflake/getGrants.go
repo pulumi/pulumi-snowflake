@@ -11,6 +11,197 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			// #################################
+//			// ## SHOW GRANTS ON ...
+//			// #################################
+//			// account
+//			_, err := snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsOn: snowflake.GetGrantsGrantsOn{
+//					Account: pulumi.BoolRef(true),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// account object (e.g. database)
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsOn: snowflake.GetGrantsGrantsOn{
+//					ObjectName: pulumi.StringRef("some_database"),
+//					ObjectType: pulumi.StringRef("DATABASE"),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// database object (e.g. schema)
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsOn: snowflake.GetGrantsGrantsOn{
+//					ObjectName: pulumi.StringRef("\"some_database\".\"some_schema\""),
+//					ObjectType: pulumi.StringRef("SCHEMA"),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// schema object (e.g. table)
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsOn: snowflake.GetGrantsGrantsOn{
+//					ObjectName: pulumi.StringRef("\"some_database\".\"some_schema\".\"some_table\""),
+//					ObjectType: pulumi.StringRef("TABLE"),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// application
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsTo: snowflake.GetGrantsGrantsTo{
+//					Application: pulumi.StringRef("some_application"),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// application role
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsTo: snowflake.GetGrantsGrantsTo{
+//					ApplicationRole: pulumi.StringRef("\"some_application\".\"some_application_role\""),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// account role
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsTo: snowflake.GetGrantsGrantsTo{
+//					AccountRole: pulumi.StringRef("some_role"),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// database role
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsTo: snowflake.GetGrantsGrantsTo{
+//					DatabaseRole: pulumi.StringRef("\"some_database\".\"some_database_role\""),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// share
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsTo: snowflake.GetGrantsGrantsTo{
+//					Share: snowflake.GetGrantsGrantsToShare{
+//						ShareName: "some_share",
+//					},
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// user
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsTo: snowflake.GetGrantsGrantsTo{
+//					User: pulumi.StringRef("some_user"),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// application role
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsOf: snowflake.GetGrantsGrantsOf{
+//					ApplicationRole: pulumi.StringRef("\"some_application\".\"some_application_role\""),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// database role
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsOf: snowflake.GetGrantsGrantsOf{
+//					DatabaseRole: pulumi.StringRef("\"some_database\".\"some_database_role\""),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// account role
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsOf: snowflake.GetGrantsGrantsOf{
+//					AccountRole: pulumi.StringRef("some_role"),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// share
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				GrantsOf: snowflake.GetGrantsGrantsOf{
+//					Share: pulumi.StringRef("some_share"),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// database
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				FutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{
+//					Database: pulumi.StringRef("some_database"),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// schema
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				FutureGrantsIn: snowflake.GetGrantsFutureGrantsIn{
+//					Schema: pulumi.StringRef("\"some_database\".\"some_schema\""),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// account role
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				FutureGrantsTo: snowflake.GetGrantsFutureGrantsTo{
+//					AccountRole: pulumi.StringRef("some_role"),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			// database role
+//			_, err = snowflake.GetGrants(ctx, &snowflake.GetGrantsArgs{
+//				FutureGrantsTo: snowflake.GetGrantsFutureGrantsTo{
+//					DatabaseRole: pulumi.StringRef("\"some_database\".\"some_database_role\""),
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// > **Note** If a field has a default value, it is shown next to the type in the schema.
 func GetGrants(ctx *pulumi.Context, args *GetGrantsArgs, opts ...pulumi.InvokeOption) (*GetGrantsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGrantsResult
@@ -23,21 +214,32 @@ func GetGrants(ctx *pulumi.Context, args *GetGrantsArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getGrants.
 type GetGrantsArgs struct {
+	// Lists all privileges on new (i.e. future) objects.
 	FutureGrantsIn *GetGrantsFutureGrantsIn `pulumi:"futureGrantsIn"`
+	// Lists all privileges granted to the object on new (i.e. future) objects.
 	FutureGrantsTo *GetGrantsFutureGrantsTo `pulumi:"futureGrantsTo"`
-	GrantsOf       *GetGrantsGrantsOf       `pulumi:"grantsOf"`
-	GrantsOn       *GetGrantsGrantsOn       `pulumi:"grantsOn"`
-	GrantsTo       *GetGrantsGrantsTo       `pulumi:"grantsTo"`
+	// Lists all objects to which the given object has been granted.
+	GrantsOf *GetGrantsGrantsOf `pulumi:"grantsOf"`
+	// Lists all privileges that have been granted on an object or on an account.
+	GrantsOn *GetGrantsGrantsOn `pulumi:"grantsOn"`
+	// Lists all privileges granted to the object.
+	GrantsTo *GetGrantsGrantsTo `pulumi:"grantsTo"`
 }
 
 // A collection of values returned by getGrants.
 type GetGrantsResult struct {
+	// Lists all privileges on new (i.e. future) objects.
 	FutureGrantsIn *GetGrantsFutureGrantsIn `pulumi:"futureGrantsIn"`
+	// Lists all privileges granted to the object on new (i.e. future) objects.
 	FutureGrantsTo *GetGrantsFutureGrantsTo `pulumi:"futureGrantsTo"`
-	Grants         []GetGrantsGrant         `pulumi:"grants"`
-	GrantsOf       *GetGrantsGrantsOf       `pulumi:"grantsOf"`
-	GrantsOn       *GetGrantsGrantsOn       `pulumi:"grantsOn"`
-	GrantsTo       *GetGrantsGrantsTo       `pulumi:"grantsTo"`
+	// The list of grants
+	Grants []GetGrantsGrant `pulumi:"grants"`
+	// Lists all objects to which the given object has been granted.
+	GrantsOf *GetGrantsGrantsOf `pulumi:"grantsOf"`
+	// Lists all privileges that have been granted on an object or on an account.
+	GrantsOn *GetGrantsGrantsOn `pulumi:"grantsOn"`
+	// Lists all privileges granted to the object.
+	GrantsTo *GetGrantsGrantsTo `pulumi:"grantsTo"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 }
@@ -53,11 +255,16 @@ func GetGrantsOutput(ctx *pulumi.Context, args GetGrantsOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getGrants.
 type GetGrantsOutputArgs struct {
+	// Lists all privileges on new (i.e. future) objects.
 	FutureGrantsIn GetGrantsFutureGrantsInPtrInput `pulumi:"futureGrantsIn"`
+	// Lists all privileges granted to the object on new (i.e. future) objects.
 	FutureGrantsTo GetGrantsFutureGrantsToPtrInput `pulumi:"futureGrantsTo"`
-	GrantsOf       GetGrantsGrantsOfPtrInput       `pulumi:"grantsOf"`
-	GrantsOn       GetGrantsGrantsOnPtrInput       `pulumi:"grantsOn"`
-	GrantsTo       GetGrantsGrantsToPtrInput       `pulumi:"grantsTo"`
+	// Lists all objects to which the given object has been granted.
+	GrantsOf GetGrantsGrantsOfPtrInput `pulumi:"grantsOf"`
+	// Lists all privileges that have been granted on an object or on an account.
+	GrantsOn GetGrantsGrantsOnPtrInput `pulumi:"grantsOn"`
+	// Lists all privileges granted to the object.
+	GrantsTo GetGrantsGrantsToPtrInput `pulumi:"grantsTo"`
 }
 
 func (GetGrantsOutputArgs) ElementType() reflect.Type {
@@ -79,26 +286,32 @@ func (o GetGrantsResultOutput) ToGetGrantsResultOutputWithContext(ctx context.Co
 	return o
 }
 
+// Lists all privileges on new (i.e. future) objects.
 func (o GetGrantsResultOutput) FutureGrantsIn() GetGrantsFutureGrantsInPtrOutput {
 	return o.ApplyT(func(v GetGrantsResult) *GetGrantsFutureGrantsIn { return v.FutureGrantsIn }).(GetGrantsFutureGrantsInPtrOutput)
 }
 
+// Lists all privileges granted to the object on new (i.e. future) objects.
 func (o GetGrantsResultOutput) FutureGrantsTo() GetGrantsFutureGrantsToPtrOutput {
 	return o.ApplyT(func(v GetGrantsResult) *GetGrantsFutureGrantsTo { return v.FutureGrantsTo }).(GetGrantsFutureGrantsToPtrOutput)
 }
 
+// The list of grants
 func (o GetGrantsResultOutput) Grants() GetGrantsGrantArrayOutput {
 	return o.ApplyT(func(v GetGrantsResult) []GetGrantsGrant { return v.Grants }).(GetGrantsGrantArrayOutput)
 }
 
+// Lists all objects to which the given object has been granted.
 func (o GetGrantsResultOutput) GrantsOf() GetGrantsGrantsOfPtrOutput {
 	return o.ApplyT(func(v GetGrantsResult) *GetGrantsGrantsOf { return v.GrantsOf }).(GetGrantsGrantsOfPtrOutput)
 }
 
+// Lists all privileges that have been granted on an object or on an account.
 func (o GetGrantsResultOutput) GrantsOn() GetGrantsGrantsOnPtrOutput {
 	return o.ApplyT(func(v GetGrantsResult) *GetGrantsGrantsOn { return v.GrantsOn }).(GetGrantsGrantsOnPtrOutput)
 }
 
+// Lists all privileges granted to the object.
 func (o GetGrantsResultOutput) GrantsTo() GetGrantsGrantsToPtrOutput {
 	return o.ApplyT(func(v GetGrantsResult) *GetGrantsGrantsTo { return v.GrantsTo }).(GetGrantsGrantsToPtrOutput)
 }

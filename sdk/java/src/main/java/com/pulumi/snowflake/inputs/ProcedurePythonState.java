@@ -23,16 +23,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     public static final ProcedurePythonState Empty = new ProcedurePythonState();
 
     /**
-     * List of the arguments for the procedure. Consult the
-     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+     * List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
      * 
      */
     @Import(name="arguments")
     private @Nullable Output<List<ProcedurePythonArgumentArgs>> arguments;
 
     /**
-     * @return List of the arguments for the procedure. Consult the
-     * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+     * @return List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
      * 
      */
     public Optional<Output<List<ProcedurePythonArgumentArgs>>> arguments() {
@@ -40,14 +38,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies a comment for the procedure.
+     * (Default: `user-defined procedure`) Specifies a comment for the procedure.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return Specifies a comment for the procedure.
+     * @return (Default: `user-defined procedure`) Specifies a comment for the procedure.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -55,16 +53,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> database() {
@@ -72,18 +68,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
-     * more information, check [ENABLE_CONSOLE_OUTPUT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     @Import(name="enableConsoleOutput")
     private @Nullable Output<Boolean> enableConsoleOutput;
 
     /**
-     * @return Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
-     * more information, check [ENABLE_CONSOLE_OUTPUT
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+     * @return Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
      * 
      */
     public Optional<Output<Boolean>> enableConsoleOutput() {
@@ -91,26 +83,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
-     * procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
-     * statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
-     * procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
-     * procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
-     * procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
-     * (case-insensitive): `CALLER` | `OWNER`.
+     * Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
      * 
      */
     @Import(name="executeAs")
     private @Nullable Output<String> executeAs;
 
     /**
-     * @return Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
-     * procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
-     * statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
-     * procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
-     * procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
-     * procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
-     * (case-insensitive): `CALLER` | `OWNER`.
+     * @return Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
      * 
      */
     public Optional<Output<String>> executeAs() {
@@ -118,24 +98,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The names of [external access
-     * integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-     * this procedure’s handler code to access external networks. An external access integration specifies [network
-     * rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-     * [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-     * (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+     * The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this procedure’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
      * 
      */
     @Import(name="externalAccessIntegrations")
     private @Nullable Output<List<String>> externalAccessIntegrations;
 
     /**
-     * @return The names of [external access
-     * integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-     * this procedure’s handler code to access external networks. An external access integration specifies [network
-     * rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-     * [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-     * (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+     * @return The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this procedure’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
      * 
      */
     public Optional<Output<List<String>>> externalAccessIntegrations() {
@@ -143,16 +113,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -160,18 +128,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Use the name of the stored procedure’s function or method. This can differ depending on whether the code is in-line or
-     * referenced at a stage. When the code is in-line, you can specify just the function name. When the code is imported from
-     * a stage, specify the fully-qualified handler function name as `&lt;module_name&gt;.&lt;function_name&gt;`.
+     * Use the name of the stored procedure’s function or method. This can differ depending on whether the code is in-line or referenced at a stage. When the code is in-line, you can specify just the function name. When the code is imported from a stage, specify the fully-qualified handler function name as `&lt;module_name&gt;.&lt;function_name&gt;`.
      * 
      */
     @Import(name="handler")
     private @Nullable Output<String> handler;
 
     /**
-     * @return Use the name of the stored procedure’s function or method. This can differ depending on whether the code is in-line or
-     * referenced at a stage. When the code is in-line, you can specify just the function name. When the code is imported from
-     * a stage, specify the fully-qualified handler function name as `&lt;module_name&gt;.&lt;function_name&gt;`.
+     * @return Use the name of the stored procedure’s function or method. This can differ depending on whether the code is in-line or referenced at a stage. When the code is in-line, you can specify just the function name. When the code is imported from a stage, specify the fully-qualified handler function name as `&lt;module_name&gt;.&lt;function_name&gt;`.
      * 
      */
     public Optional<Output<String>> handler() {
@@ -179,24 +143,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The location (stage), path, and name of the file(s) to import. You must set the IMPORTS clause to include any files that
-     * your stored procedure depends on. If you are writing an in-line stored procedure, you can omit this clause, unless your
-     * code depends on classes defined outside the stored procedure or resource files. If your stored procedure’s code will
-     * be on a stage, you must also include a path to the module file your code is in. The IMPORTS definition cannot reference
-     * variables from arguments that are passed into the stored procedure. Each file in the IMPORTS clause must have a unique
-     * name, even if the files are in different subdirectories or different stages.
+     * The location (stage), path, and name of the file(s) to import. You must set the IMPORTS clause to include any files that your stored procedure depends on. If you are writing an in-line stored procedure, you can omit this clause, unless your code depends on classes defined outside the stored procedure or resource files. If your stored procedure’s code will be on a stage, you must also include a path to the module file your code is in. The IMPORTS definition cannot reference variables from arguments that are passed into the stored procedure. Each file in the IMPORTS clause must have a unique name, even if the files are in different subdirectories or different stages.
      * 
      */
     @Import(name="imports")
     private @Nullable Output<List<ProcedurePythonImportArgs>> imports;
 
     /**
-     * @return The location (stage), path, and name of the file(s) to import. You must set the IMPORTS clause to include any files that
-     * your stored procedure depends on. If you are writing an in-line stored procedure, you can omit this clause, unless your
-     * code depends on classes defined outside the stored procedure or resource files. If your stored procedure’s code will
-     * be on a stage, you must also include a path to the module file your code is in. The IMPORTS definition cannot reference
-     * variables from arguments that are passed into the stored procedure. Each file in the IMPORTS clause must have a unique
-     * name, even if the files are in different subdirectories or different stages.
+     * @return The location (stage), path, and name of the file(s) to import. You must set the IMPORTS clause to include any files that your stored procedure depends on. If you are writing an in-line stored procedure, you can omit this clause, unless your code depends on classes defined outside the stored procedure or resource files. If your stored procedure’s code will be on a stage, you must also include a path to the module file your code is in. The IMPORTS definition cannot reference variables from arguments that are passed into the stored procedure. Each file in the IMPORTS clause must have a unique name, even if the files are in different subdirectories or different stages.
      * 
      */
     public Optional<Output<List<ProcedurePythonImportArgs>>> imports() {
@@ -204,20 +158,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
-     * Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
-     * Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34;
-     * there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="isSecure")
     private @Nullable Output<String> isSecure;
 
     /**
-     * @return Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
-     * Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
-     * Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34;
-     * there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> isSecure() {
@@ -225,16 +173,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     @Import(name="logLevel")
     private @Nullable Output<String> logLevel;
 
     /**
-     * @return LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+     * @return LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
      * 
      */
     public Optional<Output<String>> logLevel() {
@@ -242,16 +188,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+     * METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      * 
      */
     @Import(name="metricLevel")
     private @Nullable Output<String> metricLevel;
 
     /**
-     * @return METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+     * @return METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
      * 
      */
     public Optional<Output<String>> metricLevel() {
@@ -259,20 +203,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
-     * because stored procedures are [identified and resolved by the combination of the name and argument
-     * types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
-     * Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
-     * because stored procedures are [identified and resolved by the combination of the name and argument
-     * types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
-     * Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -280,16 +218,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-     * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+     * Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      * 
      */
     @Import(name="nullInputBehavior")
     private @Nullable Output<String> nullInputBehavior;
 
     /**
-     * @return Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-     * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+     * @return Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
      * 
      */
     public Optional<Output<String>> nullInputBehavior() {
@@ -297,20 +233,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * List of the names of packages deployed in Snowflake that should be included in the handler code’s execution
-     * environment. The Snowpark package is required for stored procedures, but is specified in the `snowpark_package`
-     * attribute. For more information about Snowpark, see [Snowpark
-     * API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
+     * List of the names of packages deployed in Snowflake that should be included in the handler code’s execution environment. The Snowpark package is required for stored procedures, but is specified in the `snowpark_package` attribute. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
      * 
      */
     @Import(name="packages")
     private @Nullable Output<List<String>> packages;
 
     /**
-     * @return List of the names of packages deployed in Snowflake that should be included in the handler code’s execution
-     * environment. The Snowpark package is required for stored procedures, but is specified in the `snowpark_package`
-     * attribute. For more information about Snowpark, see [Snowpark
-     * API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
+     * @return List of the names of packages deployed in Snowflake that should be included in the handler code’s execution environment. The Snowpark package is required for stored procedures, but is specified in the `snowpark_package` attribute. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
      * 
      */
     public Optional<Output<List<String>>> packages() {
@@ -333,24 +263,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
-     * added by the provider automatically; do not include them. The `procedure_definition` value must be Python source code.
-     * For more information, see [Python (using
-     * Snowpark)](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-overview). To mitigate
-     * permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases
-     * where a change in case or run of whitespace is semantically significant.
+     * Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be Python source code. For more information, see [Python (using Snowpark)](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-overview). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     @Import(name="procedureDefinition")
     private @Nullable Output<String> procedureDefinition;
 
     /**
-     * @return Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
-     * added by the provider automatically; do not include them. The `procedure_definition` value must be Python source code.
-     * For more information, see [Python (using
-     * Snowpark)](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-overview). To mitigate
-     * permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases
-     * where a change in case or run of whitespace is semantically significant.
+     * @return Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be Python source code. For more information, see [Python (using Snowpark)](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-overview). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
      * 
      */
     public Optional<Output<String>> procedureDefinition() {
@@ -373,24 +293,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Specifies the type of the result returned by the stored procedure. For `&lt;result_data_type&gt;`, use the Snowflake data type
-     * that corresponds to the type of the language that you are using (see [SQL-Python Data Type
-     * Mappings](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-data-type-mapping.html#label-sql-python-data-type-mappings)).
-     * For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the
-     * returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run
-     * time), you can omit the column names and types (i.e. `TABLE ()`).
+     * Specifies the type of the result returned by the stored procedure. For `&lt;result_data_type&gt;`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL-Python Data Type Mappings](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-data-type-mapping.html#label-sql-python-data-type-mappings)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
      * 
      */
     @Import(name="returnType")
     private @Nullable Output<String> returnType;
 
     /**
-     * @return Specifies the type of the result returned by the stored procedure. For `&lt;result_data_type&gt;`, use the Snowflake data type
-     * that corresponds to the type of the language that you are using (see [SQL-Python Data Type
-     * Mappings](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-data-type-mapping.html#label-sql-python-data-type-mappings)).
-     * For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the
-     * returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run
-     * time), you can omit the column names and types (i.e. `TABLE ()`).
+     * @return Specifies the type of the result returned by the stored procedure. For `&lt;result_data_type&gt;`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL-Python Data Type Mappings](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-data-type-mapping.html#label-sql-python-data-type-mappings)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
      * 
      */
     public Optional<Output<String>> returnType() {
@@ -413,16 +323,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -430,22 +338,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-     * can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-     * specify here must be allowed by the [external access
-     * integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-     * this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+     * Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
      * 
      */
     @Import(name="secrets")
     private @Nullable Output<List<ProcedurePythonSecretArgs>> secrets;
 
     /**
-     * @return Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-     * can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-     * specify here must be allowed by the [external access
-     * integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-     * this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+     * @return Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
      * 
      */
     public Optional<Output<List<ProcedurePythonSecretArgs>>> secrets() {
@@ -468,16 +368,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Snowpark package is required for stored procedures, so it must always be present. For more information about
-     * Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
+     * The Snowpark package is required for stored procedures, so it must always be present. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
      * 
      */
     @Import(name="snowparkPackage")
     private @Nullable Output<String> snowparkPackage;
 
     /**
-     * @return The Snowpark package is required for stored procedures, so it must always be present. For more information about
-     * Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
+     * @return The Snowpark package is required for stored procedures, so it must always be present. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
      * 
      */
     public Optional<Output<String>> snowparkPackage() {
@@ -485,16 +383,14 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     @Import(name="traceLevel")
     private @Nullable Output<String> traceLevel;
 
     /**
-     * @return Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-     * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+     * @return Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
      * 
      */
     public Optional<Output<String>> traceLevel() {
@@ -550,8 +446,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arguments List of the arguments for the procedure. Consult the
-         * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+         * @param arguments List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
          * 
          * @return builder
          * 
@@ -562,8 +457,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arguments List of the arguments for the procedure. Consult the
-         * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+         * @param arguments List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
          * 
          * @return builder
          * 
@@ -573,8 +467,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arguments List of the arguments for the procedure. Consult the
-         * [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
+         * @param arguments List of the arguments for the procedure. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-procedure#all-languages) for more details.
          * 
          * @return builder
          * 
@@ -584,7 +477,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param comment Specifies a comment for the procedure.
+         * @param comment (Default: `user-defined procedure`) Specifies a comment for the procedure.
          * 
          * @return builder
          * 
@@ -595,7 +488,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param comment Specifies a comment for the procedure.
+         * @param comment (Default: `user-defined procedure`) Specifies a comment for the procedure.
          * 
          * @return builder
          * 
@@ -605,8 +498,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param database The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -617,8 +509,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param database The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -628,9 +519,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
-         * more information, check [ENABLE_CONSOLE_OUTPUT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
          * 
          * @return builder
          * 
@@ -641,9 +530,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG_LEVEL). For
-         * more information, check [ENABLE_CONSOLE_OUTPUT
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+         * @param enableConsoleOutput Enable stdout/stderr fast path logging for anonyous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check *CONSOLE_OUTPUT docs[ENABLE](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
          * 
          * @return builder
          * 
@@ -653,13 +540,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param executeAs Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
-         * procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
-         * statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
-         * procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
-         * procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
-         * procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
-         * (case-insensitive): `CALLER` | `OWNER`.
+         * @param executeAs Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
          * 
          * @return builder
          * 
@@ -670,13 +551,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param executeAs Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored
-         * procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the
-         * statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights
-         * procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights
-         * procedure. For more information, see [Understanding caller’s rights and owner’s rights stored
-         * procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are
-         * (case-insensitive): `CALLER` | `OWNER`.
+         * @param executeAs Specifies whether the stored procedure executes with the privileges of the owner (an “owner’s rights” stored procedure) or with the privileges of the caller (a “caller’s rights” stored procedure). If you execute the statement CREATE PROCEDURE … EXECUTE AS CALLER, then in the future the procedure will execute as a caller’s rights procedure. If you execute CREATE PROCEDURE … EXECUTE AS OWNER, then the procedure will execute as an owner’s rights procedure. For more information, see [Understanding caller’s rights and owner’s rights stored procedures](https://docs.snowflake.com/en/developer-guide/stored-procedure/stored-procedures-rights). Valid values are (case-insensitive): `CALLER` | `OWNER`.
          * 
          * @return builder
          * 
@@ -686,12 +561,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param externalAccessIntegrations The names of [external access
-         * integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-         * this procedure’s handler code to access external networks. An external access integration specifies [network
-         * rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-         * [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-         * (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+         * @param externalAccessIntegrations The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this procedure’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
          * 
          * @return builder
          * 
@@ -702,12 +572,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param externalAccessIntegrations The names of [external access
-         * integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-         * this procedure’s handler code to access external networks. An external access integration specifies [network
-         * rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-         * [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-         * (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+         * @param externalAccessIntegrations The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this procedure’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
          * 
          * @return builder
          * 
@@ -717,12 +582,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param externalAccessIntegrations The names of [external access
-         * integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-         * this procedure’s handler code to access external networks. An external access integration specifies [network
-         * rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-         * [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-         * (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+         * @param externalAccessIntegrations The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this procedure’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
          * 
          * @return builder
          * 
@@ -732,8 +592,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -744,8 +603,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -755,9 +613,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param handler Use the name of the stored procedure’s function or method. This can differ depending on whether the code is in-line or
-         * referenced at a stage. When the code is in-line, you can specify just the function name. When the code is imported from
-         * a stage, specify the fully-qualified handler function name as `&lt;module_name&gt;.&lt;function_name&gt;`.
+         * @param handler Use the name of the stored procedure’s function or method. This can differ depending on whether the code is in-line or referenced at a stage. When the code is in-line, you can specify just the function name. When the code is imported from a stage, specify the fully-qualified handler function name as `&lt;module_name&gt;.&lt;function_name&gt;`.
          * 
          * @return builder
          * 
@@ -768,9 +624,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param handler Use the name of the stored procedure’s function or method. This can differ depending on whether the code is in-line or
-         * referenced at a stage. When the code is in-line, you can specify just the function name. When the code is imported from
-         * a stage, specify the fully-qualified handler function name as `&lt;module_name&gt;.&lt;function_name&gt;`.
+         * @param handler Use the name of the stored procedure’s function or method. This can differ depending on whether the code is in-line or referenced at a stage. When the code is in-line, you can specify just the function name. When the code is imported from a stage, specify the fully-qualified handler function name as `&lt;module_name&gt;.&lt;function_name&gt;`.
          * 
          * @return builder
          * 
@@ -780,12 +634,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param imports The location (stage), path, and name of the file(s) to import. You must set the IMPORTS clause to include any files that
-         * your stored procedure depends on. If you are writing an in-line stored procedure, you can omit this clause, unless your
-         * code depends on classes defined outside the stored procedure or resource files. If your stored procedure’s code will
-         * be on a stage, you must also include a path to the module file your code is in. The IMPORTS definition cannot reference
-         * variables from arguments that are passed into the stored procedure. Each file in the IMPORTS clause must have a unique
-         * name, even if the files are in different subdirectories or different stages.
+         * @param imports The location (stage), path, and name of the file(s) to import. You must set the IMPORTS clause to include any files that your stored procedure depends on. If you are writing an in-line stored procedure, you can omit this clause, unless your code depends on classes defined outside the stored procedure or resource files. If your stored procedure’s code will be on a stage, you must also include a path to the module file your code is in. The IMPORTS definition cannot reference variables from arguments that are passed into the stored procedure. Each file in the IMPORTS clause must have a unique name, even if the files are in different subdirectories or different stages.
          * 
          * @return builder
          * 
@@ -796,12 +645,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param imports The location (stage), path, and name of the file(s) to import. You must set the IMPORTS clause to include any files that
-         * your stored procedure depends on. If you are writing an in-line stored procedure, you can omit this clause, unless your
-         * code depends on classes defined outside the stored procedure or resource files. If your stored procedure’s code will
-         * be on a stage, you must also include a path to the module file your code is in. The IMPORTS definition cannot reference
-         * variables from arguments that are passed into the stored procedure. Each file in the IMPORTS clause must have a unique
-         * name, even if the files are in different subdirectories or different stages.
+         * @param imports The location (stage), path, and name of the file(s) to import. You must set the IMPORTS clause to include any files that your stored procedure depends on. If you are writing an in-line stored procedure, you can omit this clause, unless your code depends on classes defined outside the stored procedure or resource files. If your stored procedure’s code will be on a stage, you must also include a path to the module file your code is in. The IMPORTS definition cannot reference variables from arguments that are passed into the stored procedure. Each file in the IMPORTS clause must have a unique name, even if the files are in different subdirectories or different stages.
          * 
          * @return builder
          * 
@@ -811,12 +655,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param imports The location (stage), path, and name of the file(s) to import. You must set the IMPORTS clause to include any files that
-         * your stored procedure depends on. If you are writing an in-line stored procedure, you can omit this clause, unless your
-         * code depends on classes defined outside the stored procedure or resource files. If your stored procedure’s code will
-         * be on a stage, you must also include a path to the module file your code is in. The IMPORTS definition cannot reference
-         * variables from arguments that are passed into the stored procedure. Each file in the IMPORTS clause must have a unique
-         * name, even if the files are in different subdirectories or different stages.
+         * @param imports The location (stage), path, and name of the file(s) to import. You must set the IMPORTS clause to include any files that your stored procedure depends on. If you are writing an in-line stored procedure, you can omit this clause, unless your code depends on classes defined outside the stored procedure or resource files. If your stored procedure’s code will be on a stage, you must also include a path to the module file your code is in. The IMPORTS definition cannot reference variables from arguments that are passed into the stored procedure. Each file in the IMPORTS clause must have a unique name, even if the files are in different subdirectories or different stages.
          * 
          * @return builder
          * 
@@ -826,10 +665,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param isSecure Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
-         * Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
-         * Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34;
-         * there which means to use the Snowflake default for this value.
+         * @param isSecure (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -840,10 +676,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param isSecure Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive
-         * Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure).
-         * Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34;
-         * there which means to use the Snowflake default for this value.
+         * @param isSecure (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies that the procedure is secure. For more information about secure procedures, see [Protecting Sensitive Information with Secure UDFs and Stored Procedures](https://docs.snowflake.com/en/developer-guide/secure-udf-procedure). Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -853,8 +686,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param logLevel LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+         * @param logLevel LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
          * 
          * @return builder
          * 
@@ -865,8 +697,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param logLevel LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+         * @param logLevel LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
          * 
          * @return builder
          * 
@@ -876,8 +707,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param metricLevel METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+         * @param metricLevel METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
          * 
          * @return builder
          * 
@@ -888,8 +718,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param metricLevel METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+         * @param metricLevel METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
          * 
          * @return builder
          * 
@@ -899,10 +728,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
-         * because stored procedures are [identified and resolved by the combination of the name and argument
-         * types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
-         * Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -913,10 +739,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created
-         * because stored procedures are [identified and resolved by the combination of the name and argument
-         * types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading).
-         * Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name The name of the procedure; the identifier does not need to be unique for the schema in which the procedure is created because stored procedures are [identified and resolved by the combination of the name and argument types](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-naming-conventions.html#label-procedure-function-name-overloading). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -926,8 +749,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param nullInputBehavior Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-         * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+         * @param nullInputBehavior Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
          * 
          * @return builder
          * 
@@ -938,8 +760,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param nullInputBehavior Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-         * NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+         * @param nullInputBehavior Specifies the behavior of the procedure when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
          * 
          * @return builder
          * 
@@ -949,10 +770,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param packages List of the names of packages deployed in Snowflake that should be included in the handler code’s execution
-         * environment. The Snowpark package is required for stored procedures, but is specified in the `snowpark_package`
-         * attribute. For more information about Snowpark, see [Snowpark
-         * API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
+         * @param packages List of the names of packages deployed in Snowflake that should be included in the handler code’s execution environment. The Snowpark package is required for stored procedures, but is specified in the `snowpark_package` attribute. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
          * 
          * @return builder
          * 
@@ -963,10 +781,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param packages List of the names of packages deployed in Snowflake that should be included in the handler code’s execution
-         * environment. The Snowpark package is required for stored procedures, but is specified in the `snowpark_package`
-         * attribute. For more information about Snowpark, see [Snowpark
-         * API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
+         * @param packages List of the names of packages deployed in Snowflake that should be included in the handler code’s execution environment. The Snowpark package is required for stored procedures, but is specified in the `snowpark_package` attribute. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
          * 
          * @return builder
          * 
@@ -976,10 +791,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param packages List of the names of packages deployed in Snowflake that should be included in the handler code’s execution
-         * environment. The Snowpark package is required for stored procedures, but is specified in the `snowpark_package`
-         * attribute. For more information about Snowpark, see [Snowpark
-         * API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
+         * @param packages List of the names of packages deployed in Snowflake that should be included in the handler code’s execution environment. The Snowpark package is required for stored procedures, but is specified in the `snowpark_package` attribute. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
          * 
          * @return builder
          * 
@@ -1020,12 +832,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param procedureDefinition Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
-         * added by the provider automatically; do not include them. The `procedure_definition` value must be Python source code.
-         * For more information, see [Python (using
-         * Snowpark)](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-overview). To mitigate
-         * permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases
-         * where a change in case or run of whitespace is semantically significant.
+         * @param procedureDefinition Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be Python source code. For more information, see [Python (using Snowpark)](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-overview). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 
@@ -1036,12 +843,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param procedureDefinition Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are
-         * added by the provider automatically; do not include them. The `procedure_definition` value must be Python source code.
-         * For more information, see [Python (using
-         * Snowpark)](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-overview). To mitigate
-         * permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases
-         * where a change in case or run of whitespace is semantically significant.
+         * @param procedureDefinition Defines the code executed by the stored procedure. The definition can consist of any valid code. Wrapping `$$` signs are added by the provider automatically; do not include them. The `procedure_definition` value must be Python source code. For more information, see [Python (using Snowpark)](https://docs.snowflake.com/en/developer-guide/stored-procedure/python/procedure-python-overview). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
          * 
          * @return builder
          * 
@@ -1072,12 +874,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param returnType Specifies the type of the result returned by the stored procedure. For `&lt;result_data_type&gt;`, use the Snowflake data type
-         * that corresponds to the type of the language that you are using (see [SQL-Python Data Type
-         * Mappings](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-data-type-mapping.html#label-sql-python-data-type-mappings)).
-         * For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the
-         * returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run
-         * time), you can omit the column names and types (i.e. `TABLE ()`).
+         * @param returnType Specifies the type of the result returned by the stored procedure. For `&lt;result_data_type&gt;`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL-Python Data Type Mappings](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-data-type-mapping.html#label-sql-python-data-type-mappings)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
          * 
          * @return builder
          * 
@@ -1088,12 +885,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param returnType Specifies the type of the result returned by the stored procedure. For `&lt;result_data_type&gt;`, use the Snowflake data type
-         * that corresponds to the type of the language that you are using (see [SQL-Python Data Type
-         * Mappings](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-data-type-mapping.html#label-sql-python-data-type-mappings)).
-         * For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the
-         * returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run
-         * time), you can omit the column names and types (i.e. `TABLE ()`).
+         * @param returnType Specifies the type of the result returned by the stored procedure. For `&lt;result_data_type&gt;`, use the Snowflake data type that corresponds to the type of the language that you are using (see [SQL-Python Data Type Mappings](https://docs.snowflake.com/en/developer-guide/udf-stored-procedure-data-type-mapping.html#label-sql-python-data-type-mappings)). For `RETURNS TABLE ( [ col_name col_data_type [ , ... ] ] )`, if you know the Snowflake data types of the columns in the returned table, specify the column names and types. Otherwise (e.g. if you are determining the column types during run time), you can omit the column names and types (i.e. `TABLE ()`).
          * 
          * @return builder
          * 
@@ -1124,8 +916,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param schema The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -1136,8 +927,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param schema The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the procedure. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -1147,11 +937,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param secrets Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-         * can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-         * specify here must be allowed by the [external access
-         * integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-         * this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+         * @param secrets Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
          * 
          * @return builder
          * 
@@ -1162,11 +948,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param secrets Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-         * can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-         * specify here must be allowed by the [external access
-         * integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-         * this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+         * @param secrets Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
          * 
          * @return builder
          * 
@@ -1176,11 +958,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param secrets Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-         * can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-         * specify here must be allowed by the [external access
-         * integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-         * this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+         * @param secrets Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
          * 
          * @return builder
          * 
@@ -1221,8 +999,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param snowparkPackage The Snowpark package is required for stored procedures, so it must always be present. For more information about
-         * Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
+         * @param snowparkPackage The Snowpark package is required for stored procedures, so it must always be present. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
          * 
          * @return builder
          * 
@@ -1233,8 +1010,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param snowparkPackage The Snowpark package is required for stored procedures, so it must always be present. For more information about
-         * Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
+         * @param snowparkPackage The Snowpark package is required for stored procedures, so it must always be present. For more information about Snowpark, see [Snowpark API](https://docs.snowflake.com/en/developer-guide/snowpark/index).
          * 
          * @return builder
          * 
@@ -1244,8 +1020,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
          * 
          * @return builder
          * 
@@ -1256,8 +1031,7 @@ public final class ProcedurePythonState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-         * docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+         * @param traceLevel Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
          * 
          * @return builder
          * 

@@ -15,6 +15,14 @@ import java.util.List;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
+/**
+ * ## Import
+ * 
+ * ```sh
+ * $ pulumi import snowflake:index/cortexSearchService:CortexSearchService example &#39;dbName|schemaName|fileFormatName&#39;
+ * ```
+ * 
+ */
 @ResourceType(type="snowflake:index/cortexSearchService:CortexSearchService")
 public class CortexSearchService extends com.pulumi.resources.CustomResource {
     /**
@@ -74,16 +82,14 @@ public class CortexSearchService extends com.pulumi.resources.CustomResource {
         return this.database;
     }
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Export(name="fullyQualifiedName", refs={String.class}, tree="[0]")
     private Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Output<String> fullyQualifiedName() {

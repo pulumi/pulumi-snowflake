@@ -34,16 +34,14 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
     }
 
     /**
-     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="database")
     private @Nullable Output<String> database;
 
     /**
-     * @return The database in which to create the secret Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> database() {
@@ -66,16 +64,14 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
     }
 
     /**
-     * Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     @Import(name="fullyQualifiedName")
     private @Nullable Output<String> fullyQualifiedName;
 
     /**
-     * @return Fully qualified name of the resource. For more information, see [object name
-     * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+     * @return Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      * 
      */
     public Optional<Output<String>> fullyQualifiedName() {
@@ -83,16 +79,14 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
     }
 
     /**
-     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
-     * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+     * @return String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -107,16 +101,14 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
     }
 
     /**
-     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="schema")
     private @Nullable Output<String> schema;
 
     /**
-     * @return The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
-     * characters: `|`, `.`, `&#34;`.
+     * @return The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> schema() {
@@ -124,16 +116,14 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
     }
 
     /**
-     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
-     * needed.
+     * Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
      * 
      */
     @Import(name="secretType")
     private @Nullable Output<String> secretType;
 
     /**
-     * @return Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
-     * needed.
+     * @return Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
      * 
      */
     public Optional<Output<String>> secretType() {
@@ -225,8 +215,7 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
         }
 
         /**
-         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -237,8 +226,7 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
         }
 
         /**
-         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param database The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -279,8 +267,7 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -291,8 +278,7 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
         }
 
         /**
-         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name
-         * resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+         * @param fullyQualifiedName Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
          * 
          * @return builder
          * 
@@ -302,8 +288,7 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
-         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -314,8 +299,7 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
         }
 
         /**
-         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
-         * limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
+         * @param name String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -334,8 +318,7 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
         }
 
         /**
-         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -346,8 +329,7 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
         }
 
         /**
-         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
-         * characters: `|`, `.`, `&#34;`.
+         * @param schema The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -357,8 +339,7 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
         }
 
         /**
-         * @param secretType Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
-         * needed.
+         * @param secretType Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
          * 
          * @return builder
          * 
@@ -369,8 +350,7 @@ public final class SecretWithBasicAuthenticationState extends com.pulumi.resourc
         }
 
         /**
-         * @param secretType Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
-         * needed.
+         * @param secretType Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
          * 
          * @return builder
          * 

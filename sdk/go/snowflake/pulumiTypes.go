@@ -10532,7 +10532,7 @@ func (o FunctionJavaParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) Fun
 }
 
 type FunctionJavaSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	SecretId string `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName string `pulumi:"secretVariableName"`
@@ -10550,7 +10550,7 @@ type FunctionJavaSecretInput interface {
 }
 
 type FunctionJavaSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
@@ -10607,7 +10607,7 @@ func (o FunctionJavaSecretOutput) ToFunctionJavaSecretOutputWithContext(ctx cont
 	return o
 }
 
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 func (o FunctionJavaSecretOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionJavaSecret) string { return v.SecretId }).(pulumi.StringOutput)
 }
@@ -12705,7 +12705,7 @@ func (o FunctionPythonParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) F
 }
 
 type FunctionPythonSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	SecretId string `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName string `pulumi:"secretVariableName"`
@@ -12723,7 +12723,7 @@ type FunctionPythonSecretInput interface {
 }
 
 type FunctionPythonSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
@@ -12780,7 +12780,7 @@ func (o FunctionPythonSecretOutput) ToFunctionPythonSecretOutputWithContext(ctx 
 	return o
 }
 
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 func (o FunctionPythonSecretOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionPythonSecret) string { return v.SecretId }).(pulumi.StringOutput)
 }
@@ -13820,7 +13820,7 @@ func (o FunctionScalaParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) Fu
 }
 
 type FunctionScalaSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	SecretId string `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName string `pulumi:"secretVariableName"`
@@ -13838,7 +13838,7 @@ type FunctionScalaSecretInput interface {
 }
 
 type FunctionScalaSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
@@ -13895,7 +13895,7 @@ func (o FunctionScalaSecretOutput) ToFunctionScalaSecretOutputWithContext(ctx co
 	return o
 }
 
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 func (o FunctionScalaSecretOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v FunctionScalaSecret) string { return v.SecretId }).(pulumi.StringOutput)
 }
@@ -31934,7 +31934,7 @@ func (o ProcedureJavaParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) Pr
 }
 
 type ProcedureJavaSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	SecretId string `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName string `pulumi:"secretVariableName"`
@@ -31952,7 +31952,7 @@ type ProcedureJavaSecretInput interface {
 }
 
 type ProcedureJavaSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
@@ -32009,7 +32009,7 @@ func (o ProcedureJavaSecretOutput) ToProcedureJavaSecretOutputWithContext(ctx co
 	return o
 }
 
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 func (o ProcedureJavaSecretOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureJavaSecret) string { return v.SecretId }).(pulumi.StringOutput)
 }
@@ -34059,7 +34059,7 @@ func (o ProcedurePythonParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) 
 }
 
 type ProcedurePythonSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	SecretId string `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName string `pulumi:"secretVariableName"`
@@ -34077,7 +34077,7 @@ type ProcedurePythonSecretInput interface {
 }
 
 type ProcedurePythonSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
@@ -34134,7 +34134,7 @@ func (o ProcedurePythonSecretOutput) ToProcedurePythonSecretOutputWithContext(ct
 	return o
 }
 
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 func (o ProcedurePythonSecretOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedurePythonSecret) string { return v.SecretId }).(pulumi.StringOutput)
 }
@@ -35150,7 +35150,7 @@ func (o ProcedureScalaParameterTraceLevelArrayOutput) Index(i pulumi.IntInput) P
 }
 
 type ProcedureScalaSecret struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	SecretId string `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName string `pulumi:"secretVariableName"`
@@ -35168,7 +35168,7 @@ type ProcedureScalaSecretInput interface {
 }
 
 type ProcedureScalaSecretArgs struct {
-	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+	// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 	SecretId pulumi.StringInput `pulumi:"secretId"`
 	// The variable that will be used in handler code when retrieving information from the secret.
 	SecretVariableName pulumi.StringInput `pulumi:"secretVariableName"`
@@ -35225,7 +35225,7 @@ func (o ProcedureScalaSecretOutput) ToProcedureScalaSecretOutputWithContext(ctx 
 	return o
 }
 
-// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+// Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
 func (o ProcedureScalaSecretOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v ProcedureScalaSecret) string { return v.SecretId }).(pulumi.StringOutput)
 }
@@ -52295,7 +52295,7 @@ type StreamOnExternalTableAt struct {
 	Statement *string `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream *string `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
@@ -52317,7 +52317,7 @@ type StreamOnExternalTableAtArgs struct {
 	Statement pulumi.StringPtrInput `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream pulumi.StringPtrInput `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
@@ -52413,7 +52413,7 @@ func (o StreamOnExternalTableAtOutput) Stream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnExternalTableAt) *string { return v.Stream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnExternalTableAtOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnExternalTableAt) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -52472,7 +52472,7 @@ func (o StreamOnExternalTableAtPtrOutput) Stream() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnExternalTableAtPtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnExternalTableAt) *string {
 		if v == nil {
@@ -52489,7 +52489,7 @@ type StreamOnExternalTableBefore struct {
 	Statement *string `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream *string `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
@@ -52511,7 +52511,7 @@ type StreamOnExternalTableBeforeArgs struct {
 	Statement pulumi.StringPtrInput `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream pulumi.StringPtrInput `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
@@ -52607,7 +52607,7 @@ func (o StreamOnExternalTableBeforeOutput) Stream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnExternalTableBefore) *string { return v.Stream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnExternalTableBeforeOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnExternalTableBefore) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -52666,7 +52666,7 @@ func (o StreamOnExternalTableBeforePtrOutput) Stream() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnExternalTableBeforePtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnExternalTableBefore) *string {
 		if v == nil {
@@ -53039,7 +53039,7 @@ type StreamOnTableAt struct {
 	Statement *string `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream *string `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
@@ -53061,7 +53061,7 @@ type StreamOnTableAtArgs struct {
 	Statement pulumi.StringPtrInput `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream pulumi.StringPtrInput `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
@@ -53157,7 +53157,7 @@ func (o StreamOnTableAtOutput) Stream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnTableAt) *string { return v.Stream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnTableAtOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnTableAt) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -53216,7 +53216,7 @@ func (o StreamOnTableAtPtrOutput) Stream() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnTableAtPtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnTableAt) *string {
 		if v == nil {
@@ -53233,7 +53233,7 @@ type StreamOnTableBefore struct {
 	Statement *string `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream *string `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
@@ -53255,7 +53255,7 @@ type StreamOnTableBeforeArgs struct {
 	Statement pulumi.StringPtrInput `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream pulumi.StringPtrInput `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
@@ -53351,7 +53351,7 @@ func (o StreamOnTableBeforeOutput) Stream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnTableBefore) *string { return v.Stream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnTableBeforeOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnTableBefore) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -53410,7 +53410,7 @@ func (o StreamOnTableBeforePtrOutput) Stream() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnTableBeforePtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnTableBefore) *string {
 		if v == nil {
@@ -53783,7 +53783,7 @@ type StreamOnViewAt struct {
 	Statement *string `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream *string `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
@@ -53805,7 +53805,7 @@ type StreamOnViewAtArgs struct {
 	Statement pulumi.StringPtrInput `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream pulumi.StringPtrInput `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
@@ -53901,7 +53901,7 @@ func (o StreamOnViewAtOutput) Stream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnViewAt) *string { return v.Stream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnViewAtOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnViewAt) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -53960,7 +53960,7 @@ func (o StreamOnViewAtPtrOutput) Stream() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnViewAtPtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnViewAt) *string {
 		if v == nil {
@@ -53977,7 +53977,7 @@ type StreamOnViewBefore struct {
 	Statement *string `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream *string `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 	Timestamp *string `pulumi:"timestamp"`
 }
 
@@ -53999,7 +53999,7 @@ type StreamOnViewBeforeArgs struct {
 	Statement pulumi.StringPtrInput `pulumi:"statement"`
 	// Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
 	Stream pulumi.StringPtrInput `pulumi:"stream"`
-	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+	// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 	Timestamp pulumi.StringPtrInput `pulumi:"timestamp"`
 }
 
@@ -54095,7 +54095,7 @@ func (o StreamOnViewBeforeOutput) Stream() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnViewBefore) *string { return v.Stream }).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnViewBeforeOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v StreamOnViewBefore) *string { return v.Timestamp }).(pulumi.StringPtrOutput)
 }
@@ -54154,7 +54154,7 @@ func (o StreamOnViewBeforePtrOutput) Stream() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+// Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
 func (o StreamOnViewBeforePtrOutput) Timestamp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamOnViewBefore) *string {
 		if v == nil {
@@ -54823,19 +54823,19 @@ func (o StreamlitShowOutputArrayOutput) Index(i pulumi.IntInput) StreamlitShowOu
 }
 
 type TableColumn struct {
-	// Column collation, e.g. utf8
+	// (Default: ``) Column collation, e.g. utf8
 	Collate *string `pulumi:"collate"`
-	// Column comment
+	// (Default: ``) Column comment
 	Comment *string `pulumi:"comment"`
 	// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
 	Default *TableColumnDefault `pulumi:"default"`
 	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 	Identity *TableColumnIdentity `pulumi:"identity"`
-	// Masking policy to apply on column. It has to be a fully qualified name.
+	// (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
 	MaskingPolicy *string `pulumi:"maskingPolicy"`
 	// Column name
 	Name string `pulumi:"name"`
-	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+	// (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
 	Nullable *bool `pulumi:"nullable"`
 	// Record of schema evolution.
 	SchemaEvolutionRecord *string `pulumi:"schemaEvolutionRecord"`
@@ -54855,19 +54855,19 @@ type TableColumnInput interface {
 }
 
 type TableColumnArgs struct {
-	// Column collation, e.g. utf8
+	// (Default: ``) Column collation, e.g. utf8
 	Collate pulumi.StringPtrInput `pulumi:"collate"`
-	// Column comment
+	// (Default: ``) Column comment
 	Comment pulumi.StringPtrInput `pulumi:"comment"`
 	// Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
 	Default TableColumnDefaultPtrInput `pulumi:"default"`
 	// Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
 	Identity TableColumnIdentityPtrInput `pulumi:"identity"`
-	// Masking policy to apply on column. It has to be a fully qualified name.
+	// (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
 	MaskingPolicy pulumi.StringPtrInput `pulumi:"maskingPolicy"`
 	// Column name
 	Name pulumi.StringInput `pulumi:"name"`
-	// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+	// (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
 	Nullable pulumi.BoolPtrInput `pulumi:"nullable"`
 	// Record of schema evolution.
 	SchemaEvolutionRecord pulumi.StringPtrInput `pulumi:"schemaEvolutionRecord"`
@@ -54926,12 +54926,12 @@ func (o TableColumnOutput) ToTableColumnOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// Column collation, e.g. utf8
+// (Default: “) Column collation, e.g. utf8
 func (o TableColumnOutput) Collate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumn) *string { return v.Collate }).(pulumi.StringPtrOutput)
 }
 
-// Column comment
+// (Default: “) Column comment
 func (o TableColumnOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumn) *string { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -54946,7 +54946,7 @@ func (o TableColumnOutput) Identity() TableColumnIdentityPtrOutput {
 	return o.ApplyT(func(v TableColumn) *TableColumnIdentity { return v.Identity }).(TableColumnIdentityPtrOutput)
 }
 
-// Masking policy to apply on column. It has to be a fully qualified name.
+// (Default: “) Masking policy to apply on column. It has to be a fully qualified name.
 func (o TableColumnOutput) MaskingPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableColumn) *string { return v.MaskingPolicy }).(pulumi.StringPtrOutput)
 }
@@ -54956,7 +54956,7 @@ func (o TableColumnOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v TableColumn) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+// (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
 func (o TableColumnOutput) Nullable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v TableColumn) *bool { return v.Nullable }).(pulumi.BoolPtrOutput)
 }
@@ -55167,9 +55167,9 @@ func (o TableColumnDefaultPtrOutput) Sequence() pulumi.StringPtrOutput {
 }
 
 type TableColumnIdentity struct {
-	// The number to start incrementing at.
+	// (Default: `1`) The number to start incrementing at.
 	StartNum *int `pulumi:"startNum"`
-	// Step size to increment by.
+	// (Default: `1`) Step size to increment by.
 	StepNum *int `pulumi:"stepNum"`
 }
 
@@ -55185,9 +55185,9 @@ type TableColumnIdentityInput interface {
 }
 
 type TableColumnIdentityArgs struct {
-	// The number to start incrementing at.
+	// (Default: `1`) The number to start incrementing at.
 	StartNum pulumi.IntPtrInput `pulumi:"startNum"`
-	// Step size to increment by.
+	// (Default: `1`) Step size to increment by.
 	StepNum pulumi.IntPtrInput `pulumi:"stepNum"`
 }
 
@@ -55268,12 +55268,12 @@ func (o TableColumnIdentityOutput) ToTableColumnIdentityPtrOutputWithContext(ctx
 	}).(TableColumnIdentityPtrOutput)
 }
 
-// The number to start incrementing at.
+// (Default: `1`) The number to start incrementing at.
 func (o TableColumnIdentityOutput) StartNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableColumnIdentity) *int { return v.StartNum }).(pulumi.IntPtrOutput)
 }
 
-// Step size to increment by.
+// (Default: `1`) Step size to increment by.
 func (o TableColumnIdentityOutput) StepNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v TableColumnIdentity) *int { return v.StepNum }).(pulumi.IntPtrOutput)
 }
@@ -55302,7 +55302,7 @@ func (o TableColumnIdentityPtrOutput) Elem() TableColumnIdentityOutput {
 	}).(TableColumnIdentityOutput)
 }
 
-// The number to start incrementing at.
+// (Default: `1`) The number to start incrementing at.
 func (o TableColumnIdentityPtrOutput) StartNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableColumnIdentity) *int {
 		if v == nil {
@@ -55312,7 +55312,7 @@ func (o TableColumnIdentityPtrOutput) StartNum() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// Step size to increment by.
+// (Default: `1`) Step size to increment by.
 func (o TableColumnIdentityPtrOutput) StepNum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *TableColumnIdentity) *int {
 		if v == nil {
@@ -55323,11 +55323,11 @@ func (o TableColumnIdentityPtrOutput) StepNum() pulumi.IntPtrOutput {
 }
 
 type TableConstraintForeignKeyProperties struct {
-	// The match type for the foreign key. Not applicable for primary/unique keys
+	// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
 	Match *string `pulumi:"match"`
-	// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+	// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
 	OnDelete *string `pulumi:"onDelete"`
-	// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+	// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 	OnUpdate *string `pulumi:"onUpdate"`
 	// The table and columns that the foreign key references.
 	References TableConstraintForeignKeyPropertiesReferences `pulumi:"references"`
@@ -55345,11 +55345,11 @@ type TableConstraintForeignKeyPropertiesInput interface {
 }
 
 type TableConstraintForeignKeyPropertiesArgs struct {
-	// The match type for the foreign key. Not applicable for primary/unique keys
+	// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
 	Match pulumi.StringPtrInput `pulumi:"match"`
-	// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+	// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
 	OnDelete pulumi.StringPtrInput `pulumi:"onDelete"`
-	// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+	// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 	OnUpdate pulumi.StringPtrInput `pulumi:"onUpdate"`
 	// The table and columns that the foreign key references.
 	References TableConstraintForeignKeyPropertiesReferencesInput `pulumi:"references"`
@@ -55432,17 +55432,17 @@ func (o TableConstraintForeignKeyPropertiesOutput) ToTableConstraintForeignKeyPr
 	}).(TableConstraintForeignKeyPropertiesPtrOutput)
 }
 
-// The match type for the foreign key. Not applicable for primary/unique keys
+// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesOutput) Match() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *string { return v.Match }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesOutput) OnDelete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *string { return v.OnDelete }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesOutput) OnUpdate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableConstraintForeignKeyProperties) *string { return v.OnUpdate }).(pulumi.StringPtrOutput)
 }
@@ -55478,7 +55478,7 @@ func (o TableConstraintForeignKeyPropertiesPtrOutput) Elem() TableConstraintFore
 	}).(TableConstraintForeignKeyPropertiesOutput)
 }
 
-// The match type for the foreign key. Not applicable for primary/unique keys
+// (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesPtrOutput) Match() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *string {
 		if v == nil {
@@ -55488,7 +55488,7 @@ func (o TableConstraintForeignKeyPropertiesPtrOutput) Match() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesPtrOutput) OnDelete() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *string {
 		if v == nil {
@@ -55498,7 +55498,7 @@ func (o TableConstraintForeignKeyPropertiesPtrOutput) OnDelete() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+// (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
 func (o TableConstraintForeignKeyPropertiesPtrOutput) OnUpdate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableConstraintForeignKeyProperties) *string {
 		if v == nil {

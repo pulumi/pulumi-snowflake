@@ -12,6 +12,11 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Import
+//
+// ```sh
+// $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
+// ```
 type NotificationIntegration struct {
 	pulumi.CustomResourceState
 
@@ -39,10 +44,9 @@ type NotificationIntegration struct {
 	//
 	// Deprecated: No longer supported notification method
 	AwsSqsRoleArn pulumi.StringPtrOutput `pulumi:"awsSqsRoleArn"`
-	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
-	// provider
+	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
 	AzureStorageQueuePrimaryUri pulumi.StringPtrOutput `pulumi:"azureStorageQueuePrimaryUri"`
-	// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
+	// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
 	AzureTenantId pulumi.StringPtrOutput `pulumi:"azureTenantId"`
 	// A comment for the integration
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -52,9 +56,9 @@ type NotificationIntegration struct {
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Direction pulumi.StringPtrOutput `pulumi:"direction"`
-	Enabled   pulumi.BoolPtrOutput   `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// (Default: `true`)
+	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// The GCP service account identifier that Snowflake will use when assuming the GCP role
 	GcpPubsubServiceAccount pulumi.StringOutput `pulumi:"gcpPubsubServiceAccount"`
@@ -63,10 +67,9 @@ type NotificationIntegration struct {
 	// The topic id that Snowflake will use to push notifications.
 	GcpPubsubTopicName pulumi.StringPtrOutput `pulumi:"gcpPubsubTopicName"`
 	Name               pulumi.StringOutput    `pulumi:"name"`
-	// The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
-	// deprecated and will be removed in the future provider versions)
+	// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
 	NotificationProvider pulumi.StringOutput `pulumi:"notificationProvider"`
-	// A type of integration
+	// (Default: `QUEUE`) A type of integration
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
@@ -129,10 +132,9 @@ type notificationIntegrationState struct {
 	//
 	// Deprecated: No longer supported notification method
 	AwsSqsRoleArn *string `pulumi:"awsSqsRoleArn"`
-	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
-	// provider
+	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
 	AzureStorageQueuePrimaryUri *string `pulumi:"azureStorageQueuePrimaryUri"`
-	// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
+	// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
 	AzureTenantId *string `pulumi:"azureTenantId"`
 	// A comment for the integration
 	Comment *string `pulumi:"comment"`
@@ -142,9 +144,9 @@ type notificationIntegrationState struct {
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Direction *string `pulumi:"direction"`
-	Enabled   *bool   `pulumi:"enabled"`
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// (Default: `true`)
+	Enabled *bool `pulumi:"enabled"`
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// The GCP service account identifier that Snowflake will use when assuming the GCP role
 	GcpPubsubServiceAccount *string `pulumi:"gcpPubsubServiceAccount"`
@@ -153,10 +155,9 @@ type notificationIntegrationState struct {
 	// The topic id that Snowflake will use to push notifications.
 	GcpPubsubTopicName *string `pulumi:"gcpPubsubTopicName"`
 	Name               *string `pulumi:"name"`
-	// The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
-	// deprecated and will be removed in the future provider versions)
+	// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
 	NotificationProvider *string `pulumi:"notificationProvider"`
-	// A type of integration
+	// (Default: `QUEUE`) A type of integration
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Type *string `pulumi:"type"`
@@ -187,10 +188,9 @@ type NotificationIntegrationState struct {
 	//
 	// Deprecated: No longer supported notification method
 	AwsSqsRoleArn pulumi.StringPtrInput
-	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
-	// provider
+	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
 	AzureStorageQueuePrimaryUri pulumi.StringPtrInput
-	// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
+	// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
 	AzureTenantId pulumi.StringPtrInput
 	// A comment for the integration
 	Comment pulumi.StringPtrInput
@@ -200,9 +200,9 @@ type NotificationIntegrationState struct {
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Direction pulumi.StringPtrInput
-	Enabled   pulumi.BoolPtrInput
-	// Fully qualified name of the resource. For more information, see [object name
-	// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+	// (Default: `true`)
+	Enabled pulumi.BoolPtrInput
+	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	// The GCP service account identifier that Snowflake will use when assuming the GCP role
 	GcpPubsubServiceAccount pulumi.StringPtrInput
@@ -211,10 +211,9 @@ type NotificationIntegrationState struct {
 	// The topic id that Snowflake will use to push notifications.
 	GcpPubsubTopicName pulumi.StringPtrInput
 	Name               pulumi.StringPtrInput
-	// The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
-	// deprecated and will be removed in the future provider versions)
+	// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
 	NotificationProvider pulumi.StringPtrInput
-	// A type of integration
+	// (Default: `QUEUE`) A type of integration
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Type pulumi.StringPtrInput
@@ -237,10 +236,9 @@ type notificationIntegrationArgs struct {
 	//
 	// Deprecated: No longer supported notification method
 	AwsSqsRoleArn *string `pulumi:"awsSqsRoleArn"`
-	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
-	// provider
+	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
 	AzureStorageQueuePrimaryUri *string `pulumi:"azureStorageQueuePrimaryUri"`
-	// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
+	// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
 	AzureTenantId *string `pulumi:"azureTenantId"`
 	// A comment for the integration
 	Comment *string `pulumi:"comment"`
@@ -248,16 +246,16 @@ type notificationIntegrationArgs struct {
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Direction *string `pulumi:"direction"`
-	Enabled   *bool   `pulumi:"enabled"`
+	// (Default: `true`)
+	Enabled *bool `pulumi:"enabled"`
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName *string `pulumi:"gcpPubsubSubscriptionName"`
 	// The topic id that Snowflake will use to push notifications.
 	GcpPubsubTopicName *string `pulumi:"gcpPubsubTopicName"`
 	Name               *string `pulumi:"name"`
-	// The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
-	// deprecated and will be removed in the future provider versions)
+	// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
 	NotificationProvider string `pulumi:"notificationProvider"`
-	// A type of integration
+	// (Default: `QUEUE`) A type of integration
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Type *string `pulumi:"type"`
@@ -277,10 +275,9 @@ type NotificationIntegrationArgs struct {
 	//
 	// Deprecated: No longer supported notification method
 	AwsSqsRoleArn pulumi.StringPtrInput
-	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
-	// provider
+	// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
 	AzureStorageQueuePrimaryUri pulumi.StringPtrInput
-	// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
+	// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
 	AzureTenantId pulumi.StringPtrInput
 	// A comment for the integration
 	Comment pulumi.StringPtrInput
@@ -288,16 +285,16 @@ type NotificationIntegrationArgs struct {
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Direction pulumi.StringPtrInput
-	Enabled   pulumi.BoolPtrInput
+	// (Default: `true`)
+	Enabled pulumi.BoolPtrInput
 	// The subscription id that Snowflake will listen to when using the GCP_PUBSUB provider.
 	GcpPubsubSubscriptionName pulumi.StringPtrInput
 	// The topic id that Snowflake will use to push notifications.
 	GcpPubsubTopicName pulumi.StringPtrInput
 	Name               pulumi.StringPtrInput
-	// The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
-	// deprecated and will be removed in the future provider versions)
+	// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
 	NotificationProvider pulumi.StringInput
-	// A type of integration
+	// (Default: `QUEUE`) A type of integration
 	//
 	// Deprecated: Will be removed - it is added automatically on the SDK level.
 	Type pulumi.StringPtrInput
@@ -438,13 +435,12 @@ func (o NotificationIntegrationOutput) AwsSqsRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.AwsSqsRoleArn }).(pulumi.StringPtrOutput)
 }
 
-// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
-// provider
+// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
 func (o NotificationIntegrationOutput) AzureStorageQueuePrimaryUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.AzureStorageQueuePrimaryUri }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
+// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
 func (o NotificationIntegrationOutput) AzureTenantId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.AzureTenantId }).(pulumi.StringPtrOutput)
 }
@@ -466,12 +462,12 @@ func (o NotificationIntegrationOutput) Direction() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringPtrOutput { return v.Direction }).(pulumi.StringPtrOutput)
 }
 
+// (Default: `true`)
 func (o NotificationIntegrationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.BoolPtrOutput { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Fully qualified name of the resource. For more information, see [object name
-// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 func (o NotificationIntegrationOutput) FullyQualifiedName() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringOutput { return v.FullyQualifiedName }).(pulumi.StringOutput)
 }
@@ -495,13 +491,12 @@ func (o NotificationIntegrationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
-// deprecated and will be removed in the future provider versions)
+// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
 func (o NotificationIntegrationOutput) NotificationProvider() pulumi.StringOutput {
 	return o.ApplyT(func(v *NotificationIntegration) pulumi.StringOutput { return v.NotificationProvider }).(pulumi.StringOutput)
 }
 
-// A type of integration
+// (Default: `QUEUE`) A type of integration
 //
 // Deprecated: Will be removed - it is added automatically on the SDK level.
 func (o NotificationIntegrationOutput) Type() pulumi.StringPtrOutput {

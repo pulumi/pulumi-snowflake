@@ -45,63 +45,26 @@ class FunctionScalaArgs:
                  trace_level: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a FunctionScala resource.
-        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] handler: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-               value should be a method name, as in the following form: `MyClass.myMethod`.
-        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-               UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-               table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-               the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] handler: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
         :param pulumi.Input[builtins.str] runtime_version: Specifies the Scala runtime version to use. The supported versions of Scala are: 2.12.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]] arguments: List of the arguments for the function. Consult the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
-        :param pulumi.Input[builtins.str] comment: Specifies a comment for the function.
-        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-               For more information, check [ENABLE_CONSOLE_OUTPUT
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] external_access_integrations: The names of [external access
-               integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-               this function’s handler code to access external networks. An external access integration specifies [network
-               rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-               [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-               (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
-        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-               do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction
-               to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on
-               this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-               change in case or run of whitespace is semantically significant.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaImportArgs']]] imports: The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might
-               contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java
-               Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java
-               bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in
-               IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports).
-               Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
-        :param pulumi.Input[builtins.str] log_level: LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.str] metric_level: METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
-        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created
-               because UDFs are identified and resolved by the combination of the name and argument types. Check the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-               (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-               NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] packages: The name and version number of Snowflake system packages required as dependencies. The value should be of the form
-               `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
-        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-               `IMMUTABLE`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaSecretArgs']]] secrets: Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-               can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-               specify here must be allowed by the [external access
-               integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-               this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
-        :param pulumi.Input['FunctionScalaTargetPathArgs'] target_path: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-               value should be a method name, as in the following form: `MyClass.myMethod`.
-        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        :param pulumi.Input[builtins.str] comment: (Default: `user-defined function`) Specifies a comment for the function.
+        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] external_access_integrations: The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaImportArgs']]] imports: The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
+        :param pulumi.Input[builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] packages: The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaSecretArgs']]] secrets: Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param pulumi.Input['FunctionScalaTargetPathArgs'] target_path: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         pulumi.set(__self__, "database", database)
         pulumi.set(__self__, "handler", handler)
@@ -145,8 +108,7 @@ class FunctionScalaArgs:
     @pulumi.getter
     def database(self) -> pulumi.Input[builtins.str]:
         """
-        The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -158,8 +120,7 @@ class FunctionScalaArgs:
     @pulumi.getter
     def handler(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-        value should be a method name, as in the following form: `MyClass.myMethod`.
+        The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
         """
         return pulumi.get(self, "handler")
 
@@ -171,10 +132,7 @@ class FunctionScalaArgs:
     @pulumi.getter(name="returnType")
     def return_type(self) -> pulumi.Input[builtins.str]:
         """
-        Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-        UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-        table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-        the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
         """
         return pulumi.get(self, "return_type")
 
@@ -198,8 +156,7 @@ class FunctionScalaArgs:
     @pulumi.getter
     def schema(self) -> pulumi.Input[builtins.str]:
         """
-        The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -211,8 +168,7 @@ class FunctionScalaArgs:
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]]:
         """
-        List of the arguments for the function. Consult the
-        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
         """
         return pulumi.get(self, "arguments")
 
@@ -224,7 +180,7 @@ class FunctionScalaArgs:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a comment for the function.
+        (Default: `user-defined function`) Specifies a comment for the function.
         """
         return pulumi.get(self, "comment")
 
@@ -236,9 +192,7 @@ class FunctionScalaArgs:
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-        For more information, check [ENABLE_CONSOLE_OUTPUT
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
@@ -250,12 +204,7 @@ class FunctionScalaArgs:
     @pulumi.getter(name="externalAccessIntegrations")
     def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        The names of [external access
-        integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-        this function’s handler code to access external networks. An external access integration specifies [network
-        rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-        [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-        (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+        The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
         """
         return pulumi.get(self, "external_access_integrations")
 
@@ -267,11 +216,7 @@ class FunctionScalaArgs:
     @pulumi.getter(name="functionDefinition")
     def function_definition(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-        do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction
-        to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on
-        this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-        change in case or run of whitespace is semantically significant.
+        Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "function_definition")
 
@@ -283,12 +228,7 @@ class FunctionScalaArgs:
     @pulumi.getter
     def imports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaImportArgs']]]]:
         """
-        The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might
-        contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java
-        Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java
-        bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in
-        IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports).
-        Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
+        The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
         """
         return pulumi.get(self, "imports")
 
@@ -309,8 +249,7 @@ class FunctionScalaArgs:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -322,8 +261,7 @@ class FunctionScalaArgs:
     @pulumi.getter(name="metricLevel")
     def metric_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
@@ -335,10 +273,7 @@ class FunctionScalaArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the function; the identifier does not need to be unique for the schema in which the function is created
-        because UDFs are identified and resolved by the combination of the name and argument types. Check the
-        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-        (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -350,8 +285,7 @@ class FunctionScalaArgs:
     @pulumi.getter(name="nullInputBehavior")
     def null_input_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-        NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         """
         return pulumi.get(self, "null_input_behavior")
 
@@ -363,8 +297,7 @@ class FunctionScalaArgs:
     @pulumi.getter
     def packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        The name and version number of Snowflake system packages required as dependencies. The value should be of the form
-        `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+        The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
         """
         return pulumi.get(self, "packages")
 
@@ -376,8 +309,7 @@ class FunctionScalaArgs:
     @pulumi.getter(name="returnResultsBehavior")
     def return_results_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-        `IMMUTABLE`.
+        Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
         """
         return pulumi.get(self, "return_results_behavior")
 
@@ -389,11 +321,7 @@ class FunctionScalaArgs:
     @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]]:
         """
-        Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-        can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-        specify here must be allowed by the [external access
-        integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-        this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secrets")
 
@@ -405,8 +333,7 @@ class FunctionScalaArgs:
     @pulumi.getter(name="targetPath")
     def target_path(self) -> Optional[pulumi.Input['FunctionScalaTargetPathArgs']]:
         """
-        The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-        value should be a method name, as in the following form: `MyClass.myMethod`.
+        The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
         """
         return pulumi.get(self, "target_path")
 
@@ -418,8 +345,7 @@ class FunctionScalaArgs:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -458,68 +384,30 @@ class _FunctionScalaState:
                  trace_level: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering FunctionScala resources.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]] arguments: List of the arguments for the function. Consult the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
-        :param pulumi.Input[builtins.str] comment: Specifies a comment for the function.
-        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-               For more information, check [ENABLE_CONSOLE_OUTPUT
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] external_access_integrations: The names of [external access
-               integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-               this function’s handler code to access external networks. An external access integration specifies [network
-               rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-               [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-               (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-               do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction
-               to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on
-               this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-               change in case or run of whitespace is semantically significant.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        :param pulumi.Input[builtins.str] comment: (Default: `user-defined function`) Specifies a comment for the function.
+        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] external_access_integrations: The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[builtins.str] function_language: Specifies language for the user. Used to detect external changes.
-        :param pulumi.Input[builtins.str] handler: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-               value should be a method name, as in the following form: `MyClass.myMethod`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaImportArgs']]] imports: The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might
-               contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java
-               Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java
-               bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in
-               IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports).
-               Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
-        :param pulumi.Input[builtins.str] log_level: LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.str] metric_level: METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
-        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created
-               because UDFs are identified and resolved by the combination of the name and argument types. Check the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-               (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-               NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] packages: The name and version number of Snowflake system packages required as dependencies. The value should be of the form
-               `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+        :param pulumi.Input[builtins.str] handler: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaImportArgs']]] imports: The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
+        :param pulumi.Input[builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] packages: The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaParameterArgs']]] parameters: Outputs the result of `SHOW PARAMETERS IN FUNCTION` for the given function.
-        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-               `IMMUTABLE`.
-        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-               UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-               table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-               the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
         :param pulumi.Input[builtins.str] runtime_version: Specifies the Scala runtime version to use. The supported versions of Scala are: 2.12.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaSecretArgs']]] secrets: Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-               can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-               specify here must be allowed by the [external access
-               integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-               this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaSecretArgs']]] secrets: Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
         :param pulumi.Input[Sequence[pulumi.Input['FunctionScalaShowOutputArgs']]] show_outputs: Outputs the result of `SHOW FUNCTION` for the given function.
-        :param pulumi.Input['FunctionScalaTargetPathArgs'] target_path: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-               value should be a method name, as in the following form: `MyClass.myMethod`.
-        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input['FunctionScalaTargetPathArgs'] target_path: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         if arguments is not None:
             pulumi.set(__self__, "arguments", arguments)
@@ -576,8 +464,7 @@ class _FunctionScalaState:
     @pulumi.getter
     def arguments(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaArgumentArgs']]]]:
         """
-        List of the arguments for the function. Consult the
-        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
         """
         return pulumi.get(self, "arguments")
 
@@ -589,7 +476,7 @@ class _FunctionScalaState:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies a comment for the function.
+        (Default: `user-defined function`) Specifies a comment for the function.
         """
         return pulumi.get(self, "comment")
 
@@ -601,8 +488,7 @@ class _FunctionScalaState:
     @pulumi.getter
     def database(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -614,9 +500,7 @@ class _FunctionScalaState:
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-        For more information, check [ENABLE_CONSOLE_OUTPUT
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
@@ -628,12 +512,7 @@ class _FunctionScalaState:
     @pulumi.getter(name="externalAccessIntegrations")
     def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        The names of [external access
-        integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-        this function’s handler code to access external networks. An external access integration specifies [network
-        rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-        [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-        (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+        The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
         """
         return pulumi.get(self, "external_access_integrations")
 
@@ -645,8 +524,7 @@ class _FunctionScalaState:
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -658,11 +536,7 @@ class _FunctionScalaState:
     @pulumi.getter(name="functionDefinition")
     def function_definition(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-        do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction
-        to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on
-        this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-        change in case or run of whitespace is semantically significant.
+        Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "function_definition")
 
@@ -686,8 +560,7 @@ class _FunctionScalaState:
     @pulumi.getter
     def handler(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-        value should be a method name, as in the following form: `MyClass.myMethod`.
+        The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
         """
         return pulumi.get(self, "handler")
 
@@ -699,12 +572,7 @@ class _FunctionScalaState:
     @pulumi.getter
     def imports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaImportArgs']]]]:
         """
-        The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might
-        contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java
-        Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java
-        bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in
-        IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports).
-        Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
+        The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
         """
         return pulumi.get(self, "imports")
 
@@ -725,8 +593,7 @@ class _FunctionScalaState:
     @pulumi.getter(name="logLevel")
     def log_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -738,8 +605,7 @@ class _FunctionScalaState:
     @pulumi.getter(name="metricLevel")
     def metric_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
@@ -751,10 +617,7 @@ class _FunctionScalaState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the function; the identifier does not need to be unique for the schema in which the function is created
-        because UDFs are identified and resolved by the combination of the name and argument types. Check the
-        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-        (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -766,8 +629,7 @@ class _FunctionScalaState:
     @pulumi.getter(name="nullInputBehavior")
     def null_input_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-        NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         """
         return pulumi.get(self, "null_input_behavior")
 
@@ -779,8 +641,7 @@ class _FunctionScalaState:
     @pulumi.getter
     def packages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
         """
-        The name and version number of Snowflake system packages required as dependencies. The value should be of the form
-        `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+        The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
         """
         return pulumi.get(self, "packages")
 
@@ -804,8 +665,7 @@ class _FunctionScalaState:
     @pulumi.getter(name="returnResultsBehavior")
     def return_results_behavior(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-        `IMMUTABLE`.
+        Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
         """
         return pulumi.get(self, "return_results_behavior")
 
@@ -817,10 +677,7 @@ class _FunctionScalaState:
     @pulumi.getter(name="returnType")
     def return_type(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-        UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-        table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-        the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
         """
         return pulumi.get(self, "return_type")
 
@@ -844,8 +701,7 @@ class _FunctionScalaState:
     @pulumi.getter
     def schema(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -857,11 +713,7 @@ class _FunctionScalaState:
     @pulumi.getter
     def secrets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FunctionScalaSecretArgs']]]]:
         """
-        Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-        can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-        specify here must be allowed by the [external access
-        integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-        this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secrets")
 
@@ -885,8 +737,7 @@ class _FunctionScalaState:
     @pulumi.getter(name="targetPath")
     def target_path(self) -> Optional[pulumi.Input['FunctionScalaTargetPathArgs']]:
         """
-        The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-        value should be a method name, as in the following form: `MyClass.myMethod`.
+        The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
         """
         return pulumi.get(self, "target_path")
 
@@ -898,8 +749,7 @@ class _FunctionScalaState:
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 
@@ -937,66 +787,38 @@ class FunctionScala(pulumi.CustomResource):
                  trace_level: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Create a FunctionScala resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/functionScala:FunctionScala example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
+        ```
+
+        Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
+
+        Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaArgumentArgs', 'FunctionScalaArgumentArgsDict']]]] arguments: List of the arguments for the function. Consult the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
-        :param pulumi.Input[builtins.str] comment: Specifies a comment for the function.
-        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-               For more information, check [ENABLE_CONSOLE_OUTPUT
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] external_access_integrations: The names of [external access
-               integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-               this function’s handler code to access external networks. An external access integration specifies [network
-               rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-               [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-               (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
-        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-               do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction
-               to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on
-               this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-               change in case or run of whitespace is semantically significant.
-        :param pulumi.Input[builtins.str] handler: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-               value should be a method name, as in the following form: `MyClass.myMethod`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaImportArgs', 'FunctionScalaImportArgsDict']]]] imports: The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might
-               contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java
-               Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java
-               bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in
-               IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports).
-               Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
-        :param pulumi.Input[builtins.str] log_level: LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.str] metric_level: METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
-        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created
-               because UDFs are identified and resolved by the combination of the name and argument types. Check the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-               (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-               NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] packages: The name and version number of Snowflake system packages required as dependencies. The value should be of the form
-               `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
-        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-               `IMMUTABLE`.
-        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-               UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-               table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-               the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaArgumentArgs', 'FunctionScalaArgumentArgsDict']]]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        :param pulumi.Input[builtins.str] comment: (Default: `user-defined function`) Specifies a comment for the function.
+        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] external_access_integrations: The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
+        :param pulumi.Input[builtins.str] handler: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaImportArgs', 'FunctionScalaImportArgsDict']]]] imports: The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
+        :param pulumi.Input[builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] packages: The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
         :param pulumi.Input[builtins.str] runtime_version: Specifies the Scala runtime version to use. The supported versions of Scala are: 2.12.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaSecretArgs', 'FunctionScalaSecretArgsDict']]]] secrets: Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-               can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-               specify here must be allowed by the [external access
-               integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-               this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
-        :param pulumi.Input[Union['FunctionScalaTargetPathArgs', 'FunctionScalaTargetPathArgsDict']] target_path: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-               value should be a method name, as in the following form: `MyClass.myMethod`.
-        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaSecretArgs', 'FunctionScalaSecretArgsDict']]]] secrets: Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
+        :param pulumi.Input[Union['FunctionScalaTargetPathArgs', 'FunctionScalaTargetPathArgsDict']] target_path: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         ...
     @overload
@@ -1005,7 +827,16 @@ class FunctionScala(pulumi.CustomResource):
                  args: FunctionScalaArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Create a FunctionScala resource with the given unique name, props, and options.
+        ## Import
+
+        ```sh
+        $ pulumi import snowflake:index/functionScala:FunctionScala example '"<database_name>"."<schema_name>"."<function_name>"(varchar, varchar, varchar)'
+        ```
+
+        Note: Snowflake is not returning all information needed to populate the state correctly after import (e.g. data types with attributes like NUMBER(32, 10) are returned as NUMBER, default values for arguments are not returned at all).
+
+        Also, `ALTER` for functions is very limited so most of the attributes on this resource are marked as force new. Because of that, in multiple situations plan won't be empty after importing and manual state operations may be required.
+
         :param str resource_name: The name of the resource.
         :param FunctionScalaArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1128,68 +959,30 @@ class FunctionScala(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaArgumentArgs', 'FunctionScalaArgumentArgsDict']]]] arguments: List of the arguments for the function. Consult the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
-        :param pulumi.Input[builtins.str] comment: Specifies a comment for the function.
-        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-               For more information, check [ENABLE_CONSOLE_OUTPUT
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] external_access_integrations: The names of [external access
-               integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-               this function’s handler code to access external networks. An external access integration specifies [network
-               rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-               [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-               (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
-        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name
-               resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
-        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-               do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction
-               to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on
-               this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-               change in case or run of whitespace is semantically significant.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaArgumentArgs', 'FunctionScalaArgumentArgsDict']]]] arguments: List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        :param pulumi.Input[builtins.str] comment: (Default: `user-defined function`) Specifies a comment for the function.
+        :param pulumi.Input[builtins.str] database: The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.bool] enable_console_output: Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] external_access_integrations: The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+        :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        :param pulumi.Input[builtins.str] function_definition: Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         :param pulumi.Input[builtins.str] function_language: Specifies language for the user. Used to detect external changes.
-        :param pulumi.Input[builtins.str] handler: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-               value should be a method name, as in the following form: `MyClass.myMethod`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaImportArgs', 'FunctionScalaImportArgsDict']]]] imports: The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might
-               contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java
-               Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java
-               bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in
-               IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports).
-               Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
-        :param pulumi.Input[builtins.str] log_level: LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
-        :param pulumi.Input[builtins.str] metric_level: METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
-        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created
-               because UDFs are identified and resolved by the combination of the name and argument types. Check the
-               [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-               (read more here), avoid using the following characters: `|`, `.`, `"`.
-        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-               NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] packages: The name and version number of Snowflake system packages required as dependencies. The value should be of the form
-               `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+        :param pulumi.Input[builtins.str] handler: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaImportArgs', 'FunctionScalaImportArgsDict']]]] imports: The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
+        :param pulumi.Input[builtins.str] log_level: LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        :param pulumi.Input[builtins.str] metric_level: METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        :param pulumi.Input[builtins.str] name: The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[builtins.str] null_input_behavior: Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] packages: The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaParameterArgs', 'FunctionScalaParameterArgsDict']]]] parameters: Outputs the result of `SHOW PARAMETERS IN FUNCTION` for the given function.
-        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-               `IMMUTABLE`.
-        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-               UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-               table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-               the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        :param pulumi.Input[builtins.str] return_results_behavior: Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
+        :param pulumi.Input[builtins.str] return_type: Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
         :param pulumi.Input[builtins.str] runtime_version: Specifies the Scala runtime version to use. The supported versions of Scala are: 2.12.
-        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-               characters: `|`, `.`, `"`.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaSecretArgs', 'FunctionScalaSecretArgsDict']]]] secrets: Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-               can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-               specify here must be allowed by the [external access
-               integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-               this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] schema: The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaSecretArgs', 'FunctionScalaSecretArgsDict']]]] secrets: Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FunctionScalaShowOutputArgs', 'FunctionScalaShowOutputArgsDict']]]] show_outputs: Outputs the result of `SHOW FUNCTION` for the given function.
-        :param pulumi.Input[Union['FunctionScalaTargetPathArgs', 'FunctionScalaTargetPathArgsDict']] target_path: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-               value should be a method name, as in the following form: `MyClass.myMethod`.
-        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-               docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        :param pulumi.Input[Union['FunctionScalaTargetPathArgs', 'FunctionScalaTargetPathArgsDict']] target_path: The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
+        :param pulumi.Input[builtins.str] trace_level: Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1226,8 +1019,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter
     def arguments(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionScalaArgument']]]:
         """
-        List of the arguments for the function. Consult the
-        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
+        List of the arguments for the function. Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages) for more details.
         """
         return pulumi.get(self, "arguments")
 
@@ -1235,7 +1027,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies a comment for the function.
+        (Default: `user-defined function`) Specifies a comment for the function.
         """
         return pulumi.get(self, "comment")
 
@@ -1243,8 +1035,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter
     def database(self) -> pulumi.Output[builtins.str]:
         """
-        The database in which to create the function. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The database in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "database")
 
@@ -1252,9 +1043,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter(name="enableConsoleOutput")
     def enable_console_output(self) -> pulumi.Output[builtins.bool]:
         """
-        Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG_LEVEL).
-        For more information, check [ENABLE_CONSOLE_OUTPUT
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
+        Enable stdout/stderr fast path logging for anonymous stored procs. This is a public parameter (similar to LOG*LEVEL). For more information, check [ENABLE*CONSOLE_OUTPUT docs](https://docs.snowflake.com/en/sql-reference/parameters#enable-console-output).
         """
         return pulumi.get(self, "enable_console_output")
 
@@ -1262,12 +1051,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter(name="externalAccessIntegrations")
     def external_access_integrations(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        The names of [external access
-        integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for
-        this function’s handler code to access external networks. An external access integration specifies [network
-        rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and
-        [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials
-        (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
+        The names of [external access integrations](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) needed in order for this function’s handler code to access external networks. An external access integration specifies [network rules](https://docs.snowflake.com/en/sql-reference/sql/create-network-rule) and [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) that specify external locations and credentials (if any) allowed for use by handler code when making requests of an external network, such as an external REST API.
         """
         return pulumi.get(self, "external_access_integrations")
 
@@ -1275,8 +1059,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedName")
     def fully_qualified_name(self) -> pulumi.Output[builtins.str]:
         """
-        Fully qualified name of the resource. For more information, see [object name
-        resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         """
         return pulumi.get(self, "fully_qualified_name")
 
@@ -1284,11 +1067,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter(name="functionDefinition")
     def function_definition(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically;
-        do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction
-        to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on
-        this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a
-        change in case or run of whitespace is semantically significant.
+        Defines the handler code executed when the UDF is called. Wrapping `$$` signs are added by the provider automatically; do not include them. The `function_definition` value must be Scala source code. For more information, see [Introduction to Scala UDFs](https://docs.snowflake.com/en/developer-guide/udf/scala/udf-scala-introduction). To mitigate permadiff on this field, the provider replaces blank characters with a space. This can lead to false positives in cases where a change in case or run of whitespace is semantically significant.
         """
         return pulumi.get(self, "function_definition")
 
@@ -1304,8 +1083,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter
     def handler(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-        value should be a method name, as in the following form: `MyClass.myMethod`.
+        The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
         """
         return pulumi.get(self, "handler")
 
@@ -1313,12 +1091,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter
     def imports(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionScalaImport']]]:
         """
-        The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might
-        contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java
-        Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java
-        bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in
-        IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports).
-        Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
+        The location (stage), path, and name of the file(s) to import, such as a JAR or other kind of file. The JAR file might contain handler dependency libraries. It can contain one or more .class files and zero or more resource files. JNI (Java Native Interface) is not supported. Snowflake prohibits loading libraries that contain native code (as opposed to Java bytecode). A non-JAR file might a file read by handler code. For an example, see [Reading a file specified statically in IMPORTS](https://docs.snowflake.com/en/developer-guide/udf/java/udf-java-cookbook.html#label-reading-file-from-java-udf-imports). Consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#scala).
         """
         return pulumi.get(self, "imports")
 
@@ -1331,8 +1104,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter(name="logLevel")
     def log_level(self) -> pulumi.Output[builtins.str]:
         """
-        LOG_LEVEL to use when filtering events For more information, check [LOG_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
+        LOG*LEVEL to use when filtering events For more information, check [LOG*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#log-level).
         """
         return pulumi.get(self, "log_level")
 
@@ -1340,8 +1112,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter(name="metricLevel")
     def metric_level(self) -> pulumi.Output[builtins.str]:
         """
-        METRIC_LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
+        METRIC*LEVEL value to control whether to emit metrics to Event Table For more information, check [METRIC*LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#metric-level).
         """
         return pulumi.get(self, "metric_level")
 
@@ -1349,10 +1120,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        The name of the function; the identifier does not need to be unique for the schema in which the function is created
-        because UDFs are identified and resolved by the combination of the name and argument types. Check the
-        [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations
-        (read more here), avoid using the following characters: `|`, `.`, `"`.
+        The name of the function; the identifier does not need to be unique for the schema in which the function is created because UDFs are identified and resolved by the combination of the name and argument types. Check the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages). Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "name")
 
@@ -1360,8 +1128,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter(name="nullInputBehavior")
     def null_input_behavior(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON
-        NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
+        Specifies the behavior of the function when called with null inputs. Valid values are (case-insensitive): `CALLED ON NULL INPUT` | `RETURNS NULL ON NULL INPUT`.
         """
         return pulumi.get(self, "null_input_behavior")
 
@@ -1369,8 +1136,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter
     def packages(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        The name and version number of Snowflake system packages required as dependencies. The value should be of the form
-        `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
+        The name and version number of Snowflake system packages required as dependencies. The value should be of the form `package_name:version_number`, where `package_name` is `snowflake_domain:package`.
         """
         return pulumi.get(self, "packages")
 
@@ -1386,8 +1152,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter(name="returnResultsBehavior")
     def return_results_behavior(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` |
-        `IMMUTABLE`.
+        Specifies the behavior of the function when returning results. Valid values are (case-insensitive): `VOLATILE` | `IMMUTABLE`.
         """
         return pulumi.get(self, "return_results_behavior")
 
@@ -1395,10 +1160,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter(name="returnType")
     def return_type(self) -> pulumi.Output[builtins.str]:
         """
-        Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar
-        UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a
-        table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult
-        the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
+        Specifies the results returned by the UDF, which determines the UDF type. Use `<result_data_type>` to create a scalar UDF that returns a single value with the specified data type. Use `TABLE (col_name col_data_type, ...)` to creates a table UDF that returns tabular results with the specified table column(s) and column type(s). For the details, consult the [docs](https://docs.snowflake.com/en/sql-reference/sql/create-function#all-languages).
         """
         return pulumi.get(self, "return_type")
 
@@ -1414,8 +1176,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter
     def schema(self) -> pulumi.Output[builtins.str]:
         """
-        The schema in which to create the function. Due to technical limitations (read more here), avoid using the following
-        characters: `|`, `.`, `"`.
+        The schema in which to create the function. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         """
         return pulumi.get(self, "schema")
 
@@ -1423,11 +1184,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter
     def secrets(self) -> pulumi.Output[Optional[Sequence['outputs.FunctionScalaSecret']]]:
         """
-        Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you
-        can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you
-        specify here must be allowed by the [external access
-        integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of
-        this CREATE FUNCTION command’s EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Assigns the names of [secrets](https://docs.snowflake.com/en/sql-reference/sql/create-secret) to variables so that you can use the variables to reference the secrets when retrieving information from secrets in handler code. Secrets you specify here must be allowed by the [external access integration](https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration) specified as a value of this CREATE FUNCTION command’s EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secrets")
 
@@ -1443,8 +1200,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter(name="targetPath")
     def target_path(self) -> pulumi.Output[Optional['outputs.FunctionScalaTargetPath']]:
         """
-        The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER
-        value should be a method name, as in the following form: `MyClass.myMethod`.
+        The name of the handler method or class. If the handler is for a scalar UDF, returning a non-tabular value, the HANDLER value should be a method name, as in the following form: `MyClass.myMethod`.
         """
         return pulumi.get(self, "target_path")
 
@@ -1452,8 +1208,7 @@ class FunctionScala(pulumi.CustomResource):
     @pulumi.getter(name="traceLevel")
     def trace_level(self) -> pulumi.Output[builtins.str]:
         """
-        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL
-        docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
+        Trace level value to use when generating/filtering trace events For more information, check [TRACE_LEVEL docs](https://docs.snowflake.com/en/sql-reference/parameters#trace-level).
         """
         return pulumi.get(self, "trace_level")
 

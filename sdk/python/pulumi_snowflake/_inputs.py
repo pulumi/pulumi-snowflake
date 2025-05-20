@@ -7519,7 +7519,7 @@ if not MYPY:
     class FunctionJavaSecretArgsDict(TypedDict):
         secret_id: pulumi.Input[builtins.str]
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         secret_variable_name: pulumi.Input[builtins.str]
         """
@@ -7534,7 +7534,7 @@ class FunctionJavaSecretArgs:
                  secret_id: pulumi.Input[builtins.str],
                  secret_variable_name: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         :param pulumi.Input[builtins.str] secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
         pulumi.set(__self__, "secret_id", secret_id)
@@ -7544,7 +7544,7 @@ class FunctionJavaSecretArgs:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[builtins.str]:
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secret_id")
 
@@ -9045,7 +9045,7 @@ if not MYPY:
     class FunctionPythonSecretArgsDict(TypedDict):
         secret_id: pulumi.Input[builtins.str]
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         secret_variable_name: pulumi.Input[builtins.str]
         """
@@ -9060,7 +9060,7 @@ class FunctionPythonSecretArgs:
                  secret_id: pulumi.Input[builtins.str],
                  secret_variable_name: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         :param pulumi.Input[builtins.str] secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
         pulumi.set(__self__, "secret_id", secret_id)
@@ -9070,7 +9070,7 @@ class FunctionPythonSecretArgs:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[builtins.str]:
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secret_id")
 
@@ -9833,7 +9833,7 @@ if not MYPY:
     class FunctionScalaSecretArgsDict(TypedDict):
         secret_id: pulumi.Input[builtins.str]
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         secret_variable_name: pulumi.Input[builtins.str]
         """
@@ -9848,7 +9848,7 @@ class FunctionScalaSecretArgs:
                  secret_id: pulumi.Input[builtins.str],
                  secret_variable_name: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         :param pulumi.Input[builtins.str] secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
         pulumi.set(__self__, "secret_id", secret_id)
@@ -9858,7 +9858,7 @@ class FunctionScalaSecretArgs:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[builtins.str]:
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secret_id")
 
@@ -21422,7 +21422,7 @@ if not MYPY:
     class ProcedureJavaSecretArgsDict(TypedDict):
         secret_id: pulumi.Input[builtins.str]
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         secret_variable_name: pulumi.Input[builtins.str]
         """
@@ -21437,7 +21437,7 @@ class ProcedureJavaSecretArgs:
                  secret_id: pulumi.Input[builtins.str],
                  secret_variable_name: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         :param pulumi.Input[builtins.str] secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
         pulumi.set(__self__, "secret_id", secret_id)
@@ -21447,7 +21447,7 @@ class ProcedureJavaSecretArgs:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[builtins.str]:
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secret_id")
 
@@ -22844,7 +22844,7 @@ if not MYPY:
     class ProcedurePythonSecretArgsDict(TypedDict):
         secret_id: pulumi.Input[builtins.str]
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         secret_variable_name: pulumi.Input[builtins.str]
         """
@@ -22859,7 +22859,7 @@ class ProcedurePythonSecretArgs:
                  secret_id: pulumi.Input[builtins.str],
                  secret_variable_name: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         :param pulumi.Input[builtins.str] secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
         pulumi.set(__self__, "secret_id", secret_id)
@@ -22869,7 +22869,7 @@ class ProcedurePythonSecretArgs:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[builtins.str]:
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secret_id")
 
@@ -23580,7 +23580,7 @@ if not MYPY:
     class ProcedureScalaSecretArgsDict(TypedDict):
         secret_id: pulumi.Input[builtins.str]
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         secret_variable_name: pulumi.Input[builtins.str]
         """
@@ -23595,7 +23595,7 @@ class ProcedureScalaSecretArgs:
                  secret_id: pulumi.Input[builtins.str],
                  secret_variable_name: pulumi.Input[builtins.str]):
         """
-        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        :param pulumi.Input[builtins.str] secret_id: Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         :param pulumi.Input[builtins.str] secret_variable_name: The variable that will be used in handler code when retrieving information from the secret.
         """
         pulumi.set(__self__, "secret_id", secret_id)
@@ -23605,7 +23605,7 @@ class ProcedureScalaSecretArgs:
     @pulumi.getter(name="secretId")
     def secret_id(self) -> pulumi.Input[builtins.str]:
         """
-        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL_ACCESS_INTEGRATIONS parameter.
+        Fully qualified name of the allowed [secret](https://docs.snowflake.com/en/sql-reference/sql/create-secret). You will receive an error if you specify a SECRETS value whose secret isn’t also included in an integration specified by the EXTERNAL*ACCESS*INTEGRATIONS parameter.
         """
         return pulumi.get(self, "secret_id")
 
@@ -35987,7 +35987,7 @@ if not MYPY:
         """
         timestamp: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
 elif False:
     StreamOnExternalTableAtArgsDict: TypeAlias = Mapping[str, Any]
@@ -36003,7 +36003,7 @@ class StreamOnExternalTableAtArgs:
         :param pulumi.Input[builtins.str] offset: Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
         :param pulumi.Input[builtins.str] statement: Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
         :param pulumi.Input[builtins.str] stream: Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
-        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
@@ -36054,7 +36054,7 @@ class StreamOnExternalTableAtArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
         return pulumi.get(self, "timestamp")
 
@@ -36079,7 +36079,7 @@ if not MYPY:
         """
         timestamp: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
 elif False:
     StreamOnExternalTableBeforeArgsDict: TypeAlias = Mapping[str, Any]
@@ -36095,7 +36095,7 @@ class StreamOnExternalTableBeforeArgs:
         :param pulumi.Input[builtins.str] offset: Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
         :param pulumi.Input[builtins.str] statement: Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
         :param pulumi.Input[builtins.str] stream: Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
-        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
@@ -36146,7 +36146,7 @@ class StreamOnExternalTableBeforeArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
         return pulumi.get(self, "timestamp")
 
@@ -36581,7 +36581,7 @@ if not MYPY:
         """
         timestamp: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
 elif False:
     StreamOnTableAtArgsDict: TypeAlias = Mapping[str, Any]
@@ -36597,7 +36597,7 @@ class StreamOnTableAtArgs:
         :param pulumi.Input[builtins.str] offset: Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
         :param pulumi.Input[builtins.str] statement: Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
         :param pulumi.Input[builtins.str] stream: Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
-        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
@@ -36648,7 +36648,7 @@ class StreamOnTableAtArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
         return pulumi.get(self, "timestamp")
 
@@ -36673,7 +36673,7 @@ if not MYPY:
         """
         timestamp: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
 elif False:
     StreamOnTableBeforeArgsDict: TypeAlias = Mapping[str, Any]
@@ -36689,7 +36689,7 @@ class StreamOnTableBeforeArgs:
         :param pulumi.Input[builtins.str] offset: Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
         :param pulumi.Input[builtins.str] statement: Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
         :param pulumi.Input[builtins.str] stream: Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
-        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
@@ -36740,7 +36740,7 @@ class StreamOnTableBeforeArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
         return pulumi.get(self, "timestamp")
 
@@ -37175,7 +37175,7 @@ if not MYPY:
         """
         timestamp: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
 elif False:
     StreamOnViewAtArgsDict: TypeAlias = Mapping[str, Any]
@@ -37191,7 +37191,7 @@ class StreamOnViewAtArgs:
         :param pulumi.Input[builtins.str] offset: Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
         :param pulumi.Input[builtins.str] statement: Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
         :param pulumi.Input[builtins.str] stream: Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
-        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
@@ -37242,7 +37242,7 @@ class StreamOnViewAtArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
         return pulumi.get(self, "timestamp")
 
@@ -37267,7 +37267,7 @@ if not MYPY:
         """
         timestamp: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
 elif False:
     StreamOnViewBeforeArgsDict: TypeAlias = Mapping[str, Any]
@@ -37283,7 +37283,7 @@ class StreamOnViewBeforeArgs:
         :param pulumi.Input[builtins.str] offset: Specifies the difference in seconds from the current time to use for Time Travel, in the form -N where N can be an integer or arithmetic expression (e.g. -120 is 120 seconds, -30*60 is 1800 seconds or 30 minutes).
         :param pulumi.Input[builtins.str] statement: Specifies the query ID of a statement to use as the reference point for Time Travel. This parameter supports any statement of one of the following types: DML (e.g. INSERT, UPDATE, DELETE), TCL (BEGIN, COMMIT transaction), SELECT.
         :param pulumi.Input[builtins.str] stream: Specifies the identifier (i.e. name) for an existing stream on the queried table or view. The current offset in the stream is used as the AT point in time for returning change data for the source object.
-        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        :param pulumi.Input[builtins.str] timestamp: Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
         if offset is not None:
             pulumi.set(__self__, "offset", offset)
@@ -37334,7 +37334,7 @@ class StreamOnViewBeforeArgs:
     @pulumi.getter
     def timestamp(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+        Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
         """
         return pulumi.get(self, "timestamp")
 
@@ -38058,11 +38058,11 @@ if not MYPY:
         """
         collate: NotRequired[pulumi.Input[builtins.str]]
         """
-        Column collation, e.g. utf8
+        (Default: ``) Column collation, e.g. utf8
         """
         comment: NotRequired[pulumi.Input[builtins.str]]
         """
-        Column comment
+        (Default: ``) Column comment
         """
         default: NotRequired[pulumi.Input['TableColumnDefaultArgsDict']]
         """
@@ -38074,11 +38074,11 @@ if not MYPY:
         """
         masking_policy: NotRequired[pulumi.Input[builtins.str]]
         """
-        Masking policy to apply on column. It has to be a fully qualified name.
+        (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
         """
         nullable: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
         schema_evolution_record: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -38102,12 +38102,12 @@ class TableColumnArgs:
         """
         :param pulumi.Input[builtins.str] name: Column name
         :param pulumi.Input[builtins.str] type: Column type, e.g. VARIANT. For a full list of column types, see [Summary of Data Types](https://docs.snowflake.com/en/sql-reference/intro-summary-data-types).
-        :param pulumi.Input[builtins.str] collate: Column collation, e.g. utf8
-        :param pulumi.Input[builtins.str] comment: Column comment
+        :param pulumi.Input[builtins.str] collate: (Default: ``) Column collation, e.g. utf8
+        :param pulumi.Input[builtins.str] comment: (Default: ``) Column comment
         :param pulumi.Input['TableColumnDefaultArgs'] default: Defines the column default value; note due to limitations of Snowflake's ALTER TABLE ADD/MODIFY COLUMN updates to default will not be applied
         :param pulumi.Input['TableColumnIdentityArgs'] identity: Defines the identity start/step values for a column. **Note** Identity/default are mutually exclusive.
-        :param pulumi.Input[builtins.str] masking_policy: Masking policy to apply on column. It has to be a fully qualified name.
-        :param pulumi.Input[builtins.bool] nullable: Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        :param pulumi.Input[builtins.str] masking_policy: (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
+        :param pulumi.Input[builtins.bool] nullable: (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         :param pulumi.Input[builtins.str] schema_evolution_record: Record of schema evolution.
         """
         pulumi.set(__self__, "name", name)
@@ -38155,7 +38155,7 @@ class TableColumnArgs:
     @pulumi.getter
     def collate(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Column collation, e.g. utf8
+        (Default: ``) Column collation, e.g. utf8
         """
         return pulumi.get(self, "collate")
 
@@ -38167,7 +38167,7 @@ class TableColumnArgs:
     @pulumi.getter
     def comment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Column comment
+        (Default: ``) Column comment
         """
         return pulumi.get(self, "comment")
 
@@ -38203,7 +38203,7 @@ class TableColumnArgs:
     @pulumi.getter(name="maskingPolicy")
     def masking_policy(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Masking policy to apply on column. It has to be a fully qualified name.
+        (Default: ``) Masking policy to apply on column. It has to be a fully qualified name.
         """
         return pulumi.get(self, "masking_policy")
 
@@ -38215,7 +38215,7 @@ class TableColumnArgs:
     @pulumi.getter
     def nullable(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
+        (Default: `true`) Whether this column can contain null values. **Note**: Depending on your Snowflake version, the default value will not suffice if this column is used in a primary key constraint.
         """
         return pulumi.get(self, "nullable")
 
@@ -38312,11 +38312,11 @@ if not MYPY:
     class TableColumnIdentityArgsDict(TypedDict):
         start_num: NotRequired[pulumi.Input[builtins.int]]
         """
-        The number to start incrementing at.
+        (Default: `1`) The number to start incrementing at.
         """
         step_num: NotRequired[pulumi.Input[builtins.int]]
         """
-        Step size to increment by.
+        (Default: `1`) Step size to increment by.
         """
 elif False:
     TableColumnIdentityArgsDict: TypeAlias = Mapping[str, Any]
@@ -38327,8 +38327,8 @@ class TableColumnIdentityArgs:
                  start_num: Optional[pulumi.Input[builtins.int]] = None,
                  step_num: Optional[pulumi.Input[builtins.int]] = None):
         """
-        :param pulumi.Input[builtins.int] start_num: The number to start incrementing at.
-        :param pulumi.Input[builtins.int] step_num: Step size to increment by.
+        :param pulumi.Input[builtins.int] start_num: (Default: `1`) The number to start incrementing at.
+        :param pulumi.Input[builtins.int] step_num: (Default: `1`) Step size to increment by.
         """
         if start_num is not None:
             pulumi.set(__self__, "start_num", start_num)
@@ -38339,7 +38339,7 @@ class TableColumnIdentityArgs:
     @pulumi.getter(name="startNum")
     def start_num(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The number to start incrementing at.
+        (Default: `1`) The number to start incrementing at.
         """
         return pulumi.get(self, "start_num")
 
@@ -38351,7 +38351,7 @@ class TableColumnIdentityArgs:
     @pulumi.getter(name="stepNum")
     def step_num(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        Step size to increment by.
+        (Default: `1`) Step size to increment by.
         """
         return pulumi.get(self, "step_num")
 
@@ -38368,15 +38368,15 @@ if not MYPY:
         """
         match: NotRequired[pulumi.Input[builtins.str]]
         """
-        The match type for the foreign key. Not applicable for primary/unique keys
+        (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
         """
         on_delete: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
         """
         on_update: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
         """
 elif False:
     TableConstraintForeignKeyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -38390,9 +38390,9 @@ class TableConstraintForeignKeyPropertiesArgs:
                  on_update: Optional[pulumi.Input[builtins.str]] = None):
         """
         :param pulumi.Input['TableConstraintForeignKeyPropertiesReferencesArgs'] references: The table and columns that the foreign key references.
-        :param pulumi.Input[builtins.str] match: The match type for the foreign key. Not applicable for primary/unique keys
-        :param pulumi.Input[builtins.str] on_delete: Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
-        :param pulumi.Input[builtins.str] on_update: Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        :param pulumi.Input[builtins.str] match: (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
+        :param pulumi.Input[builtins.str] on_delete: (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        :param pulumi.Input[builtins.str] on_update: (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
         """
         pulumi.set(__self__, "references", references)
         if match is not None:
@@ -38418,7 +38418,7 @@ class TableConstraintForeignKeyPropertiesArgs:
     @pulumi.getter
     def match(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The match type for the foreign key. Not applicable for primary/unique keys
+        (Default: `FULL`) The match type for the foreign key. Not applicable for primary/unique keys
         """
         return pulumi.get(self, "match")
 
@@ -38430,7 +38430,7 @@ class TableConstraintForeignKeyPropertiesArgs:
     @pulumi.getter(name="onDelete")
     def on_delete(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
+        (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is deleted. Not applicable for primary/unique keys
         """
         return pulumi.get(self, "on_delete")
 
@@ -38442,7 +38442,7 @@ class TableConstraintForeignKeyPropertiesArgs:
     @pulumi.getter(name="onUpdate")
     def on_update(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
+        (Default: `NO ACTION`) Specifies the action performed when the primary/unique key for the foreign key is updated. Not applicable for primary/unique keys
         """
         return pulumi.get(self, "on_update")
 
@@ -50037,6 +50037,9 @@ class ViewDataMetricFunctionArgs:
 if not MYPY:
     class ViewDataMetricScheduleArgsDict(TypedDict):
         minutes: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `using_cron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `using_cron` field, or replace*triggered*by metadata argument.
+        """
         using_cron: NotRequired[pulumi.Input[builtins.str]]
         """
         Specifies a cron expression and time zone for periodically running the data metric function. Supports a subset of standard cron utility syntax. Conflicts with `minutes`.
@@ -50050,6 +50053,7 @@ class ViewDataMetricScheduleArgs:
                  minutes: Optional[pulumi.Input[builtins.int]] = None,
                  using_cron: Optional[pulumi.Input[builtins.str]] = None):
         """
+        :param pulumi.Input[builtins.int] minutes: Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `using_cron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `using_cron` field, or replace*triggered*by metadata argument.
         :param pulumi.Input[builtins.str] using_cron: Specifies a cron expression and time zone for periodically running the data metric function. Supports a subset of standard cron utility syntax. Conflicts with `minutes`.
         """
         if minutes is not None:
@@ -50060,6 +50064,9 @@ class ViewDataMetricScheduleArgs:
     @property
     @pulumi.getter
     def minutes(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Specifies an interval (in minutes) of wait time inserted between runs of the data metric function. Conflicts with `using_cron`. Valid values are: `5` | `15` | `30` | `60` | `720` | `1440`. Due to Snowflake limitations, changes in this field are not managed by the provider. Please consider using taint command, `using_cron` field, or replace*triggered*by metadata argument.
+        """
         return pulumi.get(self, "minutes")
 
     @minutes.setter
@@ -51497,7 +51504,7 @@ if not MYPY:
         """
         schema: NotRequired[builtins.str]
         """
-        Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db_name&gt;"."&lt;schema_name&gt;").
+        Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
         """
 elif False:
     GetGrantsFutureGrantsInArgsDict: TypeAlias = Mapping[str, Any]
@@ -51509,7 +51516,7 @@ class GetGrantsFutureGrantsInArgs:
                  schema: Optional[builtins.str] = None):
         """
         :param builtins.str database: Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
-        :param builtins.str schema: Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db_name&gt;"."&lt;schema_name&gt;").
+        :param builtins.str schema: Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
         """
         if database is not None:
             pulumi.set(__self__, "database", database)
@@ -51532,7 +51539,7 @@ class GetGrantsFutureGrantsInArgs:
     @pulumi.getter
     def schema(self) -> Optional[builtins.str]:
         """
-        Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db_name&gt;"."&lt;schema_name&gt;").
+        Lists all privileges on new (i.e. future) objects of a specified type in the schema granted to a role. Schema must be a fully qualified name ("&lt;db*name&gt;"."&lt;schema*name&gt;").
         """
         return pulumi.get(self, "schema")
 
@@ -51549,7 +51556,7 @@ if not MYPY:
         """
         database_role: NotRequired[builtins.str]
         """
-        Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+        Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
         """
 elif False:
     GetGrantsFutureGrantsToArgsDict: TypeAlias = Mapping[str, Any]
@@ -51561,7 +51568,7 @@ class GetGrantsFutureGrantsToArgs:
                  database_role: Optional[builtins.str] = None):
         """
         :param builtins.str account_role: Lists all privileges on new (i.e. future) objects of a specified type in a database or schema granted to the account role.
-        :param builtins.str database_role: Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+        :param builtins.str database_role: Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
         """
         if account_role is not None:
             pulumi.set(__self__, "account_role", account_role)
@@ -51584,7 +51591,7 @@ class GetGrantsFutureGrantsToArgs:
     @pulumi.getter(name="databaseRole")
     def database_role(self) -> Optional[builtins.str]:
         """
-        Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+        Lists all privileges on new (i.e. future) objects granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
         """
         return pulumi.get(self, "database_role")
 
@@ -51601,11 +51608,11 @@ if not MYPY:
         """
         application_role: NotRequired[builtins.str]
         """
-        Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+        Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
         """
         database_role: NotRequired[builtins.str]
         """
-        Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+        Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
         """
         share: NotRequired[builtins.str]
         """
@@ -51623,8 +51630,8 @@ class GetGrantsGrantsOfArgs:
                  share: Optional[builtins.str] = None):
         """
         :param builtins.str account_role: Lists all users and roles to which the account role has been granted.
-        :param builtins.str application_role: Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
-        :param builtins.str database_role: Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+        :param builtins.str application_role: Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
+        :param builtins.str database_role: Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
         :param builtins.str share: Lists all the accounts for the share and indicates the accounts that are using the share.
         """
         if account_role is not None:
@@ -51652,7 +51659,7 @@ class GetGrantsGrantsOfArgs:
     @pulumi.getter(name="applicationRole")
     def application_role(self) -> Optional[builtins.str]:
         """
-        Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+        Lists all the users and roles to which the application role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
         """
         return pulumi.get(self, "application_role")
 
@@ -51664,7 +51671,7 @@ class GetGrantsGrantsOfArgs:
     @pulumi.getter(name="databaseRole")
     def database_role(self) -> Optional[builtins.str]:
         """
-        Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+        Lists all users and roles to which the database role has been granted. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
         """
         return pulumi.get(self, "database_role")
 
@@ -51769,11 +51776,11 @@ if not MYPY:
         """
         application_role: NotRequired[builtins.str]
         """
-        Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app_name&gt;"."&lt;app_role_name&gt;").
+        Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
         """
         database_role: NotRequired[builtins.str]
         """
-        Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+        Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
         """
         share: NotRequired['GetGrantsGrantsToShareArgsDict']
         """
@@ -51798,8 +51805,8 @@ class GetGrantsGrantsToArgs:
         """
         :param builtins.str account_role: Lists all privileges and roles granted to the role.
         :param builtins.str application: Lists all the privileges and roles granted to the application.
-        :param builtins.str application_role: Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app_name&gt;"."&lt;app_role_name&gt;").
-        :param builtins.str database_role: Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+        :param builtins.str application_role: Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
+        :param builtins.str database_role: Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
         :param 'GetGrantsGrantsToShareArgs' share: Lists all the privileges granted to the share.
         :param builtins.str user: Lists all the roles granted to the user. Note that the PUBLIC role, which is automatically available to every user, is not listed.
         """
@@ -51844,7 +51851,7 @@ class GetGrantsGrantsToArgs:
     @pulumi.getter(name="applicationRole")
     def application_role(self) -> Optional[builtins.str]:
         """
-        Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app_name&gt;"."&lt;app_role_name&gt;").
+        Lists all the privileges and roles granted to the application role. Must be a fully qualified name ("&lt;app*name&gt;"."&lt;app*role_name&gt;").
         """
         return pulumi.get(self, "application_role")
 
@@ -51856,7 +51863,7 @@ class GetGrantsGrantsToArgs:
     @pulumi.getter(name="databaseRole")
     def database_role(self) -> Optional[builtins.str]:
         """
-        Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db_name&gt;"."&lt;database_role_name&gt;").
+        Lists all privileges and roles granted to the database role. Must be a fully qualified name ("&lt;db*name&gt;"."&lt;database*role_name&gt;").
         """
         return pulumi.get(self, "database_role")
 

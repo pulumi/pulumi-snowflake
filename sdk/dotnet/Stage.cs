@@ -9,12 +9,20 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// format is database name | schema name | stage name
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/stage:Stage example 'dbName|schemaName|stageName'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/stage:Stage")]
     public partial class Stage : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// A unique ID assigned to the specific stage. The ID has the following format:
-        /// &amp;lt;snowflakeAccount&amp;gt;_SFCRole=&amp;lt;snowflakeRoleId&amp;gt;_&amp;lt;randomId&amp;gt;
+        /// A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
         /// </summary>
         [Output("awsExternalId")]
         public Output<string> AwsExternalId { get; private set; } = null!;
@@ -55,12 +63,14 @@ namespace Pulumi.Snowflake
         [Output("encryption")]
         public Output<string?> Encryption { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \n\n2. from dynamic value:\n\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \n\n3. from expression:\n\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
+        /// </summary>
         [Output("fileFormat")]
         public Output<string?> FileFormat { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
@@ -78,15 +88,13 @@ namespace Pulumi.Snowflake
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
-        /// account.
+        /// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         /// </summary>
         [Output("snowflakeIamUser")]
         public Output<string> SnowflakeIamUser { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-        /// to a Snowflake identity and access management (IAM) entity.
+        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         /// </summary>
         [Output("storageIntegration")]
         public Output<string?> StorageIntegration { get; private set; } = null!;
@@ -154,8 +162,7 @@ namespace Pulumi.Snowflake
     public sealed class StageArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A unique ID assigned to the specific stage. The ID has the following format:
-        /// &amp;lt;snowflakeAccount&amp;gt;_SFCRole=&amp;lt;snowflakeRoleId&amp;gt;_&amp;lt;randomId&amp;gt;
+        /// A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
         /// </summary>
         [Input("awsExternalId")]
         public Input<string>? AwsExternalId { get; set; }
@@ -206,6 +213,9 @@ namespace Pulumi.Snowflake
         [Input("encryption")]
         public Input<string>? Encryption { get; set; }
 
+        /// <summary>
+        /// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \n\n2. from dynamic value:\n\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \n\n3. from expression:\n\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
+        /// </summary>
         [Input("fileFormat")]
         public Input<string>? FileFormat { get; set; }
 
@@ -222,15 +232,13 @@ namespace Pulumi.Snowflake
         public Input<string> Schema { get; set; } = null!;
 
         /// <summary>
-        /// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
-        /// account.
+        /// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         /// </summary>
         [Input("snowflakeIamUser")]
         public Input<string>? SnowflakeIamUser { get; set; }
 
         /// <summary>
-        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-        /// to a Snowflake identity and access management (IAM) entity.
+        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         /// </summary>
         [Input("storageIntegration")]
         public Input<string>? StorageIntegration { get; set; }
@@ -263,8 +271,7 @@ namespace Pulumi.Snowflake
     public sealed class StageState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A unique ID assigned to the specific stage. The ID has the following format:
-        /// &amp;lt;snowflakeAccount&amp;gt;_SFCRole=&amp;lt;snowflakeRoleId&amp;gt;_&amp;lt;randomId&amp;gt;
+        /// A unique ID assigned to the specific stage. The ID has the following format: &amp;lt;snowflakeAccount&amp;gt;*SFCRole=&amp;lt;snowflakeRoleId&amp;gt;*&amp;lt;randomId&amp;gt;
         /// </summary>
         [Input("awsExternalId")]
         public Input<string>? AwsExternalId { get; set; }
@@ -315,12 +322,14 @@ namespace Pulumi.Snowflake
         [Input("encryption")]
         public Input<string>? Encryption { get; set; }
 
+        /// <summary>
+        /// Specifies the file format for the stage. Specifying the default Snowflake value (e.g. TYPE = CSV) will currently result in a permadiff (check #2679). For now, omit the default values; it will be fixed in the upcoming provider versions. Examples of usage: \n\n1. with hardcoding value:\n\n `file_format="FORMAT_NAME = DB.SCHEMA.FORMATNAME"` \n\n2. from dynamic value:\n\n `file_format = "FORMAT_NAME = ${snowflake_file_format.myfileformat.fully_qualified_name}"` \n\n3. from expression:\n\n `file_format = format("FORMAT_NAME =%s.%s.MYFILEFORMAT", var.db_name, each.value.schema_name)`. Reference: #265
+        /// </summary>
         [Input("fileFormat")]
         public Input<string>? FileFormat { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
@@ -338,15 +347,13 @@ namespace Pulumi.Snowflake
         public Input<string>? Schema { get; set; }
 
         /// <summary>
-        /// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your
-        /// account.
+        /// An AWS IAM user created for your Snowflake account. This user is the same for every external S3 stage created in your account.
         /// </summary>
         [Input("snowflakeIamUser")]
         public Input<string>? SnowflakeIamUser { get; set; }
 
         /// <summary>
-        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage
-        /// to a Snowflake identity and access management (IAM) entity.
+        /// Specifies the name of the storage integration used to delegate authentication responsibility for external cloud storage to a Snowflake identity and access management (IAM) entity.
         /// </summary>
         [Input("storageIntegration")]
         public Input<string>? StorageIntegration { get; set; }

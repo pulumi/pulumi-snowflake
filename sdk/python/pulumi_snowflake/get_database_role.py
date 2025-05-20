@@ -47,11 +47,17 @@ class GetDatabaseRoleResult:
     @property
     @pulumi.getter
     def comment(self) -> builtins.str:
+        """
+        The comment on the role
+        """
         return pulumi.get(self, "comment")
 
     @property
     @pulumi.getter
     def database(self) -> builtins.str:
+        """
+        The database from which to return the database role from.
+        """
         return pulumi.get(self, "database")
 
     @property
@@ -65,11 +71,17 @@ class GetDatabaseRoleResult:
     @property
     @pulumi.getter
     def name(self) -> builtins.str:
+        """
+        Database role name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def owner(self) -> builtins.str:
+        """
+        The owner of the role
+        """
         return pulumi.get(self, "owner")
 
 
@@ -90,7 +102,23 @@ def get_database_role(database: Optional[builtins.str] = None,
                       name: Optional[builtins.str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseRoleResult:
     """
-    Use this data source to access information about an existing resource.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    db_role = snowflake.get_database_role(database="MYDB",
+        name="DBROLE")
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param builtins.str database: The database from which to return the database role from.
+    :param builtins.str name: Database role name.
     """
     __args__ = dict()
     __args__['database'] = database
@@ -108,7 +136,23 @@ def get_database_role_output(database: Optional[pulumi.Input[builtins.str]] = No
                              name: Optional[pulumi.Input[builtins.str]] = None,
                              opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseRoleResult]:
     """
-    Use this data source to access information about an existing resource.
+    !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_snowflake as snowflake
+
+    db_role = snowflake.get_database_role(database="MYDB",
+        name="DBROLE")
+    ```
+
+    > **Note** If a field has a default value, it is shown next to the type in the schema.
+
+
+    :param builtins.str database: The database from which to return the database role from.
+    :param builtins.str name: Database role name.
     """
     __args__ = dict()
     __args__['database'] = database

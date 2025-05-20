@@ -9,6 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/secretWithBasicAuthentication:SecretWithBasicAuthentication example '"&lt;database_name&gt;"."&lt;schema_name&gt;"."&lt;secret_name&gt;"'
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/secretWithBasicAuthentication:SecretWithBasicAuthentication")]
     public partial class SecretWithBasicAuthentication : global::Pulumi.CustomResource
     {
@@ -19,8 +26,7 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
-        /// The database in which to create the secret Due to technical limitations (read more here), avoid using the following
-        /// characters: `|`, `.`, `"`.
+        /// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("database")]
         public Output<string> Database { get; private set; } = null!;
@@ -32,15 +38,13 @@ namespace Pulumi.Snowflake
         public Output<ImmutableArray<Outputs.SecretWithBasicAuthenticationDescribeOutput>> DescribeOutputs { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
-        /// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -49,15 +53,13 @@ namespace Pulumi.Snowflake
         public Output<string> Password { get; private set; } = null!;
 
         /// <summary>
-        /// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
-        /// characters: `|`, `.`, `"`.
+        /// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Output("schema")]
         public Output<string> Schema { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
-        /// needed.
+        /// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
         /// </summary>
         [Output("secretType")]
         public Output<string> SecretType { get; private set; } = null!;
@@ -132,15 +134,13 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database in which to create the secret Due to technical limitations (read more here), avoid using the following
-        /// characters: `|`, `.`, `"`.
+        /// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database", required: true)]
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
-        /// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -158,8 +158,7 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
-        /// characters: `|`, `.`, `"`.
+        /// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema", required: true)]
         public Input<string> Schema { get; set; } = null!;
@@ -195,8 +194,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
-        /// The database in which to create the secret Due to technical limitations (read more here), avoid using the following
-        /// characters: `|`, `.`, `"`.
+        /// The database in which to create the secret Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
@@ -214,15 +212,13 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
 
         /// <summary>
-        /// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical
-        /// limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
+        /// String that specifies the identifier (i.e. name) for the secret, must be unique in your schema. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -240,15 +236,13 @@ namespace Pulumi.Snowflake
         }
 
         /// <summary>
-        /// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following
-        /// characters: `|`, `.`, `"`.
+        /// The schema in which to create the secret. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `"`.
         /// </summary>
         [Input("schema")]
         public Input<string>? Schema { get; set; }
 
         /// <summary>
-        /// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if
-        /// needed.
+        /// Specifies a type for the secret. This field is used for checking external changes and recreating the resources if needed.
         /// </summary>
         [Input("secretType")]
         public Input<string>? SecretType { get; set; }

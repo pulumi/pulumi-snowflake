@@ -9,6 +9,13 @@ using Pulumi.Serialization;
 
 namespace Pulumi.Snowflake
 {
+    /// <summary>
+    /// ## Import
+    /// 
+    /// ```sh
+    /// $ pulumi import snowflake:index/notificationIntegration:NotificationIntegration example name
+    /// ```
+    /// </summary>
     [SnowflakeResourceType("snowflake:index/notificationIntegration:NotificationIntegration")]
     public partial class NotificationIntegration : global::Pulumi.CustomResource
     {
@@ -61,14 +68,13 @@ namespace Pulumi.Snowflake
         public Output<string?> AwsSqsRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
-        /// provider
+        /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
         /// </summary>
         [Output("azureStorageQueuePrimaryUri")]
         public Output<string?> AzureStorageQueuePrimaryUri { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
+        /// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         /// </summary>
         [Output("azureTenantId")]
         public Output<string?> AzureTenantId { get; private set; } = null!;
@@ -91,12 +97,14 @@ namespace Pulumi.Snowflake
         [Output("direction")]
         public Output<string?> Direction { get; private set; } = null!;
 
+        /// <summary>
+        /// (Default: `true`)
+        /// </summary>
         [Output("enabled")]
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
         public Output<string> FullyQualifiedName { get; private set; } = null!;
@@ -123,14 +131,13 @@ namespace Pulumi.Snowflake
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
-        /// deprecated and will be removed in the future provider versions)
+        /// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
         /// </summary>
         [Output("notificationProvider")]
         public Output<string> NotificationProvider { get; private set; } = null!;
 
         /// <summary>
-        /// A type of integration
+        /// (Default: `QUEUE`) A type of integration
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -206,14 +213,13 @@ namespace Pulumi.Snowflake
         public Input<string>? AwsSqsRoleArn { get; set; }
 
         /// <summary>
-        /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
-        /// provider
+        /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
         /// </summary>
         [Input("azureStorageQueuePrimaryUri")]
         public Input<string>? AzureStorageQueuePrimaryUri { get; set; }
 
         /// <summary>
-        /// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
+        /// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         /// </summary>
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
@@ -230,6 +236,9 @@ namespace Pulumi.Snowflake
         [Input("direction")]
         public Input<string>? Direction { get; set; }
 
+        /// <summary>
+        /// (Default: `true`)
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
@@ -249,14 +258,13 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
-        /// deprecated and will be removed in the future provider versions)
+        /// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
         /// </summary>
         [Input("notificationProvider", required: true)]
         public Input<string> NotificationProvider { get; set; } = null!;
 
         /// <summary>
-        /// A type of integration
+        /// (Default: `QUEUE`) A type of integration
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -318,14 +326,13 @@ namespace Pulumi.Snowflake
         public Input<string>? AwsSqsRoleArn { get; set; }
 
         /// <summary>
-        /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE_STORAGE_QUEUE
-        /// provider
+        /// The queue ID for the Azure Queue Storage queue created for Event Grid notifications. Required for AZURE*STORAGE*QUEUE provider
         /// </summary>
         [Input("azureStorageQueuePrimaryUri")]
         public Input<string>? AzureStorageQueuePrimaryUri { get; set; }
 
         /// <summary>
-        /// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE_STORAGE_QUEUE provider
+        /// The ID of the Azure Active Directory tenant used for identity management. Required for AZURE*STORAGE*QUEUE provider
         /// </summary>
         [Input("azureTenantId")]
         public Input<string>? AzureTenantId { get; set; }
@@ -348,12 +355,14 @@ namespace Pulumi.Snowflake
         [Input("direction")]
         public Input<string>? Direction { get; set; }
 
+        /// <summary>
+        /// (Default: `true`)
+        /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Fully qualified name of the resource. For more information, see [object name
-        /// resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
+        /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Input("fullyQualifiedName")]
         public Input<string>? FullyQualifiedName { get; set; }
@@ -380,14 +389,13 @@ namespace Pulumi.Snowflake
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The third-party cloud message queuing service (supported values: AZURE_STORAGE_QUEUE, AWS_SNS, GCP_PUBSUB; AWS_SQS is
-        /// deprecated and will be removed in the future provider versions)
+        /// The third-party cloud message queuing service (supported values: AZURE*STORAGE*QUEUE, AWS*SNS, GCP*PUBSUB; AWS_SQS is deprecated and will be removed in the future provider versions)
         /// </summary>
         [Input("notificationProvider")]
         public Input<string>? NotificationProvider { get; set; }
 
         /// <summary>
-        /// A type of integration
+        /// (Default: `QUEUE`) A type of integration
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

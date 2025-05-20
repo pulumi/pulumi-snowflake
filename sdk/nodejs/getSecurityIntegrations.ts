@@ -6,6 +6,9 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * ## Example Usage
+ */
 export function getSecurityIntegrations(args?: GetSecurityIntegrationsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityIntegrationsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,7 +22,13 @@ export function getSecurityIntegrations(args?: GetSecurityIntegrationsArgs, opts
  * A collection of arguments for invoking getSecurityIntegrations.
  */
 export interface GetSecurityIntegrationsArgs {
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     like?: string;
+    /**
+     * (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+     */
     withDescribe?: boolean;
 }
 
@@ -31,10 +40,22 @@ export interface GetSecurityIntegrationsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     readonly like?: string;
+    /**
+     * Holds the aggregated output of all security integrations details queries.
+     */
     readonly securityIntegrations: outputs.GetSecurityIntegrationsSecurityIntegration[];
+    /**
+     * (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+     */
     readonly withDescribe?: boolean;
 }
+/**
+ * ## Example Usage
+ */
 export function getSecurityIntegrationsOutput(args?: GetSecurityIntegrationsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecurityIntegrationsResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +69,12 @@ export function getSecurityIntegrationsOutput(args?: GetSecurityIntegrationsOutp
  * A collection of arguments for invoking getSecurityIntegrations.
  */
 export interface GetSecurityIntegrationsOutputArgs {
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     like?: pulumi.Input<string>;
+    /**
+     * (Default: `true`) Runs DESC SECURITY INTEGRATION for each security integration returned by SHOW SECURITY INTEGRATIONS. The output of describe is saved to the description field. By default this value is set to true.
+     */
     withDescribe?: pulumi.Input<boolean>;
 }

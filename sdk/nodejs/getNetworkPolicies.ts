@@ -6,6 +6,9 @@ import * as inputs from "./types/input";
 import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
+/**
+ * Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
+ */
 export function getNetworkPolicies(args?: GetNetworkPoliciesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkPoliciesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -19,7 +22,13 @@ export function getNetworkPolicies(args?: GetNetworkPoliciesArgs, opts?: pulumi.
  * A collection of arguments for invoking getNetworkPolicies.
  */
 export interface GetNetworkPoliciesArgs {
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     like?: string;
+    /**
+     * (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     */
     withDescribe?: boolean;
 }
 
@@ -31,10 +40,22 @@ export interface GetNetworkPoliciesResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     readonly like?: string;
+    /**
+     * Holds the aggregated output of all network policies details queries.
+     */
     readonly networkPolicies: outputs.GetNetworkPoliciesNetworkPolicy[];
+    /**
+     * (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     */
     readonly withDescribe?: boolean;
 }
+/**
+ * Data source used to get details of filtered network policies. Filtering is aligned with the current possibilities for [SHOW NETWORK POLICIES](https://docs.snowflake.com/en/sql-reference/sql/show-network-policies) query (`like` is supported). The results of SHOW and DESCRIBE are encapsulated in one output collection.
+ */
 export function getNetworkPoliciesOutput(args?: GetNetworkPoliciesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkPoliciesResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +69,12 @@ export function getNetworkPoliciesOutput(args?: GetNetworkPoliciesOutputArgs, op
  * A collection of arguments for invoking getNetworkPolicies.
  */
 export interface GetNetworkPoliciesOutputArgs {
+    /**
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
     like?: pulumi.Input<string>;
+    /**
+     * (Default: `true`) Runs DESC NETWORK POLICY for each network policy returned by SHOW NETWORK POLICIES. The output of describe is saved to the description field. By default this value is set to true.
+     */
     withDescribe?: pulumi.Input<boolean>;
 }

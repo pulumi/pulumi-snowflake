@@ -12,16 +12,32 @@ import java.util.Objects;
 
 @CustomType
 public final class GetSequencesResult {
+    /**
+     * @return The database from which to return the schemas from.
+     * 
+     */
     private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return The schema from which to return the sequences from.
+     * 
+     */
     private String schema;
+    /**
+     * @return The sequences in the schema
+     * 
+     */
     private List<GetSequencesSequence> sequences;
 
     private GetSequencesResult() {}
+    /**
+     * @return The database from which to return the schemas from.
+     * 
+     */
     public String database() {
         return this.database;
     }
@@ -32,9 +48,17 @@ public final class GetSequencesResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return The schema from which to return the sequences from.
+     * 
+     */
     public String schema() {
         return this.schema;
     }
+    /**
+     * @return The sequences in the schema
+     * 
+     */
     public List<GetSequencesSequence> sequences() {
         return this.sequences;
     }

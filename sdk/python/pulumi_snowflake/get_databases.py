@@ -55,6 +55,9 @@ class GetDatabasesResult:
     @property
     @pulumi.getter
     def databases(self) -> Sequence['outputs.GetDatabasesDatabaseResult']:
+        """
+        Holds the aggregated output of all database details queries.
+        """
         return pulumi.get(self, "databases")
 
     @property
@@ -68,26 +71,41 @@ class GetDatabasesResult:
     @property
     @pulumi.getter
     def like(self) -> Optional[builtins.str]:
+        """
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+        """
         return pulumi.get(self, "like")
 
     @property
     @pulumi.getter
     def limit(self) -> Optional['outputs.GetDatabasesLimitResult']:
+        """
+        Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        """
         return pulumi.get(self, "limit")
 
     @property
     @pulumi.getter(name="startsWith")
     def starts_with(self) -> Optional[builtins.str]:
+        """
+        Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        """
         return pulumi.get(self, "starts_with")
 
     @property
     @pulumi.getter(name="withDescribe")
     def with_describe(self) -> Optional[builtins.bool]:
+        """
+        (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+        """
         return pulumi.get(self, "with_describe")
 
     @property
     @pulumi.getter(name="withParameters")
     def with_parameters(self) -> Optional[builtins.bool]:
+        """
+        (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
+        """
         return pulumi.get(self, "with_parameters")
 
 
@@ -113,7 +131,14 @@ def get_databases(like: Optional[builtins.str] = None,
                   with_parameters: Optional[builtins.bool] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabasesResult:
     """
-    Use this data source to access information about an existing resource.
+    Data source used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
+
+
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+    :param builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
     """
     __args__ = dict()
     __args__['like'] = like
@@ -139,7 +164,14 @@ def get_databases_output(like: Optional[pulumi.Input[Optional[builtins.str]]] = 
                          with_parameters: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabasesResult]:
     """
-    Use this data source to access information about an existing resource.
+    Data source used to get details of filtered databases. Filtering is aligned with the current possibilities for [SHOW DATABASES](https://docs.snowflake.com/en/sql-reference/sql/show-databases) query (`like`, `starts_with`, and `limit` are all supported). The results of SHOW, DESCRIBE, and SHOW PARAMETERS IN are encapsulated in one output collection.
+
+
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetDatabasesLimitArgs', 'GetDatabasesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the description field. By default this value is set to true.
+    :param builtins.bool with_parameters: (Default: `true`) Runs SHOW PARAMETERS FOR DATABASE for each database returned by SHOW DATABASES. The output of describe is saved to the parameters field as a map. By default this value is set to true.
     """
     __args__ = dict()
     __args__['like'] = like

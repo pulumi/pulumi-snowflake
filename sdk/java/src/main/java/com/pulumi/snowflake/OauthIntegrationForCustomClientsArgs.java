@@ -19,20 +19,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     public static final OauthIntegrationForCustomClientsArgs Empty = new OauthIntegrationForCustomClientsArgs();
 
     /**
-     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
-     * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
-     * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
-     * information about this resource, see docs.
+     * A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     @Import(name="blockedRolesLists")
     private @Nullable Output<List<String>> blockedRolesLists;
 
     /**
-     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
-     * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
-     * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
-     * information about this resource, see docs.
+     * @return A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> blockedRolesLists() {
@@ -55,18 +49,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the
-     * value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for
-     * this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<String> enabled;
 
     /**
-     * @return Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the
-     * value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for
-     * this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> enabled() {
@@ -74,18 +64,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-     * unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-     * unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-     * following characters: `|`, `.`, `&#34;`.
+     * @return Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -93,18 +79,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an
-     * authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more
-     * information about this resource, see docs.
+     * Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
      * 
      */
     @Import(name="networkPolicy")
     private @Nullable Output<String> networkPolicy;
 
     /**
-     * @return Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an
-     * authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more
-     * information about this resource, see docs.
+     * @return Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> networkPolicy() {
@@ -112,18 +94,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * If true, allows setting oauth_redirect_uri to a URI not protected by TLS. Available options are: &#34;true&#34; or &#34;false&#34;. When
-     * the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default
-     * for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="oauthAllowNonTlsRedirectUri")
     private @Nullable Output<String> oauthAllowNonTlsRedirectUri;
 
     /**
-     * @return If true, allows setting oauth_redirect_uri to a URI not protected by TLS. Available options are: &#34;true&#34; or &#34;false&#34;. When
-     * the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default
-     * for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> oauthAllowNonTlsRedirectUri() {
@@ -145,16 +123,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options
-     * are: `PUBLIC` | `CONFIDENTIAL`.
+     * Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
      * 
      */
     @Import(name="oauthClientType", required=true)
     private Output<String> oauthClientType;
 
     /**
-     * @return Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options
-     * are: `PUBLIC` | `CONFIDENTIAL`.
+     * @return Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
      * 
      */
     public Output<String> oauthClientType() {
@@ -162,18 +138,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available
-     * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
-     * which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="oauthEnforcePkce")
     private @Nullable Output<String> oauthEnforcePkce;
 
     /**
-     * @return Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available
-     * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
-     * which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> oauthEnforcePkce() {
@@ -181,18 +153,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-     * expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
-     * &#34;default&#34; there which means to use the Snowflake default for this value.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     @Import(name="oauthIssueRefreshTokens")
     private @Nullable Output<String> oauthIssueRefreshTokens;
 
     /**
-     * @return Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-     * expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
-     * &#34;default&#34; there which means to use the Snowflake default for this value.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
      * 
      */
     public Optional<Output<String>> oauthIssueRefreshTokens() {
@@ -215,14 +183,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+     * (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      * 
      */
     @Import(name="oauthRefreshTokenValidity")
     private @Nullable Output<Integer> oauthRefreshTokenValidity;
 
     /**
-     * @return Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+     * @return (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
      * 
      */
     public Optional<Output<Integer>> oauthRefreshTokenValidity() {
@@ -230,16 +198,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * Specifies whether default secondary roles set in the user properties are activated by default in the session being
-     * opened. Valid options are: `IMPLICIT` | `NONE`.
+     * Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     @Import(name="oauthUseSecondaryRoles")
     private @Nullable Output<String> oauthUseSecondaryRoles;
 
     /**
-     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being
-     * opened. Valid options are: `IMPLICIT` | `NONE`.
+     * @return Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
      * 
      */
     public Optional<Output<String>> oauthUseSecondaryRoles() {
@@ -247,16 +213,14 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
     }
 
     /**
-     * A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more
-     * information about this resource, see docs.
+     * A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
      * 
      */
     @Import(name="preAuthorizedRolesLists")
     private @Nullable Output<List<String>> preAuthorizedRolesLists;
 
     /**
-     * @return A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more
-     * information about this resource, see docs.
+     * @return A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<List<String>>> preAuthorizedRolesLists() {
@@ -302,10 +266,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
-         * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
-         * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
-         * information about this resource, see docs.
+         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -316,10 +277,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
-         * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
-         * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
-         * information about this resource, see docs.
+         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -329,10 +287,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list
-         * includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the
-         * ALTER ACCOUNT command to set the OAUTH_ADD_PRIVILEGED_ROLES_TO_BLOCKED_LIST account parameter to FALSE. For more
-         * information about this resource, see docs.
+         * @param blockedRolesLists A set of Snowflake roles that a user cannot explicitly consent to using after authenticating. By default, this list includes the ACCOUNTADMIN, ORGADMIN and SECURITYADMIN roles. To remove these privileged roles from the list, use the ALTER ACCOUNT command to set the OAUTH*ADD*PRIVILEGED*ROLES*TO*BLOCKED*LIST account parameter to FALSE. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -363,9 +318,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enabled Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the
-         * value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for
-         * this value.
+         * @param enabled (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -376,9 +329,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param enabled Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the
-         * value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for
-         * this value.
+         * @param enabled (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether this OAuth integration is enabled or disabled. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -388,9 +339,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-         * unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-         * following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -401,9 +350,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be
-         * unique among security integrations in your account. Due to technical limitations (read more here), avoid using the
-         * following characters: `|`, `.`, `&#34;`.
+         * @param name Specifies the name of the OAuth integration. This name follows the rules for Object Identifiers. The name should be unique among security integrations in your account. Due to technical limitations (read more here), avoid using the following characters: `|`, `.`, `&#34;`.
          * 
          * @return builder
          * 
@@ -413,9 +360,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param networkPolicy Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an
-         * authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more
-         * information about this resource, see docs.
+         * @param networkPolicy Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -426,9 +371,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param networkPolicy Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an
-         * authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more
-         * information about this resource, see docs.
+         * @param networkPolicy Specifies an existing network policy. This network policy controls network traffic that is attempting to exchange an authorization code for an access or refresh token or to use a refresh token to obtain a new access token. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -438,9 +381,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthAllowNonTlsRedirectUri If true, allows setting oauth_redirect_uri to a URI not protected by TLS. Available options are: &#34;true&#34; or &#34;false&#34;. When
-         * the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default
-         * for this value.
+         * @param oauthAllowNonTlsRedirectUri (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -451,9 +392,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthAllowNonTlsRedirectUri If true, allows setting oauth_redirect_uri to a URI not protected by TLS. Available options are: &#34;true&#34; or &#34;false&#34;. When
-         * the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default
-         * for this value.
+         * @param oauthAllowNonTlsRedirectUri (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) If true, allows setting oauth*redirect*uri to a URI not protected by TLS. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -481,8 +420,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthClientType Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options
-         * are: `PUBLIC` | `CONFIDENTIAL`.
+         * @param oauthClientType Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
          * 
          * @return builder
          * 
@@ -493,8 +431,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthClientType Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options
-         * are: `PUBLIC` | `CONFIDENTIAL`.
+         * @param oauthClientType Specifies the type of client being registered. Snowflake supports both confidential and public clients. Valid options are: `PUBLIC` | `CONFIDENTIAL`.
          * 
          * @return builder
          * 
@@ -504,9 +441,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthEnforcePkce Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available
-         * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
-         * which means to use the Snowflake default for this value.
+         * @param oauthEnforcePkce (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -517,9 +452,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthEnforcePkce Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available
-         * options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there
-         * which means to use the Snowflake default for this value.
+         * @param oauthEnforcePkce (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Boolean that specifies whether Proof Key for Code Exchange (PKCE) should be required for the integration. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -529,9 +462,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthIssueRefreshTokens Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-         * expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
-         * &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param oauthIssueRefreshTokens (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -542,9 +473,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthIssueRefreshTokens Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has
-         * expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put
-         * &#34;default&#34; there which means to use the Snowflake default for this value.
+         * @param oauthIssueRefreshTokens (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Specifies whether to allow the client to exchange a refresh token for an access token when the current access token has expired. Available options are: &#34;true&#34; or &#34;false&#34;. When the value is not set in the configuration the provider will put &#34;default&#34; there which means to use the Snowflake default for this value.
          * 
          * @return builder
          * 
@@ -575,7 +504,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthRefreshTokenValidity Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+         * @param oauthRefreshTokenValidity (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
          * 
          * @return builder
          * 
@@ -586,7 +515,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthRefreshTokenValidity Specifies how long refresh tokens should be valid (in seconds). OAUTH_ISSUE_REFRESH_TOKENS must be set to TRUE.
+         * @param oauthRefreshTokenValidity (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`-1`)) Specifies how long refresh tokens should be valid (in seconds). OAUTH*ISSUE*REFRESH_TOKENS must be set to TRUE.
          * 
          * @return builder
          * 
@@ -596,8 +525,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being
-         * opened. Valid options are: `IMPLICIT` | `NONE`.
+         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
          * 
          * @return builder
          * 
@@ -608,8 +536,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being
-         * opened. Valid options are: `IMPLICIT` | `NONE`.
+         * @param oauthUseSecondaryRoles Specifies whether default secondary roles set in the user properties are activated by default in the session being opened. Valid options are: `IMPLICIT` | `NONE`.
          * 
          * @return builder
          * 
@@ -619,8 +546,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param preAuthorizedRolesLists A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more
-         * information about this resource, see docs.
+         * @param preAuthorizedRolesLists A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -631,8 +557,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param preAuthorizedRolesLists A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more
-         * information about this resource, see docs.
+         * @param preAuthorizedRolesLists A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -642,8 +567,7 @@ public final class OauthIntegrationForCustomClientsArgs extends com.pulumi.resou
         }
 
         /**
-         * @param preAuthorizedRolesLists A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more
-         * information about this resource, see docs.
+         * @param preAuthorizedRolesLists A set of Snowflake roles that a user does not need to explicitly consent to using after authenticating. For more information about this resource, see docs.
          * 
          * @return builder
          * 

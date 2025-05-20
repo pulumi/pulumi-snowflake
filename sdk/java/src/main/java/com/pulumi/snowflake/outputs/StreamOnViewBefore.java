@@ -27,7 +27,7 @@ public final class StreamOnViewBefore {
      */
     private @Nullable String stream;
     /**
-     * @return Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+     * @return Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      * 
      */
     private @Nullable String timestamp;
@@ -55,7 +55,7 @@ public final class StreamOnViewBefore {
         return Optional.ofNullable(this.stream);
     }
     /**
-     * @return Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+     * @return Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      * 
      */
     public Optional<String> timestamp() {

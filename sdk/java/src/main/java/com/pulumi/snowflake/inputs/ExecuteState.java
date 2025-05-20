@@ -48,16 +48,14 @@ public final class ExecuteState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
-     * error.
+     * List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
      * 
      */
     @Import(name="queryResults")
     private @Nullable Output<List<Map<String,String>>> queryResults;
 
     /**
-     * @return List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
-     * error.
+     * @return List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
      * 
      */
     public Optional<Output<List<Map<String,String>>>> queryResults() {
@@ -149,8 +147,7 @@ public final class ExecuteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queryResults List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
-         * error.
+         * @param queryResults List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
          * 
          * @return builder
          * 
@@ -161,8 +158,7 @@ public final class ExecuteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queryResults List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
-         * error.
+         * @param queryResults List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
          * 
          * @return builder
          * 
@@ -172,8 +168,7 @@ public final class ExecuteState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param queryResults List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an
-         * error.
+         * @param queryResults List of key-value maps (text to text) retrieved after executing read query. Will be empty if the query results in an error.
          * 
          * @return builder
          * 

@@ -61,14 +61,14 @@ public final class StreamOnViewBeforeArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+     * Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      * 
      */
     @Import(name="timestamp")
     private @Nullable Output<String> timestamp;
 
     /**
-     * @return Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+     * @return Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
      * 
      */
     public Optional<Output<String>> timestamp() {
@@ -166,7 +166,7 @@ public final class StreamOnViewBeforeArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param timestamp Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+         * @param timestamp Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
          * 
          * @return builder
          * 
@@ -177,7 +177,7 @@ public final class StreamOnViewBeforeArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param timestamp Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP_LTZ, TIMESTAMP_NTZ, or TIMESTAMP_TZ data type.
+         * @param timestamp Specifies an exact date and time to use for Time Travel. The value must be explicitly cast to a TIMESTAMP, TIMESTAMP*LTZ, TIMESTAMP*NTZ, or TIMESTAMP_TZ data type.
          * 
          * @return builder
          * 
