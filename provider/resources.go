@@ -24,7 +24,7 @@ import (
 	// embed is used to store bridge-metadata.json in the compiled binary
 	_ "embed"
 
-	snowflake "github.com/Snowflake-Labs/terraform-provider-snowflake/v2/pkg/provider"
+	snowflake "github.com/Snowflake-Labs/terraform-provider-snowflake/pkg/provider"
 
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/info"
