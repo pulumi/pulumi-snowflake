@@ -62,6 +62,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Determines which billing entity is responsible for the account&#39;s consumption-based billing.
+     * 
+     */
+    @Import(name="consumptionBillingEntity")
+    private @Nullable Output<String> consumptionBillingEntity;
+
+    /**
+     * @return Determines which billing entity is responsible for the account&#39;s consumption-based billing.
+     * 
+     */
+    public Optional<Output<String>> consumptionBillingEntity() {
+        return Optional.ofNullable(this.consumptionBillingEntity);
+    }
+
+    /**
      * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
      * 
      */
@@ -217,6 +232,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.adminRsaPublicKey = $.adminRsaPublicKey;
         this.adminUserType = $.adminUserType;
         this.comment = $.comment;
+        this.consumptionBillingEntity = $.consumptionBillingEntity;
         this.edition = $.edition;
         this.email = $.email;
         this.firstName = $.firstName;
@@ -304,6 +320,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder comment(String comment) {
             return comment(Output.of(comment));
+        }
+
+        /**
+         * @param consumptionBillingEntity Determines which billing entity is responsible for the account&#39;s consumption-based billing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder consumptionBillingEntity(@Nullable Output<String> consumptionBillingEntity) {
+            $.consumptionBillingEntity = consumptionBillingEntity;
+            return this;
+        }
+
+        /**
+         * @param consumptionBillingEntity Determines which billing entity is responsible for the account&#39;s consumption-based billing.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder consumptionBillingEntity(String consumptionBillingEntity) {
+            return consumptionBillingEntity(Output.of(consumptionBillingEntity));
         }
 
         /**

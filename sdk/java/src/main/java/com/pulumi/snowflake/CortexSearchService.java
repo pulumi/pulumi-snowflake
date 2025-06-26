@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.snowflake.CortexSearchServiceArgs;
 import com.pulumi.snowflake.Utilities;
 import com.pulumi.snowflake.inputs.CortexSearchServiceState;
+import com.pulumi.snowflake.outputs.CortexSearchServiceDescribeOutput;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -80,6 +81,34 @@ public class CortexSearchService extends com.pulumi.resources.CustomResource {
      */
     public Output<String> database() {
         return this.database;
+    }
+    /**
+     * Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+     * 
+     */
+    @Export(name="describeOutputs", refs={List.class,CortexSearchServiceDescribeOutput.class}, tree="[0,1]")
+    private Output<List<CortexSearchServiceDescribeOutput>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+     * 
+     */
+    public Output<List<CortexSearchServiceDescribeOutput>> describeOutputs() {
+        return this.describeOutputs;
+    }
+    /**
+     * Specifies the embedding model to use for the Cortex search service.
+     * 
+     */
+    @Export(name="embeddingModel", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> embeddingModel;
+
+    /**
+     * @return Specifies the embedding model to use for the Cortex search service.
+     * 
+     */
+    public Output<Optional<String>> embeddingModel() {
+        return Codegen.optional(this.embeddingModel);
     }
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).

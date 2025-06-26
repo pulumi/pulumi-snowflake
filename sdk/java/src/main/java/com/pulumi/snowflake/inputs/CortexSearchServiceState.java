@@ -5,6 +5,7 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.snowflake.inputs.CortexSearchServiceDescribeOutputArgs;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -74,6 +75,36 @@ public final class CortexSearchServiceState extends com.pulumi.resources.Resourc
      */
     public Optional<Output<String>> database() {
         return Optional.ofNullable(this.database);
+    }
+
+    /**
+     * Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+     * 
+     */
+    @Import(name="describeOutputs")
+    private @Nullable Output<List<CortexSearchServiceDescribeOutputArgs>> describeOutputs;
+
+    /**
+     * @return Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+     * 
+     */
+    public Optional<Output<List<CortexSearchServiceDescribeOutputArgs>>> describeOutputs() {
+        return Optional.ofNullable(this.describeOutputs);
+    }
+
+    /**
+     * Specifies the embedding model to use for the Cortex search service.
+     * 
+     */
+    @Import(name="embeddingModel")
+    private @Nullable Output<String> embeddingModel;
+
+    /**
+     * @return Specifies the embedding model to use for the Cortex search service.
+     * 
+     */
+    public Optional<Output<String>> embeddingModel() {
+        return Optional.ofNullable(this.embeddingModel);
     }
 
     /**
@@ -188,6 +219,8 @@ public final class CortexSearchServiceState extends com.pulumi.resources.Resourc
         this.comment = $.comment;
         this.createdOn = $.createdOn;
         this.database = $.database;
+        this.describeOutputs = $.describeOutputs;
+        this.embeddingModel = $.embeddingModel;
         this.fullyQualifiedName = $.fullyQualifiedName;
         this.name = $.name;
         this.on = $.on;
@@ -307,6 +340,58 @@ public final class CortexSearchServiceState extends com.pulumi.resources.Resourc
          */
         public Builder database(String database) {
             return database(Output.of(database));
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(@Nullable Output<List<CortexSearchServiceDescribeOutputArgs>> describeOutputs) {
+            $.describeOutputs = describeOutputs;
+            return this;
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(List<CortexSearchServiceDescribeOutputArgs> describeOutputs) {
+            return describeOutputs(Output.of(describeOutputs));
+        }
+
+        /**
+         * @param describeOutputs Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder describeOutputs(CortexSearchServiceDescribeOutputArgs... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
+        }
+
+        /**
+         * @param embeddingModel Specifies the embedding model to use for the Cortex search service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder embeddingModel(@Nullable Output<String> embeddingModel) {
+            $.embeddingModel = embeddingModel;
+            return this;
+        }
+
+        /**
+         * @param embeddingModel Specifies the embedding model to use for the Cortex search service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder embeddingModel(String embeddingModel) {
+            return embeddingModel(Output.of(embeddingModel));
         }
 
         /**

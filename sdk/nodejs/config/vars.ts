@@ -312,8 +312,10 @@ Object.defineProperty(exports, "passcodeInPassword", {
 });
 
 /**
- * Password for user + password auth. Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from
- * the `SNOWFLAKE_PASSWORD` environment variable.
+ * Password for user + password or
+ * [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+ * [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and
+ * `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
  */
 export declare const password: string | undefined;
 Object.defineProperty(exports, "password", {

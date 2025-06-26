@@ -44,6 +44,18 @@ namespace Pulumi.Snowflake
         public Output<string> Database { get; private set; } = null!;
 
         /// <summary>
+        /// Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+        /// </summary>
+        [Output("describeOutputs")]
+        public Output<ImmutableArray<Outputs.CortexSearchServiceDescribeOutput>> DescribeOutputs { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the embedding model to use for the Cortex search service.
+        /// </summary>
+        [Output("embeddingModel")]
+        public Output<string?> EmbeddingModel { get; private set; } = null!;
+
+        /// <summary>
         /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         /// </summary>
         [Output("fullyQualifiedName")]
@@ -156,6 +168,12 @@ namespace Pulumi.Snowflake
         public Input<string> Database { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the embedding model to use for the Cortex search service.
+        /// </summary>
+        [Input("embeddingModel")]
+        public Input<string>? EmbeddingModel { get; set; }
+
+        /// <summary>
         /// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
         /// </summary>
         [Input("name")]
@@ -228,6 +246,24 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("database")]
         public Input<string>? Database { get; set; }
+
+        [Input("describeOutputs")]
+        private InputList<Inputs.CortexSearchServiceDescribeOutputGetArgs>? _describeOutputs;
+
+        /// <summary>
+        /// Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+        /// </summary>
+        public InputList<Inputs.CortexSearchServiceDescribeOutputGetArgs> DescribeOutputs
+        {
+            get => _describeOutputs ?? (_describeOutputs = new InputList<Inputs.CortexSearchServiceDescribeOutputGetArgs>());
+            set => _describeOutputs = value;
+        }
+
+        /// <summary>
+        /// Specifies the embedding model to use for the Cortex search service.
+        /// </summary>
+        [Input("embeddingModel")]
+        public Input<string>? EmbeddingModel { get; set; }
 
         /// <summary>
         /// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).

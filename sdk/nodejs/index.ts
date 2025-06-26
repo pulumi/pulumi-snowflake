@@ -60,10 +60,20 @@ export type AuthenticationPolicy = import("./authenticationPolicy").Authenticati
 export const AuthenticationPolicy: typeof import("./authenticationPolicy").AuthenticationPolicy = null as any;
 utilities.lazyLoad(exports, ["AuthenticationPolicy"], () => require("./authenticationPolicy"));
 
+export { ComputePoolArgs, ComputePoolState } from "./computePool";
+export type ComputePool = import("./computePool").ComputePool;
+export const ComputePool: typeof import("./computePool").ComputePool = null as any;
+utilities.lazyLoad(exports, ["ComputePool"], () => require("./computePool"));
+
 export { CortexSearchServiceArgs, CortexSearchServiceState } from "./cortexSearchService";
 export type CortexSearchService = import("./cortexSearchService").CortexSearchService;
 export const CortexSearchService: typeof import("./cortexSearchService").CortexSearchService = null as any;
 utilities.lazyLoad(exports, ["CortexSearchService"], () => require("./cortexSearchService"));
+
+export { CurrentAccountArgs, CurrentAccountState } from "./currentAccount";
+export type CurrentAccount = import("./currentAccount").CurrentAccount;
+export const CurrentAccount: typeof import("./currentAccount").CurrentAccount = null as any;
+utilities.lazyLoad(exports, ["CurrentAccount"], () => require("./currentAccount"));
 
 export { DatabaseArgs, DatabaseState } from "./database";
 export type Database = import("./database").Database;
@@ -160,6 +170,11 @@ export const getAlerts: typeof import("./getAlerts").getAlerts = null as any;
 export const getAlertsOutput: typeof import("./getAlerts").getAlertsOutput = null as any;
 utilities.lazyLoad(exports, ["getAlerts","getAlertsOutput"], () => require("./getAlerts"));
 
+export { GetComputePoolsArgs, GetComputePoolsResult, GetComputePoolsOutputArgs } from "./getComputePools";
+export const getComputePools: typeof import("./getComputePools").getComputePools = null as any;
+export const getComputePoolsOutput: typeof import("./getComputePools").getComputePoolsOutput = null as any;
+utilities.lazyLoad(exports, ["getComputePools","getComputePoolsOutput"], () => require("./getComputePools"));
+
 export { GetConnectionsArgs, GetConnectionsResult, GetConnectionsOutputArgs } from "./getConnections";
 export const getConnections: typeof import("./getConnections").getConnections = null as any;
 export const getConnectionsOutput: typeof import("./getConnections").getConnectionsOutput = null as any;
@@ -230,10 +245,20 @@ export const getFunctions: typeof import("./getFunctions").getFunctions = null a
 export const getFunctionsOutput: typeof import("./getFunctions").getFunctionsOutput = null as any;
 utilities.lazyLoad(exports, ["getFunctions","getFunctionsOutput"], () => require("./getFunctions"));
 
+export { GetGitRepositoriesArgs, GetGitRepositoriesResult, GetGitRepositoriesOutputArgs } from "./getGitRepositories";
+export const getGitRepositories: typeof import("./getGitRepositories").getGitRepositories = null as any;
+export const getGitRepositoriesOutput: typeof import("./getGitRepositories").getGitRepositoriesOutput = null as any;
+utilities.lazyLoad(exports, ["getGitRepositories","getGitRepositoriesOutput"], () => require("./getGitRepositories"));
+
 export { GetGrantsArgs, GetGrantsResult, GetGrantsOutputArgs } from "./getGrants";
 export const getGrants: typeof import("./getGrants").getGrants = null as any;
 export const getGrantsOutput: typeof import("./getGrants").getGrantsOutput = null as any;
 utilities.lazyLoad(exports, ["getGrants","getGrantsOutput"], () => require("./getGrants"));
+
+export { GetImageRepositoriesArgs, GetImageRepositoriesResult, GetImageRepositoriesOutputArgs } from "./getImageRepositories";
+export const getImageRepositories: typeof import("./getImageRepositories").getImageRepositories = null as any;
+export const getImageRepositoriesOutput: typeof import("./getImageRepositories").getImageRepositoriesOutput = null as any;
+utilities.lazyLoad(exports, ["getImageRepositories","getImageRepositoriesOutput"], () => require("./getImageRepositories"));
 
 export { GetMaskingPoliciesArgs, GetMaskingPoliciesResult, GetMaskingPoliciesOutputArgs } from "./getMaskingPolicies";
 export const getMaskingPolicies: typeof import("./getMaskingPolicies").getMaskingPolicies = null as any;
@@ -294,6 +319,11 @@ export { GetSequencesArgs, GetSequencesResult, GetSequencesOutputArgs } from "./
 export const getSequences: typeof import("./getSequences").getSequences = null as any;
 export const getSequencesOutput: typeof import("./getSequences").getSequencesOutput = null as any;
 utilities.lazyLoad(exports, ["getSequences","getSequencesOutput"], () => require("./getSequences"));
+
+export { GetServicesArgs, GetServicesResult, GetServicesOutputArgs } from "./getServices";
+export const getServices: typeof import("./getServices").getServices = null as any;
+export const getServicesOutput: typeof import("./getServices").getServicesOutput = null as any;
+utilities.lazyLoad(exports, ["getServices","getServicesOutput"], () => require("./getServices"));
 
 export { GetSharesArgs, GetSharesResult, GetSharesOutputArgs } from "./getShares";
 export const getShares: typeof import("./getShares").getShares = null as any;
@@ -370,6 +400,11 @@ export const getWarehouses: typeof import("./getWarehouses").getWarehouses = nul
 export const getWarehousesOutput: typeof import("./getWarehouses").getWarehousesOutput = null as any;
 utilities.lazyLoad(exports, ["getWarehouses","getWarehousesOutput"], () => require("./getWarehouses"));
 
+export { GitRepositoryArgs, GitRepositoryState } from "./gitRepository";
+export type GitRepository = import("./gitRepository").GitRepository;
+export const GitRepository: typeof import("./gitRepository").GitRepository = null as any;
+utilities.lazyLoad(exports, ["GitRepository"], () => require("./gitRepository"));
+
 export { GrantAccountRoleArgs, GrantAccountRoleState } from "./grantAccountRole";
 export type GrantAccountRole = import("./grantAccountRole").GrantAccountRole;
 export const GrantAccountRole: typeof import("./grantAccountRole").GrantAccountRole = null as any;
@@ -404,6 +439,16 @@ export { GrantPrivilegesToShareArgs, GrantPrivilegesToShareState } from "./grant
 export type GrantPrivilegesToShare = import("./grantPrivilegesToShare").GrantPrivilegesToShare;
 export const GrantPrivilegesToShare: typeof import("./grantPrivilegesToShare").GrantPrivilegesToShare = null as any;
 utilities.lazyLoad(exports, ["GrantPrivilegesToShare"], () => require("./grantPrivilegesToShare"));
+
+export { ImageRepositoryArgs, ImageRepositoryState } from "./imageRepository";
+export type ImageRepository = import("./imageRepository").ImageRepository;
+export const ImageRepository: typeof import("./imageRepository").ImageRepository = null as any;
+utilities.lazyLoad(exports, ["ImageRepository"], () => require("./imageRepository"));
+
+export { JobServiceArgs, JobServiceState } from "./jobService";
+export type JobService = import("./jobService").JobService;
+export const JobService: typeof import("./jobService").JobService = null as any;
+utilities.lazyLoad(exports, ["JobService"], () => require("./jobService"));
 
 export { LegacyServiceUserArgs, LegacyServiceUserState } from "./legacyServiceUser";
 export type LegacyServiceUser = import("./legacyServiceUser").LegacyServiceUser;
@@ -563,6 +608,11 @@ export type Sequence = import("./sequence").Sequence;
 export const Sequence: typeof import("./sequence").Sequence = null as any;
 utilities.lazyLoad(exports, ["Sequence"], () => require("./sequence"));
 
+export { ServiceArgs, ServiceState } from "./service";
+export type Service = import("./service").Service;
+export const Service: typeof import("./service").Service = null as any;
+utilities.lazyLoad(exports, ["Service"], () => require("./service"));
+
 export { ServiceUserArgs, ServiceUserState } from "./serviceUser";
 export type ServiceUser = import("./serviceUser").ServiceUser;
 export const ServiceUser: typeof import("./serviceUser").ServiceUser = null as any;
@@ -709,8 +759,12 @@ const _module = {
                 return new ApiIntegration(name, <any>undefined, { urn })
             case "snowflake:index/authenticationPolicy:AuthenticationPolicy":
                 return new AuthenticationPolicy(name, <any>undefined, { urn })
+            case "snowflake:index/computePool:ComputePool":
+                return new ComputePool(name, <any>undefined, { urn })
             case "snowflake:index/cortexSearchService:CortexSearchService":
                 return new CortexSearchService(name, <any>undefined, { urn })
+            case "snowflake:index/currentAccount:CurrentAccount":
+                return new CurrentAccount(name, <any>undefined, { urn })
             case "snowflake:index/database:Database":
                 return new Database(name, <any>undefined, { urn })
             case "snowflake:index/databaseRole:DatabaseRole":
@@ -743,6 +797,8 @@ const _module = {
                 return new FunctionScala(name, <any>undefined, { urn })
             case "snowflake:index/functionSql:FunctionSql":
                 return new FunctionSql(name, <any>undefined, { urn })
+            case "snowflake:index/gitRepository:GitRepository":
+                return new GitRepository(name, <any>undefined, { urn })
             case "snowflake:index/grantAccountRole:GrantAccountRole":
                 return new GrantAccountRole(name, <any>undefined, { urn })
             case "snowflake:index/grantApplicationRole:GrantApplicationRole":
@@ -757,6 +813,10 @@ const _module = {
                 return new GrantPrivilegesToDatabaseRole(name, <any>undefined, { urn })
             case "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare":
                 return new GrantPrivilegesToShare(name, <any>undefined, { urn })
+            case "snowflake:index/imageRepository:ImageRepository":
+                return new ImageRepository(name, <any>undefined, { urn })
+            case "snowflake:index/jobService:JobService":
+                return new JobService(name, <any>undefined, { urn })
             case "snowflake:index/legacyServiceUser:LegacyServiceUser":
                 return new LegacyServiceUser(name, <any>undefined, { urn })
             case "snowflake:index/managedAccount:ManagedAccount":
@@ -819,6 +879,8 @@ const _module = {
                 return new SecretWithGenericString(name, <any>undefined, { urn })
             case "snowflake:index/sequence:Sequence":
                 return new Sequence(name, <any>undefined, { urn })
+            case "snowflake:index/service:Service":
+                return new Service(name, <any>undefined, { urn })
             case "snowflake:index/serviceUser:ServiceUser":
                 return new ServiceUser(name, <any>undefined, { urn })
             case "snowflake:index/share:Share":
@@ -879,7 +941,9 @@ pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationInteg
 pulumi.runtime.registerResourceModule("snowflake", "index/apiAuthenticationIntegrationWithJwtBearer", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/apiIntegration", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/authenticationPolicy", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/computePool", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/cortexSearchService", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/currentAccount", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/database", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/databaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/dynamicTable", _module)
@@ -896,6 +960,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/functionJavascript", _
 pulumi.runtime.registerResourceModule("snowflake", "index/functionPython", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/functionScala", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/functionSql", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/gitRepository", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantAccountRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantApplicationRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantDatabaseRole", _module)
@@ -903,6 +968,8 @@ pulumi.runtime.registerResourceModule("snowflake", "index/grantOwnership", _modu
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToAccountRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToDatabaseRole", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/grantPrivilegesToShare", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/imageRepository", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/jobService", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/legacyServiceUser", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/managedAccount", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/maskingPolicy", _module)
@@ -934,6 +1001,7 @@ pulumi.runtime.registerResourceModule("snowflake", "index/secretWithBasicAuthent
 pulumi.runtime.registerResourceModule("snowflake", "index/secretWithClientCredentials", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/secretWithGenericString", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/sequence", _module)
+pulumi.runtime.registerResourceModule("snowflake", "index/service", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/serviceUser", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/share", _module)
 pulumi.runtime.registerResourceModule("snowflake", "index/sharedDatabase", _module)

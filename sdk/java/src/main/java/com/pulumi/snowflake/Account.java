@@ -66,6 +66,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
+     * Determines which billing entity is responsible for the account&#39;s consumption-based billing.
+     * 
+     */
+    @Export(name="consumptionBillingEntity", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> consumptionBillingEntity;
+
+    /**
+     * @return Determines which billing entity is responsible for the account&#39;s consumption-based billing.
+     * 
+     */
+    public Output<Optional<String>> consumptionBillingEntity() {
+        return Codegen.optional(this.consumptionBillingEntity);
+    }
+    /**
      * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
      * 
      */

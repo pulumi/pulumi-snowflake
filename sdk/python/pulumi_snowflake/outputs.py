@@ -62,6 +62,9 @@ __all__ = [
     'ApiAuthenticationIntegrationWithJwtBearerShowOutput',
     'AuthenticationPolicyDescribeOutput',
     'AuthenticationPolicyShowOutput',
+    'ComputePoolDescribeOutput',
+    'ComputePoolShowOutput',
+    'CortexSearchServiceDescribeOutput',
     'DatabaseReplication',
     'DatabaseReplicationEnableToAccount',
     'DatabaseRoleShowOutput',
@@ -136,6 +139,8 @@ __all__ = [
     'FunctionSqlParameterMetricLevel',
     'FunctionSqlParameterTraceLevel',
     'FunctionSqlShowOutput',
+    'GitRepositoryDescribeOutput',
+    'GitRepositoryShowOutput',
     'GrantOwnershipOn',
     'GrantOwnershipOnAll',
     'GrantOwnershipOnFuture',
@@ -148,6 +153,12 @@ __all__ = [
     'GrantPrivilegesToDatabaseRoleOnSchemaObject',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectAll',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture',
+    'ImageRepositoryShowOutput',
+    'JobServiceDescribeOutput',
+    'JobServiceFromSpecification',
+    'JobServiceFromSpecificationTemplate',
+    'JobServiceFromSpecificationTemplateUsing',
+    'JobServiceShowOutput',
     'LegacyServiceUserParameter',
     'LegacyServiceUserParameterAbortDetachedQuery',
     'LegacyServiceUserParameterAutocommit',
@@ -362,6 +373,11 @@ __all__ = [
     'SecretWithClientCredentialsShowOutput',
     'SecretWithGenericStringDescribeOutput',
     'SecretWithGenericStringShowOutput',
+    'ServiceDescribeOutput',
+    'ServiceFromSpecification',
+    'ServiceFromSpecificationTemplate',
+    'ServiceFromSpecificationTemplateUsing',
+    'ServiceShowOutput',
     'ServiceUserParameter',
     'ServiceUserParameterAbortDetachedQuery',
     'ServiceUserParameterAutocommit',
@@ -588,6 +604,10 @@ __all__ = [
     'GetAccountsAccountResult',
     'GetAccountsAccountShowOutputResult',
     'GetAlertsAlertResult',
+    'GetComputePoolsComputePoolResult',
+    'GetComputePoolsComputePoolDescribeOutputResult',
+    'GetComputePoolsComputePoolShowOutputResult',
+    'GetComputePoolsLimitResult',
     'GetConnectionsConnectionResult',
     'GetConnectionsConnectionShowOutputResult',
     'GetCortexSearchServicesCortexSearchServiceResult',
@@ -626,6 +646,11 @@ __all__ = [
     'GetFailoverGroupsFailoverGroupResult',
     'GetFileFormatsFileFormatResult',
     'GetFunctionsFunctionResult',
+    'GetGitRepositoriesGitRepositoryResult',
+    'GetGitRepositoriesGitRepositoryDescribeOutputResult',
+    'GetGitRepositoriesGitRepositoryShowOutputResult',
+    'GetGitRepositoriesInResult',
+    'GetGitRepositoriesLimitResult',
     'GetGrantsFutureGrantsInResult',
     'GetGrantsFutureGrantsToResult',
     'GetGrantsGrantResult',
@@ -633,6 +658,9 @@ __all__ = [
     'GetGrantsGrantsOnResult',
     'GetGrantsGrantsToResult',
     'GetGrantsGrantsToShareResult',
+    'GetImageRepositoriesImageRepositoryResult',
+    'GetImageRepositoriesImageRepositoryShowOutputResult',
+    'GetImageRepositoriesInResult',
     'GetMaskingPoliciesInResult',
     'GetMaskingPoliciesLimitResult',
     'GetMaskingPoliciesMaskingPolicyResult',
@@ -737,6 +765,11 @@ __all__ = [
     'GetSecurityIntegrationsSecurityIntegrationDescribeOutputSyncPasswordResult',
     'GetSecurityIntegrationsSecurityIntegrationShowOutputResult',
     'GetSequencesSequenceResult',
+    'GetServicesInResult',
+    'GetServicesLimitResult',
+    'GetServicesServiceResult',
+    'GetServicesServiceDescribeOutputResult',
+    'GetServicesServiceShowOutputResult',
     'GetSharesShareResult',
     'GetStagesStageResult',
     'GetStorageIntegrationsStorageIntegrationResult',
@@ -750,7 +783,11 @@ __all__ = [
     'GetStreamsStreamResult',
     'GetStreamsStreamDescribeOutputResult',
     'GetStreamsStreamShowOutputResult',
+    'GetTablesInResult',
+    'GetTablesLimitResult',
     'GetTablesTableResult',
+    'GetTablesTableDescribeOutputResult',
+    'GetTablesTableShowOutputResult',
     'GetTagsInResult',
     'GetTagsTagResult',
     'GetTagsTagShowOutputResult',
@@ -3391,6 +3428,606 @@ class AuthenticationPolicyShowOutput(dict):
     @pulumi.getter(name="schemaName")
     def schema_name(self) -> Optional[builtins.str]:
         return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class ComputePoolDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeNodes":
+            suggest = "active_nodes"
+        elif key == "autoResume":
+            suggest = "auto_resume"
+        elif key == "autoSuspendSecs":
+            suggest = "auto_suspend_secs"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "errorCode":
+            suggest = "error_code"
+        elif key == "idleNodes":
+            suggest = "idle_nodes"
+        elif key == "instanceFamily":
+            suggest = "instance_family"
+        elif key == "isExclusive":
+            suggest = "is_exclusive"
+        elif key == "maxNodes":
+            suggest = "max_nodes"
+        elif key == "minNodes":
+            suggest = "min_nodes"
+        elif key == "numJobs":
+            suggest = "num_jobs"
+        elif key == "numServices":
+            suggest = "num_services"
+        elif key == "resumedOn":
+            suggest = "resumed_on"
+        elif key == "statusMessage":
+            suggest = "status_message"
+        elif key == "targetNodes":
+            suggest = "target_nodes"
+        elif key == "updatedOn":
+            suggest = "updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputePoolDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputePoolDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputePoolDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active_nodes: Optional[builtins.int] = None,
+                 application: Optional[builtins.str] = None,
+                 auto_resume: Optional[builtins.bool] = None,
+                 auto_suspend_secs: Optional[builtins.int] = None,
+                 comment: Optional[builtins.str] = None,
+                 created_on: Optional[builtins.str] = None,
+                 error_code: Optional[builtins.str] = None,
+                 idle_nodes: Optional[builtins.int] = None,
+                 instance_family: Optional[builtins.str] = None,
+                 is_exclusive: Optional[builtins.bool] = None,
+                 max_nodes: Optional[builtins.int] = None,
+                 min_nodes: Optional[builtins.int] = None,
+                 name: Optional[builtins.str] = None,
+                 num_jobs: Optional[builtins.int] = None,
+                 num_services: Optional[builtins.int] = None,
+                 owner: Optional[builtins.str] = None,
+                 resumed_on: Optional[builtins.str] = None,
+                 state: Optional[builtins.str] = None,
+                 status_message: Optional[builtins.str] = None,
+                 target_nodes: Optional[builtins.int] = None,
+                 updated_on: Optional[builtins.str] = None):
+        if active_nodes is not None:
+            pulumi.set(__self__, "active_nodes", active_nodes)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend_secs is not None:
+            pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if idle_nodes is not None:
+            pulumi.set(__self__, "idle_nodes", idle_nodes)
+        if instance_family is not None:
+            pulumi.set(__self__, "instance_family", instance_family)
+        if is_exclusive is not None:
+            pulumi.set(__self__, "is_exclusive", is_exclusive)
+        if max_nodes is not None:
+            pulumi.set(__self__, "max_nodes", max_nodes)
+        if min_nodes is not None:
+            pulumi.set(__self__, "min_nodes", min_nodes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if num_jobs is not None:
+            pulumi.set(__self__, "num_jobs", num_jobs)
+        if num_services is not None:
+            pulumi.set(__self__, "num_services", num_services)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if status_message is not None:
+            pulumi.set(__self__, "status_message", status_message)
+        if target_nodes is not None:
+            pulumi.set(__self__, "target_nodes", target_nodes)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="activeNodes")
+    def active_nodes(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "active_nodes")
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "application")
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "auto_resume")
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="idleNodes")
+    def idle_nodes(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "idle_nodes")
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "instance_family")
+
+    @property
+    @pulumi.getter(name="isExclusive")
+    def is_exclusive(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_exclusive")
+
+    @property
+    @pulumi.getter(name="maxNodes")
+    def max_nodes(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max_nodes")
+
+    @property
+    @pulumi.getter(name="minNodes")
+    def min_nodes(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min_nodes")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="numJobs")
+    def num_jobs(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "num_jobs")
+
+    @property
+    @pulumi.getter(name="numServices")
+    def num_services(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "num_services")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "resumed_on")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "status_message")
+
+    @property
+    @pulumi.getter(name="targetNodes")
+    def target_nodes(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "target_nodes")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
+class ComputePoolShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeNodes":
+            suggest = "active_nodes"
+        elif key == "autoResume":
+            suggest = "auto_resume"
+        elif key == "autoSuspendSecs":
+            suggest = "auto_suspend_secs"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "idleNodes":
+            suggest = "idle_nodes"
+        elif key == "instanceFamily":
+            suggest = "instance_family"
+        elif key == "isExclusive":
+            suggest = "is_exclusive"
+        elif key == "maxNodes":
+            suggest = "max_nodes"
+        elif key == "minNodes":
+            suggest = "min_nodes"
+        elif key == "numJobs":
+            suggest = "num_jobs"
+        elif key == "numServices":
+            suggest = "num_services"
+        elif key == "resumedOn":
+            suggest = "resumed_on"
+        elif key == "targetNodes":
+            suggest = "target_nodes"
+        elif key == "updatedOn":
+            suggest = "updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ComputePoolShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ComputePoolShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ComputePoolShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active_nodes: Optional[builtins.int] = None,
+                 application: Optional[builtins.str] = None,
+                 auto_resume: Optional[builtins.bool] = None,
+                 auto_suspend_secs: Optional[builtins.int] = None,
+                 comment: Optional[builtins.str] = None,
+                 created_on: Optional[builtins.str] = None,
+                 idle_nodes: Optional[builtins.int] = None,
+                 instance_family: Optional[builtins.str] = None,
+                 is_exclusive: Optional[builtins.bool] = None,
+                 max_nodes: Optional[builtins.int] = None,
+                 min_nodes: Optional[builtins.int] = None,
+                 name: Optional[builtins.str] = None,
+                 num_jobs: Optional[builtins.int] = None,
+                 num_services: Optional[builtins.int] = None,
+                 owner: Optional[builtins.str] = None,
+                 resumed_on: Optional[builtins.str] = None,
+                 state: Optional[builtins.str] = None,
+                 target_nodes: Optional[builtins.int] = None,
+                 updated_on: Optional[builtins.str] = None):
+        if active_nodes is not None:
+            pulumi.set(__self__, "active_nodes", active_nodes)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend_secs is not None:
+            pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if idle_nodes is not None:
+            pulumi.set(__self__, "idle_nodes", idle_nodes)
+        if instance_family is not None:
+            pulumi.set(__self__, "instance_family", instance_family)
+        if is_exclusive is not None:
+            pulumi.set(__self__, "is_exclusive", is_exclusive)
+        if max_nodes is not None:
+            pulumi.set(__self__, "max_nodes", max_nodes)
+        if min_nodes is not None:
+            pulumi.set(__self__, "min_nodes", min_nodes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if num_jobs is not None:
+            pulumi.set(__self__, "num_jobs", num_jobs)
+        if num_services is not None:
+            pulumi.set(__self__, "num_services", num_services)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if target_nodes is not None:
+            pulumi.set(__self__, "target_nodes", target_nodes)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="activeNodes")
+    def active_nodes(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "active_nodes")
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "application")
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "auto_resume")
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="idleNodes")
+    def idle_nodes(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "idle_nodes")
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "instance_family")
+
+    @property
+    @pulumi.getter(name="isExclusive")
+    def is_exclusive(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_exclusive")
+
+    @property
+    @pulumi.getter(name="maxNodes")
+    def max_nodes(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max_nodes")
+
+    @property
+    @pulumi.getter(name="minNodes")
+    def min_nodes(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min_nodes")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="numJobs")
+    def num_jobs(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "num_jobs")
+
+    @property
+    @pulumi.getter(name="numServices")
+    def num_services(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "num_services")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "resumed_on")
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="targetNodes")
+    def target_nodes(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "target_nodes")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
+class CortexSearchServiceDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeColumns":
+            suggest = "attribute_columns"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "dataTimestamp":
+            suggest = "data_timestamp"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "embeddingModel":
+            suggest = "embedding_model"
+        elif key == "indexingError":
+            suggest = "indexing_error"
+        elif key == "indexingState":
+            suggest = "indexing_state"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "searchColumn":
+            suggest = "search_column"
+        elif key == "serviceQueryUrl":
+            suggest = "service_query_url"
+        elif key == "sourceDataNumRows":
+            suggest = "source_data_num_rows"
+        elif key == "targetLag":
+            suggest = "target_lag"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CortexSearchServiceDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CortexSearchServiceDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CortexSearchServiceDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_columns: Optional[Sequence[builtins.str]] = None,
+                 columns: Optional[Sequence[builtins.str]] = None,
+                 comment: Optional[builtins.str] = None,
+                 created_on: Optional[builtins.str] = None,
+                 data_timestamp: Optional[builtins.str] = None,
+                 database_name: Optional[builtins.str] = None,
+                 definition: Optional[builtins.str] = None,
+                 embedding_model: Optional[builtins.str] = None,
+                 indexing_error: Optional[builtins.str] = None,
+                 indexing_state: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None,
+                 schema_name: Optional[builtins.str] = None,
+                 search_column: Optional[builtins.str] = None,
+                 service_query_url: Optional[builtins.str] = None,
+                 source_data_num_rows: Optional[builtins.int] = None,
+                 target_lag: Optional[builtins.str] = None,
+                 warehouse: Optional[builtins.str] = None):
+        if attribute_columns is not None:
+            pulumi.set(__self__, "attribute_columns", attribute_columns)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if data_timestamp is not None:
+            pulumi.set(__self__, "data_timestamp", data_timestamp)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+        if embedding_model is not None:
+            pulumi.set(__self__, "embedding_model", embedding_model)
+        if indexing_error is not None:
+            pulumi.set(__self__, "indexing_error", indexing_error)
+        if indexing_state is not None:
+            pulumi.set(__self__, "indexing_state", indexing_state)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if search_column is not None:
+            pulumi.set(__self__, "search_column", search_column)
+        if service_query_url is not None:
+            pulumi.set(__self__, "service_query_url", service_query_url)
+        if source_data_num_rows is not None:
+            pulumi.set(__self__, "source_data_num_rows", source_data_num_rows)
+        if target_lag is not None:
+            pulumi.set(__self__, "target_lag", target_lag)
+        if warehouse is not None:
+            pulumi.set(__self__, "warehouse", warehouse)
+
+    @property
+    @pulumi.getter(name="attributeColumns")
+    def attribute_columns(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "attribute_columns")
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "columns")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="dataTimestamp")
+    def data_timestamp(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "data_timestamp")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "definition")
+
+    @property
+    @pulumi.getter(name="embeddingModel")
+    def embedding_model(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "embedding_model")
+
+    @property
+    @pulumi.getter(name="indexingError")
+    def indexing_error(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "indexing_error")
+
+    @property
+    @pulumi.getter(name="indexingState")
+    def indexing_state(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "indexing_state")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter(name="searchColumn")
+    def search_column(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "search_column")
+
+    @property
+    @pulumi.getter(name="serviceQueryUrl")
+    def service_query_url(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "service_query_url")
+
+    @property
+    @pulumi.getter(name="sourceDataNumRows")
+    def source_data_num_rows(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "source_data_num_rows")
+
+    @property
+    @pulumi.getter(name="targetLag")
+    def target_lag(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "target_lag")
+
+    @property
+    @pulumi.getter
+    def warehouse(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "warehouse")
 
 
 @pulumi.output_type
@@ -7884,6 +8521,250 @@ class FunctionSqlShowOutput(dict):
 
 
 @pulumi.output_type
+class GitRepositoryDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiIntegration":
+            suggest = "api_integration"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "gitCredentials":
+            suggest = "git_credentials"
+        elif key == "lastFetchedAt":
+            suggest = "last_fetched_at"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GitRepositoryDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GitRepositoryDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GitRepositoryDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_integration: Optional[builtins.str] = None,
+                 comment: Optional[builtins.str] = None,
+                 created_on: Optional[builtins.str] = None,
+                 database_name: Optional[builtins.str] = None,
+                 git_credentials: Optional[builtins.str] = None,
+                 last_fetched_at: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None,
+                 origin: Optional[builtins.str] = None,
+                 owner: Optional[builtins.str] = None,
+                 owner_role_type: Optional[builtins.str] = None,
+                 schema_name: Optional[builtins.str] = None):
+        if api_integration is not None:
+            pulumi.set(__self__, "api_integration", api_integration)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if git_credentials is not None:
+            pulumi.set(__self__, "git_credentials", git_credentials)
+        if last_fetched_at is not None:
+            pulumi.set(__self__, "last_fetched_at", last_fetched_at)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="apiIntegration")
+    def api_integration(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "api_integration")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="gitCredentials")
+    def git_credentials(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "git_credentials")
+
+    @property
+    @pulumi.getter(name="lastFetchedAt")
+    def last_fetched_at(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "last_fetched_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class GitRepositoryShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiIntegration":
+            suggest = "api_integration"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "gitCredentials":
+            suggest = "git_credentials"
+        elif key == "lastFetchedAt":
+            suggest = "last_fetched_at"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GitRepositoryShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GitRepositoryShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GitRepositoryShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_integration: Optional[builtins.str] = None,
+                 comment: Optional[builtins.str] = None,
+                 created_on: Optional[builtins.str] = None,
+                 database_name: Optional[builtins.str] = None,
+                 git_credentials: Optional[builtins.str] = None,
+                 last_fetched_at: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None,
+                 origin: Optional[builtins.str] = None,
+                 owner: Optional[builtins.str] = None,
+                 owner_role_type: Optional[builtins.str] = None,
+                 schema_name: Optional[builtins.str] = None):
+        if api_integration is not None:
+            pulumi.set(__self__, "api_integration", api_integration)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if git_credentials is not None:
+            pulumi.set(__self__, "git_credentials", git_credentials)
+        if last_fetched_at is not None:
+            pulumi.set(__self__, "last_fetched_at", last_fetched_at)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="apiIntegration")
+    def api_integration(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "api_integration")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="gitCredentials")
+    def git_credentials(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "git_credentials")
+
+    @property
+    @pulumi.getter(name="lastFetchedAt")
+    def last_fetched_at(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "last_fetched_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
 class GrantOwnershipOn(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -8352,7 +9233,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFuture(dict):
                  in_database: Optional[builtins.str] = None,
                  in_schema: Optional[builtins.str] = None):
         """
-        :param builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+        :param builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -8364,7 +9245,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -8608,7 +9489,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
                  in_database: Optional[builtins.str] = None,
                  in_schema: Optional[builtins.str] = None):
         """
-        :param builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+        :param builtins.str object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
         :param builtins.str in_database: The fully qualified name of the database.
         :param builtins.str in_schema: The fully qualified name of the schema.
         """
@@ -8622,7 +9503,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> builtins.str:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -8641,6 +9522,852 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture(dict):
         The fully qualified name of the schema.
         """
         return pulumi.get(self, "in_schema")
+
+
+@pulumi.output_type
+class ImageRepositoryShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdOn":
+            suggest = "created_on"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "privatelinkRepositoryUrl":
+            suggest = "privatelink_repository_url"
+        elif key == "repositoryUrl":
+            suggest = "repository_url"
+        elif key == "schemaName":
+            suggest = "schema_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ImageRepositoryShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ImageRepositoryShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ImageRepositoryShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 comment: Optional[builtins.str] = None,
+                 created_on: Optional[builtins.str] = None,
+                 database_name: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None,
+                 owner: Optional[builtins.str] = None,
+                 owner_role_type: Optional[builtins.str] = None,
+                 privatelink_repository_url: Optional[builtins.str] = None,
+                 repository_url: Optional[builtins.str] = None,
+                 schema_name: Optional[builtins.str] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if privatelink_repository_url is not None:
+            pulumi.set(__self__, "privatelink_repository_url", privatelink_repository_url)
+        if repository_url is not None:
+            pulumi.set(__self__, "repository_url", repository_url)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="privatelinkRepositoryUrl")
+    def privatelink_repository_url(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "privatelink_repository_url")
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "repository_url")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class JobServiceDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoResume":
+            suggest = "auto_resume"
+        elif key == "autoSuspendSecs":
+            suggest = "auto_suspend_secs"
+        elif key == "computePool":
+            suggest = "compute_pool"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "currentInstances":
+            suggest = "current_instances"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "dnsName":
+            suggest = "dns_name"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAsyncJob":
+            suggest = "is_async_job"
+        elif key == "isJob":
+            suggest = "is_job"
+        elif key == "isUpgrading":
+            suggest = "is_upgrading"
+        elif key == "managingObjectDomain":
+            suggest = "managing_object_domain"
+        elif key == "managingObjectName":
+            suggest = "managing_object_name"
+        elif key == "maxInstances":
+            suggest = "max_instances"
+        elif key == "minInstances":
+            suggest = "min_instances"
+        elif key == "minReadyInstances":
+            suggest = "min_ready_instances"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "queryWarehouse":
+            suggest = "query_warehouse"
+        elif key == "resumedOn":
+            suggest = "resumed_on"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "specDigest":
+            suggest = "spec_digest"
+        elif key == "suspendedOn":
+            suggest = "suspended_on"
+        elif key == "targetInstances":
+            suggest = "target_instances"
+        elif key == "updatedOn":
+            suggest = "updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobServiceDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobServiceDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobServiceDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_resume: Optional[builtins.bool] = None,
+                 auto_suspend_secs: Optional[builtins.int] = None,
+                 comment: Optional[builtins.str] = None,
+                 compute_pool: Optional[builtins.str] = None,
+                 created_on: Optional[builtins.str] = None,
+                 current_instances: Optional[builtins.int] = None,
+                 database_name: Optional[builtins.str] = None,
+                 dns_name: Optional[builtins.str] = None,
+                 external_access_integrations: Optional[Sequence[builtins.str]] = None,
+                 is_async_job: Optional[builtins.bool] = None,
+                 is_job: Optional[builtins.bool] = None,
+                 is_upgrading: Optional[builtins.bool] = None,
+                 managing_object_domain: Optional[builtins.str] = None,
+                 managing_object_name: Optional[builtins.str] = None,
+                 max_instances: Optional[builtins.int] = None,
+                 min_instances: Optional[builtins.int] = None,
+                 min_ready_instances: Optional[builtins.int] = None,
+                 name: Optional[builtins.str] = None,
+                 owner: Optional[builtins.str] = None,
+                 owner_role_type: Optional[builtins.str] = None,
+                 query_warehouse: Optional[builtins.str] = None,
+                 resumed_on: Optional[builtins.str] = None,
+                 schema_name: Optional[builtins.str] = None,
+                 spec: Optional[builtins.str] = None,
+                 spec_digest: Optional[builtins.str] = None,
+                 status: Optional[builtins.str] = None,
+                 suspended_on: Optional[builtins.str] = None,
+                 target_instances: Optional[builtins.int] = None,
+                 updated_on: Optional[builtins.str] = None):
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend_secs is not None:
+            pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if compute_pool is not None:
+            pulumi.set(__self__, "compute_pool", compute_pool)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if current_instances is not None:
+            pulumi.set(__self__, "current_instances", current_instances)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_async_job is not None:
+            pulumi.set(__self__, "is_async_job", is_async_job)
+        if is_job is not None:
+            pulumi.set(__self__, "is_job", is_job)
+        if is_upgrading is not None:
+            pulumi.set(__self__, "is_upgrading", is_upgrading)
+        if managing_object_domain is not None:
+            pulumi.set(__self__, "managing_object_domain", managing_object_domain)
+        if managing_object_name is not None:
+            pulumi.set(__self__, "managing_object_name", managing_object_name)
+        if max_instances is not None:
+            pulumi.set(__self__, "max_instances", max_instances)
+        if min_instances is not None:
+            pulumi.set(__self__, "min_instances", min_instances)
+        if min_ready_instances is not None:
+            pulumi.set(__self__, "min_ready_instances", min_ready_instances)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+        if spec_digest is not None:
+            pulumi.set(__self__, "spec_digest", spec_digest)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if suspended_on is not None:
+            pulumi.set(__self__, "suspended_on", suspended_on)
+        if target_instances is not None:
+            pulumi.set(__self__, "target_instances", target_instances)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "auto_resume")
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "compute_pool")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="currentInstances")
+    def current_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "current_instances")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAsyncJob")
+    def is_async_job(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_async_job")
+
+    @property
+    @pulumi.getter(name="isJob")
+    def is_job(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_job")
+
+    @property
+    @pulumi.getter(name="isUpgrading")
+    def is_upgrading(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_upgrading")
+
+    @property
+    @pulumi.getter(name="managingObjectDomain")
+    def managing_object_domain(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "managing_object_domain")
+
+    @property
+    @pulumi.getter(name="managingObjectName")
+    def managing_object_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "managing_object_name")
+
+    @property
+    @pulumi.getter(name="maxInstances")
+    def max_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max_instances")
+
+    @property
+    @pulumi.getter(name="minInstances")
+    def min_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min_instances")
+
+    @property
+    @pulumi.getter(name="minReadyInstances")
+    def min_ready_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min_ready_instances")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "query_warehouse")
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "resumed_on")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "spec")
+
+    @property
+    @pulumi.getter(name="specDigest")
+    def spec_digest(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "spec_digest")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="suspendedOn")
+    def suspended_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "suspended_on")
+
+    @property
+    @pulumi.getter(name="targetInstances")
+    def target_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "target_instances")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
+class JobServiceFromSpecification(dict):
+    def __init__(__self__, *,
+                 file: Optional[builtins.str] = None,
+                 path: Optional[builtins.str] = None,
+                 stage: Optional[builtins.str] = None,
+                 text: Optional[builtins.str] = None):
+        """
+        :param builtins.str file: The file name of the service specification. Example: `spec.yaml`.
+        :param builtins.str path: The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        :param builtins.str stage: The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        :param builtins.str text: The embedded text of the service specification.
+        """
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[builtins.str]:
+        """
+        The file name of the service specification. Example: `spec.yaml`.
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[builtins.str]:
+        """
+        The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        """
+        return pulumi.get(self, "stage")
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[builtins.str]:
+        """
+        The embedded text of the service specification.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class JobServiceFromSpecificationTemplate(dict):
+    def __init__(__self__, *,
+                 usings: Sequence['outputs.JobServiceFromSpecificationTemplateUsing'],
+                 file: Optional[builtins.str] = None,
+                 path: Optional[builtins.str] = None,
+                 stage: Optional[builtins.str] = None,
+                 text: Optional[builtins.str] = None):
+        """
+        :param Sequence['JobServiceFromSpecificationTemplateUsingArgs'] usings: List of the specified template variables and the values of those variables.
+        :param builtins.str file: The file name of the service specification template. Example: `spec.yaml`.
+        :param builtins.str path: The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        :param builtins.str stage: The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        :param builtins.str text: The embedded text of the service specification template.
+        """
+        pulumi.set(__self__, "usings", usings)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def usings(self) -> Sequence['outputs.JobServiceFromSpecificationTemplateUsing']:
+        """
+        List of the specified template variables and the values of those variables.
+        """
+        return pulumi.get(self, "usings")
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[builtins.str]:
+        """
+        The file name of the service specification template. Example: `spec.yaml`.
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[builtins.str]:
+        """
+        The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        """
+        return pulumi.get(self, "stage")
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[builtins.str]:
+        """
+        The embedded text of the service specification template.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class JobServiceFromSpecificationTemplateUsing(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str key: The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+        :param builtins.str value: The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class JobServiceShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoResume":
+            suggest = "auto_resume"
+        elif key == "autoSuspendSecs":
+            suggest = "auto_suspend_secs"
+        elif key == "computePool":
+            suggest = "compute_pool"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "currentInstances":
+            suggest = "current_instances"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "dnsName":
+            suggest = "dns_name"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAsyncJob":
+            suggest = "is_async_job"
+        elif key == "isJob":
+            suggest = "is_job"
+        elif key == "isUpgrading":
+            suggest = "is_upgrading"
+        elif key == "managingObjectDomain":
+            suggest = "managing_object_domain"
+        elif key == "managingObjectName":
+            suggest = "managing_object_name"
+        elif key == "maxInstances":
+            suggest = "max_instances"
+        elif key == "minInstances":
+            suggest = "min_instances"
+        elif key == "minReadyInstances":
+            suggest = "min_ready_instances"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "queryWarehouse":
+            suggest = "query_warehouse"
+        elif key == "resumedOn":
+            suggest = "resumed_on"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "specDigest":
+            suggest = "spec_digest"
+        elif key == "suspendedOn":
+            suggest = "suspended_on"
+        elif key == "targetInstances":
+            suggest = "target_instances"
+        elif key == "updatedOn":
+            suggest = "updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobServiceShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobServiceShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobServiceShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_resume: Optional[builtins.bool] = None,
+                 auto_suspend_secs: Optional[builtins.int] = None,
+                 comment: Optional[builtins.str] = None,
+                 compute_pool: Optional[builtins.str] = None,
+                 created_on: Optional[builtins.str] = None,
+                 current_instances: Optional[builtins.int] = None,
+                 database_name: Optional[builtins.str] = None,
+                 dns_name: Optional[builtins.str] = None,
+                 external_access_integrations: Optional[Sequence[builtins.str]] = None,
+                 is_async_job: Optional[builtins.bool] = None,
+                 is_job: Optional[builtins.bool] = None,
+                 is_upgrading: Optional[builtins.bool] = None,
+                 managing_object_domain: Optional[builtins.str] = None,
+                 managing_object_name: Optional[builtins.str] = None,
+                 max_instances: Optional[builtins.int] = None,
+                 min_instances: Optional[builtins.int] = None,
+                 min_ready_instances: Optional[builtins.int] = None,
+                 name: Optional[builtins.str] = None,
+                 owner: Optional[builtins.str] = None,
+                 owner_role_type: Optional[builtins.str] = None,
+                 query_warehouse: Optional[builtins.str] = None,
+                 resumed_on: Optional[builtins.str] = None,
+                 schema_name: Optional[builtins.str] = None,
+                 spec_digest: Optional[builtins.str] = None,
+                 status: Optional[builtins.str] = None,
+                 suspended_on: Optional[builtins.str] = None,
+                 target_instances: Optional[builtins.int] = None,
+                 updated_on: Optional[builtins.str] = None):
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend_secs is not None:
+            pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if compute_pool is not None:
+            pulumi.set(__self__, "compute_pool", compute_pool)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if current_instances is not None:
+            pulumi.set(__self__, "current_instances", current_instances)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_async_job is not None:
+            pulumi.set(__self__, "is_async_job", is_async_job)
+        if is_job is not None:
+            pulumi.set(__self__, "is_job", is_job)
+        if is_upgrading is not None:
+            pulumi.set(__self__, "is_upgrading", is_upgrading)
+        if managing_object_domain is not None:
+            pulumi.set(__self__, "managing_object_domain", managing_object_domain)
+        if managing_object_name is not None:
+            pulumi.set(__self__, "managing_object_name", managing_object_name)
+        if max_instances is not None:
+            pulumi.set(__self__, "max_instances", max_instances)
+        if min_instances is not None:
+            pulumi.set(__self__, "min_instances", min_instances)
+        if min_ready_instances is not None:
+            pulumi.set(__self__, "min_ready_instances", min_ready_instances)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if spec_digest is not None:
+            pulumi.set(__self__, "spec_digest", spec_digest)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if suspended_on is not None:
+            pulumi.set(__self__, "suspended_on", suspended_on)
+        if target_instances is not None:
+            pulumi.set(__self__, "target_instances", target_instances)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "auto_resume")
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "compute_pool")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="currentInstances")
+    def current_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "current_instances")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAsyncJob")
+    def is_async_job(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_async_job")
+
+    @property
+    @pulumi.getter(name="isJob")
+    def is_job(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_job")
+
+    @property
+    @pulumi.getter(name="isUpgrading")
+    def is_upgrading(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_upgrading")
+
+    @property
+    @pulumi.getter(name="managingObjectDomain")
+    def managing_object_domain(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "managing_object_domain")
+
+    @property
+    @pulumi.getter(name="managingObjectName")
+    def managing_object_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "managing_object_name")
+
+    @property
+    @pulumi.getter(name="maxInstances")
+    def max_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max_instances")
+
+    @property
+    @pulumi.getter(name="minInstances")
+    def min_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min_instances")
+
+    @property
+    @pulumi.getter(name="minReadyInstances")
+    def min_ready_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min_ready_instances")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "query_warehouse")
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "resumed_on")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter(name="specDigest")
+    def spec_digest(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "spec_digest")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="suspendedOn")
+    def suspended_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "suspended_on")
+
+    @property
+    @pulumi.getter(name="targetInstances")
+    def target_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "target_instances")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "updated_on")
 
 
 @pulumi.output_type
@@ -21119,6 +22846,748 @@ class SecretWithGenericStringShowOutput(dict):
     @pulumi.getter(name="secretType")
     def secret_type(self) -> Optional[builtins.str]:
         return pulumi.get(self, "secret_type")
+
+
+@pulumi.output_type
+class ServiceDescribeOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoResume":
+            suggest = "auto_resume"
+        elif key == "autoSuspendSecs":
+            suggest = "auto_suspend_secs"
+        elif key == "computePool":
+            suggest = "compute_pool"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "currentInstances":
+            suggest = "current_instances"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "dnsName":
+            suggest = "dns_name"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAsyncJob":
+            suggest = "is_async_job"
+        elif key == "isJob":
+            suggest = "is_job"
+        elif key == "isUpgrading":
+            suggest = "is_upgrading"
+        elif key == "managingObjectDomain":
+            suggest = "managing_object_domain"
+        elif key == "managingObjectName":
+            suggest = "managing_object_name"
+        elif key == "maxInstances":
+            suggest = "max_instances"
+        elif key == "minInstances":
+            suggest = "min_instances"
+        elif key == "minReadyInstances":
+            suggest = "min_ready_instances"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "queryWarehouse":
+            suggest = "query_warehouse"
+        elif key == "resumedOn":
+            suggest = "resumed_on"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "specDigest":
+            suggest = "spec_digest"
+        elif key == "suspendedOn":
+            suggest = "suspended_on"
+        elif key == "targetInstances":
+            suggest = "target_instances"
+        elif key == "updatedOn":
+            suggest = "updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceDescribeOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceDescribeOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceDescribeOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_resume: Optional[builtins.bool] = None,
+                 auto_suspend_secs: Optional[builtins.int] = None,
+                 comment: Optional[builtins.str] = None,
+                 compute_pool: Optional[builtins.str] = None,
+                 created_on: Optional[builtins.str] = None,
+                 current_instances: Optional[builtins.int] = None,
+                 database_name: Optional[builtins.str] = None,
+                 dns_name: Optional[builtins.str] = None,
+                 external_access_integrations: Optional[Sequence[builtins.str]] = None,
+                 is_async_job: Optional[builtins.bool] = None,
+                 is_job: Optional[builtins.bool] = None,
+                 is_upgrading: Optional[builtins.bool] = None,
+                 managing_object_domain: Optional[builtins.str] = None,
+                 managing_object_name: Optional[builtins.str] = None,
+                 max_instances: Optional[builtins.int] = None,
+                 min_instances: Optional[builtins.int] = None,
+                 min_ready_instances: Optional[builtins.int] = None,
+                 name: Optional[builtins.str] = None,
+                 owner: Optional[builtins.str] = None,
+                 owner_role_type: Optional[builtins.str] = None,
+                 query_warehouse: Optional[builtins.str] = None,
+                 resumed_on: Optional[builtins.str] = None,
+                 schema_name: Optional[builtins.str] = None,
+                 spec: Optional[builtins.str] = None,
+                 spec_digest: Optional[builtins.str] = None,
+                 status: Optional[builtins.str] = None,
+                 suspended_on: Optional[builtins.str] = None,
+                 target_instances: Optional[builtins.int] = None,
+                 updated_on: Optional[builtins.str] = None):
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend_secs is not None:
+            pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if compute_pool is not None:
+            pulumi.set(__self__, "compute_pool", compute_pool)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if current_instances is not None:
+            pulumi.set(__self__, "current_instances", current_instances)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_async_job is not None:
+            pulumi.set(__self__, "is_async_job", is_async_job)
+        if is_job is not None:
+            pulumi.set(__self__, "is_job", is_job)
+        if is_upgrading is not None:
+            pulumi.set(__self__, "is_upgrading", is_upgrading)
+        if managing_object_domain is not None:
+            pulumi.set(__self__, "managing_object_domain", managing_object_domain)
+        if managing_object_name is not None:
+            pulumi.set(__self__, "managing_object_name", managing_object_name)
+        if max_instances is not None:
+            pulumi.set(__self__, "max_instances", max_instances)
+        if min_instances is not None:
+            pulumi.set(__self__, "min_instances", min_instances)
+        if min_ready_instances is not None:
+            pulumi.set(__self__, "min_ready_instances", min_ready_instances)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+        if spec_digest is not None:
+            pulumi.set(__self__, "spec_digest", spec_digest)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if suspended_on is not None:
+            pulumi.set(__self__, "suspended_on", suspended_on)
+        if target_instances is not None:
+            pulumi.set(__self__, "target_instances", target_instances)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "auto_resume")
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "compute_pool")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="currentInstances")
+    def current_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "current_instances")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAsyncJob")
+    def is_async_job(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_async_job")
+
+    @property
+    @pulumi.getter(name="isJob")
+    def is_job(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_job")
+
+    @property
+    @pulumi.getter(name="isUpgrading")
+    def is_upgrading(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_upgrading")
+
+    @property
+    @pulumi.getter(name="managingObjectDomain")
+    def managing_object_domain(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "managing_object_domain")
+
+    @property
+    @pulumi.getter(name="managingObjectName")
+    def managing_object_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "managing_object_name")
+
+    @property
+    @pulumi.getter(name="maxInstances")
+    def max_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max_instances")
+
+    @property
+    @pulumi.getter(name="minInstances")
+    def min_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min_instances")
+
+    @property
+    @pulumi.getter(name="minReadyInstances")
+    def min_ready_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min_ready_instances")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "query_warehouse")
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "resumed_on")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "spec")
+
+    @property
+    @pulumi.getter(name="specDigest")
+    def spec_digest(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "spec_digest")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="suspendedOn")
+    def suspended_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "suspended_on")
+
+    @property
+    @pulumi.getter(name="targetInstances")
+    def target_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "target_instances")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
+class ServiceFromSpecification(dict):
+    def __init__(__self__, *,
+                 file: Optional[builtins.str] = None,
+                 path: Optional[builtins.str] = None,
+                 stage: Optional[builtins.str] = None,
+                 text: Optional[builtins.str] = None):
+        """
+        :param builtins.str file: The file name of the service specification. Example: `spec.yaml`.
+        :param builtins.str path: The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        :param builtins.str stage: The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        :param builtins.str text: The embedded text of the service specification.
+        """
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[builtins.str]:
+        """
+        The file name of the service specification. Example: `spec.yaml`.
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[builtins.str]:
+        """
+        The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        """
+        return pulumi.get(self, "stage")
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[builtins.str]:
+        """
+        The embedded text of the service specification.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class ServiceFromSpecificationTemplate(dict):
+    def __init__(__self__, *,
+                 usings: Sequence['outputs.ServiceFromSpecificationTemplateUsing'],
+                 file: Optional[builtins.str] = None,
+                 path: Optional[builtins.str] = None,
+                 stage: Optional[builtins.str] = None,
+                 text: Optional[builtins.str] = None):
+        """
+        :param Sequence['ServiceFromSpecificationTemplateUsingArgs'] usings: List of the specified template variables and the values of those variables.
+        :param builtins.str file: The file name of the service specification template. Example: `spec.yaml`.
+        :param builtins.str path: The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        :param builtins.str stage: The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        :param builtins.str text: The embedded text of the service specification template.
+        """
+        pulumi.set(__self__, "usings", usings)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def usings(self) -> Sequence['outputs.ServiceFromSpecificationTemplateUsing']:
+        """
+        List of the specified template variables and the values of those variables.
+        """
+        return pulumi.get(self, "usings")
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[builtins.str]:
+        """
+        The file name of the service specification template. Example: `spec.yaml`.
+        """
+        return pulumi.get(self, "file")
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[builtins.str]:
+        """
+        The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        """
+        return pulumi.get(self, "stage")
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[builtins.str]:
+        """
+        The embedded text of the service specification template.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class ServiceFromSpecificationTemplateUsing(dict):
+    def __init__(__self__, *,
+                 key: builtins.str,
+                 value: builtins.str):
+        """
+        :param builtins.str key: The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+        :param builtins.str value: The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> builtins.str:
+        """
+        The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+        """
+        return pulumi.get(self, "key")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ServiceShowOutput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoResume":
+            suggest = "auto_resume"
+        elif key == "autoSuspendSecs":
+            suggest = "auto_suspend_secs"
+        elif key == "computePool":
+            suggest = "compute_pool"
+        elif key == "createdOn":
+            suggest = "created_on"
+        elif key == "currentInstances":
+            suggest = "current_instances"
+        elif key == "databaseName":
+            suggest = "database_name"
+        elif key == "dnsName":
+            suggest = "dns_name"
+        elif key == "externalAccessIntegrations":
+            suggest = "external_access_integrations"
+        elif key == "isAsyncJob":
+            suggest = "is_async_job"
+        elif key == "isJob":
+            suggest = "is_job"
+        elif key == "isUpgrading":
+            suggest = "is_upgrading"
+        elif key == "managingObjectDomain":
+            suggest = "managing_object_domain"
+        elif key == "managingObjectName":
+            suggest = "managing_object_name"
+        elif key == "maxInstances":
+            suggest = "max_instances"
+        elif key == "minInstances":
+            suggest = "min_instances"
+        elif key == "minReadyInstances":
+            suggest = "min_ready_instances"
+        elif key == "ownerRoleType":
+            suggest = "owner_role_type"
+        elif key == "queryWarehouse":
+            suggest = "query_warehouse"
+        elif key == "resumedOn":
+            suggest = "resumed_on"
+        elif key == "schemaName":
+            suggest = "schema_name"
+        elif key == "specDigest":
+            suggest = "spec_digest"
+        elif key == "suspendedOn":
+            suggest = "suspended_on"
+        elif key == "targetInstances":
+            suggest = "target_instances"
+        elif key == "updatedOn":
+            suggest = "updated_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceShowOutput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceShowOutput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceShowOutput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_resume: Optional[builtins.bool] = None,
+                 auto_suspend_secs: Optional[builtins.int] = None,
+                 comment: Optional[builtins.str] = None,
+                 compute_pool: Optional[builtins.str] = None,
+                 created_on: Optional[builtins.str] = None,
+                 current_instances: Optional[builtins.int] = None,
+                 database_name: Optional[builtins.str] = None,
+                 dns_name: Optional[builtins.str] = None,
+                 external_access_integrations: Optional[Sequence[builtins.str]] = None,
+                 is_async_job: Optional[builtins.bool] = None,
+                 is_job: Optional[builtins.bool] = None,
+                 is_upgrading: Optional[builtins.bool] = None,
+                 managing_object_domain: Optional[builtins.str] = None,
+                 managing_object_name: Optional[builtins.str] = None,
+                 max_instances: Optional[builtins.int] = None,
+                 min_instances: Optional[builtins.int] = None,
+                 min_ready_instances: Optional[builtins.int] = None,
+                 name: Optional[builtins.str] = None,
+                 owner: Optional[builtins.str] = None,
+                 owner_role_type: Optional[builtins.str] = None,
+                 query_warehouse: Optional[builtins.str] = None,
+                 resumed_on: Optional[builtins.str] = None,
+                 schema_name: Optional[builtins.str] = None,
+                 spec_digest: Optional[builtins.str] = None,
+                 status: Optional[builtins.str] = None,
+                 suspended_on: Optional[builtins.str] = None,
+                 target_instances: Optional[builtins.int] = None,
+                 updated_on: Optional[builtins.str] = None):
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend_secs is not None:
+            pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if compute_pool is not None:
+            pulumi.set(__self__, "compute_pool", compute_pool)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if current_instances is not None:
+            pulumi.set(__self__, "current_instances", current_instances)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_async_job is not None:
+            pulumi.set(__self__, "is_async_job", is_async_job)
+        if is_job is not None:
+            pulumi.set(__self__, "is_job", is_job)
+        if is_upgrading is not None:
+            pulumi.set(__self__, "is_upgrading", is_upgrading)
+        if managing_object_domain is not None:
+            pulumi.set(__self__, "managing_object_domain", managing_object_domain)
+        if managing_object_name is not None:
+            pulumi.set(__self__, "managing_object_name", managing_object_name)
+        if max_instances is not None:
+            pulumi.set(__self__, "max_instances", max_instances)
+        if min_instances is not None:
+            pulumi.set(__self__, "min_instances", min_instances)
+        if min_ready_instances is not None:
+            pulumi.set(__self__, "min_ready_instances", min_ready_instances)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if spec_digest is not None:
+            pulumi.set(__self__, "spec_digest", spec_digest)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if suspended_on is not None:
+            pulumi.set(__self__, "suspended_on", suspended_on)
+        if target_instances is not None:
+            pulumi.set(__self__, "target_instances", target_instances)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "auto_resume")
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "compute_pool")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="currentInstances")
+    def current_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "current_instances")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[Sequence[builtins.str]]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAsyncJob")
+    def is_async_job(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_async_job")
+
+    @property
+    @pulumi.getter(name="isJob")
+    def is_job(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_job")
+
+    @property
+    @pulumi.getter(name="isUpgrading")
+    def is_upgrading(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "is_upgrading")
+
+    @property
+    @pulumi.getter(name="managingObjectDomain")
+    def managing_object_domain(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "managing_object_domain")
+
+    @property
+    @pulumi.getter(name="managingObjectName")
+    def managing_object_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "managing_object_name")
+
+    @property
+    @pulumi.getter(name="maxInstances")
+    def max_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "max_instances")
+
+    @property
+    @pulumi.getter(name="minInstances")
+    def min_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min_instances")
+
+    @property
+    @pulumi.getter(name="minReadyInstances")
+    def min_ready_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "min_ready_instances")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "query_warehouse")
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "resumed_on")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter(name="specDigest")
+    def spec_digest(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "spec_digest")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="suspendedOn")
+    def suspended_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "suspended_on")
+
+    @property
+    @pulumi.getter(name="targetInstances")
+    def target_instances(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "target_instances")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "updated_on")
 
 
 @pulumi.output_type
@@ -35501,6 +37970,355 @@ class GetAlertsAlertResult(dict):
 
 
 @pulumi.output_type
+class GetComputePoolsComputePoolResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetComputePoolsComputePoolDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetComputePoolsComputePoolShowOutputResult']):
+        """
+        :param Sequence['GetComputePoolsComputePoolDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE COMPUTE POOL.
+        :param Sequence['GetComputePoolsComputePoolShowOutputArgs'] show_outputs: Holds the output of SHOW COMPUTE POOLS.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetComputePoolsComputePoolDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE COMPUTE POOL.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetComputePoolsComputePoolShowOutputResult']:
+        """
+        Holds the output of SHOW COMPUTE POOLS.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetComputePoolsComputePoolDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 active_nodes: builtins.int,
+                 application: builtins.str,
+                 auto_resume: builtins.bool,
+                 auto_suspend_secs: builtins.int,
+                 comment: builtins.str,
+                 created_on: builtins.str,
+                 error_code: builtins.str,
+                 idle_nodes: builtins.int,
+                 instance_family: builtins.str,
+                 is_exclusive: builtins.bool,
+                 max_nodes: builtins.int,
+                 min_nodes: builtins.int,
+                 name: builtins.str,
+                 num_jobs: builtins.int,
+                 num_services: builtins.int,
+                 owner: builtins.str,
+                 resumed_on: builtins.str,
+                 state: builtins.str,
+                 status_message: builtins.str,
+                 target_nodes: builtins.int,
+                 updated_on: builtins.str):
+        pulumi.set(__self__, "active_nodes", active_nodes)
+        pulumi.set(__self__, "application", application)
+        pulumi.set(__self__, "auto_resume", auto_resume)
+        pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "error_code", error_code)
+        pulumi.set(__self__, "idle_nodes", idle_nodes)
+        pulumi.set(__self__, "instance_family", instance_family)
+        pulumi.set(__self__, "is_exclusive", is_exclusive)
+        pulumi.set(__self__, "max_nodes", max_nodes)
+        pulumi.set(__self__, "min_nodes", min_nodes)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "num_jobs", num_jobs)
+        pulumi.set(__self__, "num_services", num_services)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "resumed_on", resumed_on)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "status_message", status_message)
+        pulumi.set(__self__, "target_nodes", target_nodes)
+        pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="activeNodes")
+    def active_nodes(self) -> builtins.int:
+        return pulumi.get(self, "active_nodes")
+
+    @property
+    @pulumi.getter
+    def application(self) -> builtins.str:
+        return pulumi.get(self, "application")
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> builtins.bool:
+        return pulumi.get(self, "auto_resume")
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> builtins.int:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> builtins.str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> builtins.str:
+        return pulumi.get(self, "error_code")
+
+    @property
+    @pulumi.getter(name="idleNodes")
+    def idle_nodes(self) -> builtins.int:
+        return pulumi.get(self, "idle_nodes")
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> builtins.str:
+        return pulumi.get(self, "instance_family")
+
+    @property
+    @pulumi.getter(name="isExclusive")
+    def is_exclusive(self) -> builtins.bool:
+        return pulumi.get(self, "is_exclusive")
+
+    @property
+    @pulumi.getter(name="maxNodes")
+    def max_nodes(self) -> builtins.int:
+        return pulumi.get(self, "max_nodes")
+
+    @property
+    @pulumi.getter(name="minNodes")
+    def min_nodes(self) -> builtins.int:
+        return pulumi.get(self, "min_nodes")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="numJobs")
+    def num_jobs(self) -> builtins.int:
+        return pulumi.get(self, "num_jobs")
+
+    @property
+    @pulumi.getter(name="numServices")
+    def num_services(self) -> builtins.int:
+        return pulumi.get(self, "num_services")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> builtins.str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> builtins.str:
+        return pulumi.get(self, "resumed_on")
+
+    @property
+    @pulumi.getter
+    def state(self) -> builtins.str:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> builtins.str:
+        return pulumi.get(self, "status_message")
+
+    @property
+    @pulumi.getter(name="targetNodes")
+    def target_nodes(self) -> builtins.int:
+        return pulumi.get(self, "target_nodes")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> builtins.str:
+        return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
+class GetComputePoolsComputePoolShowOutputResult(dict):
+    def __init__(__self__, *,
+                 active_nodes: builtins.int,
+                 application: builtins.str,
+                 auto_resume: builtins.bool,
+                 auto_suspend_secs: builtins.int,
+                 comment: builtins.str,
+                 created_on: builtins.str,
+                 idle_nodes: builtins.int,
+                 instance_family: builtins.str,
+                 is_exclusive: builtins.bool,
+                 max_nodes: builtins.int,
+                 min_nodes: builtins.int,
+                 name: builtins.str,
+                 num_jobs: builtins.int,
+                 num_services: builtins.int,
+                 owner: builtins.str,
+                 resumed_on: builtins.str,
+                 state: builtins.str,
+                 target_nodes: builtins.int,
+                 updated_on: builtins.str):
+        pulumi.set(__self__, "active_nodes", active_nodes)
+        pulumi.set(__self__, "application", application)
+        pulumi.set(__self__, "auto_resume", auto_resume)
+        pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "idle_nodes", idle_nodes)
+        pulumi.set(__self__, "instance_family", instance_family)
+        pulumi.set(__self__, "is_exclusive", is_exclusive)
+        pulumi.set(__self__, "max_nodes", max_nodes)
+        pulumi.set(__self__, "min_nodes", min_nodes)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "num_jobs", num_jobs)
+        pulumi.set(__self__, "num_services", num_services)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "resumed_on", resumed_on)
+        pulumi.set(__self__, "state", state)
+        pulumi.set(__self__, "target_nodes", target_nodes)
+        pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="activeNodes")
+    def active_nodes(self) -> builtins.int:
+        return pulumi.get(self, "active_nodes")
+
+    @property
+    @pulumi.getter
+    def application(self) -> builtins.str:
+        return pulumi.get(self, "application")
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> builtins.bool:
+        return pulumi.get(self, "auto_resume")
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> builtins.int:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> builtins.str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="idleNodes")
+    def idle_nodes(self) -> builtins.int:
+        return pulumi.get(self, "idle_nodes")
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> builtins.str:
+        return pulumi.get(self, "instance_family")
+
+    @property
+    @pulumi.getter(name="isExclusive")
+    def is_exclusive(self) -> builtins.bool:
+        return pulumi.get(self, "is_exclusive")
+
+    @property
+    @pulumi.getter(name="maxNodes")
+    def max_nodes(self) -> builtins.int:
+        return pulumi.get(self, "max_nodes")
+
+    @property
+    @pulumi.getter(name="minNodes")
+    def min_nodes(self) -> builtins.int:
+        return pulumi.get(self, "min_nodes")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="numJobs")
+    def num_jobs(self) -> builtins.int:
+        return pulumi.get(self, "num_jobs")
+
+    @property
+    @pulumi.getter(name="numServices")
+    def num_services(self) -> builtins.int:
+        return pulumi.get(self, "num_services")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> builtins.str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> builtins.str:
+        return pulumi.get(self, "resumed_on")
+
+    @property
+    @pulumi.getter
+    def state(self) -> builtins.str:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="targetNodes")
+    def target_nodes(self) -> builtins.int:
+        return pulumi.get(self, "target_nodes")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> builtins.str:
+        return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
+class GetComputePoolsLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: builtins.int,
+                 from_: Optional[builtins.str] = None):
+        """
+        :param builtins.int rows: The maximum number of rows to return.
+        :param builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
 class GetConnectionsConnectionResult(dict):
     def __init__(__self__, *,
                  show_outputs: Sequence['outputs.GetConnectionsConnectionShowOutputResult']):
@@ -37509,6 +40327,272 @@ class GetFunctionsFunctionResult(dict):
 
 
 @pulumi.output_type
+class GetGitRepositoriesGitRepositoryResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetGitRepositoriesGitRepositoryDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetGitRepositoriesGitRepositoryShowOutputResult']):
+        """
+        :param Sequence['GetGitRepositoriesGitRepositoryDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE GIT REPOSITORY.
+        :param Sequence['GetGitRepositoriesGitRepositoryShowOutputArgs'] show_outputs: Holds the output of SHOW GIT REPOSITORIES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetGitRepositoriesGitRepositoryDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE GIT REPOSITORY.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetGitRepositoriesGitRepositoryShowOutputResult']:
+        """
+        Holds the output of SHOW GIT REPOSITORIES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetGitRepositoriesGitRepositoryDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 api_integration: builtins.str,
+                 comment: builtins.str,
+                 created_on: builtins.str,
+                 database_name: builtins.str,
+                 git_credentials: builtins.str,
+                 last_fetched_at: builtins.str,
+                 name: builtins.str,
+                 origin: builtins.str,
+                 owner: builtins.str,
+                 owner_role_type: builtins.str,
+                 schema_name: builtins.str):
+        pulumi.set(__self__, "api_integration", api_integration)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "git_credentials", git_credentials)
+        pulumi.set(__self__, "last_fetched_at", last_fetched_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "origin", origin)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="apiIntegration")
+    def api_integration(self) -> builtins.str:
+        return pulumi.get(self, "api_integration")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> builtins.str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="gitCredentials")
+    def git_credentials(self) -> builtins.str:
+        return pulumi.get(self, "git_credentials")
+
+    @property
+    @pulumi.getter(name="lastFetchedAt")
+    def last_fetched_at(self) -> builtins.str:
+        return pulumi.get(self, "last_fetched_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> builtins.str:
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> builtins.str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> builtins.str:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class GetGitRepositoriesGitRepositoryShowOutputResult(dict):
+    def __init__(__self__, *,
+                 api_integration: builtins.str,
+                 comment: builtins.str,
+                 created_on: builtins.str,
+                 database_name: builtins.str,
+                 git_credentials: builtins.str,
+                 last_fetched_at: builtins.str,
+                 name: builtins.str,
+                 origin: builtins.str,
+                 owner: builtins.str,
+                 owner_role_type: builtins.str,
+                 schema_name: builtins.str):
+        pulumi.set(__self__, "api_integration", api_integration)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "git_credentials", git_credentials)
+        pulumi.set(__self__, "last_fetched_at", last_fetched_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "origin", origin)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="apiIntegration")
+    def api_integration(self) -> builtins.str:
+        return pulumi.get(self, "api_integration")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> builtins.str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="gitCredentials")
+    def git_credentials(self) -> builtins.str:
+        return pulumi.get(self, "git_credentials")
+
+    @property
+    @pulumi.getter(name="lastFetchedAt")
+    def last_fetched_at(self) -> builtins.str:
+        return pulumi.get(self, "last_fetched_at")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> builtins.str:
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> builtins.str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> builtins.str:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class GetGitRepositoriesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[builtins.bool] = None,
+                 database: Optional[builtins.str] = None,
+                 schema: Optional[builtins.str] = None):
+        """
+        :param builtins.bool account: Returns records for the entire account.
+        :param builtins.str database: Returns records for the current database in use or for a specified database.
+        :param builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetGitRepositoriesLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: builtins.int,
+                 from_: Optional[builtins.str] = None):
+        """
+        :param builtins.int rows: The maximum number of rows to return.
+        :param builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
 class GetGrantsFutureGrantsInResult(dict):
     def __init__(__self__, *,
                  database: Optional[builtins.str] = None,
@@ -37858,6 +40942,135 @@ class GetGrantsGrantsToShareResult(dict):
         Lists all of the privileges and roles granted to the specified share.
         """
         return pulumi.get(self, "share_name")
+
+
+@pulumi.output_type
+class GetImageRepositoriesImageRepositoryResult(dict):
+    def __init__(__self__, *,
+                 show_outputs: Sequence['outputs.GetImageRepositoriesImageRepositoryShowOutputResult']):
+        """
+        :param Sequence['GetImageRepositoriesImageRepositoryShowOutputArgs'] show_outputs: Holds the output of SHOW IMAGE REPOSITORIES.
+        """
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetImageRepositoriesImageRepositoryShowOutputResult']:
+        """
+        Holds the output of SHOW IMAGE REPOSITORIES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetImageRepositoriesImageRepositoryShowOutputResult(dict):
+    def __init__(__self__, *,
+                 comment: builtins.str,
+                 created_on: builtins.str,
+                 database_name: builtins.str,
+                 name: builtins.str,
+                 owner: builtins.str,
+                 owner_role_type: builtins.str,
+                 privatelink_repository_url: builtins.str,
+                 repository_url: builtins.str,
+                 schema_name: builtins.str):
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "privatelink_repository_url", privatelink_repository_url)
+        pulumi.set(__self__, "repository_url", repository_url)
+        pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> builtins.str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> builtins.str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="privatelinkRepositoryUrl")
+    def privatelink_repository_url(self) -> builtins.str:
+        return pulumi.get(self, "privatelink_repository_url")
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> builtins.str:
+        return pulumi.get(self, "repository_url")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> builtins.str:
+        return pulumi.get(self, "schema_name")
+
+
+@pulumi.output_type
+class GetImageRepositoriesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[builtins.bool] = None,
+                 database: Optional[builtins.str] = None,
+                 schema: Optional[builtins.str] = None):
+        """
+        :param builtins.bool account: Returns records for the entire account.
+        :param builtins.str database: Returns records for the current database in use or for a specified database.
+        :param builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
 
 
 @pulumi.output_type
@@ -42249,6 +45462,529 @@ class GetSequencesSequenceResult(dict):
 
 
 @pulumi.output_type
+class GetServicesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[builtins.bool] = None,
+                 compute_pool: Optional[builtins.str] = None,
+                 database: Optional[builtins.str] = None,
+                 schema: Optional[builtins.str] = None):
+        """
+        :param builtins.bool account: Returns records for the entire account.
+        :param builtins.str compute_pool: Returns records for the specified compute pool.
+        :param builtins.str database: Returns records for the current database in use or for a specified database.
+        :param builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if compute_pool is not None:
+            pulumi.set(__self__, "compute_pool", compute_pool)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> Optional[builtins.str]:
+        """
+        Returns records for the specified compute pool.
+        """
+        return pulumi.get(self, "compute_pool")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetServicesLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: builtins.int,
+                 from_: Optional[builtins.str] = None):
+        """
+        :param builtins.int rows: The maximum number of rows to return.
+        :param builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
+class GetServicesServiceResult(dict):
+    def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetServicesServiceDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetServicesServiceShowOutputResult']):
+        """
+        :param Sequence['GetServicesServiceDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE SERVICE.
+        :param Sequence['GetServicesServiceShowOutputArgs'] show_outputs: Holds the output of SHOW SERVICES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetServicesServiceDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE SERVICE.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetServicesServiceShowOutputResult']:
+        """
+        Holds the output of SHOW SERVICES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetServicesServiceDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 auto_resume: builtins.bool,
+                 auto_suspend_secs: builtins.int,
+                 comment: builtins.str,
+                 compute_pool: builtins.str,
+                 created_on: builtins.str,
+                 current_instances: builtins.int,
+                 database_name: builtins.str,
+                 dns_name: builtins.str,
+                 external_access_integrations: Sequence[builtins.str],
+                 is_async_job: builtins.bool,
+                 is_job: builtins.bool,
+                 is_upgrading: builtins.bool,
+                 managing_object_domain: builtins.str,
+                 managing_object_name: builtins.str,
+                 max_instances: builtins.int,
+                 min_instances: builtins.int,
+                 min_ready_instances: builtins.int,
+                 name: builtins.str,
+                 owner: builtins.str,
+                 owner_role_type: builtins.str,
+                 query_warehouse: builtins.str,
+                 resumed_on: builtins.str,
+                 schema_name: builtins.str,
+                 spec: builtins.str,
+                 spec_digest: builtins.str,
+                 status: builtins.str,
+                 suspended_on: builtins.str,
+                 target_instances: builtins.int,
+                 updated_on: builtins.str):
+        pulumi.set(__self__, "auto_resume", auto_resume)
+        pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "compute_pool", compute_pool)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "current_instances", current_instances)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        pulumi.set(__self__, "is_async_job", is_async_job)
+        pulumi.set(__self__, "is_job", is_job)
+        pulumi.set(__self__, "is_upgrading", is_upgrading)
+        pulumi.set(__self__, "managing_object_domain", managing_object_domain)
+        pulumi.set(__self__, "managing_object_name", managing_object_name)
+        pulumi.set(__self__, "max_instances", max_instances)
+        pulumi.set(__self__, "min_instances", min_instances)
+        pulumi.set(__self__, "min_ready_instances", min_ready_instances)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "query_warehouse", query_warehouse)
+        pulumi.set(__self__, "resumed_on", resumed_on)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "spec", spec)
+        pulumi.set(__self__, "spec_digest", spec_digest)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "suspended_on", suspended_on)
+        pulumi.set(__self__, "target_instances", target_instances)
+        pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> builtins.bool:
+        return pulumi.get(self, "auto_resume")
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> builtins.int:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> builtins.str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> builtins.str:
+        return pulumi.get(self, "compute_pool")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="currentInstances")
+    def current_instances(self) -> builtins.int:
+        return pulumi.get(self, "current_instances")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> builtins.str:
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAsyncJob")
+    def is_async_job(self) -> builtins.bool:
+        return pulumi.get(self, "is_async_job")
+
+    @property
+    @pulumi.getter(name="isJob")
+    def is_job(self) -> builtins.bool:
+        return pulumi.get(self, "is_job")
+
+    @property
+    @pulumi.getter(name="isUpgrading")
+    def is_upgrading(self) -> builtins.bool:
+        return pulumi.get(self, "is_upgrading")
+
+    @property
+    @pulumi.getter(name="managingObjectDomain")
+    def managing_object_domain(self) -> builtins.str:
+        return pulumi.get(self, "managing_object_domain")
+
+    @property
+    @pulumi.getter(name="managingObjectName")
+    def managing_object_name(self) -> builtins.str:
+        return pulumi.get(self, "managing_object_name")
+
+    @property
+    @pulumi.getter(name="maxInstances")
+    def max_instances(self) -> builtins.int:
+        return pulumi.get(self, "max_instances")
+
+    @property
+    @pulumi.getter(name="minInstances")
+    def min_instances(self) -> builtins.int:
+        return pulumi.get(self, "min_instances")
+
+    @property
+    @pulumi.getter(name="minReadyInstances")
+    def min_ready_instances(self) -> builtins.int:
+        return pulumi.get(self, "min_ready_instances")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> builtins.str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> builtins.str:
+        return pulumi.get(self, "query_warehouse")
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> builtins.str:
+        return pulumi.get(self, "resumed_on")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> builtins.str:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter
+    def spec(self) -> builtins.str:
+        return pulumi.get(self, "spec")
+
+    @property
+    @pulumi.getter(name="specDigest")
+    def spec_digest(self) -> builtins.str:
+        return pulumi.get(self, "spec_digest")
+
+    @property
+    @pulumi.getter
+    def status(self) -> builtins.str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="suspendedOn")
+    def suspended_on(self) -> builtins.str:
+        return pulumi.get(self, "suspended_on")
+
+    @property
+    @pulumi.getter(name="targetInstances")
+    def target_instances(self) -> builtins.int:
+        return pulumi.get(self, "target_instances")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> builtins.str:
+        return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
+class GetServicesServiceShowOutputResult(dict):
+    def __init__(__self__, *,
+                 auto_resume: builtins.bool,
+                 auto_suspend_secs: builtins.int,
+                 comment: builtins.str,
+                 compute_pool: builtins.str,
+                 created_on: builtins.str,
+                 current_instances: builtins.int,
+                 database_name: builtins.str,
+                 dns_name: builtins.str,
+                 external_access_integrations: Sequence[builtins.str],
+                 is_async_job: builtins.bool,
+                 is_job: builtins.bool,
+                 is_upgrading: builtins.bool,
+                 managing_object_domain: builtins.str,
+                 managing_object_name: builtins.str,
+                 max_instances: builtins.int,
+                 min_instances: builtins.int,
+                 min_ready_instances: builtins.int,
+                 name: builtins.str,
+                 owner: builtins.str,
+                 owner_role_type: builtins.str,
+                 query_warehouse: builtins.str,
+                 resumed_on: builtins.str,
+                 schema_name: builtins.str,
+                 spec_digest: builtins.str,
+                 status: builtins.str,
+                 suspended_on: builtins.str,
+                 target_instances: builtins.int,
+                 updated_on: builtins.str):
+        pulumi.set(__self__, "auto_resume", auto_resume)
+        pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "compute_pool", compute_pool)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "current_instances", current_instances)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "dns_name", dns_name)
+        pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        pulumi.set(__self__, "is_async_job", is_async_job)
+        pulumi.set(__self__, "is_job", is_job)
+        pulumi.set(__self__, "is_upgrading", is_upgrading)
+        pulumi.set(__self__, "managing_object_domain", managing_object_domain)
+        pulumi.set(__self__, "managing_object_name", managing_object_name)
+        pulumi.set(__self__, "max_instances", max_instances)
+        pulumi.set(__self__, "min_instances", min_instances)
+        pulumi.set(__self__, "min_ready_instances", min_ready_instances)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "query_warehouse", query_warehouse)
+        pulumi.set(__self__, "resumed_on", resumed_on)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "spec_digest", spec_digest)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "suspended_on", suspended_on)
+        pulumi.set(__self__, "target_instances", target_instances)
+        pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> builtins.bool:
+        return pulumi.get(self, "auto_resume")
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> builtins.int:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> builtins.str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> builtins.str:
+        return pulumi.get(self, "compute_pool")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="currentInstances")
+    def current_instances(self) -> builtins.int:
+        return pulumi.get(self, "current_instances")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> builtins.str:
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @property
+    @pulumi.getter(name="isAsyncJob")
+    def is_async_job(self) -> builtins.bool:
+        return pulumi.get(self, "is_async_job")
+
+    @property
+    @pulumi.getter(name="isJob")
+    def is_job(self) -> builtins.bool:
+        return pulumi.get(self, "is_job")
+
+    @property
+    @pulumi.getter(name="isUpgrading")
+    def is_upgrading(self) -> builtins.bool:
+        return pulumi.get(self, "is_upgrading")
+
+    @property
+    @pulumi.getter(name="managingObjectDomain")
+    def managing_object_domain(self) -> builtins.str:
+        return pulumi.get(self, "managing_object_domain")
+
+    @property
+    @pulumi.getter(name="managingObjectName")
+    def managing_object_name(self) -> builtins.str:
+        return pulumi.get(self, "managing_object_name")
+
+    @property
+    @pulumi.getter(name="maxInstances")
+    def max_instances(self) -> builtins.int:
+        return pulumi.get(self, "max_instances")
+
+    @property
+    @pulumi.getter(name="minInstances")
+    def min_instances(self) -> builtins.int:
+        return pulumi.get(self, "min_instances")
+
+    @property
+    @pulumi.getter(name="minReadyInstances")
+    def min_ready_instances(self) -> builtins.int:
+        return pulumi.get(self, "min_ready_instances")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def owner(self) -> builtins.str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> builtins.str:
+        return pulumi.get(self, "query_warehouse")
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> builtins.str:
+        return pulumi.get(self, "resumed_on")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> builtins.str:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter(name="specDigest")
+    def spec_digest(self) -> builtins.str:
+        return pulumi.get(self, "spec_digest")
+
+    @property
+    @pulumi.getter
+    def status(self) -> builtins.str:
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="suspendedOn")
+    def suspended_on(self) -> builtins.str:
+        return pulumi.get(self, "suspended_on")
+
+    @property
+    @pulumi.getter(name="targetInstances")
+    def target_instances(self) -> builtins.int:
+        return pulumi.get(self, "target_instances")
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> builtins.str:
+        return pulumi.get(self, "updated_on")
+
+
+@pulumi.output_type
 class GetSharesShareResult(dict):
     def __init__(__self__, *,
                  comment: builtins.str,
@@ -42989,16 +46725,170 @@ class GetStreamsStreamShowOutputResult(dict):
 
 
 @pulumi.output_type
+class GetTablesInResult(dict):
+    def __init__(__self__, *,
+                 account: Optional[builtins.bool] = None,
+                 application: Optional[builtins.str] = None,
+                 application_package: Optional[builtins.str] = None,
+                 database: Optional[builtins.str] = None,
+                 schema: Optional[builtins.str] = None):
+        """
+        :param builtins.bool account: Returns records for the entire account.
+        :param builtins.str application: Returns records for the specified application.
+        :param builtins.str application_package: Returns records for the specified application package.
+        :param builtins.str database: Returns records for the current database in use or for a specified database.
+        :param builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[builtins.str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[builtins.str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+
+@pulumi.output_type
+class GetTablesLimitResult(dict):
+    def __init__(__self__, *,
+                 rows: builtins.int,
+                 from_: Optional[builtins.str] = None):
+        """
+        :param builtins.int rows: The maximum number of rows to return.
+        :param builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+
+@pulumi.output_type
 class GetTablesTableResult(dict):
     def __init__(__self__, *,
+                 describe_outputs: Sequence['outputs.GetTablesTableDescribeOutputResult'],
+                 show_outputs: Sequence['outputs.GetTablesTableShowOutputResult']):
+        """
+        :param Sequence['GetTablesTableDescribeOutputArgs'] describe_outputs: Holds the output of DESCRIBE TABLES.
+        :param Sequence['GetTablesTableShowOutputArgs'] show_outputs: Holds the output of SHOW TABLES.
+        """
+        pulumi.set(__self__, "describe_outputs", describe_outputs)
+        pulumi.set(__self__, "show_outputs", show_outputs)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Sequence['outputs.GetTablesTableDescribeOutputResult']:
+        """
+        Holds the output of DESCRIBE TABLES.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter(name="showOutputs")
+    def show_outputs(self) -> Sequence['outputs.GetTablesTableShowOutputResult']:
+        """
+        Holds the output of SHOW TABLES.
+        """
+        return pulumi.get(self, "show_outputs")
+
+
+@pulumi.output_type
+class GetTablesTableDescribeOutputResult(dict):
+    def __init__(__self__, *,
+                 check: builtins.str,
+                 collation: builtins.str,
                  comment: builtins.str,
-                 database: builtins.str,
+                 default: builtins.str,
+                 expression: builtins.str,
+                 is_nullable: builtins.bool,
+                 is_primary: builtins.bool,
+                 is_unique: builtins.bool,
+                 kind: builtins.str,
                  name: builtins.str,
-                 schema: builtins.str):
+                 policy_name: builtins.str,
+                 schema_evolution_record: builtins.str,
+                 type: builtins.str):
+        pulumi.set(__self__, "check", check)
+        pulumi.set(__self__, "collation", collation)
         pulumi.set(__self__, "comment", comment)
-        pulumi.set(__self__, "database", database)
+        pulumi.set(__self__, "default", default)
+        pulumi.set(__self__, "expression", expression)
+        pulumi.set(__self__, "is_nullable", is_nullable)
+        pulumi.set(__self__, "is_primary", is_primary)
+        pulumi.set(__self__, "is_unique", is_unique)
+        pulumi.set(__self__, "kind", kind)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "schema", schema)
+        pulumi.set(__self__, "policy_name", policy_name)
+        pulumi.set(__self__, "schema_evolution_record", schema_evolution_record)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def check(self) -> builtins.str:
+        return pulumi.get(self, "check")
+
+    @property
+    @pulumi.getter
+    def collation(self) -> builtins.str:
+        return pulumi.get(self, "collation")
 
     @property
     @pulumi.getter
@@ -43007,8 +46897,167 @@ class GetTablesTableResult(dict):
 
     @property
     @pulumi.getter
-    def database(self) -> builtins.str:
-        return pulumi.get(self, "database")
+    def default(self) -> builtins.str:
+        return pulumi.get(self, "default")
+
+    @property
+    @pulumi.getter
+    def expression(self) -> builtins.str:
+        return pulumi.get(self, "expression")
+
+    @property
+    @pulumi.getter(name="isNullable")
+    def is_nullable(self) -> builtins.bool:
+        return pulumi.get(self, "is_nullable")
+
+    @property
+    @pulumi.getter(name="isPrimary")
+    def is_primary(self) -> builtins.bool:
+        return pulumi.get(self, "is_primary")
+
+    @property
+    @pulumi.getter(name="isUnique")
+    def is_unique(self) -> builtins.bool:
+        return pulumi.get(self, "is_unique")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> builtins.str:
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="policyName")
+    def policy_name(self) -> builtins.str:
+        return pulumi.get(self, "policy_name")
+
+    @property
+    @pulumi.getter(name="schemaEvolutionRecord")
+    def schema_evolution_record(self) -> builtins.str:
+        return pulumi.get(self, "schema_evolution_record")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class GetTablesTableShowOutputResult(dict):
+    def __init__(__self__, *,
+                 automatic_clustering: builtins.bool,
+                 budget: builtins.str,
+                 bytes: builtins.int,
+                 change_tracking: builtins.bool,
+                 cluster_by: builtins.str,
+                 comment: builtins.str,
+                 created_on: builtins.str,
+                 database_name: builtins.str,
+                 dropped_on: builtins.str,
+                 enable_schema_evolution: builtins.bool,
+                 is_event: builtins.bool,
+                 is_external: builtins.bool,
+                 kind: builtins.str,
+                 name: builtins.str,
+                 owner: builtins.str,
+                 owner_role_type: builtins.str,
+                 retention_time: builtins.int,
+                 rows: builtins.int,
+                 schema_name: builtins.str,
+                 search_optimization: builtins.bool,
+                 search_optimization_bytes: builtins.int,
+                 search_optimization_progress: builtins.str):
+        pulumi.set(__self__, "automatic_clustering", automatic_clustering)
+        pulumi.set(__self__, "budget", budget)
+        pulumi.set(__self__, "bytes", bytes)
+        pulumi.set(__self__, "change_tracking", change_tracking)
+        pulumi.set(__self__, "cluster_by", cluster_by)
+        pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "created_on", created_on)
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "dropped_on", dropped_on)
+        pulumi.set(__self__, "enable_schema_evolution", enable_schema_evolution)
+        pulumi.set(__self__, "is_event", is_event)
+        pulumi.set(__self__, "is_external", is_external)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "owner", owner)
+        pulumi.set(__self__, "owner_role_type", owner_role_type)
+        pulumi.set(__self__, "retention_time", retention_time)
+        pulumi.set(__self__, "rows", rows)
+        pulumi.set(__self__, "schema_name", schema_name)
+        pulumi.set(__self__, "search_optimization", search_optimization)
+        pulumi.set(__self__, "search_optimization_bytes", search_optimization_bytes)
+        pulumi.set(__self__, "search_optimization_progress", search_optimization_progress)
+
+    @property
+    @pulumi.getter(name="automaticClustering")
+    def automatic_clustering(self) -> builtins.bool:
+        return pulumi.get(self, "automatic_clustering")
+
+    @property
+    @pulumi.getter
+    def budget(self) -> builtins.str:
+        return pulumi.get(self, "budget")
+
+    @property
+    @pulumi.getter
+    def bytes(self) -> builtins.int:
+        return pulumi.get(self, "bytes")
+
+    @property
+    @pulumi.getter(name="changeTracking")
+    def change_tracking(self) -> builtins.bool:
+        return pulumi.get(self, "change_tracking")
+
+    @property
+    @pulumi.getter(name="clusterBy")
+    def cluster_by(self) -> builtins.str:
+        return pulumi.get(self, "cluster_by")
+
+    @property
+    @pulumi.getter
+    def comment(self) -> builtins.str:
+        return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> builtins.str:
+        return pulumi.get(self, "created_on")
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> builtins.str:
+        return pulumi.get(self, "database_name")
+
+    @property
+    @pulumi.getter(name="droppedOn")
+    def dropped_on(self) -> builtins.str:
+        return pulumi.get(self, "dropped_on")
+
+    @property
+    @pulumi.getter(name="enableSchemaEvolution")
+    def enable_schema_evolution(self) -> builtins.bool:
+        return pulumi.get(self, "enable_schema_evolution")
+
+    @property
+    @pulumi.getter(name="isEvent")
+    def is_event(self) -> builtins.bool:
+        return pulumi.get(self, "is_event")
+
+    @property
+    @pulumi.getter(name="isExternal")
+    def is_external(self) -> builtins.bool:
+        return pulumi.get(self, "is_external")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> builtins.str:
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter
@@ -43017,8 +47066,43 @@ class GetTablesTableResult(dict):
 
     @property
     @pulumi.getter
-    def schema(self) -> builtins.str:
-        return pulumi.get(self, "schema")
+    def owner(self) -> builtins.str:
+        return pulumi.get(self, "owner")
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> builtins.str:
+        return pulumi.get(self, "owner_role_type")
+
+    @property
+    @pulumi.getter(name="retentionTime")
+    def retention_time(self) -> builtins.int:
+        return pulumi.get(self, "retention_time")
+
+    @property
+    @pulumi.getter
+    def rows(self) -> builtins.int:
+        return pulumi.get(self, "rows")
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> builtins.str:
+        return pulumi.get(self, "schema_name")
+
+    @property
+    @pulumi.getter(name="searchOptimization")
+    def search_optimization(self) -> builtins.bool:
+        return pulumi.get(self, "search_optimization")
+
+    @property
+    @pulumi.getter(name="searchOptimizationBytes")
+    def search_optimization_bytes(self) -> builtins.int:
+        return pulumi.get(self, "search_optimization_bytes")
+
+    @property
+    @pulumi.getter(name="searchOptimizationProgress")
+    def search_optimization_progress(self) -> builtins.str:
+        return pulumi.get(self, "search_optimization_progress")
 
 
 @pulumi.output_type

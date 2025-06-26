@@ -38,6 +38,12 @@ namespace Pulumi.Snowflake
         public Output<string?> Comment { get; private set; } = null!;
 
         /// <summary>
+        /// Determines which billing entity is responsible for the account's consumption-based billing.
+        /// </summary>
+        [Output("consumptionBillingEntity")]
+        public Output<string?> ConsumptionBillingEntity { get; private set; } = null!;
+
+        /// <summary>
         /// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
         /// </summary>
         [Output("edition")]
@@ -188,6 +194,12 @@ namespace Pulumi.Snowflake
         public Input<string>? Comment { get; set; }
 
         /// <summary>
+        /// Determines which billing entity is responsible for the account's consumption-based billing.
+        /// </summary>
+        [Input("consumptionBillingEntity")]
+        public Input<string>? ConsumptionBillingEntity { get; set; }
+
+        /// <summary>
         /// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
         /// </summary>
         [Input("edition", required: true)]
@@ -305,6 +317,12 @@ namespace Pulumi.Snowflake
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
+
+        /// <summary>
+        /// Determines which billing entity is responsible for the account's consumption-based billing.
+        /// </summary>
+        [Input("consumptionBillingEntity")]
+        public Input<string>? ConsumptionBillingEntity { get; set; }
 
         /// <summary>
         /// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`

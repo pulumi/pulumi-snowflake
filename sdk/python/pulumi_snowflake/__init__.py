@@ -17,7 +17,9 @@ from .api_authentication_integration_with_client_credentials import *
 from .api_authentication_integration_with_jwt_bearer import *
 from .api_integration import *
 from .authentication_policy import *
+from .compute_pool import *
 from .cortex_search_service import *
+from .current_account import *
 from .database import *
 from .database_role import *
 from .dynamic_table import *
@@ -37,6 +39,7 @@ from .function_sql import *
 from .get_account_roles import *
 from .get_accounts import *
 from .get_alerts import *
+from .get_compute_pools import *
 from .get_connections import *
 from .get_cortex_search_services import *
 from .get_current_account import *
@@ -51,7 +54,9 @@ from .get_external_tables import *
 from .get_failover_groups import *
 from .get_file_formats import *
 from .get_functions import *
+from .get_git_repositories import *
 from .get_grants import *
+from .get_image_repositories import *
 from .get_masking_policies import *
 from .get_materialized_views import *
 from .get_network_policies import *
@@ -64,6 +69,7 @@ from .get_schemas import *
 from .get_secrets import *
 from .get_security_integrations import *
 from .get_sequences import *
+from .get_services import *
 from .get_shares import *
 from .get_stages import *
 from .get_storage_integrations import *
@@ -79,6 +85,7 @@ from .get_tasks import *
 from .get_users import *
 from .get_views import *
 from .get_warehouses import *
+from .git_repository import *
 from .grant_account_role import *
 from .grant_application_role import *
 from .grant_database_role import *
@@ -86,6 +93,8 @@ from .grant_ownership import *
 from .grant_privileges_to_account_role import *
 from .grant_privileges_to_database_role import *
 from .grant_privileges_to_share import *
+from .image_repository import *
+from .job_service import *
 from .legacy_service_user import *
 from .managed_account import *
 from .masking_policy import *
@@ -118,6 +127,7 @@ from .secret_with_basic_authentication import *
 from .secret_with_client_credentials import *
 from .secret_with_generic_string import *
 from .sequence import *
+from .service import *
 from .service_user import *
 from .share import *
 from .shared_database import *
@@ -243,10 +253,26 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/computePool",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/computePool:ComputePool": "ComputePool"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/cortexSearchService",
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/cortexSearchService:CortexSearchService": "CortexSearchService"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/currentAccount",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/currentAccount:CurrentAccount": "CurrentAccount"
   }
  },
  {
@@ -379,6 +405,14 @@ _utilities.register(
  },
  {
   "pkg": "snowflake",
+  "mod": "index/gitRepository",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/gitRepository:GitRepository": "GitRepository"
+  }
+ },
+ {
+  "pkg": "snowflake",
   "mod": "index/grantAccountRole",
   "fqn": "pulumi_snowflake",
   "classes": {
@@ -431,6 +465,22 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare": "GrantPrivilegesToShare"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/imageRepository",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/imageRepository:ImageRepository": "ImageRepository"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/jobService",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/jobService:JobService": "JobService"
   }
  },
  {
@@ -679,6 +729,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/sequence:Sequence": "Sequence"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/service",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/service:Service": "Service"
   }
  },
  {

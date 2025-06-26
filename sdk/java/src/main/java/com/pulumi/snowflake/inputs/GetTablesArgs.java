@@ -5,9 +5,13 @@ package com.pulumi.snowflake.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.inputs.GetTablesInArgs;
+import com.pulumi.snowflake.inputs.GetTablesLimitArgs;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetTablesArgs extends com.pulumi.resources.InvokeArgs {
@@ -15,40 +19,88 @@ public final class GetTablesArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetTablesArgs Empty = new GetTablesArgs();
 
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of objects
      * 
      */
-    @Import(name="database", required=true)
-    private Output<String> database;
+    @Import(name="in")
+    private @Nullable Output<GetTablesInArgs> in;
 
     /**
-     * @return The database from which to return the schemas from.
+     * @return IN clause to filter the list of objects
      * 
      */
-    public Output<String> database() {
-        return this.database;
+    public Optional<Output<GetTablesInArgs>> in() {
+        return Optional.ofNullable(this.in);
     }
 
     /**
-     * The schema from which to return the tables from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    @Import(name="schema", required=true)
-    private Output<String> schema;
+    @Import(name="like")
+    private @Nullable Output<String> like;
 
     /**
-     * @return The schema from which to return the tables from.
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      * 
      */
-    public Output<String> schema() {
-        return this.schema;
+    public Optional<Output<String>> like() {
+        return Optional.ofNullable(this.like);
+    }
+
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    @Import(name="limit")
+    private @Nullable Output<GetTablesLimitArgs> limit;
+
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    public Optional<Output<GetTablesLimitArgs>> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    @Import(name="startsWith")
+    private @Nullable Output<String> startsWith;
+
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    public Optional<Output<String>> startsWith() {
+        return Optional.ofNullable(this.startsWith);
+    }
+
+    /**
+     * (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    @Import(name="withDescribe")
+    private @Nullable Output<Boolean> withDescribe;
+
+    /**
+     * @return (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    public Optional<Output<Boolean>> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     private GetTablesArgs() {}
 
     private GetTablesArgs(GetTablesArgs $) {
-        this.database = $.database;
-        this.schema = $.schema;
+        this.in = $.in;
+        this.like = $.like;
+        this.limit = $.limit;
+        this.startsWith = $.startsWith;
+        this.withDescribe = $.withDescribe;
     }
 
     public static Builder builder() {
@@ -70,54 +122,111 @@ public final class GetTablesArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param database The database from which to return the schemas from.
+         * @param in IN clause to filter the list of objects
          * 
          * @return builder
          * 
          */
-        public Builder database(Output<String> database) {
-            $.database = database;
+        public Builder in(@Nullable Output<GetTablesInArgs> in) {
+            $.in = in;
             return this;
         }
 
         /**
-         * @param database The database from which to return the schemas from.
+         * @param in IN clause to filter the list of objects
          * 
          * @return builder
          * 
          */
-        public Builder database(String database) {
-            return database(Output.of(database));
+        public Builder in(GetTablesInArgs in) {
+            return in(Output.of(in));
         }
 
         /**
-         * @param schema The schema from which to return the tables from.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder schema(Output<String> schema) {
-            $.schema = schema;
+        public Builder like(@Nullable Output<String> like) {
+            $.like = like;
             return this;
         }
 
         /**
-         * @param schema The schema from which to return the tables from.
+         * @param like Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
          * 
          * @return builder
          * 
          */
-        public Builder schema(String schema) {
-            return schema(Output.of(schema));
+        public Builder like(String like) {
+            return like(Output.of(like));
+        }
+
+        /**
+         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder limit(@Nullable Output<GetTablesLimitArgs> limit) {
+            $.limit = limit;
+            return this;
+        }
+
+        /**
+         * @param limit Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder limit(GetTablesLimitArgs limit) {
+            return limit(Output.of(limit));
+        }
+
+        /**
+         * @param startsWith Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startsWith(@Nullable Output<String> startsWith) {
+            $.startsWith = startsWith;
+            return this;
+        }
+
+        /**
+         * @param startsWith Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder startsWith(String startsWith) {
+            return startsWith(Output.of(startsWith));
+        }
+
+        /**
+         * @param withDescribe (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withDescribe(@Nullable Output<Boolean> withDescribe) {
+            $.withDescribe = withDescribe;
+            return this;
+        }
+
+        /**
+         * @param withDescribe (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder withDescribe(Boolean withDescribe) {
+            return withDescribe(Output.of(withDescribe));
         }
 
         public GetTablesArgs build() {
-            if ($.database == null) {
-                throw new MissingRequiredPropertyException("GetTablesArgs", "database");
-            }
-            if ($.schema == null) {
-                throw new MissingRequiredPropertyException("GetTablesArgs", "schema");
-            }
             return $;
         }
     }

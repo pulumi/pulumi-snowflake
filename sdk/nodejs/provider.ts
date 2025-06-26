@@ -96,8 +96,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     public readonly passcode!: pulumi.Output<string | undefined>;
     /**
-     * Password for user + password auth. Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from
-     * the `SNOWFLAKE_PASSWORD` environment variable.
+     * Password for user + password or
+     * [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+     * [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and
+     * `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
@@ -352,8 +354,10 @@ export interface ProviderArgs {
      */
     passcodeInPassword?: pulumi.Input<boolean>;
     /**
-     * Password for user + password auth. Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from
-     * the `SNOWFLAKE_PASSWORD` environment variable.
+     * Password for user + password or
+     * [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+     * [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and
+     * `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
      */
     password?: pulumi.Input<string>;
     /**

@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			this, err := snowflake.GetCurrentAccount(ctx, map[string]interface{}{}, nil)
+//			this, err := snowflake.LookupCurrentAccount(ctx, map[string]interface{}{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -47,9 +47,9 @@ import (
 // ```
 //
 // > **Note** If a field has a default value, it is shown next to the type in the schema.
-func GetCurrentAccount(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCurrentAccountResult, error) {
+func LookupCurrentAccount(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupCurrentAccountResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
-	var rv GetCurrentAccountResult
+	var rv LookupCurrentAccountResult
 	err := ctx.Invoke("snowflake:index/getCurrentAccount:getCurrentAccount", nil, &rv, opts...)
 	if err != nil {
 		return nil, err
@@ -58,7 +58,7 @@ func GetCurrentAccount(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetCu
 }
 
 // A collection of values returned by getCurrentAccount.
-type GetCurrentAccountResult struct {
+type LookupCurrentAccountResult struct {
 	// The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
 	Account string `pulumi:"account"`
 	// The provider-assigned unique ID for this managed resource.
@@ -69,48 +69,48 @@ type GetCurrentAccountResult struct {
 	Url string `pulumi:"url"`
 }
 
-func GetCurrentAccountOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCurrentAccountResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCurrentAccountResultOutput, error) {
+func LookupCurrentAccountOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupCurrentAccountResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (LookupCurrentAccountResultOutput, error) {
 		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("snowflake:index/getCurrentAccount:getCurrentAccount", nil, GetCurrentAccountResultOutput{}, options).(GetCurrentAccountResultOutput), nil
-	}).(GetCurrentAccountResultOutput)
+		return ctx.InvokeOutput("snowflake:index/getCurrentAccount:getCurrentAccount", nil, LookupCurrentAccountResultOutput{}, options).(LookupCurrentAccountResultOutput), nil
+	}).(LookupCurrentAccountResultOutput)
 }
 
 // A collection of values returned by getCurrentAccount.
-type GetCurrentAccountResultOutput struct{ *pulumi.OutputState }
+type LookupCurrentAccountResultOutput struct{ *pulumi.OutputState }
 
-func (GetCurrentAccountResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetCurrentAccountResult)(nil)).Elem()
+func (LookupCurrentAccountResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupCurrentAccountResult)(nil)).Elem()
 }
 
-func (o GetCurrentAccountResultOutput) ToGetCurrentAccountResultOutput() GetCurrentAccountResultOutput {
+func (o LookupCurrentAccountResultOutput) ToLookupCurrentAccountResultOutput() LookupCurrentAccountResultOutput {
 	return o
 }
 
-func (o GetCurrentAccountResultOutput) ToGetCurrentAccountResultOutputWithContext(ctx context.Context) GetCurrentAccountResultOutput {
+func (o LookupCurrentAccountResultOutput) ToLookupCurrentAccountResultOutputWithContext(ctx context.Context) LookupCurrentAccountResultOutput {
 	return o
 }
 
 // The Snowflake Account ID; as returned by CURRENT_ACCOUNT().
-func (o GetCurrentAccountResultOutput) Account() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCurrentAccountResult) string { return v.Account }).(pulumi.StringOutput)
+func (o LookupCurrentAccountResultOutput) Account() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCurrentAccountResult) string { return v.Account }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.
-func (o GetCurrentAccountResultOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCurrentAccountResult) string { return v.Id }).(pulumi.StringOutput)
+func (o LookupCurrentAccountResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCurrentAccountResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The Snowflake Region; as returned by CURRENT_REGION()
-func (o GetCurrentAccountResultOutput) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCurrentAccountResult) string { return v.Region }).(pulumi.StringOutput)
+func (o LookupCurrentAccountResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCurrentAccountResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // The Snowflake URL.
-func (o GetCurrentAccountResultOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v GetCurrentAccountResult) string { return v.Url }).(pulumi.StringOutput)
+func (o LookupCurrentAccountResultOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCurrentAccountResult) string { return v.Url }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetCurrentAccountResultOutput{})
+	pulumi.RegisterOutputType(LookupCurrentAccountResultOutput{})
 }

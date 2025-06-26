@@ -43,8 +43,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ApiIntegration{}
 	case "snowflake:index/authenticationPolicy:AuthenticationPolicy":
 		r = &AuthenticationPolicy{}
+	case "snowflake:index/computePool:ComputePool":
+		r = &ComputePool{}
 	case "snowflake:index/cortexSearchService:CortexSearchService":
 		r = &CortexSearchService{}
+	case "snowflake:index/currentAccount:CurrentAccount":
+		r = &CurrentAccount{}
 	case "snowflake:index/database:Database":
 		r = &Database{}
 	case "snowflake:index/databaseRole:DatabaseRole":
@@ -77,6 +81,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &FunctionScala{}
 	case "snowflake:index/functionSql:FunctionSql":
 		r = &FunctionSql{}
+	case "snowflake:index/gitRepository:GitRepository":
+		r = &GitRepository{}
 	case "snowflake:index/grantAccountRole:GrantAccountRole":
 		r = &GrantAccountRole{}
 	case "snowflake:index/grantApplicationRole:GrantApplicationRole":
@@ -91,6 +97,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GrantPrivilegesToDatabaseRole{}
 	case "snowflake:index/grantPrivilegesToShare:GrantPrivilegesToShare":
 		r = &GrantPrivilegesToShare{}
+	case "snowflake:index/imageRepository:ImageRepository":
+		r = &ImageRepository{}
+	case "snowflake:index/jobService:JobService":
+		r = &JobService{}
 	case "snowflake:index/legacyServiceUser:LegacyServiceUser":
 		r = &LegacyServiceUser{}
 	case "snowflake:index/managedAccount:ManagedAccount":
@@ -153,6 +163,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SecretWithGenericString{}
 	case "snowflake:index/sequence:Sequence":
 		r = &Sequence{}
+	case "snowflake:index/service:Service":
+		r = &Service{}
 	case "snowflake:index/serviceUser:ServiceUser":
 		r = &ServiceUser{}
 	case "snowflake:index/share:Share":
@@ -285,7 +297,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/computePool",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/cortexSearchService",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/currentAccount",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -370,6 +392,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"snowflake",
+		"index/gitRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
 		"index/grantAccountRole",
 		&module{version},
 	)
@@ -401,6 +428,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/grantPrivilegesToShare",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/imageRepository",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/jobService",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -556,6 +593,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"snowflake",
 		"index/sequence",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"snowflake",
+		"index/service",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

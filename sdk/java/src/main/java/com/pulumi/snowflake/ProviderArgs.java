@@ -451,16 +451,20 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password for user + password auth. Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced
-     * from the `SNOWFLAKE_PASSWORD` environment variable.
+     * Password for user + password or
+     * [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+     * [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and
+     * `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
      * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
-     * @return Password for user + password auth. Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced
-     * from the `SNOWFLAKE_PASSWORD` environment variable.
+     * @return Password for user + password or
+     * [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+     * [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and
+     * `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
      * 
      */
     public Optional<Output<String>> password() {
@@ -1368,8 +1372,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password for user + password auth. Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced
-         * from the `SNOWFLAKE_PASSWORD` environment variable.
+         * @param password Password for user + password or
+         * [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+         * [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and
+         * `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
          * 
          * @return builder
          * 
@@ -1380,8 +1386,10 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param password Password for user + password auth. Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced
-         * from the `SNOWFLAKE_PASSWORD` environment variable.
+         * @param password Password for user + password or
+         * [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+         * [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and
+         * `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
          * 
          * @return builder
          * 

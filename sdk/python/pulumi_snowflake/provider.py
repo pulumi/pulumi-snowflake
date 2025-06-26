@@ -117,8 +117,10 @@ class ProviderArgs:
                the `SNOWFLAKE_PASSCODE` environment variable.
         :param pulumi.Input[builtins.bool] passcode_in_password: False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
                `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
-        :param pulumi.Input[builtins.str] password: Password for user + password auth. Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced
-               from the `SNOWFLAKE_PASSWORD` environment variable.
+        :param pulumi.Input[builtins.str] password: Password for user + password or
+               [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+               [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and
+               `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
         :param pulumi.Input[builtins.int] port: Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
                `SNOWFLAKE_PORT` environment variable.
         :param pulumi.Input[builtins.str] private_key: Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
@@ -580,8 +582,10 @@ class ProviderArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Password for user + password auth. Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced
-        from the `SNOWFLAKE_PASSWORD` environment variable.
+        Password for user + password or
+        [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+        [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and
+        `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
         """
         return pulumi.get(self, "password")
 
@@ -901,8 +905,10 @@ class Provider(pulumi.ProviderResource):
                the `SNOWFLAKE_PASSCODE` environment variable.
         :param pulumi.Input[builtins.bool] passcode_in_password: False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
                `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
-        :param pulumi.Input[builtins.str] password: Password for user + password auth. Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced
-               from the `SNOWFLAKE_PASSWORD` environment variable.
+        :param pulumi.Input[builtins.str] password: Password for user + password or
+               [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+               [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and
+               `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
         :param pulumi.Input[builtins.int] port: Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
                `SNOWFLAKE_PORT` environment variable.
         :param pulumi.Input[builtins.str] private_key: Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
@@ -1200,8 +1206,10 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Password for user + password auth. Cannot be used with `private_key` and `private_key_passphrase`. Can also be sourced
-        from the `SNOWFLAKE_PASSWORD` environment variable.
+        Password for user + password or
+        [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+        [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `private_key` and
+        `private_key_passphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
         """
         return pulumi.get(self, "password")
 

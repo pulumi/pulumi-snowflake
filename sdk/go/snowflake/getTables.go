@@ -13,34 +13,7 @@ import (
 
 // !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-snowflake/sdk/v2/go/snowflake"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := snowflake.GetTables(ctx, &snowflake.GetTablesArgs{
-//				Database: "MYDB",
-//				Schema:   "MYSCHEMA",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// > **Note** If a field has a default value, it is shown next to the type in the schema.
+// Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
 func GetTables(ctx *pulumi.Context, args *GetTablesArgs, opts ...pulumi.InvokeOption) (*GetTablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTablesResult
@@ -53,22 +26,34 @@ func GetTables(ctx *pulumi.Context, args *GetTablesArgs, opts ...pulumi.InvokeOp
 
 // A collection of arguments for invoking getTables.
 type GetTablesArgs struct {
-	// The database from which to return the schemas from.
-	Database string `pulumi:"database"`
-	// The schema from which to return the tables from.
-	Schema string `pulumi:"schema"`
+	// IN clause to filter the list of objects
+	In *GetTablesIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetTablesLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 // A collection of values returned by getTables.
 type GetTablesResult struct {
-	// The database from which to return the schemas from.
-	Database string `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The schema from which to return the tables from.
-	Schema string `pulumi:"schema"`
-	// The tables in the schema
+	// IN clause to filter the list of objects
+	In *GetTablesIn `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like *string `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit *GetTablesLimit `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith *string `pulumi:"startsWith"`
+	// Holds the aggregated output of all tables details queries.
 	Tables []GetTablesTable `pulumi:"tables"`
+	// (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe *bool `pulumi:"withDescribe"`
 }
 
 func GetTablesOutput(ctx *pulumi.Context, args GetTablesOutputArgs, opts ...pulumi.InvokeOption) GetTablesResultOutput {
@@ -82,10 +67,16 @@ func GetTablesOutput(ctx *pulumi.Context, args GetTablesOutputArgs, opts ...pulu
 
 // A collection of arguments for invoking getTables.
 type GetTablesOutputArgs struct {
-	// The database from which to return the schemas from.
-	Database pulumi.StringInput `pulumi:"database"`
-	// The schema from which to return the tables from.
-	Schema pulumi.StringInput `pulumi:"schema"`
+	// IN clause to filter the list of objects
+	In GetTablesInPtrInput `pulumi:"in"`
+	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+	Like pulumi.StringPtrInput `pulumi:"like"`
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	Limit GetTablesLimitPtrInput `pulumi:"limit"`
+	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
+	// (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
+	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
 }
 
 func (GetTablesOutputArgs) ElementType() reflect.Type {
@@ -107,24 +98,39 @@ func (o GetTablesResultOutput) ToGetTablesResultOutputWithContext(ctx context.Co
 	return o
 }
 
-// The database from which to return the schemas from.
-func (o GetTablesResultOutput) Database() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTablesResult) string { return v.Database }).(pulumi.StringOutput)
-}
-
 // The provider-assigned unique ID for this managed resource.
 func (o GetTablesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTablesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The schema from which to return the tables from.
-func (o GetTablesResultOutput) Schema() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTablesResult) string { return v.Schema }).(pulumi.StringOutput)
+// IN clause to filter the list of objects
+func (o GetTablesResultOutput) In() GetTablesInPtrOutput {
+	return o.ApplyT(func(v GetTablesResult) *GetTablesIn { return v.In }).(GetTablesInPtrOutput)
 }
 
-// The tables in the schema
+// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+func (o GetTablesResultOutput) Like() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTablesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
+}
+
+// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+func (o GetTablesResultOutput) Limit() GetTablesLimitPtrOutput {
+	return o.ApplyT(func(v GetTablesResult) *GetTablesLimit { return v.Limit }).(GetTablesLimitPtrOutput)
+}
+
+// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+func (o GetTablesResultOutput) StartsWith() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTablesResult) *string { return v.StartsWith }).(pulumi.StringPtrOutput)
+}
+
+// Holds the aggregated output of all tables details queries.
 func (o GetTablesResultOutput) Tables() GetTablesTableArrayOutput {
 	return o.ApplyT(func(v GetTablesResult) []GetTablesTable { return v.Tables }).(GetTablesTableArrayOutput)
+}
+
+// (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
+func (o GetTablesResultOutput) WithDescribe() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetTablesResult) *bool { return v.WithDescribe }).(pulumi.BoolPtrOutput)
 }
 
 func init() {

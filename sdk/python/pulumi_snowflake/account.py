@@ -30,6 +30,7 @@ class AccountArgs:
                  admin_rsa_public_key: Optional[pulumi.Input[builtins.str]] = None,
                  admin_user_type: Optional[pulumi.Input[builtins.str]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
+                 consumption_billing_entity: Optional[pulumi.Input[builtins.str]] = None,
                  first_name: Optional[pulumi.Input[builtins.str]] = None,
                  is_org_admin: Optional[pulumi.Input[builtins.str]] = None,
                  last_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -42,6 +43,7 @@ class AccountArgs:
         :param pulumi.Input[builtins.str] edition: Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
         :param pulumi.Input[builtins.int] grace_period_in_days: Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the account.
+        :param pulumi.Input[builtins.str] consumption_billing_entity: Determines which billing entity is responsible for the account's consumption-based billing.
         :param pulumi.Input[builtins.str] is_org_admin: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
         :param pulumi.Input[builtins.str] name: Specifies the identifier (i.e. name) for the account. It must be unique within an organization, regardless of which Snowflake Region the account is in and must start with an alphabetic character and cannot contain spaces or special characters except for underscores (_). Note that if the account name includes underscores, features that do not accept account names with underscores (e.g. Okta SSO or SCIM) can reference a version of the account name that substitutes hyphens (-) for the underscores.
         :param pulumi.Input[builtins.str] region: [Snowflake Region ID](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#label-snowflake-region-ids) of the region where the account is created. If no value is provided, Snowflake creates the account in the same Snowflake Region as the current account (i.e. the account in which the CREATE ACCOUNT statement is executed.)
@@ -59,6 +61,8 @@ class AccountArgs:
             pulumi.set(__self__, "admin_user_type", admin_user_type)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if consumption_billing_entity is not None:
+            pulumi.set(__self__, "consumption_billing_entity", consumption_billing_entity)
         if first_name is not None:
             pulumi.set(__self__, "first_name", first_name)
         if is_org_admin is not None:
@@ -156,6 +160,18 @@ class AccountArgs:
         pulumi.set(self, "comment", value)
 
     @property
+    @pulumi.getter(name="consumptionBillingEntity")
+    def consumption_billing_entity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Determines which billing entity is responsible for the account's consumption-based billing.
+        """
+        return pulumi.get(self, "consumption_billing_entity")
+
+    @consumption_billing_entity.setter
+    def consumption_billing_entity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "consumption_billing_entity", value)
+
+    @property
     @pulumi.getter(name="firstName")
     def first_name(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "first_name")
@@ -239,6 +255,7 @@ class _AccountState:
                  admin_rsa_public_key: Optional[pulumi.Input[builtins.str]] = None,
                  admin_user_type: Optional[pulumi.Input[builtins.str]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
+                 consumption_billing_entity: Optional[pulumi.Input[builtins.str]] = None,
                  edition: Optional[pulumi.Input[builtins.str]] = None,
                  email: Optional[pulumi.Input[builtins.str]] = None,
                  first_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -254,6 +271,7 @@ class _AccountState:
         """
         Input properties used for looking up and filtering Account resources.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the account.
+        :param pulumi.Input[builtins.str] consumption_billing_entity: Determines which billing entity is responsible for the account's consumption-based billing.
         :param pulumi.Input[builtins.str] edition: Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.int] grace_period_in_days: Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
@@ -273,6 +291,8 @@ class _AccountState:
             pulumi.set(__self__, "admin_user_type", admin_user_type)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if consumption_billing_entity is not None:
+            pulumi.set(__self__, "consumption_billing_entity", consumption_billing_entity)
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
         if email is not None:
@@ -345,6 +365,18 @@ class _AccountState:
     @comment.setter
     def comment(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="consumptionBillingEntity")
+    def consumption_billing_entity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Determines which billing entity is responsible for the account's consumption-based billing.
+        """
+        return pulumi.get(self, "consumption_billing_entity")
+
+    @consumption_billing_entity.setter
+    def consumption_billing_entity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "consumption_billing_entity", value)
 
     @property
     @pulumi.getter
@@ -490,6 +522,7 @@ class Account(pulumi.CustomResource):
                  admin_rsa_public_key: Optional[pulumi.Input[builtins.str]] = None,
                  admin_user_type: Optional[pulumi.Input[builtins.str]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
+                 consumption_billing_entity: Optional[pulumi.Input[builtins.str]] = None,
                  edition: Optional[pulumi.Input[builtins.str]] = None,
                  email: Optional[pulumi.Input[builtins.str]] = None,
                  first_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -511,6 +544,7 @@ class Account(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the account.
+        :param pulumi.Input[builtins.str] consumption_billing_entity: Determines which billing entity is responsible for the account's consumption-based billing.
         :param pulumi.Input[builtins.str] edition: Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
         :param pulumi.Input[builtins.int] grace_period_in_days: Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
         :param pulumi.Input[builtins.str] is_org_admin: (Default: fallback to Snowflake default - uses special value that cannot be set in the configuration manually (`default`)) Sets an account property that determines whether the ORGADMIN role is enabled in the account. Only an organization administrator (i.e. user with the ORGADMIN role) can set the property.
@@ -551,6 +585,7 @@ class Account(pulumi.CustomResource):
                  admin_rsa_public_key: Optional[pulumi.Input[builtins.str]] = None,
                  admin_user_type: Optional[pulumi.Input[builtins.str]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
+                 consumption_billing_entity: Optional[pulumi.Input[builtins.str]] = None,
                  edition: Optional[pulumi.Input[builtins.str]] = None,
                  email: Optional[pulumi.Input[builtins.str]] = None,
                  first_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -577,6 +612,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["admin_rsa_public_key"] = admin_rsa_public_key
             __props__.__dict__["admin_user_type"] = admin_user_type
             __props__.__dict__["comment"] = comment
+            __props__.__dict__["consumption_billing_entity"] = consumption_billing_entity
             if edition is None and not opts.urn:
                 raise TypeError("Missing required property 'edition'")
             __props__.__dict__["edition"] = edition
@@ -612,6 +648,7 @@ class Account(pulumi.CustomResource):
             admin_rsa_public_key: Optional[pulumi.Input[builtins.str]] = None,
             admin_user_type: Optional[pulumi.Input[builtins.str]] = None,
             comment: Optional[pulumi.Input[builtins.str]] = None,
+            consumption_billing_entity: Optional[pulumi.Input[builtins.str]] = None,
             edition: Optional[pulumi.Input[builtins.str]] = None,
             email: Optional[pulumi.Input[builtins.str]] = None,
             first_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -632,6 +669,7 @@ class Account(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the account.
+        :param pulumi.Input[builtins.str] consumption_billing_entity: Determines which billing entity is responsible for the account's consumption-based billing.
         :param pulumi.Input[builtins.str] edition: Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.int] grace_period_in_days: Specifies the number of days during which the account can be restored (“undropped”). The minimum is 3 days and the maximum is 90 days.
@@ -650,6 +688,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["admin_rsa_public_key"] = admin_rsa_public_key
         __props__.__dict__["admin_user_type"] = admin_user_type
         __props__.__dict__["comment"] = comment
+        __props__.__dict__["consumption_billing_entity"] = consumption_billing_entity
         __props__.__dict__["edition"] = edition
         __props__.__dict__["email"] = email
         __props__.__dict__["first_name"] = first_name
@@ -691,6 +730,14 @@ class Account(pulumi.CustomResource):
         Specifies a comment for the account.
         """
         return pulumi.get(self, "comment")
+
+    @property
+    @pulumi.getter(name="consumptionBillingEntity")
+    def consumption_billing_entity(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Determines which billing entity is responsible for the account's consumption-based billing.
+        """
+        return pulumi.get(self, "consumption_billing_entity")
 
     @property
     @pulumi.getter

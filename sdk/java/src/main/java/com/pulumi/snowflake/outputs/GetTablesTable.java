@@ -5,28 +5,38 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.String;
+import com.pulumi.snowflake.outputs.GetTablesTableDescribeOutput;
+import com.pulumi.snowflake.outputs.GetTablesTableShowOutput;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
 public final class GetTablesTable {
-    private String comment;
-    private String database;
-    private String name;
-    private String schema;
+    /**
+     * @return Holds the output of DESCRIBE TABLES.
+     * 
+     */
+    private List<GetTablesTableDescribeOutput> describeOutputs;
+    /**
+     * @return Holds the output of SHOW TABLES.
+     * 
+     */
+    private List<GetTablesTableShowOutput> showOutputs;
 
     private GetTablesTable() {}
-    public String comment() {
-        return this.comment;
+    /**
+     * @return Holds the output of DESCRIBE TABLES.
+     * 
+     */
+    public List<GetTablesTableDescribeOutput> describeOutputs() {
+        return this.describeOutputs;
     }
-    public String database() {
-        return this.database;
-    }
-    public String name() {
-        return this.name;
-    }
-    public String schema() {
-        return this.schema;
+    /**
+     * @return Holds the output of SHOW TABLES.
+     * 
+     */
+    public List<GetTablesTableShowOutput> showOutputs() {
+        return this.showOutputs;
     }
 
     public static Builder builder() {
@@ -38,57 +48,41 @@ public final class GetTablesTable {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String comment;
-        private String database;
-        private String name;
-        private String schema;
+        private List<GetTablesTableDescribeOutput> describeOutputs;
+        private List<GetTablesTableShowOutput> showOutputs;
         public Builder() {}
         public Builder(GetTablesTable defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.comment = defaults.comment;
-    	      this.database = defaults.database;
-    	      this.name = defaults.name;
-    	      this.schema = defaults.schema;
+    	      this.describeOutputs = defaults.describeOutputs;
+    	      this.showOutputs = defaults.showOutputs;
         }
 
         @CustomType.Setter
-        public Builder comment(String comment) {
-            if (comment == null) {
-              throw new MissingRequiredPropertyException("GetTablesTable", "comment");
+        public Builder describeOutputs(List<GetTablesTableDescribeOutput> describeOutputs) {
+            if (describeOutputs == null) {
+              throw new MissingRequiredPropertyException("GetTablesTable", "describeOutputs");
             }
-            this.comment = comment;
+            this.describeOutputs = describeOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetTablesTable", "database");
-            }
-            this.database = database;
-            return this;
+        public Builder describeOutputs(GetTablesTableDescribeOutput... describeOutputs) {
+            return describeOutputs(List.of(describeOutputs));
         }
         @CustomType.Setter
-        public Builder name(String name) {
-            if (name == null) {
-              throw new MissingRequiredPropertyException("GetTablesTable", "name");
+        public Builder showOutputs(List<GetTablesTableShowOutput> showOutputs) {
+            if (showOutputs == null) {
+              throw new MissingRequiredPropertyException("GetTablesTable", "showOutputs");
             }
-            this.name = name;
+            this.showOutputs = showOutputs;
             return this;
         }
-        @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetTablesTable", "schema");
-            }
-            this.schema = schema;
-            return this;
+        public Builder showOutputs(GetTablesTableShowOutput... showOutputs) {
+            return showOutputs(List.of(showOutputs));
         }
         public GetTablesTable build() {
             final var _resultValue = new GetTablesTable();
-            _resultValue.comment = comment;
-            _resultValue.database = database;
-            _resultValue.name = name;
-            _resultValue.schema = schema;
+            _resultValue.describeOutputs = describeOutputs;
+            _resultValue.showOutputs = showOutputs;
             return _resultValue;
         }
     }

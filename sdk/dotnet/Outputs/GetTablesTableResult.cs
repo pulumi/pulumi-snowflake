@@ -13,25 +13,23 @@ namespace Pulumi.Snowflake.Outputs
     [OutputType]
     public sealed class GetTablesTableResult
     {
-        public readonly string Comment;
-        public readonly string Database;
-        public readonly string Name;
-        public readonly string Schema;
+        /// <summary>
+        /// Holds the output of DESCRIBE TABLES.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetTablesTableDescribeOutputResult> DescribeOutputs;
+        /// <summary>
+        /// Holds the output of SHOW TABLES.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetTablesTableShowOutputResult> ShowOutputs;
 
         [OutputConstructor]
         private GetTablesTableResult(
-            string comment,
+            ImmutableArray<Outputs.GetTablesTableDescribeOutputResult> describeOutputs,
 
-            string database,
-
-            string name,
-
-            string schema)
+            ImmutableArray<Outputs.GetTablesTableShowOutputResult> showOutputs)
         {
-            Comment = comment;
-            Database = database;
-            Name = name;
-            Schema = schema;
+            DescribeOutputs = describeOutputs;
+            ShowOutputs = showOutputs;
         }
     }
 }

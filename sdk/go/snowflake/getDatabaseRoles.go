@@ -28,7 +28,7 @@ type GetDatabaseRolesArgs struct {
 	InDatabase string `pulumi:"inDatabase"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit *GetDatabaseRolesLimit `pulumi:"limit"`
 }
 
@@ -42,7 +42,7 @@ type GetDatabaseRolesResult struct {
 	InDatabase string `pulumi:"inDatabase"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit *GetDatabaseRolesLimit `pulumi:"limit"`
 }
 
@@ -61,7 +61,7 @@ type GetDatabaseRolesOutputArgs struct {
 	InDatabase pulumi.StringInput `pulumi:"inDatabase"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like pulumi.StringPtrInput `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit GetDatabaseRolesLimitPtrInput `pulumi:"limit"`
 }
 
@@ -104,7 +104,7 @@ func (o GetDatabaseRolesResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetDatabaseRolesResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 func (o GetDatabaseRolesResultOutput) Limit() GetDatabaseRolesLimitPtrOutput {
 	return o.ApplyT(func(v GetDatabaseRolesResult) *GetDatabaseRolesLimit { return v.Limit }).(GetDatabaseRolesLimitPtrOutput)
 }

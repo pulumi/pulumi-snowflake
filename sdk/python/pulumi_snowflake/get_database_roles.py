@@ -82,7 +82,7 @@ class GetDatabaseRolesResult:
     @pulumi.getter
     def limit(self) -> Optional['outputs.GetDatabaseRolesLimitResult']:
         """
-        Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
         """
         return pulumi.get(self, "limit")
 
@@ -110,7 +110,7 @@ def get_database_roles(in_database: Optional[builtins.str] = None,
 
     :param builtins.str in_database: The database from which to return the database roles from.
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     """
     __args__ = dict()
     __args__['inDatabase'] = in_database
@@ -135,7 +135,7 @@ def get_database_roles_output(in_database: Optional[pulumi.Input[builtins.str]] 
 
     :param builtins.str in_database: The database from which to return the database roles from.
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetDatabaseRolesLimitArgs', 'GetDatabaseRolesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     """
     __args__ = dict()
     __args__['inDatabase'] = in_database

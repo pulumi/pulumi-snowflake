@@ -50,6 +50,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly comment!: pulumi.Output<string | undefined>;
     /**
+     * Determines which billing entity is responsible for the account's consumption-based billing.
+     */
+    public readonly consumptionBillingEntity!: pulumi.Output<string | undefined>;
+    /**
      * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
      */
     public readonly edition!: pulumi.Output<string>;
@@ -104,6 +108,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["adminRsaPublicKey"] = state ? state.adminRsaPublicKey : undefined;
             resourceInputs["adminUserType"] = state ? state.adminUserType : undefined;
             resourceInputs["comment"] = state ? state.comment : undefined;
+            resourceInputs["consumptionBillingEntity"] = state ? state.consumptionBillingEntity : undefined;
             resourceInputs["edition"] = state ? state.edition : undefined;
             resourceInputs["email"] = state ? state.email : undefined;
             resourceInputs["firstName"] = state ? state.firstName : undefined;
@@ -135,6 +140,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["adminRsaPublicKey"] = args ? args.adminRsaPublicKey : undefined;
             resourceInputs["adminUserType"] = args ? args.adminUserType : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
+            resourceInputs["consumptionBillingEntity"] = args ? args.consumptionBillingEntity : undefined;
             resourceInputs["edition"] = args ? args.edition : undefined;
             resourceInputs["email"] = args?.email ? pulumi.secret(args.email) : undefined;
             resourceInputs["firstName"] = args?.firstName ? pulumi.secret(args.firstName) : undefined;
@@ -167,6 +173,10 @@ export interface AccountState {
      * Specifies a comment for the account.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * Determines which billing entity is responsible for the account's consumption-based billing.
+     */
+    consumptionBillingEntity?: pulumi.Input<string>;
     /**
      * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
      */
@@ -217,6 +227,10 @@ export interface AccountArgs {
      * Specifies a comment for the account.
      */
     comment?: pulumi.Input<string>;
+    /**
+     * Determines which billing entity is responsible for the account's consumption-based billing.
+     */
+    consumptionBillingEntity?: pulumi.Input<string>;
     /**
      * Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
      */

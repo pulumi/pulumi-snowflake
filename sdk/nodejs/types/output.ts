@@ -394,6 +394,72 @@ export interface AuthenticationPolicyShowOutput {
     schemaName: string;
 }
 
+export interface ComputePoolDescribeOutput {
+    activeNodes: number;
+    application: string;
+    autoResume: boolean;
+    autoSuspendSecs: number;
+    comment: string;
+    createdOn: string;
+    errorCode: string;
+    idleNodes: number;
+    instanceFamily: string;
+    isExclusive: boolean;
+    maxNodes: number;
+    minNodes: number;
+    name: string;
+    numJobs: number;
+    numServices: number;
+    owner: string;
+    resumedOn: string;
+    state: string;
+    statusMessage: string;
+    targetNodes: number;
+    updatedOn: string;
+}
+
+export interface ComputePoolShowOutput {
+    activeNodes: number;
+    application: string;
+    autoResume: boolean;
+    autoSuspendSecs: number;
+    comment: string;
+    createdOn: string;
+    idleNodes: number;
+    instanceFamily: string;
+    isExclusive: boolean;
+    maxNodes: number;
+    minNodes: number;
+    name: string;
+    numJobs: number;
+    numServices: number;
+    owner: string;
+    resumedOn: string;
+    state: string;
+    targetNodes: number;
+    updatedOn: string;
+}
+
+export interface CortexSearchServiceDescribeOutput {
+    attributeColumns: string[];
+    columns: string[];
+    comment: string;
+    createdOn: string;
+    dataTimestamp: string;
+    databaseName: string;
+    definition: string;
+    embeddingModel: string;
+    indexingError: string;
+    indexingState: string;
+    name: string;
+    schemaName: string;
+    searchColumn: string;
+    serviceQueryUrl: string;
+    sourceDataNumRows: number;
+    targetLag: string;
+    warehouse: string;
+}
+
 export interface DatabaseReplication {
     /**
      * Entry to enable replication and optionally failover for a given account identifier.
@@ -1242,6 +1308,74 @@ export interface GetAlertsAlert {
     schemaName: string;
 }
 
+export interface GetComputePoolsComputePool {
+    /**
+     * Holds the output of DESCRIBE COMPUTE POOL.
+     */
+    describeOutputs: outputs.GetComputePoolsComputePoolDescribeOutput[];
+    /**
+     * Holds the output of SHOW COMPUTE POOLS.
+     */
+    showOutputs: outputs.GetComputePoolsComputePoolShowOutput[];
+}
+
+export interface GetComputePoolsComputePoolDescribeOutput {
+    activeNodes: number;
+    application: string;
+    autoResume: boolean;
+    autoSuspendSecs: number;
+    comment: string;
+    createdOn: string;
+    errorCode: string;
+    idleNodes: number;
+    instanceFamily: string;
+    isExclusive: boolean;
+    maxNodes: number;
+    minNodes: number;
+    name: string;
+    numJobs: number;
+    numServices: number;
+    owner: string;
+    resumedOn: string;
+    state: string;
+    statusMessage: string;
+    targetNodes: number;
+    updatedOn: string;
+}
+
+export interface GetComputePoolsComputePoolShowOutput {
+    activeNodes: number;
+    application: string;
+    autoResume: boolean;
+    autoSuspendSecs: number;
+    comment: string;
+    createdOn: string;
+    idleNodes: number;
+    instanceFamily: string;
+    isExclusive: boolean;
+    maxNodes: number;
+    minNodes: number;
+    name: string;
+    numJobs: number;
+    numServices: number;
+    owner: string;
+    resumedOn: string;
+    state: string;
+    targetNodes: number;
+    updatedOn: string;
+}
+
+export interface GetComputePoolsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
 export interface GetConnectionsConnection {
     /**
      * Holds the output of SHOW CONNECTIONS.
@@ -1761,6 +1895,71 @@ export interface GetFunctionsFunction {
     schema: string;
 }
 
+export interface GetGitRepositoriesGitRepository {
+    /**
+     * Holds the output of DESCRIBE GIT REPOSITORY.
+     */
+    describeOutputs: outputs.GetGitRepositoriesGitRepositoryDescribeOutput[];
+    /**
+     * Holds the output of SHOW GIT REPOSITORIES.
+     */
+    showOutputs: outputs.GetGitRepositoriesGitRepositoryShowOutput[];
+}
+
+export interface GetGitRepositoriesGitRepositoryDescribeOutput {
+    apiIntegration: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    gitCredentials: string;
+    lastFetchedAt: string;
+    name: string;
+    origin: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
+export interface GetGitRepositoriesGitRepositoryShowOutput {
+    apiIntegration: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    gitCredentials: string;
+    lastFetchedAt: string;
+    name: string;
+    origin: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
+export interface GetGitRepositoriesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetGitRepositoriesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
 export interface GetGrantsFutureGrantsIn {
     /**
      * Lists all privileges on new (i.e. future) objects of a specified type in the database granted to a role.
@@ -1884,6 +2083,40 @@ export interface GetGrantsGrantsToShare {
      * Lists all of the privileges and roles granted to the specified share.
      */
     shareName: string;
+}
+
+export interface GetImageRepositoriesImageRepository {
+    /**
+     * Holds the output of SHOW IMAGE REPOSITORIES.
+     */
+    showOutputs: outputs.GetImageRepositoriesImageRepositoryShowOutput[];
+}
+
+export interface GetImageRepositoriesImageRepositoryShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    privatelinkRepositoryUrl: string;
+    repositoryUrl: string;
+    schemaName: string;
+}
+
+export interface GetImageRepositoriesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
 }
 
 export interface GetMaskingPoliciesIn {
@@ -2850,6 +3083,110 @@ export interface GetSequencesSequence {
     schema: string;
 }
 
+export interface GetServicesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified compute pool.
+     */
+    computePool?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetServicesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetServicesService {
+    /**
+     * Holds the output of DESCRIBE SERVICE.
+     */
+    describeOutputs: outputs.GetServicesServiceDescribeOutput[];
+    /**
+     * Holds the output of SHOW SERVICES.
+     */
+    showOutputs: outputs.GetServicesServiceShowOutput[];
+}
+
+export interface GetServicesServiceDescribeOutput {
+    autoResume: boolean;
+    autoSuspendSecs: number;
+    comment: string;
+    computePool: string;
+    createdOn: string;
+    currentInstances: number;
+    databaseName: string;
+    dnsName: string;
+    externalAccessIntegrations: string[];
+    isAsyncJob: boolean;
+    isJob: boolean;
+    isUpgrading: boolean;
+    managingObjectDomain: string;
+    managingObjectName: string;
+    maxInstances: number;
+    minInstances: number;
+    minReadyInstances: number;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    queryWarehouse: string;
+    resumedOn: string;
+    schemaName: string;
+    spec: string;
+    specDigest: string;
+    status: string;
+    suspendedOn: string;
+    targetInstances: number;
+    updatedOn: string;
+}
+
+export interface GetServicesServiceShowOutput {
+    autoResume: boolean;
+    autoSuspendSecs: number;
+    comment: string;
+    computePool: string;
+    createdOn: string;
+    currentInstances: number;
+    databaseName: string;
+    dnsName: string;
+    externalAccessIntegrations: string[];
+    isAsyncJob: boolean;
+    isJob: boolean;
+    isUpgrading: boolean;
+    managingObjectDomain: string;
+    managingObjectName: string;
+    maxInstances: number;
+    minInstances: number;
+    minReadyInstances: number;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    queryWarehouse: string;
+    resumedOn: string;
+    schemaName: string;
+    specDigest: string;
+    status: string;
+    suspendedOn: string;
+    targetInstances: number;
+    updatedOn: string;
+}
+
 export interface GetSharesShare {
     /**
      * The comment on the share.
@@ -3033,11 +3370,90 @@ export interface GetStreamsStreamShowOutput {
     type: string;
 }
 
+export interface GetTablesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetTablesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
 export interface GetTablesTable {
+    /**
+     * Holds the output of DESCRIBE TABLES.
+     */
+    describeOutputs: outputs.GetTablesTableDescribeOutput[];
+    /**
+     * Holds the output of SHOW TABLES.
+     */
+    showOutputs: outputs.GetTablesTableShowOutput[];
+}
+
+export interface GetTablesTableDescribeOutput {
+    check: string;
+    collation: string;
     comment: string;
-    database: string;
+    default: string;
+    expression: string;
+    isNullable: boolean;
+    isPrimary: boolean;
+    isUnique: boolean;
+    kind: string;
     name: string;
-    schema: string;
+    policyName: string;
+    schemaEvolutionRecord: string;
+    type: string;
+}
+
+export interface GetTablesTableShowOutput {
+    automaticClustering: boolean;
+    budget: string;
+    bytes: number;
+    changeTracking: boolean;
+    clusterBy: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    droppedOn: string;
+    enableSchemaEvolution: boolean;
+    isEvent: boolean;
+    isExternal: boolean;
+    kind: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    retentionTime: number;
+    rows: number;
+    schemaName: string;
+    searchOptimization: boolean;
+    searchOptimizationBytes: number;
+    searchOptimizationProgress: string;
 }
 
 export interface GetTagsIn {
@@ -4447,6 +4863,34 @@ export interface GetWarehousesWarehouseShowOutput {
     updatedOn: string;
 }
 
+export interface GitRepositoryDescribeOutput {
+    apiIntegration: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    gitCredentials: string;
+    lastFetchedAt: string;
+    name: string;
+    origin: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
+export interface GitRepositoryShowOutput {
+    apiIntegration: string;
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    gitCredentials: string;
+    lastFetchedAt: string;
+    name: string;
+    origin: string;
+    owner: string;
+    ownerRoleType: string;
+    schemaName: string;
+}
+
 export interface GrantOwnershipOn {
     /**
      * Configures the privilege to be granted on all objects in either a database or schema.
@@ -4554,7 +4998,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: string;
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
      */
     objectTypePlural: string;
 }
@@ -4618,9 +5062,137 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: string;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
      */
     objectTypePlural: string;
+}
+
+export interface ImageRepositoryShowOutput {
+    comment: string;
+    createdOn: string;
+    databaseName: string;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    privatelinkRepositoryUrl: string;
+    repositoryUrl: string;
+    schemaName: string;
+}
+
+export interface JobServiceDescribeOutput {
+    autoResume: boolean;
+    autoSuspendSecs: number;
+    comment: string;
+    computePool: string;
+    createdOn: string;
+    currentInstances: number;
+    databaseName: string;
+    dnsName: string;
+    externalAccessIntegrations: string[];
+    isAsyncJob: boolean;
+    isJob: boolean;
+    isUpgrading: boolean;
+    managingObjectDomain: string;
+    managingObjectName: string;
+    maxInstances: number;
+    minInstances: number;
+    minReadyInstances: number;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    queryWarehouse: string;
+    resumedOn: string;
+    schemaName: string;
+    spec: string;
+    specDigest: string;
+    status: string;
+    suspendedOn: string;
+    targetInstances: number;
+    updatedOn: string;
+}
+
+export interface JobServiceFromSpecification {
+    /**
+     * The file name of the service specification. Example: `spec.yaml`.
+     */
+    file?: string;
+    /**
+     * The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+     */
+    path?: string;
+    /**
+     * The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+     */
+    stage?: string;
+    /**
+     * The embedded text of the service specification.
+     */
+    text?: string;
+}
+
+export interface JobServiceFromSpecificationTemplate {
+    /**
+     * The file name of the service specification template. Example: `spec.yaml`.
+     */
+    file?: string;
+    /**
+     * The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+     */
+    path?: string;
+    /**
+     * The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+     */
+    stage?: string;
+    /**
+     * The embedded text of the service specification template.
+     */
+    text?: string;
+    /**
+     * List of the specified template variables and the values of those variables.
+     */
+    usings: outputs.JobServiceFromSpecificationTemplateUsing[];
+}
+
+export interface JobServiceFromSpecificationTemplateUsing {
+    /**
+     * The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+     */
+    key: string;
+    /**
+     * The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+     */
+    value: string;
+}
+
+export interface JobServiceShowOutput {
+    autoResume: boolean;
+    autoSuspendSecs: number;
+    comment: string;
+    computePool: string;
+    createdOn: string;
+    currentInstances: number;
+    databaseName: string;
+    dnsName: string;
+    externalAccessIntegrations: string[];
+    isAsyncJob: boolean;
+    isJob: boolean;
+    isUpgrading: boolean;
+    managingObjectDomain: string;
+    managingObjectName: string;
+    maxInstances: number;
+    minInstances: number;
+    minReadyInstances: number;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    queryWarehouse: string;
+    resumedOn: string;
+    schemaName: string;
+    specDigest: string;
+    status: string;
+    suspendedOn: string;
+    targetInstances: number;
+    updatedOn: string;
 }
 
 export interface LegacyServiceUserParameter {
@@ -6571,6 +7143,122 @@ export interface SecretWithGenericStringShowOutput {
     ownerRoleType: string;
     schemaName: string;
     secretType: string;
+}
+
+export interface ServiceDescribeOutput {
+    autoResume: boolean;
+    autoSuspendSecs: number;
+    comment: string;
+    computePool: string;
+    createdOn: string;
+    currentInstances: number;
+    databaseName: string;
+    dnsName: string;
+    externalAccessIntegrations: string[];
+    isAsyncJob: boolean;
+    isJob: boolean;
+    isUpgrading: boolean;
+    managingObjectDomain: string;
+    managingObjectName: string;
+    maxInstances: number;
+    minInstances: number;
+    minReadyInstances: number;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    queryWarehouse: string;
+    resumedOn: string;
+    schemaName: string;
+    spec: string;
+    specDigest: string;
+    status: string;
+    suspendedOn: string;
+    targetInstances: number;
+    updatedOn: string;
+}
+
+export interface ServiceFromSpecification {
+    /**
+     * The file name of the service specification. Example: `spec.yaml`.
+     */
+    file?: string;
+    /**
+     * The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+     */
+    path?: string;
+    /**
+     * The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+     */
+    stage?: string;
+    /**
+     * The embedded text of the service specification.
+     */
+    text?: string;
+}
+
+export interface ServiceFromSpecificationTemplate {
+    /**
+     * The file name of the service specification template. Example: `spec.yaml`.
+     */
+    file?: string;
+    /**
+     * The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+     */
+    path?: string;
+    /**
+     * The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+     */
+    stage?: string;
+    /**
+     * The embedded text of the service specification template.
+     */
+    text?: string;
+    /**
+     * List of the specified template variables and the values of those variables.
+     */
+    usings: outputs.ServiceFromSpecificationTemplateUsing[];
+}
+
+export interface ServiceFromSpecificationTemplateUsing {
+    /**
+     * The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+     */
+    key: string;
+    /**
+     * The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+     */
+    value: string;
+}
+
+export interface ServiceShowOutput {
+    autoResume: boolean;
+    autoSuspendSecs: number;
+    comment: string;
+    computePool: string;
+    createdOn: string;
+    currentInstances: number;
+    databaseName: string;
+    dnsName: string;
+    externalAccessIntegrations: string[];
+    isAsyncJob: boolean;
+    isJob: boolean;
+    isUpgrading: boolean;
+    managingObjectDomain: string;
+    managingObjectName: string;
+    maxInstances: number;
+    minInstances: number;
+    minReadyInstances: number;
+    name: string;
+    owner: string;
+    ownerRoleType: string;
+    queryWarehouse: string;
+    resumedOn: string;
+    schemaName: string;
+    specDigest: string;
+    status: string;
+    suspendedOn: string;
+    targetInstances: number;
+    updatedOn: string;
 }
 
 export interface ServiceUserParameter {

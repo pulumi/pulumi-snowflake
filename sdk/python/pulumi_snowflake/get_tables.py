@@ -15,6 +15,7 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
 from . import outputs
+from ._inputs import *
 
 __all__ = [
     'GetTablesResult',
@@ -28,27 +29,28 @@ class GetTablesResult:
     """
     A collection of values returned by getTables.
     """
-    def __init__(__self__, database=None, id=None, schema=None, tables=None):
-        if database and not isinstance(database, str):
-            raise TypeError("Expected argument 'database' to be a str")
-        pulumi.set(__self__, "database", database)
+    def __init__(__self__, id=None, in_=None, like=None, limit=None, starts_with=None, tables=None, with_describe=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if schema and not isinstance(schema, str):
-            raise TypeError("Expected argument 'schema' to be a str")
-        pulumi.set(__self__, "schema", schema)
+        if in_ and not isinstance(in_, dict):
+            raise TypeError("Expected argument 'in_' to be a dict")
+        pulumi.set(__self__, "in_", in_)
+        if like and not isinstance(like, str):
+            raise TypeError("Expected argument 'like' to be a str")
+        pulumi.set(__self__, "like", like)
+        if limit and not isinstance(limit, dict):
+            raise TypeError("Expected argument 'limit' to be a dict")
+        pulumi.set(__self__, "limit", limit)
+        if starts_with and not isinstance(starts_with, str):
+            raise TypeError("Expected argument 'starts_with' to be a str")
+        pulumi.set(__self__, "starts_with", starts_with)
         if tables and not isinstance(tables, list):
             raise TypeError("Expected argument 'tables' to be a list")
         pulumi.set(__self__, "tables", tables)
-
-    @property
-    @pulumi.getter
-    def database(self) -> builtins.str:
-        """
-        The database from which to return the schemas from.
-        """
-        return pulumi.get(self, "database")
+        if with_describe and not isinstance(with_describe, bool):
+            raise TypeError("Expected argument 'with_describe' to be a bool")
+        pulumi.set(__self__, "with_describe", with_describe)
 
     @property
     @pulumi.getter
@@ -59,20 +61,52 @@ class GetTablesResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="in")
+    def in_(self) -> Optional['outputs.GetTablesInResult']:
+        """
+        IN clause to filter the list of objects
+        """
+        return pulumi.get(self, "in_")
+
+    @property
     @pulumi.getter
-    def schema(self) -> builtins.str:
+    def like(self) -> Optional[builtins.str]:
         """
-        The schema from which to return the tables from.
+        Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
         """
-        return pulumi.get(self, "schema")
+        return pulumi.get(self, "like")
+
+    @property
+    @pulumi.getter
+    def limit(self) -> Optional['outputs.GetTablesLimitResult']:
+        """
+        Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        """
+        return pulumi.get(self, "limit")
+
+    @property
+    @pulumi.getter(name="startsWith")
+    def starts_with(self) -> Optional[builtins.str]:
+        """
+        Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+        """
+        return pulumi.get(self, "starts_with")
 
     @property
     @pulumi.getter
     def tables(self) -> Sequence['outputs.GetTablesTableResult']:
         """
-        The tables in the schema
+        Holds the aggregated output of all tables details queries.
         """
         return pulumi.get(self, "tables")
+
+    @property
+    @pulumi.getter(name="withDescribe")
+    def with_describe(self) -> Optional[builtins.bool]:
+        """
+        (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
+        """
+        return pulumi.get(self, "with_describe")
 
 
 class AwaitableGetTablesResult(GetTablesResult):
@@ -81,74 +115,81 @@ class AwaitableGetTablesResult(GetTablesResult):
         if False:
             yield self
         return GetTablesResult(
-            database=self.database,
             id=self.id,
-            schema=self.schema,
-            tables=self.tables)
+            in_=self.in_,
+            like=self.like,
+            limit=self.limit,
+            starts_with=self.starts_with,
+            tables=self.tables,
+            with_describe=self.with_describe)
 
 
-def get_tables(database: Optional[builtins.str] = None,
-               schema: Optional[builtins.str] = None,
+def get_tables(in_: Optional[Union['GetTablesInArgs', 'GetTablesInArgsDict']] = None,
+               like: Optional[builtins.str] = None,
+               limit: Optional[Union['GetTablesLimitArgs', 'GetTablesLimitArgsDict']] = None,
+               starts_with: Optional[builtins.str] = None,
+               with_describe: Optional[builtins.bool] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTablesResult:
     """
     !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_tables(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
 
 
-    :param builtins.str database: The database from which to return the schemas from.
-    :param builtins.str schema: The schema from which to return the tables from.
+    :param Union['GetTablesInArgs', 'GetTablesInArgsDict'] in_: IN clause to filter the list of objects
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetTablesLimitArgs', 'GetTablesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['database'] = database
-    __args__['schema'] = schema
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['limit'] = limit
+    __args__['startsWith'] = starts_with
+    __args__['withDescribe'] = with_describe
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('snowflake:index/getTables:getTables', __args__, opts=opts, typ=GetTablesResult).value
 
     return AwaitableGetTablesResult(
-        database=pulumi.get(__ret__, 'database'),
         id=pulumi.get(__ret__, 'id'),
-        schema=pulumi.get(__ret__, 'schema'),
-        tables=pulumi.get(__ret__, 'tables'))
-def get_tables_output(database: Optional[pulumi.Input[builtins.str]] = None,
-                      schema: Optional[pulumi.Input[builtins.str]] = None,
+        in_=pulumi.get(__ret__, 'in_'),
+        like=pulumi.get(__ret__, 'like'),
+        limit=pulumi.get(__ret__, 'limit'),
+        starts_with=pulumi.get(__ret__, 'starts_with'),
+        tables=pulumi.get(__ret__, 'tables'),
+        with_describe=pulumi.get(__ret__, 'with_describe'))
+def get_tables_output(in_: Optional[pulumi.Input[Optional[Union['GetTablesInArgs', 'GetTablesInArgsDict']]]] = None,
+                      like: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      limit: Optional[pulumi.Input[Optional[Union['GetTablesLimitArgs', 'GetTablesLimitArgsDict']]]] = None,
+                      starts_with: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                      with_describe: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetTablesResult]:
     """
     !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_snowflake as snowflake
-
-    current = snowflake.get_tables(database="MYDB",
-        schema="MYSCHEMA")
-    ```
-
-    > **Note** If a field has a default value, it is shown next to the type in the schema.
+    Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
 
 
-    :param builtins.str database: The database from which to return the schemas from.
-    :param builtins.str schema: The schema from which to return the tables from.
+    :param Union['GetTablesInArgs', 'GetTablesInArgsDict'] in_: IN clause to filter the list of objects
+    :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+    :param Union['GetTablesLimitArgs', 'GetTablesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+    :param builtins.bool with_describe: (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
     """
     __args__ = dict()
-    __args__['database'] = database
-    __args__['schema'] = schema
+    __args__['in'] = in_
+    __args__['like'] = like
+    __args__['limit'] = limit
+    __args__['startsWith'] = starts_with
+    __args__['withDescribe'] = with_describe
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('snowflake:index/getTables:getTables', __args__, opts=opts, typ=GetTablesResult)
     return __ret__.apply(lambda __response__: GetTablesResult(
-        database=pulumi.get(__response__, 'database'),
         id=pulumi.get(__response__, 'id'),
-        schema=pulumi.get(__response__, 'schema'),
-        tables=pulumi.get(__response__, 'tables')))
+        in_=pulumi.get(__response__, 'in_'),
+        like=pulumi.get(__response__, 'like'),
+        limit=pulumi.get(__response__, 'limit'),
+        starts_with=pulumi.get(__response__, 'starts_with'),
+        tables=pulumi.get(__response__, 'tables'),
+        with_describe=pulumi.get(__response__, 'with_describe')))
