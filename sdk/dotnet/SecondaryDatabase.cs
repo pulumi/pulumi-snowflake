@@ -122,7 +122,7 @@ namespace Pulumi.Snowflake
         public Output<int> TaskAutoRetryAttempts { get; private set; } = null!;
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        /// Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
         /// </summary>
         [Output("traceLevel")]
         public Output<string> TraceLevel { get; private set; } = null!;
@@ -288,7 +288,7 @@ namespace Pulumi.Snowflake
         public Input<int>? TaskAutoRetryAttempts { get; set; }
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        /// Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
         /// </summary>
         [Input("traceLevel")]
         public Input<string>? TraceLevel { get; set; }
@@ -422,7 +422,7 @@ namespace Pulumi.Snowflake
         public Input<int>? TaskAutoRetryAttempts { get; set; }
 
         /// <summary>
-        /// Controls how trace events are ingested into the event table. Valid options are: [ALWAYS ON*EVENT OFF]. For information about levels, see [TRACE*LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
+        /// Controls how trace events are ingested into the event table. Valid options are: `ALWAYS` | `ON_EVENT` | `PROPAGATE` | `OFF`. For information about levels, see [TRACE_LEVEL](https://docs.snowflake.com/en/sql-reference/parameters.html#label-trace-level).
         /// </summary>
         [Input("traceLevel")]
         public Input<string>? TraceLevel { get; set; }

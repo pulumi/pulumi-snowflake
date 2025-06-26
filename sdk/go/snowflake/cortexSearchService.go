@@ -28,6 +28,10 @@ type CortexSearchService struct {
 	CreatedOn pulumi.StringOutput `pulumi:"createdOn"`
 	// The database in which to create the Cortex search service.
 	Database pulumi.StringOutput `pulumi:"database"`
+	// Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+	DescribeOutputs CortexSearchServiceDescribeOutputArrayOutput `pulumi:"describeOutputs"`
+	// Specifies the embedding model to use for the Cortex search service.
+	EmbeddingModel pulumi.StringPtrOutput `pulumi:"embeddingModel"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringOutput `pulumi:"fullyQualifiedName"`
 	// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
@@ -100,6 +104,10 @@ type cortexSearchServiceState struct {
 	CreatedOn *string `pulumi:"createdOn"`
 	// The database in which to create the Cortex search service.
 	Database *string `pulumi:"database"`
+	// Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+	DescribeOutputs []CortexSearchServiceDescribeOutput `pulumi:"describeOutputs"`
+	// Specifies the embedding model to use for the Cortex search service.
+	EmbeddingModel *string `pulumi:"embeddingModel"`
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName *string `pulumi:"fullyQualifiedName"`
 	// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
@@ -125,6 +133,10 @@ type CortexSearchServiceState struct {
 	CreatedOn pulumi.StringPtrInput
 	// The database in which to create the Cortex search service.
 	Database pulumi.StringPtrInput
+	// Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+	DescribeOutputs CortexSearchServiceDescribeOutputArrayInput
+	// Specifies the embedding model to use for the Cortex search service.
+	EmbeddingModel pulumi.StringPtrInput
 	// Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
 	FullyQualifiedName pulumi.StringPtrInput
 	// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
@@ -152,6 +164,8 @@ type cortexSearchServiceArgs struct {
 	Comment *string `pulumi:"comment"`
 	// The database in which to create the Cortex search service.
 	Database string `pulumi:"database"`
+	// Specifies the embedding model to use for the Cortex search service.
+	EmbeddingModel *string `pulumi:"embeddingModel"`
 	// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
 	Name *string `pulumi:"name"`
 	// Specifies the column to use as the search column for the Cortex search service; must be a text value.
@@ -174,6 +188,8 @@ type CortexSearchServiceArgs struct {
 	Comment pulumi.StringPtrInput
 	// The database in which to create the Cortex search service.
 	Database pulumi.StringInput
+	// Specifies the embedding model to use for the Cortex search service.
+	EmbeddingModel pulumi.StringPtrInput
 	// Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
 	Name pulumi.StringPtrInput
 	// Specifies the column to use as the search column for the Cortex search service; must be a text value.
@@ -293,6 +309,16 @@ func (o CortexSearchServiceOutput) CreatedOn() pulumi.StringOutput {
 // The database in which to create the Cortex search service.
 func (o CortexSearchServiceOutput) Database() pulumi.StringOutput {
 	return o.ApplyT(func(v *CortexSearchService) pulumi.StringOutput { return v.Database }).(pulumi.StringOutput)
+}
+
+// Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+func (o CortexSearchServiceOutput) DescribeOutputs() CortexSearchServiceDescribeOutputArrayOutput {
+	return o.ApplyT(func(v *CortexSearchService) CortexSearchServiceDescribeOutputArrayOutput { return v.DescribeOutputs }).(CortexSearchServiceDescribeOutputArrayOutput)
+}
+
+// Specifies the embedding model to use for the Cortex search service.
+func (o CortexSearchServiceOutput) EmbeddingModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CortexSearchService) pulumi.StringPtrOutput { return v.EmbeddingModel }).(pulumi.StringPtrOutput)
 }
 
 // Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).

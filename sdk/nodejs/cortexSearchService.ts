@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -56,6 +58,14 @@ export class CortexSearchService extends pulumi.CustomResource {
      */
     public readonly database!: pulumi.Output<string>;
     /**
+     * Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+     */
+    public /*out*/ readonly describeOutputs!: pulumi.Output<outputs.CortexSearchServiceDescribeOutput[]>;
+    /**
+     * Specifies the embedding model to use for the Cortex search service.
+     */
+    public readonly embeddingModel!: pulumi.Output<string | undefined>;
+    /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
     public /*out*/ readonly fullyQualifiedName!: pulumi.Output<string>;
@@ -101,6 +111,8 @@ export class CortexSearchService extends pulumi.CustomResource {
             resourceInputs["comment"] = state ? state.comment : undefined;
             resourceInputs["createdOn"] = state ? state.createdOn : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
+            resourceInputs["describeOutputs"] = state ? state.describeOutputs : undefined;
+            resourceInputs["embeddingModel"] = state ? state.embeddingModel : undefined;
             resourceInputs["fullyQualifiedName"] = state ? state.fullyQualifiedName : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["on"] = state ? state.on : undefined;
@@ -131,6 +143,7 @@ export class CortexSearchService extends pulumi.CustomResource {
             resourceInputs["attributes"] = args ? args.attributes : undefined;
             resourceInputs["comment"] = args ? args.comment : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
+            resourceInputs["embeddingModel"] = args ? args.embeddingModel : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["on"] = args ? args.on : undefined;
             resourceInputs["query"] = args ? args.query : undefined;
@@ -138,6 +151,7 @@ export class CortexSearchService extends pulumi.CustomResource {
             resourceInputs["targetLag"] = args ? args.targetLag : undefined;
             resourceInputs["warehouse"] = args ? args.warehouse : undefined;
             resourceInputs["createdOn"] = undefined /*out*/;
+            resourceInputs["describeOutputs"] = undefined /*out*/;
             resourceInputs["fullyQualifiedName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -165,6 +179,14 @@ export interface CortexSearchServiceState {
      * The database in which to create the Cortex search service.
      */
     database?: pulumi.Input<string>;
+    /**
+     * Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+     */
+    describeOutputs?: pulumi.Input<pulumi.Input<inputs.CortexSearchServiceDescribeOutput>[]>;
+    /**
+     * Specifies the embedding model to use for the Cortex search service.
+     */
+    embeddingModel?: pulumi.Input<string>;
     /**
      * Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
      */
@@ -211,6 +233,10 @@ export interface CortexSearchServiceArgs {
      * The database in which to create the Cortex search service.
      */
     database: pulumi.Input<string>;
+    /**
+     * Specifies the embedding model to use for the Cortex search service.
+     */
+    embeddingModel?: pulumi.Input<string>;
     /**
      * Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
      */

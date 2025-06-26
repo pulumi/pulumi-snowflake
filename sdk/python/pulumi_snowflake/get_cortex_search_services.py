@@ -85,7 +85,7 @@ class GetCortexSearchServicesResult:
     @pulumi.getter
     def limit(self) -> Optional['outputs.GetCortexSearchServicesLimitResult']:
         """
-        Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
         """
         return pulumi.get(self, "limit")
 
@@ -148,7 +148,7 @@ def get_cortex_search_services(in_: Optional[Union['GetCortexSearchServicesInArg
 
     :param Union['GetCortexSearchServicesInArgs', 'GetCortexSearchServicesInArgsDict'] in_: IN clause to filter the list of cortex search services.
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetCortexSearchServicesLimitArgs', 'GetCortexSearchServicesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetCortexSearchServicesLimitArgs', 'GetCortexSearchServicesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     """
     __args__ = dict()
@@ -202,7 +202,7 @@ def get_cortex_search_services_output(in_: Optional[pulumi.Input[Optional[Union[
 
     :param Union['GetCortexSearchServicesInArgs', 'GetCortexSearchServicesInArgsDict'] in_: IN clause to filter the list of cortex search services.
     :param builtins.str like: Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
-    :param Union['GetCortexSearchServicesLimitArgs', 'GetCortexSearchServicesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+    :param Union['GetCortexSearchServicesLimitArgs', 'GetCortexSearchServicesLimitArgsDict'] limit: Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
     :param builtins.str starts_with: Filters the output with **case-sensitive** characters indicating the beginning of the object name.
     """
     __args__ = dict()

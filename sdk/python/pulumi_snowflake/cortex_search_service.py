@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['CortexSearchServiceArgs', 'CortexSearchService']
 
@@ -28,6 +30,7 @@ class CortexSearchServiceArgs:
                  warehouse: pulumi.Input[builtins.str],
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
+                 embedding_model: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a CortexSearchService resource.
@@ -39,6 +42,7 @@ class CortexSearchServiceArgs:
         :param pulumi.Input[builtins.str] warehouse: The warehouse in which to create the Cortex search service.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] attributes: Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the Cortex search service.
+        :param pulumi.Input[builtins.str] embedding_model: Specifies the embedding model to use for the Cortex search service.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
         """
         pulumi.set(__self__, "database", database)
@@ -51,6 +55,8 @@ class CortexSearchServiceArgs:
             pulumi.set(__self__, "attributes", attributes)
         if comment is not None:
             pulumi.set(__self__, "comment", comment)
+        if embedding_model is not None:
+            pulumi.set(__self__, "embedding_model", embedding_model)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -151,6 +157,18 @@ class CortexSearchServiceArgs:
         pulumi.set(self, "comment", value)
 
     @property
+    @pulumi.getter(name="embeddingModel")
+    def embedding_model(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the embedding model to use for the Cortex search service.
+        """
+        return pulumi.get(self, "embedding_model")
+
+    @embedding_model.setter
+    def embedding_model(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "embedding_model", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -170,6 +188,8 @@ class _CortexSearchServiceState:
                  comment: Optional[pulumi.Input[builtins.str]] = None,
                  created_on: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input[builtins.str]] = None,
+                 describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input['CortexSearchServiceDescribeOutputArgs']]]] = None,
+                 embedding_model: Optional[pulumi.Input[builtins.str]] = None,
                  fully_qualified_name: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  on: Optional[pulumi.Input[builtins.str]] = None,
@@ -183,6 +203,8 @@ class _CortexSearchServiceState:
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the Cortex search service.
         :param pulumi.Input[builtins.str] created_on: Creation date for the given Cortex search service.
         :param pulumi.Input[builtins.str] database: The database in which to create the Cortex search service.
+        :param pulumi.Input[Sequence[pulumi.Input['CortexSearchServiceDescribeOutputArgs']]] describe_outputs: Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+        :param pulumi.Input[builtins.str] embedding_model: Specifies the embedding model to use for the Cortex search service.
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
         :param pulumi.Input[builtins.str] on: Specifies the column to use as the search column for the Cortex search service; must be a text value.
@@ -199,6 +221,10 @@ class _CortexSearchServiceState:
             pulumi.set(__self__, "created_on", created_on)
         if database is not None:
             pulumi.set(__self__, "database", database)
+        if describe_outputs is not None:
+            pulumi.set(__self__, "describe_outputs", describe_outputs)
+        if embedding_model is not None:
+            pulumi.set(__self__, "embedding_model", embedding_model)
         if fully_qualified_name is not None:
             pulumi.set(__self__, "fully_qualified_name", fully_qualified_name)
         if name is not None:
@@ -261,6 +287,30 @@ class _CortexSearchServiceState:
     @database.setter
     def database(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CortexSearchServiceDescribeOutputArgs']]]]:
+        """
+        Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @describe_outputs.setter
+    def describe_outputs(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CortexSearchServiceDescribeOutputArgs']]]]):
+        pulumi.set(self, "describe_outputs", value)
+
+    @property
+    @pulumi.getter(name="embeddingModel")
+    def embedding_model(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies the embedding model to use for the Cortex search service.
+        """
+        return pulumi.get(self, "embedding_model")
+
+    @embedding_model.setter
+    def embedding_model(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "embedding_model", value)
 
     @property
     @pulumi.getter(name="fullyQualifiedName")
@@ -356,6 +406,7 @@ class CortexSearchService(pulumi.CustomResource):
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input[builtins.str]] = None,
+                 embedding_model: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  on: Optional[pulumi.Input[builtins.str]] = None,
                  query: Optional[pulumi.Input[builtins.str]] = None,
@@ -375,6 +426,7 @@ class CortexSearchService(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] attributes: Specifies the list of columns in the base table to enable filtering on when issuing queries to the service.
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the Cortex search service.
         :param pulumi.Input[builtins.str] database: The database in which to create the Cortex search service.
+        :param pulumi.Input[builtins.str] embedding_model: Specifies the embedding model to use for the Cortex search service.
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
         :param pulumi.Input[builtins.str] on: Specifies the column to use as the search column for the Cortex search service; must be a text value.
         :param pulumi.Input[builtins.str] query: Specifies the query to use to populate the Cortex search service.
@@ -413,6 +465,7 @@ class CortexSearchService(pulumi.CustomResource):
                  attributes: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  comment: Optional[pulumi.Input[builtins.str]] = None,
                  database: Optional[pulumi.Input[builtins.str]] = None,
+                 embedding_model: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  on: Optional[pulumi.Input[builtins.str]] = None,
                  query: Optional[pulumi.Input[builtins.str]] = None,
@@ -433,6 +486,7 @@ class CortexSearchService(pulumi.CustomResource):
             if database is None and not opts.urn:
                 raise TypeError("Missing required property 'database'")
             __props__.__dict__["database"] = database
+            __props__.__dict__["embedding_model"] = embedding_model
             __props__.__dict__["name"] = name
             if on is None and not opts.urn:
                 raise TypeError("Missing required property 'on'")
@@ -450,6 +504,7 @@ class CortexSearchService(pulumi.CustomResource):
                 raise TypeError("Missing required property 'warehouse'")
             __props__.__dict__["warehouse"] = warehouse
             __props__.__dict__["created_on"] = None
+            __props__.__dict__["describe_outputs"] = None
             __props__.__dict__["fully_qualified_name"] = None
         super(CortexSearchService, __self__).__init__(
             'snowflake:index/cortexSearchService:CortexSearchService',
@@ -465,6 +520,8 @@ class CortexSearchService(pulumi.CustomResource):
             comment: Optional[pulumi.Input[builtins.str]] = None,
             created_on: Optional[pulumi.Input[builtins.str]] = None,
             database: Optional[pulumi.Input[builtins.str]] = None,
+            describe_outputs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CortexSearchServiceDescribeOutputArgs', 'CortexSearchServiceDescribeOutputArgsDict']]]]] = None,
+            embedding_model: Optional[pulumi.Input[builtins.str]] = None,
             fully_qualified_name: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             on: Optional[pulumi.Input[builtins.str]] = None,
@@ -483,6 +540,8 @@ class CortexSearchService(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] comment: Specifies a comment for the Cortex search service.
         :param pulumi.Input[builtins.str] created_on: Creation date for the given Cortex search service.
         :param pulumi.Input[builtins.str] database: The database in which to create the Cortex search service.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CortexSearchServiceDescribeOutputArgs', 'CortexSearchServiceDescribeOutputArgsDict']]]] describe_outputs: Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+        :param pulumi.Input[builtins.str] embedding_model: Specifies the embedding model to use for the Cortex search service.
         :param pulumi.Input[builtins.str] fully_qualified_name: Fully qualified name of the resource. For more information, see [object name resolution](https://docs.snowflake.com/en/sql-reference/name-resolution).
         :param pulumi.Input[builtins.str] name: Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
         :param pulumi.Input[builtins.str] on: Specifies the column to use as the search column for the Cortex search service; must be a text value.
@@ -499,6 +558,8 @@ class CortexSearchService(pulumi.CustomResource):
         __props__.__dict__["comment"] = comment
         __props__.__dict__["created_on"] = created_on
         __props__.__dict__["database"] = database
+        __props__.__dict__["describe_outputs"] = describe_outputs
+        __props__.__dict__["embedding_model"] = embedding_model
         __props__.__dict__["fully_qualified_name"] = fully_qualified_name
         __props__.__dict__["name"] = name
         __props__.__dict__["on"] = on
@@ -539,6 +600,22 @@ class CortexSearchService(pulumi.CustomResource):
         The database in which to create the Cortex search service.
         """
         return pulumi.get(self, "database")
+
+    @property
+    @pulumi.getter(name="describeOutputs")
+    def describe_outputs(self) -> pulumi.Output[Sequence['outputs.CortexSearchServiceDescribeOutput']]:
+        """
+        Outputs the result of `DESCRIBE CORTEX SEARCH SERVICE` for the given cortex search service.
+        """
+        return pulumi.get(self, "describe_outputs")
+
+    @property
+    @pulumi.getter(name="embeddingModel")
+    def embedding_model(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Specifies the embedding model to use for the Cortex search service.
+        """
+        return pulumi.get(self, "embedding_model")
 
     @property
     @pulumi.getter(name="fullyQualifiedName")

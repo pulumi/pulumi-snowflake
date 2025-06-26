@@ -52,7 +52,7 @@ namespace Pulumi.Snowflake
         public string? Like { get; set; }
 
         /// <summary>
-        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
         /// </summary>
         [Input("limit")]
         public Inputs.GetTasksLimitArgs? Limit { get; set; }
@@ -96,7 +96,7 @@ namespace Pulumi.Snowflake
         public Input<string>? Like { get; set; }
 
         /// <summary>
-        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
         /// </summary>
         [Input("limit")]
         public Input<Inputs.GetTasksLimitInputArgs>? Limit { get; set; }
@@ -142,7 +142,7 @@ namespace Pulumi.Snowflake
         /// </summary>
         public readonly string? Like;
         /// <summary>
-        /// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+        /// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
         /// </summary>
         public readonly Outputs.GetTasksLimitResult? Limit;
         /// <summary>

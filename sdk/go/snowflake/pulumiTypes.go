@@ -5821,6 +5821,612 @@ func (o AuthenticationPolicyShowOutputArrayOutput) Index(i pulumi.IntInput) Auth
 	}).(AuthenticationPolicyShowOutputOutput)
 }
 
+type ComputePoolDescribeOutput struct {
+	ActiveNodes     *int    `pulumi:"activeNodes"`
+	Application     *string `pulumi:"application"`
+	AutoResume      *bool   `pulumi:"autoResume"`
+	AutoSuspendSecs *int    `pulumi:"autoSuspendSecs"`
+	Comment         *string `pulumi:"comment"`
+	CreatedOn       *string `pulumi:"createdOn"`
+	ErrorCode       *string `pulumi:"errorCode"`
+	IdleNodes       *int    `pulumi:"idleNodes"`
+	InstanceFamily  *string `pulumi:"instanceFamily"`
+	IsExclusive     *bool   `pulumi:"isExclusive"`
+	MaxNodes        *int    `pulumi:"maxNodes"`
+	MinNodes        *int    `pulumi:"minNodes"`
+	Name            *string `pulumi:"name"`
+	NumJobs         *int    `pulumi:"numJobs"`
+	NumServices     *int    `pulumi:"numServices"`
+	Owner           *string `pulumi:"owner"`
+	ResumedOn       *string `pulumi:"resumedOn"`
+	State           *string `pulumi:"state"`
+	StatusMessage   *string `pulumi:"statusMessage"`
+	TargetNodes     *int    `pulumi:"targetNodes"`
+	UpdatedOn       *string `pulumi:"updatedOn"`
+}
+
+// ComputePoolDescribeOutputInput is an input type that accepts ComputePoolDescribeOutputArgs and ComputePoolDescribeOutputOutput values.
+// You can construct a concrete instance of `ComputePoolDescribeOutputInput` via:
+//
+//	ComputePoolDescribeOutputArgs{...}
+type ComputePoolDescribeOutputInput interface {
+	pulumi.Input
+
+	ToComputePoolDescribeOutputOutput() ComputePoolDescribeOutputOutput
+	ToComputePoolDescribeOutputOutputWithContext(context.Context) ComputePoolDescribeOutputOutput
+}
+
+type ComputePoolDescribeOutputArgs struct {
+	ActiveNodes     pulumi.IntPtrInput    `pulumi:"activeNodes"`
+	Application     pulumi.StringPtrInput `pulumi:"application"`
+	AutoResume      pulumi.BoolPtrInput   `pulumi:"autoResume"`
+	AutoSuspendSecs pulumi.IntPtrInput    `pulumi:"autoSuspendSecs"`
+	Comment         pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn       pulumi.StringPtrInput `pulumi:"createdOn"`
+	ErrorCode       pulumi.StringPtrInput `pulumi:"errorCode"`
+	IdleNodes       pulumi.IntPtrInput    `pulumi:"idleNodes"`
+	InstanceFamily  pulumi.StringPtrInput `pulumi:"instanceFamily"`
+	IsExclusive     pulumi.BoolPtrInput   `pulumi:"isExclusive"`
+	MaxNodes        pulumi.IntPtrInput    `pulumi:"maxNodes"`
+	MinNodes        pulumi.IntPtrInput    `pulumi:"minNodes"`
+	Name            pulumi.StringPtrInput `pulumi:"name"`
+	NumJobs         pulumi.IntPtrInput    `pulumi:"numJobs"`
+	NumServices     pulumi.IntPtrInput    `pulumi:"numServices"`
+	Owner           pulumi.StringPtrInput `pulumi:"owner"`
+	ResumedOn       pulumi.StringPtrInput `pulumi:"resumedOn"`
+	State           pulumi.StringPtrInput `pulumi:"state"`
+	StatusMessage   pulumi.StringPtrInput `pulumi:"statusMessage"`
+	TargetNodes     pulumi.IntPtrInput    `pulumi:"targetNodes"`
+	UpdatedOn       pulumi.StringPtrInput `pulumi:"updatedOn"`
+}
+
+func (ComputePoolDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputePoolDescribeOutput)(nil)).Elem()
+}
+
+func (i ComputePoolDescribeOutputArgs) ToComputePoolDescribeOutputOutput() ComputePoolDescribeOutputOutput {
+	return i.ToComputePoolDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i ComputePoolDescribeOutputArgs) ToComputePoolDescribeOutputOutputWithContext(ctx context.Context) ComputePoolDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputePoolDescribeOutputOutput)
+}
+
+// ComputePoolDescribeOutputArrayInput is an input type that accepts ComputePoolDescribeOutputArray and ComputePoolDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `ComputePoolDescribeOutputArrayInput` via:
+//
+//	ComputePoolDescribeOutputArray{ ComputePoolDescribeOutputArgs{...} }
+type ComputePoolDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToComputePoolDescribeOutputArrayOutput() ComputePoolDescribeOutputArrayOutput
+	ToComputePoolDescribeOutputArrayOutputWithContext(context.Context) ComputePoolDescribeOutputArrayOutput
+}
+
+type ComputePoolDescribeOutputArray []ComputePoolDescribeOutputInput
+
+func (ComputePoolDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputePoolDescribeOutput)(nil)).Elem()
+}
+
+func (i ComputePoolDescribeOutputArray) ToComputePoolDescribeOutputArrayOutput() ComputePoolDescribeOutputArrayOutput {
+	return i.ToComputePoolDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i ComputePoolDescribeOutputArray) ToComputePoolDescribeOutputArrayOutputWithContext(ctx context.Context) ComputePoolDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputePoolDescribeOutputArrayOutput)
+}
+
+type ComputePoolDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (ComputePoolDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputePoolDescribeOutput)(nil)).Elem()
+}
+
+func (o ComputePoolDescribeOutputOutput) ToComputePoolDescribeOutputOutput() ComputePoolDescribeOutputOutput {
+	return o
+}
+
+func (o ComputePoolDescribeOutputOutput) ToComputePoolDescribeOutputOutputWithContext(ctx context.Context) ComputePoolDescribeOutputOutput {
+	return o
+}
+
+func (o ComputePoolDescribeOutputOutput) ActiveNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *int { return v.ActiveNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) Application() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *string { return v.Application }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) AutoResume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *bool { return v.AutoResume }).(pulumi.BoolPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) AutoSuspendSecs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *int { return v.AutoSuspendSecs }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) ErrorCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *string { return v.ErrorCode }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) IdleNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *int { return v.IdleNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) InstanceFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *string { return v.InstanceFamily }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) IsExclusive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *bool { return v.IsExclusive }).(pulumi.BoolPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) MaxNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *int { return v.MaxNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) MinNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *int { return v.MinNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) NumJobs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *int { return v.NumJobs }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) NumServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *int { return v.NumServices }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) ResumedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *string { return v.ResumedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) StatusMessage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *string { return v.StatusMessage }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) TargetNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *int { return v.TargetNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolDescribeOutputOutput) UpdatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolDescribeOutput) *string { return v.UpdatedOn }).(pulumi.StringPtrOutput)
+}
+
+type ComputePoolDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (ComputePoolDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputePoolDescribeOutput)(nil)).Elem()
+}
+
+func (o ComputePoolDescribeOutputArrayOutput) ToComputePoolDescribeOutputArrayOutput() ComputePoolDescribeOutputArrayOutput {
+	return o
+}
+
+func (o ComputePoolDescribeOutputArrayOutput) ToComputePoolDescribeOutputArrayOutputWithContext(ctx context.Context) ComputePoolDescribeOutputArrayOutput {
+	return o
+}
+
+func (o ComputePoolDescribeOutputArrayOutput) Index(i pulumi.IntInput) ComputePoolDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputePoolDescribeOutput {
+		return vs[0].([]ComputePoolDescribeOutput)[vs[1].(int)]
+	}).(ComputePoolDescribeOutputOutput)
+}
+
+type ComputePoolShowOutput struct {
+	ActiveNodes     *int    `pulumi:"activeNodes"`
+	Application     *string `pulumi:"application"`
+	AutoResume      *bool   `pulumi:"autoResume"`
+	AutoSuspendSecs *int    `pulumi:"autoSuspendSecs"`
+	Comment         *string `pulumi:"comment"`
+	CreatedOn       *string `pulumi:"createdOn"`
+	IdleNodes       *int    `pulumi:"idleNodes"`
+	InstanceFamily  *string `pulumi:"instanceFamily"`
+	IsExclusive     *bool   `pulumi:"isExclusive"`
+	MaxNodes        *int    `pulumi:"maxNodes"`
+	MinNodes        *int    `pulumi:"minNodes"`
+	Name            *string `pulumi:"name"`
+	NumJobs         *int    `pulumi:"numJobs"`
+	NumServices     *int    `pulumi:"numServices"`
+	Owner           *string `pulumi:"owner"`
+	ResumedOn       *string `pulumi:"resumedOn"`
+	State           *string `pulumi:"state"`
+	TargetNodes     *int    `pulumi:"targetNodes"`
+	UpdatedOn       *string `pulumi:"updatedOn"`
+}
+
+// ComputePoolShowOutputInput is an input type that accepts ComputePoolShowOutputArgs and ComputePoolShowOutputOutput values.
+// You can construct a concrete instance of `ComputePoolShowOutputInput` via:
+//
+//	ComputePoolShowOutputArgs{...}
+type ComputePoolShowOutputInput interface {
+	pulumi.Input
+
+	ToComputePoolShowOutputOutput() ComputePoolShowOutputOutput
+	ToComputePoolShowOutputOutputWithContext(context.Context) ComputePoolShowOutputOutput
+}
+
+type ComputePoolShowOutputArgs struct {
+	ActiveNodes     pulumi.IntPtrInput    `pulumi:"activeNodes"`
+	Application     pulumi.StringPtrInput `pulumi:"application"`
+	AutoResume      pulumi.BoolPtrInput   `pulumi:"autoResume"`
+	AutoSuspendSecs pulumi.IntPtrInput    `pulumi:"autoSuspendSecs"`
+	Comment         pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn       pulumi.StringPtrInput `pulumi:"createdOn"`
+	IdleNodes       pulumi.IntPtrInput    `pulumi:"idleNodes"`
+	InstanceFamily  pulumi.StringPtrInput `pulumi:"instanceFamily"`
+	IsExclusive     pulumi.BoolPtrInput   `pulumi:"isExclusive"`
+	MaxNodes        pulumi.IntPtrInput    `pulumi:"maxNodes"`
+	MinNodes        pulumi.IntPtrInput    `pulumi:"minNodes"`
+	Name            pulumi.StringPtrInput `pulumi:"name"`
+	NumJobs         pulumi.IntPtrInput    `pulumi:"numJobs"`
+	NumServices     pulumi.IntPtrInput    `pulumi:"numServices"`
+	Owner           pulumi.StringPtrInput `pulumi:"owner"`
+	ResumedOn       pulumi.StringPtrInput `pulumi:"resumedOn"`
+	State           pulumi.StringPtrInput `pulumi:"state"`
+	TargetNodes     pulumi.IntPtrInput    `pulumi:"targetNodes"`
+	UpdatedOn       pulumi.StringPtrInput `pulumi:"updatedOn"`
+}
+
+func (ComputePoolShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputePoolShowOutput)(nil)).Elem()
+}
+
+func (i ComputePoolShowOutputArgs) ToComputePoolShowOutputOutput() ComputePoolShowOutputOutput {
+	return i.ToComputePoolShowOutputOutputWithContext(context.Background())
+}
+
+func (i ComputePoolShowOutputArgs) ToComputePoolShowOutputOutputWithContext(ctx context.Context) ComputePoolShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputePoolShowOutputOutput)
+}
+
+// ComputePoolShowOutputArrayInput is an input type that accepts ComputePoolShowOutputArray and ComputePoolShowOutputArrayOutput values.
+// You can construct a concrete instance of `ComputePoolShowOutputArrayInput` via:
+//
+//	ComputePoolShowOutputArray{ ComputePoolShowOutputArgs{...} }
+type ComputePoolShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToComputePoolShowOutputArrayOutput() ComputePoolShowOutputArrayOutput
+	ToComputePoolShowOutputArrayOutputWithContext(context.Context) ComputePoolShowOutputArrayOutput
+}
+
+type ComputePoolShowOutputArray []ComputePoolShowOutputInput
+
+func (ComputePoolShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputePoolShowOutput)(nil)).Elem()
+}
+
+func (i ComputePoolShowOutputArray) ToComputePoolShowOutputArrayOutput() ComputePoolShowOutputArrayOutput {
+	return i.ToComputePoolShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i ComputePoolShowOutputArray) ToComputePoolShowOutputArrayOutputWithContext(ctx context.Context) ComputePoolShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComputePoolShowOutputArrayOutput)
+}
+
+type ComputePoolShowOutputOutput struct{ *pulumi.OutputState }
+
+func (ComputePoolShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComputePoolShowOutput)(nil)).Elem()
+}
+
+func (o ComputePoolShowOutputOutput) ToComputePoolShowOutputOutput() ComputePoolShowOutputOutput {
+	return o
+}
+
+func (o ComputePoolShowOutputOutput) ToComputePoolShowOutputOutputWithContext(ctx context.Context) ComputePoolShowOutputOutput {
+	return o
+}
+
+func (o ComputePoolShowOutputOutput) ActiveNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *int { return v.ActiveNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) Application() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *string { return v.Application }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) AutoResume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *bool { return v.AutoResume }).(pulumi.BoolPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) AutoSuspendSecs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *int { return v.AutoSuspendSecs }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) IdleNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *int { return v.IdleNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) InstanceFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *string { return v.InstanceFamily }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) IsExclusive() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *bool { return v.IsExclusive }).(pulumi.BoolPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) MaxNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *int { return v.MaxNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) MinNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *int { return v.MinNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) NumJobs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *int { return v.NumJobs }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) NumServices() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *int { return v.NumServices }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) ResumedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *string { return v.ResumedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) State() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *string { return v.State }).(pulumi.StringPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) TargetNodes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *int { return v.TargetNodes }).(pulumi.IntPtrOutput)
+}
+
+func (o ComputePoolShowOutputOutput) UpdatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComputePoolShowOutput) *string { return v.UpdatedOn }).(pulumi.StringPtrOutput)
+}
+
+type ComputePoolShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (ComputePoolShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ComputePoolShowOutput)(nil)).Elem()
+}
+
+func (o ComputePoolShowOutputArrayOutput) ToComputePoolShowOutputArrayOutput() ComputePoolShowOutputArrayOutput {
+	return o
+}
+
+func (o ComputePoolShowOutputArrayOutput) ToComputePoolShowOutputArrayOutputWithContext(ctx context.Context) ComputePoolShowOutputArrayOutput {
+	return o
+}
+
+func (o ComputePoolShowOutputArrayOutput) Index(i pulumi.IntInput) ComputePoolShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ComputePoolShowOutput {
+		return vs[0].([]ComputePoolShowOutput)[vs[1].(int)]
+	}).(ComputePoolShowOutputOutput)
+}
+
+type CortexSearchServiceDescribeOutput struct {
+	AttributeColumns  []string `pulumi:"attributeColumns"`
+	Columns           []string `pulumi:"columns"`
+	Comment           *string  `pulumi:"comment"`
+	CreatedOn         *string  `pulumi:"createdOn"`
+	DataTimestamp     *string  `pulumi:"dataTimestamp"`
+	DatabaseName      *string  `pulumi:"databaseName"`
+	Definition        *string  `pulumi:"definition"`
+	EmbeddingModel    *string  `pulumi:"embeddingModel"`
+	IndexingError     *string  `pulumi:"indexingError"`
+	IndexingState     *string  `pulumi:"indexingState"`
+	Name              *string  `pulumi:"name"`
+	SchemaName        *string  `pulumi:"schemaName"`
+	SearchColumn      *string  `pulumi:"searchColumn"`
+	ServiceQueryUrl   *string  `pulumi:"serviceQueryUrl"`
+	SourceDataNumRows *int     `pulumi:"sourceDataNumRows"`
+	TargetLag         *string  `pulumi:"targetLag"`
+	Warehouse         *string  `pulumi:"warehouse"`
+}
+
+// CortexSearchServiceDescribeOutputInput is an input type that accepts CortexSearchServiceDescribeOutputArgs and CortexSearchServiceDescribeOutputOutput values.
+// You can construct a concrete instance of `CortexSearchServiceDescribeOutputInput` via:
+//
+//	CortexSearchServiceDescribeOutputArgs{...}
+type CortexSearchServiceDescribeOutputInput interface {
+	pulumi.Input
+
+	ToCortexSearchServiceDescribeOutputOutput() CortexSearchServiceDescribeOutputOutput
+	ToCortexSearchServiceDescribeOutputOutputWithContext(context.Context) CortexSearchServiceDescribeOutputOutput
+}
+
+type CortexSearchServiceDescribeOutputArgs struct {
+	AttributeColumns  pulumi.StringArrayInput `pulumi:"attributeColumns"`
+	Columns           pulumi.StringArrayInput `pulumi:"columns"`
+	Comment           pulumi.StringPtrInput   `pulumi:"comment"`
+	CreatedOn         pulumi.StringPtrInput   `pulumi:"createdOn"`
+	DataTimestamp     pulumi.StringPtrInput   `pulumi:"dataTimestamp"`
+	DatabaseName      pulumi.StringPtrInput   `pulumi:"databaseName"`
+	Definition        pulumi.StringPtrInput   `pulumi:"definition"`
+	EmbeddingModel    pulumi.StringPtrInput   `pulumi:"embeddingModel"`
+	IndexingError     pulumi.StringPtrInput   `pulumi:"indexingError"`
+	IndexingState     pulumi.StringPtrInput   `pulumi:"indexingState"`
+	Name              pulumi.StringPtrInput   `pulumi:"name"`
+	SchemaName        pulumi.StringPtrInput   `pulumi:"schemaName"`
+	SearchColumn      pulumi.StringPtrInput   `pulumi:"searchColumn"`
+	ServiceQueryUrl   pulumi.StringPtrInput   `pulumi:"serviceQueryUrl"`
+	SourceDataNumRows pulumi.IntPtrInput      `pulumi:"sourceDataNumRows"`
+	TargetLag         pulumi.StringPtrInput   `pulumi:"targetLag"`
+	Warehouse         pulumi.StringPtrInput   `pulumi:"warehouse"`
+}
+
+func (CortexSearchServiceDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CortexSearchServiceDescribeOutput)(nil)).Elem()
+}
+
+func (i CortexSearchServiceDescribeOutputArgs) ToCortexSearchServiceDescribeOutputOutput() CortexSearchServiceDescribeOutputOutput {
+	return i.ToCortexSearchServiceDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i CortexSearchServiceDescribeOutputArgs) ToCortexSearchServiceDescribeOutputOutputWithContext(ctx context.Context) CortexSearchServiceDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CortexSearchServiceDescribeOutputOutput)
+}
+
+// CortexSearchServiceDescribeOutputArrayInput is an input type that accepts CortexSearchServiceDescribeOutputArray and CortexSearchServiceDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `CortexSearchServiceDescribeOutputArrayInput` via:
+//
+//	CortexSearchServiceDescribeOutputArray{ CortexSearchServiceDescribeOutputArgs{...} }
+type CortexSearchServiceDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToCortexSearchServiceDescribeOutputArrayOutput() CortexSearchServiceDescribeOutputArrayOutput
+	ToCortexSearchServiceDescribeOutputArrayOutputWithContext(context.Context) CortexSearchServiceDescribeOutputArrayOutput
+}
+
+type CortexSearchServiceDescribeOutputArray []CortexSearchServiceDescribeOutputInput
+
+func (CortexSearchServiceDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CortexSearchServiceDescribeOutput)(nil)).Elem()
+}
+
+func (i CortexSearchServiceDescribeOutputArray) ToCortexSearchServiceDescribeOutputArrayOutput() CortexSearchServiceDescribeOutputArrayOutput {
+	return i.ToCortexSearchServiceDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i CortexSearchServiceDescribeOutputArray) ToCortexSearchServiceDescribeOutputArrayOutputWithContext(ctx context.Context) CortexSearchServiceDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CortexSearchServiceDescribeOutputArrayOutput)
+}
+
+type CortexSearchServiceDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (CortexSearchServiceDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CortexSearchServiceDescribeOutput)(nil)).Elem()
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) ToCortexSearchServiceDescribeOutputOutput() CortexSearchServiceDescribeOutputOutput {
+	return o
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) ToCortexSearchServiceDescribeOutputOutputWithContext(ctx context.Context) CortexSearchServiceDescribeOutputOutput {
+	return o
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) AttributeColumns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) []string { return v.AttributeColumns }).(pulumi.StringArrayOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) Columns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) []string { return v.Columns }).(pulumi.StringArrayOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) DataTimestamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.DataTimestamp }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) Definition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.Definition }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) EmbeddingModel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.EmbeddingModel }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) IndexingError() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.IndexingError }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) IndexingState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.IndexingState }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) SearchColumn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.SearchColumn }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) ServiceQueryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.ServiceQueryUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) SourceDataNumRows() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *int { return v.SourceDataNumRows }).(pulumi.IntPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) TargetLag() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.TargetLag }).(pulumi.StringPtrOutput)
+}
+
+func (o CortexSearchServiceDescribeOutputOutput) Warehouse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CortexSearchServiceDescribeOutput) *string { return v.Warehouse }).(pulumi.StringPtrOutput)
+}
+
+type CortexSearchServiceDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (CortexSearchServiceDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CortexSearchServiceDescribeOutput)(nil)).Elem()
+}
+
+func (o CortexSearchServiceDescribeOutputArrayOutput) ToCortexSearchServiceDescribeOutputArrayOutput() CortexSearchServiceDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CortexSearchServiceDescribeOutputArrayOutput) ToCortexSearchServiceDescribeOutputArrayOutputWithContext(ctx context.Context) CortexSearchServiceDescribeOutputArrayOutput {
+	return o
+}
+
+func (o CortexSearchServiceDescribeOutputArrayOutput) Index(i pulumi.IntInput) CortexSearchServiceDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CortexSearchServiceDescribeOutput {
+		return vs[0].([]CortexSearchServiceDescribeOutput)[vs[1].(int)]
+	}).(CortexSearchServiceDescribeOutputOutput)
+}
+
 type DatabaseReplication struct {
 	// Entry to enable replication and optionally failover for a given account identifier.
 	EnableToAccounts []DatabaseReplicationEnableToAccount `pulumi:"enableToAccounts"`
@@ -15189,6 +15795,314 @@ func (o FunctionSqlShowOutputArrayOutput) Index(i pulumi.IntInput) FunctionSqlSh
 	}).(FunctionSqlShowOutputOutput)
 }
 
+type GitRepositoryDescribeOutput struct {
+	ApiIntegration *string `pulumi:"apiIntegration"`
+	Comment        *string `pulumi:"comment"`
+	CreatedOn      *string `pulumi:"createdOn"`
+	DatabaseName   *string `pulumi:"databaseName"`
+	GitCredentials *string `pulumi:"gitCredentials"`
+	LastFetchedAt  *string `pulumi:"lastFetchedAt"`
+	Name           *string `pulumi:"name"`
+	Origin         *string `pulumi:"origin"`
+	Owner          *string `pulumi:"owner"`
+	OwnerRoleType  *string `pulumi:"ownerRoleType"`
+	SchemaName     *string `pulumi:"schemaName"`
+}
+
+// GitRepositoryDescribeOutputInput is an input type that accepts GitRepositoryDescribeOutputArgs and GitRepositoryDescribeOutputOutput values.
+// You can construct a concrete instance of `GitRepositoryDescribeOutputInput` via:
+//
+//	GitRepositoryDescribeOutputArgs{...}
+type GitRepositoryDescribeOutputInput interface {
+	pulumi.Input
+
+	ToGitRepositoryDescribeOutputOutput() GitRepositoryDescribeOutputOutput
+	ToGitRepositoryDescribeOutputOutputWithContext(context.Context) GitRepositoryDescribeOutputOutput
+}
+
+type GitRepositoryDescribeOutputArgs struct {
+	ApiIntegration pulumi.StringPtrInput `pulumi:"apiIntegration"`
+	Comment        pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn      pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName   pulumi.StringPtrInput `pulumi:"databaseName"`
+	GitCredentials pulumi.StringPtrInput `pulumi:"gitCredentials"`
+	LastFetchedAt  pulumi.StringPtrInput `pulumi:"lastFetchedAt"`
+	Name           pulumi.StringPtrInput `pulumi:"name"`
+	Origin         pulumi.StringPtrInput `pulumi:"origin"`
+	Owner          pulumi.StringPtrInput `pulumi:"owner"`
+	OwnerRoleType  pulumi.StringPtrInput `pulumi:"ownerRoleType"`
+	SchemaName     pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (GitRepositoryDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitRepositoryDescribeOutput)(nil)).Elem()
+}
+
+func (i GitRepositoryDescribeOutputArgs) ToGitRepositoryDescribeOutputOutput() GitRepositoryDescribeOutputOutput {
+	return i.ToGitRepositoryDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i GitRepositoryDescribeOutputArgs) ToGitRepositoryDescribeOutputOutputWithContext(ctx context.Context) GitRepositoryDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitRepositoryDescribeOutputOutput)
+}
+
+// GitRepositoryDescribeOutputArrayInput is an input type that accepts GitRepositoryDescribeOutputArray and GitRepositoryDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `GitRepositoryDescribeOutputArrayInput` via:
+//
+//	GitRepositoryDescribeOutputArray{ GitRepositoryDescribeOutputArgs{...} }
+type GitRepositoryDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToGitRepositoryDescribeOutputArrayOutput() GitRepositoryDescribeOutputArrayOutput
+	ToGitRepositoryDescribeOutputArrayOutputWithContext(context.Context) GitRepositoryDescribeOutputArrayOutput
+}
+
+type GitRepositoryDescribeOutputArray []GitRepositoryDescribeOutputInput
+
+func (GitRepositoryDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GitRepositoryDescribeOutput)(nil)).Elem()
+}
+
+func (i GitRepositoryDescribeOutputArray) ToGitRepositoryDescribeOutputArrayOutput() GitRepositoryDescribeOutputArrayOutput {
+	return i.ToGitRepositoryDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GitRepositoryDescribeOutputArray) ToGitRepositoryDescribeOutputArrayOutputWithContext(ctx context.Context) GitRepositoryDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitRepositoryDescribeOutputArrayOutput)
+}
+
+type GitRepositoryDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (GitRepositoryDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitRepositoryDescribeOutput)(nil)).Elem()
+}
+
+func (o GitRepositoryDescribeOutputOutput) ToGitRepositoryDescribeOutputOutput() GitRepositoryDescribeOutputOutput {
+	return o
+}
+
+func (o GitRepositoryDescribeOutputOutput) ToGitRepositoryDescribeOutputOutputWithContext(ctx context.Context) GitRepositoryDescribeOutputOutput {
+	return o
+}
+
+func (o GitRepositoryDescribeOutputOutput) ApiIntegration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryDescribeOutput) *string { return v.ApiIntegration }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryDescribeOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryDescribeOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryDescribeOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryDescribeOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryDescribeOutputOutput) GitCredentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryDescribeOutput) *string { return v.GitCredentials }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryDescribeOutputOutput) LastFetchedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryDescribeOutput) *string { return v.LastFetchedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryDescribeOutputOutput) Origin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryDescribeOutput) *string { return v.Origin }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryDescribeOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryDescribeOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryDescribeOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryDescribeOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type GitRepositoryDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GitRepositoryDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GitRepositoryDescribeOutput)(nil)).Elem()
+}
+
+func (o GitRepositoryDescribeOutputArrayOutput) ToGitRepositoryDescribeOutputArrayOutput() GitRepositoryDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GitRepositoryDescribeOutputArrayOutput) ToGitRepositoryDescribeOutputArrayOutputWithContext(ctx context.Context) GitRepositoryDescribeOutputArrayOutput {
+	return o
+}
+
+func (o GitRepositoryDescribeOutputArrayOutput) Index(i pulumi.IntInput) GitRepositoryDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GitRepositoryDescribeOutput {
+		return vs[0].([]GitRepositoryDescribeOutput)[vs[1].(int)]
+	}).(GitRepositoryDescribeOutputOutput)
+}
+
+type GitRepositoryShowOutput struct {
+	ApiIntegration *string `pulumi:"apiIntegration"`
+	Comment        *string `pulumi:"comment"`
+	CreatedOn      *string `pulumi:"createdOn"`
+	DatabaseName   *string `pulumi:"databaseName"`
+	GitCredentials *string `pulumi:"gitCredentials"`
+	LastFetchedAt  *string `pulumi:"lastFetchedAt"`
+	Name           *string `pulumi:"name"`
+	Origin         *string `pulumi:"origin"`
+	Owner          *string `pulumi:"owner"`
+	OwnerRoleType  *string `pulumi:"ownerRoleType"`
+	SchemaName     *string `pulumi:"schemaName"`
+}
+
+// GitRepositoryShowOutputInput is an input type that accepts GitRepositoryShowOutputArgs and GitRepositoryShowOutputOutput values.
+// You can construct a concrete instance of `GitRepositoryShowOutputInput` via:
+//
+//	GitRepositoryShowOutputArgs{...}
+type GitRepositoryShowOutputInput interface {
+	pulumi.Input
+
+	ToGitRepositoryShowOutputOutput() GitRepositoryShowOutputOutput
+	ToGitRepositoryShowOutputOutputWithContext(context.Context) GitRepositoryShowOutputOutput
+}
+
+type GitRepositoryShowOutputArgs struct {
+	ApiIntegration pulumi.StringPtrInput `pulumi:"apiIntegration"`
+	Comment        pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn      pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName   pulumi.StringPtrInput `pulumi:"databaseName"`
+	GitCredentials pulumi.StringPtrInput `pulumi:"gitCredentials"`
+	LastFetchedAt  pulumi.StringPtrInput `pulumi:"lastFetchedAt"`
+	Name           pulumi.StringPtrInput `pulumi:"name"`
+	Origin         pulumi.StringPtrInput `pulumi:"origin"`
+	Owner          pulumi.StringPtrInput `pulumi:"owner"`
+	OwnerRoleType  pulumi.StringPtrInput `pulumi:"ownerRoleType"`
+	SchemaName     pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (GitRepositoryShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitRepositoryShowOutput)(nil)).Elem()
+}
+
+func (i GitRepositoryShowOutputArgs) ToGitRepositoryShowOutputOutput() GitRepositoryShowOutputOutput {
+	return i.ToGitRepositoryShowOutputOutputWithContext(context.Background())
+}
+
+func (i GitRepositoryShowOutputArgs) ToGitRepositoryShowOutputOutputWithContext(ctx context.Context) GitRepositoryShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitRepositoryShowOutputOutput)
+}
+
+// GitRepositoryShowOutputArrayInput is an input type that accepts GitRepositoryShowOutputArray and GitRepositoryShowOutputArrayOutput values.
+// You can construct a concrete instance of `GitRepositoryShowOutputArrayInput` via:
+//
+//	GitRepositoryShowOutputArray{ GitRepositoryShowOutputArgs{...} }
+type GitRepositoryShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToGitRepositoryShowOutputArrayOutput() GitRepositoryShowOutputArrayOutput
+	ToGitRepositoryShowOutputArrayOutputWithContext(context.Context) GitRepositoryShowOutputArrayOutput
+}
+
+type GitRepositoryShowOutputArray []GitRepositoryShowOutputInput
+
+func (GitRepositoryShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GitRepositoryShowOutput)(nil)).Elem()
+}
+
+func (i GitRepositoryShowOutputArray) ToGitRepositoryShowOutputArrayOutput() GitRepositoryShowOutputArrayOutput {
+	return i.ToGitRepositoryShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i GitRepositoryShowOutputArray) ToGitRepositoryShowOutputArrayOutputWithContext(ctx context.Context) GitRepositoryShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitRepositoryShowOutputArrayOutput)
+}
+
+type GitRepositoryShowOutputOutput struct{ *pulumi.OutputState }
+
+func (GitRepositoryShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitRepositoryShowOutput)(nil)).Elem()
+}
+
+func (o GitRepositoryShowOutputOutput) ToGitRepositoryShowOutputOutput() GitRepositoryShowOutputOutput {
+	return o
+}
+
+func (o GitRepositoryShowOutputOutput) ToGitRepositoryShowOutputOutputWithContext(ctx context.Context) GitRepositoryShowOutputOutput {
+	return o
+}
+
+func (o GitRepositoryShowOutputOutput) ApiIntegration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryShowOutput) *string { return v.ApiIntegration }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryShowOutputOutput) GitCredentials() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryShowOutput) *string { return v.GitCredentials }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryShowOutputOutput) LastFetchedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryShowOutput) *string { return v.LastFetchedAt }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryShowOutputOutput) Origin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryShowOutput) *string { return v.Origin }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o GitRepositoryShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitRepositoryShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type GitRepositoryShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (GitRepositoryShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GitRepositoryShowOutput)(nil)).Elem()
+}
+
+func (o GitRepositoryShowOutputArrayOutput) ToGitRepositoryShowOutputArrayOutput() GitRepositoryShowOutputArrayOutput {
+	return o
+}
+
+func (o GitRepositoryShowOutputArrayOutput) ToGitRepositoryShowOutputArrayOutputWithContext(ctx context.Context) GitRepositoryShowOutputArrayOutput {
+	return o
+}
+
+func (o GitRepositoryShowOutputArrayOutput) Index(i pulumi.IntInput) GitRepositoryShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GitRepositoryShowOutput {
+		return vs[0].([]GitRepositoryShowOutput)[vs[1].(int)]
+	}).(GitRepositoryShowOutputOutput)
+}
+
 type GrantOwnershipOn struct {
 	// Configures the privilege to be granted on all objects in either a database or schema.
 	All *GrantOwnershipOnAll `pulumi:"all"`
@@ -16432,7 +17346,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectAllPtrOutput) ObjectTypePlural
 type GrantPrivilegesToAccountRoleOnSchemaObjectFuture struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	InSchema   *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -16450,7 +17364,7 @@ type GrantPrivilegesToAccountRoleOnSchemaObjectFutureInput interface {
 type GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	InSchema   pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -16539,7 +17453,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) InSchema() pulum
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToAccountRoleOnSchemaObjectFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -16586,7 +17500,7 @@ func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) InSchema() pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
 func (o GrantPrivilegesToAccountRoleOnSchemaObjectFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToAccountRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -17149,7 +18063,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture struct {
 	InDatabase *string `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema *string `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
 	ObjectTypePlural string `pulumi:"objectTypePlural"`
 }
 
@@ -17169,7 +18083,7 @@ type GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs struct {
 	InDatabase pulumi.StringPtrInput `pulumi:"inDatabase"`
 	// The fully qualified name of the schema.
 	InSchema pulumi.StringPtrInput `pulumi:"inSchema"`
-	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+	// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
 	ObjectTypePlural pulumi.StringInput `pulumi:"objectTypePlural"`
 }
 
@@ -17260,7 +18174,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput) InSchema() pulu
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) *string { return v.InSchema }).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput) ObjectTypePlural() pulumi.StringOutput {
 	return o.ApplyT(func(v GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) string { return v.ObjectTypePlural }).(pulumi.StringOutput)
 }
@@ -17309,7 +18223,7 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) InSchema() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+// The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
 func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) ObjectTypePlural() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture) *string {
 		if v == nil {
@@ -17317,6 +18231,1181 @@ func (o GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput) ObjectTypePl
 		}
 		return &v.ObjectTypePlural
 	}).(pulumi.StringPtrOutput)
+}
+
+type ImageRepositoryShowOutput struct {
+	Comment                  *string `pulumi:"comment"`
+	CreatedOn                *string `pulumi:"createdOn"`
+	DatabaseName             *string `pulumi:"databaseName"`
+	Name                     *string `pulumi:"name"`
+	Owner                    *string `pulumi:"owner"`
+	OwnerRoleType            *string `pulumi:"ownerRoleType"`
+	PrivatelinkRepositoryUrl *string `pulumi:"privatelinkRepositoryUrl"`
+	RepositoryUrl            *string `pulumi:"repositoryUrl"`
+	SchemaName               *string `pulumi:"schemaName"`
+}
+
+// ImageRepositoryShowOutputInput is an input type that accepts ImageRepositoryShowOutputArgs and ImageRepositoryShowOutputOutput values.
+// You can construct a concrete instance of `ImageRepositoryShowOutputInput` via:
+//
+//	ImageRepositoryShowOutputArgs{...}
+type ImageRepositoryShowOutputInput interface {
+	pulumi.Input
+
+	ToImageRepositoryShowOutputOutput() ImageRepositoryShowOutputOutput
+	ToImageRepositoryShowOutputOutputWithContext(context.Context) ImageRepositoryShowOutputOutput
+}
+
+type ImageRepositoryShowOutputArgs struct {
+	Comment                  pulumi.StringPtrInput `pulumi:"comment"`
+	CreatedOn                pulumi.StringPtrInput `pulumi:"createdOn"`
+	DatabaseName             pulumi.StringPtrInput `pulumi:"databaseName"`
+	Name                     pulumi.StringPtrInput `pulumi:"name"`
+	Owner                    pulumi.StringPtrInput `pulumi:"owner"`
+	OwnerRoleType            pulumi.StringPtrInput `pulumi:"ownerRoleType"`
+	PrivatelinkRepositoryUrl pulumi.StringPtrInput `pulumi:"privatelinkRepositoryUrl"`
+	RepositoryUrl            pulumi.StringPtrInput `pulumi:"repositoryUrl"`
+	SchemaName               pulumi.StringPtrInput `pulumi:"schemaName"`
+}
+
+func (ImageRepositoryShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRepositoryShowOutput)(nil)).Elem()
+}
+
+func (i ImageRepositoryShowOutputArgs) ToImageRepositoryShowOutputOutput() ImageRepositoryShowOutputOutput {
+	return i.ToImageRepositoryShowOutputOutputWithContext(context.Background())
+}
+
+func (i ImageRepositoryShowOutputArgs) ToImageRepositoryShowOutputOutputWithContext(ctx context.Context) ImageRepositoryShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRepositoryShowOutputOutput)
+}
+
+// ImageRepositoryShowOutputArrayInput is an input type that accepts ImageRepositoryShowOutputArray and ImageRepositoryShowOutputArrayOutput values.
+// You can construct a concrete instance of `ImageRepositoryShowOutputArrayInput` via:
+//
+//	ImageRepositoryShowOutputArray{ ImageRepositoryShowOutputArgs{...} }
+type ImageRepositoryShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToImageRepositoryShowOutputArrayOutput() ImageRepositoryShowOutputArrayOutput
+	ToImageRepositoryShowOutputArrayOutputWithContext(context.Context) ImageRepositoryShowOutputArrayOutput
+}
+
+type ImageRepositoryShowOutputArray []ImageRepositoryShowOutputInput
+
+func (ImageRepositoryShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageRepositoryShowOutput)(nil)).Elem()
+}
+
+func (i ImageRepositoryShowOutputArray) ToImageRepositoryShowOutputArrayOutput() ImageRepositoryShowOutputArrayOutput {
+	return i.ToImageRepositoryShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i ImageRepositoryShowOutputArray) ToImageRepositoryShowOutputArrayOutputWithContext(ctx context.Context) ImageRepositoryShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ImageRepositoryShowOutputArrayOutput)
+}
+
+type ImageRepositoryShowOutputOutput struct{ *pulumi.OutputState }
+
+func (ImageRepositoryShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ImageRepositoryShowOutput)(nil)).Elem()
+}
+
+func (o ImageRepositoryShowOutputOutput) ToImageRepositoryShowOutputOutput() ImageRepositoryShowOutputOutput {
+	return o
+}
+
+func (o ImageRepositoryShowOutputOutput) ToImageRepositoryShowOutputOutputWithContext(ctx context.Context) ImageRepositoryShowOutputOutput {
+	return o
+}
+
+func (o ImageRepositoryShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRepositoryShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageRepositoryShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRepositoryShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageRepositoryShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRepositoryShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageRepositoryShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRepositoryShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageRepositoryShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRepositoryShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageRepositoryShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRepositoryShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageRepositoryShowOutputOutput) PrivatelinkRepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRepositoryShowOutput) *string { return v.PrivatelinkRepositoryUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageRepositoryShowOutputOutput) RepositoryUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRepositoryShowOutput) *string { return v.RepositoryUrl }).(pulumi.StringPtrOutput)
+}
+
+func (o ImageRepositoryShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRepositoryShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+type ImageRepositoryShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (ImageRepositoryShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ImageRepositoryShowOutput)(nil)).Elem()
+}
+
+func (o ImageRepositoryShowOutputArrayOutput) ToImageRepositoryShowOutputArrayOutput() ImageRepositoryShowOutputArrayOutput {
+	return o
+}
+
+func (o ImageRepositoryShowOutputArrayOutput) ToImageRepositoryShowOutputArrayOutputWithContext(ctx context.Context) ImageRepositoryShowOutputArrayOutput {
+	return o
+}
+
+func (o ImageRepositoryShowOutputArrayOutput) Index(i pulumi.IntInput) ImageRepositoryShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ImageRepositoryShowOutput {
+		return vs[0].([]ImageRepositoryShowOutput)[vs[1].(int)]
+	}).(ImageRepositoryShowOutputOutput)
+}
+
+type JobServiceDescribeOutput struct {
+	AutoResume                 *bool    `pulumi:"autoResume"`
+	AutoSuspendSecs            *int     `pulumi:"autoSuspendSecs"`
+	Comment                    *string  `pulumi:"comment"`
+	ComputePool                *string  `pulumi:"computePool"`
+	CreatedOn                  *string  `pulumi:"createdOn"`
+	CurrentInstances           *int     `pulumi:"currentInstances"`
+	DatabaseName               *string  `pulumi:"databaseName"`
+	DnsName                    *string  `pulumi:"dnsName"`
+	ExternalAccessIntegrations []string `pulumi:"externalAccessIntegrations"`
+	IsAsyncJob                 *bool    `pulumi:"isAsyncJob"`
+	IsJob                      *bool    `pulumi:"isJob"`
+	IsUpgrading                *bool    `pulumi:"isUpgrading"`
+	ManagingObjectDomain       *string  `pulumi:"managingObjectDomain"`
+	ManagingObjectName         *string  `pulumi:"managingObjectName"`
+	MaxInstances               *int     `pulumi:"maxInstances"`
+	MinInstances               *int     `pulumi:"minInstances"`
+	MinReadyInstances          *int     `pulumi:"minReadyInstances"`
+	Name                       *string  `pulumi:"name"`
+	Owner                      *string  `pulumi:"owner"`
+	OwnerRoleType              *string  `pulumi:"ownerRoleType"`
+	QueryWarehouse             *string  `pulumi:"queryWarehouse"`
+	ResumedOn                  *string  `pulumi:"resumedOn"`
+	SchemaName                 *string  `pulumi:"schemaName"`
+	Spec                       *string  `pulumi:"spec"`
+	SpecDigest                 *string  `pulumi:"specDigest"`
+	Status                     *string  `pulumi:"status"`
+	SuspendedOn                *string  `pulumi:"suspendedOn"`
+	TargetInstances            *int     `pulumi:"targetInstances"`
+	UpdatedOn                  *string  `pulumi:"updatedOn"`
+}
+
+// JobServiceDescribeOutputInput is an input type that accepts JobServiceDescribeOutputArgs and JobServiceDescribeOutputOutput values.
+// You can construct a concrete instance of `JobServiceDescribeOutputInput` via:
+//
+//	JobServiceDescribeOutputArgs{...}
+type JobServiceDescribeOutputInput interface {
+	pulumi.Input
+
+	ToJobServiceDescribeOutputOutput() JobServiceDescribeOutputOutput
+	ToJobServiceDescribeOutputOutputWithContext(context.Context) JobServiceDescribeOutputOutput
+}
+
+type JobServiceDescribeOutputArgs struct {
+	AutoResume                 pulumi.BoolPtrInput     `pulumi:"autoResume"`
+	AutoSuspendSecs            pulumi.IntPtrInput      `pulumi:"autoSuspendSecs"`
+	Comment                    pulumi.StringPtrInput   `pulumi:"comment"`
+	ComputePool                pulumi.StringPtrInput   `pulumi:"computePool"`
+	CreatedOn                  pulumi.StringPtrInput   `pulumi:"createdOn"`
+	CurrentInstances           pulumi.IntPtrInput      `pulumi:"currentInstances"`
+	DatabaseName               pulumi.StringPtrInput   `pulumi:"databaseName"`
+	DnsName                    pulumi.StringPtrInput   `pulumi:"dnsName"`
+	ExternalAccessIntegrations pulumi.StringArrayInput `pulumi:"externalAccessIntegrations"`
+	IsAsyncJob                 pulumi.BoolPtrInput     `pulumi:"isAsyncJob"`
+	IsJob                      pulumi.BoolPtrInput     `pulumi:"isJob"`
+	IsUpgrading                pulumi.BoolPtrInput     `pulumi:"isUpgrading"`
+	ManagingObjectDomain       pulumi.StringPtrInput   `pulumi:"managingObjectDomain"`
+	ManagingObjectName         pulumi.StringPtrInput   `pulumi:"managingObjectName"`
+	MaxInstances               pulumi.IntPtrInput      `pulumi:"maxInstances"`
+	MinInstances               pulumi.IntPtrInput      `pulumi:"minInstances"`
+	MinReadyInstances          pulumi.IntPtrInput      `pulumi:"minReadyInstances"`
+	Name                       pulumi.StringPtrInput   `pulumi:"name"`
+	Owner                      pulumi.StringPtrInput   `pulumi:"owner"`
+	OwnerRoleType              pulumi.StringPtrInput   `pulumi:"ownerRoleType"`
+	QueryWarehouse             pulumi.StringPtrInput   `pulumi:"queryWarehouse"`
+	ResumedOn                  pulumi.StringPtrInput   `pulumi:"resumedOn"`
+	SchemaName                 pulumi.StringPtrInput   `pulumi:"schemaName"`
+	Spec                       pulumi.StringPtrInput   `pulumi:"spec"`
+	SpecDigest                 pulumi.StringPtrInput   `pulumi:"specDigest"`
+	Status                     pulumi.StringPtrInput   `pulumi:"status"`
+	SuspendedOn                pulumi.StringPtrInput   `pulumi:"suspendedOn"`
+	TargetInstances            pulumi.IntPtrInput      `pulumi:"targetInstances"`
+	UpdatedOn                  pulumi.StringPtrInput   `pulumi:"updatedOn"`
+}
+
+func (JobServiceDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobServiceDescribeOutput)(nil)).Elem()
+}
+
+func (i JobServiceDescribeOutputArgs) ToJobServiceDescribeOutputOutput() JobServiceDescribeOutputOutput {
+	return i.ToJobServiceDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i JobServiceDescribeOutputArgs) ToJobServiceDescribeOutputOutputWithContext(ctx context.Context) JobServiceDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobServiceDescribeOutputOutput)
+}
+
+// JobServiceDescribeOutputArrayInput is an input type that accepts JobServiceDescribeOutputArray and JobServiceDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `JobServiceDescribeOutputArrayInput` via:
+//
+//	JobServiceDescribeOutputArray{ JobServiceDescribeOutputArgs{...} }
+type JobServiceDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToJobServiceDescribeOutputArrayOutput() JobServiceDescribeOutputArrayOutput
+	ToJobServiceDescribeOutputArrayOutputWithContext(context.Context) JobServiceDescribeOutputArrayOutput
+}
+
+type JobServiceDescribeOutputArray []JobServiceDescribeOutputInput
+
+func (JobServiceDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobServiceDescribeOutput)(nil)).Elem()
+}
+
+func (i JobServiceDescribeOutputArray) ToJobServiceDescribeOutputArrayOutput() JobServiceDescribeOutputArrayOutput {
+	return i.ToJobServiceDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i JobServiceDescribeOutputArray) ToJobServiceDescribeOutputArrayOutputWithContext(ctx context.Context) JobServiceDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobServiceDescribeOutputArrayOutput)
+}
+
+type JobServiceDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (JobServiceDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobServiceDescribeOutput)(nil)).Elem()
+}
+
+func (o JobServiceDescribeOutputOutput) ToJobServiceDescribeOutputOutput() JobServiceDescribeOutputOutput {
+	return o
+}
+
+func (o JobServiceDescribeOutputOutput) ToJobServiceDescribeOutputOutputWithContext(ctx context.Context) JobServiceDescribeOutputOutput {
+	return o
+}
+
+func (o JobServiceDescribeOutputOutput) AutoResume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *bool { return v.AutoResume }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) AutoSuspendSecs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *int { return v.AutoSuspendSecs }).(pulumi.IntPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) ComputePool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.ComputePool }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) CurrentInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *int { return v.CurrentInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) ExternalAccessIntegrations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) []string { return v.ExternalAccessIntegrations }).(pulumi.StringArrayOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) IsAsyncJob() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *bool { return v.IsAsyncJob }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) IsJob() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *bool { return v.IsJob }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) IsUpgrading() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *bool { return v.IsUpgrading }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) ManagingObjectDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.ManagingObjectDomain }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) ManagingObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.ManagingObjectName }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) MaxInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *int { return v.MaxInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) MinInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *int { return v.MinInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) MinReadyInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *int { return v.MinReadyInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) QueryWarehouse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.QueryWarehouse }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) ResumedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.ResumedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) Spec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.Spec }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) SpecDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.SpecDigest }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) SuspendedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.SuspendedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) TargetInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *int { return v.TargetInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o JobServiceDescribeOutputOutput) UpdatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceDescribeOutput) *string { return v.UpdatedOn }).(pulumi.StringPtrOutput)
+}
+
+type JobServiceDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (JobServiceDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobServiceDescribeOutput)(nil)).Elem()
+}
+
+func (o JobServiceDescribeOutputArrayOutput) ToJobServiceDescribeOutputArrayOutput() JobServiceDescribeOutputArrayOutput {
+	return o
+}
+
+func (o JobServiceDescribeOutputArrayOutput) ToJobServiceDescribeOutputArrayOutputWithContext(ctx context.Context) JobServiceDescribeOutputArrayOutput {
+	return o
+}
+
+func (o JobServiceDescribeOutputArrayOutput) Index(i pulumi.IntInput) JobServiceDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobServiceDescribeOutput {
+		return vs[0].([]JobServiceDescribeOutput)[vs[1].(int)]
+	}).(JobServiceDescribeOutputOutput)
+}
+
+type JobServiceFromSpecification struct {
+	// The file name of the service specification. Example: `spec.yaml`.
+	File *string `pulumi:"file"`
+	// The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+	Path *string `pulumi:"path"`
+	// The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+	Stage *string `pulumi:"stage"`
+	// The embedded text of the service specification.
+	Text *string `pulumi:"text"`
+}
+
+// JobServiceFromSpecificationInput is an input type that accepts JobServiceFromSpecificationArgs and JobServiceFromSpecificationOutput values.
+// You can construct a concrete instance of `JobServiceFromSpecificationInput` via:
+//
+//	JobServiceFromSpecificationArgs{...}
+type JobServiceFromSpecificationInput interface {
+	pulumi.Input
+
+	ToJobServiceFromSpecificationOutput() JobServiceFromSpecificationOutput
+	ToJobServiceFromSpecificationOutputWithContext(context.Context) JobServiceFromSpecificationOutput
+}
+
+type JobServiceFromSpecificationArgs struct {
+	// The file name of the service specification. Example: `spec.yaml`.
+	File pulumi.StringPtrInput `pulumi:"file"`
+	// The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+	Stage pulumi.StringPtrInput `pulumi:"stage"`
+	// The embedded text of the service specification.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+}
+
+func (JobServiceFromSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobServiceFromSpecification)(nil)).Elem()
+}
+
+func (i JobServiceFromSpecificationArgs) ToJobServiceFromSpecificationOutput() JobServiceFromSpecificationOutput {
+	return i.ToJobServiceFromSpecificationOutputWithContext(context.Background())
+}
+
+func (i JobServiceFromSpecificationArgs) ToJobServiceFromSpecificationOutputWithContext(ctx context.Context) JobServiceFromSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobServiceFromSpecificationOutput)
+}
+
+func (i JobServiceFromSpecificationArgs) ToJobServiceFromSpecificationPtrOutput() JobServiceFromSpecificationPtrOutput {
+	return i.ToJobServiceFromSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i JobServiceFromSpecificationArgs) ToJobServiceFromSpecificationPtrOutputWithContext(ctx context.Context) JobServiceFromSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobServiceFromSpecificationOutput).ToJobServiceFromSpecificationPtrOutputWithContext(ctx)
+}
+
+// JobServiceFromSpecificationPtrInput is an input type that accepts JobServiceFromSpecificationArgs, JobServiceFromSpecificationPtr and JobServiceFromSpecificationPtrOutput values.
+// You can construct a concrete instance of `JobServiceFromSpecificationPtrInput` via:
+//
+//	        JobServiceFromSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobServiceFromSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToJobServiceFromSpecificationPtrOutput() JobServiceFromSpecificationPtrOutput
+	ToJobServiceFromSpecificationPtrOutputWithContext(context.Context) JobServiceFromSpecificationPtrOutput
+}
+
+type jobServiceFromSpecificationPtrType JobServiceFromSpecificationArgs
+
+func JobServiceFromSpecificationPtr(v *JobServiceFromSpecificationArgs) JobServiceFromSpecificationPtrInput {
+	return (*jobServiceFromSpecificationPtrType)(v)
+}
+
+func (*jobServiceFromSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobServiceFromSpecification)(nil)).Elem()
+}
+
+func (i *jobServiceFromSpecificationPtrType) ToJobServiceFromSpecificationPtrOutput() JobServiceFromSpecificationPtrOutput {
+	return i.ToJobServiceFromSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *jobServiceFromSpecificationPtrType) ToJobServiceFromSpecificationPtrOutputWithContext(ctx context.Context) JobServiceFromSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobServiceFromSpecificationPtrOutput)
+}
+
+type JobServiceFromSpecificationOutput struct{ *pulumi.OutputState }
+
+func (JobServiceFromSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobServiceFromSpecification)(nil)).Elem()
+}
+
+func (o JobServiceFromSpecificationOutput) ToJobServiceFromSpecificationOutput() JobServiceFromSpecificationOutput {
+	return o
+}
+
+func (o JobServiceFromSpecificationOutput) ToJobServiceFromSpecificationOutputWithContext(ctx context.Context) JobServiceFromSpecificationOutput {
+	return o
+}
+
+func (o JobServiceFromSpecificationOutput) ToJobServiceFromSpecificationPtrOutput() JobServiceFromSpecificationPtrOutput {
+	return o.ToJobServiceFromSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o JobServiceFromSpecificationOutput) ToJobServiceFromSpecificationPtrOutputWithContext(ctx context.Context) JobServiceFromSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobServiceFromSpecification) *JobServiceFromSpecification {
+		return &v
+	}).(JobServiceFromSpecificationPtrOutput)
+}
+
+// The file name of the service specification. Example: `spec.yaml`.
+func (o JobServiceFromSpecificationOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceFromSpecification) *string { return v.File }).(pulumi.StringPtrOutput)
+}
+
+// The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+func (o JobServiceFromSpecificationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceFromSpecification) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+func (o JobServiceFromSpecificationOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceFromSpecification) *string { return v.Stage }).(pulumi.StringPtrOutput)
+}
+
+// The embedded text of the service specification.
+func (o JobServiceFromSpecificationOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceFromSpecification) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+type JobServiceFromSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (JobServiceFromSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobServiceFromSpecification)(nil)).Elem()
+}
+
+func (o JobServiceFromSpecificationPtrOutput) ToJobServiceFromSpecificationPtrOutput() JobServiceFromSpecificationPtrOutput {
+	return o
+}
+
+func (o JobServiceFromSpecificationPtrOutput) ToJobServiceFromSpecificationPtrOutputWithContext(ctx context.Context) JobServiceFromSpecificationPtrOutput {
+	return o
+}
+
+func (o JobServiceFromSpecificationPtrOutput) Elem() JobServiceFromSpecificationOutput {
+	return o.ApplyT(func(v *JobServiceFromSpecification) JobServiceFromSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret JobServiceFromSpecification
+		return ret
+	}).(JobServiceFromSpecificationOutput)
+}
+
+// The file name of the service specification. Example: `spec.yaml`.
+func (o JobServiceFromSpecificationPtrOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobServiceFromSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+func (o JobServiceFromSpecificationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobServiceFromSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+func (o JobServiceFromSpecificationPtrOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobServiceFromSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Stage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The embedded text of the service specification.
+func (o JobServiceFromSpecificationPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobServiceFromSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+type JobServiceFromSpecificationTemplate struct {
+	// The file name of the service specification template. Example: `spec.yaml`.
+	File *string `pulumi:"file"`
+	// The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+	Path *string `pulumi:"path"`
+	// The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+	Stage *string `pulumi:"stage"`
+	// The embedded text of the service specification template.
+	Text *string `pulumi:"text"`
+	// List of the specified template variables and the values of those variables.
+	Usings []JobServiceFromSpecificationTemplateUsing `pulumi:"usings"`
+}
+
+// JobServiceFromSpecificationTemplateInput is an input type that accepts JobServiceFromSpecificationTemplateArgs and JobServiceFromSpecificationTemplateOutput values.
+// You can construct a concrete instance of `JobServiceFromSpecificationTemplateInput` via:
+//
+//	JobServiceFromSpecificationTemplateArgs{...}
+type JobServiceFromSpecificationTemplateInput interface {
+	pulumi.Input
+
+	ToJobServiceFromSpecificationTemplateOutput() JobServiceFromSpecificationTemplateOutput
+	ToJobServiceFromSpecificationTemplateOutputWithContext(context.Context) JobServiceFromSpecificationTemplateOutput
+}
+
+type JobServiceFromSpecificationTemplateArgs struct {
+	// The file name of the service specification template. Example: `spec.yaml`.
+	File pulumi.StringPtrInput `pulumi:"file"`
+	// The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+	Stage pulumi.StringPtrInput `pulumi:"stage"`
+	// The embedded text of the service specification template.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+	// List of the specified template variables and the values of those variables.
+	Usings JobServiceFromSpecificationTemplateUsingArrayInput `pulumi:"usings"`
+}
+
+func (JobServiceFromSpecificationTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobServiceFromSpecificationTemplate)(nil)).Elem()
+}
+
+func (i JobServiceFromSpecificationTemplateArgs) ToJobServiceFromSpecificationTemplateOutput() JobServiceFromSpecificationTemplateOutput {
+	return i.ToJobServiceFromSpecificationTemplateOutputWithContext(context.Background())
+}
+
+func (i JobServiceFromSpecificationTemplateArgs) ToJobServiceFromSpecificationTemplateOutputWithContext(ctx context.Context) JobServiceFromSpecificationTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobServiceFromSpecificationTemplateOutput)
+}
+
+func (i JobServiceFromSpecificationTemplateArgs) ToJobServiceFromSpecificationTemplatePtrOutput() JobServiceFromSpecificationTemplatePtrOutput {
+	return i.ToJobServiceFromSpecificationTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i JobServiceFromSpecificationTemplateArgs) ToJobServiceFromSpecificationTemplatePtrOutputWithContext(ctx context.Context) JobServiceFromSpecificationTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobServiceFromSpecificationTemplateOutput).ToJobServiceFromSpecificationTemplatePtrOutputWithContext(ctx)
+}
+
+// JobServiceFromSpecificationTemplatePtrInput is an input type that accepts JobServiceFromSpecificationTemplateArgs, JobServiceFromSpecificationTemplatePtr and JobServiceFromSpecificationTemplatePtrOutput values.
+// You can construct a concrete instance of `JobServiceFromSpecificationTemplatePtrInput` via:
+//
+//	        JobServiceFromSpecificationTemplateArgs{...}
+//
+//	or:
+//
+//	        nil
+type JobServiceFromSpecificationTemplatePtrInput interface {
+	pulumi.Input
+
+	ToJobServiceFromSpecificationTemplatePtrOutput() JobServiceFromSpecificationTemplatePtrOutput
+	ToJobServiceFromSpecificationTemplatePtrOutputWithContext(context.Context) JobServiceFromSpecificationTemplatePtrOutput
+}
+
+type jobServiceFromSpecificationTemplatePtrType JobServiceFromSpecificationTemplateArgs
+
+func JobServiceFromSpecificationTemplatePtr(v *JobServiceFromSpecificationTemplateArgs) JobServiceFromSpecificationTemplatePtrInput {
+	return (*jobServiceFromSpecificationTemplatePtrType)(v)
+}
+
+func (*jobServiceFromSpecificationTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobServiceFromSpecificationTemplate)(nil)).Elem()
+}
+
+func (i *jobServiceFromSpecificationTemplatePtrType) ToJobServiceFromSpecificationTemplatePtrOutput() JobServiceFromSpecificationTemplatePtrOutput {
+	return i.ToJobServiceFromSpecificationTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *jobServiceFromSpecificationTemplatePtrType) ToJobServiceFromSpecificationTemplatePtrOutputWithContext(ctx context.Context) JobServiceFromSpecificationTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobServiceFromSpecificationTemplatePtrOutput)
+}
+
+type JobServiceFromSpecificationTemplateOutput struct{ *pulumi.OutputState }
+
+func (JobServiceFromSpecificationTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobServiceFromSpecificationTemplate)(nil)).Elem()
+}
+
+func (o JobServiceFromSpecificationTemplateOutput) ToJobServiceFromSpecificationTemplateOutput() JobServiceFromSpecificationTemplateOutput {
+	return o
+}
+
+func (o JobServiceFromSpecificationTemplateOutput) ToJobServiceFromSpecificationTemplateOutputWithContext(ctx context.Context) JobServiceFromSpecificationTemplateOutput {
+	return o
+}
+
+func (o JobServiceFromSpecificationTemplateOutput) ToJobServiceFromSpecificationTemplatePtrOutput() JobServiceFromSpecificationTemplatePtrOutput {
+	return o.ToJobServiceFromSpecificationTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o JobServiceFromSpecificationTemplateOutput) ToJobServiceFromSpecificationTemplatePtrOutputWithContext(ctx context.Context) JobServiceFromSpecificationTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v JobServiceFromSpecificationTemplate) *JobServiceFromSpecificationTemplate {
+		return &v
+	}).(JobServiceFromSpecificationTemplatePtrOutput)
+}
+
+// The file name of the service specification template. Example: `spec.yaml`.
+func (o JobServiceFromSpecificationTemplateOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceFromSpecificationTemplate) *string { return v.File }).(pulumi.StringPtrOutput)
+}
+
+// The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+func (o JobServiceFromSpecificationTemplateOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceFromSpecificationTemplate) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+func (o JobServiceFromSpecificationTemplateOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceFromSpecificationTemplate) *string { return v.Stage }).(pulumi.StringPtrOutput)
+}
+
+// The embedded text of the service specification template.
+func (o JobServiceFromSpecificationTemplateOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceFromSpecificationTemplate) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+// List of the specified template variables and the values of those variables.
+func (o JobServiceFromSpecificationTemplateOutput) Usings() JobServiceFromSpecificationTemplateUsingArrayOutput {
+	return o.ApplyT(func(v JobServiceFromSpecificationTemplate) []JobServiceFromSpecificationTemplateUsing {
+		return v.Usings
+	}).(JobServiceFromSpecificationTemplateUsingArrayOutput)
+}
+
+type JobServiceFromSpecificationTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (JobServiceFromSpecificationTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**JobServiceFromSpecificationTemplate)(nil)).Elem()
+}
+
+func (o JobServiceFromSpecificationTemplatePtrOutput) ToJobServiceFromSpecificationTemplatePtrOutput() JobServiceFromSpecificationTemplatePtrOutput {
+	return o
+}
+
+func (o JobServiceFromSpecificationTemplatePtrOutput) ToJobServiceFromSpecificationTemplatePtrOutputWithContext(ctx context.Context) JobServiceFromSpecificationTemplatePtrOutput {
+	return o
+}
+
+func (o JobServiceFromSpecificationTemplatePtrOutput) Elem() JobServiceFromSpecificationTemplateOutput {
+	return o.ApplyT(func(v *JobServiceFromSpecificationTemplate) JobServiceFromSpecificationTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret JobServiceFromSpecificationTemplate
+		return ret
+	}).(JobServiceFromSpecificationTemplateOutput)
+}
+
+// The file name of the service specification template. Example: `spec.yaml`.
+func (o JobServiceFromSpecificationTemplatePtrOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobServiceFromSpecificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+func (o JobServiceFromSpecificationTemplatePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobServiceFromSpecificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+func (o JobServiceFromSpecificationTemplatePtrOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobServiceFromSpecificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Stage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The embedded text of the service specification template.
+func (o JobServiceFromSpecificationTemplatePtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *JobServiceFromSpecificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of the specified template variables and the values of those variables.
+func (o JobServiceFromSpecificationTemplatePtrOutput) Usings() JobServiceFromSpecificationTemplateUsingArrayOutput {
+	return o.ApplyT(func(v *JobServiceFromSpecificationTemplate) []JobServiceFromSpecificationTemplateUsing {
+		if v == nil {
+			return nil
+		}
+		return v.Usings
+	}).(JobServiceFromSpecificationTemplateUsingArrayOutput)
+}
+
+type JobServiceFromSpecificationTemplateUsing struct {
+	// The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+	Key string `pulumi:"key"`
+	// The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+	Value string `pulumi:"value"`
+}
+
+// JobServiceFromSpecificationTemplateUsingInput is an input type that accepts JobServiceFromSpecificationTemplateUsingArgs and JobServiceFromSpecificationTemplateUsingOutput values.
+// You can construct a concrete instance of `JobServiceFromSpecificationTemplateUsingInput` via:
+//
+//	JobServiceFromSpecificationTemplateUsingArgs{...}
+type JobServiceFromSpecificationTemplateUsingInput interface {
+	pulumi.Input
+
+	ToJobServiceFromSpecificationTemplateUsingOutput() JobServiceFromSpecificationTemplateUsingOutput
+	ToJobServiceFromSpecificationTemplateUsingOutputWithContext(context.Context) JobServiceFromSpecificationTemplateUsingOutput
+}
+
+type JobServiceFromSpecificationTemplateUsingArgs struct {
+	// The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (JobServiceFromSpecificationTemplateUsingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobServiceFromSpecificationTemplateUsing)(nil)).Elem()
+}
+
+func (i JobServiceFromSpecificationTemplateUsingArgs) ToJobServiceFromSpecificationTemplateUsingOutput() JobServiceFromSpecificationTemplateUsingOutput {
+	return i.ToJobServiceFromSpecificationTemplateUsingOutputWithContext(context.Background())
+}
+
+func (i JobServiceFromSpecificationTemplateUsingArgs) ToJobServiceFromSpecificationTemplateUsingOutputWithContext(ctx context.Context) JobServiceFromSpecificationTemplateUsingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobServiceFromSpecificationTemplateUsingOutput)
+}
+
+// JobServiceFromSpecificationTemplateUsingArrayInput is an input type that accepts JobServiceFromSpecificationTemplateUsingArray and JobServiceFromSpecificationTemplateUsingArrayOutput values.
+// You can construct a concrete instance of `JobServiceFromSpecificationTemplateUsingArrayInput` via:
+//
+//	JobServiceFromSpecificationTemplateUsingArray{ JobServiceFromSpecificationTemplateUsingArgs{...} }
+type JobServiceFromSpecificationTemplateUsingArrayInput interface {
+	pulumi.Input
+
+	ToJobServiceFromSpecificationTemplateUsingArrayOutput() JobServiceFromSpecificationTemplateUsingArrayOutput
+	ToJobServiceFromSpecificationTemplateUsingArrayOutputWithContext(context.Context) JobServiceFromSpecificationTemplateUsingArrayOutput
+}
+
+type JobServiceFromSpecificationTemplateUsingArray []JobServiceFromSpecificationTemplateUsingInput
+
+func (JobServiceFromSpecificationTemplateUsingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobServiceFromSpecificationTemplateUsing)(nil)).Elem()
+}
+
+func (i JobServiceFromSpecificationTemplateUsingArray) ToJobServiceFromSpecificationTemplateUsingArrayOutput() JobServiceFromSpecificationTemplateUsingArrayOutput {
+	return i.ToJobServiceFromSpecificationTemplateUsingArrayOutputWithContext(context.Background())
+}
+
+func (i JobServiceFromSpecificationTemplateUsingArray) ToJobServiceFromSpecificationTemplateUsingArrayOutputWithContext(ctx context.Context) JobServiceFromSpecificationTemplateUsingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobServiceFromSpecificationTemplateUsingArrayOutput)
+}
+
+type JobServiceFromSpecificationTemplateUsingOutput struct{ *pulumi.OutputState }
+
+func (JobServiceFromSpecificationTemplateUsingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobServiceFromSpecificationTemplateUsing)(nil)).Elem()
+}
+
+func (o JobServiceFromSpecificationTemplateUsingOutput) ToJobServiceFromSpecificationTemplateUsingOutput() JobServiceFromSpecificationTemplateUsingOutput {
+	return o
+}
+
+func (o JobServiceFromSpecificationTemplateUsingOutput) ToJobServiceFromSpecificationTemplateUsingOutputWithContext(ctx context.Context) JobServiceFromSpecificationTemplateUsingOutput {
+	return o
+}
+
+// The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+func (o JobServiceFromSpecificationTemplateUsingOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v JobServiceFromSpecificationTemplateUsing) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+func (o JobServiceFromSpecificationTemplateUsingOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v JobServiceFromSpecificationTemplateUsing) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type JobServiceFromSpecificationTemplateUsingArrayOutput struct{ *pulumi.OutputState }
+
+func (JobServiceFromSpecificationTemplateUsingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobServiceFromSpecificationTemplateUsing)(nil)).Elem()
+}
+
+func (o JobServiceFromSpecificationTemplateUsingArrayOutput) ToJobServiceFromSpecificationTemplateUsingArrayOutput() JobServiceFromSpecificationTemplateUsingArrayOutput {
+	return o
+}
+
+func (o JobServiceFromSpecificationTemplateUsingArrayOutput) ToJobServiceFromSpecificationTemplateUsingArrayOutputWithContext(ctx context.Context) JobServiceFromSpecificationTemplateUsingArrayOutput {
+	return o
+}
+
+func (o JobServiceFromSpecificationTemplateUsingArrayOutput) Index(i pulumi.IntInput) JobServiceFromSpecificationTemplateUsingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobServiceFromSpecificationTemplateUsing {
+		return vs[0].([]JobServiceFromSpecificationTemplateUsing)[vs[1].(int)]
+	}).(JobServiceFromSpecificationTemplateUsingOutput)
+}
+
+type JobServiceShowOutput struct {
+	AutoResume                 *bool    `pulumi:"autoResume"`
+	AutoSuspendSecs            *int     `pulumi:"autoSuspendSecs"`
+	Comment                    *string  `pulumi:"comment"`
+	ComputePool                *string  `pulumi:"computePool"`
+	CreatedOn                  *string  `pulumi:"createdOn"`
+	CurrentInstances           *int     `pulumi:"currentInstances"`
+	DatabaseName               *string  `pulumi:"databaseName"`
+	DnsName                    *string  `pulumi:"dnsName"`
+	ExternalAccessIntegrations []string `pulumi:"externalAccessIntegrations"`
+	IsAsyncJob                 *bool    `pulumi:"isAsyncJob"`
+	IsJob                      *bool    `pulumi:"isJob"`
+	IsUpgrading                *bool    `pulumi:"isUpgrading"`
+	ManagingObjectDomain       *string  `pulumi:"managingObjectDomain"`
+	ManagingObjectName         *string  `pulumi:"managingObjectName"`
+	MaxInstances               *int     `pulumi:"maxInstances"`
+	MinInstances               *int     `pulumi:"minInstances"`
+	MinReadyInstances          *int     `pulumi:"minReadyInstances"`
+	Name                       *string  `pulumi:"name"`
+	Owner                      *string  `pulumi:"owner"`
+	OwnerRoleType              *string  `pulumi:"ownerRoleType"`
+	QueryWarehouse             *string  `pulumi:"queryWarehouse"`
+	ResumedOn                  *string  `pulumi:"resumedOn"`
+	SchemaName                 *string  `pulumi:"schemaName"`
+	SpecDigest                 *string  `pulumi:"specDigest"`
+	Status                     *string  `pulumi:"status"`
+	SuspendedOn                *string  `pulumi:"suspendedOn"`
+	TargetInstances            *int     `pulumi:"targetInstances"`
+	UpdatedOn                  *string  `pulumi:"updatedOn"`
+}
+
+// JobServiceShowOutputInput is an input type that accepts JobServiceShowOutputArgs and JobServiceShowOutputOutput values.
+// You can construct a concrete instance of `JobServiceShowOutputInput` via:
+//
+//	JobServiceShowOutputArgs{...}
+type JobServiceShowOutputInput interface {
+	pulumi.Input
+
+	ToJobServiceShowOutputOutput() JobServiceShowOutputOutput
+	ToJobServiceShowOutputOutputWithContext(context.Context) JobServiceShowOutputOutput
+}
+
+type JobServiceShowOutputArgs struct {
+	AutoResume                 pulumi.BoolPtrInput     `pulumi:"autoResume"`
+	AutoSuspendSecs            pulumi.IntPtrInput      `pulumi:"autoSuspendSecs"`
+	Comment                    pulumi.StringPtrInput   `pulumi:"comment"`
+	ComputePool                pulumi.StringPtrInput   `pulumi:"computePool"`
+	CreatedOn                  pulumi.StringPtrInput   `pulumi:"createdOn"`
+	CurrentInstances           pulumi.IntPtrInput      `pulumi:"currentInstances"`
+	DatabaseName               pulumi.StringPtrInput   `pulumi:"databaseName"`
+	DnsName                    pulumi.StringPtrInput   `pulumi:"dnsName"`
+	ExternalAccessIntegrations pulumi.StringArrayInput `pulumi:"externalAccessIntegrations"`
+	IsAsyncJob                 pulumi.BoolPtrInput     `pulumi:"isAsyncJob"`
+	IsJob                      pulumi.BoolPtrInput     `pulumi:"isJob"`
+	IsUpgrading                pulumi.BoolPtrInput     `pulumi:"isUpgrading"`
+	ManagingObjectDomain       pulumi.StringPtrInput   `pulumi:"managingObjectDomain"`
+	ManagingObjectName         pulumi.StringPtrInput   `pulumi:"managingObjectName"`
+	MaxInstances               pulumi.IntPtrInput      `pulumi:"maxInstances"`
+	MinInstances               pulumi.IntPtrInput      `pulumi:"minInstances"`
+	MinReadyInstances          pulumi.IntPtrInput      `pulumi:"minReadyInstances"`
+	Name                       pulumi.StringPtrInput   `pulumi:"name"`
+	Owner                      pulumi.StringPtrInput   `pulumi:"owner"`
+	OwnerRoleType              pulumi.StringPtrInput   `pulumi:"ownerRoleType"`
+	QueryWarehouse             pulumi.StringPtrInput   `pulumi:"queryWarehouse"`
+	ResumedOn                  pulumi.StringPtrInput   `pulumi:"resumedOn"`
+	SchemaName                 pulumi.StringPtrInput   `pulumi:"schemaName"`
+	SpecDigest                 pulumi.StringPtrInput   `pulumi:"specDigest"`
+	Status                     pulumi.StringPtrInput   `pulumi:"status"`
+	SuspendedOn                pulumi.StringPtrInput   `pulumi:"suspendedOn"`
+	TargetInstances            pulumi.IntPtrInput      `pulumi:"targetInstances"`
+	UpdatedOn                  pulumi.StringPtrInput   `pulumi:"updatedOn"`
+}
+
+func (JobServiceShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobServiceShowOutput)(nil)).Elem()
+}
+
+func (i JobServiceShowOutputArgs) ToJobServiceShowOutputOutput() JobServiceShowOutputOutput {
+	return i.ToJobServiceShowOutputOutputWithContext(context.Background())
+}
+
+func (i JobServiceShowOutputArgs) ToJobServiceShowOutputOutputWithContext(ctx context.Context) JobServiceShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobServiceShowOutputOutput)
+}
+
+// JobServiceShowOutputArrayInput is an input type that accepts JobServiceShowOutputArray and JobServiceShowOutputArrayOutput values.
+// You can construct a concrete instance of `JobServiceShowOutputArrayInput` via:
+//
+//	JobServiceShowOutputArray{ JobServiceShowOutputArgs{...} }
+type JobServiceShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToJobServiceShowOutputArrayOutput() JobServiceShowOutputArrayOutput
+	ToJobServiceShowOutputArrayOutputWithContext(context.Context) JobServiceShowOutputArrayOutput
+}
+
+type JobServiceShowOutputArray []JobServiceShowOutputInput
+
+func (JobServiceShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobServiceShowOutput)(nil)).Elem()
+}
+
+func (i JobServiceShowOutputArray) ToJobServiceShowOutputArrayOutput() JobServiceShowOutputArrayOutput {
+	return i.ToJobServiceShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i JobServiceShowOutputArray) ToJobServiceShowOutputArrayOutputWithContext(ctx context.Context) JobServiceShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobServiceShowOutputArrayOutput)
+}
+
+type JobServiceShowOutputOutput struct{ *pulumi.OutputState }
+
+func (JobServiceShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobServiceShowOutput)(nil)).Elem()
+}
+
+func (o JobServiceShowOutputOutput) ToJobServiceShowOutputOutput() JobServiceShowOutputOutput {
+	return o
+}
+
+func (o JobServiceShowOutputOutput) ToJobServiceShowOutputOutputWithContext(ctx context.Context) JobServiceShowOutputOutput {
+	return o
+}
+
+func (o JobServiceShowOutputOutput) AutoResume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *bool { return v.AutoResume }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) AutoSuspendSecs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *int { return v.AutoSuspendSecs }).(pulumi.IntPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) ComputePool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.ComputePool }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) CurrentInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *int { return v.CurrentInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) ExternalAccessIntegrations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) []string { return v.ExternalAccessIntegrations }).(pulumi.StringArrayOutput)
+}
+
+func (o JobServiceShowOutputOutput) IsAsyncJob() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *bool { return v.IsAsyncJob }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) IsJob() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *bool { return v.IsJob }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) IsUpgrading() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *bool { return v.IsUpgrading }).(pulumi.BoolPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) ManagingObjectDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.ManagingObjectDomain }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) ManagingObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.ManagingObjectName }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) MaxInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *int { return v.MaxInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) MinInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *int { return v.MinInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) MinReadyInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *int { return v.MinReadyInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) QueryWarehouse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.QueryWarehouse }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) ResumedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.ResumedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) SpecDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.SpecDigest }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) SuspendedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.SuspendedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) TargetInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *int { return v.TargetInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o JobServiceShowOutputOutput) UpdatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v JobServiceShowOutput) *string { return v.UpdatedOn }).(pulumi.StringPtrOutput)
+}
+
+type JobServiceShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (JobServiceShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobServiceShowOutput)(nil)).Elem()
+}
+
+func (o JobServiceShowOutputArrayOutput) ToJobServiceShowOutputArrayOutput() JobServiceShowOutputArrayOutput {
+	return o
+}
+
+func (o JobServiceShowOutputArrayOutput) ToJobServiceShowOutputArrayOutputWithContext(ctx context.Context) JobServiceShowOutputArrayOutput {
+	return o
+}
+
+func (o JobServiceShowOutputArrayOutput) Index(i pulumi.IntInput) JobServiceShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobServiceShowOutput {
+		return vs[0].([]JobServiceShowOutput)[vs[1].(int)]
+	}).(JobServiceShowOutputOutput)
 }
 
 type LegacyServiceUserParameter struct {
@@ -44204,6 +46293,1037 @@ func (o SecretWithGenericStringShowOutputArrayOutput) Index(i pulumi.IntInput) S
 	}).(SecretWithGenericStringShowOutputOutput)
 }
 
+type ServiceDescribeOutput struct {
+	AutoResume                 *bool    `pulumi:"autoResume"`
+	AutoSuspendSecs            *int     `pulumi:"autoSuspendSecs"`
+	Comment                    *string  `pulumi:"comment"`
+	ComputePool                *string  `pulumi:"computePool"`
+	CreatedOn                  *string  `pulumi:"createdOn"`
+	CurrentInstances           *int     `pulumi:"currentInstances"`
+	DatabaseName               *string  `pulumi:"databaseName"`
+	DnsName                    *string  `pulumi:"dnsName"`
+	ExternalAccessIntegrations []string `pulumi:"externalAccessIntegrations"`
+	IsAsyncJob                 *bool    `pulumi:"isAsyncJob"`
+	IsJob                      *bool    `pulumi:"isJob"`
+	IsUpgrading                *bool    `pulumi:"isUpgrading"`
+	ManagingObjectDomain       *string  `pulumi:"managingObjectDomain"`
+	ManagingObjectName         *string  `pulumi:"managingObjectName"`
+	MaxInstances               *int     `pulumi:"maxInstances"`
+	MinInstances               *int     `pulumi:"minInstances"`
+	MinReadyInstances          *int     `pulumi:"minReadyInstances"`
+	Name                       *string  `pulumi:"name"`
+	Owner                      *string  `pulumi:"owner"`
+	OwnerRoleType              *string  `pulumi:"ownerRoleType"`
+	QueryWarehouse             *string  `pulumi:"queryWarehouse"`
+	ResumedOn                  *string  `pulumi:"resumedOn"`
+	SchemaName                 *string  `pulumi:"schemaName"`
+	Spec                       *string  `pulumi:"spec"`
+	SpecDigest                 *string  `pulumi:"specDigest"`
+	Status                     *string  `pulumi:"status"`
+	SuspendedOn                *string  `pulumi:"suspendedOn"`
+	TargetInstances            *int     `pulumi:"targetInstances"`
+	UpdatedOn                  *string  `pulumi:"updatedOn"`
+}
+
+// ServiceDescribeOutputInput is an input type that accepts ServiceDescribeOutputArgs and ServiceDescribeOutputOutput values.
+// You can construct a concrete instance of `ServiceDescribeOutputInput` via:
+//
+//	ServiceDescribeOutputArgs{...}
+type ServiceDescribeOutputInput interface {
+	pulumi.Input
+
+	ToServiceDescribeOutputOutput() ServiceDescribeOutputOutput
+	ToServiceDescribeOutputOutputWithContext(context.Context) ServiceDescribeOutputOutput
+}
+
+type ServiceDescribeOutputArgs struct {
+	AutoResume                 pulumi.BoolPtrInput     `pulumi:"autoResume"`
+	AutoSuspendSecs            pulumi.IntPtrInput      `pulumi:"autoSuspendSecs"`
+	Comment                    pulumi.StringPtrInput   `pulumi:"comment"`
+	ComputePool                pulumi.StringPtrInput   `pulumi:"computePool"`
+	CreatedOn                  pulumi.StringPtrInput   `pulumi:"createdOn"`
+	CurrentInstances           pulumi.IntPtrInput      `pulumi:"currentInstances"`
+	DatabaseName               pulumi.StringPtrInput   `pulumi:"databaseName"`
+	DnsName                    pulumi.StringPtrInput   `pulumi:"dnsName"`
+	ExternalAccessIntegrations pulumi.StringArrayInput `pulumi:"externalAccessIntegrations"`
+	IsAsyncJob                 pulumi.BoolPtrInput     `pulumi:"isAsyncJob"`
+	IsJob                      pulumi.BoolPtrInput     `pulumi:"isJob"`
+	IsUpgrading                pulumi.BoolPtrInput     `pulumi:"isUpgrading"`
+	ManagingObjectDomain       pulumi.StringPtrInput   `pulumi:"managingObjectDomain"`
+	ManagingObjectName         pulumi.StringPtrInput   `pulumi:"managingObjectName"`
+	MaxInstances               pulumi.IntPtrInput      `pulumi:"maxInstances"`
+	MinInstances               pulumi.IntPtrInput      `pulumi:"minInstances"`
+	MinReadyInstances          pulumi.IntPtrInput      `pulumi:"minReadyInstances"`
+	Name                       pulumi.StringPtrInput   `pulumi:"name"`
+	Owner                      pulumi.StringPtrInput   `pulumi:"owner"`
+	OwnerRoleType              pulumi.StringPtrInput   `pulumi:"ownerRoleType"`
+	QueryWarehouse             pulumi.StringPtrInput   `pulumi:"queryWarehouse"`
+	ResumedOn                  pulumi.StringPtrInput   `pulumi:"resumedOn"`
+	SchemaName                 pulumi.StringPtrInput   `pulumi:"schemaName"`
+	Spec                       pulumi.StringPtrInput   `pulumi:"spec"`
+	SpecDigest                 pulumi.StringPtrInput   `pulumi:"specDigest"`
+	Status                     pulumi.StringPtrInput   `pulumi:"status"`
+	SuspendedOn                pulumi.StringPtrInput   `pulumi:"suspendedOn"`
+	TargetInstances            pulumi.IntPtrInput      `pulumi:"targetInstances"`
+	UpdatedOn                  pulumi.StringPtrInput   `pulumi:"updatedOn"`
+}
+
+func (ServiceDescribeOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDescribeOutput)(nil)).Elem()
+}
+
+func (i ServiceDescribeOutputArgs) ToServiceDescribeOutputOutput() ServiceDescribeOutputOutput {
+	return i.ToServiceDescribeOutputOutputWithContext(context.Background())
+}
+
+func (i ServiceDescribeOutputArgs) ToServiceDescribeOutputOutputWithContext(ctx context.Context) ServiceDescribeOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDescribeOutputOutput)
+}
+
+// ServiceDescribeOutputArrayInput is an input type that accepts ServiceDescribeOutputArray and ServiceDescribeOutputArrayOutput values.
+// You can construct a concrete instance of `ServiceDescribeOutputArrayInput` via:
+//
+//	ServiceDescribeOutputArray{ ServiceDescribeOutputArgs{...} }
+type ServiceDescribeOutputArrayInput interface {
+	pulumi.Input
+
+	ToServiceDescribeOutputArrayOutput() ServiceDescribeOutputArrayOutput
+	ToServiceDescribeOutputArrayOutputWithContext(context.Context) ServiceDescribeOutputArrayOutput
+}
+
+type ServiceDescribeOutputArray []ServiceDescribeOutputInput
+
+func (ServiceDescribeOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDescribeOutput)(nil)).Elem()
+}
+
+func (i ServiceDescribeOutputArray) ToServiceDescribeOutputArrayOutput() ServiceDescribeOutputArrayOutput {
+	return i.ToServiceDescribeOutputArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceDescribeOutputArray) ToServiceDescribeOutputArrayOutputWithContext(ctx context.Context) ServiceDescribeOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceDescribeOutputArrayOutput)
+}
+
+type ServiceDescribeOutputOutput struct{ *pulumi.OutputState }
+
+func (ServiceDescribeOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceDescribeOutput)(nil)).Elem()
+}
+
+func (o ServiceDescribeOutputOutput) ToServiceDescribeOutputOutput() ServiceDescribeOutputOutput {
+	return o
+}
+
+func (o ServiceDescribeOutputOutput) ToServiceDescribeOutputOutputWithContext(ctx context.Context) ServiceDescribeOutputOutput {
+	return o
+}
+
+func (o ServiceDescribeOutputOutput) AutoResume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *bool { return v.AutoResume }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) AutoSuspendSecs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *int { return v.AutoSuspendSecs }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) ComputePool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.ComputePool }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) CurrentInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *int { return v.CurrentInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) ExternalAccessIntegrations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) []string { return v.ExternalAccessIntegrations }).(pulumi.StringArrayOutput)
+}
+
+func (o ServiceDescribeOutputOutput) IsAsyncJob() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *bool { return v.IsAsyncJob }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) IsJob() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *bool { return v.IsJob }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) IsUpgrading() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *bool { return v.IsUpgrading }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) ManagingObjectDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.ManagingObjectDomain }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) ManagingObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.ManagingObjectName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) MaxInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *int { return v.MaxInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) MinInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *int { return v.MinInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) MinReadyInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *int { return v.MinReadyInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) QueryWarehouse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.QueryWarehouse }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) ResumedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.ResumedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) Spec() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.Spec }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) SpecDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.SpecDigest }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) SuspendedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.SuspendedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) TargetInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *int { return v.TargetInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceDescribeOutputOutput) UpdatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceDescribeOutput) *string { return v.UpdatedOn }).(pulumi.StringPtrOutput)
+}
+
+type ServiceDescribeOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceDescribeOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceDescribeOutput)(nil)).Elem()
+}
+
+func (o ServiceDescribeOutputArrayOutput) ToServiceDescribeOutputArrayOutput() ServiceDescribeOutputArrayOutput {
+	return o
+}
+
+func (o ServiceDescribeOutputArrayOutput) ToServiceDescribeOutputArrayOutputWithContext(ctx context.Context) ServiceDescribeOutputArrayOutput {
+	return o
+}
+
+func (o ServiceDescribeOutputArrayOutput) Index(i pulumi.IntInput) ServiceDescribeOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceDescribeOutput {
+		return vs[0].([]ServiceDescribeOutput)[vs[1].(int)]
+	}).(ServiceDescribeOutputOutput)
+}
+
+type ServiceFromSpecification struct {
+	// The file name of the service specification. Example: `spec.yaml`.
+	File *string `pulumi:"file"`
+	// The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+	Path *string `pulumi:"path"`
+	// The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+	Stage *string `pulumi:"stage"`
+	// The embedded text of the service specification.
+	Text *string `pulumi:"text"`
+}
+
+// ServiceFromSpecificationInput is an input type that accepts ServiceFromSpecificationArgs and ServiceFromSpecificationOutput values.
+// You can construct a concrete instance of `ServiceFromSpecificationInput` via:
+//
+//	ServiceFromSpecificationArgs{...}
+type ServiceFromSpecificationInput interface {
+	pulumi.Input
+
+	ToServiceFromSpecificationOutput() ServiceFromSpecificationOutput
+	ToServiceFromSpecificationOutputWithContext(context.Context) ServiceFromSpecificationOutput
+}
+
+type ServiceFromSpecificationArgs struct {
+	// The file name of the service specification. Example: `spec.yaml`.
+	File pulumi.StringPtrInput `pulumi:"file"`
+	// The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+	Stage pulumi.StringPtrInput `pulumi:"stage"`
+	// The embedded text of the service specification.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+}
+
+func (ServiceFromSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFromSpecification)(nil)).Elem()
+}
+
+func (i ServiceFromSpecificationArgs) ToServiceFromSpecificationOutput() ServiceFromSpecificationOutput {
+	return i.ToServiceFromSpecificationOutputWithContext(context.Background())
+}
+
+func (i ServiceFromSpecificationArgs) ToServiceFromSpecificationOutputWithContext(ctx context.Context) ServiceFromSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceFromSpecificationOutput)
+}
+
+func (i ServiceFromSpecificationArgs) ToServiceFromSpecificationPtrOutput() ServiceFromSpecificationPtrOutput {
+	return i.ToServiceFromSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceFromSpecificationArgs) ToServiceFromSpecificationPtrOutputWithContext(ctx context.Context) ServiceFromSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceFromSpecificationOutput).ToServiceFromSpecificationPtrOutputWithContext(ctx)
+}
+
+// ServiceFromSpecificationPtrInput is an input type that accepts ServiceFromSpecificationArgs, ServiceFromSpecificationPtr and ServiceFromSpecificationPtrOutput values.
+// You can construct a concrete instance of `ServiceFromSpecificationPtrInput` via:
+//
+//	        ServiceFromSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceFromSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToServiceFromSpecificationPtrOutput() ServiceFromSpecificationPtrOutput
+	ToServiceFromSpecificationPtrOutputWithContext(context.Context) ServiceFromSpecificationPtrOutput
+}
+
+type serviceFromSpecificationPtrType ServiceFromSpecificationArgs
+
+func ServiceFromSpecificationPtr(v *ServiceFromSpecificationArgs) ServiceFromSpecificationPtrInput {
+	return (*serviceFromSpecificationPtrType)(v)
+}
+
+func (*serviceFromSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceFromSpecification)(nil)).Elem()
+}
+
+func (i *serviceFromSpecificationPtrType) ToServiceFromSpecificationPtrOutput() ServiceFromSpecificationPtrOutput {
+	return i.ToServiceFromSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceFromSpecificationPtrType) ToServiceFromSpecificationPtrOutputWithContext(ctx context.Context) ServiceFromSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceFromSpecificationPtrOutput)
+}
+
+type ServiceFromSpecificationOutput struct{ *pulumi.OutputState }
+
+func (ServiceFromSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFromSpecification)(nil)).Elem()
+}
+
+func (o ServiceFromSpecificationOutput) ToServiceFromSpecificationOutput() ServiceFromSpecificationOutput {
+	return o
+}
+
+func (o ServiceFromSpecificationOutput) ToServiceFromSpecificationOutputWithContext(ctx context.Context) ServiceFromSpecificationOutput {
+	return o
+}
+
+func (o ServiceFromSpecificationOutput) ToServiceFromSpecificationPtrOutput() ServiceFromSpecificationPtrOutput {
+	return o.ToServiceFromSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceFromSpecificationOutput) ToServiceFromSpecificationPtrOutputWithContext(ctx context.Context) ServiceFromSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceFromSpecification) *ServiceFromSpecification {
+		return &v
+	}).(ServiceFromSpecificationPtrOutput)
+}
+
+// The file name of the service specification. Example: `spec.yaml`.
+func (o ServiceFromSpecificationOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceFromSpecification) *string { return v.File }).(pulumi.StringPtrOutput)
+}
+
+// The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+func (o ServiceFromSpecificationOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceFromSpecification) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+func (o ServiceFromSpecificationOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceFromSpecification) *string { return v.Stage }).(pulumi.StringPtrOutput)
+}
+
+// The embedded text of the service specification.
+func (o ServiceFromSpecificationOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceFromSpecification) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+type ServiceFromSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceFromSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceFromSpecification)(nil)).Elem()
+}
+
+func (o ServiceFromSpecificationPtrOutput) ToServiceFromSpecificationPtrOutput() ServiceFromSpecificationPtrOutput {
+	return o
+}
+
+func (o ServiceFromSpecificationPtrOutput) ToServiceFromSpecificationPtrOutputWithContext(ctx context.Context) ServiceFromSpecificationPtrOutput {
+	return o
+}
+
+func (o ServiceFromSpecificationPtrOutput) Elem() ServiceFromSpecificationOutput {
+	return o.ApplyT(func(v *ServiceFromSpecification) ServiceFromSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceFromSpecification
+		return ret
+	}).(ServiceFromSpecificationOutput)
+}
+
+// The file name of the service specification. Example: `spec.yaml`.
+func (o ServiceFromSpecificationPtrOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFromSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+func (o ServiceFromSpecificationPtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFromSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+func (o ServiceFromSpecificationPtrOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFromSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Stage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The embedded text of the service specification.
+func (o ServiceFromSpecificationPtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFromSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceFromSpecificationTemplate struct {
+	// The file name of the service specification template. Example: `spec.yaml`.
+	File *string `pulumi:"file"`
+	// The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+	Path *string `pulumi:"path"`
+	// The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+	Stage *string `pulumi:"stage"`
+	// The embedded text of the service specification template.
+	Text *string `pulumi:"text"`
+	// List of the specified template variables and the values of those variables.
+	Usings []ServiceFromSpecificationTemplateUsing `pulumi:"usings"`
+}
+
+// ServiceFromSpecificationTemplateInput is an input type that accepts ServiceFromSpecificationTemplateArgs and ServiceFromSpecificationTemplateOutput values.
+// You can construct a concrete instance of `ServiceFromSpecificationTemplateInput` via:
+//
+//	ServiceFromSpecificationTemplateArgs{...}
+type ServiceFromSpecificationTemplateInput interface {
+	pulumi.Input
+
+	ToServiceFromSpecificationTemplateOutput() ServiceFromSpecificationTemplateOutput
+	ToServiceFromSpecificationTemplateOutputWithContext(context.Context) ServiceFromSpecificationTemplateOutput
+}
+
+type ServiceFromSpecificationTemplateArgs struct {
+	// The file name of the service specification template. Example: `spec.yaml`.
+	File pulumi.StringPtrInput `pulumi:"file"`
+	// The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+	Stage pulumi.StringPtrInput `pulumi:"stage"`
+	// The embedded text of the service specification template.
+	Text pulumi.StringPtrInput `pulumi:"text"`
+	// List of the specified template variables and the values of those variables.
+	Usings ServiceFromSpecificationTemplateUsingArrayInput `pulumi:"usings"`
+}
+
+func (ServiceFromSpecificationTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFromSpecificationTemplate)(nil)).Elem()
+}
+
+func (i ServiceFromSpecificationTemplateArgs) ToServiceFromSpecificationTemplateOutput() ServiceFromSpecificationTemplateOutput {
+	return i.ToServiceFromSpecificationTemplateOutputWithContext(context.Background())
+}
+
+func (i ServiceFromSpecificationTemplateArgs) ToServiceFromSpecificationTemplateOutputWithContext(ctx context.Context) ServiceFromSpecificationTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceFromSpecificationTemplateOutput)
+}
+
+func (i ServiceFromSpecificationTemplateArgs) ToServiceFromSpecificationTemplatePtrOutput() ServiceFromSpecificationTemplatePtrOutput {
+	return i.ToServiceFromSpecificationTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceFromSpecificationTemplateArgs) ToServiceFromSpecificationTemplatePtrOutputWithContext(ctx context.Context) ServiceFromSpecificationTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceFromSpecificationTemplateOutput).ToServiceFromSpecificationTemplatePtrOutputWithContext(ctx)
+}
+
+// ServiceFromSpecificationTemplatePtrInput is an input type that accepts ServiceFromSpecificationTemplateArgs, ServiceFromSpecificationTemplatePtr and ServiceFromSpecificationTemplatePtrOutput values.
+// You can construct a concrete instance of `ServiceFromSpecificationTemplatePtrInput` via:
+//
+//	        ServiceFromSpecificationTemplateArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceFromSpecificationTemplatePtrInput interface {
+	pulumi.Input
+
+	ToServiceFromSpecificationTemplatePtrOutput() ServiceFromSpecificationTemplatePtrOutput
+	ToServiceFromSpecificationTemplatePtrOutputWithContext(context.Context) ServiceFromSpecificationTemplatePtrOutput
+}
+
+type serviceFromSpecificationTemplatePtrType ServiceFromSpecificationTemplateArgs
+
+func ServiceFromSpecificationTemplatePtr(v *ServiceFromSpecificationTemplateArgs) ServiceFromSpecificationTemplatePtrInput {
+	return (*serviceFromSpecificationTemplatePtrType)(v)
+}
+
+func (*serviceFromSpecificationTemplatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceFromSpecificationTemplate)(nil)).Elem()
+}
+
+func (i *serviceFromSpecificationTemplatePtrType) ToServiceFromSpecificationTemplatePtrOutput() ServiceFromSpecificationTemplatePtrOutput {
+	return i.ToServiceFromSpecificationTemplatePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceFromSpecificationTemplatePtrType) ToServiceFromSpecificationTemplatePtrOutputWithContext(ctx context.Context) ServiceFromSpecificationTemplatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceFromSpecificationTemplatePtrOutput)
+}
+
+type ServiceFromSpecificationTemplateOutput struct{ *pulumi.OutputState }
+
+func (ServiceFromSpecificationTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFromSpecificationTemplate)(nil)).Elem()
+}
+
+func (o ServiceFromSpecificationTemplateOutput) ToServiceFromSpecificationTemplateOutput() ServiceFromSpecificationTemplateOutput {
+	return o
+}
+
+func (o ServiceFromSpecificationTemplateOutput) ToServiceFromSpecificationTemplateOutputWithContext(ctx context.Context) ServiceFromSpecificationTemplateOutput {
+	return o
+}
+
+func (o ServiceFromSpecificationTemplateOutput) ToServiceFromSpecificationTemplatePtrOutput() ServiceFromSpecificationTemplatePtrOutput {
+	return o.ToServiceFromSpecificationTemplatePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceFromSpecificationTemplateOutput) ToServiceFromSpecificationTemplatePtrOutputWithContext(ctx context.Context) ServiceFromSpecificationTemplatePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceFromSpecificationTemplate) *ServiceFromSpecificationTemplate {
+		return &v
+	}).(ServiceFromSpecificationTemplatePtrOutput)
+}
+
+// The file name of the service specification template. Example: `spec.yaml`.
+func (o ServiceFromSpecificationTemplateOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceFromSpecificationTemplate) *string { return v.File }).(pulumi.StringPtrOutput)
+}
+
+// The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+func (o ServiceFromSpecificationTemplateOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceFromSpecificationTemplate) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+func (o ServiceFromSpecificationTemplateOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceFromSpecificationTemplate) *string { return v.Stage }).(pulumi.StringPtrOutput)
+}
+
+// The embedded text of the service specification template.
+func (o ServiceFromSpecificationTemplateOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceFromSpecificationTemplate) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+// List of the specified template variables and the values of those variables.
+func (o ServiceFromSpecificationTemplateOutput) Usings() ServiceFromSpecificationTemplateUsingArrayOutput {
+	return o.ApplyT(func(v ServiceFromSpecificationTemplate) []ServiceFromSpecificationTemplateUsing { return v.Usings }).(ServiceFromSpecificationTemplateUsingArrayOutput)
+}
+
+type ServiceFromSpecificationTemplatePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceFromSpecificationTemplatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceFromSpecificationTemplate)(nil)).Elem()
+}
+
+func (o ServiceFromSpecificationTemplatePtrOutput) ToServiceFromSpecificationTemplatePtrOutput() ServiceFromSpecificationTemplatePtrOutput {
+	return o
+}
+
+func (o ServiceFromSpecificationTemplatePtrOutput) ToServiceFromSpecificationTemplatePtrOutputWithContext(ctx context.Context) ServiceFromSpecificationTemplatePtrOutput {
+	return o
+}
+
+func (o ServiceFromSpecificationTemplatePtrOutput) Elem() ServiceFromSpecificationTemplateOutput {
+	return o.ApplyT(func(v *ServiceFromSpecificationTemplate) ServiceFromSpecificationTemplate {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceFromSpecificationTemplate
+		return ret
+	}).(ServiceFromSpecificationTemplateOutput)
+}
+
+// The file name of the service specification template. Example: `spec.yaml`.
+func (o ServiceFromSpecificationTemplatePtrOutput) File() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFromSpecificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.File
+	}).(pulumi.StringPtrOutput)
+}
+
+// The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+func (o ServiceFromSpecificationTemplatePtrOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFromSpecificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Path
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+func (o ServiceFromSpecificationTemplatePtrOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFromSpecificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Stage
+	}).(pulumi.StringPtrOutput)
+}
+
+// The embedded text of the service specification template.
+func (o ServiceFromSpecificationTemplatePtrOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceFromSpecificationTemplate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Text
+	}).(pulumi.StringPtrOutput)
+}
+
+// List of the specified template variables and the values of those variables.
+func (o ServiceFromSpecificationTemplatePtrOutput) Usings() ServiceFromSpecificationTemplateUsingArrayOutput {
+	return o.ApplyT(func(v *ServiceFromSpecificationTemplate) []ServiceFromSpecificationTemplateUsing {
+		if v == nil {
+			return nil
+		}
+		return v.Usings
+	}).(ServiceFromSpecificationTemplateUsingArrayOutput)
+}
+
+type ServiceFromSpecificationTemplateUsing struct {
+	// The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+	Key string `pulumi:"key"`
+	// The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+	Value string `pulumi:"value"`
+}
+
+// ServiceFromSpecificationTemplateUsingInput is an input type that accepts ServiceFromSpecificationTemplateUsingArgs and ServiceFromSpecificationTemplateUsingOutput values.
+// You can construct a concrete instance of `ServiceFromSpecificationTemplateUsingInput` via:
+//
+//	ServiceFromSpecificationTemplateUsingArgs{...}
+type ServiceFromSpecificationTemplateUsingInput interface {
+	pulumi.Input
+
+	ToServiceFromSpecificationTemplateUsingOutput() ServiceFromSpecificationTemplateUsingOutput
+	ToServiceFromSpecificationTemplateUsingOutputWithContext(context.Context) ServiceFromSpecificationTemplateUsingOutput
+}
+
+type ServiceFromSpecificationTemplateUsingArgs struct {
+	// The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ServiceFromSpecificationTemplateUsingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFromSpecificationTemplateUsing)(nil)).Elem()
+}
+
+func (i ServiceFromSpecificationTemplateUsingArgs) ToServiceFromSpecificationTemplateUsingOutput() ServiceFromSpecificationTemplateUsingOutput {
+	return i.ToServiceFromSpecificationTemplateUsingOutputWithContext(context.Background())
+}
+
+func (i ServiceFromSpecificationTemplateUsingArgs) ToServiceFromSpecificationTemplateUsingOutputWithContext(ctx context.Context) ServiceFromSpecificationTemplateUsingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceFromSpecificationTemplateUsingOutput)
+}
+
+// ServiceFromSpecificationTemplateUsingArrayInput is an input type that accepts ServiceFromSpecificationTemplateUsingArray and ServiceFromSpecificationTemplateUsingArrayOutput values.
+// You can construct a concrete instance of `ServiceFromSpecificationTemplateUsingArrayInput` via:
+//
+//	ServiceFromSpecificationTemplateUsingArray{ ServiceFromSpecificationTemplateUsingArgs{...} }
+type ServiceFromSpecificationTemplateUsingArrayInput interface {
+	pulumi.Input
+
+	ToServiceFromSpecificationTemplateUsingArrayOutput() ServiceFromSpecificationTemplateUsingArrayOutput
+	ToServiceFromSpecificationTemplateUsingArrayOutputWithContext(context.Context) ServiceFromSpecificationTemplateUsingArrayOutput
+}
+
+type ServiceFromSpecificationTemplateUsingArray []ServiceFromSpecificationTemplateUsingInput
+
+func (ServiceFromSpecificationTemplateUsingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceFromSpecificationTemplateUsing)(nil)).Elem()
+}
+
+func (i ServiceFromSpecificationTemplateUsingArray) ToServiceFromSpecificationTemplateUsingArrayOutput() ServiceFromSpecificationTemplateUsingArrayOutput {
+	return i.ToServiceFromSpecificationTemplateUsingArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceFromSpecificationTemplateUsingArray) ToServiceFromSpecificationTemplateUsingArrayOutputWithContext(ctx context.Context) ServiceFromSpecificationTemplateUsingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceFromSpecificationTemplateUsingArrayOutput)
+}
+
+type ServiceFromSpecificationTemplateUsingOutput struct{ *pulumi.OutputState }
+
+func (ServiceFromSpecificationTemplateUsingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceFromSpecificationTemplateUsing)(nil)).Elem()
+}
+
+func (o ServiceFromSpecificationTemplateUsingOutput) ToServiceFromSpecificationTemplateUsingOutput() ServiceFromSpecificationTemplateUsingOutput {
+	return o
+}
+
+func (o ServiceFromSpecificationTemplateUsingOutput) ToServiceFromSpecificationTemplateUsingOutputWithContext(ctx context.Context) ServiceFromSpecificationTemplateUsingOutput {
+	return o
+}
+
+// The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+func (o ServiceFromSpecificationTemplateUsingOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceFromSpecificationTemplateUsing) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+func (o ServiceFromSpecificationTemplateUsingOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceFromSpecificationTemplateUsing) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type ServiceFromSpecificationTemplateUsingArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceFromSpecificationTemplateUsingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceFromSpecificationTemplateUsing)(nil)).Elem()
+}
+
+func (o ServiceFromSpecificationTemplateUsingArrayOutput) ToServiceFromSpecificationTemplateUsingArrayOutput() ServiceFromSpecificationTemplateUsingArrayOutput {
+	return o
+}
+
+func (o ServiceFromSpecificationTemplateUsingArrayOutput) ToServiceFromSpecificationTemplateUsingArrayOutputWithContext(ctx context.Context) ServiceFromSpecificationTemplateUsingArrayOutput {
+	return o
+}
+
+func (o ServiceFromSpecificationTemplateUsingArrayOutput) Index(i pulumi.IntInput) ServiceFromSpecificationTemplateUsingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceFromSpecificationTemplateUsing {
+		return vs[0].([]ServiceFromSpecificationTemplateUsing)[vs[1].(int)]
+	}).(ServiceFromSpecificationTemplateUsingOutput)
+}
+
+type ServiceShowOutput struct {
+	AutoResume                 *bool    `pulumi:"autoResume"`
+	AutoSuspendSecs            *int     `pulumi:"autoSuspendSecs"`
+	Comment                    *string  `pulumi:"comment"`
+	ComputePool                *string  `pulumi:"computePool"`
+	CreatedOn                  *string  `pulumi:"createdOn"`
+	CurrentInstances           *int     `pulumi:"currentInstances"`
+	DatabaseName               *string  `pulumi:"databaseName"`
+	DnsName                    *string  `pulumi:"dnsName"`
+	ExternalAccessIntegrations []string `pulumi:"externalAccessIntegrations"`
+	IsAsyncJob                 *bool    `pulumi:"isAsyncJob"`
+	IsJob                      *bool    `pulumi:"isJob"`
+	IsUpgrading                *bool    `pulumi:"isUpgrading"`
+	ManagingObjectDomain       *string  `pulumi:"managingObjectDomain"`
+	ManagingObjectName         *string  `pulumi:"managingObjectName"`
+	MaxInstances               *int     `pulumi:"maxInstances"`
+	MinInstances               *int     `pulumi:"minInstances"`
+	MinReadyInstances          *int     `pulumi:"minReadyInstances"`
+	Name                       *string  `pulumi:"name"`
+	Owner                      *string  `pulumi:"owner"`
+	OwnerRoleType              *string  `pulumi:"ownerRoleType"`
+	QueryWarehouse             *string  `pulumi:"queryWarehouse"`
+	ResumedOn                  *string  `pulumi:"resumedOn"`
+	SchemaName                 *string  `pulumi:"schemaName"`
+	SpecDigest                 *string  `pulumi:"specDigest"`
+	Status                     *string  `pulumi:"status"`
+	SuspendedOn                *string  `pulumi:"suspendedOn"`
+	TargetInstances            *int     `pulumi:"targetInstances"`
+	UpdatedOn                  *string  `pulumi:"updatedOn"`
+}
+
+// ServiceShowOutputInput is an input type that accepts ServiceShowOutputArgs and ServiceShowOutputOutput values.
+// You can construct a concrete instance of `ServiceShowOutputInput` via:
+//
+//	ServiceShowOutputArgs{...}
+type ServiceShowOutputInput interface {
+	pulumi.Input
+
+	ToServiceShowOutputOutput() ServiceShowOutputOutput
+	ToServiceShowOutputOutputWithContext(context.Context) ServiceShowOutputOutput
+}
+
+type ServiceShowOutputArgs struct {
+	AutoResume                 pulumi.BoolPtrInput     `pulumi:"autoResume"`
+	AutoSuspendSecs            pulumi.IntPtrInput      `pulumi:"autoSuspendSecs"`
+	Comment                    pulumi.StringPtrInput   `pulumi:"comment"`
+	ComputePool                pulumi.StringPtrInput   `pulumi:"computePool"`
+	CreatedOn                  pulumi.StringPtrInput   `pulumi:"createdOn"`
+	CurrentInstances           pulumi.IntPtrInput      `pulumi:"currentInstances"`
+	DatabaseName               pulumi.StringPtrInput   `pulumi:"databaseName"`
+	DnsName                    pulumi.StringPtrInput   `pulumi:"dnsName"`
+	ExternalAccessIntegrations pulumi.StringArrayInput `pulumi:"externalAccessIntegrations"`
+	IsAsyncJob                 pulumi.BoolPtrInput     `pulumi:"isAsyncJob"`
+	IsJob                      pulumi.BoolPtrInput     `pulumi:"isJob"`
+	IsUpgrading                pulumi.BoolPtrInput     `pulumi:"isUpgrading"`
+	ManagingObjectDomain       pulumi.StringPtrInput   `pulumi:"managingObjectDomain"`
+	ManagingObjectName         pulumi.StringPtrInput   `pulumi:"managingObjectName"`
+	MaxInstances               pulumi.IntPtrInput      `pulumi:"maxInstances"`
+	MinInstances               pulumi.IntPtrInput      `pulumi:"minInstances"`
+	MinReadyInstances          pulumi.IntPtrInput      `pulumi:"minReadyInstances"`
+	Name                       pulumi.StringPtrInput   `pulumi:"name"`
+	Owner                      pulumi.StringPtrInput   `pulumi:"owner"`
+	OwnerRoleType              pulumi.StringPtrInput   `pulumi:"ownerRoleType"`
+	QueryWarehouse             pulumi.StringPtrInput   `pulumi:"queryWarehouse"`
+	ResumedOn                  pulumi.StringPtrInput   `pulumi:"resumedOn"`
+	SchemaName                 pulumi.StringPtrInput   `pulumi:"schemaName"`
+	SpecDigest                 pulumi.StringPtrInput   `pulumi:"specDigest"`
+	Status                     pulumi.StringPtrInput   `pulumi:"status"`
+	SuspendedOn                pulumi.StringPtrInput   `pulumi:"suspendedOn"`
+	TargetInstances            pulumi.IntPtrInput      `pulumi:"targetInstances"`
+	UpdatedOn                  pulumi.StringPtrInput   `pulumi:"updatedOn"`
+}
+
+func (ServiceShowOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceShowOutput)(nil)).Elem()
+}
+
+func (i ServiceShowOutputArgs) ToServiceShowOutputOutput() ServiceShowOutputOutput {
+	return i.ToServiceShowOutputOutputWithContext(context.Background())
+}
+
+func (i ServiceShowOutputArgs) ToServiceShowOutputOutputWithContext(ctx context.Context) ServiceShowOutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceShowOutputOutput)
+}
+
+// ServiceShowOutputArrayInput is an input type that accepts ServiceShowOutputArray and ServiceShowOutputArrayOutput values.
+// You can construct a concrete instance of `ServiceShowOutputArrayInput` via:
+//
+//	ServiceShowOutputArray{ ServiceShowOutputArgs{...} }
+type ServiceShowOutputArrayInput interface {
+	pulumi.Input
+
+	ToServiceShowOutputArrayOutput() ServiceShowOutputArrayOutput
+	ToServiceShowOutputArrayOutputWithContext(context.Context) ServiceShowOutputArrayOutput
+}
+
+type ServiceShowOutputArray []ServiceShowOutputInput
+
+func (ServiceShowOutputArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceShowOutput)(nil)).Elem()
+}
+
+func (i ServiceShowOutputArray) ToServiceShowOutputArrayOutput() ServiceShowOutputArrayOutput {
+	return i.ToServiceShowOutputArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceShowOutputArray) ToServiceShowOutputArrayOutputWithContext(ctx context.Context) ServiceShowOutputArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceShowOutputArrayOutput)
+}
+
+type ServiceShowOutputOutput struct{ *pulumi.OutputState }
+
+func (ServiceShowOutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceShowOutput)(nil)).Elem()
+}
+
+func (o ServiceShowOutputOutput) ToServiceShowOutputOutput() ServiceShowOutputOutput {
+	return o
+}
+
+func (o ServiceShowOutputOutput) ToServiceShowOutputOutputWithContext(ctx context.Context) ServiceShowOutputOutput {
+	return o
+}
+
+func (o ServiceShowOutputOutput) AutoResume() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *bool { return v.AutoResume }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) AutoSuspendSecs() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *int { return v.AutoSuspendSecs }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) Comment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) ComputePool() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.ComputePool }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) CurrentInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *int { return v.CurrentInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) DnsName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.DnsName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) ExternalAccessIntegrations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ServiceShowOutput) []string { return v.ExternalAccessIntegrations }).(pulumi.StringArrayOutput)
+}
+
+func (o ServiceShowOutputOutput) IsAsyncJob() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *bool { return v.IsAsyncJob }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) IsJob() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *bool { return v.IsJob }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) IsUpgrading() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *bool { return v.IsUpgrading }).(pulumi.BoolPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) ManagingObjectDomain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.ManagingObjectDomain }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) ManagingObjectName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.ManagingObjectName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) MaxInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *int { return v.MaxInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) MinInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *int { return v.MinInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) MinReadyInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *int { return v.MinReadyInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) Owner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) QueryWarehouse() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.QueryWarehouse }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) ResumedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.ResumedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) SpecDigest() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.SpecDigest }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) SuspendedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.SuspendedOn }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) TargetInstances() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *int { return v.TargetInstances }).(pulumi.IntPtrOutput)
+}
+
+func (o ServiceShowOutputOutput) UpdatedOn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceShowOutput) *string { return v.UpdatedOn }).(pulumi.StringPtrOutput)
+}
+
+type ServiceShowOutputArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceShowOutputArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceShowOutput)(nil)).Elem()
+}
+
+func (o ServiceShowOutputArrayOutput) ToServiceShowOutputArrayOutput() ServiceShowOutputArrayOutput {
+	return o
+}
+
+func (o ServiceShowOutputArrayOutput) ToServiceShowOutputArrayOutputWithContext(ctx context.Context) ServiceShowOutputArrayOutput {
+	return o
+}
+
+func (o ServiceShowOutputArrayOutput) Index(i pulumi.IntInput) ServiceShowOutputOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceShowOutput {
+		return vs[0].([]ServiceShowOutput)[vs[1].(int)]
+	}).(ServiceShowOutputOutput)
+}
+
 type ServiceUserParameter struct {
 	AbortDetachedQueries                       []ServiceUserParameterAbortDetachedQuery                       `pulumi:"abortDetachedQueries"`
 	Autocommits                                []ServiceUserParameterAutocommit                               `pulumi:"autocommits"`
@@ -62684,2364 +65804,6 @@ func (o TaskParameterUnsupportedDdlActionArrayOutput) Index(i pulumi.IntInput) T
 	}).(TaskParameterUnsupportedDdlActionOutput)
 }
 
-type TaskParameterUseCachedResult struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterUseCachedResultInput is an input type that accepts TaskParameterUseCachedResultArgs and TaskParameterUseCachedResultOutput values.
-// You can construct a concrete instance of `TaskParameterUseCachedResultInput` via:
-//
-//	TaskParameterUseCachedResultArgs{...}
-type TaskParameterUseCachedResultInput interface {
-	pulumi.Input
-
-	ToTaskParameterUseCachedResultOutput() TaskParameterUseCachedResultOutput
-	ToTaskParameterUseCachedResultOutputWithContext(context.Context) TaskParameterUseCachedResultOutput
-}
-
-type TaskParameterUseCachedResultArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterUseCachedResultArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterUseCachedResult)(nil)).Elem()
-}
-
-func (i TaskParameterUseCachedResultArgs) ToTaskParameterUseCachedResultOutput() TaskParameterUseCachedResultOutput {
-	return i.ToTaskParameterUseCachedResultOutputWithContext(context.Background())
-}
-
-func (i TaskParameterUseCachedResultArgs) ToTaskParameterUseCachedResultOutputWithContext(ctx context.Context) TaskParameterUseCachedResultOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterUseCachedResultOutput)
-}
-
-// TaskParameterUseCachedResultArrayInput is an input type that accepts TaskParameterUseCachedResultArray and TaskParameterUseCachedResultArrayOutput values.
-// You can construct a concrete instance of `TaskParameterUseCachedResultArrayInput` via:
-//
-//	TaskParameterUseCachedResultArray{ TaskParameterUseCachedResultArgs{...} }
-type TaskParameterUseCachedResultArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterUseCachedResultArrayOutput() TaskParameterUseCachedResultArrayOutput
-	ToTaskParameterUseCachedResultArrayOutputWithContext(context.Context) TaskParameterUseCachedResultArrayOutput
-}
-
-type TaskParameterUseCachedResultArray []TaskParameterUseCachedResultInput
-
-func (TaskParameterUseCachedResultArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterUseCachedResult)(nil)).Elem()
-}
-
-func (i TaskParameterUseCachedResultArray) ToTaskParameterUseCachedResultArrayOutput() TaskParameterUseCachedResultArrayOutput {
-	return i.ToTaskParameterUseCachedResultArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterUseCachedResultArray) ToTaskParameterUseCachedResultArrayOutputWithContext(ctx context.Context) TaskParameterUseCachedResultArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterUseCachedResultArrayOutput)
-}
-
-type TaskParameterUseCachedResultOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterUseCachedResultOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterUseCachedResult)(nil)).Elem()
-}
-
-func (o TaskParameterUseCachedResultOutput) ToTaskParameterUseCachedResultOutput() TaskParameterUseCachedResultOutput {
-	return o
-}
-
-func (o TaskParameterUseCachedResultOutput) ToTaskParameterUseCachedResultOutputWithContext(ctx context.Context) TaskParameterUseCachedResultOutput {
-	return o
-}
-
-func (o TaskParameterUseCachedResultOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUseCachedResult) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUseCachedResultOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUseCachedResult) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUseCachedResultOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUseCachedResult) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUseCachedResultOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUseCachedResult) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUseCachedResultOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUseCachedResult) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterUseCachedResultArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterUseCachedResultArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterUseCachedResult)(nil)).Elem()
-}
-
-func (o TaskParameterUseCachedResultArrayOutput) ToTaskParameterUseCachedResultArrayOutput() TaskParameterUseCachedResultArrayOutput {
-	return o
-}
-
-func (o TaskParameterUseCachedResultArrayOutput) ToTaskParameterUseCachedResultArrayOutputWithContext(ctx context.Context) TaskParameterUseCachedResultArrayOutput {
-	return o
-}
-
-func (o TaskParameterUseCachedResultArrayOutput) Index(i pulumi.IntInput) TaskParameterUseCachedResultOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterUseCachedResult {
-		return vs[0].([]TaskParameterUseCachedResult)[vs[1].(int)]
-	}).(TaskParameterUseCachedResultOutput)
-}
-
-type TaskParameterUserTaskManagedInitialWarehouseSize struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterUserTaskManagedInitialWarehouseSizeInput is an input type that accepts TaskParameterUserTaskManagedInitialWarehouseSizeArgs and TaskParameterUserTaskManagedInitialWarehouseSizeOutput values.
-// You can construct a concrete instance of `TaskParameterUserTaskManagedInitialWarehouseSizeInput` via:
-//
-//	TaskParameterUserTaskManagedInitialWarehouseSizeArgs{...}
-type TaskParameterUserTaskManagedInitialWarehouseSizeInput interface {
-	pulumi.Input
-
-	ToTaskParameterUserTaskManagedInitialWarehouseSizeOutput() TaskParameterUserTaskManagedInitialWarehouseSizeOutput
-	ToTaskParameterUserTaskManagedInitialWarehouseSizeOutputWithContext(context.Context) TaskParameterUserTaskManagedInitialWarehouseSizeOutput
-}
-
-type TaskParameterUserTaskManagedInitialWarehouseSizeArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterUserTaskManagedInitialWarehouseSizeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterUserTaskManagedInitialWarehouseSize)(nil)).Elem()
-}
-
-func (i TaskParameterUserTaskManagedInitialWarehouseSizeArgs) ToTaskParameterUserTaskManagedInitialWarehouseSizeOutput() TaskParameterUserTaskManagedInitialWarehouseSizeOutput {
-	return i.ToTaskParameterUserTaskManagedInitialWarehouseSizeOutputWithContext(context.Background())
-}
-
-func (i TaskParameterUserTaskManagedInitialWarehouseSizeArgs) ToTaskParameterUserTaskManagedInitialWarehouseSizeOutputWithContext(ctx context.Context) TaskParameterUserTaskManagedInitialWarehouseSizeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterUserTaskManagedInitialWarehouseSizeOutput)
-}
-
-// TaskParameterUserTaskManagedInitialWarehouseSizeArrayInput is an input type that accepts TaskParameterUserTaskManagedInitialWarehouseSizeArray and TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput values.
-// You can construct a concrete instance of `TaskParameterUserTaskManagedInitialWarehouseSizeArrayInput` via:
-//
-//	TaskParameterUserTaskManagedInitialWarehouseSizeArray{ TaskParameterUserTaskManagedInitialWarehouseSizeArgs{...} }
-type TaskParameterUserTaskManagedInitialWarehouseSizeArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput() TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput
-	ToTaskParameterUserTaskManagedInitialWarehouseSizeArrayOutputWithContext(context.Context) TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput
-}
-
-type TaskParameterUserTaskManagedInitialWarehouseSizeArray []TaskParameterUserTaskManagedInitialWarehouseSizeInput
-
-func (TaskParameterUserTaskManagedInitialWarehouseSizeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterUserTaskManagedInitialWarehouseSize)(nil)).Elem()
-}
-
-func (i TaskParameterUserTaskManagedInitialWarehouseSizeArray) ToTaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput() TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
-	return i.ToTaskParameterUserTaskManagedInitialWarehouseSizeArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterUserTaskManagedInitialWarehouseSizeArray) ToTaskParameterUserTaskManagedInitialWarehouseSizeArrayOutputWithContext(ctx context.Context) TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput)
-}
-
-type TaskParameterUserTaskManagedInitialWarehouseSizeOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterUserTaskManagedInitialWarehouseSizeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterUserTaskManagedInitialWarehouseSize)(nil)).Elem()
-}
-
-func (o TaskParameterUserTaskManagedInitialWarehouseSizeOutput) ToTaskParameterUserTaskManagedInitialWarehouseSizeOutput() TaskParameterUserTaskManagedInitialWarehouseSizeOutput {
-	return o
-}
-
-func (o TaskParameterUserTaskManagedInitialWarehouseSizeOutput) ToTaskParameterUserTaskManagedInitialWarehouseSizeOutputWithContext(ctx context.Context) TaskParameterUserTaskManagedInitialWarehouseSizeOutput {
-	return o
-}
-
-func (o TaskParameterUserTaskManagedInitialWarehouseSizeOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskManagedInitialWarehouseSize) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUserTaskManagedInitialWarehouseSizeOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskManagedInitialWarehouseSize) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUserTaskManagedInitialWarehouseSizeOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskManagedInitialWarehouseSize) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUserTaskManagedInitialWarehouseSizeOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskManagedInitialWarehouseSize) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUserTaskManagedInitialWarehouseSizeOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskManagedInitialWarehouseSize) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterUserTaskManagedInitialWarehouseSize)(nil)).Elem()
-}
-
-func (o TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput) ToTaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput() TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
-	return o
-}
-
-func (o TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput) ToTaskParameterUserTaskManagedInitialWarehouseSizeArrayOutputWithContext(ctx context.Context) TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput {
-	return o
-}
-
-func (o TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput) Index(i pulumi.IntInput) TaskParameterUserTaskManagedInitialWarehouseSizeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterUserTaskManagedInitialWarehouseSize {
-		return vs[0].([]TaskParameterUserTaskManagedInitialWarehouseSize)[vs[1].(int)]
-	}).(TaskParameterUserTaskManagedInitialWarehouseSizeOutput)
-}
-
-type TaskParameterUserTaskMinimumTriggerIntervalInSecond struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterUserTaskMinimumTriggerIntervalInSecondInput is an input type that accepts TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs and TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput values.
-// You can construct a concrete instance of `TaskParameterUserTaskMinimumTriggerIntervalInSecondInput` via:
-//
-//	TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs{...}
-type TaskParameterUserTaskMinimumTriggerIntervalInSecondInput interface {
-	pulumi.Input
-
-	ToTaskParameterUserTaskMinimumTriggerIntervalInSecondOutput() TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput
-	ToTaskParameterUserTaskMinimumTriggerIntervalInSecondOutputWithContext(context.Context) TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput
-}
-
-type TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterUserTaskMinimumTriggerIntervalInSecond)(nil)).Elem()
-}
-
-func (i TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs) ToTaskParameterUserTaskMinimumTriggerIntervalInSecondOutput() TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput {
-	return i.ToTaskParameterUserTaskMinimumTriggerIntervalInSecondOutputWithContext(context.Background())
-}
-
-func (i TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs) ToTaskParameterUserTaskMinimumTriggerIntervalInSecondOutputWithContext(ctx context.Context) TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput)
-}
-
-// TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayInput is an input type that accepts TaskParameterUserTaskMinimumTriggerIntervalInSecondArray and TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput values.
-// You can construct a concrete instance of `TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayInput` via:
-//
-//	TaskParameterUserTaskMinimumTriggerIntervalInSecondArray{ TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs{...} }
-type TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput() TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput
-	ToTaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutputWithContext(context.Context) TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput
-}
-
-type TaskParameterUserTaskMinimumTriggerIntervalInSecondArray []TaskParameterUserTaskMinimumTriggerIntervalInSecondInput
-
-func (TaskParameterUserTaskMinimumTriggerIntervalInSecondArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterUserTaskMinimumTriggerIntervalInSecond)(nil)).Elem()
-}
-
-func (i TaskParameterUserTaskMinimumTriggerIntervalInSecondArray) ToTaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput() TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
-	return i.ToTaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterUserTaskMinimumTriggerIntervalInSecondArray) ToTaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutputWithContext(ctx context.Context) TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput)
-}
-
-type TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterUserTaskMinimumTriggerIntervalInSecond)(nil)).Elem()
-}
-
-func (o TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput) ToTaskParameterUserTaskMinimumTriggerIntervalInSecondOutput() TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput {
-	return o
-}
-
-func (o TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput) ToTaskParameterUserTaskMinimumTriggerIntervalInSecondOutputWithContext(ctx context.Context) TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput {
-	return o
-}
-
-func (o TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskMinimumTriggerIntervalInSecond) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskMinimumTriggerIntervalInSecond) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskMinimumTriggerIntervalInSecond) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskMinimumTriggerIntervalInSecond) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskMinimumTriggerIntervalInSecond) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterUserTaskMinimumTriggerIntervalInSecond)(nil)).Elem()
-}
-
-func (o TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput) ToTaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput() TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
-	return o
-}
-
-func (o TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput) ToTaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutputWithContext(ctx context.Context) TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput {
-	return o
-}
-
-func (o TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput) Index(i pulumi.IntInput) TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterUserTaskMinimumTriggerIntervalInSecond {
-		return vs[0].([]TaskParameterUserTaskMinimumTriggerIntervalInSecond)[vs[1].(int)]
-	}).(TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput)
-}
-
-type TaskParameterUserTaskTimeoutM struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterUserTaskTimeoutMInput is an input type that accepts TaskParameterUserTaskTimeoutMArgs and TaskParameterUserTaskTimeoutMOutput values.
-// You can construct a concrete instance of `TaskParameterUserTaskTimeoutMInput` via:
-//
-//	TaskParameterUserTaskTimeoutMArgs{...}
-type TaskParameterUserTaskTimeoutMInput interface {
-	pulumi.Input
-
-	ToTaskParameterUserTaskTimeoutMOutput() TaskParameterUserTaskTimeoutMOutput
-	ToTaskParameterUserTaskTimeoutMOutputWithContext(context.Context) TaskParameterUserTaskTimeoutMOutput
-}
-
-type TaskParameterUserTaskTimeoutMArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterUserTaskTimeoutMArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterUserTaskTimeoutM)(nil)).Elem()
-}
-
-func (i TaskParameterUserTaskTimeoutMArgs) ToTaskParameterUserTaskTimeoutMOutput() TaskParameterUserTaskTimeoutMOutput {
-	return i.ToTaskParameterUserTaskTimeoutMOutputWithContext(context.Background())
-}
-
-func (i TaskParameterUserTaskTimeoutMArgs) ToTaskParameterUserTaskTimeoutMOutputWithContext(ctx context.Context) TaskParameterUserTaskTimeoutMOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterUserTaskTimeoutMOutput)
-}
-
-// TaskParameterUserTaskTimeoutMArrayInput is an input type that accepts TaskParameterUserTaskTimeoutMArray and TaskParameterUserTaskTimeoutMArrayOutput values.
-// You can construct a concrete instance of `TaskParameterUserTaskTimeoutMArrayInput` via:
-//
-//	TaskParameterUserTaskTimeoutMArray{ TaskParameterUserTaskTimeoutMArgs{...} }
-type TaskParameterUserTaskTimeoutMArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterUserTaskTimeoutMArrayOutput() TaskParameterUserTaskTimeoutMArrayOutput
-	ToTaskParameterUserTaskTimeoutMArrayOutputWithContext(context.Context) TaskParameterUserTaskTimeoutMArrayOutput
-}
-
-type TaskParameterUserTaskTimeoutMArray []TaskParameterUserTaskTimeoutMInput
-
-func (TaskParameterUserTaskTimeoutMArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterUserTaskTimeoutM)(nil)).Elem()
-}
-
-func (i TaskParameterUserTaskTimeoutMArray) ToTaskParameterUserTaskTimeoutMArrayOutput() TaskParameterUserTaskTimeoutMArrayOutput {
-	return i.ToTaskParameterUserTaskTimeoutMArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterUserTaskTimeoutMArray) ToTaskParameterUserTaskTimeoutMArrayOutputWithContext(ctx context.Context) TaskParameterUserTaskTimeoutMArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterUserTaskTimeoutMArrayOutput)
-}
-
-type TaskParameterUserTaskTimeoutMOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterUserTaskTimeoutMOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterUserTaskTimeoutM)(nil)).Elem()
-}
-
-func (o TaskParameterUserTaskTimeoutMOutput) ToTaskParameterUserTaskTimeoutMOutput() TaskParameterUserTaskTimeoutMOutput {
-	return o
-}
-
-func (o TaskParameterUserTaskTimeoutMOutput) ToTaskParameterUserTaskTimeoutMOutputWithContext(ctx context.Context) TaskParameterUserTaskTimeoutMOutput {
-	return o
-}
-
-func (o TaskParameterUserTaskTimeoutMOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskTimeoutM) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUserTaskTimeoutMOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskTimeoutM) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUserTaskTimeoutMOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskTimeoutM) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUserTaskTimeoutMOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskTimeoutM) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterUserTaskTimeoutMOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterUserTaskTimeoutM) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterUserTaskTimeoutMArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterUserTaskTimeoutMArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterUserTaskTimeoutM)(nil)).Elem()
-}
-
-func (o TaskParameterUserTaskTimeoutMArrayOutput) ToTaskParameterUserTaskTimeoutMArrayOutput() TaskParameterUserTaskTimeoutMArrayOutput {
-	return o
-}
-
-func (o TaskParameterUserTaskTimeoutMArrayOutput) ToTaskParameterUserTaskTimeoutMArrayOutputWithContext(ctx context.Context) TaskParameterUserTaskTimeoutMArrayOutput {
-	return o
-}
-
-func (o TaskParameterUserTaskTimeoutMArrayOutput) Index(i pulumi.IntInput) TaskParameterUserTaskTimeoutMOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterUserTaskTimeoutM {
-		return vs[0].([]TaskParameterUserTaskTimeoutM)[vs[1].(int)]
-	}).(TaskParameterUserTaskTimeoutMOutput)
-}
-
-type TaskParameterWeekOfYearPolicy struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterWeekOfYearPolicyInput is an input type that accepts TaskParameterWeekOfYearPolicyArgs and TaskParameterWeekOfYearPolicyOutput values.
-// You can construct a concrete instance of `TaskParameterWeekOfYearPolicyInput` via:
-//
-//	TaskParameterWeekOfYearPolicyArgs{...}
-type TaskParameterWeekOfYearPolicyInput interface {
-	pulumi.Input
-
-	ToTaskParameterWeekOfYearPolicyOutput() TaskParameterWeekOfYearPolicyOutput
-	ToTaskParameterWeekOfYearPolicyOutputWithContext(context.Context) TaskParameterWeekOfYearPolicyOutput
-}
-
-type TaskParameterWeekOfYearPolicyArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterWeekOfYearPolicyArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterWeekOfYearPolicy)(nil)).Elem()
-}
-
-func (i TaskParameterWeekOfYearPolicyArgs) ToTaskParameterWeekOfYearPolicyOutput() TaskParameterWeekOfYearPolicyOutput {
-	return i.ToTaskParameterWeekOfYearPolicyOutputWithContext(context.Background())
-}
-
-func (i TaskParameterWeekOfYearPolicyArgs) ToTaskParameterWeekOfYearPolicyOutputWithContext(ctx context.Context) TaskParameterWeekOfYearPolicyOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterWeekOfYearPolicyOutput)
-}
-
-// TaskParameterWeekOfYearPolicyArrayInput is an input type that accepts TaskParameterWeekOfYearPolicyArray and TaskParameterWeekOfYearPolicyArrayOutput values.
-// You can construct a concrete instance of `TaskParameterWeekOfYearPolicyArrayInput` via:
-//
-//	TaskParameterWeekOfYearPolicyArray{ TaskParameterWeekOfYearPolicyArgs{...} }
-type TaskParameterWeekOfYearPolicyArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterWeekOfYearPolicyArrayOutput() TaskParameterWeekOfYearPolicyArrayOutput
-	ToTaskParameterWeekOfYearPolicyArrayOutputWithContext(context.Context) TaskParameterWeekOfYearPolicyArrayOutput
-}
-
-type TaskParameterWeekOfYearPolicyArray []TaskParameterWeekOfYearPolicyInput
-
-func (TaskParameterWeekOfYearPolicyArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterWeekOfYearPolicy)(nil)).Elem()
-}
-
-func (i TaskParameterWeekOfYearPolicyArray) ToTaskParameterWeekOfYearPolicyArrayOutput() TaskParameterWeekOfYearPolicyArrayOutput {
-	return i.ToTaskParameterWeekOfYearPolicyArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterWeekOfYearPolicyArray) ToTaskParameterWeekOfYearPolicyArrayOutputWithContext(ctx context.Context) TaskParameterWeekOfYearPolicyArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterWeekOfYearPolicyArrayOutput)
-}
-
-type TaskParameterWeekOfYearPolicyOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterWeekOfYearPolicyOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterWeekOfYearPolicy)(nil)).Elem()
-}
-
-func (o TaskParameterWeekOfYearPolicyOutput) ToTaskParameterWeekOfYearPolicyOutput() TaskParameterWeekOfYearPolicyOutput {
-	return o
-}
-
-func (o TaskParameterWeekOfYearPolicyOutput) ToTaskParameterWeekOfYearPolicyOutputWithContext(ctx context.Context) TaskParameterWeekOfYearPolicyOutput {
-	return o
-}
-
-func (o TaskParameterWeekOfYearPolicyOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterWeekOfYearPolicy) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterWeekOfYearPolicyOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterWeekOfYearPolicy) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterWeekOfYearPolicyOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterWeekOfYearPolicy) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterWeekOfYearPolicyOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterWeekOfYearPolicy) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterWeekOfYearPolicyOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterWeekOfYearPolicy) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterWeekOfYearPolicyArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterWeekOfYearPolicyArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterWeekOfYearPolicy)(nil)).Elem()
-}
-
-func (o TaskParameterWeekOfYearPolicyArrayOutput) ToTaskParameterWeekOfYearPolicyArrayOutput() TaskParameterWeekOfYearPolicyArrayOutput {
-	return o
-}
-
-func (o TaskParameterWeekOfYearPolicyArrayOutput) ToTaskParameterWeekOfYearPolicyArrayOutputWithContext(ctx context.Context) TaskParameterWeekOfYearPolicyArrayOutput {
-	return o
-}
-
-func (o TaskParameterWeekOfYearPolicyArrayOutput) Index(i pulumi.IntInput) TaskParameterWeekOfYearPolicyOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterWeekOfYearPolicy {
-		return vs[0].([]TaskParameterWeekOfYearPolicy)[vs[1].(int)]
-	}).(TaskParameterWeekOfYearPolicyOutput)
-}
-
-type TaskParameterWeekStart struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// TaskParameterWeekStartInput is an input type that accepts TaskParameterWeekStartArgs and TaskParameterWeekStartOutput values.
-// You can construct a concrete instance of `TaskParameterWeekStartInput` via:
-//
-//	TaskParameterWeekStartArgs{...}
-type TaskParameterWeekStartInput interface {
-	pulumi.Input
-
-	ToTaskParameterWeekStartOutput() TaskParameterWeekStartOutput
-	ToTaskParameterWeekStartOutputWithContext(context.Context) TaskParameterWeekStartOutput
-}
-
-type TaskParameterWeekStartArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (TaskParameterWeekStartArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterWeekStart)(nil)).Elem()
-}
-
-func (i TaskParameterWeekStartArgs) ToTaskParameterWeekStartOutput() TaskParameterWeekStartOutput {
-	return i.ToTaskParameterWeekStartOutputWithContext(context.Background())
-}
-
-func (i TaskParameterWeekStartArgs) ToTaskParameterWeekStartOutputWithContext(ctx context.Context) TaskParameterWeekStartOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterWeekStartOutput)
-}
-
-// TaskParameterWeekStartArrayInput is an input type that accepts TaskParameterWeekStartArray and TaskParameterWeekStartArrayOutput values.
-// You can construct a concrete instance of `TaskParameterWeekStartArrayInput` via:
-//
-//	TaskParameterWeekStartArray{ TaskParameterWeekStartArgs{...} }
-type TaskParameterWeekStartArrayInput interface {
-	pulumi.Input
-
-	ToTaskParameterWeekStartArrayOutput() TaskParameterWeekStartArrayOutput
-	ToTaskParameterWeekStartArrayOutputWithContext(context.Context) TaskParameterWeekStartArrayOutput
-}
-
-type TaskParameterWeekStartArray []TaskParameterWeekStartInput
-
-func (TaskParameterWeekStartArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterWeekStart)(nil)).Elem()
-}
-
-func (i TaskParameterWeekStartArray) ToTaskParameterWeekStartArrayOutput() TaskParameterWeekStartArrayOutput {
-	return i.ToTaskParameterWeekStartArrayOutputWithContext(context.Background())
-}
-
-func (i TaskParameterWeekStartArray) ToTaskParameterWeekStartArrayOutputWithContext(ctx context.Context) TaskParameterWeekStartArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskParameterWeekStartArrayOutput)
-}
-
-type TaskParameterWeekStartOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterWeekStartOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskParameterWeekStart)(nil)).Elem()
-}
-
-func (o TaskParameterWeekStartOutput) ToTaskParameterWeekStartOutput() TaskParameterWeekStartOutput {
-	return o
-}
-
-func (o TaskParameterWeekStartOutput) ToTaskParameterWeekStartOutputWithContext(ctx context.Context) TaskParameterWeekStartOutput {
-	return o
-}
-
-func (o TaskParameterWeekStartOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterWeekStart) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterWeekStartOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterWeekStart) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterWeekStartOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterWeekStart) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterWeekStartOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterWeekStart) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskParameterWeekStartOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskParameterWeekStart) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type TaskParameterWeekStartArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskParameterWeekStartArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskParameterWeekStart)(nil)).Elem()
-}
-
-func (o TaskParameterWeekStartArrayOutput) ToTaskParameterWeekStartArrayOutput() TaskParameterWeekStartArrayOutput {
-	return o
-}
-
-func (o TaskParameterWeekStartArrayOutput) ToTaskParameterWeekStartArrayOutputWithContext(ctx context.Context) TaskParameterWeekStartArrayOutput {
-	return o
-}
-
-func (o TaskParameterWeekStartArrayOutput) Index(i pulumi.IntInput) TaskParameterWeekStartOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskParameterWeekStart {
-		return vs[0].([]TaskParameterWeekStart)[vs[1].(int)]
-	}).(TaskParameterWeekStartOutput)
-}
-
-type TaskSchedule struct {
-	// Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
-	Minutes *int `pulumi:"minutes"`
-	// Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
-	UsingCron *string `pulumi:"usingCron"`
-}
-
-// TaskScheduleInput is an input type that accepts TaskScheduleArgs and TaskScheduleOutput values.
-// You can construct a concrete instance of `TaskScheduleInput` via:
-//
-//	TaskScheduleArgs{...}
-type TaskScheduleInput interface {
-	pulumi.Input
-
-	ToTaskScheduleOutput() TaskScheduleOutput
-	ToTaskScheduleOutputWithContext(context.Context) TaskScheduleOutput
-}
-
-type TaskScheduleArgs struct {
-	// Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
-	Minutes pulumi.IntPtrInput `pulumi:"minutes"`
-	// Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
-	UsingCron pulumi.StringPtrInput `pulumi:"usingCron"`
-}
-
-func (TaskScheduleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskSchedule)(nil)).Elem()
-}
-
-func (i TaskScheduleArgs) ToTaskScheduleOutput() TaskScheduleOutput {
-	return i.ToTaskScheduleOutputWithContext(context.Background())
-}
-
-func (i TaskScheduleArgs) ToTaskScheduleOutputWithContext(ctx context.Context) TaskScheduleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskScheduleOutput)
-}
-
-func (i TaskScheduleArgs) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
-	return i.ToTaskSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i TaskScheduleArgs) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskScheduleOutput).ToTaskSchedulePtrOutputWithContext(ctx)
-}
-
-// TaskSchedulePtrInput is an input type that accepts TaskScheduleArgs, TaskSchedulePtr and TaskSchedulePtrOutput values.
-// You can construct a concrete instance of `TaskSchedulePtrInput` via:
-//
-//	        TaskScheduleArgs{...}
-//
-//	or:
-//
-//	        nil
-type TaskSchedulePtrInput interface {
-	pulumi.Input
-
-	ToTaskSchedulePtrOutput() TaskSchedulePtrOutput
-	ToTaskSchedulePtrOutputWithContext(context.Context) TaskSchedulePtrOutput
-}
-
-type taskSchedulePtrType TaskScheduleArgs
-
-func TaskSchedulePtr(v *TaskScheduleArgs) TaskSchedulePtrInput {
-	return (*taskSchedulePtrType)(v)
-}
-
-func (*taskSchedulePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskSchedule)(nil)).Elem()
-}
-
-func (i *taskSchedulePtrType) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
-	return i.ToTaskSchedulePtrOutputWithContext(context.Background())
-}
-
-func (i *taskSchedulePtrType) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskSchedulePtrOutput)
-}
-
-type TaskScheduleOutput struct{ *pulumi.OutputState }
-
-func (TaskScheduleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskSchedule)(nil)).Elem()
-}
-
-func (o TaskScheduleOutput) ToTaskScheduleOutput() TaskScheduleOutput {
-	return o
-}
-
-func (o TaskScheduleOutput) ToTaskScheduleOutputWithContext(ctx context.Context) TaskScheduleOutput {
-	return o
-}
-
-func (o TaskScheduleOutput) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
-	return o.ToTaskSchedulePtrOutputWithContext(context.Background())
-}
-
-func (o TaskScheduleOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TaskSchedule) *TaskSchedule {
-		return &v
-	}).(TaskSchedulePtrOutput)
-}
-
-// Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
-func (o TaskScheduleOutput) Minutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v TaskSchedule) *int { return v.Minutes }).(pulumi.IntPtrOutput)
-}
-
-// Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
-func (o TaskScheduleOutput) UsingCron() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskSchedule) *string { return v.UsingCron }).(pulumi.StringPtrOutput)
-}
-
-type TaskSchedulePtrOutput struct{ *pulumi.OutputState }
-
-func (TaskSchedulePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TaskSchedule)(nil)).Elem()
-}
-
-func (o TaskSchedulePtrOutput) ToTaskSchedulePtrOutput() TaskSchedulePtrOutput {
-	return o
-}
-
-func (o TaskSchedulePtrOutput) ToTaskSchedulePtrOutputWithContext(ctx context.Context) TaskSchedulePtrOutput {
-	return o
-}
-
-func (o TaskSchedulePtrOutput) Elem() TaskScheduleOutput {
-	return o.ApplyT(func(v *TaskSchedule) TaskSchedule {
-		if v != nil {
-			return *v
-		}
-		var ret TaskSchedule
-		return ret
-	}).(TaskScheduleOutput)
-}
-
-// Specifies an interval (in minutes) of wait time inserted between runs of the task. Accepts positive integers only. (conflicts with `usingCron`)
-func (o TaskSchedulePtrOutput) Minutes() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *TaskSchedule) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Minutes
-	}).(pulumi.IntPtrOutput)
-}
-
-// Specifies a cron expression and time zone for periodically running the task. Supports a subset of standard cron utility syntax. (conflicts with `minutes`)
-func (o TaskSchedulePtrOutput) UsingCron() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *TaskSchedule) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UsingCron
-	}).(pulumi.StringPtrOutput)
-}
-
-type TaskShowOutput struct {
-	AllowOverlappingExecution *bool                        `pulumi:"allowOverlappingExecution"`
-	Budget                    *string                      `pulumi:"budget"`
-	Comment                   *string                      `pulumi:"comment"`
-	Condition                 *string                      `pulumi:"condition"`
-	Config                    *string                      `pulumi:"config"`
-	CreatedOn                 *string                      `pulumi:"createdOn"`
-	DatabaseName              *string                      `pulumi:"databaseName"`
-	Definition                *string                      `pulumi:"definition"`
-	ErrorIntegration          *string                      `pulumi:"errorIntegration"`
-	Id                        *string                      `pulumi:"id"`
-	LastCommittedOn           *string                      `pulumi:"lastCommittedOn"`
-	LastSuspendedOn           *string                      `pulumi:"lastSuspendedOn"`
-	LastSuspendedReason       *string                      `pulumi:"lastSuspendedReason"`
-	Name                      *string                      `pulumi:"name"`
-	Owner                     *string                      `pulumi:"owner"`
-	OwnerRoleType             *string                      `pulumi:"ownerRoleType"`
-	Predecessors              []string                     `pulumi:"predecessors"`
-	Schedule                  *string                      `pulumi:"schedule"`
-	SchemaName                *string                      `pulumi:"schemaName"`
-	State                     *string                      `pulumi:"state"`
-	TaskRelations             []TaskShowOutputTaskRelation `pulumi:"taskRelations"`
-	Warehouse                 *string                      `pulumi:"warehouse"`
-}
-
-// TaskShowOutputInput is an input type that accepts TaskShowOutputArgs and TaskShowOutputOutput values.
-// You can construct a concrete instance of `TaskShowOutputInput` via:
-//
-//	TaskShowOutputArgs{...}
-type TaskShowOutputInput interface {
-	pulumi.Input
-
-	ToTaskShowOutputOutput() TaskShowOutputOutput
-	ToTaskShowOutputOutputWithContext(context.Context) TaskShowOutputOutput
-}
-
-type TaskShowOutputArgs struct {
-	AllowOverlappingExecution pulumi.BoolPtrInput                  `pulumi:"allowOverlappingExecution"`
-	Budget                    pulumi.StringPtrInput                `pulumi:"budget"`
-	Comment                   pulumi.StringPtrInput                `pulumi:"comment"`
-	Condition                 pulumi.StringPtrInput                `pulumi:"condition"`
-	Config                    pulumi.StringPtrInput                `pulumi:"config"`
-	CreatedOn                 pulumi.StringPtrInput                `pulumi:"createdOn"`
-	DatabaseName              pulumi.StringPtrInput                `pulumi:"databaseName"`
-	Definition                pulumi.StringPtrInput                `pulumi:"definition"`
-	ErrorIntegration          pulumi.StringPtrInput                `pulumi:"errorIntegration"`
-	Id                        pulumi.StringPtrInput                `pulumi:"id"`
-	LastCommittedOn           pulumi.StringPtrInput                `pulumi:"lastCommittedOn"`
-	LastSuspendedOn           pulumi.StringPtrInput                `pulumi:"lastSuspendedOn"`
-	LastSuspendedReason       pulumi.StringPtrInput                `pulumi:"lastSuspendedReason"`
-	Name                      pulumi.StringPtrInput                `pulumi:"name"`
-	Owner                     pulumi.StringPtrInput                `pulumi:"owner"`
-	OwnerRoleType             pulumi.StringPtrInput                `pulumi:"ownerRoleType"`
-	Predecessors              pulumi.StringArrayInput              `pulumi:"predecessors"`
-	Schedule                  pulumi.StringPtrInput                `pulumi:"schedule"`
-	SchemaName                pulumi.StringPtrInput                `pulumi:"schemaName"`
-	State                     pulumi.StringPtrInput                `pulumi:"state"`
-	TaskRelations             TaskShowOutputTaskRelationArrayInput `pulumi:"taskRelations"`
-	Warehouse                 pulumi.StringPtrInput                `pulumi:"warehouse"`
-}
-
-func (TaskShowOutputArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskShowOutput)(nil)).Elem()
-}
-
-func (i TaskShowOutputArgs) ToTaskShowOutputOutput() TaskShowOutputOutput {
-	return i.ToTaskShowOutputOutputWithContext(context.Background())
-}
-
-func (i TaskShowOutputArgs) ToTaskShowOutputOutputWithContext(ctx context.Context) TaskShowOutputOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskShowOutputOutput)
-}
-
-// TaskShowOutputArrayInput is an input type that accepts TaskShowOutputArray and TaskShowOutputArrayOutput values.
-// You can construct a concrete instance of `TaskShowOutputArrayInput` via:
-//
-//	TaskShowOutputArray{ TaskShowOutputArgs{...} }
-type TaskShowOutputArrayInput interface {
-	pulumi.Input
-
-	ToTaskShowOutputArrayOutput() TaskShowOutputArrayOutput
-	ToTaskShowOutputArrayOutputWithContext(context.Context) TaskShowOutputArrayOutput
-}
-
-type TaskShowOutputArray []TaskShowOutputInput
-
-func (TaskShowOutputArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskShowOutput)(nil)).Elem()
-}
-
-func (i TaskShowOutputArray) ToTaskShowOutputArrayOutput() TaskShowOutputArrayOutput {
-	return i.ToTaskShowOutputArrayOutputWithContext(context.Background())
-}
-
-func (i TaskShowOutputArray) ToTaskShowOutputArrayOutputWithContext(ctx context.Context) TaskShowOutputArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskShowOutputArrayOutput)
-}
-
-type TaskShowOutputOutput struct{ *pulumi.OutputState }
-
-func (TaskShowOutputOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskShowOutput)(nil)).Elem()
-}
-
-func (o TaskShowOutputOutput) ToTaskShowOutputOutput() TaskShowOutputOutput {
-	return o
-}
-
-func (o TaskShowOutputOutput) ToTaskShowOutputOutputWithContext(ctx context.Context) TaskShowOutputOutput {
-	return o
-}
-
-func (o TaskShowOutputOutput) AllowOverlappingExecution() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *bool { return v.AllowOverlappingExecution }).(pulumi.BoolPtrOutput)
-}
-
-func (o TaskShowOutputOutput) Budget() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.Budget }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) Comment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.Comment }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) Condition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.Condition }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) Config() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.Config }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) CreatedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.CreatedOn }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) DatabaseName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.DatabaseName }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) Definition() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.Definition }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) ErrorIntegration() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.ErrorIntegration }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) LastCommittedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.LastCommittedOn }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) LastSuspendedOn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.LastSuspendedOn }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) LastSuspendedReason() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.LastSuspendedReason }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) Owner() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.Owner }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) OwnerRoleType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.OwnerRoleType }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) Predecessors() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TaskShowOutput) []string { return v.Predecessors }).(pulumi.StringArrayOutput)
-}
-
-func (o TaskShowOutputOutput) Schedule() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.Schedule }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) SchemaName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.SchemaName }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) State() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.State }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputOutput) TaskRelations() TaskShowOutputTaskRelationArrayOutput {
-	return o.ApplyT(func(v TaskShowOutput) []TaskShowOutputTaskRelation { return v.TaskRelations }).(TaskShowOutputTaskRelationArrayOutput)
-}
-
-func (o TaskShowOutputOutput) Warehouse() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutput) *string { return v.Warehouse }).(pulumi.StringPtrOutput)
-}
-
-type TaskShowOutputArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskShowOutputArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskShowOutput)(nil)).Elem()
-}
-
-func (o TaskShowOutputArrayOutput) ToTaskShowOutputArrayOutput() TaskShowOutputArrayOutput {
-	return o
-}
-
-func (o TaskShowOutputArrayOutput) ToTaskShowOutputArrayOutputWithContext(ctx context.Context) TaskShowOutputArrayOutput {
-	return o
-}
-
-func (o TaskShowOutputArrayOutput) Index(i pulumi.IntInput) TaskShowOutputOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskShowOutput {
-		return vs[0].([]TaskShowOutput)[vs[1].(int)]
-	}).(TaskShowOutputOutput)
-}
-
-type TaskShowOutputTaskRelation struct {
-	FinalizedRootTask *string  `pulumi:"finalizedRootTask"`
-	Finalizer         *string  `pulumi:"finalizer"`
-	Predecessors      []string `pulumi:"predecessors"`
-}
-
-// TaskShowOutputTaskRelationInput is an input type that accepts TaskShowOutputTaskRelationArgs and TaskShowOutputTaskRelationOutput values.
-// You can construct a concrete instance of `TaskShowOutputTaskRelationInput` via:
-//
-//	TaskShowOutputTaskRelationArgs{...}
-type TaskShowOutputTaskRelationInput interface {
-	pulumi.Input
-
-	ToTaskShowOutputTaskRelationOutput() TaskShowOutputTaskRelationOutput
-	ToTaskShowOutputTaskRelationOutputWithContext(context.Context) TaskShowOutputTaskRelationOutput
-}
-
-type TaskShowOutputTaskRelationArgs struct {
-	FinalizedRootTask pulumi.StringPtrInput   `pulumi:"finalizedRootTask"`
-	Finalizer         pulumi.StringPtrInput   `pulumi:"finalizer"`
-	Predecessors      pulumi.StringArrayInput `pulumi:"predecessors"`
-}
-
-func (TaskShowOutputTaskRelationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskShowOutputTaskRelation)(nil)).Elem()
-}
-
-func (i TaskShowOutputTaskRelationArgs) ToTaskShowOutputTaskRelationOutput() TaskShowOutputTaskRelationOutput {
-	return i.ToTaskShowOutputTaskRelationOutputWithContext(context.Background())
-}
-
-func (i TaskShowOutputTaskRelationArgs) ToTaskShowOutputTaskRelationOutputWithContext(ctx context.Context) TaskShowOutputTaskRelationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskShowOutputTaskRelationOutput)
-}
-
-// TaskShowOutputTaskRelationArrayInput is an input type that accepts TaskShowOutputTaskRelationArray and TaskShowOutputTaskRelationArrayOutput values.
-// You can construct a concrete instance of `TaskShowOutputTaskRelationArrayInput` via:
-//
-//	TaskShowOutputTaskRelationArray{ TaskShowOutputTaskRelationArgs{...} }
-type TaskShowOutputTaskRelationArrayInput interface {
-	pulumi.Input
-
-	ToTaskShowOutputTaskRelationArrayOutput() TaskShowOutputTaskRelationArrayOutput
-	ToTaskShowOutputTaskRelationArrayOutputWithContext(context.Context) TaskShowOutputTaskRelationArrayOutput
-}
-
-type TaskShowOutputTaskRelationArray []TaskShowOutputTaskRelationInput
-
-func (TaskShowOutputTaskRelationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskShowOutputTaskRelation)(nil)).Elem()
-}
-
-func (i TaskShowOutputTaskRelationArray) ToTaskShowOutputTaskRelationArrayOutput() TaskShowOutputTaskRelationArrayOutput {
-	return i.ToTaskShowOutputTaskRelationArrayOutputWithContext(context.Background())
-}
-
-func (i TaskShowOutputTaskRelationArray) ToTaskShowOutputTaskRelationArrayOutputWithContext(ctx context.Context) TaskShowOutputTaskRelationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TaskShowOutputTaskRelationArrayOutput)
-}
-
-type TaskShowOutputTaskRelationOutput struct{ *pulumi.OutputState }
-
-func (TaskShowOutputTaskRelationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TaskShowOutputTaskRelation)(nil)).Elem()
-}
-
-func (o TaskShowOutputTaskRelationOutput) ToTaskShowOutputTaskRelationOutput() TaskShowOutputTaskRelationOutput {
-	return o
-}
-
-func (o TaskShowOutputTaskRelationOutput) ToTaskShowOutputTaskRelationOutputWithContext(ctx context.Context) TaskShowOutputTaskRelationOutput {
-	return o
-}
-
-func (o TaskShowOutputTaskRelationOutput) FinalizedRootTask() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutputTaskRelation) *string { return v.FinalizedRootTask }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputTaskRelationOutput) Finalizer() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v TaskShowOutputTaskRelation) *string { return v.Finalizer }).(pulumi.StringPtrOutput)
-}
-
-func (o TaskShowOutputTaskRelationOutput) Predecessors() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v TaskShowOutputTaskRelation) []string { return v.Predecessors }).(pulumi.StringArrayOutput)
-}
-
-type TaskShowOutputTaskRelationArrayOutput struct{ *pulumi.OutputState }
-
-func (TaskShowOutputTaskRelationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TaskShowOutputTaskRelation)(nil)).Elem()
-}
-
-func (o TaskShowOutputTaskRelationArrayOutput) ToTaskShowOutputTaskRelationArrayOutput() TaskShowOutputTaskRelationArrayOutput {
-	return o
-}
-
-func (o TaskShowOutputTaskRelationArrayOutput) ToTaskShowOutputTaskRelationArrayOutputWithContext(ctx context.Context) TaskShowOutputTaskRelationArrayOutput {
-	return o
-}
-
-func (o TaskShowOutputTaskRelationArrayOutput) Index(i pulumi.IntInput) TaskShowOutputTaskRelationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TaskShowOutputTaskRelation {
-		return vs[0].([]TaskShowOutputTaskRelation)[vs[1].(int)]
-	}).(TaskShowOutputTaskRelationOutput)
-}
-
-type UserParameter struct {
-	AbortDetachedQueries                       []UserParameterAbortDetachedQuery                       `pulumi:"abortDetachedQueries"`
-	Autocommits                                []UserParameterAutocommit                               `pulumi:"autocommits"`
-	BinaryInputFormats                         []UserParameterBinaryInputFormat                        `pulumi:"binaryInputFormats"`
-	BinaryOutputFormats                        []UserParameterBinaryOutputFormat                       `pulumi:"binaryOutputFormats"`
-	ClientMemoryLimits                         []UserParameterClientMemoryLimit                        `pulumi:"clientMemoryLimits"`
-	ClientMetadataRequestUseConnectionCtxes    []UserParameterClientMetadataRequestUseConnectionCtx    `pulumi:"clientMetadataRequestUseConnectionCtxes"`
-	ClientPrefetchThreads                      []UserParameterClientPrefetchThread                     `pulumi:"clientPrefetchThreads"`
-	ClientResultChunkSizes                     []UserParameterClientResultChunkSize                    `pulumi:"clientResultChunkSizes"`
-	ClientResultColumnCaseInsensitives         []UserParameterClientResultColumnCaseInsensitive        `pulumi:"clientResultColumnCaseInsensitives"`
-	ClientSessionKeepAliveHeartbeatFrequencies []UserParameterClientSessionKeepAliveHeartbeatFrequency `pulumi:"clientSessionKeepAliveHeartbeatFrequencies"`
-	ClientSessionKeepAlives                    []UserParameterClientSessionKeepAlife                   `pulumi:"clientSessionKeepAlives"`
-	ClientTimestampTypeMappings                []UserParameterClientTimestampTypeMapping               `pulumi:"clientTimestampTypeMappings"`
-	DateInputFormats                           []UserParameterDateInputFormat                          `pulumi:"dateInputFormats"`
-	DateOutputFormats                          []UserParameterDateOutputFormat                         `pulumi:"dateOutputFormats"`
-	EnableUnloadPhysicalTypeOptimizations      []UserParameterEnableUnloadPhysicalTypeOptimization     `pulumi:"enableUnloadPhysicalTypeOptimizations"`
-	EnableUnredactedQuerySyntaxErrors          []UserParameterEnableUnredactedQuerySyntaxError         `pulumi:"enableUnredactedQuerySyntaxErrors"`
-	ErrorOnNondeterministicMerges              []UserParameterErrorOnNondeterministicMerge             `pulumi:"errorOnNondeterministicMerges"`
-	ErrorOnNondeterministicUpdates             []UserParameterErrorOnNondeterministicUpdate            `pulumi:"errorOnNondeterministicUpdates"`
-	GeographyOutputFormats                     []UserParameterGeographyOutputFormat                    `pulumi:"geographyOutputFormats"`
-	GeometryOutputFormats                      []UserParameterGeometryOutputFormat                     `pulumi:"geometryOutputFormats"`
-	JdbcTreatDecimalAsInts                     []UserParameterJdbcTreatDecimalAsInt                    `pulumi:"jdbcTreatDecimalAsInts"`
-	JdbcTreatTimestampNtzAsUtcs                []UserParameterJdbcTreatTimestampNtzAsUtc               `pulumi:"jdbcTreatTimestampNtzAsUtcs"`
-	JdbcUseSessionTimezones                    []UserParameterJdbcUseSessionTimezone                   `pulumi:"jdbcUseSessionTimezones"`
-	JsonIndents                                []UserParameterJsonIndent                               `pulumi:"jsonIndents"`
-	LockTimeouts                               []UserParameterLockTimeout                              `pulumi:"lockTimeouts"`
-	LogLevels                                  []UserParameterLogLevel                                 `pulumi:"logLevels"`
-	MultiStatementCounts                       []UserParameterMultiStatementCount                      `pulumi:"multiStatementCounts"`
-	NetworkPolicies                            []UserParameterNetworkPolicy                            `pulumi:"networkPolicies"`
-	NoorderSequenceAsDefaults                  []UserParameterNoorderSequenceAsDefault                 `pulumi:"noorderSequenceAsDefaults"`
-	OdbcTreatDecimalAsInts                     []UserParameterOdbcTreatDecimalAsInt                    `pulumi:"odbcTreatDecimalAsInts"`
-	PreventUnloadToInternalStages              []UserParameterPreventUnloadToInternalStage             `pulumi:"preventUnloadToInternalStages"`
-	QueryTags                                  []UserParameterQueryTag                                 `pulumi:"queryTags"`
-	QuotedIdentifiersIgnoreCases               []UserParameterQuotedIdentifiersIgnoreCase              `pulumi:"quotedIdentifiersIgnoreCases"`
-	RowsPerResultsets                          []UserParameterRowsPerResultset                         `pulumi:"rowsPerResultsets"`
-	S3StageVpceDnsNames                        []UserParameterS3StageVpceDnsName                       `pulumi:"s3StageVpceDnsNames"`
-	SearchPaths                                []UserParameterSearchPath                               `pulumi:"searchPaths"`
-	SimulatedDataSharingConsumers              []UserParameterSimulatedDataSharingConsumer             `pulumi:"simulatedDataSharingConsumers"`
-	StatementQueuedTimeoutInSeconds            []UserParameterStatementQueuedTimeoutInSecond           `pulumi:"statementQueuedTimeoutInSeconds"`
-	StatementTimeoutInSeconds                  []UserParameterStatementTimeoutInSecond                 `pulumi:"statementTimeoutInSeconds"`
-	StrictJsonOutputs                          []UserParameterStrictJsonOutput                         `pulumi:"strictJsonOutputs"`
-	TimeInputFormats                           []UserParameterTimeInputFormat                          `pulumi:"timeInputFormats"`
-	TimeOutputFormats                          []UserParameterTimeOutputFormat                         `pulumi:"timeOutputFormats"`
-	TimestampDayIsAlways24hs                   []UserParameterTimestampDayIsAlways24h                  `pulumi:"timestampDayIsAlways24hs"`
-	TimestampInputFormats                      []UserParameterTimestampInputFormat                     `pulumi:"timestampInputFormats"`
-	TimestampLtzOutputFormats                  []UserParameterTimestampLtzOutputFormat                 `pulumi:"timestampLtzOutputFormats"`
-	TimestampNtzOutputFormats                  []UserParameterTimestampNtzOutputFormat                 `pulumi:"timestampNtzOutputFormats"`
-	TimestampOutputFormats                     []UserParameterTimestampOutputFormat                    `pulumi:"timestampOutputFormats"`
-	TimestampTypeMappings                      []UserParameterTimestampTypeMapping                     `pulumi:"timestampTypeMappings"`
-	TimestampTzOutputFormats                   []UserParameterTimestampTzOutputFormat                  `pulumi:"timestampTzOutputFormats"`
-	Timezones                                  []UserParameterTimezone                                 `pulumi:"timezones"`
-	TraceLevels                                []UserParameterTraceLevel                               `pulumi:"traceLevels"`
-	TransactionAbortOnErrors                   []UserParameterTransactionAbortOnError                  `pulumi:"transactionAbortOnErrors"`
-	TransactionDefaultIsolationLevels          []UserParameterTransactionDefaultIsolationLevel         `pulumi:"transactionDefaultIsolationLevels"`
-	TwoDigitCenturyStarts                      []UserParameterTwoDigitCenturyStart                     `pulumi:"twoDigitCenturyStarts"`
-	UnsupportedDdlActions                      []UserParameterUnsupportedDdlAction                     `pulumi:"unsupportedDdlActions"`
-	UseCachedResults                           []UserParameterUseCachedResult                          `pulumi:"useCachedResults"`
-	WeekOfYearPolicies                         []UserParameterWeekOfYearPolicy                         `pulumi:"weekOfYearPolicies"`
-	WeekStarts                                 []UserParameterWeekStart                                `pulumi:"weekStarts"`
-}
-
-// UserParameterInput is an input type that accepts UserParameterArgs and UserParameterOutput values.
-// You can construct a concrete instance of `UserParameterInput` via:
-//
-//	UserParameterArgs{...}
-type UserParameterInput interface {
-	pulumi.Input
-
-	ToUserParameterOutput() UserParameterOutput
-	ToUserParameterOutputWithContext(context.Context) UserParameterOutput
-}
-
-type UserParameterArgs struct {
-	AbortDetachedQueries                       UserParameterAbortDetachedQueryArrayInput                       `pulumi:"abortDetachedQueries"`
-	Autocommits                                UserParameterAutocommitArrayInput                               `pulumi:"autocommits"`
-	BinaryInputFormats                         UserParameterBinaryInputFormatArrayInput                        `pulumi:"binaryInputFormats"`
-	BinaryOutputFormats                        UserParameterBinaryOutputFormatArrayInput                       `pulumi:"binaryOutputFormats"`
-	ClientMemoryLimits                         UserParameterClientMemoryLimitArrayInput                        `pulumi:"clientMemoryLimits"`
-	ClientMetadataRequestUseConnectionCtxes    UserParameterClientMetadataRequestUseConnectionCtxArrayInput    `pulumi:"clientMetadataRequestUseConnectionCtxes"`
-	ClientPrefetchThreads                      UserParameterClientPrefetchThreadArrayInput                     `pulumi:"clientPrefetchThreads"`
-	ClientResultChunkSizes                     UserParameterClientResultChunkSizeArrayInput                    `pulumi:"clientResultChunkSizes"`
-	ClientResultColumnCaseInsensitives         UserParameterClientResultColumnCaseInsensitiveArrayInput        `pulumi:"clientResultColumnCaseInsensitives"`
-	ClientSessionKeepAliveHeartbeatFrequencies UserParameterClientSessionKeepAliveHeartbeatFrequencyArrayInput `pulumi:"clientSessionKeepAliveHeartbeatFrequencies"`
-	ClientSessionKeepAlives                    UserParameterClientSessionKeepAlifeArrayInput                   `pulumi:"clientSessionKeepAlives"`
-	ClientTimestampTypeMappings                UserParameterClientTimestampTypeMappingArrayInput               `pulumi:"clientTimestampTypeMappings"`
-	DateInputFormats                           UserParameterDateInputFormatArrayInput                          `pulumi:"dateInputFormats"`
-	DateOutputFormats                          UserParameterDateOutputFormatArrayInput                         `pulumi:"dateOutputFormats"`
-	EnableUnloadPhysicalTypeOptimizations      UserParameterEnableUnloadPhysicalTypeOptimizationArrayInput     `pulumi:"enableUnloadPhysicalTypeOptimizations"`
-	EnableUnredactedQuerySyntaxErrors          UserParameterEnableUnredactedQuerySyntaxErrorArrayInput         `pulumi:"enableUnredactedQuerySyntaxErrors"`
-	ErrorOnNondeterministicMerges              UserParameterErrorOnNondeterministicMergeArrayInput             `pulumi:"errorOnNondeterministicMerges"`
-	ErrorOnNondeterministicUpdates             UserParameterErrorOnNondeterministicUpdateArrayInput            `pulumi:"errorOnNondeterministicUpdates"`
-	GeographyOutputFormats                     UserParameterGeographyOutputFormatArrayInput                    `pulumi:"geographyOutputFormats"`
-	GeometryOutputFormats                      UserParameterGeometryOutputFormatArrayInput                     `pulumi:"geometryOutputFormats"`
-	JdbcTreatDecimalAsInts                     UserParameterJdbcTreatDecimalAsIntArrayInput                    `pulumi:"jdbcTreatDecimalAsInts"`
-	JdbcTreatTimestampNtzAsUtcs                UserParameterJdbcTreatTimestampNtzAsUtcArrayInput               `pulumi:"jdbcTreatTimestampNtzAsUtcs"`
-	JdbcUseSessionTimezones                    UserParameterJdbcUseSessionTimezoneArrayInput                   `pulumi:"jdbcUseSessionTimezones"`
-	JsonIndents                                UserParameterJsonIndentArrayInput                               `pulumi:"jsonIndents"`
-	LockTimeouts                               UserParameterLockTimeoutArrayInput                              `pulumi:"lockTimeouts"`
-	LogLevels                                  UserParameterLogLevelArrayInput                                 `pulumi:"logLevels"`
-	MultiStatementCounts                       UserParameterMultiStatementCountArrayInput                      `pulumi:"multiStatementCounts"`
-	NetworkPolicies                            UserParameterNetworkPolicyArrayInput                            `pulumi:"networkPolicies"`
-	NoorderSequenceAsDefaults                  UserParameterNoorderSequenceAsDefaultArrayInput                 `pulumi:"noorderSequenceAsDefaults"`
-	OdbcTreatDecimalAsInts                     UserParameterOdbcTreatDecimalAsIntArrayInput                    `pulumi:"odbcTreatDecimalAsInts"`
-	PreventUnloadToInternalStages              UserParameterPreventUnloadToInternalStageArrayInput             `pulumi:"preventUnloadToInternalStages"`
-	QueryTags                                  UserParameterQueryTagArrayInput                                 `pulumi:"queryTags"`
-	QuotedIdentifiersIgnoreCases               UserParameterQuotedIdentifiersIgnoreCaseArrayInput              `pulumi:"quotedIdentifiersIgnoreCases"`
-	RowsPerResultsets                          UserParameterRowsPerResultsetArrayInput                         `pulumi:"rowsPerResultsets"`
-	S3StageVpceDnsNames                        UserParameterS3StageVpceDnsNameArrayInput                       `pulumi:"s3StageVpceDnsNames"`
-	SearchPaths                                UserParameterSearchPathArrayInput                               `pulumi:"searchPaths"`
-	SimulatedDataSharingConsumers              UserParameterSimulatedDataSharingConsumerArrayInput             `pulumi:"simulatedDataSharingConsumers"`
-	StatementQueuedTimeoutInSeconds            UserParameterStatementQueuedTimeoutInSecondArrayInput           `pulumi:"statementQueuedTimeoutInSeconds"`
-	StatementTimeoutInSeconds                  UserParameterStatementTimeoutInSecondArrayInput                 `pulumi:"statementTimeoutInSeconds"`
-	StrictJsonOutputs                          UserParameterStrictJsonOutputArrayInput                         `pulumi:"strictJsonOutputs"`
-	TimeInputFormats                           UserParameterTimeInputFormatArrayInput                          `pulumi:"timeInputFormats"`
-	TimeOutputFormats                          UserParameterTimeOutputFormatArrayInput                         `pulumi:"timeOutputFormats"`
-	TimestampDayIsAlways24hs                   UserParameterTimestampDayIsAlways24hArrayInput                  `pulumi:"timestampDayIsAlways24hs"`
-	TimestampInputFormats                      UserParameterTimestampInputFormatArrayInput                     `pulumi:"timestampInputFormats"`
-	TimestampLtzOutputFormats                  UserParameterTimestampLtzOutputFormatArrayInput                 `pulumi:"timestampLtzOutputFormats"`
-	TimestampNtzOutputFormats                  UserParameterTimestampNtzOutputFormatArrayInput                 `pulumi:"timestampNtzOutputFormats"`
-	TimestampOutputFormats                     UserParameterTimestampOutputFormatArrayInput                    `pulumi:"timestampOutputFormats"`
-	TimestampTypeMappings                      UserParameterTimestampTypeMappingArrayInput                     `pulumi:"timestampTypeMappings"`
-	TimestampTzOutputFormats                   UserParameterTimestampTzOutputFormatArrayInput                  `pulumi:"timestampTzOutputFormats"`
-	Timezones                                  UserParameterTimezoneArrayInput                                 `pulumi:"timezones"`
-	TraceLevels                                UserParameterTraceLevelArrayInput                               `pulumi:"traceLevels"`
-	TransactionAbortOnErrors                   UserParameterTransactionAbortOnErrorArrayInput                  `pulumi:"transactionAbortOnErrors"`
-	TransactionDefaultIsolationLevels          UserParameterTransactionDefaultIsolationLevelArrayInput         `pulumi:"transactionDefaultIsolationLevels"`
-	TwoDigitCenturyStarts                      UserParameterTwoDigitCenturyStartArrayInput                     `pulumi:"twoDigitCenturyStarts"`
-	UnsupportedDdlActions                      UserParameterUnsupportedDdlActionArrayInput                     `pulumi:"unsupportedDdlActions"`
-	UseCachedResults                           UserParameterUseCachedResultArrayInput                          `pulumi:"useCachedResults"`
-	WeekOfYearPolicies                         UserParameterWeekOfYearPolicyArrayInput                         `pulumi:"weekOfYearPolicies"`
-	WeekStarts                                 UserParameterWeekStartArrayInput                                `pulumi:"weekStarts"`
-}
-
-func (UserParameterArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameter)(nil)).Elem()
-}
-
-func (i UserParameterArgs) ToUserParameterOutput() UserParameterOutput {
-	return i.ToUserParameterOutputWithContext(context.Background())
-}
-
-func (i UserParameterArgs) ToUserParameterOutputWithContext(ctx context.Context) UserParameterOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterOutput)
-}
-
-// UserParameterArrayInput is an input type that accepts UserParameterArray and UserParameterArrayOutput values.
-// You can construct a concrete instance of `UserParameterArrayInput` via:
-//
-//	UserParameterArray{ UserParameterArgs{...} }
-type UserParameterArrayInput interface {
-	pulumi.Input
-
-	ToUserParameterArrayOutput() UserParameterArrayOutput
-	ToUserParameterArrayOutputWithContext(context.Context) UserParameterArrayOutput
-}
-
-type UserParameterArray []UserParameterInput
-
-func (UserParameterArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameter)(nil)).Elem()
-}
-
-func (i UserParameterArray) ToUserParameterArrayOutput() UserParameterArrayOutput {
-	return i.ToUserParameterArrayOutputWithContext(context.Background())
-}
-
-func (i UserParameterArray) ToUserParameterArrayOutputWithContext(ctx context.Context) UserParameterArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterArrayOutput)
-}
-
-type UserParameterOutput struct{ *pulumi.OutputState }
-
-func (UserParameterOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameter)(nil)).Elem()
-}
-
-func (o UserParameterOutput) ToUserParameterOutput() UserParameterOutput {
-	return o
-}
-
-func (o UserParameterOutput) ToUserParameterOutputWithContext(ctx context.Context) UserParameterOutput {
-	return o
-}
-
-func (o UserParameterOutput) AbortDetachedQueries() UserParameterAbortDetachedQueryArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterAbortDetachedQuery { return v.AbortDetachedQueries }).(UserParameterAbortDetachedQueryArrayOutput)
-}
-
-func (o UserParameterOutput) Autocommits() UserParameterAutocommitArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterAutocommit { return v.Autocommits }).(UserParameterAutocommitArrayOutput)
-}
-
-func (o UserParameterOutput) BinaryInputFormats() UserParameterBinaryInputFormatArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterBinaryInputFormat { return v.BinaryInputFormats }).(UserParameterBinaryInputFormatArrayOutput)
-}
-
-func (o UserParameterOutput) BinaryOutputFormats() UserParameterBinaryOutputFormatArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterBinaryOutputFormat { return v.BinaryOutputFormats }).(UserParameterBinaryOutputFormatArrayOutput)
-}
-
-func (o UserParameterOutput) ClientMemoryLimits() UserParameterClientMemoryLimitArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterClientMemoryLimit { return v.ClientMemoryLimits }).(UserParameterClientMemoryLimitArrayOutput)
-}
-
-func (o UserParameterOutput) ClientMetadataRequestUseConnectionCtxes() UserParameterClientMetadataRequestUseConnectionCtxArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterClientMetadataRequestUseConnectionCtx {
-		return v.ClientMetadataRequestUseConnectionCtxes
-	}).(UserParameterClientMetadataRequestUseConnectionCtxArrayOutput)
-}
-
-func (o UserParameterOutput) ClientPrefetchThreads() UserParameterClientPrefetchThreadArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterClientPrefetchThread { return v.ClientPrefetchThreads }).(UserParameterClientPrefetchThreadArrayOutput)
-}
-
-func (o UserParameterOutput) ClientResultChunkSizes() UserParameterClientResultChunkSizeArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterClientResultChunkSize { return v.ClientResultChunkSizes }).(UserParameterClientResultChunkSizeArrayOutput)
-}
-
-func (o UserParameterOutput) ClientResultColumnCaseInsensitives() UserParameterClientResultColumnCaseInsensitiveArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterClientResultColumnCaseInsensitive {
-		return v.ClientResultColumnCaseInsensitives
-	}).(UserParameterClientResultColumnCaseInsensitiveArrayOutput)
-}
-
-func (o UserParameterOutput) ClientSessionKeepAliveHeartbeatFrequencies() UserParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterClientSessionKeepAliveHeartbeatFrequency {
-		return v.ClientSessionKeepAliveHeartbeatFrequencies
-	}).(UserParameterClientSessionKeepAliveHeartbeatFrequencyArrayOutput)
-}
-
-func (o UserParameterOutput) ClientSessionKeepAlives() UserParameterClientSessionKeepAlifeArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterClientSessionKeepAlife { return v.ClientSessionKeepAlives }).(UserParameterClientSessionKeepAlifeArrayOutput)
-}
-
-func (o UserParameterOutput) ClientTimestampTypeMappings() UserParameterClientTimestampTypeMappingArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterClientTimestampTypeMapping { return v.ClientTimestampTypeMappings }).(UserParameterClientTimestampTypeMappingArrayOutput)
-}
-
-func (o UserParameterOutput) DateInputFormats() UserParameterDateInputFormatArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterDateInputFormat { return v.DateInputFormats }).(UserParameterDateInputFormatArrayOutput)
-}
-
-func (o UserParameterOutput) DateOutputFormats() UserParameterDateOutputFormatArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterDateOutputFormat { return v.DateOutputFormats }).(UserParameterDateOutputFormatArrayOutput)
-}
-
-func (o UserParameterOutput) EnableUnloadPhysicalTypeOptimizations() UserParameterEnableUnloadPhysicalTypeOptimizationArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterEnableUnloadPhysicalTypeOptimization {
-		return v.EnableUnloadPhysicalTypeOptimizations
-	}).(UserParameterEnableUnloadPhysicalTypeOptimizationArrayOutput)
-}
-
-func (o UserParameterOutput) EnableUnredactedQuerySyntaxErrors() UserParameterEnableUnredactedQuerySyntaxErrorArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterEnableUnredactedQuerySyntaxError {
-		return v.EnableUnredactedQuerySyntaxErrors
-	}).(UserParameterEnableUnredactedQuerySyntaxErrorArrayOutput)
-}
-
-func (o UserParameterOutput) ErrorOnNondeterministicMerges() UserParameterErrorOnNondeterministicMergeArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterErrorOnNondeterministicMerge {
-		return v.ErrorOnNondeterministicMerges
-	}).(UserParameterErrorOnNondeterministicMergeArrayOutput)
-}
-
-func (o UserParameterOutput) ErrorOnNondeterministicUpdates() UserParameterErrorOnNondeterministicUpdateArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterErrorOnNondeterministicUpdate {
-		return v.ErrorOnNondeterministicUpdates
-	}).(UserParameterErrorOnNondeterministicUpdateArrayOutput)
-}
-
-func (o UserParameterOutput) GeographyOutputFormats() UserParameterGeographyOutputFormatArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterGeographyOutputFormat { return v.GeographyOutputFormats }).(UserParameterGeographyOutputFormatArrayOutput)
-}
-
-func (o UserParameterOutput) GeometryOutputFormats() UserParameterGeometryOutputFormatArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterGeometryOutputFormat { return v.GeometryOutputFormats }).(UserParameterGeometryOutputFormatArrayOutput)
-}
-
-func (o UserParameterOutput) JdbcTreatDecimalAsInts() UserParameterJdbcTreatDecimalAsIntArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterJdbcTreatDecimalAsInt { return v.JdbcTreatDecimalAsInts }).(UserParameterJdbcTreatDecimalAsIntArrayOutput)
-}
-
-func (o UserParameterOutput) JdbcTreatTimestampNtzAsUtcs() UserParameterJdbcTreatTimestampNtzAsUtcArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterJdbcTreatTimestampNtzAsUtc { return v.JdbcTreatTimestampNtzAsUtcs }).(UserParameterJdbcTreatTimestampNtzAsUtcArrayOutput)
-}
-
-func (o UserParameterOutput) JdbcUseSessionTimezones() UserParameterJdbcUseSessionTimezoneArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterJdbcUseSessionTimezone { return v.JdbcUseSessionTimezones }).(UserParameterJdbcUseSessionTimezoneArrayOutput)
-}
-
-func (o UserParameterOutput) JsonIndents() UserParameterJsonIndentArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterJsonIndent { return v.JsonIndents }).(UserParameterJsonIndentArrayOutput)
-}
-
-func (o UserParameterOutput) LockTimeouts() UserParameterLockTimeoutArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterLockTimeout { return v.LockTimeouts }).(UserParameterLockTimeoutArrayOutput)
-}
-
-func (o UserParameterOutput) LogLevels() UserParameterLogLevelArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterLogLevel { return v.LogLevels }).(UserParameterLogLevelArrayOutput)
-}
-
-func (o UserParameterOutput) MultiStatementCounts() UserParameterMultiStatementCountArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterMultiStatementCount { return v.MultiStatementCounts }).(UserParameterMultiStatementCountArrayOutput)
-}
-
-func (o UserParameterOutput) NetworkPolicies() UserParameterNetworkPolicyArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterNetworkPolicy { return v.NetworkPolicies }).(UserParameterNetworkPolicyArrayOutput)
-}
-
-func (o UserParameterOutput) NoorderSequenceAsDefaults() UserParameterNoorderSequenceAsDefaultArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterNoorderSequenceAsDefault { return v.NoorderSequenceAsDefaults }).(UserParameterNoorderSequenceAsDefaultArrayOutput)
-}
-
-func (o UserParameterOutput) OdbcTreatDecimalAsInts() UserParameterOdbcTreatDecimalAsIntArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterOdbcTreatDecimalAsInt { return v.OdbcTreatDecimalAsInts }).(UserParameterOdbcTreatDecimalAsIntArrayOutput)
-}
-
-func (o UserParameterOutput) PreventUnloadToInternalStages() UserParameterPreventUnloadToInternalStageArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterPreventUnloadToInternalStage {
-		return v.PreventUnloadToInternalStages
-	}).(UserParameterPreventUnloadToInternalStageArrayOutput)
-}
-
-func (o UserParameterOutput) QueryTags() UserParameterQueryTagArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterQueryTag { return v.QueryTags }).(UserParameterQueryTagArrayOutput)
-}
-
-func (o UserParameterOutput) QuotedIdentifiersIgnoreCases() UserParameterQuotedIdentifiersIgnoreCaseArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterQuotedIdentifiersIgnoreCase {
-		return v.QuotedIdentifiersIgnoreCases
-	}).(UserParameterQuotedIdentifiersIgnoreCaseArrayOutput)
-}
-
-func (o UserParameterOutput) RowsPerResultsets() UserParameterRowsPerResultsetArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterRowsPerResultset { return v.RowsPerResultsets }).(UserParameterRowsPerResultsetArrayOutput)
-}
-
-func (o UserParameterOutput) S3StageVpceDnsNames() UserParameterS3StageVpceDnsNameArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterS3StageVpceDnsName { return v.S3StageVpceDnsNames }).(UserParameterS3StageVpceDnsNameArrayOutput)
-}
-
-func (o UserParameterOutput) SearchPaths() UserParameterSearchPathArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterSearchPath { return v.SearchPaths }).(UserParameterSearchPathArrayOutput)
-}
-
-func (o UserParameterOutput) SimulatedDataSharingConsumers() UserParameterSimulatedDataSharingConsumerArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterSimulatedDataSharingConsumer {
-		return v.SimulatedDataSharingConsumers
-	}).(UserParameterSimulatedDataSharingConsumerArrayOutput)
-}
-
-func (o UserParameterOutput) StatementQueuedTimeoutInSeconds() UserParameterStatementQueuedTimeoutInSecondArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterStatementQueuedTimeoutInSecond {
-		return v.StatementQueuedTimeoutInSeconds
-	}).(UserParameterStatementQueuedTimeoutInSecondArrayOutput)
-}
-
-func (o UserParameterOutput) StatementTimeoutInSeconds() UserParameterStatementTimeoutInSecondArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterStatementTimeoutInSecond { return v.StatementTimeoutInSeconds }).(UserParameterStatementTimeoutInSecondArrayOutput)
-}
-
-func (o UserParameterOutput) StrictJsonOutputs() UserParameterStrictJsonOutputArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterStrictJsonOutput { return v.StrictJsonOutputs }).(UserParameterStrictJsonOutputArrayOutput)
-}
-
-func (o UserParameterOutput) TimeInputFormats() UserParameterTimeInputFormatArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTimeInputFormat { return v.TimeInputFormats }).(UserParameterTimeInputFormatArrayOutput)
-}
-
-func (o UserParameterOutput) TimeOutputFormats() UserParameterTimeOutputFormatArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTimeOutputFormat { return v.TimeOutputFormats }).(UserParameterTimeOutputFormatArrayOutput)
-}
-
-func (o UserParameterOutput) TimestampDayIsAlways24hs() UserParameterTimestampDayIsAlways24hArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTimestampDayIsAlways24h { return v.TimestampDayIsAlways24hs }).(UserParameterTimestampDayIsAlways24hArrayOutput)
-}
-
-func (o UserParameterOutput) TimestampInputFormats() UserParameterTimestampInputFormatArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTimestampInputFormat { return v.TimestampInputFormats }).(UserParameterTimestampInputFormatArrayOutput)
-}
-
-func (o UserParameterOutput) TimestampLtzOutputFormats() UserParameterTimestampLtzOutputFormatArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTimestampLtzOutputFormat { return v.TimestampLtzOutputFormats }).(UserParameterTimestampLtzOutputFormatArrayOutput)
-}
-
-func (o UserParameterOutput) TimestampNtzOutputFormats() UserParameterTimestampNtzOutputFormatArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTimestampNtzOutputFormat { return v.TimestampNtzOutputFormats }).(UserParameterTimestampNtzOutputFormatArrayOutput)
-}
-
-func (o UserParameterOutput) TimestampOutputFormats() UserParameterTimestampOutputFormatArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTimestampOutputFormat { return v.TimestampOutputFormats }).(UserParameterTimestampOutputFormatArrayOutput)
-}
-
-func (o UserParameterOutput) TimestampTypeMappings() UserParameterTimestampTypeMappingArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTimestampTypeMapping { return v.TimestampTypeMappings }).(UserParameterTimestampTypeMappingArrayOutput)
-}
-
-func (o UserParameterOutput) TimestampTzOutputFormats() UserParameterTimestampTzOutputFormatArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTimestampTzOutputFormat { return v.TimestampTzOutputFormats }).(UserParameterTimestampTzOutputFormatArrayOutput)
-}
-
-func (o UserParameterOutput) Timezones() UserParameterTimezoneArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTimezone { return v.Timezones }).(UserParameterTimezoneArrayOutput)
-}
-
-func (o UserParameterOutput) TraceLevels() UserParameterTraceLevelArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTraceLevel { return v.TraceLevels }).(UserParameterTraceLevelArrayOutput)
-}
-
-func (o UserParameterOutput) TransactionAbortOnErrors() UserParameterTransactionAbortOnErrorArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTransactionAbortOnError { return v.TransactionAbortOnErrors }).(UserParameterTransactionAbortOnErrorArrayOutput)
-}
-
-func (o UserParameterOutput) TransactionDefaultIsolationLevels() UserParameterTransactionDefaultIsolationLevelArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTransactionDefaultIsolationLevel {
-		return v.TransactionDefaultIsolationLevels
-	}).(UserParameterTransactionDefaultIsolationLevelArrayOutput)
-}
-
-func (o UserParameterOutput) TwoDigitCenturyStarts() UserParameterTwoDigitCenturyStartArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterTwoDigitCenturyStart { return v.TwoDigitCenturyStarts }).(UserParameterTwoDigitCenturyStartArrayOutput)
-}
-
-func (o UserParameterOutput) UnsupportedDdlActions() UserParameterUnsupportedDdlActionArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterUnsupportedDdlAction { return v.UnsupportedDdlActions }).(UserParameterUnsupportedDdlActionArrayOutput)
-}
-
-func (o UserParameterOutput) UseCachedResults() UserParameterUseCachedResultArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterUseCachedResult { return v.UseCachedResults }).(UserParameterUseCachedResultArrayOutput)
-}
-
-func (o UserParameterOutput) WeekOfYearPolicies() UserParameterWeekOfYearPolicyArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterWeekOfYearPolicy { return v.WeekOfYearPolicies }).(UserParameterWeekOfYearPolicyArrayOutput)
-}
-
-func (o UserParameterOutput) WeekStarts() UserParameterWeekStartArrayOutput {
-	return o.ApplyT(func(v UserParameter) []UserParameterWeekStart { return v.WeekStarts }).(UserParameterWeekStartArrayOutput)
-}
-
-type UserParameterArrayOutput struct{ *pulumi.OutputState }
-
-func (UserParameterArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameter)(nil)).Elem()
-}
-
-func (o UserParameterArrayOutput) ToUserParameterArrayOutput() UserParameterArrayOutput {
-	return o
-}
-
-func (o UserParameterArrayOutput) ToUserParameterArrayOutputWithContext(ctx context.Context) UserParameterArrayOutput {
-	return o
-}
-
-func (o UserParameterArrayOutput) Index(i pulumi.IntInput) UserParameterOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameter {
-		return vs[0].([]UserParameter)[vs[1].(int)]
-	}).(UserParameterOutput)
-}
-
-type UserParameterAbortDetachedQuery struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// UserParameterAbortDetachedQueryInput is an input type that accepts UserParameterAbortDetachedQueryArgs and UserParameterAbortDetachedQueryOutput values.
-// You can construct a concrete instance of `UserParameterAbortDetachedQueryInput` via:
-//
-//	UserParameterAbortDetachedQueryArgs{...}
-type UserParameterAbortDetachedQueryInput interface {
-	pulumi.Input
-
-	ToUserParameterAbortDetachedQueryOutput() UserParameterAbortDetachedQueryOutput
-	ToUserParameterAbortDetachedQueryOutputWithContext(context.Context) UserParameterAbortDetachedQueryOutput
-}
-
-type UserParameterAbortDetachedQueryArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (UserParameterAbortDetachedQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameterAbortDetachedQuery)(nil)).Elem()
-}
-
-func (i UserParameterAbortDetachedQueryArgs) ToUserParameterAbortDetachedQueryOutput() UserParameterAbortDetachedQueryOutput {
-	return i.ToUserParameterAbortDetachedQueryOutputWithContext(context.Background())
-}
-
-func (i UserParameterAbortDetachedQueryArgs) ToUserParameterAbortDetachedQueryOutputWithContext(ctx context.Context) UserParameterAbortDetachedQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterAbortDetachedQueryOutput)
-}
-
-// UserParameterAbortDetachedQueryArrayInput is an input type that accepts UserParameterAbortDetachedQueryArray and UserParameterAbortDetachedQueryArrayOutput values.
-// You can construct a concrete instance of `UserParameterAbortDetachedQueryArrayInput` via:
-//
-//	UserParameterAbortDetachedQueryArray{ UserParameterAbortDetachedQueryArgs{...} }
-type UserParameterAbortDetachedQueryArrayInput interface {
-	pulumi.Input
-
-	ToUserParameterAbortDetachedQueryArrayOutput() UserParameterAbortDetachedQueryArrayOutput
-	ToUserParameterAbortDetachedQueryArrayOutputWithContext(context.Context) UserParameterAbortDetachedQueryArrayOutput
-}
-
-type UserParameterAbortDetachedQueryArray []UserParameterAbortDetachedQueryInput
-
-func (UserParameterAbortDetachedQueryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameterAbortDetachedQuery)(nil)).Elem()
-}
-
-func (i UserParameterAbortDetachedQueryArray) ToUserParameterAbortDetachedQueryArrayOutput() UserParameterAbortDetachedQueryArrayOutput {
-	return i.ToUserParameterAbortDetachedQueryArrayOutputWithContext(context.Background())
-}
-
-func (i UserParameterAbortDetachedQueryArray) ToUserParameterAbortDetachedQueryArrayOutputWithContext(ctx context.Context) UserParameterAbortDetachedQueryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterAbortDetachedQueryArrayOutput)
-}
-
-type UserParameterAbortDetachedQueryOutput struct{ *pulumi.OutputState }
-
-func (UserParameterAbortDetachedQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameterAbortDetachedQuery)(nil)).Elem()
-}
-
-func (o UserParameterAbortDetachedQueryOutput) ToUserParameterAbortDetachedQueryOutput() UserParameterAbortDetachedQueryOutput {
-	return o
-}
-
-func (o UserParameterAbortDetachedQueryOutput) ToUserParameterAbortDetachedQueryOutputWithContext(ctx context.Context) UserParameterAbortDetachedQueryOutput {
-	return o
-}
-
-func (o UserParameterAbortDetachedQueryOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterAbortDetachedQuery) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterAbortDetachedQueryOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterAbortDetachedQuery) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterAbortDetachedQueryOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterAbortDetachedQuery) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterAbortDetachedQueryOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterAbortDetachedQuery) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterAbortDetachedQueryOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterAbortDetachedQuery) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type UserParameterAbortDetachedQueryArrayOutput struct{ *pulumi.OutputState }
-
-func (UserParameterAbortDetachedQueryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameterAbortDetachedQuery)(nil)).Elem()
-}
-
-func (o UserParameterAbortDetachedQueryArrayOutput) ToUserParameterAbortDetachedQueryArrayOutput() UserParameterAbortDetachedQueryArrayOutput {
-	return o
-}
-
-func (o UserParameterAbortDetachedQueryArrayOutput) ToUserParameterAbortDetachedQueryArrayOutputWithContext(ctx context.Context) UserParameterAbortDetachedQueryArrayOutput {
-	return o
-}
-
-func (o UserParameterAbortDetachedQueryArrayOutput) Index(i pulumi.IntInput) UserParameterAbortDetachedQueryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameterAbortDetachedQuery {
-		return vs[0].([]UserParameterAbortDetachedQuery)[vs[1].(int)]
-	}).(UserParameterAbortDetachedQueryOutput)
-}
-
-type UserParameterAutocommit struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// UserParameterAutocommitInput is an input type that accepts UserParameterAutocommitArgs and UserParameterAutocommitOutput values.
-// You can construct a concrete instance of `UserParameterAutocommitInput` via:
-//
-//	UserParameterAutocommitArgs{...}
-type UserParameterAutocommitInput interface {
-	pulumi.Input
-
-	ToUserParameterAutocommitOutput() UserParameterAutocommitOutput
-	ToUserParameterAutocommitOutputWithContext(context.Context) UserParameterAutocommitOutput
-}
-
-type UserParameterAutocommitArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (UserParameterAutocommitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameterAutocommit)(nil)).Elem()
-}
-
-func (i UserParameterAutocommitArgs) ToUserParameterAutocommitOutput() UserParameterAutocommitOutput {
-	return i.ToUserParameterAutocommitOutputWithContext(context.Background())
-}
-
-func (i UserParameterAutocommitArgs) ToUserParameterAutocommitOutputWithContext(ctx context.Context) UserParameterAutocommitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterAutocommitOutput)
-}
-
-// UserParameterAutocommitArrayInput is an input type that accepts UserParameterAutocommitArray and UserParameterAutocommitArrayOutput values.
-// You can construct a concrete instance of `UserParameterAutocommitArrayInput` via:
-//
-//	UserParameterAutocommitArray{ UserParameterAutocommitArgs{...} }
-type UserParameterAutocommitArrayInput interface {
-	pulumi.Input
-
-	ToUserParameterAutocommitArrayOutput() UserParameterAutocommitArrayOutput
-	ToUserParameterAutocommitArrayOutputWithContext(context.Context) UserParameterAutocommitArrayOutput
-}
-
-type UserParameterAutocommitArray []UserParameterAutocommitInput
-
-func (UserParameterAutocommitArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameterAutocommit)(nil)).Elem()
-}
-
-func (i UserParameterAutocommitArray) ToUserParameterAutocommitArrayOutput() UserParameterAutocommitArrayOutput {
-	return i.ToUserParameterAutocommitArrayOutputWithContext(context.Background())
-}
-
-func (i UserParameterAutocommitArray) ToUserParameterAutocommitArrayOutputWithContext(ctx context.Context) UserParameterAutocommitArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterAutocommitArrayOutput)
-}
-
-type UserParameterAutocommitOutput struct{ *pulumi.OutputState }
-
-func (UserParameterAutocommitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameterAutocommit)(nil)).Elem()
-}
-
-func (o UserParameterAutocommitOutput) ToUserParameterAutocommitOutput() UserParameterAutocommitOutput {
-	return o
-}
-
-func (o UserParameterAutocommitOutput) ToUserParameterAutocommitOutputWithContext(ctx context.Context) UserParameterAutocommitOutput {
-	return o
-}
-
-func (o UserParameterAutocommitOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterAutocommit) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterAutocommitOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterAutocommit) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterAutocommitOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterAutocommit) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterAutocommitOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterAutocommit) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterAutocommitOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterAutocommit) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type UserParameterAutocommitArrayOutput struct{ *pulumi.OutputState }
-
-func (UserParameterAutocommitArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameterAutocommit)(nil)).Elem()
-}
-
-func (o UserParameterAutocommitArrayOutput) ToUserParameterAutocommitArrayOutput() UserParameterAutocommitArrayOutput {
-	return o
-}
-
-func (o UserParameterAutocommitArrayOutput) ToUserParameterAutocommitArrayOutputWithContext(ctx context.Context) UserParameterAutocommitArrayOutput {
-	return o
-}
-
-func (o UserParameterAutocommitArrayOutput) Index(i pulumi.IntInput) UserParameterAutocommitOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameterAutocommit {
-		return vs[0].([]UserParameterAutocommit)[vs[1].(int)]
-	}).(UserParameterAutocommitOutput)
-}
-
-type UserParameterBinaryInputFormat struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// UserParameterBinaryInputFormatInput is an input type that accepts UserParameterBinaryInputFormatArgs and UserParameterBinaryInputFormatOutput values.
-// You can construct a concrete instance of `UserParameterBinaryInputFormatInput` via:
-//
-//	UserParameterBinaryInputFormatArgs{...}
-type UserParameterBinaryInputFormatInput interface {
-	pulumi.Input
-
-	ToUserParameterBinaryInputFormatOutput() UserParameterBinaryInputFormatOutput
-	ToUserParameterBinaryInputFormatOutputWithContext(context.Context) UserParameterBinaryInputFormatOutput
-}
-
-type UserParameterBinaryInputFormatArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (UserParameterBinaryInputFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameterBinaryInputFormat)(nil)).Elem()
-}
-
-func (i UserParameterBinaryInputFormatArgs) ToUserParameterBinaryInputFormatOutput() UserParameterBinaryInputFormatOutput {
-	return i.ToUserParameterBinaryInputFormatOutputWithContext(context.Background())
-}
-
-func (i UserParameterBinaryInputFormatArgs) ToUserParameterBinaryInputFormatOutputWithContext(ctx context.Context) UserParameterBinaryInputFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterBinaryInputFormatOutput)
-}
-
-// UserParameterBinaryInputFormatArrayInput is an input type that accepts UserParameterBinaryInputFormatArray and UserParameterBinaryInputFormatArrayOutput values.
-// You can construct a concrete instance of `UserParameterBinaryInputFormatArrayInput` via:
-//
-//	UserParameterBinaryInputFormatArray{ UserParameterBinaryInputFormatArgs{...} }
-type UserParameterBinaryInputFormatArrayInput interface {
-	pulumi.Input
-
-	ToUserParameterBinaryInputFormatArrayOutput() UserParameterBinaryInputFormatArrayOutput
-	ToUserParameterBinaryInputFormatArrayOutputWithContext(context.Context) UserParameterBinaryInputFormatArrayOutput
-}
-
-type UserParameterBinaryInputFormatArray []UserParameterBinaryInputFormatInput
-
-func (UserParameterBinaryInputFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameterBinaryInputFormat)(nil)).Elem()
-}
-
-func (i UserParameterBinaryInputFormatArray) ToUserParameterBinaryInputFormatArrayOutput() UserParameterBinaryInputFormatArrayOutput {
-	return i.ToUserParameterBinaryInputFormatArrayOutputWithContext(context.Background())
-}
-
-func (i UserParameterBinaryInputFormatArray) ToUserParameterBinaryInputFormatArrayOutputWithContext(ctx context.Context) UserParameterBinaryInputFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterBinaryInputFormatArrayOutput)
-}
-
-type UserParameterBinaryInputFormatOutput struct{ *pulumi.OutputState }
-
-func (UserParameterBinaryInputFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameterBinaryInputFormat)(nil)).Elem()
-}
-
-func (o UserParameterBinaryInputFormatOutput) ToUserParameterBinaryInputFormatOutput() UserParameterBinaryInputFormatOutput {
-	return o
-}
-
-func (o UserParameterBinaryInputFormatOutput) ToUserParameterBinaryInputFormatOutputWithContext(ctx context.Context) UserParameterBinaryInputFormatOutput {
-	return o
-}
-
-func (o UserParameterBinaryInputFormatOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterBinaryInputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterBinaryInputFormatOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterBinaryInputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterBinaryInputFormatOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterBinaryInputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterBinaryInputFormatOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterBinaryInputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterBinaryInputFormatOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterBinaryInputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type UserParameterBinaryInputFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (UserParameterBinaryInputFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameterBinaryInputFormat)(nil)).Elem()
-}
-
-func (o UserParameterBinaryInputFormatArrayOutput) ToUserParameterBinaryInputFormatArrayOutput() UserParameterBinaryInputFormatArrayOutput {
-	return o
-}
-
-func (o UserParameterBinaryInputFormatArrayOutput) ToUserParameterBinaryInputFormatArrayOutputWithContext(ctx context.Context) UserParameterBinaryInputFormatArrayOutput {
-	return o
-}
-
-func (o UserParameterBinaryInputFormatArrayOutput) Index(i pulumi.IntInput) UserParameterBinaryInputFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameterBinaryInputFormat {
-		return vs[0].([]UserParameterBinaryInputFormat)[vs[1].(int)]
-	}).(UserParameterBinaryInputFormatOutput)
-}
-
-type UserParameterBinaryOutputFormat struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// UserParameterBinaryOutputFormatInput is an input type that accepts UserParameterBinaryOutputFormatArgs and UserParameterBinaryOutputFormatOutput values.
-// You can construct a concrete instance of `UserParameterBinaryOutputFormatInput` via:
-//
-//	UserParameterBinaryOutputFormatArgs{...}
-type UserParameterBinaryOutputFormatInput interface {
-	pulumi.Input
-
-	ToUserParameterBinaryOutputFormatOutput() UserParameterBinaryOutputFormatOutput
-	ToUserParameterBinaryOutputFormatOutputWithContext(context.Context) UserParameterBinaryOutputFormatOutput
-}
-
-type UserParameterBinaryOutputFormatArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (UserParameterBinaryOutputFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameterBinaryOutputFormat)(nil)).Elem()
-}
-
-func (i UserParameterBinaryOutputFormatArgs) ToUserParameterBinaryOutputFormatOutput() UserParameterBinaryOutputFormatOutput {
-	return i.ToUserParameterBinaryOutputFormatOutputWithContext(context.Background())
-}
-
-func (i UserParameterBinaryOutputFormatArgs) ToUserParameterBinaryOutputFormatOutputWithContext(ctx context.Context) UserParameterBinaryOutputFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterBinaryOutputFormatOutput)
-}
-
-// UserParameterBinaryOutputFormatArrayInput is an input type that accepts UserParameterBinaryOutputFormatArray and UserParameterBinaryOutputFormatArrayOutput values.
-// You can construct a concrete instance of `UserParameterBinaryOutputFormatArrayInput` via:
-//
-//	UserParameterBinaryOutputFormatArray{ UserParameterBinaryOutputFormatArgs{...} }
-type UserParameterBinaryOutputFormatArrayInput interface {
-	pulumi.Input
-
-	ToUserParameterBinaryOutputFormatArrayOutput() UserParameterBinaryOutputFormatArrayOutput
-	ToUserParameterBinaryOutputFormatArrayOutputWithContext(context.Context) UserParameterBinaryOutputFormatArrayOutput
-}
-
-type UserParameterBinaryOutputFormatArray []UserParameterBinaryOutputFormatInput
-
-func (UserParameterBinaryOutputFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameterBinaryOutputFormat)(nil)).Elem()
-}
-
-func (i UserParameterBinaryOutputFormatArray) ToUserParameterBinaryOutputFormatArrayOutput() UserParameterBinaryOutputFormatArrayOutput {
-	return i.ToUserParameterBinaryOutputFormatArrayOutputWithContext(context.Background())
-}
-
-func (i UserParameterBinaryOutputFormatArray) ToUserParameterBinaryOutputFormatArrayOutputWithContext(ctx context.Context) UserParameterBinaryOutputFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterBinaryOutputFormatArrayOutput)
-}
-
-type UserParameterBinaryOutputFormatOutput struct{ *pulumi.OutputState }
-
-func (UserParameterBinaryOutputFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameterBinaryOutputFormat)(nil)).Elem()
-}
-
-func (o UserParameterBinaryOutputFormatOutput) ToUserParameterBinaryOutputFormatOutput() UserParameterBinaryOutputFormatOutput {
-	return o
-}
-
-func (o UserParameterBinaryOutputFormatOutput) ToUserParameterBinaryOutputFormatOutputWithContext(ctx context.Context) UserParameterBinaryOutputFormatOutput {
-	return o
-}
-
-func (o UserParameterBinaryOutputFormatOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterBinaryOutputFormat) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterBinaryOutputFormatOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterBinaryOutputFormat) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterBinaryOutputFormatOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterBinaryOutputFormat) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterBinaryOutputFormatOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterBinaryOutputFormat) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterBinaryOutputFormatOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterBinaryOutputFormat) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type UserParameterBinaryOutputFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (UserParameterBinaryOutputFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameterBinaryOutputFormat)(nil)).Elem()
-}
-
-func (o UserParameterBinaryOutputFormatArrayOutput) ToUserParameterBinaryOutputFormatArrayOutput() UserParameterBinaryOutputFormatArrayOutput {
-	return o
-}
-
-func (o UserParameterBinaryOutputFormatArrayOutput) ToUserParameterBinaryOutputFormatArrayOutputWithContext(ctx context.Context) UserParameterBinaryOutputFormatArrayOutput {
-	return o
-}
-
-func (o UserParameterBinaryOutputFormatArrayOutput) Index(i pulumi.IntInput) UserParameterBinaryOutputFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameterBinaryOutputFormat {
-		return vs[0].([]UserParameterBinaryOutputFormat)[vs[1].(int)]
-	}).(UserParameterBinaryOutputFormatOutput)
-}
-
-type UserParameterClientMemoryLimit struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// UserParameterClientMemoryLimitInput is an input type that accepts UserParameterClientMemoryLimitArgs and UserParameterClientMemoryLimitOutput values.
-// You can construct a concrete instance of `UserParameterClientMemoryLimitInput` via:
-//
-//	UserParameterClientMemoryLimitArgs{...}
-type UserParameterClientMemoryLimitInput interface {
-	pulumi.Input
-
-	ToUserParameterClientMemoryLimitOutput() UserParameterClientMemoryLimitOutput
-	ToUserParameterClientMemoryLimitOutputWithContext(context.Context) UserParameterClientMemoryLimitOutput
-}
-
-type UserParameterClientMemoryLimitArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (UserParameterClientMemoryLimitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameterClientMemoryLimit)(nil)).Elem()
-}
-
-func (i UserParameterClientMemoryLimitArgs) ToUserParameterClientMemoryLimitOutput() UserParameterClientMemoryLimitOutput {
-	return i.ToUserParameterClientMemoryLimitOutputWithContext(context.Background())
-}
-
-func (i UserParameterClientMemoryLimitArgs) ToUserParameterClientMemoryLimitOutputWithContext(ctx context.Context) UserParameterClientMemoryLimitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterClientMemoryLimitOutput)
-}
-
-// UserParameterClientMemoryLimitArrayInput is an input type that accepts UserParameterClientMemoryLimitArray and UserParameterClientMemoryLimitArrayOutput values.
-// You can construct a concrete instance of `UserParameterClientMemoryLimitArrayInput` via:
-//
-//	UserParameterClientMemoryLimitArray{ UserParameterClientMemoryLimitArgs{...} }
-type UserParameterClientMemoryLimitArrayInput interface {
-	pulumi.Input
-
-	ToUserParameterClientMemoryLimitArrayOutput() UserParameterClientMemoryLimitArrayOutput
-	ToUserParameterClientMemoryLimitArrayOutputWithContext(context.Context) UserParameterClientMemoryLimitArrayOutput
-}
-
-type UserParameterClientMemoryLimitArray []UserParameterClientMemoryLimitInput
-
-func (UserParameterClientMemoryLimitArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameterClientMemoryLimit)(nil)).Elem()
-}
-
-func (i UserParameterClientMemoryLimitArray) ToUserParameterClientMemoryLimitArrayOutput() UserParameterClientMemoryLimitArrayOutput {
-	return i.ToUserParameterClientMemoryLimitArrayOutputWithContext(context.Background())
-}
-
-func (i UserParameterClientMemoryLimitArray) ToUserParameterClientMemoryLimitArrayOutputWithContext(ctx context.Context) UserParameterClientMemoryLimitArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterClientMemoryLimitArrayOutput)
-}
-
-type UserParameterClientMemoryLimitOutput struct{ *pulumi.OutputState }
-
-func (UserParameterClientMemoryLimitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameterClientMemoryLimit)(nil)).Elem()
-}
-
-func (o UserParameterClientMemoryLimitOutput) ToUserParameterClientMemoryLimitOutput() UserParameterClientMemoryLimitOutput {
-	return o
-}
-
-func (o UserParameterClientMemoryLimitOutput) ToUserParameterClientMemoryLimitOutputWithContext(ctx context.Context) UserParameterClientMemoryLimitOutput {
-	return o
-}
-
-func (o UserParameterClientMemoryLimitOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterClientMemoryLimit) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterClientMemoryLimitOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterClientMemoryLimit) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterClientMemoryLimitOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterClientMemoryLimit) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterClientMemoryLimitOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterClientMemoryLimit) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterClientMemoryLimitOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterClientMemoryLimit) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type UserParameterClientMemoryLimitArrayOutput struct{ *pulumi.OutputState }
-
-func (UserParameterClientMemoryLimitArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameterClientMemoryLimit)(nil)).Elem()
-}
-
-func (o UserParameterClientMemoryLimitArrayOutput) ToUserParameterClientMemoryLimitArrayOutput() UserParameterClientMemoryLimitArrayOutput {
-	return o
-}
-
-func (o UserParameterClientMemoryLimitArrayOutput) ToUserParameterClientMemoryLimitArrayOutputWithContext(ctx context.Context) UserParameterClientMemoryLimitArrayOutput {
-	return o
-}
-
-func (o UserParameterClientMemoryLimitArrayOutput) Index(i pulumi.IntInput) UserParameterClientMemoryLimitOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameterClientMemoryLimit {
-		return vs[0].([]UserParameterClientMemoryLimit)[vs[1].(int)]
-	}).(UserParameterClientMemoryLimitOutput)
-}
-
-type UserParameterClientMetadataRequestUseConnectionCtx struct {
-	Default     *string `pulumi:"default"`
-	Description *string `pulumi:"description"`
-	Key         *string `pulumi:"key"`
-	Level       *string `pulumi:"level"`
-	Value       *string `pulumi:"value"`
-}
-
-// UserParameterClientMetadataRequestUseConnectionCtxInput is an input type that accepts UserParameterClientMetadataRequestUseConnectionCtxArgs and UserParameterClientMetadataRequestUseConnectionCtxOutput values.
-// You can construct a concrete instance of `UserParameterClientMetadataRequestUseConnectionCtxInput` via:
-//
-//	UserParameterClientMetadataRequestUseConnectionCtxArgs{...}
-type UserParameterClientMetadataRequestUseConnectionCtxInput interface {
-	pulumi.Input
-
-	ToUserParameterClientMetadataRequestUseConnectionCtxOutput() UserParameterClientMetadataRequestUseConnectionCtxOutput
-	ToUserParameterClientMetadataRequestUseConnectionCtxOutputWithContext(context.Context) UserParameterClientMetadataRequestUseConnectionCtxOutput
-}
-
-type UserParameterClientMetadataRequestUseConnectionCtxArgs struct {
-	Default     pulumi.StringPtrInput `pulumi:"default"`
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	Key         pulumi.StringPtrInput `pulumi:"key"`
-	Level       pulumi.StringPtrInput `pulumi:"level"`
-	Value       pulumi.StringPtrInput `pulumi:"value"`
-}
-
-func (UserParameterClientMetadataRequestUseConnectionCtxArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameterClientMetadataRequestUseConnectionCtx)(nil)).Elem()
-}
-
-func (i UserParameterClientMetadataRequestUseConnectionCtxArgs) ToUserParameterClientMetadataRequestUseConnectionCtxOutput() UserParameterClientMetadataRequestUseConnectionCtxOutput {
-	return i.ToUserParameterClientMetadataRequestUseConnectionCtxOutputWithContext(context.Background())
-}
-
-func (i UserParameterClientMetadataRequestUseConnectionCtxArgs) ToUserParameterClientMetadataRequestUseConnectionCtxOutputWithContext(ctx context.Context) UserParameterClientMetadataRequestUseConnectionCtxOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterClientMetadataRequestUseConnectionCtxOutput)
-}
-
-// UserParameterClientMetadataRequestUseConnectionCtxArrayInput is an input type that accepts UserParameterClientMetadataRequestUseConnectionCtxArray and UserParameterClientMetadataRequestUseConnectionCtxArrayOutput values.
-// You can construct a concrete instance of `UserParameterClientMetadataRequestUseConnectionCtxArrayInput` via:
-//
-//	UserParameterClientMetadataRequestUseConnectionCtxArray{ UserParameterClientMetadataRequestUseConnectionCtxArgs{...} }
-type UserParameterClientMetadataRequestUseConnectionCtxArrayInput interface {
-	pulumi.Input
-
-	ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutput() UserParameterClientMetadataRequestUseConnectionCtxArrayOutput
-	ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutputWithContext(context.Context) UserParameterClientMetadataRequestUseConnectionCtxArrayOutput
-}
-
-type UserParameterClientMetadataRequestUseConnectionCtxArray []UserParameterClientMetadataRequestUseConnectionCtxInput
-
-func (UserParameterClientMetadataRequestUseConnectionCtxArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameterClientMetadataRequestUseConnectionCtx)(nil)).Elem()
-}
-
-func (i UserParameterClientMetadataRequestUseConnectionCtxArray) ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutput() UserParameterClientMetadataRequestUseConnectionCtxArrayOutput {
-	return i.ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutputWithContext(context.Background())
-}
-
-func (i UserParameterClientMetadataRequestUseConnectionCtxArray) ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutputWithContext(ctx context.Context) UserParameterClientMetadataRequestUseConnectionCtxArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(UserParameterClientMetadataRequestUseConnectionCtxArrayOutput)
-}
-
-type UserParameterClientMetadataRequestUseConnectionCtxOutput struct{ *pulumi.OutputState }
-
-func (UserParameterClientMetadataRequestUseConnectionCtxOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*UserParameterClientMetadataRequestUseConnectionCtx)(nil)).Elem()
-}
-
-func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) ToUserParameterClientMetadataRequestUseConnectionCtxOutput() UserParameterClientMetadataRequestUseConnectionCtxOutput {
-	return o
-}
-
-func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) ToUserParameterClientMetadataRequestUseConnectionCtxOutputWithContext(ctx context.Context) UserParameterClientMetadataRequestUseConnectionCtxOutput {
-	return o
-}
-
-func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) Default() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterClientMetadataRequestUseConnectionCtx) *string { return v.Default }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterClientMetadataRequestUseConnectionCtx) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) Key() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterClientMetadataRequestUseConnectionCtx) *string { return v.Key }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) Level() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterClientMetadataRequestUseConnectionCtx) *string { return v.Level }).(pulumi.StringPtrOutput)
-}
-
-func (o UserParameterClientMetadataRequestUseConnectionCtxOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v UserParameterClientMetadataRequestUseConnectionCtx) *string { return v.Value }).(pulumi.StringPtrOutput)
-}
-
-type UserParameterClientMetadataRequestUseConnectionCtxArrayOutput struct{ *pulumi.OutputState }
-
-func (UserParameterClientMetadataRequestUseConnectionCtxArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]UserParameterClientMetadataRequestUseConnectionCtx)(nil)).Elem()
-}
-
-func (o UserParameterClientMetadataRequestUseConnectionCtxArrayOutput) ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutput() UserParameterClientMetadataRequestUseConnectionCtxArrayOutput {
-	return o
-}
-
-func (o UserParameterClientMetadataRequestUseConnectionCtxArrayOutput) ToUserParameterClientMetadataRequestUseConnectionCtxArrayOutputWithContext(ctx context.Context) UserParameterClientMetadataRequestUseConnectionCtxArrayOutput {
-	return o
-}
-
-func (o UserParameterClientMetadataRequestUseConnectionCtxArrayOutput) Index(i pulumi.IntInput) UserParameterClientMetadataRequestUseConnectionCtxOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) UserParameterClientMetadataRequestUseConnectionCtx {
-		return vs[0].([]UserParameterClientMetadataRequestUseConnectionCtx)[vs[1].(int)]
-	}).(UserParameterClientMetadataRequestUseConnectionCtxOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputInput)(nil)).Elem(), AccountRoleShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccountRoleShowOutputArrayInput)(nil)).Elem(), AccountRoleShowOutputArray{})
@@ -65133,6 +65895,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyDescribeOutputArrayInput)(nil)).Elem(), AuthenticationPolicyDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyShowOutputInput)(nil)).Elem(), AuthenticationPolicyShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthenticationPolicyShowOutputArrayInput)(nil)).Elem(), AuthenticationPolicyShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolDescribeOutputInput)(nil)).Elem(), ComputePoolDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolDescribeOutputArrayInput)(nil)).Elem(), ComputePoolDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolShowOutputInput)(nil)).Elem(), ComputePoolShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ComputePoolShowOutputArrayInput)(nil)).Elem(), ComputePoolShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CortexSearchServiceDescribeOutputInput)(nil)).Elem(), CortexSearchServiceDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CortexSearchServiceDescribeOutputArrayInput)(nil)).Elem(), CortexSearchServiceDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationInput)(nil)).Elem(), DatabaseReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationPtrInput)(nil)).Elem(), DatabaseReplicationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseReplicationEnableToAccountInput)(nil)).Elem(), DatabaseReplicationEnableToAccountArgs{})
@@ -65281,6 +66049,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSqlParameterTraceLevelArrayInput)(nil)).Elem(), FunctionSqlParameterTraceLevelArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSqlShowOutputInput)(nil)).Elem(), FunctionSqlShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FunctionSqlShowOutputArrayInput)(nil)).Elem(), FunctionSqlShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitRepositoryDescribeOutputInput)(nil)).Elem(), GitRepositoryDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitRepositoryDescribeOutputArrayInput)(nil)).Elem(), GitRepositoryDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitRepositoryShowOutputInput)(nil)).Elem(), GitRepositoryShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitRepositoryShowOutputArrayInput)(nil)).Elem(), GitRepositoryShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantOwnershipOnInput)(nil)).Elem(), GrantOwnershipOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantOwnershipOnPtrInput)(nil)).Elem(), GrantOwnershipOnArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantOwnershipOnAllInput)(nil)).Elem(), GrantOwnershipOnAllArgs{})
@@ -65305,6 +66077,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrInput)(nil)).Elem(), GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureInput)(nil)).Elem(), GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrInput)(nil)).Elem(), GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageRepositoryShowOutputInput)(nil)).Elem(), ImageRepositoryShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ImageRepositoryShowOutputArrayInput)(nil)).Elem(), ImageRepositoryShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobServiceDescribeOutputInput)(nil)).Elem(), JobServiceDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobServiceDescribeOutputArrayInput)(nil)).Elem(), JobServiceDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobServiceFromSpecificationInput)(nil)).Elem(), JobServiceFromSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobServiceFromSpecificationPtrInput)(nil)).Elem(), JobServiceFromSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobServiceFromSpecificationTemplateInput)(nil)).Elem(), JobServiceFromSpecificationTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobServiceFromSpecificationTemplatePtrInput)(nil)).Elem(), JobServiceFromSpecificationTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobServiceFromSpecificationTemplateUsingInput)(nil)).Elem(), JobServiceFromSpecificationTemplateUsingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobServiceFromSpecificationTemplateUsingArrayInput)(nil)).Elem(), JobServiceFromSpecificationTemplateUsingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobServiceShowOutputInput)(nil)).Elem(), JobServiceShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobServiceShowOutputArrayInput)(nil)).Elem(), JobServiceShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterInput)(nil)).Elem(), LegacyServiceUserParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterArrayInput)(nil)).Elem(), LegacyServiceUserParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LegacyServiceUserParameterAbortDetachedQueryInput)(nil)).Elem(), LegacyServiceUserParameterAbortDetachedQueryArgs{})
@@ -65735,6 +66519,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretWithGenericStringDescribeOutputArrayInput)(nil)).Elem(), SecretWithGenericStringDescribeOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretWithGenericStringShowOutputInput)(nil)).Elem(), SecretWithGenericStringShowOutputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SecretWithGenericStringShowOutputArrayInput)(nil)).Elem(), SecretWithGenericStringShowOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDescribeOutputInput)(nil)).Elem(), ServiceDescribeOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceDescribeOutputArrayInput)(nil)).Elem(), ServiceDescribeOutputArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFromSpecificationInput)(nil)).Elem(), ServiceFromSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFromSpecificationPtrInput)(nil)).Elem(), ServiceFromSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFromSpecificationTemplateInput)(nil)).Elem(), ServiceFromSpecificationTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFromSpecificationTemplatePtrInput)(nil)).Elem(), ServiceFromSpecificationTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFromSpecificationTemplateUsingInput)(nil)).Elem(), ServiceFromSpecificationTemplateUsingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceFromSpecificationTemplateUsingArrayInput)(nil)).Elem(), ServiceFromSpecificationTemplateUsingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceShowOutputInput)(nil)).Elem(), ServiceShowOutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceShowOutputArrayInput)(nil)).Elem(), ServiceShowOutputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUserParameterInput)(nil)).Elem(), ServiceUserParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUserParameterArrayInput)(nil)).Elem(), ServiceUserParameterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceUserParameterAbortDetachedQueryInput)(nil)).Elem(), ServiceUserParameterAbortDetachedQueryArgs{})
@@ -66011,38 +66805,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterTwoDigitCenturyStartArrayInput)(nil)).Elem(), TaskParameterTwoDigitCenturyStartArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUnsupportedDdlActionInput)(nil)).Elem(), TaskParameterUnsupportedDdlActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUnsupportedDdlActionArrayInput)(nil)).Elem(), TaskParameterUnsupportedDdlActionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUseCachedResultInput)(nil)).Elem(), TaskParameterUseCachedResultArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUseCachedResultArrayInput)(nil)).Elem(), TaskParameterUseCachedResultArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUserTaskManagedInitialWarehouseSizeInput)(nil)).Elem(), TaskParameterUserTaskManagedInitialWarehouseSizeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUserTaskManagedInitialWarehouseSizeArrayInput)(nil)).Elem(), TaskParameterUserTaskManagedInitialWarehouseSizeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUserTaskMinimumTriggerIntervalInSecondInput)(nil)).Elem(), TaskParameterUserTaskMinimumTriggerIntervalInSecondArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayInput)(nil)).Elem(), TaskParameterUserTaskMinimumTriggerIntervalInSecondArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUserTaskTimeoutMInput)(nil)).Elem(), TaskParameterUserTaskTimeoutMArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterUserTaskTimeoutMArrayInput)(nil)).Elem(), TaskParameterUserTaskTimeoutMArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterWeekOfYearPolicyInput)(nil)).Elem(), TaskParameterWeekOfYearPolicyArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterWeekOfYearPolicyArrayInput)(nil)).Elem(), TaskParameterWeekOfYearPolicyArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterWeekStartInput)(nil)).Elem(), TaskParameterWeekStartArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskParameterWeekStartArrayInput)(nil)).Elem(), TaskParameterWeekStartArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskScheduleInput)(nil)).Elem(), TaskScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskSchedulePtrInput)(nil)).Elem(), TaskScheduleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskShowOutputInput)(nil)).Elem(), TaskShowOutputArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskShowOutputArrayInput)(nil)).Elem(), TaskShowOutputArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskShowOutputTaskRelationInput)(nil)).Elem(), TaskShowOutputTaskRelationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TaskShowOutputTaskRelationArrayInput)(nil)).Elem(), TaskShowOutputTaskRelationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterInput)(nil)).Elem(), UserParameterArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterArrayInput)(nil)).Elem(), UserParameterArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterAbortDetachedQueryInput)(nil)).Elem(), UserParameterAbortDetachedQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterAbortDetachedQueryArrayInput)(nil)).Elem(), UserParameterAbortDetachedQueryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterAutocommitInput)(nil)).Elem(), UserParameterAutocommitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterAutocommitArrayInput)(nil)).Elem(), UserParameterAutocommitArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterBinaryInputFormatInput)(nil)).Elem(), UserParameterBinaryInputFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterBinaryInputFormatArrayInput)(nil)).Elem(), UserParameterBinaryInputFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterBinaryOutputFormatInput)(nil)).Elem(), UserParameterBinaryOutputFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterBinaryOutputFormatArrayInput)(nil)).Elem(), UserParameterBinaryOutputFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterClientMemoryLimitInput)(nil)).Elem(), UserParameterClientMemoryLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterClientMemoryLimitArrayInput)(nil)).Elem(), UserParameterClientMemoryLimitArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterClientMetadataRequestUseConnectionCtxInput)(nil)).Elem(), UserParameterClientMetadataRequestUseConnectionCtxArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*UserParameterClientMetadataRequestUseConnectionCtxArrayInput)(nil)).Elem(), UserParameterClientMetadataRequestUseConnectionCtxArray{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputOutput{})
 	pulumi.RegisterOutputType(AccountRoleShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(AccountShowOutputOutput{})
@@ -66133,6 +66895,12 @@ func init() {
 	pulumi.RegisterOutputType(AuthenticationPolicyDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(AuthenticationPolicyShowOutputOutput{})
 	pulumi.RegisterOutputType(AuthenticationPolicyShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(ComputePoolDescribeOutputOutput{})
+	pulumi.RegisterOutputType(ComputePoolDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(ComputePoolShowOutputOutput{})
+	pulumi.RegisterOutputType(ComputePoolShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(CortexSearchServiceDescribeOutputOutput{})
+	pulumi.RegisterOutputType(CortexSearchServiceDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationPtrOutput{})
 	pulumi.RegisterOutputType(DatabaseReplicationEnableToAccountOutput{})
@@ -66281,6 +67049,10 @@ func init() {
 	pulumi.RegisterOutputType(FunctionSqlParameterTraceLevelArrayOutput{})
 	pulumi.RegisterOutputType(FunctionSqlShowOutputOutput{})
 	pulumi.RegisterOutputType(FunctionSqlShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(GitRepositoryDescribeOutputOutput{})
+	pulumi.RegisterOutputType(GitRepositoryDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(GitRepositoryShowOutputOutput{})
+	pulumi.RegisterOutputType(GitRepositoryShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(GrantOwnershipOnOutput{})
 	pulumi.RegisterOutputType(GrantOwnershipOnPtrOutput{})
 	pulumi.RegisterOutputType(GrantOwnershipOnAllOutput{})
@@ -66305,6 +67077,18 @@ func init() {
 	pulumi.RegisterOutputType(GrantPrivilegesToDatabaseRoleOnSchemaObjectAllPtrOutput{})
 	pulumi.RegisterOutputType(GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureOutput{})
 	pulumi.RegisterOutputType(GrantPrivilegesToDatabaseRoleOnSchemaObjectFuturePtrOutput{})
+	pulumi.RegisterOutputType(ImageRepositoryShowOutputOutput{})
+	pulumi.RegisterOutputType(ImageRepositoryShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(JobServiceDescribeOutputOutput{})
+	pulumi.RegisterOutputType(JobServiceDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(JobServiceFromSpecificationOutput{})
+	pulumi.RegisterOutputType(JobServiceFromSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(JobServiceFromSpecificationTemplateOutput{})
+	pulumi.RegisterOutputType(JobServiceFromSpecificationTemplatePtrOutput{})
+	pulumi.RegisterOutputType(JobServiceFromSpecificationTemplateUsingOutput{})
+	pulumi.RegisterOutputType(JobServiceFromSpecificationTemplateUsingArrayOutput{})
+	pulumi.RegisterOutputType(JobServiceShowOutputOutput{})
+	pulumi.RegisterOutputType(JobServiceShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterArrayOutput{})
 	pulumi.RegisterOutputType(LegacyServiceUserParameterAbortDetachedQueryOutput{})
@@ -66735,6 +67519,16 @@ func init() {
 	pulumi.RegisterOutputType(SecretWithGenericStringDescribeOutputArrayOutput{})
 	pulumi.RegisterOutputType(SecretWithGenericStringShowOutputOutput{})
 	pulumi.RegisterOutputType(SecretWithGenericStringShowOutputArrayOutput{})
+	pulumi.RegisterOutputType(ServiceDescribeOutputOutput{})
+	pulumi.RegisterOutputType(ServiceDescribeOutputArrayOutput{})
+	pulumi.RegisterOutputType(ServiceFromSpecificationOutput{})
+	pulumi.RegisterOutputType(ServiceFromSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceFromSpecificationTemplateOutput{})
+	pulumi.RegisterOutputType(ServiceFromSpecificationTemplatePtrOutput{})
+	pulumi.RegisterOutputType(ServiceFromSpecificationTemplateUsingOutput{})
+	pulumi.RegisterOutputType(ServiceFromSpecificationTemplateUsingArrayOutput{})
+	pulumi.RegisterOutputType(ServiceShowOutputOutput{})
+	pulumi.RegisterOutputType(ServiceShowOutputArrayOutput{})
 	pulumi.RegisterOutputType(ServiceUserParameterOutput{})
 	pulumi.RegisterOutputType(ServiceUserParameterArrayOutput{})
 	pulumi.RegisterOutputType(ServiceUserParameterAbortDetachedQueryOutput{})
@@ -67011,36 +67805,4 @@ func init() {
 	pulumi.RegisterOutputType(TaskParameterTwoDigitCenturyStartArrayOutput{})
 	pulumi.RegisterOutputType(TaskParameterUnsupportedDdlActionOutput{})
 	pulumi.RegisterOutputType(TaskParameterUnsupportedDdlActionArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterUseCachedResultOutput{})
-	pulumi.RegisterOutputType(TaskParameterUseCachedResultArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterUserTaskManagedInitialWarehouseSizeOutput{})
-	pulumi.RegisterOutputType(TaskParameterUserTaskManagedInitialWarehouseSizeArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterUserTaskMinimumTriggerIntervalInSecondOutput{})
-	pulumi.RegisterOutputType(TaskParameterUserTaskMinimumTriggerIntervalInSecondArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterUserTaskTimeoutMOutput{})
-	pulumi.RegisterOutputType(TaskParameterUserTaskTimeoutMArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterWeekOfYearPolicyOutput{})
-	pulumi.RegisterOutputType(TaskParameterWeekOfYearPolicyArrayOutput{})
-	pulumi.RegisterOutputType(TaskParameterWeekStartOutput{})
-	pulumi.RegisterOutputType(TaskParameterWeekStartArrayOutput{})
-	pulumi.RegisterOutputType(TaskScheduleOutput{})
-	pulumi.RegisterOutputType(TaskSchedulePtrOutput{})
-	pulumi.RegisterOutputType(TaskShowOutputOutput{})
-	pulumi.RegisterOutputType(TaskShowOutputArrayOutput{})
-	pulumi.RegisterOutputType(TaskShowOutputTaskRelationOutput{})
-	pulumi.RegisterOutputType(TaskShowOutputTaskRelationArrayOutput{})
-	pulumi.RegisterOutputType(UserParameterOutput{})
-	pulumi.RegisterOutputType(UserParameterArrayOutput{})
-	pulumi.RegisterOutputType(UserParameterAbortDetachedQueryOutput{})
-	pulumi.RegisterOutputType(UserParameterAbortDetachedQueryArrayOutput{})
-	pulumi.RegisterOutputType(UserParameterAutocommitOutput{})
-	pulumi.RegisterOutputType(UserParameterAutocommitArrayOutput{})
-	pulumi.RegisterOutputType(UserParameterBinaryInputFormatOutput{})
-	pulumi.RegisterOutputType(UserParameterBinaryInputFormatArrayOutput{})
-	pulumi.RegisterOutputType(UserParameterBinaryOutputFormatOutput{})
-	pulumi.RegisterOutputType(UserParameterBinaryOutputFormatArrayOutput{})
-	pulumi.RegisterOutputType(UserParameterClientMemoryLimitOutput{})
-	pulumi.RegisterOutputType(UserParameterClientMemoryLimitArrayOutput{})
-	pulumi.RegisterOutputType(UserParameterClientMetadataRequestUseConnectionCtxOutput{})
-	pulumi.RegisterOutputType(UserParameterClientMetadataRequestUseConnectionCtxArrayOutput{})
 }

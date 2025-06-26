@@ -26,6 +26,8 @@ type Account struct {
 	AdminUserType     pulumi.StringPtrOutput `pulumi:"adminUserType"`
 	// Specifies a comment for the account.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
+	// Determines which billing entity is responsible for the account's consumption-based billing.
+	ConsumptionBillingEntity pulumi.StringPtrOutput `pulumi:"consumptionBillingEntity"`
 	// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
 	Edition   pulumi.StringOutput    `pulumi:"edition"`
 	Email     pulumi.StringOutput    `pulumi:"email"`
@@ -119,6 +121,8 @@ type accountState struct {
 	AdminUserType     *string `pulumi:"adminUserType"`
 	// Specifies a comment for the account.
 	Comment *string `pulumi:"comment"`
+	// Determines which billing entity is responsible for the account's consumption-based billing.
+	ConsumptionBillingEntity *string `pulumi:"consumptionBillingEntity"`
 	// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
 	Edition   *string `pulumi:"edition"`
 	Email     *string `pulumi:"email"`
@@ -148,6 +152,8 @@ type AccountState struct {
 	AdminUserType     pulumi.StringPtrInput
 	// Specifies a comment for the account.
 	Comment pulumi.StringPtrInput
+	// Determines which billing entity is responsible for the account's consumption-based billing.
+	ConsumptionBillingEntity pulumi.StringPtrInput
 	// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
 	Edition   pulumi.StringPtrInput
 	Email     pulumi.StringPtrInput
@@ -181,6 +187,8 @@ type accountArgs struct {
 	AdminUserType     *string `pulumi:"adminUserType"`
 	// Specifies a comment for the account.
 	Comment *string `pulumi:"comment"`
+	// Determines which billing entity is responsible for the account's consumption-based billing.
+	ConsumptionBillingEntity *string `pulumi:"consumptionBillingEntity"`
 	// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
 	Edition   string  `pulumi:"edition"`
 	Email     string  `pulumi:"email"`
@@ -207,6 +215,8 @@ type AccountArgs struct {
 	AdminUserType     pulumi.StringPtrInput
 	// Specifies a comment for the account.
 	Comment pulumi.StringPtrInput
+	// Determines which billing entity is responsible for the account's consumption-based billing.
+	ConsumptionBillingEntity pulumi.StringPtrInput
 	// Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`
 	Edition   pulumi.StringInput
 	Email     pulumi.StringInput
@@ -331,6 +341,11 @@ func (o AccountOutput) AdminUserType() pulumi.StringPtrOutput {
 // Specifies a comment for the account.
 func (o AccountOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
+}
+
+// Determines which billing entity is responsible for the account's consumption-based billing.
+func (o AccountOutput) ConsumptionBillingEntity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.ConsumptionBillingEntity }).(pulumi.StringPtrOutput)
 }
 
 // Snowflake Edition of the account. See more about Snowflake Editions in the [official documentation](https://docs.snowflake.com/en/user-guide/intro-editions). Valid options are: `STANDARD` | `ENTERPRISE` | `BUSINESS_CRITICAL`

@@ -60,8 +60,10 @@ type Provider struct {
 	// Specifies the passcode provided by Duo when using multi-factor authentication (MFA) for login. Can also be sourced from
 	// the `SNOWFLAKE_PASSCODE` environment variable.
 	Passcode pulumi.StringPtrOutput `pulumi:"passcode"`
-	// Password for user + password auth. Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from
-	// the `SNOWFLAKE_PASSWORD` environment variable.
+	// Password for user + password or
+	// [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+	// [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and
+	// `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// Private Key for username+private-key auth. Cannot be used with `password`. Can also be sourced from the
 	// `SNOWFLAKE_PRIVATE_KEY` environment variable.
@@ -246,8 +248,10 @@ type providerArgs struct {
 	// False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
 	// `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
 	PasscodeInPassword *bool `pulumi:"passcodeInPassword"`
-	// Password for user + password auth. Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from
-	// the `SNOWFLAKE_PASSWORD` environment variable.
+	// Password for user + password or
+	// [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+	// [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and
+	// `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
 	Password *string `pulumi:"password"`
 	// Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
 	// `SNOWFLAKE_PORT` environment variable.
@@ -376,8 +380,10 @@ type ProviderArgs struct {
 	// False by default. Set to true if the MFA passcode is embedded to the configured password. Can also be sourced from the
 	// `SNOWFLAKE_PASSCODE_IN_PASSWORD` environment variable.
 	PasscodeInPassword pulumi.BoolPtrInput
-	// Password for user + password auth. Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from
-	// the `SNOWFLAKE_PASSWORD` environment variable.
+	// Password for user + password or
+	// [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+	// [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and
+	// `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
 	Password pulumi.StringPtrInput
 	// Specifies a custom port value used by the driver for privatelink connections. Can also be sourced from the
 	// `SNOWFLAKE_PORT` environment variable.
@@ -568,8 +574,10 @@ func (o ProviderOutput) Passcode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Passcode }).(pulumi.StringPtrOutput)
 }
 
-// Password for user + password auth. Cannot be used with `privateKey` and `privateKeyPassphrase`. Can also be sourced from
-// the `SNOWFLAKE_PASSWORD` environment variable.
+// Password for user + password or
+// [token](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens#generating-a-programmatic-access-token) for
+// [PAT auth](https://docs.snowflake.com/en/user-guide/programmatic-access-tokens). Cannot be used with `privateKey` and
+// `privateKeyPassphrase`. Can also be sourced from the `SNOWFLAKE_PASSWORD` environment variable.
 func (o ProviderOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }

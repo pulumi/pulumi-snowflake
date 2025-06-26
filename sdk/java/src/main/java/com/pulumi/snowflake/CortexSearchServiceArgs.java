@@ -63,6 +63,21 @@ public final class CortexSearchServiceArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * Specifies the embedding model to use for the Cortex search service.
+     * 
+     */
+    @Import(name="embeddingModel")
+    private @Nullable Output<String> embeddingModel;
+
+    /**
+     * @return Specifies the embedding model to use for the Cortex search service.
+     * 
+     */
+    public Optional<Output<String>> embeddingModel() {
+        return Optional.ofNullable(this.embeddingModel);
+    }
+
+    /**
      * Specifies the name of the Cortex search service. The name must be unique for the schema in which the service is created.
      * 
      */
@@ -158,6 +173,7 @@ public final class CortexSearchServiceArgs extends com.pulumi.resources.Resource
         this.attributes = $.attributes;
         this.comment = $.comment;
         this.database = $.database;
+        this.embeddingModel = $.embeddingModel;
         this.name = $.name;
         this.on = $.on;
         this.query = $.query;
@@ -255,6 +271,27 @@ public final class CortexSearchServiceArgs extends com.pulumi.resources.Resource
          */
         public Builder database(String database) {
             return database(Output.of(database));
+        }
+
+        /**
+         * @param embeddingModel Specifies the embedding model to use for the Cortex search service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder embeddingModel(@Nullable Output<String> embeddingModel) {
+            $.embeddingModel = embeddingModel;
+            return this;
+        }
+
+        /**
+         * @param embeddingModel Specifies the embedding model to use for the Cortex search service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder embeddingModel(String embeddingModel) {
+            return embeddingModel(Output.of(embeddingModel));
         }
 
         /**

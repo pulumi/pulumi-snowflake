@@ -31,7 +31,7 @@ type GetSchemasArgs struct {
 	In *GetSchemasIn `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit *GetSchemasLimit `pulumi:"limit"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith *string `pulumi:"startsWith"`
@@ -49,7 +49,7 @@ type GetSchemasResult struct {
 	In *GetSchemasIn `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit *GetSchemasLimit `pulumi:"limit"`
 	// Holds the aggregated output of all SCHEMA details queries.
 	Schemas []GetSchemasSchema `pulumi:"schemas"`
@@ -76,7 +76,7 @@ type GetSchemasOutputArgs struct {
 	In GetSchemasInPtrInput `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like pulumi.StringPtrInput `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit GetSchemasLimitPtrInput `pulumi:"limit"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
@@ -120,7 +120,7 @@ func (o GetSchemasResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetSchemasResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 func (o GetSchemasResultOutput) Limit() GetSchemasLimitPtrOutput {
 	return o.ApplyT(func(v GetSchemasResult) *GetSchemasLimit { return v.Limit }).(GetSchemasLimitPtrOutput)
 }

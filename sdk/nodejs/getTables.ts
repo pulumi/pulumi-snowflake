@@ -9,25 +9,17 @@ import * as utilities from "./utilities";
 /**
  * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getTables({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
  */
-export function getTables(args: GetTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetTablesResult> {
+export function getTables(args?: GetTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetTablesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("snowflake:index/getTables:getTables", {
-        "database": args.database,
-        "schema": args.schema,
+        "in": args.in,
+        "like": args.like,
+        "limit": args.limit,
+        "startsWith": args.startsWith,
+        "withDescribe": args.withDescribe,
     }, opts);
 }
 
@@ -36,13 +28,25 @@ export function getTables(args: GetTablesArgs, opts?: pulumi.InvokeOptions): Pro
  */
 export interface GetTablesArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of objects
      */
-    database: string;
+    in?: inputs.GetTablesIn;
     /**
-     * The schema from which to return the tables from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: string;
+    like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: inputs.GetTablesLimit;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
+    startsWith?: string;
+    /**
+     * (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
+     */
+    withDescribe?: boolean;
 }
 
 /**
@@ -50,44 +54,48 @@ export interface GetTablesArgs {
  */
 export interface GetTablesResult {
     /**
-     * The database from which to return the schemas from.
-     */
-    readonly database: string;
-    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     /**
-     * The schema from which to return the tables from.
+     * IN clause to filter the list of objects
      */
-    readonly schema: string;
+    readonly in?: outputs.GetTablesIn;
     /**
-     * The tables in the schema
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     */
+    readonly like?: string;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    readonly limit?: outputs.GetTablesLimit;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
+    readonly startsWith?: string;
+    /**
+     * Holds the aggregated output of all tables details queries.
      */
     readonly tables: outputs.GetTablesTable[];
+    /**
+     * (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
+     */
+    readonly withDescribe?: boolean;
 }
 /**
  * !> **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `previewFeaturesEnabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as snowflake from "@pulumi/snowflake";
- *
- * const current = snowflake.getTables({
- *     database: "MYDB",
- *     schema: "MYSCHEMA",
- * });
- * ```
- *
- * > **Note** If a field has a default value, it is shown next to the type in the schema.
+ * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
  */
-export function getTablesOutput(args: GetTablesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTablesResult> {
+export function getTablesOutput(args?: GetTablesOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetTablesResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("snowflake:index/getTables:getTables", {
-        "database": args.database,
-        "schema": args.schema,
+        "in": args.in,
+        "like": args.like,
+        "limit": args.limit,
+        "startsWith": args.startsWith,
+        "withDescribe": args.withDescribe,
     }, opts);
 }
 
@@ -96,11 +104,23 @@ export function getTablesOutput(args: GetTablesOutputArgs, opts?: pulumi.InvokeO
  */
 export interface GetTablesOutputArgs {
     /**
-     * The database from which to return the schemas from.
+     * IN clause to filter the list of objects
      */
-    database: pulumi.Input<string>;
+    in?: pulumi.Input<inputs.GetTablesInArgs>;
     /**
-     * The schema from which to return the tables from.
+     * Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
      */
-    schema: pulumi.Input<string>;
+    like?: pulumi.Input<string>;
+    /**
+     * Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+     */
+    limit?: pulumi.Input<inputs.GetTablesLimitArgs>;
+    /**
+     * Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     */
+    startsWith?: pulumi.Input<string>;
+    /**
+     * (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
+     */
+    withDescribe?: pulumi.Input<boolean>;
 }

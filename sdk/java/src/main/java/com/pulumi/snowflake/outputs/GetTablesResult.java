@@ -5,42 +5,55 @@ package com.pulumi.snowflake.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import com.pulumi.snowflake.outputs.GetTablesIn;
+import com.pulumi.snowflake.outputs.GetTablesLimit;
 import com.pulumi.snowflake.outputs.GetTablesTable;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTablesResult {
-    /**
-     * @return The database from which to return the schemas from.
-     * 
-     */
-    private String database;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
     /**
-     * @return The schema from which to return the tables from.
+     * @return IN clause to filter the list of objects
      * 
      */
-    private String schema;
+    private @Nullable GetTablesIn in;
     /**
-     * @return The tables in the schema
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    private @Nullable String like;
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    private @Nullable GetTablesLimit limit;
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    private @Nullable String startsWith;
+    /**
+     * @return Holds the aggregated output of all tables details queries.
      * 
      */
     private List<GetTablesTable> tables;
-
-    private GetTablesResult() {}
     /**
-     * @return The database from which to return the schemas from.
+     * @return (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
      * 
      */
-    public String database() {
-        return this.database;
-    }
+    private @Nullable Boolean withDescribe;
+
+    private GetTablesResult() {}
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -49,18 +62,46 @@ public final class GetTablesResult {
         return this.id;
     }
     /**
-     * @return The schema from which to return the tables from.
+     * @return IN clause to filter the list of objects
      * 
      */
-    public String schema() {
-        return this.schema;
+    public Optional<GetTablesIn> in() {
+        return Optional.ofNullable(this.in);
     }
     /**
-     * @return The tables in the schema
+     * @return Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
+     * 
+     */
+    public Optional<String> like() {
+        return Optional.ofNullable(this.like);
+    }
+    /**
+     * @return Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `starts_with` or `like`.
+     * 
+     */
+    public Optional<GetTablesLimit> limit() {
+        return Optional.ofNullable(this.limit);
+    }
+    /**
+     * @return Filters the output with **case-sensitive** characters indicating the beginning of the object name.
+     * 
+     */
+    public Optional<String> startsWith() {
+        return Optional.ofNullable(this.startsWith);
+    }
+    /**
+     * @return Holds the aggregated output of all tables details queries.
      * 
      */
     public List<GetTablesTable> tables() {
         return this.tables;
+    }
+    /**
+     * @return (Default: `true`) Runs DESC TABLE for each table returned by SHOW TABLES. The output of describe is saved to the description field. By default this value is set to true.
+     * 
+     */
+    public Optional<Boolean> withDescribe() {
+        return Optional.ofNullable(this.withDescribe);
     }
 
     public static Builder builder() {
@@ -72,27 +113,25 @@ public final class GetTablesResult {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String database;
         private String id;
-        private String schema;
+        private @Nullable GetTablesIn in;
+        private @Nullable String like;
+        private @Nullable GetTablesLimit limit;
+        private @Nullable String startsWith;
         private List<GetTablesTable> tables;
+        private @Nullable Boolean withDescribe;
         public Builder() {}
         public Builder(GetTablesResult defaults) {
     	      Objects.requireNonNull(defaults);
-    	      this.database = defaults.database;
     	      this.id = defaults.id;
-    	      this.schema = defaults.schema;
+    	      this.in = defaults.in;
+    	      this.like = defaults.like;
+    	      this.limit = defaults.limit;
+    	      this.startsWith = defaults.startsWith;
     	      this.tables = defaults.tables;
+    	      this.withDescribe = defaults.withDescribe;
         }
 
-        @CustomType.Setter
-        public Builder database(String database) {
-            if (database == null) {
-              throw new MissingRequiredPropertyException("GetTablesResult", "database");
-            }
-            this.database = database;
-            return this;
-        }
         @CustomType.Setter
         public Builder id(String id) {
             if (id == null) {
@@ -102,11 +141,27 @@ public final class GetTablesResult {
             return this;
         }
         @CustomType.Setter
-        public Builder schema(String schema) {
-            if (schema == null) {
-              throw new MissingRequiredPropertyException("GetTablesResult", "schema");
-            }
-            this.schema = schema;
+        public Builder in(@Nullable GetTablesIn in) {
+
+            this.in = in;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder like(@Nullable String like) {
+
+            this.like = like;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder limit(@Nullable GetTablesLimit limit) {
+
+            this.limit = limit;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder startsWith(@Nullable String startsWith) {
+
+            this.startsWith = startsWith;
             return this;
         }
         @CustomType.Setter
@@ -120,12 +175,21 @@ public final class GetTablesResult {
         public Builder tables(GetTablesTable... tables) {
             return tables(List.of(tables));
         }
+        @CustomType.Setter
+        public Builder withDescribe(@Nullable Boolean withDescribe) {
+
+            this.withDescribe = withDescribe;
+            return this;
+        }
         public GetTablesResult build() {
             final var _resultValue = new GetTablesResult();
-            _resultValue.database = database;
             _resultValue.id = id;
-            _resultValue.schema = schema;
+            _resultValue.in = in;
+            _resultValue.like = like;
+            _resultValue.limit = limit;
+            _resultValue.startsWith = startsWith;
             _resultValue.tables = tables;
+            _resultValue.withDescribe = withDescribe;
             return _resultValue;
         }
     }

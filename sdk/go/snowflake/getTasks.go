@@ -30,7 +30,7 @@ type GetTasksArgs struct {
 	In *GetTasksIn `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit *GetTasksLimit `pulumi:"limit"`
 	// Filters the command output to return only root tasks (tasks with no predecessors).
 	RootOnly *bool `pulumi:"rootOnly"`
@@ -48,7 +48,7 @@ type GetTasksResult struct {
 	In *GetTasksIn `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit *GetTasksLimit `pulumi:"limit"`
 	// Filters the command output to return only root tasks (tasks with no predecessors).
 	RootOnly *bool `pulumi:"rootOnly"`
@@ -75,7 +75,7 @@ type GetTasksOutputArgs struct {
 	In GetTasksInPtrInput `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like pulumi.StringPtrInput `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit GetTasksLimitPtrInput `pulumi:"limit"`
 	// Filters the command output to return only root tasks (tasks with no predecessors).
 	RootOnly pulumi.BoolPtrInput `pulumi:"rootOnly"`
@@ -119,7 +119,7 @@ func (o GetTasksResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetTasksResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 func (o GetTasksResultOutput) Limit() GetTasksLimitPtrOutput {
 	return o.ApplyT(func(v GetTasksResult) *GetTasksLimit { return v.Limit }).(GetTasksLimitPtrOutput)
 }

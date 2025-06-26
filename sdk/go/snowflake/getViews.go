@@ -30,7 +30,7 @@ type GetViewsArgs struct {
 	In *GetViewsIn `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit *GetViewsLimit `pulumi:"limit"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith *string `pulumi:"startsWith"`
@@ -46,7 +46,7 @@ type GetViewsResult struct {
 	In *GetViewsIn `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit *GetViewsLimit `pulumi:"limit"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith *string `pulumi:"startsWith"`
@@ -71,7 +71,7 @@ type GetViewsOutputArgs struct {
 	In GetViewsInPtrInput `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like pulumi.StringPtrInput `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit GetViewsLimitPtrInput `pulumi:"limit"`
 	// Filters the output with **case-sensitive** characters indicating the beginning of the object name.
 	StartsWith pulumi.StringPtrInput `pulumi:"startsWith"`
@@ -113,7 +113,7 @@ func (o GetViewsResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetViewsResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 func (o GetViewsResultOutput) Limit() GetViewsLimitPtrOutput {
 	return o.ApplyT(func(v GetViewsResult) *GetViewsLimit { return v.Limit }).(GetViewsLimitPtrOutput)
 }

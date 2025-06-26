@@ -16,6 +16,8 @@ import com.pulumi.snowflake.inputs.GetAccountsArgs;
 import com.pulumi.snowflake.inputs.GetAccountsPlainArgs;
 import com.pulumi.snowflake.inputs.GetAlertsArgs;
 import com.pulumi.snowflake.inputs.GetAlertsPlainArgs;
+import com.pulumi.snowflake.inputs.GetComputePoolsArgs;
+import com.pulumi.snowflake.inputs.GetComputePoolsPlainArgs;
 import com.pulumi.snowflake.inputs.GetConnectionsArgs;
 import com.pulumi.snowflake.inputs.GetConnectionsPlainArgs;
 import com.pulumi.snowflake.inputs.GetCortexSearchServicesArgs;
@@ -40,8 +42,12 @@ import com.pulumi.snowflake.inputs.GetFileFormatsArgs;
 import com.pulumi.snowflake.inputs.GetFileFormatsPlainArgs;
 import com.pulumi.snowflake.inputs.GetFunctionsArgs;
 import com.pulumi.snowflake.inputs.GetFunctionsPlainArgs;
+import com.pulumi.snowflake.inputs.GetGitRepositoriesArgs;
+import com.pulumi.snowflake.inputs.GetGitRepositoriesPlainArgs;
 import com.pulumi.snowflake.inputs.GetGrantsArgs;
 import com.pulumi.snowflake.inputs.GetGrantsPlainArgs;
+import com.pulumi.snowflake.inputs.GetImageRepositoriesArgs;
+import com.pulumi.snowflake.inputs.GetImageRepositoriesPlainArgs;
 import com.pulumi.snowflake.inputs.GetMaskingPoliciesArgs;
 import com.pulumi.snowflake.inputs.GetMaskingPoliciesPlainArgs;
 import com.pulumi.snowflake.inputs.GetMaterializedViewsArgs;
@@ -66,6 +72,8 @@ import com.pulumi.snowflake.inputs.GetSecurityIntegrationsArgs;
 import com.pulumi.snowflake.inputs.GetSecurityIntegrationsPlainArgs;
 import com.pulumi.snowflake.inputs.GetSequencesArgs;
 import com.pulumi.snowflake.inputs.GetSequencesPlainArgs;
+import com.pulumi.snowflake.inputs.GetServicesArgs;
+import com.pulumi.snowflake.inputs.GetServicesPlainArgs;
 import com.pulumi.snowflake.inputs.GetSharesArgs;
 import com.pulumi.snowflake.inputs.GetSharesPlainArgs;
 import com.pulumi.snowflake.inputs.GetStagesArgs;
@@ -93,6 +101,7 @@ import com.pulumi.snowflake.inputs.GetWarehousesPlainArgs;
 import com.pulumi.snowflake.outputs.GetAccountRolesResult;
 import com.pulumi.snowflake.outputs.GetAccountsResult;
 import com.pulumi.snowflake.outputs.GetAlertsResult;
+import com.pulumi.snowflake.outputs.GetComputePoolsResult;
 import com.pulumi.snowflake.outputs.GetConnectionsResult;
 import com.pulumi.snowflake.outputs.GetCortexSearchServicesResult;
 import com.pulumi.snowflake.outputs.GetCurrentAccountResult;
@@ -107,7 +116,9 @@ import com.pulumi.snowflake.outputs.GetExternalTablesResult;
 import com.pulumi.snowflake.outputs.GetFailoverGroupsResult;
 import com.pulumi.snowflake.outputs.GetFileFormatsResult;
 import com.pulumi.snowflake.outputs.GetFunctionsResult;
+import com.pulumi.snowflake.outputs.GetGitRepositoriesResult;
 import com.pulumi.snowflake.outputs.GetGrantsResult;
+import com.pulumi.snowflake.outputs.GetImageRepositoriesResult;
 import com.pulumi.snowflake.outputs.GetMaskingPoliciesResult;
 import com.pulumi.snowflake.outputs.GetMaterializedViewsResult;
 import com.pulumi.snowflake.outputs.GetNetworkPoliciesResult;
@@ -120,6 +131,7 @@ import com.pulumi.snowflake.outputs.GetSchemasResult;
 import com.pulumi.snowflake.outputs.GetSecretsResult;
 import com.pulumi.snowflake.outputs.GetSecurityIntegrationsResult;
 import com.pulumi.snowflake.outputs.GetSequencesResult;
+import com.pulumi.snowflake.outputs.GetServicesResult;
 import com.pulumi.snowflake.outputs.GetSharesResult;
 import com.pulumi.snowflake.outputs.GetStagesResult;
 import com.pulumi.snowflake.outputs.GetStorageIntegrationsResult;
@@ -550,6 +562,69 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetAlertsResult> getAlertsPlain(GetAlertsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getAlerts:getAlerts", TypeShape.of(GetAlertsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `compute_pools`.
+     * 
+     */
+    public static Output<GetComputePoolsResult> getComputePools() {
+        return getComputePools(GetComputePoolsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `compute_pools`.
+     * 
+     */
+    public static CompletableFuture<GetComputePoolsResult> getComputePoolsPlain() {
+        return getComputePoolsPlain(GetComputePoolsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `compute_pools`.
+     * 
+     */
+    public static Output<GetComputePoolsResult> getComputePools(GetComputePoolsArgs args) {
+        return getComputePools(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `compute_pools`.
+     * 
+     */
+    public static CompletableFuture<GetComputePoolsResult> getComputePoolsPlain(GetComputePoolsPlainArgs args) {
+        return getComputePoolsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `compute_pools`.
+     * 
+     */
+    public static Output<GetComputePoolsResult> getComputePools(GetComputePoolsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getComputePools:getComputePools", TypeShape.of(GetComputePoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `compute_pools`.
+     * 
+     */
+    public static Output<GetComputePoolsResult> getComputePools(GetComputePoolsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getComputePools:getComputePools", TypeShape.of(GetComputePoolsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered compute pools. Filtering is aligned with the current possibilities for [SHOW COMPUTE POOLS](https://docs.snowflake.com/en/sql-reference/sql/show-compute-pools) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `compute_pools`.
+     * 
+     */
+    public static CompletableFuture<GetComputePoolsResult> getComputePoolsPlain(GetComputePoolsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getComputePools:getComputePools", TypeShape.of(GetComputePoolsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source used to get details of filtered connections. Filtering is aligned with the current possibilities for [SHOW CONNECTIONS](https://docs.snowflake.com/en/sql-reference/sql/show-connections) query. The results of SHOW is encapsulated in one output collection `connections`.
@@ -3121,6 +3196,69 @@ public final class SnowflakeFunctions {
         return Deployment.getInstance().invokeAsync("snowflake:index/getFunctions:getFunctions", TypeShape.of(GetFunctionsResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered git repositories. Filtering is aligned with the current possibilities for [SHOW GIT REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-git-repositories) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `git_repositories`.
+     * 
+     */
+    public static Output<GetGitRepositoriesResult> getGitRepositories() {
+        return getGitRepositories(GetGitRepositoriesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered git repositories. Filtering is aligned with the current possibilities for [SHOW GIT REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-git-repositories) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `git_repositories`.
+     * 
+     */
+    public static CompletableFuture<GetGitRepositoriesResult> getGitRepositoriesPlain() {
+        return getGitRepositoriesPlain(GetGitRepositoriesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered git repositories. Filtering is aligned with the current possibilities for [SHOW GIT REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-git-repositories) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `git_repositories`.
+     * 
+     */
+    public static Output<GetGitRepositoriesResult> getGitRepositories(GetGitRepositoriesArgs args) {
+        return getGitRepositories(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered git repositories. Filtering is aligned with the current possibilities for [SHOW GIT REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-git-repositories) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `git_repositories`.
+     * 
+     */
+    public static CompletableFuture<GetGitRepositoriesResult> getGitRepositoriesPlain(GetGitRepositoriesPlainArgs args) {
+        return getGitRepositoriesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered git repositories. Filtering is aligned with the current possibilities for [SHOW GIT REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-git-repositories) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `git_repositories`.
+     * 
+     */
+    public static Output<GetGitRepositoriesResult> getGitRepositories(GetGitRepositoriesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getGitRepositories:getGitRepositories", TypeShape.of(GetGitRepositoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered git repositories. Filtering is aligned with the current possibilities for [SHOW GIT REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-git-repositories) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `git_repositories`.
+     * 
+     */
+    public static Output<GetGitRepositoriesResult> getGitRepositories(GetGitRepositoriesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getGitRepositories:getGitRepositories", TypeShape.of(GetGitRepositoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered git repositories. Filtering is aligned with the current possibilities for [SHOW GIT REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-git-repositories) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `git_repositories`.
+     * 
+     */
+    public static CompletableFuture<GetGitRepositoriesResult> getGitRepositoriesPlain(GetGitRepositoriesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getGitRepositories:getGitRepositories", TypeShape.of(GetGitRepositoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -4365,6 +4503,69 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetGrantsResult> getGrantsPlain(GetGrantsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getGrants:getGrants", TypeShape.of(GetGrantsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered image repositories. Filtering is aligned with the current possibilities for [SHOW IMAGE REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-image-repositories) query. The results of SHOW are encapsulated in one output collection `image_repositories`.
+     * 
+     */
+    public static Output<GetImageRepositoriesResult> getImageRepositories() {
+        return getImageRepositories(GetImageRepositoriesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered image repositories. Filtering is aligned with the current possibilities for [SHOW IMAGE REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-image-repositories) query. The results of SHOW are encapsulated in one output collection `image_repositories`.
+     * 
+     */
+    public static CompletableFuture<GetImageRepositoriesResult> getImageRepositoriesPlain() {
+        return getImageRepositoriesPlain(GetImageRepositoriesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered image repositories. Filtering is aligned with the current possibilities for [SHOW IMAGE REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-image-repositories) query. The results of SHOW are encapsulated in one output collection `image_repositories`.
+     * 
+     */
+    public static Output<GetImageRepositoriesResult> getImageRepositories(GetImageRepositoriesArgs args) {
+        return getImageRepositories(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered image repositories. Filtering is aligned with the current possibilities for [SHOW IMAGE REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-image-repositories) query. The results of SHOW are encapsulated in one output collection `image_repositories`.
+     * 
+     */
+    public static CompletableFuture<GetImageRepositoriesResult> getImageRepositoriesPlain(GetImageRepositoriesPlainArgs args) {
+        return getImageRepositoriesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered image repositories. Filtering is aligned with the current possibilities for [SHOW IMAGE REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-image-repositories) query. The results of SHOW are encapsulated in one output collection `image_repositories`.
+     * 
+     */
+    public static Output<GetImageRepositoriesResult> getImageRepositories(GetImageRepositoriesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getImageRepositories:getImageRepositories", TypeShape.of(GetImageRepositoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered image repositories. Filtering is aligned with the current possibilities for [SHOW IMAGE REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-image-repositories) query. The results of SHOW are encapsulated in one output collection `image_repositories`.
+     * 
+     */
+    public static Output<GetImageRepositoriesResult> getImageRepositories(GetImageRepositoriesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getImageRepositories:getImageRepositories", TypeShape.of(GetImageRepositoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered image repositories. Filtering is aligned with the current possibilities for [SHOW IMAGE REPOSITORIES](https://docs.snowflake.com/en/sql-reference/sql/show-image-repositories) query. The results of SHOW are encapsulated in one output collection `image_repositories`.
+     * 
+     */
+    public static CompletableFuture<GetImageRepositoriesResult> getImageRepositoriesPlain(GetImageRepositoriesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getImageRepositories:getImageRepositories", TypeShape.of(GetImageRepositoriesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * !&gt; **Sensitive values** This data source&#39;s `describe_output.body` field is not marked as sensitive in the provider. Ensure that no personal data, sensitive data, export-controlled data, or other regulated data is entered as metadata when using the provider. If you use one of these fields, they may be present in logs, so ensure that the provider logs are properly restricted. For more information, see Sensitive values limitations and [Metadata fields in Snowflake](https://docs.snowflake.com/en/sql-reference/metadata).
@@ -6578,6 +6779,69 @@ public final class SnowflakeFunctions {
     /**
      * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
+     * Data source used to get details of filtered services. Filtering is aligned with the current possibilities for [SHOW SERVICES](https://docs.snowflake.com/en/sql-reference/sql/show-services) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `services`. By default, the results includes both services and job services. If you want to filter only services or job service, set `service_type` with a relevant option.
+     * 
+     */
+    public static Output<GetServicesResult> getServices() {
+        return getServices(GetServicesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered services. Filtering is aligned with the current possibilities for [SHOW SERVICES](https://docs.snowflake.com/en/sql-reference/sql/show-services) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `services`. By default, the results includes both services and job services. If you want to filter only services or job service, set `service_type` with a relevant option.
+     * 
+     */
+    public static CompletableFuture<GetServicesResult> getServicesPlain() {
+        return getServicesPlain(GetServicesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered services. Filtering is aligned with the current possibilities for [SHOW SERVICES](https://docs.snowflake.com/en/sql-reference/sql/show-services) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `services`. By default, the results includes both services and job services. If you want to filter only services or job service, set `service_type` with a relevant option.
+     * 
+     */
+    public static Output<GetServicesResult> getServices(GetServicesArgs args) {
+        return getServices(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered services. Filtering is aligned with the current possibilities for [SHOW SERVICES](https://docs.snowflake.com/en/sql-reference/sql/show-services) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `services`. By default, the results includes both services and job services. If you want to filter only services or job service, set `service_type` with a relevant option.
+     * 
+     */
+    public static CompletableFuture<GetServicesResult> getServicesPlain(GetServicesPlainArgs args) {
+        return getServicesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered services. Filtering is aligned with the current possibilities for [SHOW SERVICES](https://docs.snowflake.com/en/sql-reference/sql/show-services) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `services`. By default, the results includes both services and job services. If you want to filter only services or job service, set `service_type` with a relevant option.
+     * 
+     */
+    public static Output<GetServicesResult> getServices(GetServicesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getServices:getServices", TypeShape.of(GetServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered services. Filtering is aligned with the current possibilities for [SHOW SERVICES](https://docs.snowflake.com/en/sql-reference/sql/show-services) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `services`. By default, the results includes both services and job services. If you want to filter only services or job service, set `service_type` with a relevant option.
+     * 
+     */
+    public static Output<GetServicesResult> getServices(GetServicesArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getServices:getServices", TypeShape.of(GetServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered services. Filtering is aligned with the current possibilities for [SHOW SERVICES](https://docs.snowflake.com/en/sql-reference/sql/show-services) query. The results of SHOW and DESCRIBE are encapsulated in one output collection `services`. By default, the results includes both services and job services. If you want to filter only services or job service, set `service_type` with a relevant option.
+     * 
+     */
+    public static CompletableFuture<GetServicesResult> getServicesPlain(GetServicesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getServices:getServices", TypeShape.of(GetServicesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
@@ -8682,40 +8946,43 @@ public final class SnowflakeFunctions {
     /**
      * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
+     * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
      * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
+     */
+    public static Output<GetTablesResult> getTables() {
+        return getTables(GetTablesArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getTables(GetTablesArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
+     * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
      * 
-     *     }
-     * }
-     * }
-     * </pre>
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
+     * 
+     */
+    public static CompletableFuture<GetTablesResult> getTablesPlain() {
+        return getTablesPlain(GetTablesPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
+     * 
+     * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
@@ -8727,40 +8994,11 @@ public final class SnowflakeFunctions {
     /**
      * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
+     * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getTables(GetTablesArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
@@ -8772,40 +9010,11 @@ public final class SnowflakeFunctions {
     /**
      * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
+     * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getTables(GetTablesArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
@@ -8817,40 +9026,11 @@ public final class SnowflakeFunctions {
     /**
      * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
+     * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getTables(GetTablesArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.
@@ -8862,40 +9042,11 @@ public final class SnowflakeFunctions {
     /**
      * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
      * 
+     * Datasource used to get details of filtered tables. Filtering is aligned with the current possibilities for [SHOW TABLES](https://docs.snowflake.com/en/sql-reference/sql/show-tables) query. The results of SHOW and DESCRIBE (COLUMNS) are encapsulated in one output collection `tables`.
+     * 
      * ## Example Usage
      * 
      * &lt;!--Start PulumiCodeChooser --&gt;
-     * <pre>
-     * {@code
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import com.pulumi.snowflake.SnowflakeFunctions;
-     * import com.pulumi.snowflake.inputs.GetTablesArgs;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *         final var current = SnowflakeFunctions.getTables(GetTablesArgs.builder()
-     *             .database("MYDB")
-     *             .schema("MYSCHEMA")
-     *             .build());
-     * 
-     *     }
-     * }
-     * }
-     * </pre>
      * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &gt; **Note** If a field has a default value, it is shown next to the type in the schema.

@@ -106,6 +106,12 @@ __all__ = [
     'AuthenticationPolicyDescribeOutputArgsDict',
     'AuthenticationPolicyShowOutputArgs',
     'AuthenticationPolicyShowOutputArgsDict',
+    'ComputePoolDescribeOutputArgs',
+    'ComputePoolDescribeOutputArgsDict',
+    'ComputePoolShowOutputArgs',
+    'ComputePoolShowOutputArgsDict',
+    'CortexSearchServiceDescribeOutputArgs',
+    'CortexSearchServiceDescribeOutputArgsDict',
     'DatabaseReplicationArgs',
     'DatabaseReplicationArgsDict',
     'DatabaseReplicationEnableToAccountArgs',
@@ -254,6 +260,10 @@ __all__ = [
     'FunctionSqlParameterTraceLevelArgsDict',
     'FunctionSqlShowOutputArgs',
     'FunctionSqlShowOutputArgsDict',
+    'GitRepositoryDescribeOutputArgs',
+    'GitRepositoryDescribeOutputArgsDict',
+    'GitRepositoryShowOutputArgs',
+    'GitRepositoryShowOutputArgsDict',
     'GrantOwnershipOnArgs',
     'GrantOwnershipOnArgsDict',
     'GrantOwnershipOnAllArgs',
@@ -278,6 +288,18 @@ __all__ = [
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectAllArgsDict',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs',
     'GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgsDict',
+    'ImageRepositoryShowOutputArgs',
+    'ImageRepositoryShowOutputArgsDict',
+    'JobServiceDescribeOutputArgs',
+    'JobServiceDescribeOutputArgsDict',
+    'JobServiceFromSpecificationArgs',
+    'JobServiceFromSpecificationArgsDict',
+    'JobServiceFromSpecificationTemplateArgs',
+    'JobServiceFromSpecificationTemplateArgsDict',
+    'JobServiceFromSpecificationTemplateUsingArgs',
+    'JobServiceFromSpecificationTemplateUsingArgsDict',
+    'JobServiceShowOutputArgs',
+    'JobServiceShowOutputArgsDict',
     'LegacyServiceUserParameterArgs',
     'LegacyServiceUserParameterArgsDict',
     'LegacyServiceUserParameterAbortDetachedQueryArgs',
@@ -708,6 +730,16 @@ __all__ = [
     'SecretWithGenericStringDescribeOutputArgsDict',
     'SecretWithGenericStringShowOutputArgs',
     'SecretWithGenericStringShowOutputArgsDict',
+    'ServiceDescribeOutputArgs',
+    'ServiceDescribeOutputArgsDict',
+    'ServiceFromSpecificationArgs',
+    'ServiceFromSpecificationArgsDict',
+    'ServiceFromSpecificationTemplateArgs',
+    'ServiceFromSpecificationTemplateArgsDict',
+    'ServiceFromSpecificationTemplateUsingArgs',
+    'ServiceFromSpecificationTemplateUsingArgsDict',
+    'ServiceShowOutputArgs',
+    'ServiceShowOutputArgsDict',
     'ServiceUserParameterArgs',
     'ServiceUserParameterArgsDict',
     'ServiceUserParameterAbortDetachedQueryArgs',
@@ -1150,6 +1182,8 @@ __all__ = [
     'WarehouseParameterStatementTimeoutInSecondArgsDict',
     'WarehouseShowOutputArgs',
     'WarehouseShowOutputArgsDict',
+    'GetComputePoolsLimitArgs',
+    'GetComputePoolsLimitArgsDict',
     'GetCortexSearchServicesInArgs',
     'GetCortexSearchServicesInArgsDict',
     'GetCortexSearchServicesLimitArgs',
@@ -1164,6 +1198,10 @@ __all__ = [
     'GetDynamicTablesLikeArgsDict',
     'GetDynamicTablesLimitArgs',
     'GetDynamicTablesLimitArgsDict',
+    'GetGitRepositoriesInArgs',
+    'GetGitRepositoriesInArgsDict',
+    'GetGitRepositoriesLimitArgs',
+    'GetGitRepositoriesLimitArgsDict',
     'GetGrantsFutureGrantsInArgs',
     'GetGrantsFutureGrantsInArgsDict',
     'GetGrantsFutureGrantsToArgs',
@@ -1176,6 +1214,8 @@ __all__ = [
     'GetGrantsGrantsToArgsDict',
     'GetGrantsGrantsToShareArgs',
     'GetGrantsGrantsToShareArgsDict',
+    'GetImageRepositoriesInArgs',
+    'GetImageRepositoriesInArgsDict',
     'GetMaskingPoliciesInArgs',
     'GetMaskingPoliciesInArgsDict',
     'GetMaskingPoliciesLimitArgs',
@@ -1190,6 +1230,10 @@ __all__ = [
     'GetSchemasLimitArgsDict',
     'GetSecretsInArgs',
     'GetSecretsInArgsDict',
+    'GetServicesInArgs',
+    'GetServicesInArgsDict',
+    'GetServicesLimitArgs',
+    'GetServicesLimitArgsDict',
     'GetStreamlitsInArgs',
     'GetStreamlitsInArgsDict',
     'GetStreamlitsLimitArgs',
@@ -1198,6 +1242,10 @@ __all__ = [
     'GetStreamsInArgsDict',
     'GetStreamsLimitArgs',
     'GetStreamsLimitArgsDict',
+    'GetTablesInArgs',
+    'GetTablesInArgsDict',
+    'GetTablesLimitArgs',
+    'GetTablesLimitArgsDict',
     'GetTagsInArgs',
     'GetTagsInArgsDict',
     'GetTasksInArgs',
@@ -4838,6 +4886,777 @@ class AuthenticationPolicyShowOutputArgs:
     @schema_name.setter
     def schema_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "schema_name", value)
+
+
+if not MYPY:
+    class ComputePoolDescribeOutputArgsDict(TypedDict):
+        active_nodes: NotRequired[pulumi.Input[builtins.int]]
+        application: NotRequired[pulumi.Input[builtins.str]]
+        auto_resume: NotRequired[pulumi.Input[builtins.bool]]
+        auto_suspend_secs: NotRequired[pulumi.Input[builtins.int]]
+        comment: NotRequired[pulumi.Input[builtins.str]]
+        created_on: NotRequired[pulumi.Input[builtins.str]]
+        error_code: NotRequired[pulumi.Input[builtins.str]]
+        idle_nodes: NotRequired[pulumi.Input[builtins.int]]
+        instance_family: NotRequired[pulumi.Input[builtins.str]]
+        is_exclusive: NotRequired[pulumi.Input[builtins.bool]]
+        max_nodes: NotRequired[pulumi.Input[builtins.int]]
+        min_nodes: NotRequired[pulumi.Input[builtins.int]]
+        name: NotRequired[pulumi.Input[builtins.str]]
+        num_jobs: NotRequired[pulumi.Input[builtins.int]]
+        num_services: NotRequired[pulumi.Input[builtins.int]]
+        owner: NotRequired[pulumi.Input[builtins.str]]
+        resumed_on: NotRequired[pulumi.Input[builtins.str]]
+        state: NotRequired[pulumi.Input[builtins.str]]
+        status_message: NotRequired[pulumi.Input[builtins.str]]
+        target_nodes: NotRequired[pulumi.Input[builtins.int]]
+        updated_on: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    ComputePoolDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ComputePoolDescribeOutputArgs:
+    def __init__(__self__, *,
+                 active_nodes: Optional[pulumi.Input[builtins.int]] = None,
+                 application: Optional[pulumi.Input[builtins.str]] = None,
+                 auto_resume: Optional[pulumi.Input[builtins.bool]] = None,
+                 auto_suspend_secs: Optional[pulumi.Input[builtins.int]] = None,
+                 comment: Optional[pulumi.Input[builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[builtins.str]] = None,
+                 error_code: Optional[pulumi.Input[builtins.str]] = None,
+                 idle_nodes: Optional[pulumi.Input[builtins.int]] = None,
+                 instance_family: Optional[pulumi.Input[builtins.str]] = None,
+                 is_exclusive: Optional[pulumi.Input[builtins.bool]] = None,
+                 max_nodes: Optional[pulumi.Input[builtins.int]] = None,
+                 min_nodes: Optional[pulumi.Input[builtins.int]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 num_jobs: Optional[pulumi.Input[builtins.int]] = None,
+                 num_services: Optional[pulumi.Input[builtins.int]] = None,
+                 owner: Optional[pulumi.Input[builtins.str]] = None,
+                 resumed_on: Optional[pulumi.Input[builtins.str]] = None,
+                 state: Optional[pulumi.Input[builtins.str]] = None,
+                 status_message: Optional[pulumi.Input[builtins.str]] = None,
+                 target_nodes: Optional[pulumi.Input[builtins.int]] = None,
+                 updated_on: Optional[pulumi.Input[builtins.str]] = None):
+        if active_nodes is not None:
+            pulumi.set(__self__, "active_nodes", active_nodes)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend_secs is not None:
+            pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if idle_nodes is not None:
+            pulumi.set(__self__, "idle_nodes", idle_nodes)
+        if instance_family is not None:
+            pulumi.set(__self__, "instance_family", instance_family)
+        if is_exclusive is not None:
+            pulumi.set(__self__, "is_exclusive", is_exclusive)
+        if max_nodes is not None:
+            pulumi.set(__self__, "max_nodes", max_nodes)
+        if min_nodes is not None:
+            pulumi.set(__self__, "min_nodes", min_nodes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if num_jobs is not None:
+            pulumi.set(__self__, "num_jobs", num_jobs)
+        if num_services is not None:
+            pulumi.set(__self__, "num_services", num_services)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if status_message is not None:
+            pulumi.set(__self__, "status_message", status_message)
+        if target_nodes is not None:
+            pulumi.set(__self__, "target_nodes", target_nodes)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="activeNodes")
+    def active_nodes(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "active_nodes")
+
+    @active_nodes.setter
+    def active_nodes(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "active_nodes", value)
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "application", value)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "auto_resume")
+
+    @auto_resume.setter
+    def auto_resume(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "auto_resume", value)
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @auto_suspend_secs.setter
+    def auto_suspend_secs(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "auto_suspend_secs", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "error_code")
+
+    @error_code.setter
+    def error_code(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "error_code", value)
+
+    @property
+    @pulumi.getter(name="idleNodes")
+    def idle_nodes(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "idle_nodes")
+
+    @idle_nodes.setter
+    def idle_nodes(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "idle_nodes", value)
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "instance_family")
+
+    @instance_family.setter
+    def instance_family(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_family", value)
+
+    @property
+    @pulumi.getter(name="isExclusive")
+    def is_exclusive(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_exclusive")
+
+    @is_exclusive.setter
+    def is_exclusive(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_exclusive", value)
+
+    @property
+    @pulumi.getter(name="maxNodes")
+    def max_nodes(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max_nodes")
+
+    @max_nodes.setter
+    def max_nodes(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_nodes", value)
+
+    @property
+    @pulumi.getter(name="minNodes")
+    def min_nodes(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min_nodes")
+
+    @min_nodes.setter
+    def min_nodes(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_nodes", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="numJobs")
+    def num_jobs(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "num_jobs")
+
+    @num_jobs.setter
+    def num_jobs(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "num_jobs", value)
+
+    @property
+    @pulumi.getter(name="numServices")
+    def num_services(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "num_services")
+
+    @num_services.setter
+    def num_services(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "num_services", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "resumed_on")
+
+    @resumed_on.setter
+    def resumed_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resumed_on", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="statusMessage")
+    def status_message(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "status_message")
+
+    @status_message.setter
+    def status_message(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "status_message", value)
+
+    @property
+    @pulumi.getter(name="targetNodes")
+    def target_nodes(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "target_nodes")
+
+    @target_nodes.setter
+    def target_nodes(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "target_nodes", value)
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "updated_on")
+
+    @updated_on.setter
+    def updated_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_on", value)
+
+
+if not MYPY:
+    class ComputePoolShowOutputArgsDict(TypedDict):
+        active_nodes: NotRequired[pulumi.Input[builtins.int]]
+        application: NotRequired[pulumi.Input[builtins.str]]
+        auto_resume: NotRequired[pulumi.Input[builtins.bool]]
+        auto_suspend_secs: NotRequired[pulumi.Input[builtins.int]]
+        comment: NotRequired[pulumi.Input[builtins.str]]
+        created_on: NotRequired[pulumi.Input[builtins.str]]
+        idle_nodes: NotRequired[pulumi.Input[builtins.int]]
+        instance_family: NotRequired[pulumi.Input[builtins.str]]
+        is_exclusive: NotRequired[pulumi.Input[builtins.bool]]
+        max_nodes: NotRequired[pulumi.Input[builtins.int]]
+        min_nodes: NotRequired[pulumi.Input[builtins.int]]
+        name: NotRequired[pulumi.Input[builtins.str]]
+        num_jobs: NotRequired[pulumi.Input[builtins.int]]
+        num_services: NotRequired[pulumi.Input[builtins.int]]
+        owner: NotRequired[pulumi.Input[builtins.str]]
+        resumed_on: NotRequired[pulumi.Input[builtins.str]]
+        state: NotRequired[pulumi.Input[builtins.str]]
+        target_nodes: NotRequired[pulumi.Input[builtins.int]]
+        updated_on: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    ComputePoolShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ComputePoolShowOutputArgs:
+    def __init__(__self__, *,
+                 active_nodes: Optional[pulumi.Input[builtins.int]] = None,
+                 application: Optional[pulumi.Input[builtins.str]] = None,
+                 auto_resume: Optional[pulumi.Input[builtins.bool]] = None,
+                 auto_suspend_secs: Optional[pulumi.Input[builtins.int]] = None,
+                 comment: Optional[pulumi.Input[builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[builtins.str]] = None,
+                 idle_nodes: Optional[pulumi.Input[builtins.int]] = None,
+                 instance_family: Optional[pulumi.Input[builtins.str]] = None,
+                 is_exclusive: Optional[pulumi.Input[builtins.bool]] = None,
+                 max_nodes: Optional[pulumi.Input[builtins.int]] = None,
+                 min_nodes: Optional[pulumi.Input[builtins.int]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 num_jobs: Optional[pulumi.Input[builtins.int]] = None,
+                 num_services: Optional[pulumi.Input[builtins.int]] = None,
+                 owner: Optional[pulumi.Input[builtins.str]] = None,
+                 resumed_on: Optional[pulumi.Input[builtins.str]] = None,
+                 state: Optional[pulumi.Input[builtins.str]] = None,
+                 target_nodes: Optional[pulumi.Input[builtins.int]] = None,
+                 updated_on: Optional[pulumi.Input[builtins.str]] = None):
+        if active_nodes is not None:
+            pulumi.set(__self__, "active_nodes", active_nodes)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend_secs is not None:
+            pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if idle_nodes is not None:
+            pulumi.set(__self__, "idle_nodes", idle_nodes)
+        if instance_family is not None:
+            pulumi.set(__self__, "instance_family", instance_family)
+        if is_exclusive is not None:
+            pulumi.set(__self__, "is_exclusive", is_exclusive)
+        if max_nodes is not None:
+            pulumi.set(__self__, "max_nodes", max_nodes)
+        if min_nodes is not None:
+            pulumi.set(__self__, "min_nodes", min_nodes)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if num_jobs is not None:
+            pulumi.set(__self__, "num_jobs", num_jobs)
+        if num_services is not None:
+            pulumi.set(__self__, "num_services", num_services)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if target_nodes is not None:
+            pulumi.set(__self__, "target_nodes", target_nodes)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="activeNodes")
+    def active_nodes(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "active_nodes")
+
+    @active_nodes.setter
+    def active_nodes(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "active_nodes", value)
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "application", value)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "auto_resume")
+
+    @auto_resume.setter
+    def auto_resume(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "auto_resume", value)
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @auto_suspend_secs.setter
+    def auto_suspend_secs(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "auto_suspend_secs", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="idleNodes")
+    def idle_nodes(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "idle_nodes")
+
+    @idle_nodes.setter
+    def idle_nodes(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "idle_nodes", value)
+
+    @property
+    @pulumi.getter(name="instanceFamily")
+    def instance_family(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "instance_family")
+
+    @instance_family.setter
+    def instance_family(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_family", value)
+
+    @property
+    @pulumi.getter(name="isExclusive")
+    def is_exclusive(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_exclusive")
+
+    @is_exclusive.setter
+    def is_exclusive(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_exclusive", value)
+
+    @property
+    @pulumi.getter(name="maxNodes")
+    def max_nodes(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max_nodes")
+
+    @max_nodes.setter
+    def max_nodes(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_nodes", value)
+
+    @property
+    @pulumi.getter(name="minNodes")
+    def min_nodes(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min_nodes")
+
+    @min_nodes.setter
+    def min_nodes(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_nodes", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="numJobs")
+    def num_jobs(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "num_jobs")
+
+    @num_jobs.setter
+    def num_jobs(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "num_jobs", value)
+
+    @property
+    @pulumi.getter(name="numServices")
+    def num_services(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "num_services")
+
+    @num_services.setter
+    def num_services(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "num_services", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "resumed_on")
+
+    @resumed_on.setter
+    def resumed_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resumed_on", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter(name="targetNodes")
+    def target_nodes(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "target_nodes")
+
+    @target_nodes.setter
+    def target_nodes(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "target_nodes", value)
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "updated_on")
+
+    @updated_on.setter
+    def updated_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_on", value)
+
+
+if not MYPY:
+    class CortexSearchServiceDescribeOutputArgsDict(TypedDict):
+        attribute_columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        comment: NotRequired[pulumi.Input[builtins.str]]
+        created_on: NotRequired[pulumi.Input[builtins.str]]
+        data_timestamp: NotRequired[pulumi.Input[builtins.str]]
+        database_name: NotRequired[pulumi.Input[builtins.str]]
+        definition: NotRequired[pulumi.Input[builtins.str]]
+        embedding_model: NotRequired[pulumi.Input[builtins.str]]
+        indexing_error: NotRequired[pulumi.Input[builtins.str]]
+        indexing_state: NotRequired[pulumi.Input[builtins.str]]
+        name: NotRequired[pulumi.Input[builtins.str]]
+        schema_name: NotRequired[pulumi.Input[builtins.str]]
+        search_column: NotRequired[pulumi.Input[builtins.str]]
+        service_query_url: NotRequired[pulumi.Input[builtins.str]]
+        source_data_num_rows: NotRequired[pulumi.Input[builtins.int]]
+        target_lag: NotRequired[pulumi.Input[builtins.str]]
+        warehouse: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    CortexSearchServiceDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CortexSearchServiceDescribeOutputArgs:
+    def __init__(__self__, *,
+                 attribute_columns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 columns: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 comment: Optional[pulumi.Input[builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[builtins.str]] = None,
+                 data_timestamp: Optional[pulumi.Input[builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[builtins.str]] = None,
+                 definition: Optional[pulumi.Input[builtins.str]] = None,
+                 embedding_model: Optional[pulumi.Input[builtins.str]] = None,
+                 indexing_error: Optional[pulumi.Input[builtins.str]] = None,
+                 indexing_state: Optional[pulumi.Input[builtins.str]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[builtins.str]] = None,
+                 search_column: Optional[pulumi.Input[builtins.str]] = None,
+                 service_query_url: Optional[pulumi.Input[builtins.str]] = None,
+                 source_data_num_rows: Optional[pulumi.Input[builtins.int]] = None,
+                 target_lag: Optional[pulumi.Input[builtins.str]] = None,
+                 warehouse: Optional[pulumi.Input[builtins.str]] = None):
+        if attribute_columns is not None:
+            pulumi.set(__self__, "attribute_columns", attribute_columns)
+        if columns is not None:
+            pulumi.set(__self__, "columns", columns)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if data_timestamp is not None:
+            pulumi.set(__self__, "data_timestamp", data_timestamp)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if definition is not None:
+            pulumi.set(__self__, "definition", definition)
+        if embedding_model is not None:
+            pulumi.set(__self__, "embedding_model", embedding_model)
+        if indexing_error is not None:
+            pulumi.set(__self__, "indexing_error", indexing_error)
+        if indexing_state is not None:
+            pulumi.set(__self__, "indexing_state", indexing_state)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if search_column is not None:
+            pulumi.set(__self__, "search_column", search_column)
+        if service_query_url is not None:
+            pulumi.set(__self__, "service_query_url", service_query_url)
+        if source_data_num_rows is not None:
+            pulumi.set(__self__, "source_data_num_rows", source_data_num_rows)
+        if target_lag is not None:
+            pulumi.set(__self__, "target_lag", target_lag)
+        if warehouse is not None:
+            pulumi.set(__self__, "warehouse", warehouse)
+
+    @property
+    @pulumi.getter(name="attributeColumns")
+    def attribute_columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "attribute_columns")
+
+    @attribute_columns.setter
+    def attribute_columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "attribute_columns", value)
+
+    @property
+    @pulumi.getter
+    def columns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "columns")
+
+    @columns.setter
+    def columns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "columns", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="dataTimestamp")
+    def data_timestamp(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "data_timestamp")
+
+    @data_timestamp.setter
+    def data_timestamp(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "data_timestamp", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def definition(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "definition", value)
+
+    @property
+    @pulumi.getter(name="embeddingModel")
+    def embedding_model(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "embedding_model")
+
+    @embedding_model.setter
+    def embedding_model(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "embedding_model", value)
+
+    @property
+    @pulumi.getter(name="indexingError")
+    def indexing_error(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "indexing_error")
+
+    @indexing_error.setter
+    def indexing_error(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "indexing_error", value)
+
+    @property
+    @pulumi.getter(name="indexingState")
+    def indexing_state(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "indexing_state")
+
+    @indexing_state.setter
+    def indexing_state(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "indexing_state", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @property
+    @pulumi.getter(name="searchColumn")
+    def search_column(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "search_column")
+
+    @search_column.setter
+    def search_column(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "search_column", value)
+
+    @property
+    @pulumi.getter(name="serviceQueryUrl")
+    def service_query_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "service_query_url")
+
+    @service_query_url.setter
+    def service_query_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "service_query_url", value)
+
+    @property
+    @pulumi.getter(name="sourceDataNumRows")
+    def source_data_num_rows(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "source_data_num_rows")
+
+    @source_data_num_rows.setter
+    def source_data_num_rows(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "source_data_num_rows", value)
+
+    @property
+    @pulumi.getter(name="targetLag")
+    def target_lag(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "target_lag")
+
+    @target_lag.setter
+    def target_lag(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "target_lag", value)
+
+    @property
+    @pulumi.getter
+    def warehouse(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "warehouse")
+
+    @warehouse.setter
+    def warehouse(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "warehouse", value)
 
 
 if not MYPY:
@@ -10888,6 +11707,312 @@ class FunctionSqlShowOutputArgs:
 
 
 if not MYPY:
+    class GitRepositoryDescribeOutputArgsDict(TypedDict):
+        api_integration: NotRequired[pulumi.Input[builtins.str]]
+        comment: NotRequired[pulumi.Input[builtins.str]]
+        created_on: NotRequired[pulumi.Input[builtins.str]]
+        database_name: NotRequired[pulumi.Input[builtins.str]]
+        git_credentials: NotRequired[pulumi.Input[builtins.str]]
+        last_fetched_at: NotRequired[pulumi.Input[builtins.str]]
+        name: NotRequired[pulumi.Input[builtins.str]]
+        origin: NotRequired[pulumi.Input[builtins.str]]
+        owner: NotRequired[pulumi.Input[builtins.str]]
+        owner_role_type: NotRequired[pulumi.Input[builtins.str]]
+        schema_name: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    GitRepositoryDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GitRepositoryDescribeOutputArgs:
+    def __init__(__self__, *,
+                 api_integration: Optional[pulumi.Input[builtins.str]] = None,
+                 comment: Optional[pulumi.Input[builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[builtins.str]] = None,
+                 git_credentials: Optional[pulumi.Input[builtins.str]] = None,
+                 last_fetched_at: Optional[pulumi.Input[builtins.str]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 origin: Optional[pulumi.Input[builtins.str]] = None,
+                 owner: Optional[pulumi.Input[builtins.str]] = None,
+                 owner_role_type: Optional[pulumi.Input[builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[builtins.str]] = None):
+        if api_integration is not None:
+            pulumi.set(__self__, "api_integration", api_integration)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if git_credentials is not None:
+            pulumi.set(__self__, "git_credentials", git_credentials)
+        if last_fetched_at is not None:
+            pulumi.set(__self__, "last_fetched_at", last_fetched_at)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="apiIntegration")
+    def api_integration(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "api_integration")
+
+    @api_integration.setter
+    def api_integration(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "api_integration", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="gitCredentials")
+    def git_credentials(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "git_credentials")
+
+    @git_credentials.setter
+    def git_credentials(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "git_credentials", value)
+
+    @property
+    @pulumi.getter(name="lastFetchedAt")
+    def last_fetched_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "last_fetched_at")
+
+    @last_fetched_at.setter
+    def last_fetched_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "last_fetched_at", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def origin(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "origin")
+
+    @origin.setter
+    def origin(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "origin", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+
+if not MYPY:
+    class GitRepositoryShowOutputArgsDict(TypedDict):
+        api_integration: NotRequired[pulumi.Input[builtins.str]]
+        comment: NotRequired[pulumi.Input[builtins.str]]
+        created_on: NotRequired[pulumi.Input[builtins.str]]
+        database_name: NotRequired[pulumi.Input[builtins.str]]
+        git_credentials: NotRequired[pulumi.Input[builtins.str]]
+        last_fetched_at: NotRequired[pulumi.Input[builtins.str]]
+        name: NotRequired[pulumi.Input[builtins.str]]
+        origin: NotRequired[pulumi.Input[builtins.str]]
+        owner: NotRequired[pulumi.Input[builtins.str]]
+        owner_role_type: NotRequired[pulumi.Input[builtins.str]]
+        schema_name: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    GitRepositoryShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GitRepositoryShowOutputArgs:
+    def __init__(__self__, *,
+                 api_integration: Optional[pulumi.Input[builtins.str]] = None,
+                 comment: Optional[pulumi.Input[builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[builtins.str]] = None,
+                 git_credentials: Optional[pulumi.Input[builtins.str]] = None,
+                 last_fetched_at: Optional[pulumi.Input[builtins.str]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 origin: Optional[pulumi.Input[builtins.str]] = None,
+                 owner: Optional[pulumi.Input[builtins.str]] = None,
+                 owner_role_type: Optional[pulumi.Input[builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[builtins.str]] = None):
+        if api_integration is not None:
+            pulumi.set(__self__, "api_integration", api_integration)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if git_credentials is not None:
+            pulumi.set(__self__, "git_credentials", git_credentials)
+        if last_fetched_at is not None:
+            pulumi.set(__self__, "last_fetched_at", last_fetched_at)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter(name="apiIntegration")
+    def api_integration(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "api_integration")
+
+    @api_integration.setter
+    def api_integration(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "api_integration", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="gitCredentials")
+    def git_credentials(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "git_credentials")
+
+    @git_credentials.setter
+    def git_credentials(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "git_credentials", value)
+
+    @property
+    @pulumi.getter(name="lastFetchedAt")
+    def last_fetched_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "last_fetched_at")
+
+    @last_fetched_at.setter
+    def last_fetched_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "last_fetched_at", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def origin(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "origin")
+
+    @origin.setter
+    def origin(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "origin", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+
+if not MYPY:
     class GrantOwnershipOnArgsDict(TypedDict):
         all: NotRequired[pulumi.Input['GrantOwnershipOnAllArgsDict']]
         """
@@ -11396,7 +12521,7 @@ if not MYPY:
     class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgsDict(TypedDict):
         object_type_plural: pulumi.Input[builtins.str]
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
         """
         in_database: NotRequired[pulumi.Input[builtins.str]]
         in_schema: NotRequired[pulumi.Input[builtins.str]]
@@ -11410,7 +12535,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
                  in_database: Optional[pulumi.Input[builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+        :param pulumi.Input[builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
         """
         pulumi.set(__self__, "object_type_plural", object_type_plural)
         if in_database is not None:
@@ -11422,7 +12547,7 @@ class GrantPrivilegesToAccountRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -11688,7 +12813,7 @@ if not MYPY:
     class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgsDict(TypedDict):
         object_type_plural: pulumi.Input[builtins.str]
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
         """
         in_database: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -11708,7 +12833,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
                  in_database: Optional[pulumi.Input[builtins.str]] = None,
                  in_schema: Optional[pulumi.Input[builtins.str]] = None):
         """
-        :param pulumi.Input[builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+        :param pulumi.Input[builtins.str] object_type_plural: The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
         :param pulumi.Input[builtins.str] in_database: The fully qualified name of the database.
         :param pulumi.Input[builtins.str] in_schema: The fully qualified name of the schema.
         """
@@ -11722,7 +12847,7 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
     @pulumi.getter(name="objectTypePlural")
     def object_type_plural(self) -> pulumi.Input[builtins.str]:
         """
-        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+        The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
         """
         return pulumi.get(self, "object_type_plural")
 
@@ -11753,6 +12878,1147 @@ class GrantPrivilegesToDatabaseRoleOnSchemaObjectFutureArgs:
     @in_schema.setter
     def in_schema(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "in_schema", value)
+
+
+if not MYPY:
+    class ImageRepositoryShowOutputArgsDict(TypedDict):
+        comment: NotRequired[pulumi.Input[builtins.str]]
+        created_on: NotRequired[pulumi.Input[builtins.str]]
+        database_name: NotRequired[pulumi.Input[builtins.str]]
+        name: NotRequired[pulumi.Input[builtins.str]]
+        owner: NotRequired[pulumi.Input[builtins.str]]
+        owner_role_type: NotRequired[pulumi.Input[builtins.str]]
+        privatelink_repository_url: NotRequired[pulumi.Input[builtins.str]]
+        repository_url: NotRequired[pulumi.Input[builtins.str]]
+        schema_name: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    ImageRepositoryShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ImageRepositoryShowOutputArgs:
+    def __init__(__self__, *,
+                 comment: Optional[pulumi.Input[builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[builtins.str]] = None,
+                 database_name: Optional[pulumi.Input[builtins.str]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 owner: Optional[pulumi.Input[builtins.str]] = None,
+                 owner_role_type: Optional[pulumi.Input[builtins.str]] = None,
+                 privatelink_repository_url: Optional[pulumi.Input[builtins.str]] = None,
+                 repository_url: Optional[pulumi.Input[builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[builtins.str]] = None):
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if privatelink_repository_url is not None:
+            pulumi.set(__self__, "privatelink_repository_url", privatelink_repository_url)
+        if repository_url is not None:
+            pulumi.set(__self__, "repository_url", repository_url)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @property
+    @pulumi.getter(name="privatelinkRepositoryUrl")
+    def privatelink_repository_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "privatelink_repository_url")
+
+    @privatelink_repository_url.setter
+    def privatelink_repository_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "privatelink_repository_url", value)
+
+    @property
+    @pulumi.getter(name="repositoryUrl")
+    def repository_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "repository_url")
+
+    @repository_url.setter
+    def repository_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "repository_url", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+
+if not MYPY:
+    class JobServiceDescribeOutputArgsDict(TypedDict):
+        auto_resume: NotRequired[pulumi.Input[builtins.bool]]
+        auto_suspend_secs: NotRequired[pulumi.Input[builtins.int]]
+        comment: NotRequired[pulumi.Input[builtins.str]]
+        compute_pool: NotRequired[pulumi.Input[builtins.str]]
+        created_on: NotRequired[pulumi.Input[builtins.str]]
+        current_instances: NotRequired[pulumi.Input[builtins.int]]
+        database_name: NotRequired[pulumi.Input[builtins.str]]
+        dns_name: NotRequired[pulumi.Input[builtins.str]]
+        external_access_integrations: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        is_async_job: NotRequired[pulumi.Input[builtins.bool]]
+        is_job: NotRequired[pulumi.Input[builtins.bool]]
+        is_upgrading: NotRequired[pulumi.Input[builtins.bool]]
+        managing_object_domain: NotRequired[pulumi.Input[builtins.str]]
+        managing_object_name: NotRequired[pulumi.Input[builtins.str]]
+        max_instances: NotRequired[pulumi.Input[builtins.int]]
+        min_instances: NotRequired[pulumi.Input[builtins.int]]
+        min_ready_instances: NotRequired[pulumi.Input[builtins.int]]
+        name: NotRequired[pulumi.Input[builtins.str]]
+        owner: NotRequired[pulumi.Input[builtins.str]]
+        owner_role_type: NotRequired[pulumi.Input[builtins.str]]
+        query_warehouse: NotRequired[pulumi.Input[builtins.str]]
+        resumed_on: NotRequired[pulumi.Input[builtins.str]]
+        schema_name: NotRequired[pulumi.Input[builtins.str]]
+        spec: NotRequired[pulumi.Input[builtins.str]]
+        spec_digest: NotRequired[pulumi.Input[builtins.str]]
+        status: NotRequired[pulumi.Input[builtins.str]]
+        suspended_on: NotRequired[pulumi.Input[builtins.str]]
+        target_instances: NotRequired[pulumi.Input[builtins.int]]
+        updated_on: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    JobServiceDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobServiceDescribeOutputArgs:
+    def __init__(__self__, *,
+                 auto_resume: Optional[pulumi.Input[builtins.bool]] = None,
+                 auto_suspend_secs: Optional[pulumi.Input[builtins.int]] = None,
+                 comment: Optional[pulumi.Input[builtins.str]] = None,
+                 compute_pool: Optional[pulumi.Input[builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[builtins.str]] = None,
+                 current_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 database_name: Optional[pulumi.Input[builtins.str]] = None,
+                 dns_name: Optional[pulumi.Input[builtins.str]] = None,
+                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 is_async_job: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_job: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_upgrading: Optional[pulumi.Input[builtins.bool]] = None,
+                 managing_object_domain: Optional[pulumi.Input[builtins.str]] = None,
+                 managing_object_name: Optional[pulumi.Input[builtins.str]] = None,
+                 max_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 min_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 min_ready_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 owner: Optional[pulumi.Input[builtins.str]] = None,
+                 owner_role_type: Optional[pulumi.Input[builtins.str]] = None,
+                 query_warehouse: Optional[pulumi.Input[builtins.str]] = None,
+                 resumed_on: Optional[pulumi.Input[builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[builtins.str]] = None,
+                 spec: Optional[pulumi.Input[builtins.str]] = None,
+                 spec_digest: Optional[pulumi.Input[builtins.str]] = None,
+                 status: Optional[pulumi.Input[builtins.str]] = None,
+                 suspended_on: Optional[pulumi.Input[builtins.str]] = None,
+                 target_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 updated_on: Optional[pulumi.Input[builtins.str]] = None):
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend_secs is not None:
+            pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if compute_pool is not None:
+            pulumi.set(__self__, "compute_pool", compute_pool)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if current_instances is not None:
+            pulumi.set(__self__, "current_instances", current_instances)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_async_job is not None:
+            pulumi.set(__self__, "is_async_job", is_async_job)
+        if is_job is not None:
+            pulumi.set(__self__, "is_job", is_job)
+        if is_upgrading is not None:
+            pulumi.set(__self__, "is_upgrading", is_upgrading)
+        if managing_object_domain is not None:
+            pulumi.set(__self__, "managing_object_domain", managing_object_domain)
+        if managing_object_name is not None:
+            pulumi.set(__self__, "managing_object_name", managing_object_name)
+        if max_instances is not None:
+            pulumi.set(__self__, "max_instances", max_instances)
+        if min_instances is not None:
+            pulumi.set(__self__, "min_instances", min_instances)
+        if min_ready_instances is not None:
+            pulumi.set(__self__, "min_ready_instances", min_ready_instances)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+        if spec_digest is not None:
+            pulumi.set(__self__, "spec_digest", spec_digest)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if suspended_on is not None:
+            pulumi.set(__self__, "suspended_on", suspended_on)
+        if target_instances is not None:
+            pulumi.set(__self__, "target_instances", target_instances)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "auto_resume")
+
+    @auto_resume.setter
+    def auto_resume(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "auto_resume", value)
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @auto_suspend_secs.setter
+    def auto_suspend_secs(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "auto_suspend_secs", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "compute_pool")
+
+    @compute_pool.setter
+    def compute_pool(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "compute_pool", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="currentInstances")
+    def current_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "current_instances")
+
+    @current_instances.setter
+    def current_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "current_instances", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "dns_name")
+
+    @dns_name.setter
+    def dns_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "dns_name", value)
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @external_access_integrations.setter
+    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "external_access_integrations", value)
+
+    @property
+    @pulumi.getter(name="isAsyncJob")
+    def is_async_job(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_async_job")
+
+    @is_async_job.setter
+    def is_async_job(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_async_job", value)
+
+    @property
+    @pulumi.getter(name="isJob")
+    def is_job(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_job")
+
+    @is_job.setter
+    def is_job(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_job", value)
+
+    @property
+    @pulumi.getter(name="isUpgrading")
+    def is_upgrading(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_upgrading")
+
+    @is_upgrading.setter
+    def is_upgrading(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_upgrading", value)
+
+    @property
+    @pulumi.getter(name="managingObjectDomain")
+    def managing_object_domain(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "managing_object_domain")
+
+    @managing_object_domain.setter
+    def managing_object_domain(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "managing_object_domain", value)
+
+    @property
+    @pulumi.getter(name="managingObjectName")
+    def managing_object_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "managing_object_name")
+
+    @managing_object_name.setter
+    def managing_object_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "managing_object_name", value)
+
+    @property
+    @pulumi.getter(name="maxInstances")
+    def max_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max_instances")
+
+    @max_instances.setter
+    def max_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_instances", value)
+
+    @property
+    @pulumi.getter(name="minInstances")
+    def min_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min_instances")
+
+    @min_instances.setter
+    def min_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_instances", value)
+
+    @property
+    @pulumi.getter(name="minReadyInstances")
+    def min_ready_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min_ready_instances")
+
+    @min_ready_instances.setter
+    def min_ready_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_ready_instances", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "query_warehouse")
+
+    @query_warehouse.setter
+    def query_warehouse(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "query_warehouse", value)
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "resumed_on")
+
+    @resumed_on.setter
+    def resumed_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resumed_on", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "spec")
+
+    @spec.setter
+    def spec(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "spec", value)
+
+    @property
+    @pulumi.getter(name="specDigest")
+    def spec_digest(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "spec_digest")
+
+    @spec_digest.setter
+    def spec_digest(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "spec_digest", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="suspendedOn")
+    def suspended_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "suspended_on")
+
+    @suspended_on.setter
+    def suspended_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "suspended_on", value)
+
+    @property
+    @pulumi.getter(name="targetInstances")
+    def target_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "target_instances")
+
+    @target_instances.setter
+    def target_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "target_instances", value)
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "updated_on")
+
+    @updated_on.setter
+    def updated_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_on", value)
+
+
+if not MYPY:
+    class JobServiceFromSpecificationArgsDict(TypedDict):
+        file: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The file name of the service specification. Example: `spec.yaml`.
+        """
+        path: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        """
+        stage: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        """
+        text: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The embedded text of the service specification.
+        """
+elif False:
+    JobServiceFromSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobServiceFromSpecificationArgs:
+    def __init__(__self__, *,
+                 file: Optional[pulumi.Input[builtins.str]] = None,
+                 path: Optional[pulumi.Input[builtins.str]] = None,
+                 stage: Optional[pulumi.Input[builtins.str]] = None,
+                 text: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] file: The file name of the service specification. Example: `spec.yaml`.
+        :param pulumi.Input[builtins.str] path: The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        :param pulumi.Input[builtins.str] stage: The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] text: The embedded text of the service specification.
+        """
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The file name of the service specification. Example: `spec.yaml`.
+        """
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        """
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "stage", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The embedded text of the service specification.
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class JobServiceFromSpecificationTemplateArgsDict(TypedDict):
+        usings: pulumi.Input[Sequence[pulumi.Input['JobServiceFromSpecificationTemplateUsingArgsDict']]]
+        """
+        List of the specified template variables and the values of those variables.
+        """
+        file: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The file name of the service specification template. Example: `spec.yaml`.
+        """
+        path: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        """
+        stage: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        """
+        text: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The embedded text of the service specification template.
+        """
+elif False:
+    JobServiceFromSpecificationTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobServiceFromSpecificationTemplateArgs:
+    def __init__(__self__, *,
+                 usings: pulumi.Input[Sequence[pulumi.Input['JobServiceFromSpecificationTemplateUsingArgs']]],
+                 file: Optional[pulumi.Input[builtins.str]] = None,
+                 path: Optional[pulumi.Input[builtins.str]] = None,
+                 stage: Optional[pulumi.Input[builtins.str]] = None,
+                 text: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['JobServiceFromSpecificationTemplateUsingArgs']]] usings: List of the specified template variables and the values of those variables.
+        :param pulumi.Input[builtins.str] file: The file name of the service specification template. Example: `spec.yaml`.
+        :param pulumi.Input[builtins.str] path: The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        :param pulumi.Input[builtins.str] stage: The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] text: The embedded text of the service specification template.
+        """
+        pulumi.set(__self__, "usings", usings)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def usings(self) -> pulumi.Input[Sequence[pulumi.Input['JobServiceFromSpecificationTemplateUsingArgs']]]:
+        """
+        List of the specified template variables and the values of those variables.
+        """
+        return pulumi.get(self, "usings")
+
+    @usings.setter
+    def usings(self, value: pulumi.Input[Sequence[pulumi.Input['JobServiceFromSpecificationTemplateUsingArgs']]]):
+        pulumi.set(self, "usings", value)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The file name of the service specification template. Example: `spec.yaml`.
+        """
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        """
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "stage", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The embedded text of the service specification template.
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class JobServiceFromSpecificationTemplateUsingArgsDict(TypedDict):
+        key: pulumi.Input[builtins.str]
+        """
+        The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+        """
+        value: pulumi.Input[builtins.str]
+        """
+        The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        """
+elif False:
+    JobServiceFromSpecificationTemplateUsingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobServiceFromSpecificationTemplateUsingArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[builtins.str],
+                 value: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] key: The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+        :param pulumi.Input[builtins.str] value: The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[builtins.str]:
+        """
+        The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class JobServiceShowOutputArgsDict(TypedDict):
+        auto_resume: NotRequired[pulumi.Input[builtins.bool]]
+        auto_suspend_secs: NotRequired[pulumi.Input[builtins.int]]
+        comment: NotRequired[pulumi.Input[builtins.str]]
+        compute_pool: NotRequired[pulumi.Input[builtins.str]]
+        created_on: NotRequired[pulumi.Input[builtins.str]]
+        current_instances: NotRequired[pulumi.Input[builtins.int]]
+        database_name: NotRequired[pulumi.Input[builtins.str]]
+        dns_name: NotRequired[pulumi.Input[builtins.str]]
+        external_access_integrations: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        is_async_job: NotRequired[pulumi.Input[builtins.bool]]
+        is_job: NotRequired[pulumi.Input[builtins.bool]]
+        is_upgrading: NotRequired[pulumi.Input[builtins.bool]]
+        managing_object_domain: NotRequired[pulumi.Input[builtins.str]]
+        managing_object_name: NotRequired[pulumi.Input[builtins.str]]
+        max_instances: NotRequired[pulumi.Input[builtins.int]]
+        min_instances: NotRequired[pulumi.Input[builtins.int]]
+        min_ready_instances: NotRequired[pulumi.Input[builtins.int]]
+        name: NotRequired[pulumi.Input[builtins.str]]
+        owner: NotRequired[pulumi.Input[builtins.str]]
+        owner_role_type: NotRequired[pulumi.Input[builtins.str]]
+        query_warehouse: NotRequired[pulumi.Input[builtins.str]]
+        resumed_on: NotRequired[pulumi.Input[builtins.str]]
+        schema_name: NotRequired[pulumi.Input[builtins.str]]
+        spec_digest: NotRequired[pulumi.Input[builtins.str]]
+        status: NotRequired[pulumi.Input[builtins.str]]
+        suspended_on: NotRequired[pulumi.Input[builtins.str]]
+        target_instances: NotRequired[pulumi.Input[builtins.int]]
+        updated_on: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    JobServiceShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JobServiceShowOutputArgs:
+    def __init__(__self__, *,
+                 auto_resume: Optional[pulumi.Input[builtins.bool]] = None,
+                 auto_suspend_secs: Optional[pulumi.Input[builtins.int]] = None,
+                 comment: Optional[pulumi.Input[builtins.str]] = None,
+                 compute_pool: Optional[pulumi.Input[builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[builtins.str]] = None,
+                 current_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 database_name: Optional[pulumi.Input[builtins.str]] = None,
+                 dns_name: Optional[pulumi.Input[builtins.str]] = None,
+                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 is_async_job: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_job: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_upgrading: Optional[pulumi.Input[builtins.bool]] = None,
+                 managing_object_domain: Optional[pulumi.Input[builtins.str]] = None,
+                 managing_object_name: Optional[pulumi.Input[builtins.str]] = None,
+                 max_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 min_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 min_ready_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 owner: Optional[pulumi.Input[builtins.str]] = None,
+                 owner_role_type: Optional[pulumi.Input[builtins.str]] = None,
+                 query_warehouse: Optional[pulumi.Input[builtins.str]] = None,
+                 resumed_on: Optional[pulumi.Input[builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[builtins.str]] = None,
+                 spec_digest: Optional[pulumi.Input[builtins.str]] = None,
+                 status: Optional[pulumi.Input[builtins.str]] = None,
+                 suspended_on: Optional[pulumi.Input[builtins.str]] = None,
+                 target_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 updated_on: Optional[pulumi.Input[builtins.str]] = None):
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend_secs is not None:
+            pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if compute_pool is not None:
+            pulumi.set(__self__, "compute_pool", compute_pool)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if current_instances is not None:
+            pulumi.set(__self__, "current_instances", current_instances)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_async_job is not None:
+            pulumi.set(__self__, "is_async_job", is_async_job)
+        if is_job is not None:
+            pulumi.set(__self__, "is_job", is_job)
+        if is_upgrading is not None:
+            pulumi.set(__self__, "is_upgrading", is_upgrading)
+        if managing_object_domain is not None:
+            pulumi.set(__self__, "managing_object_domain", managing_object_domain)
+        if managing_object_name is not None:
+            pulumi.set(__self__, "managing_object_name", managing_object_name)
+        if max_instances is not None:
+            pulumi.set(__self__, "max_instances", max_instances)
+        if min_instances is not None:
+            pulumi.set(__self__, "min_instances", min_instances)
+        if min_ready_instances is not None:
+            pulumi.set(__self__, "min_ready_instances", min_ready_instances)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if spec_digest is not None:
+            pulumi.set(__self__, "spec_digest", spec_digest)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if suspended_on is not None:
+            pulumi.set(__self__, "suspended_on", suspended_on)
+        if target_instances is not None:
+            pulumi.set(__self__, "target_instances", target_instances)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "auto_resume")
+
+    @auto_resume.setter
+    def auto_resume(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "auto_resume", value)
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @auto_suspend_secs.setter
+    def auto_suspend_secs(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "auto_suspend_secs", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "compute_pool")
+
+    @compute_pool.setter
+    def compute_pool(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "compute_pool", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="currentInstances")
+    def current_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "current_instances")
+
+    @current_instances.setter
+    def current_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "current_instances", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "dns_name")
+
+    @dns_name.setter
+    def dns_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "dns_name", value)
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @external_access_integrations.setter
+    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "external_access_integrations", value)
+
+    @property
+    @pulumi.getter(name="isAsyncJob")
+    def is_async_job(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_async_job")
+
+    @is_async_job.setter
+    def is_async_job(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_async_job", value)
+
+    @property
+    @pulumi.getter(name="isJob")
+    def is_job(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_job")
+
+    @is_job.setter
+    def is_job(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_job", value)
+
+    @property
+    @pulumi.getter(name="isUpgrading")
+    def is_upgrading(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_upgrading")
+
+    @is_upgrading.setter
+    def is_upgrading(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_upgrading", value)
+
+    @property
+    @pulumi.getter(name="managingObjectDomain")
+    def managing_object_domain(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "managing_object_domain")
+
+    @managing_object_domain.setter
+    def managing_object_domain(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "managing_object_domain", value)
+
+    @property
+    @pulumi.getter(name="managingObjectName")
+    def managing_object_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "managing_object_name")
+
+    @managing_object_name.setter
+    def managing_object_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "managing_object_name", value)
+
+    @property
+    @pulumi.getter(name="maxInstances")
+    def max_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max_instances")
+
+    @max_instances.setter
+    def max_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_instances", value)
+
+    @property
+    @pulumi.getter(name="minInstances")
+    def min_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min_instances")
+
+    @min_instances.setter
+    def min_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_instances", value)
+
+    @property
+    @pulumi.getter(name="minReadyInstances")
+    def min_ready_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min_ready_instances")
+
+    @min_ready_instances.setter
+    def min_ready_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_ready_instances", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "query_warehouse")
+
+    @query_warehouse.setter
+    def query_warehouse(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "query_warehouse", value)
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "resumed_on")
+
+    @resumed_on.setter
+    def resumed_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resumed_on", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @property
+    @pulumi.getter(name="specDigest")
+    def spec_digest(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "spec_digest")
+
+    @spec_digest.setter
+    def spec_digest(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "spec_digest", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="suspendedOn")
+    def suspended_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "suspended_on")
+
+    @suspended_on.setter
+    def suspended_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "suspended_on", value)
+
+    @property
+    @pulumi.getter(name="targetInstances")
+    def target_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "target_instances")
+
+    @target_instances.setter
+    def target_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "target_instances", value)
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "updated_on")
+
+    @updated_on.setter
+    def updated_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_on", value)
 
 
 if not MYPY:
@@ -29981,6 +32247,1020 @@ class SecretWithGenericStringShowOutputArgs:
     @secret_type.setter
     def secret_type(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "secret_type", value)
+
+
+if not MYPY:
+    class ServiceDescribeOutputArgsDict(TypedDict):
+        auto_resume: NotRequired[pulumi.Input[builtins.bool]]
+        auto_suspend_secs: NotRequired[pulumi.Input[builtins.int]]
+        comment: NotRequired[pulumi.Input[builtins.str]]
+        compute_pool: NotRequired[pulumi.Input[builtins.str]]
+        created_on: NotRequired[pulumi.Input[builtins.str]]
+        current_instances: NotRequired[pulumi.Input[builtins.int]]
+        database_name: NotRequired[pulumi.Input[builtins.str]]
+        dns_name: NotRequired[pulumi.Input[builtins.str]]
+        external_access_integrations: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        is_async_job: NotRequired[pulumi.Input[builtins.bool]]
+        is_job: NotRequired[pulumi.Input[builtins.bool]]
+        is_upgrading: NotRequired[pulumi.Input[builtins.bool]]
+        managing_object_domain: NotRequired[pulumi.Input[builtins.str]]
+        managing_object_name: NotRequired[pulumi.Input[builtins.str]]
+        max_instances: NotRequired[pulumi.Input[builtins.int]]
+        min_instances: NotRequired[pulumi.Input[builtins.int]]
+        min_ready_instances: NotRequired[pulumi.Input[builtins.int]]
+        name: NotRequired[pulumi.Input[builtins.str]]
+        owner: NotRequired[pulumi.Input[builtins.str]]
+        owner_role_type: NotRequired[pulumi.Input[builtins.str]]
+        query_warehouse: NotRequired[pulumi.Input[builtins.str]]
+        resumed_on: NotRequired[pulumi.Input[builtins.str]]
+        schema_name: NotRequired[pulumi.Input[builtins.str]]
+        spec: NotRequired[pulumi.Input[builtins.str]]
+        spec_digest: NotRequired[pulumi.Input[builtins.str]]
+        status: NotRequired[pulumi.Input[builtins.str]]
+        suspended_on: NotRequired[pulumi.Input[builtins.str]]
+        target_instances: NotRequired[pulumi.Input[builtins.int]]
+        updated_on: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    ServiceDescribeOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceDescribeOutputArgs:
+    def __init__(__self__, *,
+                 auto_resume: Optional[pulumi.Input[builtins.bool]] = None,
+                 auto_suspend_secs: Optional[pulumi.Input[builtins.int]] = None,
+                 comment: Optional[pulumi.Input[builtins.str]] = None,
+                 compute_pool: Optional[pulumi.Input[builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[builtins.str]] = None,
+                 current_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 database_name: Optional[pulumi.Input[builtins.str]] = None,
+                 dns_name: Optional[pulumi.Input[builtins.str]] = None,
+                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 is_async_job: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_job: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_upgrading: Optional[pulumi.Input[builtins.bool]] = None,
+                 managing_object_domain: Optional[pulumi.Input[builtins.str]] = None,
+                 managing_object_name: Optional[pulumi.Input[builtins.str]] = None,
+                 max_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 min_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 min_ready_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 owner: Optional[pulumi.Input[builtins.str]] = None,
+                 owner_role_type: Optional[pulumi.Input[builtins.str]] = None,
+                 query_warehouse: Optional[pulumi.Input[builtins.str]] = None,
+                 resumed_on: Optional[pulumi.Input[builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[builtins.str]] = None,
+                 spec: Optional[pulumi.Input[builtins.str]] = None,
+                 spec_digest: Optional[pulumi.Input[builtins.str]] = None,
+                 status: Optional[pulumi.Input[builtins.str]] = None,
+                 suspended_on: Optional[pulumi.Input[builtins.str]] = None,
+                 target_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 updated_on: Optional[pulumi.Input[builtins.str]] = None):
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend_secs is not None:
+            pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if compute_pool is not None:
+            pulumi.set(__self__, "compute_pool", compute_pool)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if current_instances is not None:
+            pulumi.set(__self__, "current_instances", current_instances)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_async_job is not None:
+            pulumi.set(__self__, "is_async_job", is_async_job)
+        if is_job is not None:
+            pulumi.set(__self__, "is_job", is_job)
+        if is_upgrading is not None:
+            pulumi.set(__self__, "is_upgrading", is_upgrading)
+        if managing_object_domain is not None:
+            pulumi.set(__self__, "managing_object_domain", managing_object_domain)
+        if managing_object_name is not None:
+            pulumi.set(__self__, "managing_object_name", managing_object_name)
+        if max_instances is not None:
+            pulumi.set(__self__, "max_instances", max_instances)
+        if min_instances is not None:
+            pulumi.set(__self__, "min_instances", min_instances)
+        if min_ready_instances is not None:
+            pulumi.set(__self__, "min_ready_instances", min_ready_instances)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if spec is not None:
+            pulumi.set(__self__, "spec", spec)
+        if spec_digest is not None:
+            pulumi.set(__self__, "spec_digest", spec_digest)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if suspended_on is not None:
+            pulumi.set(__self__, "suspended_on", suspended_on)
+        if target_instances is not None:
+            pulumi.set(__self__, "target_instances", target_instances)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "auto_resume")
+
+    @auto_resume.setter
+    def auto_resume(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "auto_resume", value)
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @auto_suspend_secs.setter
+    def auto_suspend_secs(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "auto_suspend_secs", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "compute_pool")
+
+    @compute_pool.setter
+    def compute_pool(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "compute_pool", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="currentInstances")
+    def current_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "current_instances")
+
+    @current_instances.setter
+    def current_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "current_instances", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "dns_name")
+
+    @dns_name.setter
+    def dns_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "dns_name", value)
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @external_access_integrations.setter
+    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "external_access_integrations", value)
+
+    @property
+    @pulumi.getter(name="isAsyncJob")
+    def is_async_job(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_async_job")
+
+    @is_async_job.setter
+    def is_async_job(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_async_job", value)
+
+    @property
+    @pulumi.getter(name="isJob")
+    def is_job(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_job")
+
+    @is_job.setter
+    def is_job(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_job", value)
+
+    @property
+    @pulumi.getter(name="isUpgrading")
+    def is_upgrading(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_upgrading")
+
+    @is_upgrading.setter
+    def is_upgrading(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_upgrading", value)
+
+    @property
+    @pulumi.getter(name="managingObjectDomain")
+    def managing_object_domain(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "managing_object_domain")
+
+    @managing_object_domain.setter
+    def managing_object_domain(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "managing_object_domain", value)
+
+    @property
+    @pulumi.getter(name="managingObjectName")
+    def managing_object_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "managing_object_name")
+
+    @managing_object_name.setter
+    def managing_object_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "managing_object_name", value)
+
+    @property
+    @pulumi.getter(name="maxInstances")
+    def max_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max_instances")
+
+    @max_instances.setter
+    def max_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_instances", value)
+
+    @property
+    @pulumi.getter(name="minInstances")
+    def min_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min_instances")
+
+    @min_instances.setter
+    def min_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_instances", value)
+
+    @property
+    @pulumi.getter(name="minReadyInstances")
+    def min_ready_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min_ready_instances")
+
+    @min_ready_instances.setter
+    def min_ready_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_ready_instances", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "query_warehouse")
+
+    @query_warehouse.setter
+    def query_warehouse(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "query_warehouse", value)
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "resumed_on")
+
+    @resumed_on.setter
+    def resumed_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resumed_on", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @property
+    @pulumi.getter
+    def spec(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "spec")
+
+    @spec.setter
+    def spec(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "spec", value)
+
+    @property
+    @pulumi.getter(name="specDigest")
+    def spec_digest(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "spec_digest")
+
+    @spec_digest.setter
+    def spec_digest(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "spec_digest", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="suspendedOn")
+    def suspended_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "suspended_on")
+
+    @suspended_on.setter
+    def suspended_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "suspended_on", value)
+
+    @property
+    @pulumi.getter(name="targetInstances")
+    def target_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "target_instances")
+
+    @target_instances.setter
+    def target_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "target_instances", value)
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "updated_on")
+
+    @updated_on.setter
+    def updated_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_on", value)
+
+
+if not MYPY:
+    class ServiceFromSpecificationArgsDict(TypedDict):
+        file: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The file name of the service specification. Example: `spec.yaml`.
+        """
+        path: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        """
+        stage: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        """
+        text: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The embedded text of the service specification.
+        """
+elif False:
+    ServiceFromSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceFromSpecificationArgs:
+    def __init__(__self__, *,
+                 file: Optional[pulumi.Input[builtins.str]] = None,
+                 path: Optional[pulumi.Input[builtins.str]] = None,
+                 stage: Optional[pulumi.Input[builtins.str]] = None,
+                 text: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] file: The file name of the service specification. Example: `spec.yaml`.
+        :param pulumi.Input[builtins.str] path: The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        :param pulumi.Input[builtins.str] stage: The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] text: The embedded text of the service specification.
+        """
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The file name of the service specification. Example: `spec.yaml`.
+        """
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        """
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "stage", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The embedded text of the service specification.
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class ServiceFromSpecificationTemplateArgsDict(TypedDict):
+        usings: pulumi.Input[Sequence[pulumi.Input['ServiceFromSpecificationTemplateUsingArgsDict']]]
+        """
+        List of the specified template variables and the values of those variables.
+        """
+        file: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The file name of the service specification template. Example: `spec.yaml`.
+        """
+        path: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        """
+        stage: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        """
+        text: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The embedded text of the service specification template.
+        """
+elif False:
+    ServiceFromSpecificationTemplateArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceFromSpecificationTemplateArgs:
+    def __init__(__self__, *,
+                 usings: pulumi.Input[Sequence[pulumi.Input['ServiceFromSpecificationTemplateUsingArgs']]],
+                 file: Optional[pulumi.Input[builtins.str]] = None,
+                 path: Optional[pulumi.Input[builtins.str]] = None,
+                 stage: Optional[pulumi.Input[builtins.str]] = None,
+                 text: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ServiceFromSpecificationTemplateUsingArgs']]] usings: List of the specified template variables and the values of those variables.
+        :param pulumi.Input[builtins.str] file: The file name of the service specification template. Example: `spec.yaml`.
+        :param pulumi.Input[builtins.str] path: The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        :param pulumi.Input[builtins.str] stage: The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        :param pulumi.Input[builtins.str] text: The embedded text of the service specification template.
+        """
+        pulumi.set(__self__, "usings", usings)
+        if file is not None:
+            pulumi.set(__self__, "file", file)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if stage is not None:
+            pulumi.set(__self__, "stage", stage)
+        if text is not None:
+            pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter
+    def usings(self) -> pulumi.Input[Sequence[pulumi.Input['ServiceFromSpecificationTemplateUsingArgs']]]:
+        """
+        List of the specified template variables and the values of those variables.
+        """
+        return pulumi.get(self, "usings")
+
+    @usings.setter
+    def usings(self, value: pulumi.Input[Sequence[pulumi.Input['ServiceFromSpecificationTemplateUsingArgs']]]):
+        pulumi.set(self, "usings", value)
+
+    @property
+    @pulumi.getter
+    def file(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The file name of the service specification template. Example: `spec.yaml`.
+        """
+        return pulumi.get(self, "file")
+
+    @file.setter
+    def file(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "file", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def stage(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\\"<db_name>\\".\\"<schema_name>\\".\\"<stage_name>\\""`. For more information about this resource, see docs.
+        """
+        return pulumi.get(self, "stage")
+
+    @stage.setter
+    def stage(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "stage", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The embedded text of the service specification template.
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class ServiceFromSpecificationTemplateUsingArgsDict(TypedDict):
+        key: pulumi.Input[builtins.str]
+        """
+        The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+        """
+        value: pulumi.Input[builtins.str]
+        """
+        The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        """
+elif False:
+    ServiceFromSpecificationTemplateUsingArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceFromSpecificationTemplateUsingArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[builtins.str],
+                 value: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[builtins.str] key: The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+        :param pulumi.Input[builtins.str] value: The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[builtins.str]:
+        """
+        The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class ServiceShowOutputArgsDict(TypedDict):
+        auto_resume: NotRequired[pulumi.Input[builtins.bool]]
+        auto_suspend_secs: NotRequired[pulumi.Input[builtins.int]]
+        comment: NotRequired[pulumi.Input[builtins.str]]
+        compute_pool: NotRequired[pulumi.Input[builtins.str]]
+        created_on: NotRequired[pulumi.Input[builtins.str]]
+        current_instances: NotRequired[pulumi.Input[builtins.int]]
+        database_name: NotRequired[pulumi.Input[builtins.str]]
+        dns_name: NotRequired[pulumi.Input[builtins.str]]
+        external_access_integrations: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        is_async_job: NotRequired[pulumi.Input[builtins.bool]]
+        is_job: NotRequired[pulumi.Input[builtins.bool]]
+        is_upgrading: NotRequired[pulumi.Input[builtins.bool]]
+        managing_object_domain: NotRequired[pulumi.Input[builtins.str]]
+        managing_object_name: NotRequired[pulumi.Input[builtins.str]]
+        max_instances: NotRequired[pulumi.Input[builtins.int]]
+        min_instances: NotRequired[pulumi.Input[builtins.int]]
+        min_ready_instances: NotRequired[pulumi.Input[builtins.int]]
+        name: NotRequired[pulumi.Input[builtins.str]]
+        owner: NotRequired[pulumi.Input[builtins.str]]
+        owner_role_type: NotRequired[pulumi.Input[builtins.str]]
+        query_warehouse: NotRequired[pulumi.Input[builtins.str]]
+        resumed_on: NotRequired[pulumi.Input[builtins.str]]
+        schema_name: NotRequired[pulumi.Input[builtins.str]]
+        spec_digest: NotRequired[pulumi.Input[builtins.str]]
+        status: NotRequired[pulumi.Input[builtins.str]]
+        suspended_on: NotRequired[pulumi.Input[builtins.str]]
+        target_instances: NotRequired[pulumi.Input[builtins.int]]
+        updated_on: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    ServiceShowOutputArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ServiceShowOutputArgs:
+    def __init__(__self__, *,
+                 auto_resume: Optional[pulumi.Input[builtins.bool]] = None,
+                 auto_suspend_secs: Optional[pulumi.Input[builtins.int]] = None,
+                 comment: Optional[pulumi.Input[builtins.str]] = None,
+                 compute_pool: Optional[pulumi.Input[builtins.str]] = None,
+                 created_on: Optional[pulumi.Input[builtins.str]] = None,
+                 current_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 database_name: Optional[pulumi.Input[builtins.str]] = None,
+                 dns_name: Optional[pulumi.Input[builtins.str]] = None,
+                 external_access_integrations: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 is_async_job: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_job: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_upgrading: Optional[pulumi.Input[builtins.bool]] = None,
+                 managing_object_domain: Optional[pulumi.Input[builtins.str]] = None,
+                 managing_object_name: Optional[pulumi.Input[builtins.str]] = None,
+                 max_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 min_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 min_ready_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 owner: Optional[pulumi.Input[builtins.str]] = None,
+                 owner_role_type: Optional[pulumi.Input[builtins.str]] = None,
+                 query_warehouse: Optional[pulumi.Input[builtins.str]] = None,
+                 resumed_on: Optional[pulumi.Input[builtins.str]] = None,
+                 schema_name: Optional[pulumi.Input[builtins.str]] = None,
+                 spec_digest: Optional[pulumi.Input[builtins.str]] = None,
+                 status: Optional[pulumi.Input[builtins.str]] = None,
+                 suspended_on: Optional[pulumi.Input[builtins.str]] = None,
+                 target_instances: Optional[pulumi.Input[builtins.int]] = None,
+                 updated_on: Optional[pulumi.Input[builtins.str]] = None):
+        if auto_resume is not None:
+            pulumi.set(__self__, "auto_resume", auto_resume)
+        if auto_suspend_secs is not None:
+            pulumi.set(__self__, "auto_suspend_secs", auto_suspend_secs)
+        if comment is not None:
+            pulumi.set(__self__, "comment", comment)
+        if compute_pool is not None:
+            pulumi.set(__self__, "compute_pool", compute_pool)
+        if created_on is not None:
+            pulumi.set(__self__, "created_on", created_on)
+        if current_instances is not None:
+            pulumi.set(__self__, "current_instances", current_instances)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if external_access_integrations is not None:
+            pulumi.set(__self__, "external_access_integrations", external_access_integrations)
+        if is_async_job is not None:
+            pulumi.set(__self__, "is_async_job", is_async_job)
+        if is_job is not None:
+            pulumi.set(__self__, "is_job", is_job)
+        if is_upgrading is not None:
+            pulumi.set(__self__, "is_upgrading", is_upgrading)
+        if managing_object_domain is not None:
+            pulumi.set(__self__, "managing_object_domain", managing_object_domain)
+        if managing_object_name is not None:
+            pulumi.set(__self__, "managing_object_name", managing_object_name)
+        if max_instances is not None:
+            pulumi.set(__self__, "max_instances", max_instances)
+        if min_instances is not None:
+            pulumi.set(__self__, "min_instances", min_instances)
+        if min_ready_instances is not None:
+            pulumi.set(__self__, "min_ready_instances", min_ready_instances)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if owner is not None:
+            pulumi.set(__self__, "owner", owner)
+        if owner_role_type is not None:
+            pulumi.set(__self__, "owner_role_type", owner_role_type)
+        if query_warehouse is not None:
+            pulumi.set(__self__, "query_warehouse", query_warehouse)
+        if resumed_on is not None:
+            pulumi.set(__self__, "resumed_on", resumed_on)
+        if schema_name is not None:
+            pulumi.set(__self__, "schema_name", schema_name)
+        if spec_digest is not None:
+            pulumi.set(__self__, "spec_digest", spec_digest)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if suspended_on is not None:
+            pulumi.set(__self__, "suspended_on", suspended_on)
+        if target_instances is not None:
+            pulumi.set(__self__, "target_instances", target_instances)
+        if updated_on is not None:
+            pulumi.set(__self__, "updated_on", updated_on)
+
+    @property
+    @pulumi.getter(name="autoResume")
+    def auto_resume(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "auto_resume")
+
+    @auto_resume.setter
+    def auto_resume(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "auto_resume", value)
+
+    @property
+    @pulumi.getter(name="autoSuspendSecs")
+    def auto_suspend_secs(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "auto_suspend_secs")
+
+    @auto_suspend_secs.setter
+    def auto_suspend_secs(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "auto_suspend_secs", value)
+
+    @property
+    @pulumi.getter
+    def comment(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "comment")
+
+    @comment.setter
+    def comment(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "comment", value)
+
+    @property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "compute_pool")
+
+    @compute_pool.setter
+    def compute_pool(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "compute_pool", value)
+
+    @property
+    @pulumi.getter(name="createdOn")
+    def created_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_on")
+
+    @created_on.setter
+    def created_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_on", value)
+
+    @property
+    @pulumi.getter(name="currentInstances")
+    def current_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "current_instances")
+
+    @current_instances.setter
+    def current_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "current_instances", value)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "dns_name")
+
+    @dns_name.setter
+    def dns_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "dns_name", value)
+
+    @property
+    @pulumi.getter(name="externalAccessIntegrations")
+    def external_access_integrations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "external_access_integrations")
+
+    @external_access_integrations.setter
+    def external_access_integrations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "external_access_integrations", value)
+
+    @property
+    @pulumi.getter(name="isAsyncJob")
+    def is_async_job(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_async_job")
+
+    @is_async_job.setter
+    def is_async_job(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_async_job", value)
+
+    @property
+    @pulumi.getter(name="isJob")
+    def is_job(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_job")
+
+    @is_job.setter
+    def is_job(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_job", value)
+
+    @property
+    @pulumi.getter(name="isUpgrading")
+    def is_upgrading(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_upgrading")
+
+    @is_upgrading.setter
+    def is_upgrading(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_upgrading", value)
+
+    @property
+    @pulumi.getter(name="managingObjectDomain")
+    def managing_object_domain(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "managing_object_domain")
+
+    @managing_object_domain.setter
+    def managing_object_domain(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "managing_object_domain", value)
+
+    @property
+    @pulumi.getter(name="managingObjectName")
+    def managing_object_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "managing_object_name")
+
+    @managing_object_name.setter
+    def managing_object_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "managing_object_name", value)
+
+    @property
+    @pulumi.getter(name="maxInstances")
+    def max_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max_instances")
+
+    @max_instances.setter
+    def max_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_instances", value)
+
+    @property
+    @pulumi.getter(name="minInstances")
+    def min_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min_instances")
+
+    @min_instances.setter
+    def min_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_instances", value)
+
+    @property
+    @pulumi.getter(name="minReadyInstances")
+    def min_ready_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "min_ready_instances")
+
+    @min_ready_instances.setter
+    def min_ready_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_ready_instances", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def owner(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner")
+
+    @owner.setter
+    def owner(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner", value)
+
+    @property
+    @pulumi.getter(name="ownerRoleType")
+    def owner_role_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "owner_role_type")
+
+    @owner_role_type.setter
+    def owner_role_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "owner_role_type", value)
+
+    @property
+    @pulumi.getter(name="queryWarehouse")
+    def query_warehouse(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "query_warehouse")
+
+    @query_warehouse.setter
+    def query_warehouse(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "query_warehouse", value)
+
+    @property
+    @pulumi.getter(name="resumedOn")
+    def resumed_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "resumed_on")
+
+    @resumed_on.setter
+    def resumed_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resumed_on", value)
+
+    @property
+    @pulumi.getter(name="schemaName")
+    def schema_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "schema_name")
+
+    @schema_name.setter
+    def schema_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "schema_name", value)
+
+    @property
+    @pulumi.getter(name="specDigest")
+    def spec_digest(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "spec_digest")
+
+    @spec_digest.setter
+    def spec_digest(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "spec_digest", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="suspendedOn")
+    def suspended_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "suspended_on")
+
+    @suspended_on.setter
+    def suspended_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "suspended_on", value)
+
+    @property
+    @pulumi.getter(name="targetInstances")
+    def target_instances(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "target_instances")
+
+    @target_instances.setter
+    def target_instances(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "target_instances", value)
+
+    @property
+    @pulumi.getter(name="updatedOn")
+    def updated_on(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "updated_on")
+
+    @updated_on.setter
+    def updated_on(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_on", value)
 
 
 if not MYPY:
@@ -51117,6 +54397,57 @@ class WarehouseShowOutputArgs:
 
 
 if not MYPY:
+    class GetComputePoolsLimitArgsDict(TypedDict):
+        rows: builtins.int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[builtins.str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetComputePoolsLimitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetComputePoolsLimitArgs:
+    def __init__(__self__, *,
+                 rows: builtins.int,
+                 from_: Optional[builtins.str] = None):
+        """
+        :param builtins.int rows: The maximum number of rows to return.
+        :param builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
+if not MYPY:
     class GetCortexSearchServicesInArgsDict(TypedDict):
         account: NotRequired[builtins.bool]
         """
@@ -51494,6 +54825,129 @@ class GetDynamicTablesLimitArgs:
     @rows.setter
     def rows(self, value: Optional[builtins.int]):
         pulumi.set(self, "rows", value)
+
+
+if not MYPY:
+    class GetGitRepositoriesInArgsDict(TypedDict):
+        account: NotRequired[builtins.bool]
+        """
+        Returns records for the entire account.
+        """
+        database: NotRequired[builtins.str]
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        schema: NotRequired[builtins.str]
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+elif False:
+    GetGitRepositoriesInArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetGitRepositoriesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[builtins.bool] = None,
+                 database: Optional[builtins.str] = None,
+                 schema: Optional[builtins.str] = None):
+        """
+        :param builtins.bool account: Returns records for the entire account.
+        :param builtins.str database: Returns records for the current database in use or for a specified database.
+        :param builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+if not MYPY:
+    class GetGitRepositoriesLimitArgsDict(TypedDict):
+        rows: builtins.int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[builtins.str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetGitRepositoriesLimitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetGitRepositoriesLimitArgs:
+    def __init__(__self__, *,
+                 rows: builtins.int,
+                 from_: Optional[builtins.str] = None):
+        """
+        :param builtins.int rows: The maximum number of rows to return.
+        :param builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[builtins.str]):
+        pulumi.set(self, "from_", value)
 
 
 if not MYPY:
@@ -51925,6 +55379,78 @@ class GetGrantsGrantsToShareArgs:
     @share_name.setter
     def share_name(self, value: builtins.str):
         pulumi.set(self, "share_name", value)
+
+
+if not MYPY:
+    class GetImageRepositoriesInArgsDict(TypedDict):
+        account: NotRequired[builtins.bool]
+        """
+        Returns records for the entire account.
+        """
+        database: NotRequired[builtins.str]
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        schema: NotRequired[builtins.str]
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+elif False:
+    GetImageRepositoriesInArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetImageRepositoriesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[builtins.bool] = None,
+                 database: Optional[builtins.str] = None,
+                 schema: Optional[builtins.str] = None):
+        """
+        :param builtins.bool account: Returns records for the entire account.
+        :param builtins.str database: Returns records for the current database in use or for a specified database.
+        :param builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[builtins.str]):
+        pulumi.set(self, "schema", value)
 
 
 if not MYPY:
@@ -52509,6 +56035,149 @@ class GetSecretsInArgs:
 
 
 if not MYPY:
+    class GetServicesInArgsDict(TypedDict):
+        account: NotRequired[builtins.bool]
+        """
+        Returns records for the entire account.
+        """
+        compute_pool: NotRequired[builtins.str]
+        """
+        Returns records for the specified compute pool.
+        """
+        database: NotRequired[builtins.str]
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        schema: NotRequired[builtins.str]
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+elif False:
+    GetServicesInArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetServicesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[builtins.bool] = None,
+                 compute_pool: Optional[builtins.str] = None,
+                 database: Optional[builtins.str] = None,
+                 schema: Optional[builtins.str] = None):
+        """
+        :param builtins.bool account: Returns records for the entire account.
+        :param builtins.str compute_pool: Returns records for the specified compute pool.
+        :param builtins.str database: Returns records for the current database in use or for a specified database.
+        :param builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if compute_pool is not None:
+            pulumi.set(__self__, "compute_pool", compute_pool)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @property
+    @pulumi.getter(name="computePool")
+    def compute_pool(self) -> Optional[builtins.str]:
+        """
+        Returns records for the specified compute pool.
+        """
+        return pulumi.get(self, "compute_pool")
+
+    @compute_pool.setter
+    def compute_pool(self, value: Optional[builtins.str]):
+        pulumi.set(self, "compute_pool", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+if not MYPY:
+    class GetServicesLimitArgsDict(TypedDict):
+        rows: builtins.int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[builtins.str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetServicesLimitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetServicesLimitArgs:
+    def __init__(__self__, *,
+                 rows: builtins.int,
+                 from_: Optional[builtins.str] = None):
+        """
+        :param builtins.int rows: The maximum number of rows to return.
+        :param builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
+if not MYPY:
     class GetStreamlitsInArgsDict(TypedDict):
         account: NotRequired[builtins.bool]
         """
@@ -52758,6 +56427,169 @@ elif False:
 
 @pulumi.input_type
 class GetStreamsLimitArgs:
+    def __init__(__self__, *,
+                 rows: builtins.int,
+                 from_: Optional[builtins.str] = None):
+        """
+        :param builtins.int rows: The maximum number of rows to return.
+        :param builtins.str from_: Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        pulumi.set(__self__, "rows", rows)
+        if from_ is not None:
+            pulumi.set(__self__, "from_", from_)
+
+    @property
+    @pulumi.getter
+    def rows(self) -> builtins.int:
+        """
+        The maximum number of rows to return.
+        """
+        return pulumi.get(self, "rows")
+
+    @rows.setter
+    def rows(self, value: builtins.int):
+        pulumi.set(self, "rows", value)
+
+    @property
+    @pulumi.getter(name="from")
+    def from_(self) -> Optional[builtins.str]:
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: Optional[builtins.str]):
+        pulumi.set(self, "from_", value)
+
+
+if not MYPY:
+    class GetTablesInArgsDict(TypedDict):
+        account: NotRequired[builtins.bool]
+        """
+        Returns records for the entire account.
+        """
+        application: NotRequired[builtins.str]
+        """
+        Returns records for the specified application.
+        """
+        application_package: NotRequired[builtins.str]
+        """
+        Returns records for the specified application package.
+        """
+        database: NotRequired[builtins.str]
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        schema: NotRequired[builtins.str]
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+elif False:
+    GetTablesInArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetTablesInArgs:
+    def __init__(__self__, *,
+                 account: Optional[builtins.bool] = None,
+                 application: Optional[builtins.str] = None,
+                 application_package: Optional[builtins.str] = None,
+                 database: Optional[builtins.str] = None,
+                 schema: Optional[builtins.str] = None):
+        """
+        :param builtins.bool account: Returns records for the entire account.
+        :param builtins.str application: Returns records for the specified application.
+        :param builtins.str application_package: Returns records for the specified application package.
+        :param builtins.str database: Returns records for the current database in use or for a specified database.
+        :param builtins.str schema: Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        if account is not None:
+            pulumi.set(__self__, "account", account)
+        if application is not None:
+            pulumi.set(__self__, "application", application)
+        if application_package is not None:
+            pulumi.set(__self__, "application_package", application_package)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter
+    def account(self) -> Optional[builtins.bool]:
+        """
+        Returns records for the entire account.
+        """
+        return pulumi.get(self, "account")
+
+    @account.setter
+    def account(self, value: Optional[builtins.bool]):
+        pulumi.set(self, "account", value)
+
+    @property
+    @pulumi.getter
+    def application(self) -> Optional[builtins.str]:
+        """
+        Returns records for the specified application.
+        """
+        return pulumi.get(self, "application")
+
+    @application.setter
+    def application(self, value: Optional[builtins.str]):
+        pulumi.set(self, "application", value)
+
+    @property
+    @pulumi.getter(name="applicationPackage")
+    def application_package(self) -> Optional[builtins.str]:
+        """
+        Returns records for the specified application package.
+        """
+        return pulumi.get(self, "application_package")
+
+    @application_package.setter
+    def application_package(self, value: Optional[builtins.str]):
+        pulumi.set(self, "application_package", value)
+
+    @property
+    @pulumi.getter
+    def database(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current database in use or for a specified database.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[builtins.str]):
+        pulumi.set(self, "database", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[builtins.str]:
+        """
+        Returns records for the current schema in use or a specified schema. Use fully qualified name.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[builtins.str]):
+        pulumi.set(self, "schema", value)
+
+
+if not MYPY:
+    class GetTablesLimitArgsDict(TypedDict):
+        rows: builtins.int
+        """
+        The maximum number of rows to return.
+        """
+        from_: NotRequired[builtins.str]
+        """
+        Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+        """
+elif False:
+    GetTablesLimitArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class GetTablesLimitArgs:
     def __init__(__self__, *,
                  rows: builtins.int,
                  from_: Optional[builtins.str] = None):

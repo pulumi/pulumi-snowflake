@@ -394,6 +394,72 @@ export interface AuthenticationPolicyShowOutput {
     schemaName?: pulumi.Input<string>;
 }
 
+export interface ComputePoolDescribeOutput {
+    activeNodes?: pulumi.Input<number>;
+    application?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<boolean>;
+    autoSuspendSecs?: pulumi.Input<number>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    errorCode?: pulumi.Input<string>;
+    idleNodes?: pulumi.Input<number>;
+    instanceFamily?: pulumi.Input<string>;
+    isExclusive?: pulumi.Input<boolean>;
+    maxNodes?: pulumi.Input<number>;
+    minNodes?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    numJobs?: pulumi.Input<number>;
+    numServices?: pulumi.Input<number>;
+    owner?: pulumi.Input<string>;
+    resumedOn?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
+    statusMessage?: pulumi.Input<string>;
+    targetNodes?: pulumi.Input<number>;
+    updatedOn?: pulumi.Input<string>;
+}
+
+export interface ComputePoolShowOutput {
+    activeNodes?: pulumi.Input<number>;
+    application?: pulumi.Input<string>;
+    autoResume?: pulumi.Input<boolean>;
+    autoSuspendSecs?: pulumi.Input<number>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    idleNodes?: pulumi.Input<number>;
+    instanceFamily?: pulumi.Input<string>;
+    isExclusive?: pulumi.Input<boolean>;
+    maxNodes?: pulumi.Input<number>;
+    minNodes?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    numJobs?: pulumi.Input<number>;
+    numServices?: pulumi.Input<number>;
+    owner?: pulumi.Input<string>;
+    resumedOn?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
+    targetNodes?: pulumi.Input<number>;
+    updatedOn?: pulumi.Input<string>;
+}
+
+export interface CortexSearchServiceDescribeOutput {
+    attributeColumns?: pulumi.Input<pulumi.Input<string>[]>;
+    columns?: pulumi.Input<pulumi.Input<string>[]>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    dataTimestamp?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    definition?: pulumi.Input<string>;
+    embeddingModel?: pulumi.Input<string>;
+    indexingError?: pulumi.Input<string>;
+    indexingState?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    searchColumn?: pulumi.Input<string>;
+    serviceQueryUrl?: pulumi.Input<string>;
+    sourceDataNumRows?: pulumi.Input<number>;
+    targetLag?: pulumi.Input<string>;
+    warehouse?: pulumi.Input<string>;
+}
+
 export interface DatabaseReplication {
     /**
      * Entry to enable replication and optionally failover for a given account identifier.
@@ -1152,6 +1218,28 @@ export interface FunctionSqlShowOutput {
     validForClustering?: pulumi.Input<boolean>;
 }
 
+export interface GetComputePoolsLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetComputePoolsLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
 export interface GetCortexSearchServicesIn {
     /**
      * Returns records for the entire account.
@@ -1312,6 +1400,58 @@ export interface GetDynamicTablesLimitArgs {
      * Specifies the maximum number of rows to return.
      */
     rows?: pulumi.Input<number>;
+}
+
+export interface GetGitRepositoriesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetGitRepositoriesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetGitRepositoriesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetGitRepositoriesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
 }
 
 export interface GetGrantsFutureGrantsIn {
@@ -1492,6 +1632,36 @@ export interface GetGrantsGrantsToShareArgs {
      * Lists all of the privileges and roles granted to the specified share.
      */
     shareName: pulumi.Input<string>;
+}
+
+export interface GetImageRepositoriesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetImageRepositoriesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
 }
 
 export interface GetMaskingPoliciesIn {
@@ -1736,6 +1906,66 @@ export interface GetSecretsInArgs {
     schema?: pulumi.Input<string>;
 }
 
+export interface GetServicesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified compute pool.
+     */
+    computePool?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetServicesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the specified compute pool.
+     */
+    computePool?: pulumi.Input<string>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetServicesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetServicesLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
 export interface GetStreamlitsIn {
     /**
      * Returns records for the entire account.
@@ -1846,6 +2076,74 @@ export interface GetStreamsLimit {
 }
 
 export interface GetStreamsLimitArgs {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: pulumi.Input<string>;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: pulumi.Input<number>;
+}
+
+export interface GetTablesIn {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: boolean;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: string;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: string;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: string;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: string;
+}
+
+export interface GetTablesInArgs {
+    /**
+     * Returns records for the entire account.
+     */
+    account?: pulumi.Input<boolean>;
+    /**
+     * Returns records for the specified application.
+     */
+    application?: pulumi.Input<string>;
+    /**
+     * Returns records for the specified application package.
+     */
+    applicationPackage?: pulumi.Input<string>;
+    /**
+     * Returns records for the current database in use or for a specified database.
+     */
+    database?: pulumi.Input<string>;
+    /**
+     * Returns records for the current schema in use or a specified schema. Use fully qualified name.
+     */
+    schema?: pulumi.Input<string>;
+}
+
+export interface GetTablesLimit {
+    /**
+     * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
+     */
+    from?: string;
+    /**
+     * The maximum number of rows to return.
+     */
+    rows: number;
+}
+
+export interface GetTablesLimitArgs {
     /**
      * Specifies a **case-sensitive** pattern that is used to match object name. After the first match, the limit on the number of rows will be applied.
      */
@@ -2044,6 +2342,34 @@ export interface GetViewsLimitArgs {
     rows: pulumi.Input<number>;
 }
 
+export interface GitRepositoryDescribeOutput {
+    apiIntegration?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    gitCredentials?: pulumi.Input<string>;
+    lastFetchedAt?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    origin?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+}
+
+export interface GitRepositoryShowOutput {
+    apiIntegration?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    gitCredentials?: pulumi.Input<string>;
+    lastFetchedAt?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    origin?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+}
+
 export interface GrantOwnershipOn {
     /**
      * Configures the privilege to be granted on all objects in either a database or schema.
@@ -2151,7 +2477,7 @@ export interface GrantPrivilegesToAccountRoleOnSchemaObjectFuture {
     inDatabase?: pulumi.Input<string>;
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
      */
     objectTypePlural: pulumi.Input<string>;
 }
@@ -2215,9 +2541,137 @@ export interface GrantPrivilegesToDatabaseRoleOnSchemaObjectFuture {
      */
     inSchema?: pulumi.Input<string>;
     /**
-     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
+     * The plural object type of the schema object on which privileges will be granted. Valid values are: ALERTS | AUTHENTICATION POLICIES | CORTEX SEARCH SERVICES | DATA METRIC FUNCTIONS | DYNAMIC TABLES | EVENT TABLES | EXTERNAL TABLES | FILE FORMATS | FUNCTIONS | GIT REPOSITORIES | HYBRID TABLES | ICEBERG TABLES | MATERIALIZED VIEWS | MODELS | NETWORK RULES | NOTEBOOKS | PASSWORD POLICIES | PIPES | PROCEDURES | SECRETS | SERVICES | SEQUENCES | SNAPSHOTS | STAGES | STREAMS | TABLES | TASKS | VIEWS | STREAMLITS | DATASETS.
      */
     objectTypePlural: pulumi.Input<string>;
+}
+
+export interface ImageRepositoryShowOutput {
+    comment?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    databaseName?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    privatelinkRepositoryUrl?: pulumi.Input<string>;
+    repositoryUrl?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+}
+
+export interface JobServiceDescribeOutput {
+    autoResume?: pulumi.Input<boolean>;
+    autoSuspendSecs?: pulumi.Input<number>;
+    comment?: pulumi.Input<string>;
+    computePool?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    currentInstances?: pulumi.Input<number>;
+    databaseName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
+    isAsyncJob?: pulumi.Input<boolean>;
+    isJob?: pulumi.Input<boolean>;
+    isUpgrading?: pulumi.Input<boolean>;
+    managingObjectDomain?: pulumi.Input<string>;
+    managingObjectName?: pulumi.Input<string>;
+    maxInstances?: pulumi.Input<number>;
+    minInstances?: pulumi.Input<number>;
+    minReadyInstances?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string>;
+    resumedOn?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    spec?: pulumi.Input<string>;
+    specDigest?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
+    suspendedOn?: pulumi.Input<string>;
+    targetInstances?: pulumi.Input<number>;
+    updatedOn?: pulumi.Input<string>;
+}
+
+export interface JobServiceFromSpecification {
+    /**
+     * The file name of the service specification. Example: `spec.yaml`.
+     */
+    file?: pulumi.Input<string>;
+    /**
+     * The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+     */
+    stage?: pulumi.Input<string>;
+    /**
+     * The embedded text of the service specification.
+     */
+    text?: pulumi.Input<string>;
+}
+
+export interface JobServiceFromSpecificationTemplate {
+    /**
+     * The file name of the service specification template. Example: `spec.yaml`.
+     */
+    file?: pulumi.Input<string>;
+    /**
+     * The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+     */
+    stage?: pulumi.Input<string>;
+    /**
+     * The embedded text of the service specification template.
+     */
+    text?: pulumi.Input<string>;
+    /**
+     * List of the specified template variables and the values of those variables.
+     */
+    usings: pulumi.Input<pulumi.Input<inputs.JobServiceFromSpecificationTemplateUsing>[]>;
+}
+
+export interface JobServiceFromSpecificationTemplateUsing {
+    /**
+     * The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface JobServiceShowOutput {
+    autoResume?: pulumi.Input<boolean>;
+    autoSuspendSecs?: pulumi.Input<number>;
+    comment?: pulumi.Input<string>;
+    computePool?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    currentInstances?: pulumi.Input<number>;
+    databaseName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
+    isAsyncJob?: pulumi.Input<boolean>;
+    isJob?: pulumi.Input<boolean>;
+    isUpgrading?: pulumi.Input<boolean>;
+    managingObjectDomain?: pulumi.Input<string>;
+    managingObjectName?: pulumi.Input<string>;
+    maxInstances?: pulumi.Input<number>;
+    minInstances?: pulumi.Input<number>;
+    minReadyInstances?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string>;
+    resumedOn?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    specDigest?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
+    suspendedOn?: pulumi.Input<string>;
+    targetInstances?: pulumi.Input<number>;
+    updatedOn?: pulumi.Input<string>;
 }
 
 export interface LegacyServiceUserParameter {
@@ -4191,6 +4645,122 @@ export interface SecretWithGenericStringShowOutput {
     ownerRoleType?: pulumi.Input<string>;
     schemaName?: pulumi.Input<string>;
     secretType?: pulumi.Input<string>;
+}
+
+export interface ServiceDescribeOutput {
+    autoResume?: pulumi.Input<boolean>;
+    autoSuspendSecs?: pulumi.Input<number>;
+    comment?: pulumi.Input<string>;
+    computePool?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    currentInstances?: pulumi.Input<number>;
+    databaseName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
+    isAsyncJob?: pulumi.Input<boolean>;
+    isJob?: pulumi.Input<boolean>;
+    isUpgrading?: pulumi.Input<boolean>;
+    managingObjectDomain?: pulumi.Input<string>;
+    managingObjectName?: pulumi.Input<string>;
+    maxInstances?: pulumi.Input<number>;
+    minInstances?: pulumi.Input<number>;
+    minReadyInstances?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string>;
+    resumedOn?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    spec?: pulumi.Input<string>;
+    specDigest?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
+    suspendedOn?: pulumi.Input<string>;
+    targetInstances?: pulumi.Input<number>;
+    updatedOn?: pulumi.Input<string>;
+}
+
+export interface ServiceFromSpecification {
+    /**
+     * The file name of the service specification. Example: `spec.yaml`.
+     */
+    file?: pulumi.Input<string>;
+    /**
+     * The path to the service specification file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * The fully qualified name of the stage containing the service specification file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+     */
+    stage?: pulumi.Input<string>;
+    /**
+     * The embedded text of the service specification.
+     */
+    text?: pulumi.Input<string>;
+}
+
+export interface ServiceFromSpecificationTemplate {
+    /**
+     * The file name of the service specification template. Example: `spec.yaml`.
+     */
+    file?: pulumi.Input<string>;
+    /**
+     * The path to the service specification template file on the given stage. When the path is specified, the `/` character is automatically added as a path prefix. Example: `path/to/spec`.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * The fully qualified name of the stage containing the service specification template file. At symbol (`@`) is added automatically. Example: `"\"<db_name>\".\"<schema_name>\".\"<stage_name>\""`. For more information about this resource, see docs.
+     */
+    stage?: pulumi.Input<string>;
+    /**
+     * The embedded text of the service specification template.
+     */
+    text?: pulumi.Input<string>;
+    /**
+     * List of the specified template variables and the values of those variables.
+     */
+    usings: pulumi.Input<pulumi.Input<inputs.ServiceFromSpecificationTemplateUsing>[]>;
+}
+
+export interface ServiceFromSpecificationTemplateUsing {
+    /**
+     * The name of the template variable. The provider wraps it in double quotes by default, so be aware of that while referencing the argument in the spec definition.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The value to assign to the variable in the template. The provider wraps it in `$$` by default, so be aware of that while referencing the argument in the spec definition. The value must either be alphanumeric or valid JSON.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ServiceShowOutput {
+    autoResume?: pulumi.Input<boolean>;
+    autoSuspendSecs?: pulumi.Input<number>;
+    comment?: pulumi.Input<string>;
+    computePool?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    currentInstances?: pulumi.Input<number>;
+    databaseName?: pulumi.Input<string>;
+    dnsName?: pulumi.Input<string>;
+    externalAccessIntegrations?: pulumi.Input<pulumi.Input<string>[]>;
+    isAsyncJob?: pulumi.Input<boolean>;
+    isJob?: pulumi.Input<boolean>;
+    isUpgrading?: pulumi.Input<boolean>;
+    managingObjectDomain?: pulumi.Input<string>;
+    managingObjectName?: pulumi.Input<string>;
+    maxInstances?: pulumi.Input<number>;
+    minInstances?: pulumi.Input<number>;
+    minReadyInstances?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    owner?: pulumi.Input<string>;
+    ownerRoleType?: pulumi.Input<string>;
+    queryWarehouse?: pulumi.Input<string>;
+    resumedOn?: pulumi.Input<string>;
+    schemaName?: pulumi.Input<string>;
+    specDigest?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
+    suspendedOn?: pulumi.Input<string>;
+    targetInstances?: pulumi.Input<number>;
+    updatedOn?: pulumi.Input<string>;
 }
 
 export interface ServiceUserParameter {

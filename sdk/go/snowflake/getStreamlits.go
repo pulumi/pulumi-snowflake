@@ -28,7 +28,7 @@ type GetStreamlitsArgs struct {
 	In *GetStreamlitsIn `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit *GetStreamlitsLimit `pulumi:"limit"`
 	// (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe *bool `pulumi:"withDescribe"`
@@ -42,7 +42,7 @@ type GetStreamlitsResult struct {
 	In *GetStreamlitsIn `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like *string `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit *GetStreamlitsLimit `pulumi:"limit"`
 	// Holds the aggregated output of all streamlits details queries.
 	Streamlits []GetStreamlitsStreamlit `pulumi:"streamlits"`
@@ -65,7 +65,7 @@ type GetStreamlitsOutputArgs struct {
 	In GetStreamlitsInPtrInput `pulumi:"in"`
 	// Filters the output with **case-insensitive** pattern, with support for SQL wildcard characters (`%` and `_`).
 	Like pulumi.StringPtrInput `pulumi:"like"`
-	// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+	// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 	Limit GetStreamlitsLimitPtrInput `pulumi:"limit"`
 	// (Default: `true`) Runs DESC STREAMLIT for each streamlit returned by SHOW STREAMLITS. The output of describe is saved to the description field. By default this value is set to true.
 	WithDescribe pulumi.BoolPtrInput `pulumi:"withDescribe"`
@@ -105,7 +105,7 @@ func (o GetStreamlitsResultOutput) Like() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetStreamlitsResult) *string { return v.Like }).(pulumi.StringPtrOutput)
 }
 
-// Limits the number of rows returned. If the `limit.from` is set, then the limit wll start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
+// Limits the number of rows returned. If the `limit.from` is set, then the limit will start from the first element matched by the expression. The expression is only used to match with the first element, later on the elements are not matched by the prefix, but you can enforce a certain pattern with `startsWith` or `like`.
 func (o GetStreamlitsResultOutput) Limit() GetStreamlitsLimitPtrOutput {
 	return o.ApplyT(func(v GetStreamlitsResult) *GetStreamlitsLimit { return v.Limit }).(GetStreamlitsLimitPtrOutput)
 }
