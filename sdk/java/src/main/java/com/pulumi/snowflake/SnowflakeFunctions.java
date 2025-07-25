@@ -92,6 +92,8 @@ import com.pulumi.snowflake.inputs.GetTagsArgs;
 import com.pulumi.snowflake.inputs.GetTagsPlainArgs;
 import com.pulumi.snowflake.inputs.GetTasksArgs;
 import com.pulumi.snowflake.inputs.GetTasksPlainArgs;
+import com.pulumi.snowflake.inputs.GetUserProgrammaticAccessTokensArgs;
+import com.pulumi.snowflake.inputs.GetUserProgrammaticAccessTokensPlainArgs;
 import com.pulumi.snowflake.inputs.GetUsersArgs;
 import com.pulumi.snowflake.inputs.GetUsersPlainArgs;
 import com.pulumi.snowflake.inputs.GetViewsArgs;
@@ -144,6 +146,7 @@ import com.pulumi.snowflake.outputs.GetSystemGetSnowflakePlatformInfoResult;
 import com.pulumi.snowflake.outputs.GetTablesResult;
 import com.pulumi.snowflake.outputs.GetTagsResult;
 import com.pulumi.snowflake.outputs.GetTasksResult;
+import com.pulumi.snowflake.outputs.GetUserProgrammaticAccessTokensResult;
 import com.pulumi.snowflake.outputs.GetUsersResult;
 import com.pulumi.snowflake.outputs.GetViewsResult;
 import com.pulumi.snowflake.outputs.GetWarehousesResult;
@@ -9166,6 +9169,51 @@ public final class SnowflakeFunctions {
      */
     public static CompletableFuture<GetTasksResult> getTasksPlain(GetTasksPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("snowflake:index/getTasks:getTasks", TypeShape.of(GetTasksResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered user programmatic access tokens. Filtering is aligned with the current possibilities for [SHOW USER PROGRAMMATIC ACCESS TOKENS](https://docs.snowflake.com/en/sql-reference/sql/show-user-programmatic-access-tokens) query. The results of SHOW are encapsulated in one output collection `user_programmatic_access_tokens`.
+     * 
+     */
+    public static Output<GetUserProgrammaticAccessTokensResult> getUserProgrammaticAccessTokens(GetUserProgrammaticAccessTokensArgs args) {
+        return getUserProgrammaticAccessTokens(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered user programmatic access tokens. Filtering is aligned with the current possibilities for [SHOW USER PROGRAMMATIC ACCESS TOKENS](https://docs.snowflake.com/en/sql-reference/sql/show-user-programmatic-access-tokens) query. The results of SHOW are encapsulated in one output collection `user_programmatic_access_tokens`.
+     * 
+     */
+    public static CompletableFuture<GetUserProgrammaticAccessTokensResult> getUserProgrammaticAccessTokensPlain(GetUserProgrammaticAccessTokensPlainArgs args) {
+        return getUserProgrammaticAccessTokensPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered user programmatic access tokens. Filtering is aligned with the current possibilities for [SHOW USER PROGRAMMATIC ACCESS TOKENS](https://docs.snowflake.com/en/sql-reference/sql/show-user-programmatic-access-tokens) query. The results of SHOW are encapsulated in one output collection `user_programmatic_access_tokens`.
+     * 
+     */
+    public static Output<GetUserProgrammaticAccessTokensResult> getUserProgrammaticAccessTokens(GetUserProgrammaticAccessTokensArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getUserProgrammaticAccessTokens:getUserProgrammaticAccessTokens", TypeShape.of(GetUserProgrammaticAccessTokensResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered user programmatic access tokens. Filtering is aligned with the current possibilities for [SHOW USER PROGRAMMATIC ACCESS TOKENS](https://docs.snowflake.com/en/sql-reference/sql/show-user-programmatic-access-tokens) query. The results of SHOW are encapsulated in one output collection `user_programmatic_access_tokens`.
+     * 
+     */
+    public static Output<GetUserProgrammaticAccessTokensResult> getUserProgrammaticAccessTokens(GetUserProgrammaticAccessTokensArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("snowflake:index/getUserProgrammaticAccessTokens:getUserProgrammaticAccessTokens", TypeShape.of(GetUserProgrammaticAccessTokensResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * !&gt; **Caution: Preview Feature** This feature is considered a preview feature in the provider, regardless of the state of the resource in Snowflake. We do not guarantee its stability. It will be reworked and marked as a stable feature in future releases. Breaking changes are expected, even without bumping the major version. To use this feature, add the relevant feature name to `preview_features_enabled` field in the provider configuration. Please always refer to the Getting Help section in our Github repo to best determine how to get help for your questions.
+     * 
+     * Data source used to get details of filtered user programmatic access tokens. Filtering is aligned with the current possibilities for [SHOW USER PROGRAMMATIC ACCESS TOKENS](https://docs.snowflake.com/en/sql-reference/sql/show-user-programmatic-access-tokens) query. The results of SHOW are encapsulated in one output collection `user_programmatic_access_tokens`.
+     * 
+     */
+    public static CompletableFuture<GetUserProgrammaticAccessTokensResult> getUserProgrammaticAccessTokensPlain(GetUserProgrammaticAccessTokensPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("snowflake:index/getUserProgrammaticAccessTokens:getUserProgrammaticAccessTokens", TypeShape.of(GetUserProgrammaticAccessTokensResult.class), args, Utilities.withVersion(options));
     }
     /**
      * ## Example Usage

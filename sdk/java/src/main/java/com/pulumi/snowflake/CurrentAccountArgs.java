@@ -78,14 +78,14 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account.
+     * Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
      * 
      */
     @Import(name="authenticationPolicy")
     private @Nullable Output<String> authenticationPolicy;
 
     /**
-     * @return Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account.
+     * @return Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> authenticationPolicy() {
@@ -1128,14 +1128,14 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account.
+     * Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
      * 
      */
     @Import(name="passwordPolicy")
     private @Nullable Output<String> passwordPolicy;
 
     /**
-     * @return Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account.
+     * @return Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
      * 
      */
     public Optional<Output<String>> passwordPolicy() {
@@ -2085,7 +2085,7 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param authenticationPolicy Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account.
+         * @param authenticationPolicy Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -2096,7 +2096,7 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param authenticationPolicy Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account.
+         * @param authenticationPolicy Specifies [authentication policy](https://docs.snowflake.com/en/user-guide/authentication-policies) for the current account. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -3555,7 +3555,7 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param passwordPolicy Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account.
+         * @param passwordPolicy Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
          * 
          * @return builder
          * 
@@ -3566,7 +3566,7 @@ public final class CurrentAccountArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param passwordPolicy Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account.
+         * @param passwordPolicy Specifies [password policy](https://docs.snowflake.com/en/user-guide/password-authentication#label-using-password-policies) for the current account. For more information about this resource, see docs.
          * 
          * @return builder
          * 

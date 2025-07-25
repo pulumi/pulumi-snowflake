@@ -20,6 +20,7 @@ from .authentication_policy import *
 from .compute_pool import *
 from .cortex_search_service import *
 from .current_account import *
+from .current_organization_account import *
 from .database import *
 from .database_role import *
 from .dynamic_table import *
@@ -82,6 +83,7 @@ from .get_system_get_snowflake_platform_info import *
 from .get_tables import *
 from .get_tags import *
 from .get_tasks import *
+from .get_user_programmatic_access_tokens import *
 from .get_users import *
 from .get_views import *
 from .get_warehouses import *
@@ -147,6 +149,7 @@ from .task import *
 from .user import *
 from .user_authentication_policy_attachment import *
 from .user_password_policy_attachment import *
+from .user_programmatic_access_token import *
 from .user_public_keys import *
 from .view import *
 from .warehouse import *
@@ -273,6 +276,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/currentAccount:CurrentAccount": "CurrentAccount"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/currentOrganizationAccount",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/currentOrganizationAccount:CurrentOrganizationAccount": "CurrentOrganizationAccount"
   }
  },
  {
@@ -889,6 +900,14 @@ _utilities.register(
   "fqn": "pulumi_snowflake",
   "classes": {
    "snowflake:index/userPasswordPolicyAttachment:UserPasswordPolicyAttachment": "UserPasswordPolicyAttachment"
+  }
+ },
+ {
+  "pkg": "snowflake",
+  "mod": "index/userProgrammaticAccessToken",
+  "fqn": "pulumi_snowflake",
+  "classes": {
+   "snowflake:index/userProgrammaticAccessToken:UserProgrammaticAccessToken": "UserProgrammaticAccessToken"
   }
  },
  {

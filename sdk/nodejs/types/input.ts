@@ -460,6 +460,31 @@ export interface CortexSearchServiceDescribeOutput {
     warehouse?: pulumi.Input<string>;
 }
 
+export interface CurrentOrganizationAccountShowOutput {
+    accountLocator?: pulumi.Input<string>;
+    accountLocatorUrl?: pulumi.Input<string>;
+    accountName?: pulumi.Input<string>;
+    accountOldUrlLastUsed?: pulumi.Input<string>;
+    accountOldUrlSavedOn?: pulumi.Input<string>;
+    accountUrl?: pulumi.Input<string>;
+    comment?: pulumi.Input<string>;
+    consumptionBillingEntityName?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    edition?: pulumi.Input<string>;
+    isEventsAccount?: pulumi.Input<boolean>;
+    isOrgAdmin?: pulumi.Input<boolean>;
+    isOrganizationAccount?: pulumi.Input<boolean>;
+    managedAccounts?: pulumi.Input<number>;
+    marketplaceConsumerBillingEntityName?: pulumi.Input<string>;
+    marketplaceProviderBillingEntityName?: pulumi.Input<string>;
+    oldAccountUrl?: pulumi.Input<string>;
+    organizationName?: pulumi.Input<string>;
+    organizationOldUrl?: pulumi.Input<string>;
+    organizationOldUrlLastUsed?: pulumi.Input<string>;
+    organizationOldUrlSavedOn?: pulumi.Input<string>;
+    snowflakeRegion?: pulumi.Input<string>;
+}
+
 export interface DatabaseReplication {
     /**
      * Entry to enable replication and optionally failover for a given account identifier.
@@ -6849,6 +6874,19 @@ export interface UserParameterWeekStart {
     key?: pulumi.Input<string>;
     level?: pulumi.Input<string>;
     value?: pulumi.Input<string>;
+}
+
+export interface UserProgrammaticAccessTokenShowOutput {
+    comment?: pulumi.Input<string>;
+    createdBy?: pulumi.Input<string>;
+    createdOn?: pulumi.Input<string>;
+    expiresAt?: pulumi.Input<string>;
+    minsToBypassNetworkPolicyRequirement?: pulumi.Input<number>;
+    name?: pulumi.Input<string>;
+    roleRestriction?: pulumi.Input<string>;
+    rotatedTo?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
 }
 
 export interface UserShowOutput {
